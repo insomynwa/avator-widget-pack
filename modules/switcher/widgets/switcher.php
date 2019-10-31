@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Switcher\Widgets;
+namespace WidgetPack\Modules\Switcher\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -10,26 +10,26 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Switcher extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-switcher';
+		return 'avt-switcher';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Switcher', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Switcher', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-switcher';
+		return 'avt-wi-switcher';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -37,23 +37,23 @@ class Switcher extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'bdt-switcher' ];
+		return [ 'avt-switcher' ];
 	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_switcher_a_layout',
 			[
-				'label' => __( 'Switch A', 'bdthemes-element-pack' ),
+				'label' => __( 'Switch A', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'switch_a_title',
 			[
-				'label'   => __( 'Title', 'bdthemes-element-pack' ),
+				'label'   => __( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Switch A' , 'bdthemes-element-pack' ),
+				'default' => __( 'Switch A' , 'avator-widget-pack' ),
 				'dynamic' => [ 'active' => true ],
 			]
 		);
@@ -61,7 +61,7 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'switch_a_select_icon',
 			[
-				'label' => __( 'Icon', 'bdthemes-element-pack' ),
+				'label' => __( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'switch_a_icon',
 			]
@@ -70,14 +70,14 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'source_a',
 			[
-				'label'   => esc_html__( 'Select Source', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Select Source', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'custom',
 				'options' => [
-					'custom'    => esc_html__( 'Custom', 'bdthemes-element-pack' ),
-					'elementor' => esc_html__( 'Elementor Template', 'bdthemes-element-pack' ),
-					'anywhere'  => esc_html__( 'AE Template', 'bdthemes-element-pack' ),
-					'custom_section'  => esc_html__( 'Link Section', 'bdthemes-element-pack' ),
+					'custom'    => esc_html__( 'Custom', 'avator-widget-pack' ),
+					'elementor' => esc_html__( 'Elementor Template', 'avator-widget-pack' ),
+					'anywhere'  => esc_html__( 'AE Template', 'avator-widget-pack' ),
+					'custom_section'  => esc_html__( 'Link Section', 'avator-widget-pack' ),
 				],				
 			]
 		);
@@ -85,10 +85,10 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'template_id_a',
 			[
-				'label'       => __( 'Select Template', 'bdthemes-element-pack' ),
+				'label'       => __( 'Select Template', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0',
-				'options'     => element_pack_et_options(),
+				'options'     => widget_pack_et_options(),
 				'label_block' => 'true',
 				'condition'   => ['source_a' => "elementor"],
 			]
@@ -97,10 +97,10 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'anywhere_id_a',
 			[
-				'label'       => esc_html__( 'Select Template', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Select Template', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0',
-				'options'     => element_pack_ae_options(),
+				'options'     => widget_pack_ae_options(),
 				'label_block' => 'true',
 				'condition'   => ['source_a' => 'anywhere'],
 			]
@@ -110,10 +110,10 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'switch_a_content',
 			[
-				'label'      => __( 'Content', 'bdthemes-element-pack' ),
+				'label'      => __( 'Content', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::WYSIWYG,
 				'dynamic'    => [ 'active' => true ],
-				'default'    => __( 'Switch Content A', 'bdthemes-element-pack' ),
+				'default'    => __( 'Switch Content A', 'avator-widget-pack' ),
 				'show_label' => false,
 				'condition'  => ['source_a' => 'custom'],
 			]
@@ -122,8 +122,8 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'switch_a_custom_section_id',
 			[
-				'label'       => __( 'Section ID', 'bdthemes-element-pack' ),
-				'description' => __( 'Paste your section ID here. Don\'t need to add # before ID', 'bdthemes-element-pack' ),
+				'label'       => __( 'Section ID', 'avator-widget-pack' ),
+				'description' => __( 'Paste your section ID here. Don\'t need to add # before ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => '.section-a',
 				'dynamic'     => [ 'active' => true ],
@@ -136,24 +136,24 @@ class Switcher extends Widget_Base {
 		$this->start_controls_section(
 			'section_switcher_b_layout',
 			[
-				'label' => __( 'Switch B', 'bdthemes-element-pack' ),
+				'label' => __( 'Switch B', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'switch_b_title',
 			[
-				'label'   => __( 'Title', 'bdthemes-element-pack' ),
+				'label'   => __( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
-				'default' => __( 'Switch B' , 'bdthemes-element-pack' ),
+				'default' => __( 'Switch B' , 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'switch_b_select_icon',
 			[
-				'label' => __( 'Icon', 'bdthemes-element-pack' ),
+				'label' => __( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'switch_b_icon',
 			]
@@ -162,14 +162,14 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'source_b',
 			[
-				'label'   => esc_html__( 'Select Source', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Select Source', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'custom',
 				'options' => [
-					'custom'    => esc_html__( 'Custom', 'bdthemes-element-pack' ),
-					'elementor' => esc_html__( 'Elementor Template', 'bdthemes-element-pack' ),
-					'anywhere'  => esc_html__( 'AE Template', 'bdthemes-element-pack' ),
-					'custom_section'  => esc_html__( 'Link Section', 'bdthemes-element-pack' ),
+					'custom'    => esc_html__( 'Custom', 'avator-widget-pack' ),
+					'elementor' => esc_html__( 'Elementor Template', 'avator-widget-pack' ),
+					'anywhere'  => esc_html__( 'AE Template', 'avator-widget-pack' ),
+					'custom_section'  => esc_html__( 'Link Section', 'avator-widget-pack' ),
 				],				
 			]
 		);
@@ -177,10 +177,10 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'template_id_b',
 			[
-				'label'       => __( 'Select Template', 'bdthemes-element-pack' ),
+				'label'       => __( 'Select Template', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0',
-				'options'     => element_pack_et_options(),
+				'options'     => widget_pack_et_options(),
 				'label_block' => 'true',
 				'condition'   => ['source_b' => 'elementor'],
 			]
@@ -189,10 +189,10 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'anywhere_id_b',
 			[
-				'label'       => esc_html__( 'Select Template', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Select Template', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0',
-				'options'     => element_pack_ae_options(),
+				'options'     => widget_pack_ae_options(),
 				'label_block' => 'true',
 				'condition'   => ['source_b' => 'anywhere'],
 			]
@@ -201,10 +201,10 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'switch_b_content',
 			[
-				'label'      => __( 'Content', 'bdthemes-element-pack' ),
+				'label'      => __( 'Content', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::WYSIWYG,
 				'dynamic'    => [ 'active' => true ],
-				'default'    => __( 'Switch Content B', 'bdthemes-element-pack' ),
+				'default'    => __( 'Switch Content B', 'avator-widget-pack' ),
 				'show_label' => false,
 				'condition'  => ['source_b' => 'custom'],
 			]
@@ -213,8 +213,8 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'switch_b_custom_section_id',
 			[
-				'label'       => __( 'Section ID', 'bdthemes-element-pack' ),
-				'description' => __( 'Paste your section ID here. Don\'t need to add # before ID', 'bdthemes-element-pack' ),
+				'label'       => __( 'Section ID', 'avator-widget-pack' ),
+				'description' => __( 'Paste your section ID here. Don\'t need to add # before ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'section-a',
 				'dynamic'     => [ 'active' => true ],
@@ -227,19 +227,19 @@ class Switcher extends Widget_Base {
 		$this->start_controls_section(
 			'section_switcher_addtional',
 			[
-				'label' => __( 'Switch Settings', 'bdthemes-element-pack' ),
+				'label' => __( 'Switch Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'tab_layout',
 			[
-				'label'   => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
-					'default' => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'bottom'  => esc_html__( 'Bottom', 'bdthemes-element-pack' ),
+					'default' => esc_html__( 'Default', 'avator-widget-pack' ),
+					'bottom'  => esc_html__( 'Bottom', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -247,7 +247,7 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'item_spacing',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -256,7 +256,7 @@ class Switcher extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item + .bdt-tabs-item' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item + .avt-tabs-item' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -264,9 +264,9 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'tab_transition',
 			[
-				'label'   => esc_html__( 'Transition', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Transition', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => element_pack_transition_options(),
+				'options' => widget_pack_transition_options(),
 				'default' => ''
 			]
 		);
@@ -274,7 +274,7 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'duration',
 			[
-				'label' => __( 'Animation Duration', 'bdthemes-element-pack' ),
+				'label' => __( 'Animation Duration', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -295,16 +295,16 @@ class Switcher extends Widget_Base {
 		$this->add_control(
 			'media',
 			[
-				'label'       => __( 'Turn On Horizontal mode', 'bdthemes-element-pack' ),
-				'description' => __( 'It means that when switch to the horizontal tabs mode from vertical mode', 'bdthemes-element-pack' ),
+				'label'       => __( 'Turn On Horizontal mode', 'avator-widget-pack' ),
+				'description' => __( 'It means that when switch to the horizontal tabs mode from vertical mode', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'options'     => [
 					'960' => [
-						'title' => __( 'On Tablet', 'bdthemes-element-pack' ),
+						'title' => __( 'On Tablet', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-tablet',
 					],
 					'768' => [
-						'title' => __( 'On Mobile', 'bdthemes-element-pack' ),
+						'title' => __( 'On Mobile', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-mobile',
 					],
 				],
@@ -319,7 +319,7 @@ class Switcher extends Widget_Base {
 		$this->start_controls_section(
 			'section_switcher_style',
 			[
-				'label' => __( 'Switcher Wrapper', 'bdthemes-element-pack' ),
+				'label' => __( 'Switcher Wrapper', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -328,10 +328,10 @@ class Switcher extends Widget_Base {
         $this->add_control(
 			'switcher_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-tabs-container .bdt-tab' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-tabs-container .avt-tab' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -341,29 +341,29 @@ class Switcher extends Widget_Base {
             [
                 'name'        => 'switcher_border',
                 'placeholder' => '1px',
-                'selector'    => '{{WRAPPER}} .bdt-tabs-container .bdt-tab',
+                'selector'    => '{{WRAPPER}} .avt-tabs-container .avt-tab',
             ]
         );
 
         $this->add_responsive_control(
             'switcher_padding',
             [
-                'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+                'label'      => __( 'Padding', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tabs-container .bdt-tab' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-tabs-container .avt-tab' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
         $this->add_control(
             'switcher_radius',
             [
-                'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+                'label'      => __( 'Border Radius', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tabs-container .bdt-tab' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                    '{{WRAPPER}} .avt-tabs-container .avt-tab' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
                 ],
             ]
         );
@@ -374,7 +374,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_section(
             'section_switcher_a_title',
             [
-                'label' => __( 'Switch A', 'bdthemes-element-pack' ),
+                'label' => __( 'Switch A', 'avator-widget-pack' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -384,7 +384,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_tab(
             'switch_a_tab_title_normal',
             [
-                'label' => __( 'Normal', 'bdthemes-element-pack' ),
+                'label' => __( 'Normal', 'avator-widget-pack' ),
             ]
         );
 
@@ -393,7 +393,7 @@ class Switcher extends Widget_Base {
             [
                 'name'      => 'switch_a_title_background',
                 'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .bdt-tabs-container .bdt-tab .bdt-tabs-item .bdt-tabs-item-a-title',
+                'selector'  => '{{WRAPPER}} .avt-tabs-container .avt-tab .avt-tabs-item .avt-tabs-item-a-title',
                 'separator' => 'after',
             ]
         );
@@ -401,11 +401,11 @@ class Switcher extends Widget_Base {
         $this->add_control(
             'switch_a_title_color',
             [
-                'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Text Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item-a-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item-a-title svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item-a-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item-a-title svg' => 'fill: {{VALUE}};',
 				],
                 'separator' => 'before',
             ]
@@ -415,18 +415,18 @@ class Switcher extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'switch_a_title_shadow',
-                'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item .bdt-tabs-item-a-title',
+                'selector' => '{{WRAPPER}} .avt-tab .avt-tabs-item .avt-tabs-item-a-title',
             ]
         );
 
         $this->add_responsive_control(
             'switch_a_title_padding',
             [
-                'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+                'label'      => __( 'Padding', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item-a-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item-a-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -437,18 +437,18 @@ class Switcher extends Widget_Base {
                 'name'        => 'switch_a_title_border',
                 'placeholder' => '1px',
                 'default'     => '1px',
-                'selector'    => '{{WRAPPER}} .bdt-tab .bdt-tabs-item .bdt-tabs-item-a-title',
+                'selector'    => '{{WRAPPER}} .avt-tab .avt-tabs-item .avt-tabs-item-a-title',
             ]
         );
 
         $this->add_control(
             'switch_a_title_radius',
             [
-                'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+                'label'      => __( 'Border Radius', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item .bdt-tabs-item-a-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item .avt-tabs-item-a-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
                 ],
             ]
         );
@@ -457,7 +457,7 @@ class Switcher extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'switch_a_title_typography',
-                'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item-a-title',
+                'selector' => '{{WRAPPER}} .avt-tab .avt-tabs-item-a-title',
                 'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
             ]
         );
@@ -467,7 +467,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_tab(
             'tab_title_active',
             [
-                'label' => __( 'Active', 'bdthemes-element-pack' ),
+                'label' => __( 'Active', 'avator-widget-pack' ),
             ]
         );
 
@@ -476,7 +476,7 @@ class Switcher extends Widget_Base {
             [
                 'name'      => 'switch_a_active_title_background',
                 'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .bdt-tabs-container .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-a-title:before',
+                'selector'  => '{{WRAPPER}} .avt-tabs-container .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-a-title:before',
                 'separator' => 'after',
             ]
         );
@@ -484,11 +484,11 @@ class Switcher extends Widget_Base {
         $this->add_control(
             'switch_a_active_title_color',
             [
-                'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Text Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-a-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-a-title svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-a-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-a-title svg' => 'fill: {{VALUE}};',
 				],
                 'separator' => 'before',
             ]
@@ -498,17 +498,17 @@ class Switcher extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'switch_a_active_title_shadow',
-                'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-a-title',
+                'selector' => '{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-a-title',
             ]
         );
 
         $this->add_control(
             'switch_a_active_border_color',
             [
-                'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Border Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-a-title' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-a-title' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -516,11 +516,11 @@ class Switcher extends Widget_Base {
         $this->add_control(
             'switch_a_active_title_radius',
             [
-                'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+                'label'      => __( 'Border Radius', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-a-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-a-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
                 ],
             ]
         );
@@ -534,7 +534,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_section(
             'section_switcher_b_title',
             [
-                'label' => __( 'Switch B', 'bdthemes-element-pack' ),
+                'label' => __( 'Switch B', 'avator-widget-pack' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -544,7 +544,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_tab(
             'tab_title_normal',
             [
-                'label' => __( 'Normal', 'bdthemes-element-pack' ),
+                'label' => __( 'Normal', 'avator-widget-pack' ),
             ]
         );
 
@@ -553,7 +553,7 @@ class Switcher extends Widget_Base {
             [
                 'name'      => 'switch_b_title_background',
                 'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .bdt-tabs-container .bdt-tab .bdt-tabs-item .bdt-tabs-item-b-title',
+                'selector'  => '{{WRAPPER}} .avt-tabs-container .avt-tab .avt-tabs-item .avt-tabs-item-b-title',
                 'separator' => 'after',
             ]
         );
@@ -561,11 +561,11 @@ class Switcher extends Widget_Base {
         $this->add_control(
             'switch_b_title_color',
             [
-                'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Text Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item-b-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item-b-title svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item-b-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item-b-title svg' => 'fill: {{VALUE}};',
 				],
                 'separator' => 'before',
             ]
@@ -575,18 +575,18 @@ class Switcher extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'switch_b_title_shadow',
-                'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item .bdt-tabs-item-b-title',
+                'selector' => '{{WRAPPER}} .avt-tab .avt-tabs-item .avt-tabs-item-b-title',
             ]
         );
 
         $this->add_responsive_control(
             'switch_b_title_padding',
             [
-                'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+                'label'      => __( 'Padding', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item-b-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item-b-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -597,18 +597,18 @@ class Switcher extends Widget_Base {
                 'name'        => 'switch_b_title_border',
                 'placeholder' => '1px',
                 'default'     => '1px',
-                'selector'    => '{{WRAPPER}} .bdt-tab .bdt-tabs-item .bdt-tabs-item-b-title',
+                'selector'    => '{{WRAPPER}} .avt-tab .avt-tabs-item .avt-tabs-item-b-title',
             ]
         );
 
         $this->add_control(
             'switch_b_title_radius',
             [
-                'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+                'label'      => __( 'Border Radius', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item .bdt-tabs-item-b-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item .avt-tabs-item-b-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
                 ],
             ]
         );
@@ -617,7 +617,7 @@ class Switcher extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'switch_b_title_typography',
-                'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item-b-title',
+                'selector' => '{{WRAPPER}} .avt-tab .avt-tabs-item-b-title',
                 'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
             ]
         );
@@ -627,7 +627,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_tab(
             'switch_b_tab_title_active',
             [
-                'label' => __( 'Active', 'bdthemes-element-pack' ),
+                'label' => __( 'Active', 'avator-widget-pack' ),
             ]
         );
 
@@ -636,7 +636,7 @@ class Switcher extends Widget_Base {
             [
                 'name'      => 'switch_b_active_title_background',
                 'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .bdt-tabs-container .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-b-title:before',
+                'selector'  => '{{WRAPPER}} .avt-tabs-container .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-b-title:before',
                 'separator' => 'after',
             ]
         );
@@ -644,11 +644,11 @@ class Switcher extends Widget_Base {
         $this->add_control(
             'switch_b_active_title_color',
             [
-                'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Text Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-b-title' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-b-title svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-b-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-b-title svg' => 'fill: {{VALUE}};',
 				],
                 'separator' => 'before',
             ]
@@ -658,17 +658,17 @@ class Switcher extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'switch_b_active_title_shadow',
-                'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-b-title',
+                'selector' => '{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-b-title',
             ]
         );
 
         $this->add_control(
             'switch_b_active_border_color',
             [
-                'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Border Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-b-title' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-b-title' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -676,11 +676,11 @@ class Switcher extends Widget_Base {
         $this->add_control(
             'switch_b_active_title_radius',
             [
-                'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+                'label'      => __( 'Border Radius', 'avator-widget-pack' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-tab .bdt-tabs-item.bdt-active .bdt-tabs-item-b-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+                    '{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tabs-item-b-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
                 ],
             ]
         );
@@ -694,7 +694,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_section(
             'section_style_switch_icon',
             [
-                'label' => __( 'Icon', 'bdthemes-element-pack' ),
+                'label' => __( 'Icon', 'avator-widget-pack' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'switch_a_select_icon[value]!' => '',
@@ -708,22 +708,22 @@ class Switcher extends Widget_Base {
         $this->start_controls_tab(
             'switch_icon_normal',
             [
-                'label' => __( 'Normal', 'bdthemes-element-pack' ),
+                'label' => __( 'Normal', 'avator-widget-pack' ),
             ]
         );
 
         $this->add_control(
             'icon_align',
             [
-                'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+                'label'   => __( 'Alignment', 'avator-widget-pack' ),
                 'type'    => Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Start', 'bdthemes-element-pack' ),
+                        'title' => __( 'Start', 'avator-widget-pack' ),
                         'icon'  => 'eicon-h-align-left',
                     ],
                     'right' => [
-                        'title' => __( 'End', 'bdthemes-element-pack' ),
+                        'title' => __( 'End', 'avator-widget-pack' ),
                         'icon'  => 'eicon-h-align-right',
                     ],
                 ],
@@ -734,11 +734,11 @@ class Switcher extends Widget_Base {
         $this->add_control(
             'icon_color',
             [
-                'label'     => __( 'Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-					'{{WRAPPER}} .bdt-switchers .bdt-tabs-item a i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-switchers .bdt-tabs-item a svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-switchers .avt-tabs-item a i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-switchers .avt-tabs-item a svg' => 'fill: {{VALUE}};',
 				],
             ]
         );
@@ -746,7 +746,7 @@ class Switcher extends Widget_Base {
         $this->add_responsive_control(
             'icon_space',
             [
-                'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+                'label' => __( 'Spacing', 'avator-widget-pack' ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -758,8 +758,8 @@ class Switcher extends Widget_Base {
                     'size' => 8,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-switchers .bdt-tabs-item a .bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .bdt-switchers .bdt-tabs-item a .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-switchers .avt-tabs-item a .avt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-switchers .avt-tabs-item a .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -769,18 +769,18 @@ class Switcher extends Widget_Base {
         $this->start_controls_tab(
             'switch_icon_active',
             [
-                'label' => __( 'Active', 'bdthemes-element-pack' ),
+                'label' => __( 'Active', 'avator-widget-pack' ),
             ]
         );
 
         $this->add_control(
             'icon_active_color',
             [
-                'label'     => __( 'Color', 'bdthemes-element-pack' ),
+                'label'     => __( 'Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-					'{{WRAPPER}} .bdt-switchers .bdt-tabs-item.bdt-active a i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-switchers .bdt-tabs-item.bdt-active a svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-switchers .avt-tabs-item.avt-active a i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-switchers .avt-tabs-item.avt-active a svg' => 'fill: {{VALUE}};',
 				],
             ]
         );
@@ -794,7 +794,7 @@ class Switcher extends Widget_Base {
         $this->start_controls_section(
 			'section_toggle_style_content',
 			[
-				'label' => __( 'Content', 'bdthemes-element-pack' ),
+				'label' => __( 'Content', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -802,29 +802,29 @@ class Switcher extends Widget_Base {
         $this->add_responsive_control(
 			'align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-switchers .bdt-switcher-item-content-inner' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-switchers .avt-switcher-item-content-inner' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -832,7 +832,7 @@ class Switcher extends Widget_Base {
         $this->add_control(
 			'content_spacing',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -844,8 +844,8 @@ class Switcher extends Widget_Base {
 					'size' => 20,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-switchers ul'                => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-switchers ul.bdt-tab-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-switchers ul'                => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-switchers ul.avt-tab-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -854,7 +854,7 @@ class Switcher extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'content_typography',
-				'selector' => '{{WRAPPER}} .bdt-switchers .bdt-switcher-item-content',
+				'selector' => '{{WRAPPER}} .avt-switchers .avt-switcher-item-content',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -871,42 +871,42 @@ class Switcher extends Widget_Base {
 
 		?>
 
-			<div id="bdt-switcher-<?php echo esc_attr($id); ?>" class="bdt-switcher bdt-switcher-item-content">
+			<div id="avt-switcher-<?php echo esc_attr($id); ?>" class="avt-switcher avt-switcher-item-content">
 
-				<div class="bdt-switcher-item-content-inner">
+				<div class="avt-switcher-item-content-inner">
 					<div>
 
 						<?php 
 			            	if ( 'custom' == $settings['source_a'] and !empty( $settings['switch_a_content'] ) ) {
 			            		echo $this->parse_text_editor( $settings['switch_a_content'] );
 			            	} elseif ("elementor" == $settings['source_a'] and !empty( $settings['template_id_a'] )) {
-			            		echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['template_id_a'] );
-			            		echo element_pack_template_edit_link( $settings['template_id_a'] );
+			            		echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['template_id_a'] );
+			            		echo widget_pack_template_edit_link( $settings['template_id_a'] );
 			            	} elseif ('anywhere' == $settings['source_a'] and !empty( $settings['anywhere_id_a'] )) {
-			            		echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['anywhere_id_a'] );
-			            		echo element_pack_template_edit_link( $settings['anywhere_id_a'] );
+			            		echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['anywhere_id_a'] );
+			            		echo widget_pack_template_edit_link( $settings['anywhere_id_a'] );
 			            	} elseif ( 'custom_section' == $settings['source_a'] and !empty( $settings['switch_a_custom_section_id'] ) ) {
-								echo '<div class="bdt-switcher-item-a"></div>';
+								echo '<div class="avt-switcher-item-a"></div>';
 							}
 		            	?>
 
 					</div>
 				</div>
 
-				<div class="bdt-switcher-item-content-inner">
+				<div class="avt-switcher-item-content-inner">
 					<div>
 
 						<?php 
 			            	if ( 'custom' == $settings['source_b'] and !empty( $settings['switch_b_content'] ) ) {
 			            		echo $this->parse_text_editor( $settings['switch_b_content'] );
 			            	} elseif ("elementor" == $settings['source_b'] and !empty( $settings['template_id_b'] )) {
-			            		echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['template_id_b'] );
-			            		echo element_pack_template_edit_link( $settings['template_id_b'] );
+			            		echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['template_id_b'] );
+			            		echo widget_pack_template_edit_link( $settings['template_id_b'] );
 			            	} elseif ('anywhere' == $settings['source_b'] and !empty( $settings['anywhere_id_b'] )) {
-			            		echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['anywhere_id_b'] );
-			            		echo element_pack_template_edit_link( $settings['anywhere_id_b'] );
+			            		echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['anywhere_id_b'] );
+			            		echo widget_pack_template_edit_link( $settings['anywhere_id_b'] );
 			            	} elseif ( 'custom_section' == $settings['source_b'] and !empty( $settings['switch_b_custom_section_id'] ) ) {
-								echo '<div class="bdt-switcher-item-b"></div>';
+								echo '<div class="avt-switcher-item-b"></div>';
 							}
 		            	?>
 
@@ -929,10 +929,10 @@ class Switcher extends Widget_Base {
 			[
 				'switcher-settings' => [
 					'id' => [
-						'bdt-tabs-' . esc_attr($id),
+						'avt-tabs-' . esc_attr($id),
 					],
 					'class' => [
-						'bdt-switchers',
+						'avt-switchers',
 					],
 				]
 			]
@@ -959,13 +959,13 @@ class Switcher extends Widget_Base {
 			[
 				'tab-settings' => [
 					'class' => [
-						'bdt-tab',
-						( '' !== $settings['tab_layout'] ) ? 'bdt-tab-' . $settings['tab_layout'] : '',
+						'avt-tab',
+						( '' !== $settings['tab_layout'] ) ? 'avt-tab-' . $settings['tab_layout'] : '',
 					],
-					'bdt-tab' => [
+					'avt-tab' => [
 						wp_json_encode(array_filter([
-							"connect"   => "#bdt-switcher-" .  esc_attr($id),
-							"animation" => $settings["tab_transition"] ? "bdt-animation-". $settings["tab_transition"] : "",
+							"connect"   => "#avt-switcher-" .  esc_attr($id),
+							"animation" => $settings["tab_transition"] ? "avt-animation-". $settings["tab_transition"] : "",
 							"duration"  => $settings["duration"] ? $settings["duration"]["size"] : "",
 							"media"     => $settings["media"] ? $settings["media"] : "",
 							"swiping"   => false
@@ -995,24 +995,24 @@ class Switcher extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string( 'switcher-settings' ); ?>>
 
 			<?php if ( 'bottom' == $settings['tab_layout'] ) : ?>			
-				<div class="bdt-switcher-container">
+				<div class="avt-switcher-container">
 					<?php $this->render_switcher_templates(); ?>
 				</div>
 			<?php endif; ?>
 
-			<div class="bdt-tabs-container">
+			<div class="avt-tabs-container">
 				<div <?php echo $this->get_render_attribute_string( 'tab-settings' ); ?>>
 					<?php 
-						$tab_title_a = ($settings['switch_a_title']) ? '' : ' bdt-has-no-title';
-						$tab_title_b = ($settings['switch_b_title']) ? '' : ' bdt-has-no-title';
+						$tab_title_a = ($settings['switch_a_title']) ? '' : ' avt-has-no-title';
+						$tab_title_b = ($settings['switch_b_title']) ? '' : ' avt-has-no-title';
 
 						?>
-						<div class="bdt-tabs-item<?php echo esc_attr($tab_title_a); ?>">
-							<a class="bdt-tabs-item-a-title" href="#">
-								<div class="bdt-tab-text-wrapper">
+						<div class="avt-tabs-item<?php echo esc_attr($tab_title_a); ?>">
+							<a class="avt-tabs-item-a-title" href="#">
+								<div class="avt-tab-text-wrapper">
 
 									<?php if ('' != $settings['switch_a_select_icon']['value'] and 'left' == $settings['icon_align']) : ?>
-										<span class="bdt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
+										<span class="avt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
 
 											<?php if ( $a_is_new || $a_migrated ) :
 												Icons_Manager::render_icon( $settings['switch_a_select_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1024,11 +1024,11 @@ class Switcher extends Widget_Base {
 									<?php endif; ?>
 
 									<?php if ($settings['switch_a_title']) : ?>
-										<span class="bdt-tab-text"><?php echo esc_attr($settings['switch_a_title']); ?></span>
+										<span class="avt-tab-text"><?php echo esc_attr($settings['switch_a_title']); ?></span>
 									<?php endif; ?>
 
 									<?php if ('' != $settings['switch_a_select_icon']['value'] and 'right' == $settings['icon_align']) : ?>
-										<span class="bdt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
+										<span class="avt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
 
 											<?php if ( $a_is_new || $a_migrated ) :
 												Icons_Manager::render_icon( $settings['switch_a_select_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1043,12 +1043,12 @@ class Switcher extends Widget_Base {
 							</a>
 						</div>
 
-						<div class="bdt-tabs-item<?php echo esc_attr($tab_title_b); ?>">
-							<a class="bdt-tabs-item-b-title" href="#">
-								<div class="bdt-tab-text-wrapper">
+						<div class="avt-tabs-item<?php echo esc_attr($tab_title_b); ?>">
+							<a class="avt-tabs-item-b-title" href="#">
+								<div class="avt-tab-text-wrapper">
 
 									<?php if ('' != $settings['switch_b_select_icon']['value'] and 'left' == $settings['icon_align']) : ?>
-										<span class="bdt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
+										<span class="avt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
 
 											<?php if ( $b_is_new || $b_migrated ) :
 												Icons_Manager::render_icon( $settings['switch_b_select_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1060,11 +1060,11 @@ class Switcher extends Widget_Base {
 									<?php endif; ?>
 
 									<?php if ($settings['switch_b_title']) : ?>
-										<span class="bdt-tab-text"><?php echo esc_attr($settings['switch_b_title']); ?></span>
+										<span class="avt-tab-text"><?php echo esc_attr($settings['switch_b_title']); ?></span>
 									<?php endif; ?>
 
 									<?php if ('' != $settings['switch_b_select_icon']['value'] and 'right' == $settings['icon_align']) : ?>
-										<span class="bdt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
+										<span class="avt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
 
 											<?php if ( $b_is_new || $b_migrated ) :
 												Icons_Manager::render_icon( $settings['switch_b_select_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1083,7 +1083,7 @@ class Switcher extends Widget_Base {
 			</div>
 
 			<?php if ( 'bottom' != $settings['tab_layout'] ) : ?>
-				<div class="bdt-switcher-wrapper">
+				<div class="avt-switcher-wrapper">
 
 					<?php $this->render_switcher_templates(); ?>
 

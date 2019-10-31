@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\TestimonialCarousel\Widgets;
+namespace WidgetPack\Modules\TestimonialCarousel\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -8,26 +8,26 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 
-use ElementPack\Modules\TestimonialCarousel\Skins;
+use WidgetPack\Modules\TestimonialCarousel\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Testimonial_Carousel extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-testimonial-carousel';
+		return 'avt-testimonial-carousel';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Testimonial Carousel', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Testimonial Carousel', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-testimonial-carousel';
+		return 'avt-wi-testimonial-carousel';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -35,11 +35,11 @@ class Testimonial_Carousel extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'element-pack-font' ];
+		return [ 'widget-pack-font' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'bdt-uikit-icons' ];
+		return [ 'avt-uikit-icons' ];
 	}
 
 	protected function _register_skins() {
@@ -51,14 +51,14 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label' => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '3',
 				'tablet_default' => '2',
@@ -78,7 +78,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_image',
 			[
-				'label'   => esc_html__( 'Testimonial Image', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Testimonial Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -87,7 +87,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -96,7 +96,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_address',
 			[
-				'label'   => esc_html__( 'Address', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Address', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -105,7 +105,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_text',
 			[
-				'label'   => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -114,7 +114,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'text_limit',
 			[
-				'label'     => esc_html__( 'Text Limit', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Limit', 'avator-widget-pack' ),
 				'description' => 'Its just work for text , but not working excerpt.',
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 80,
@@ -127,7 +127,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_rating',
 			[
-				'label'   => esc_html__( 'Rating', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Rating', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -138,23 +138,23 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_navigation',
 			[
-				'label' => __( 'Navigation', 'bdthemes-element-pack' ),
+				'label' => __( 'Navigation', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'navigation',
 			[
-				'label'   => __( 'Navigation', 'bdthemes-element-pack' ),
+				'label'   => __( 'Navigation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'both',
 				'options' => [
-					'both'   => __( 'Arrows and Dots', 'bdthemes-element-pack' ),
-					'arrows' => __( 'Arrows', 'bdthemes-element-pack' ),
-					'dots'   => __( 'Dots', 'bdthemes-element-pack' ),
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
+					'both'   => __( 'Arrows and Dots', 'avator-widget-pack' ),
+					'arrows' => __( 'Arrows', 'avator-widget-pack' ),
+					'dots'   => __( 'Dots', 'avator-widget-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
 				],
-				'prefix_class' => 'bdt-navigation-type-',
+				'prefix_class' => 'avt-navigation-type-',
 				'render_type'  => 'template',				
 			]
 		);
@@ -162,11 +162,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_position',
 			[
-				'label'       => __( 'Arrows and Dots Position', 'bdthemes-element-pack' ),
+				'label'       => __( 'Arrows and Dots Position', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'label_block' => true,
 				'default'     => 'center',
-				'options'     => element_pack_navigation_position(),
+				'options'     => widget_pack_navigation_position(),
 				'condition'   => [
 					'navigation' => 'both',
 				],
@@ -176,10 +176,10 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_position',
 			[
-				'label'     => __( 'Arrows Position', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'center',
-				'options'   => element_pack_navigation_position(),
+				'options'   => widget_pack_navigation_position(),
 				'condition' => [
 					'navigation' => 'arrows',
 				],				
@@ -189,10 +189,10 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_position',
 			[
-				'label'     => __( 'Dots Position', 'bdthemes-element-pack' ),
+				'label'     => __( 'Dots Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'bottom-center',
-				'options'   => element_pack_pagination_position(),
+				'options'   => widget_pack_pagination_position(),
 				'condition' => [
 					'navigation' => 'dots',
 				],				
@@ -202,7 +202,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'hide_arrow_on_mobile',
 			[
-				'label'     => __( 'Hide Arrow on Mobile ?', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hide Arrow on Mobile ?', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -216,7 +216,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Query', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -224,11 +224,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'source',
 			[
-				'label'   => _x( 'Source', 'Posts Query Control', 'bdthemes-element-pack' ),
+				'label'   => _x( 'Source', 'Posts Query Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''        => esc_html__( 'Show All', 'bdthemes-element-pack' ),
-					'by_name' => esc_html__( 'Manual Selection', 'bdthemes-element-pack' ),
+					''        => esc_html__( 'Show All', 'avator-widget-pack' ),
+					'by_name' => esc_html__( 'Manual Selection', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -245,7 +245,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'post_categories',
 			[
-				'label'       => esc_html__( 'Categories', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => $post_options,
 				'default'     => [],
@@ -260,7 +260,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'posts',
 			[
-				'label'   => esc_html__( 'Posts Limit', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Posts Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 10,
 			]
@@ -269,14 +269,14 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order by', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order by', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'date',
 				'options' => [
-					'date'     => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'title'    => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'category' => esc_html__( 'Category', 'bdthemes-element-pack' ),
-					'rand'     => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'date'     => esc_html__( 'Date', 'avator-widget-pack' ),
+					'title'    => esc_html__( 'Title', 'avator-widget-pack' ),
+					'category' => esc_html__( 'Category', 'avator-widget-pack' ),
+					'rand'     => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -284,12 +284,12 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => [
-					'DESC' => esc_html__( 'Descending', 'bdthemes-element-pack' ),
-					'ASC'  => esc_html__( 'Ascending', 'bdthemes-element-pack' ),
+					'DESC' => esc_html__( 'Descending', 'avator-widget-pack' ),
+					'ASC'  => esc_html__( 'Ascending', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -299,14 +299,14 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_carousel_settings',
 			[
-				'label' => esc_html__( 'Carousel Settings', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Carousel Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_match_height',
 			[
-				'label'   => esc_html__( 'Item Match Height', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Item Match Height', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -315,7 +315,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label' => esc_html__( 'Auto Play', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Auto Play', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -323,7 +323,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'autoplay_speed',
 			[
-				'label'     => esc_html__( 'Autoplay Speed', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Autoplay Speed', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => [
@@ -335,7 +335,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'pauseonhover',
 			[
-				'label' => esc_html__( 'Pause on Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Pause on Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -343,12 +343,12 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'infinite',
 			[
-				'label'   => esc_html__( 'Infinite Loop', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Infinite Loop', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'yes',
 				'options' => [
-					'yes' => esc_html__( 'Yes', 'bdthemes-element-pack' ),
-					'no'  => esc_html__( 'No', 'bdthemes-element-pack' ),
+					'yes' => esc_html__( 'Yes', 'avator-widget-pack' ),
+					'no'  => esc_html__( 'No', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -356,7 +356,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'centered_slides',
 			[
-				'label' => esc_html__( 'Centered Slides', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Centered Slides', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -364,7 +364,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'loop',
 			[
-				'label'   => __( 'Loop', 'bdthemes-element-pack' ),
+				'label'   => __( 'Loop', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',				
 			]
@@ -373,7 +373,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'   => esc_html__( 'Animation Speed', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Animation Speed', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 500,
 			]
@@ -382,8 +382,8 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'observer',
 			[
-				'label'       => __( 'Observer', 'bdthemes-element-pack' ),
-				'description' => __( 'When you use carousel in any hidden place (in tabs, accordion etc) keep it yes.', 'bdthemes-element-pack' ),
+				'label'       => __( 'Observer', 'avator-widget-pack' ),
+				'description' => __( 'When you use carousel in any hidden place (in tabs, accordion etc) keep it yes.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,				
 			]
 		);
@@ -393,7 +393,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label' => esc_html__( 'Item', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Item', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -403,17 +403,17 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item-wrapper' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item-wrapper' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -422,10 +422,10 @@ class Testimonial_Carousel extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'item_border',
-				'label'       => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item',
+				'selector'    => '{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item',
 				'separator'   => 'before',
 			]
 		);
@@ -433,11 +433,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'item_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -446,18 +446,18 @@ class Testimonial_Carousel extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_shadow',
-				'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item',
+				'selector' => '{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item',
 			]
 		);
 
 		$this->add_responsive_control(
 			'item_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -465,7 +465,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_gap',
 			[
-				'label'   => esc_html__( 'Item Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Item Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 35,
@@ -483,16 +483,16 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'shadow_mode',
 			[
-				'label'        => esc_html__( 'Shadow Mode', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-ep-shadow-mode-',
+				'prefix_class' => 'avt-wp-shadow-mode-',
 			]
 		);
 
 		$this->add_control(
 			'shadow_color',
 			[
-				'label'     => esc_html__( 'Shadow Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Shadow Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'shadow_mode' => 'yes',
@@ -509,17 +509,17 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_hover_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item-wrapper:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item-wrapper:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -527,13 +527,13 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'item_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -542,15 +542,15 @@ class Testimonial_Carousel extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_hover_shadow',
-				'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-item:hover',
+				'selector' => '{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-item:hover',
 			]
 		);
 
 		$this->add_responsive_control(
 			'item_shadow_padding',
 			[
-				'label'       => __( 'Match Padding', 'bdthemes-element-pack' ),
-				'description' => __( 'You have to add padding for matching overlaping hover shadow', 'bdthemes-element-pack' ),
+				'label'       => __( 'Match Padding', 'avator-widget-pack' ),
+				'description' => __( 'You have to add padding for matching overlaping hover shadow', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px' => [
@@ -577,7 +577,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Image', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_image' => 'yes',
@@ -589,10 +589,10 @@ class Testimonial_Carousel extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'image_border',
-				'label'       => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-img-wrapper',
+				'selector'    => '{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-img-wrapper',
 				'separator'   => 'before',
 			]
 		);
@@ -600,13 +600,13 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_hover_border_color',
 			[
-				'label'     => esc_html__( 'Hover Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Hover Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'image_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-img-wrapper:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-img-wrapper:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -614,11 +614,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-img-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-img-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -628,7 +628,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => 'yes',
@@ -639,10 +639,10 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -651,9 +651,9 @@ class Testimonial_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-title',
+				'selector' => '{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-title',
 			]
 		);
 
@@ -662,7 +662,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_address',
 			[
-				'label'     => esc_html__( 'Address', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Address', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_address' => 'yes',
@@ -673,10 +673,10 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'address_color',
 			[
-				'label'     => esc_html__( 'Company Name/Address Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Company Name/Address Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-address' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-address' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -685,9 +685,9 @@ class Testimonial_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'address_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-address',
+				'selector' => '{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-address',
 			]
 		);
 
@@ -696,7 +696,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_text',
 			[
-				'label'     => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_text' => 'yes',
@@ -707,10 +707,10 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -718,10 +718,10 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'text_top_border_color',
 			[
-				'label'     => esc_html__( 'Top Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Top Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-text' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-text' => 'border-top-color: {{VALUE}};',
 				],
 				'condition' => [
 					'_skin' => '',
@@ -733,9 +733,9 @@ class Testimonial_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'text_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				//'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-text',
+				'selector' => '{{WRAPPER}} .avt-testimonial-carousel .avt-testimonial-carousel-text',
 			]
 		);
 
@@ -744,7 +744,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_rating',
 			[
-				'label'     => esc_html__( 'Rating', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Rating', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_rating' => 'yes',
@@ -755,11 +755,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'rating_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#e7e7e7',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-rating .bdt-rating-item' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-rating .avt-rating-item' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -767,15 +767,15 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'active_rating_color',
 			[
-				'label' => esc_html__( 'Active Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Active Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default'   => '#FFCC00',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-rating.bdt-rating-1 .bdt-rating-item:nth-child(1)'    => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-rating.bdt-rating-2 .bdt-rating-item:nth-child(-n+2)' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-rating.bdt-rating-3 .bdt-rating-item:nth-child(-n+3)' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-rating.bdt-rating-4 .bdt-rating-item:nth-child(-n+4)' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-rating.bdt-rating-5 .bdt-rating-item:nth-child(-n+5)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-rating.avt-rating-1 .avt-rating-item:nth-child(1)'    => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-rating.avt-rating-2 .avt-rating-item:nth-child(-n+2)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-rating.avt-rating-3 .avt-rating-item:nth-child(-n+3)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-rating.avt-rating-4 .avt-rating-item:nth-child(-n+4)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-rating.avt-rating-5 .avt-rating-item:nth-child(-n+5)' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -785,7 +785,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation',
 			[
-				'label'     => __( 'Navigation', 'bdthemes-element-pack' ),
+				'label'     => __( 'Navigation', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'navigation' => [ 'arrows', 'dots', 'both' ],
@@ -796,7 +796,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_size',
 			[
-				'label' => __( 'Arrows Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Arrows Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -805,8 +805,8 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev svg,
-					{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev svg,
+					{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -817,11 +817,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev,
-					{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev,
+					{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -832,11 +832,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_background',
 			[
-				'label'     => __( 'Hover Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hover Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev:hover,
-					{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev:hover,
+					{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next:hover' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -847,11 +847,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_color',
 			[
-				'label'     => __( 'Arrows Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev svg,
-					{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev svg,
+					{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -862,11 +862,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_color',
 			[
-				'label'     => __( 'Arrows Hover Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev:hover svg,
-					{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev:hover svg,
+					{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next:hover svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -877,7 +877,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_space',
 			[
-				'label' => __( 'Space', 'bdthemes-element-pack' ),
+				'label' => __( 'Space', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -886,8 +886,8 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev' => 'margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next' => 'margin-left: {{SIZE}}px;',
 				],
 				'conditions'   => [
 					'terms' => [
@@ -908,12 +908,12 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev,
-					{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev,
+					{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -921,13 +921,13 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'after',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev,
-					{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev,
+					{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -938,7 +938,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_size',
 			[
-				'label' => __( 'Dots Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Dots Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -947,7 +947,7 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-carousel .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -958,10 +958,10 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_color',
 			[
-				'label'     => __( 'Dots Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Dots Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-testimonial-carousel .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -972,11 +972,11 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'active_dot_color',
 			[
-				'label'     => __( 'Active Dots Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Active Dots Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'after',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-testimonial-carousel .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -987,7 +987,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_ncx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1017,7 +1017,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_ncy_position',
 			[
-				'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 40,
@@ -1029,7 +1029,7 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1050,7 +1050,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_acx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -60,
@@ -1062,8 +1062,8 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next' => 'right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev' => 'left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next' => 'right: {{SIZE}}px;',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1083,7 +1083,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_nnx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1113,7 +1113,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_nny_position',
 			[
-				'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -1125,7 +1125,7 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-dots-container' => 'transform: translate({{dots_nnx_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-dots-container' => 'transform: translate({{dots_nnx_position.size}}px, {{SIZE}}px);',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1146,7 +1146,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_ncx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1176,7 +1176,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_ncy_position',
 			[
-				'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 40,
@@ -1188,7 +1188,7 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
 				],
 				'conditions'   => [
 					'terms' => [
@@ -1209,7 +1209,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_cx_position',
 			[
-				'label'   => __( 'Arrows Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Arrows Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -60,
@@ -1221,8 +1221,8 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-navigation-next' => 'right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-prev' => 'left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-navigation-next' => 'right: {{SIZE}}px;',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1242,7 +1242,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_cy_position',
 			[
-				'label'   => __( 'Dots Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Dots Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -1254,7 +1254,7 @@ class Testimonial_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-carousel .bdt-dots-container' => 'transform: translateY({{SIZE}}px);',
+					'{{WRAPPER}} .avt-testimonial-carousel .avt-dots-container' => 'transform: translateY({{SIZE}}px);',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1284,14 +1284,14 @@ class Testimonial_Carousel extends Widget_Base {
 		$testimonial_thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $image_id ), 'medium' );		
 
 		if ( ! $testimonial_thumb ) {
-			$testimonial_thumb = BDTEP_ASSETS_URL.'images/member.svg';
+			$testimonial_thumb = AWP_ASSETS_URL.'images/member.svg';
 		} else {
 			$testimonial_thumb = $testimonial_thumb[0];
 		}
 
 		?>
-		<div class="bdt-width-auto">
-			<div class="bdt-testimonial-carousel-img-wrapper bdt-overflow-hidden bdt-border-circle bdt-background-cover">
+		<div class="avt-width-auto">
+			<div class="avt-testimonial-carousel-img-wrapper avt-overflow-hidden avt-border-circle avt-background-cover">
 				<img src="<?php echo esc_url( $testimonial_thumb ); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
 			</div>
 		</div>
@@ -1306,7 +1306,7 @@ class Testimonial_Carousel extends Widget_Base {
 		}
 
 		?>
-		<h4 class="bdt-testimonial-carousel-title bdt-margin-remove-bottom"><?php echo esc_attr(get_the_title( $post_id )); ?></h4>
+		<h4 class="avt-testimonial-carousel-title avt-margin-remove-bottom"><?php echo esc_attr(get_the_title( $post_id )); ?></h4>
 		<?php
 	}
 
@@ -1318,8 +1318,8 @@ class Testimonial_Carousel extends Widget_Base {
 		}
 
 		?>
-        <p class="bdt-testimonial-carousel-address bdt-text-meta bdt-margin-remove">
-        	<?php echo get_post_meta( $post_id, 'bdthemes_tm_company_name', true ); ?>
+        <p class="avt-testimonial-carousel-address avt-text-meta avt-margin-remove">
+        	<?php echo get_post_meta( $post_id, 'avator_tm_company_name', true ); ?>
     	</p>
 		<?php
 	}
@@ -1342,7 +1342,7 @@ class Testimonial_Carousel extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-testimonial-carousel-text">
+		<div class="avt-testimonial-carousel-text">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -1359,18 +1359,18 @@ class Testimonial_Carousel extends Widget_Base {
 		}
 
 		?>
-		<ul class="bdt-rating bdt-rating-<?php echo get_post_meta( $post_id, 'bdthemes_tm_rating', true ); ?> bdt-grid bdt-grid-collapse" bdt-grid>
-			<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+		<ul class="avt-rating avt-rating-<?php echo get_post_meta( $post_id, 'avator_tm_rating', true ); ?> avt-grid avt-grid-collapse" avt-grid>
+			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
 		</ul>
 		<?php
 	}
 
 	public function render_header( $skin = 'default' ) {
-		$id       = 'bdt-testimonial-carousel-' . $this->get_id();
+		$id       = 'avt-testimonial-carousel-' . $this->get_id();
 		$settings = $this->get_settings();
 
 		$elementor_vp_lg = get_option( 'elementor_viewport_lg' );
@@ -1380,21 +1380,21 @@ class Testimonial_Carousel extends Widget_Base {
 		$viewport_md     = !empty($elementor_vp_md) ? $elementor_vp_md : 768;
 		
 		$this->add_render_attribute( 'testimonial-carousel', 'id', esc_attr( $id ) );
-		$this->add_render_attribute( 'testimonial-carousel', 'class', 'bdt-testimonial-carousel bdt-testimonial-carousel-skin-' . $skin );
+		$this->add_render_attribute( 'testimonial-carousel', 'class', 'avt-testimonial-carousel avt-testimonial-carousel-skin-' . $skin );
 
 		if ('arrows' == $settings['navigation']) {
-			$this->add_render_attribute( 'testimonial-carousel', 'class', 'bdt-arrows-align-' . $settings['arrows_position'] );
+			$this->add_render_attribute( 'testimonial-carousel', 'class', 'avt-arrows-align-' . $settings['arrows_position'] );
 			
 		}
 		if ('dots' == $settings['navigation']) {
-			$this->add_render_attribute( 'testimonial-carousel', 'class', 'bdt-dots-align-' . $settings['dots_position'] );
+			$this->add_render_attribute( 'testimonial-carousel', 'class', 'avt-dots-align-' . $settings['dots_position'] );
 		}
 		if ('both' == $settings['navigation']) {
-			$this->add_render_attribute( 'testimonial-carousel', 'class', 'bdt-arrows-dots-align-' . $settings['both_position'] );
+			$this->add_render_attribute( 'testimonial-carousel', 'class', 'avt-arrows-dots-align-' . $settings['both_position'] );
 		}
 
 		if ( 'yes' == $settings['item_match_height'] ) {
-			$this->add_render_attribute( 'testimonial-carousel', 'bdt-height-match', 'target: > div > div > div > div > .bdt-testimonial-carousel-text' );
+			$this->add_render_attribute( 'testimonial-carousel', 'avt-height-match', 'target: > div > div > div > div > .avt-testimonial-carousel-text' );
 		}
 
 		$this->add_render_attribute(
@@ -1421,8 +1421,8 @@ class Testimonial_Carousel extends Widget_Base {
 								]
 					      	],
 			      	        "navigation" => [
-			      				"nextEl" => "#" . $id . " .bdt-navigation-next",
-			      				"prevEl" => "#" . $id . " .bdt-navigation-prev",
+			      				"nextEl" => "#" . $id . " .avt-navigation-next",
+			      				"prevEl" => "#" . $id . " .avt-navigation-prev",
 			      			],
 			      			"pagination" => [
 			      			  "el"         => "#" . $id . " .swiper-pagination",
@@ -1443,7 +1443,7 @@ class Testimonial_Carousel extends Widget_Base {
 	}
 
 	public function render_footer() {
-		$id       = 'bdt-testimonial-carousel-' . $this->get_id();
+		$id       = 'avt-testimonial-carousel-' . $this->get_id();
 		$settings = $this->get_settings();
 		
 		?>
@@ -1453,7 +1453,7 @@ class Testimonial_Carousel extends Widget_Base {
 			<?php if ('both' == $settings['navigation']) : ?>
 				<?php $this->render_both_navigation(); ?>
 				<?php if ('center' === $settings['both_position']) : ?>
-					<div class="bdt-dots-container">
+					<div class="avt-dots-container">
 						<div class="swiper-pagination"></div>
 					</div>
 				<?php endif; ?>
@@ -1468,15 +1468,15 @@ class Testimonial_Carousel extends Widget_Base {
 
 	public function render_both_navigation() {
 		$settings             = $this->get_settings();
-		$hide_arrow_on_mobile = $settings['hide_arrow_on_mobile'] ? 'bdt-visible@m' : '';
+		$hide_arrow_on_mobile = $settings['hide_arrow_on_mobile'] ? 'avt-visible@m' : '';
 
 		?>
-		<div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['both_position']); ?>">
-			<div class="bdt-arrows-dots-container bdt-slidenav-container ">
+		<div class="avt-position-z-index avt-position-<?php echo esc_attr($settings['both_position']); ?>">
+			<div class="avt-arrows-dots-container avt-slidenav-container ">
 				
-				<div class="bdt-flex bdt-flex-middle">
+				<div class="avt-flex avt-flex-middle">
 					<div class="<?php echo esc_attr( $hide_arrow_on_mobile ); ?>">
-						<a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>
+						<a href="" class="avt-navigation-prev avt-slidenav-previous avt-icon avt-slidenav" avt-icon="icon: chevron-left; ratio: 1.9"></a>
 					</div>
 
 					<?php if ('center' !== $settings['both_position']) : ?>
@@ -1484,7 +1484,7 @@ class Testimonial_Carousel extends Widget_Base {
 					<?php endif; ?>
 					
 					<div class="<?php echo esc_attr( $hide_arrow_on_mobile ); ?>">
-						<a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>
+						<a href="" class="avt-navigation-next avt-slidenav-next avt-icon avt-slidenav" avt-icon="icon: chevron-right; ratio: 1.9"></a>
 					</div>
 					
 				</div>
@@ -1495,13 +1495,13 @@ class Testimonial_Carousel extends Widget_Base {
 
 	public function render_navigation() {
 		$settings             = $this->get_settings();
-		$hide_arrow_on_mobile = $settings['hide_arrow_on_mobile'] ? ' bdt-visible@m' : '';
+		$hide_arrow_on_mobile = $settings['hide_arrow_on_mobile'] ? ' avt-visible@m' : '';
 
 		if ( 'arrows' == $settings['navigation'] ) : ?>
-			<div class="bdt-position-z-index bdt-position-<?php echo esc_attr( $settings['arrows_position'] . $hide_arrow_on_mobile ); ?>">
-				<div class="bdt-arrows-container bdt-slidenav-container">
-					<a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>
-					<a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>
+			<div class="avt-position-z-index avt-position-<?php echo esc_attr( $settings['arrows_position'] . $hide_arrow_on_mobile ); ?>">
+				<div class="avt-arrows-container avt-slidenav-container">
+					<a href="" class="avt-navigation-prev avt-slidenav-previous avt-icon avt-slidenav" avt-icon="icon: chevron-left; ratio: 1.9"></a>
+					<a href="" class="avt-navigation-next avt-slidenav-next avt-icon avt-slidenav" avt-icon="icon: chevron-right; ratio: 1.9"></a>
 				</div>
 			</div>
 		<?php endif;
@@ -1512,8 +1512,8 @@ class Testimonial_Carousel extends Widget_Base {
 
 		if ( 'dots' == $settings['navigation'] ) : ?>
 			<?php if ( 'arrows' !== $settings['navigation'] ) : ?>
-				<div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['dots_position']); ?>">
-					<div class="bdt-dots-container">
+				<div class="avt-position-z-index avt-position-<?php echo esc_attr($settings['dots_position']); ?>">
+					<div class="avt-dots-container">
 						<div class="swiper-pagination"></div>
 					</div>
 				</div>
@@ -1525,7 +1525,7 @@ class Testimonial_Carousel extends Widget_Base {
 		$settings = $this->get_settings();
 
 		$args = array(
-			'post_type'      => 'bdthemes-testimonial',
+			'post_type'      => 'avator-testimonial',
 			'posts_per_page' => $settings['posts'],
 			'orderby'        => $settings['orderby'],
 			'order'          => $settings['order'],
@@ -1551,21 +1551,21 @@ class Testimonial_Carousel extends Widget_Base {
 
 		if($wp_query->have_posts()) {
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
-		  		<div class="swiper-slide bdt-testimonial-carousel-item">
-			  		<div class="bdt-testimonial-carousel-item-wrapper">
+		  		<div class="swiper-slide avt-testimonial-carousel-item">
+			  		<div class="avt-testimonial-carousel-item-wrapper">
 				  		<div class="testimonial-item-header">
-				  			<div class="bdt-grid bdt-grid-small bdt-flex-middle" bdt-grid>
+				  			<div class="avt-grid avt-grid-small avt-flex-middle" avt-grid>
 
 			               <?php
 			               $this->render_image( get_the_ID() );
 
 		               		if ($settings['show_rating'] || $settings['show_text'] || $settings['show_address']) : ?>
-				            	<div class="bdt-width-expand">
+				            	<div class="avt-width-expand">
 					               <?php
 					               $this->render_title( get_the_ID() );
 					               $this->render_address( get_the_ID() );
 					               if ($settings['show_rating'] && ( 'yes' != $settings['show_text'] )) : ?>
-				                    	<div class="bdt-testimonial-carousel-rating bdt-margin-small-top bdt-padding-remove">
+				                    	<div class="avt-testimonial-carousel-rating avt-margin-small-top avt-padding-remove">
 		               					<?php $this->render_rating( get_the_ID() ); ?>
 						                </div>
 		                        <?php endif; ?>
@@ -1577,7 +1577,7 @@ class Testimonial_Carousel extends Widget_Base {
 		           <?php $this->render_excerpt(); ?>
 		        	
 					<?php if ($settings['show_rating'] && $settings['show_text']) : ?>
-						<div class="bdt-testimonial-carousel-rating">
+						<div class="avt-testimonial-carousel-rating">
 							<?php $this->render_rating( get_the_ID() ); ?>
 						</div>
 					<?php endif; ?>
@@ -1587,7 +1587,7 @@ class Testimonial_Carousel extends Widget_Base {
 		wp_reset_postdata();
 
 		} else {
-			echo '<div class="bdt-alert-warning" bdt-alert>Oppps!! There is no post, please select actual post or categories.<div>';
+			echo '<div class="avt-alert-warning" avt-alert>Oppps!! There is no post, please select actual post or categories.<div>';
 		}
 	}
 

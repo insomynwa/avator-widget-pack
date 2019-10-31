@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Member\Skins;
+namespace WidgetPack\Modules\Member\Skins;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
@@ -13,23 +13,23 @@ class Skin_Phaedra extends Elementor_Skin_Base {
 	protected function _register_controls_actions() {
 		parent::_register_controls_actions();
 
-		add_action( 'elementor/element/bdt-member/section_style/before_section_start', [ $this, 'register_phaedra_style_controls' ] );
+		add_action( 'elementor/element/avt-member/section_style/before_section_start', [ $this, 'register_phaedra_style_controls' ] );
 
 	}
 
 	public function get_id() {
-		return 'bdt-phaedra';
+		return 'avt-phaedra';
 	}
 
 	public function get_title() {
-		return __( 'Phaedra', 'bdthemes-element-pack' );
+		return __( 'Phaedra', 'avator-widget-pack' );
 	}
 
 	public function register_phaedra_style_controls() {
 		$this->start_controls_section(
 			'section_style_phaedra',
 			[
-				'label' => __( 'Phaedra', 'bdthemes-element-pack' ),
+				'label' => __( 'Phaedra', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -37,10 +37,10 @@ class Skin_Phaedra extends Elementor_Skin_Base {
 		$this->add_control(
 			'phaedra_overlay_color',
 			[
-				'label'     => __( 'Overlay Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Overlay Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-member .bdt-member-overlay' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-member .avt-member-overlay' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -52,11 +52,11 @@ class Skin_Phaedra extends Elementor_Skin_Base {
 		$phaedra_id = 'phaedra' . $this->parent->get_id();
 		$settings   = $this->parent->get_settings();
 
-		$this->parent->add_render_attribute( 'skin-phaedra', 'class', ['bdt-member', 'bdt-member-skin-phaedra', 'bdt-transition-toggle'] );
+		$this->parent->add_render_attribute( 'skin-phaedra', 'class', ['avt-member', 'avt-member-skin-phaedra', 'avt-transition-toggle'] );
 
 		if(($settings['member_alternative_photo']) and ( ! empty( $settings['alternative_photo']['url']))) {
-			$this->parent->add_render_attribute( 'skin-phaedra', 'class', ['bdt-position-relative', 'bdt-overflow-hidden', 'bdt-transition-toggle'] );
-			$this->parent->add_render_attribute( 'skin-phaedra', 'bdt-toggle', 'target: > div > .bdt-member-photo-flip; mode: hover; animation: bdt-animation-fade; queued: true; duration: 300;' );
+			$this->parent->add_render_attribute( 'skin-phaedra', 'class', ['avt-position-relative', 'avt-overflow-hidden', 'avt-transition-toggle'] );
+			$this->parent->add_render_attribute( 'skin-phaedra', 'avt-toggle', 'target: > div > .avt-member-photo-flip; mode: hover; animation: avt-animation-fade; queued: true; duration: 300;' );
 		}
 
 		if ( ! isset( $settings['social_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
@@ -72,17 +72,17 @@ class Skin_Phaedra extends Elementor_Skin_Base {
 		<?php
 
 			if ( ! empty( $settings['photo']['url'] ) ) :
-				$photo_hover_animation = ( '' != $settings['photo_hover_animation'] ) ? ' bdt-transition-scale-'.$settings['photo_hover_animation'] : ''; ?>
+				$photo_hover_animation = ( '' != $settings['photo_hover_animation'] ) ? ' avt-transition-scale-'.$settings['photo_hover_animation'] : ''; ?>
 
-				<div class="bdt-member-photo-wrapper">
+				<div class="avt-member-photo-wrapper">
 
 					<?php if(($settings['member_alternative_photo']) and ( ! empty( $settings['alternative_photo']['url']))) : ?>
-						<div class="bdt-member-photo-flip bdt-position-absolute bdt-position-z-index">
+						<div class="avt-member-photo-flip avt-position-absolute avt-position-z-index">
 							<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'alternative_photo' ); ?>
 						</div>
 					<?php endif; ?>
 
-					<div class="bdt-member-photo">
+					<div class="avt-member-photo">
 						<div class="<?php echo ($photo_hover_animation); ?>">
 							<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'photo' ); ?>
 						</div>
@@ -92,24 +92,24 @@ class Skin_Phaedra extends Elementor_Skin_Base {
 				
 			<?php endif; ?>
 
-			<div class="bdt-member-overlay bdt-overlay-default bdt-position-cover bdt-transition-fade">
-				<div class="bdt-member-desc bdt-position-center bdt-text-center">
-					<div class="bdt-member-description bdt-transition-slide-top-small">
+			<div class="avt-member-overlay avt-overlay-default avt-position-cover avt-transition-fade">
+				<div class="avt-member-desc avt-position-center avt-text-center">
+					<div class="avt-member-description avt-transition-slide-top-small">
 						<?php if ( ! empty( $settings['name'] ) ) : ?>
-							<span class="bdt-member-name"><?php echo wp_kses( $settings['name'], element_pack_allow_tags('title') ); ?></span>
+							<span class="avt-member-name"><?php echo wp_kses( $settings['name'], widget_pack_allow_tags('title') ); ?></span>
 						<?php endif; ?>
 						<?php if ( ! empty( $settings['role'] ) ) : ?>
-							<span class="bdt-member-role"><?php echo wp_kses( $settings['role'], element_pack_allow_tags('title') ); ?></span>
+							<span class="avt-member-role"><?php echo wp_kses( $settings['role'], widget_pack_allow_tags('title') ); ?></span>
 						<?php endif; ?>
 					</div>
 					
 					<?php if ( 'yes' == $settings['member_social_icon'] ) : ?>
-					<div class="bdt-member-icons bdt-transition-slide-bottom-small">
+					<div class="avt-member-icons avt-transition-slide-bottom-small">
 						<?php 
 						foreach ( $settings['social_link_list'] as $link ) :
-							$tooltip = ( 'yes' == $settings['social_icon_tooltip'] ) ? ' title="'.esc_attr( $link['social_link_title'] ).'" bdt-tooltip' : ''; ?>
+							$tooltip = ( 'yes' == $settings['social_icon_tooltip'] ) ? ' title="'.esc_attr( $link['social_link_title'] ).'" avt-tooltip' : ''; ?>
 
-							<a href="<?php echo esc_url( $link['social_link'] ); ?>" class="bdt-member-icon elementor-repeater-item-<?php echo esc_attr($link['_id']); ?>" target="_blank"<?php echo esc_html($tooltip); ?>>
+							<a href="<?php echo esc_url( $link['social_link'] ); ?>" class="avt-member-icon elementor-repeater-item-<?php echo esc_attr($link['_id']); ?>" target="_blank"<?php echo esc_html($tooltip); ?>>
 
 								<?php if ( $is_new || $migrated ) :
 									Icons_Manager::render_icon( $link['social_share_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );

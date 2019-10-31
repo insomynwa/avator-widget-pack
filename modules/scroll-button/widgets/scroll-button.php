@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\ScrollButton\Widgets;
+namespace WidgetPack\Modules\ScrollButton\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -20,19 +20,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Scroll_Button extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-scroll-button';
+		return 'avt-scroll-button';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Scroll Button', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Scroll Button', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-scroll-button';
+		return 'avt-wi-scroll-button';
 	}
 
 	public function get_categories() {
-	 	return [ 'element-pack' ];
+	 	return [ 'widget-pack' ];
  	}
 
  	public function get_keywords() {
@@ -40,21 +40,21 @@ class Scroll_Button extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'bdt-scroll-button' ];
+		return [ 'avt-scroll-button' ];
 	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_scroll_button',
 			[
-				'label' => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'duration',
 			[
-				'label'      => esc_html__( 'Duration', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Duration', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -70,7 +70,7 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'offset',
 			[
-				'label' => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -85,41 +85,41 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'scroll_button_text',
 			[
-				'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Button Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => esc_html__( 'Scroll Up', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Scroll Up', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Scroll Up', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Scroll Up', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'section_id',
 			[
-				'label'       => esc_html__( 'Section ID', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Section ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => 'my-header',
-				'description' => esc_html__( "By clicking this scroll button, to which section in your page you want to go? Just write that's section ID here such 'my-header'. N.B: No need to add '#'.", 'bdthemes-element-pack' ),
+				'description' => esc_html__( "By clicking this scroll button, to which section in your page you want to go? Just write that's section ID here such 'my-header'. N.B: No need to add '#'.", 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'scroll_button_position',
 			[
-				'label'   => __( 'Scroll Button Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Scroll Button Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
-				'options' => element_pack_position(),			
+				'options' => widget_pack_position(),			
 			]
 		);
 
 		$this->add_responsive_control(
 			'scroll_button_offset',
 			[
-				'label'     => __( 'Button Offset', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button Offset', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::DIMENSIONS,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-button-wrapper' => 'margin: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .avt-scroll-button-wrapper' => 'margin: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
 				],
 				'condition' => [
 					'scroll_button_position!' => '',
@@ -130,25 +130,25 @@ class Scroll_Button extends Widget_Base {
 		$this->add_responsive_control(
 			'scroll_button_align',
 			[
-				'label'        => esc_html__( 'Button Alignment', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Button Alignment', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'prefix_class' => 'elementor%s-align-',
 				'default'      => 'center',
 				'options'      => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
@@ -161,7 +161,7 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'button_icon',
 			[
-				'label'       => esc_html__( 'Button Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Button Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'scroll_button_icon',
 				'default' => [
@@ -174,12 +174,12 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'button_icon[value]!' => '',
@@ -190,7 +190,7 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -204,8 +204,8 @@ class Scroll_Button extends Widget_Base {
 					'button_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-button .bdt-scroll-button-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-scroll-button .bdt-scroll-button-align-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-scroll-button .avt-scroll-button-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-scroll-button .avt-scroll-button-align-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -215,7 +215,7 @@ class Scroll_Button extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_scroll_button',
 			[
-				'label' => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -225,18 +225,18 @@ class Scroll_Button extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_scroll_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'scroll_button_text_color',
 			[
-				'label'     => esc_html__( 'Button Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-scroll-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-scroll-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-scroll-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -244,10 +244,10 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'scroll_button_background_color',
 			[
-				'label'     => esc_html__( 'Button Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-scroll-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -256,10 +256,10 @@ class Scroll_Button extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'scroll_button_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-scroll-button',
+				'selector'    => '{{WRAPPER}} .avt-scroll-button',
 				'separator'   => 'before',
 			]
 		);
@@ -267,11 +267,11 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-scroll-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-scroll-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -280,18 +280,18 @@ class Scroll_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'scroll_button_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-scroll-button',
+				'selector' => '{{WRAPPER}} .avt-scroll-button',
 			]
 		);
 
 		$this->add_control(
 			'scroll_button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-scroll-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-scroll-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -301,9 +301,9 @@ class Scroll_Button extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'scroll_button_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-scroll-button',
+				'selector' => '{{WRAPPER}} .avt-scroll-button',
 			]
 		);
 
@@ -312,18 +312,18 @@ class Scroll_Button extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_scroll_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'scroll_button_hover_color',
 			[
-				'label'     => esc_html__( 'Button Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-scroll-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-scroll-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-scroll-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -331,10 +331,10 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'scroll_button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Button Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-scroll-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -342,13 +342,13 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'scroll_button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Button Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'scroll_button_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-scroll-button:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -356,7 +356,7 @@ class Scroll_Button extends Widget_Base {
 		$this->add_control(
 			'scroll_button_hover_animation',
 			[
-				'label' => esc_html__( 'Button Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -371,8 +371,8 @@ class Scroll_Button extends Widget_Base {
 	protected function render_text($settings) {
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute( 'content-wrapper', 'class', 'bdt-scroll-button-content-wrapper' );
-		$this->add_render_attribute( 'text', 'class', 'bdt-scroll-button-text' );
+		$this->add_render_attribute( 'content-wrapper', 'class', 'avt-scroll-button-content-wrapper' );
+		$this->add_render_attribute( 'text', 'class', 'avt-scroll-button-text' );
 
 		if ( ! isset( $settings['scroll_button_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 			// add old default
@@ -385,7 +385,7 @@ class Scroll_Button extends Widget_Base {
 		?>
 		<span <?php echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
 			<?php if ( ! empty( $settings['button_icon']['value'] ) ) : ?>
-			<span class="bdt-scroll-button-align-icon-<?php echo esc_attr($settings['icon_align']); ?>">
+			<span class="avt-scroll-button-align-icon-<?php echo esc_attr($settings['icon_align']); ?>">
 
 				<?php if ( $is_new || $migrated ) :
 					Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -403,17 +403,17 @@ class Scroll_Button extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute( 'bdt-scroll-button', 'class', ['bdt-scroll-button', 'bdt-button', 'bdt-button-primary'] );
+		$this->add_render_attribute( 'avt-scroll-button', 'class', ['avt-scroll-button', 'avt-button', 'avt-button-primary'] );
 		
-		//$this->add_render_attribute( 'bdt-scroll-button', 'bdt-scroll', '' );
+		//$this->add_render_attribute( 'avt-scroll-button', 'avt-scroll', '' );
 
 		if ( $settings['scroll_button_hover_animation'] ) {
-			$this->add_render_attribute( 'bdt-scroll-button', 'class', 'elementor-animation-'.esc_attr($settings['scroll_button_hover_animation']) );
+			$this->add_render_attribute( 'avt-scroll-button', 'class', 'elementor-animation-'.esc_attr($settings['scroll_button_hover_animation']) );
 		}
 
 		$this->add_render_attribute(
 			[
-				'bdt-scroll-button' => [
+				'avt-scroll-button' => [
 					'data-settings' => [
 						wp_json_encode(array_filter([
 							'duration' => ( '' != $settings['duration']['size'] ) ? $settings['duration']['size'] : '',
@@ -425,16 +425,16 @@ class Scroll_Button extends Widget_Base {
 		);
 
 		if ( '' !== $settings['scroll_button_position'] ) {
-			$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', ['bdt-position-fixed', 'bdt-position-' . $settings['scroll_button_position']] );
+			$this->add_render_attribute( 'avt-scroll-wrapper', 'class', ['avt-position-fixed', 'avt-position-' . $settings['scroll_button_position']] );
 		}
 
-		$this->add_render_attribute( 'bdt-scroll-button', 'data-selector', '#' . esc_attr($settings['section_id']) );
+		$this->add_render_attribute( 'avt-scroll-button', 'data-selector', '#' . esc_attr($settings['section_id']) );
 
-		$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', 'bdt-scroll-button-wrapper' );
+		$this->add_render_attribute( 'avt-scroll-wrapper', 'class', 'avt-scroll-button-wrapper' );
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'bdt-scroll-wrapper' ); ?>>
-			<button <?php echo $this->get_render_attribute_string( 'bdt-scroll-button' ); ?>>
+		<div <?php echo $this->get_render_attribute_string( 'avt-scroll-wrapper' ); ?>>
+			<button <?php echo $this->get_render_attribute_string( 'avt-scroll-button' ); ?>>
 				<?php $this->render_text($settings); ?>
 			</button>
 		</div>
@@ -446,7 +446,7 @@ class Scroll_Button extends Widget_Base {
 		?>
 		
 		<#
-		var scroll_button_position = (settings.scroll_button_position) ? ' bdt-position-fixed bdt-position-' + settings.scroll_button_position : '';
+		var scroll_button_position = (settings.scroll_button_position) ? ' avt-position-fixed avt-position-' + settings.scroll_button_position : '';
 		var scroll_button_duration = (settings.duration.size) ? 'duration:' + settings.duration.size + ';' : '';
 		var scroll_button_offset = (settings.offset.size) ? 'offset:' + settings.offset.size + ';' : '';
 
@@ -456,11 +456,11 @@ class Scroll_Button extends Widget_Base {
 
 		#>
 
-		<div class="bdt-scroll-button-wrapper{{scroll_button_position}}">
-			<button class="bdt-scroll-button bdt-button bdt-button-primary elementor-animation-{{ settings.scroll_button_hover_animation }}" data-selector="#{{ settings.section_id }}" data-settings="{{scroll_button_duration}}{{scroll_button_offset}}">
-				<span class="bdt-scrollr-button-content-wrapper">
+		<div class="avt-scroll-button-wrapper{{scroll_button_position}}">
+			<button class="avt-scroll-button avt-button avt-button-primary elementor-animation-{{ settings.scroll_button_hover_animation }}" data-selector="#{{ settings.section_id }}" data-settings="{{scroll_button_duration}}{{scroll_button_offset}}">
+				<span class="avt-scrollr-button-content-wrapper">
 					<# if ( settings.button_icon.value ) { #>
-					<span class="bdt-scroll-button-icon bdt-scroll-button-align-icon-{{ settings.icon_align }}">
+					<span class="avt-scroll-button-icon avt-scroll-button-align-icon-{{ settings.icon_align }}">
 						
 						<# if ( iconHTML && iconHTML.rendered && ( ! settings.scroll_button_icon || migrated ) ) { #>
 							{{{ iconHTML.value }}}
@@ -470,7 +470,7 @@ class Scroll_Button extends Widget_Base {
 
 					</span>
 					<# } #>
-					<span class="bdt-scroll-button-text">{{{ settings.scroll_button_text }}}</span>
+					<span class="avt-scroll-button-text">{{{ settings.scroll_button_text }}}</span>
 				</span>
 			</button>
 		</div>

@@ -1,9 +1,9 @@
 <?php
-namespace ElementPack\Modules\QueryControl\Controls;
+namespace WidgetPack\Modules\QueryControl\Controls;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Base;
-use ElementPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -41,12 +41,12 @@ class Group_Control_Posts extends Group_Control_Base {
 		$fields = [];
 
 		$fields['post_type'] = [
-			'label' => _x( 'Source', 'bdthemes-element-pack' ),
+			'label' => _x( 'Source', 'avator-widget-pack' ),
 			'type'  => Controls_Manager::SELECT,
 		];
 
 		$fields['posts_ids'] = [
-			'label'       => __( 'Search & Select', 'bdthemes-element-pack' ),
+			'label'       => __( 'Search & Select', 'avator-widget-pack' ),
 			'type'        => Module::QUERY_CONTROL_ID,
 			'post_type'   => '',
 			'options'     => [],
@@ -68,8 +68,8 @@ class Group_Control_Posts extends Group_Control_Base {
 
 		$post_types_options = $post_types;
 
-		//$post_types_options['by_id'] = __( 'Manual Selection', 'bdthemes-element-pack' );
-		//$post_types_options['current_query'] = __( 'Current Query', 'bdthemes-element-pack' );
+		//$post_types_options['by_id'] = __( 'Manual Selection', 'avator-widget-pack' );
+		//$post_types_options['current_query'] = __( 'Current Query', 'avator-widget-pack' );
 
 		$fields['post_type']['options'] = $post_types_options;
 

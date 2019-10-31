@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Countdown\Widgets;
+namespace WidgetPack\Modules\Countdown\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,26 +11,26 @@ use Elementor\Utils;
 
 use Elementor\Scheme_Color;
 
-use ElementPack\Modules\Countdown\Skins;
+use WidgetPack\Modules\Countdown\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Countdown extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-countdown';
+		return 'avt-countdown';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Countdown', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Countdown', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-countdown';
+		return 'avt-wi-countdown';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -46,17 +46,17 @@ class Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'due_date',
 			[
-				'label'       => esc_html__( 'Due Date', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Due Date', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'default'     => date( 'Y-m-d H:i', strtotime( '+1 month' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ),
-				'description' => sprintf( __( 'Date set according to your timezone: %s.', 'bdthemes-element-pack' ), Utils::get_timezone_string() ),
+				'description' => sprintf( __( 'Date set according to your timezone: %s.', 'avator-widget-pack' ), Utils::get_timezone_string() ),
 				'condition'   => [
 					'_skin' => '',
 				],
@@ -68,21 +68,21 @@ class Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_count',
 			[
-				'label' => esc_html__( 'Count Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Count Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'count_gap',
 			[
-				'label'   => esc_html__( 'Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''         => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'small'    => esc_html__( 'Small', 'bdthemes-element-pack' ),
-					'medium'   => esc_html__( 'Medium', 'bdthemes-element-pack' ),
-					'large'    => esc_html__( 'Large', 'bdthemes-element-pack' ),
-					'collapse' => esc_html__( 'Collapse', 'bdthemes-element-pack' ),
+					''         => esc_html__( 'Default', 'avator-widget-pack' ),
+					'small'    => esc_html__( 'Small', 'avator-widget-pack' ),
+					'medium'   => esc_html__( 'Medium', 'avator-widget-pack' ),
+					'large'    => esc_html__( 'Large', 'avator-widget-pack' ),
+					'collapse' => esc_html__( 'Collapse', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -90,7 +90,7 @@ class Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'number_label_gap',
 			[
-				'label'   => esc_html__( 'Number & Label Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Number & Label Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => 'px',
@@ -104,8 +104,8 @@ class Countdown extends Widget_Base {
 				],
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}}.bdt-countdown--label-block .bdt-countdown-number'  => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.bdt-countdown--label-inline .bdt-countdown-number' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.avt-countdown--label-block .avt-countdown-number'  => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.avt-countdown--label-inline .avt-countdown-number' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_labels!' => '',
@@ -116,19 +116,19 @@ class Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'alignment',
 			[
-				'label'        => __( 'Text Alignment', 'bdthemes-element-pack' ),
+				'label'        => __( 'Text Alignment', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'options'      => [
 					'left'   => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right'  => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -139,7 +139,7 @@ class Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'container_width',
 			[
-				'label'   => esc_html__( 'Container Width', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Container Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => '%',
@@ -163,7 +163,7 @@ class Countdown extends Widget_Base {
 				],
 				'size_units' => [ '%', 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-wrapper' => 'max-width: {{SIZE}}{{UNIT}}; margin-left: auto; margin-right: auto;',
+					'{{WRAPPER}} .avt-countdown-wrapper' => 'max-width: {{SIZE}}{{UNIT}}; margin-left: auto; margin-right: auto;',
 				],
 			]
 		);
@@ -171,20 +171,20 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'content_align',
 			[
-				'label'       => __( 'Content Align', 'bdthemes-element-pack' ),
+				'label'       => __( 'Content Align', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'options'     => [
 					'left' => [
-						'title' => __( 'Top', 'bdthemes-element-pack' ),
+						'title' => __( 'Top', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => __( 'Bottom', 'bdthemes-element-pack' ),
+						'title' => __( 'Bottom', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-wrapper' => 'margin-{{VALUE}}: 0;',
+					'{{WRAPPER}} .avt-countdown-wrapper' => 'margin-{{VALUE}}: 0;',
 				],
 			]
 		);
@@ -192,17 +192,17 @@ class Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'count_column',
 			[
-				'label'          => esc_html__( 'Count Column', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Count Column', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '4',
 				'tablet_default' => '2',
 				'mobile_default' => '2',
 				'options'        => [
-					''  => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'1' => esc_html__( '1 Columns', 'bdthemes-element-pack' ),
-					'2' => esc_html__( '2 Columns', 'bdthemes-element-pack' ),
-					'3' => esc_html__( '3 Column', 'bdthemes-element-pack' ),
-					'4' => esc_html__( '4 Columns', 'bdthemes-element-pack' ),
+					''  => esc_html__( 'Default', 'avator-widget-pack' ),
+					'1' => esc_html__( '1 Columns', 'avator-widget-pack' ),
+					'2' => esc_html__( '2 Columns', 'avator-widget-pack' ),
+					'3' => esc_html__( '3 Column', 'avator-widget-pack' ),
+					'4' => esc_html__( '4 Columns', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'_skin' => '',
@@ -215,28 +215,28 @@ class Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional',
 			[
-				'label' => esc_html__( 'Additional Options', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional Options', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'label_display',
 			[
-				'label'   => esc_html__( 'View', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'View', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'block'  => esc_html__( 'Block', 'bdthemes-element-pack' ),
-					'inline' => esc_html__( 'Inline', 'bdthemes-element-pack' ),
+					'block'  => esc_html__( 'Block', 'avator-widget-pack' ),
+					'inline' => esc_html__( 'Inline', 'avator-widget-pack' ),
 				],
 				'default'      => 'block',
-				'prefix_class' => 'bdt-countdown--label-',
+				'prefix_class' => 'avt-countdown--label-',
 			]
 		);
 
 		$this->add_control(
 			'show_days',
 			[
-				'label'   => esc_html__( 'Days', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Days', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -245,7 +245,7 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'show_hours',
 			[
-				'label'   => esc_html__( 'Hours', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Hours', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -254,7 +254,7 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'show_minutes',
 			[
-				'label'   => esc_html__( 'Minutes', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Minutes', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				]
@@ -263,7 +263,7 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'show_seconds',
 			[
-				'label'   => esc_html__( 'Seconds', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Seconds', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -272,7 +272,7 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'show_labels',
 			[
-				'label'   => esc_html__( 'Show Label', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Label', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -281,7 +281,7 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'custom_labels',
 			[
-				'label'        => esc_html__( 'Custom Label', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Custom Label', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'condition'    => [
@@ -293,10 +293,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'label_days',
 			[
-				'label'       => esc_html__( 'Days', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Days', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Days', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Days', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Days', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Days', 'avator-widget-pack' ),
 				'condition'   => [
 					'show_labels!'   => '',
 					'custom_labels!' => '',
@@ -308,10 +308,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'label_hours',
 			[
-				'label'       => esc_html__( 'Hours', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Hours', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Hours', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Hours', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Hours', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Hours', 'avator-widget-pack' ),
 				'condition'   => [
 					'show_labels!'   => '',
 					'custom_labels!' => '',
@@ -323,10 +323,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'label_minutes',
 			[
-				'label'       => esc_html__( 'Minutes', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Minutes', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Minutes', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Minutes', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Minutes', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Minutes', 'avator-widget-pack' ),
 				'condition'   => [
 					'show_labels!'   => '',
 					'custom_labels!' => '',
@@ -338,10 +338,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'label_seconds',
 			[
-				'label'       => esc_html__( 'Seconds', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Seconds', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Seconds', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Seconds', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Seconds', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Seconds', 'avator-widget-pack' ),
 				'condition'   => [
 					'show_labels!'   => '',
 					'custom_labels!' => '',
@@ -355,7 +355,7 @@ class Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'section_count_style',
 			[
-				'label' => esc_html__( 'Count Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Count Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -363,10 +363,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'count_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-item' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-countdown-item' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -375,19 +375,19 @@ class Countdown extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'count_border',
-				'label'    => esc_html__( 'Border', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-countdown-item',
+				'label'    => esc_html__( 'Border', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-countdown-item',
 			]
 		);
 
 		$this->add_control(
 			'count_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-countdown-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -396,18 +396,18 @@ class Countdown extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'count_shadow',
-				'selector' => '{{WRAPPER}} .bdt-countdown-item',
+				'selector' => '{{WRAPPER}} .avt-countdown-item',
 			]
 		);
 
 		$this->add_responsive_control(
 			'count_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-countdown-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -417,7 +417,7 @@ class Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'section_number_style',
 			[
-				'label' => esc_html__( 'Number', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Number', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -425,14 +425,14 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'number_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme' => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_4,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-number' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-countdown-number' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -440,10 +440,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'number_color',
 			[
-				'label'  => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-number' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-countdown-number' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -452,18 +452,18 @@ class Countdown extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'number_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-countdown-number',
+				'selector' => '{{WRAPPER}} .avt-countdown-number',
 			]
 		);
 
 		$this->add_responsive_control(
 			'number_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-number' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-countdown-number' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -474,18 +474,18 @@ class Countdown extends Widget_Base {
 				'name'        => 'number_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-countdown-number',
+				'selector'    => '{{WRAPPER}} .avt-countdown-number',
 			]
 		);
 
 		$this->add_responsive_control(
 			'number_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-number' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-countdown-number' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -494,7 +494,7 @@ class Countdown extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'number_typography',
-				'selector' => '{{WRAPPER}} .bdt-countdown-number',
+				'selector' => '{{WRAPPER}} .avt-countdown-number',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -504,7 +504,7 @@ class Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'     => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Label', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_labels' => 'yes',
@@ -515,10 +515,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'label_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-label' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-countdown-label' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -526,10 +526,10 @@ class Countdown extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-countdown-label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -538,18 +538,18 @@ class Countdown extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'label_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-countdown-label',
+				'selector' => '{{WRAPPER}} .avt-countdown-label',
 			]
 		);
 
 		$this->add_responsive_control(
 			'label_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-countdown-label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -560,18 +560,18 @@ class Countdown extends Widget_Base {
 				'name'        => 'label_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-countdown-label',
+				'selector'    => '{{WRAPPER}} .avt-countdown-label',
 			]
 		);
 
 		$this->add_responsive_control(
 			'label_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-countdown-label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-countdown-label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -580,7 +580,7 @@ class Countdown extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'label_typography',
-				'selector' => '{{WRAPPER}} .bdt-countdown-label',
+				'selector' => '{{WRAPPER}} .avt-countdown-label',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -591,16 +591,16 @@ class Countdown extends Widget_Base {
 	public function get_strftime( $settings ) {
 		$string = '';
 		if ( $settings['show_days'] ) {
-			$string .= $this->render_countdown_item( $settings, 'label_days', 'bdt-countdown-days' );
+			$string .= $this->render_countdown_item( $settings, 'label_days', 'avt-countdown-days' );
 		}
 		if ( $settings['show_hours'] ) {
-			$string .= $this->render_countdown_item( $settings, 'label_hours', 'bdt-countdown-hours' );
+			$string .= $this->render_countdown_item( $settings, 'label_hours', 'avt-countdown-hours' );
 		}
 		if ( $settings['show_minutes'] ) {
-			$string .= $this->render_countdown_item( $settings, 'label_minutes', 'bdt-countdown-minutes' );
+			$string .= $this->render_countdown_item( $settings, 'label_minutes', 'avt-countdown-minutes' );
 		}
 		if ( $settings['show_seconds'] ) {
-			$string .= $this->render_countdown_item( $settings, 'label_seconds', 'bdt-countdown-seconds' );
+			$string .= $this->render_countdown_item( $settings, 'label_seconds', 'avt-countdown-seconds' );
 		}
 
 		return $string;
@@ -610,12 +610,12 @@ class Countdown extends Widget_Base {
 
 	private function _init_default_countdown_labels() {
 		$this->_default_countdown_labels = [
-			'label_months'  => esc_html__( 'Months', 'bdthemes-element-pack' ),
-			'label_weeks'   => esc_html__( 'Weeks', 'bdthemes-element-pack' ),
-			'label_days'    => esc_html__( 'Days', 'bdthemes-element-pack' ),
-			'label_hours'   => esc_html__( 'Hours', 'bdthemes-element-pack' ),
-			'label_minutes' => esc_html__( 'Minutes', 'bdthemes-element-pack' ),
-			'label_seconds' => esc_html__( 'Seconds', 'bdthemes-element-pack' ),
+			'label_months'  => esc_html__( 'Months', 'avator-widget-pack' ),
+			'label_weeks'   => esc_html__( 'Weeks', 'avator-widget-pack' ),
+			'label_days'    => esc_html__( 'Days', 'avator-widget-pack' ),
+			'label_hours'   => esc_html__( 'Hours', 'avator-widget-pack' ),
+			'label_minutes' => esc_html__( 'Minutes', 'avator-widget-pack' ),
+			'label_seconds' => esc_html__( 'Seconds', 'avator-widget-pack' ),
 		];
 	}
 
@@ -628,14 +628,14 @@ class Countdown extends Widget_Base {
 	}
 
 	private function render_countdown_item( $settings, $label, $part_class ) {
-		$string  = '<div class="bdt-countdown-item-wrapper">';
-			$string .= '<div class="bdt-countdown-item">';
-				$string .= '<span class="bdt-countdown-number ' . $part_class . ' bdt-text-'.esc_attr($this->get_settings('alignment')).'"></span>';
+		$string  = '<div class="avt-countdown-item-wrapper">';
+			$string .= '<div class="avt-countdown-item">';
+				$string .= '<span class="avt-countdown-number ' . $part_class . ' avt-text-'.esc_attr($this->get_settings('alignment')).'"></span>';
 
 				if ( $settings['show_labels'] ) {
 					$default_labels = $this->get_default_countdown_labels();
 					$label          = ( $settings['custom_labels'] ) ? $settings[ $label ] : $default_labels[ $label ];
-					$string        .= ' <span class="bdt-countdown-label bdt-text-'.esc_attr($this->get_settings('alignment')).'">' . $label . '</span>';
+					$string        .= ' <span class="avt-countdown-label avt-text-'.esc_attr($this->get_settings('alignment')).'">' . $label . '</span>';
 				}
 			$string .= '</div>';
 		$string .= '</div>';
@@ -656,22 +656,22 @@ class Countdown extends Widget_Base {
 			[
 				'countdown' => [
 					'class' => [
-						'bdt-grid',
-						$settings['count_gap'] ? 'bdt-grid-' . $settings['count_gap'] : '',
-						'bdt-child-width-1-' . $settings['count_column_mobile'],
-						'bdt-child-width-1-' . $settings['count_column_tablet'] . '@s',
-						'bdt-child-width-1-' . $settings['count_column'] . '@m'
+						'avt-grid',
+						$settings['count_gap'] ? 'avt-grid-' . $settings['count_gap'] : '',
+						'avt-child-width-1-' . $settings['count_column_mobile'],
+						'avt-child-width-1-' . $settings['count_column_tablet'] . '@s',
+						'avt-child-width-1-' . $settings['count_column'] . '@m'
 					],
-					'bdt-countdown' => [
+					'avt-countdown' => [
 						'date: ' . $final_time,
 					],
-					'bdt-grid' => '',
+					'avt-grid' => '',
 				],
 			]
 		);
 
 		?>
-		<div class="bdt-countdown-wrapper bdt-countdown-skin-default">
+		<div class="avt-countdown-wrapper avt-countdown-skin-default">
 			<div <?php echo $this->get_render_attribute_string( 'countdown' ); ?>>
 				<?php echo wp_kses_post($string); ?>
 			</div>

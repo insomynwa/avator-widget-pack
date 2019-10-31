@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostGridTab\Widgets;
+namespace WidgetPack\Modules\PostGridTab\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -12,27 +12,27 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\QueryControl\Module;
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Post_Grid_Tab extends Widget_Base {
 	private $_query = null;
 
 	public function get_name() {
-		return 'bdt-post-grid-tab';
+		return 'avt-post-grid-tab';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Post Grid Tab', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Post Grid Tab', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-post-grid-tab';
+		return 'avt-wi-post-grid-tab';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,11 +40,11 @@ class Post_Grid_Tab extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['bdt-post-grid-tab', 'element-pack-font'];
+		return ['avt-post-grid-tab', 'widget-pack-font'];
 	}
 
 	public function get_script_depends() {
-		return [ 'bdt-uikit-icons', 'gridtab', 'recliner' ];
+		return [ 'avt-uikit-icons', 'gridtab', 'recliner' ];
 	}
 
 	public function on_import( $element ) {
@@ -72,7 +72,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -80,7 +80,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => 4,
 				'tablet_default' => 3,
@@ -99,7 +99,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'posts_per_page',
 			[
-				'label'   => esc_html__( 'Posts Limit', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Posts Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 8,
 			]
@@ -108,7 +108,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'item_ratio',
 			[
-				'label' => esc_html__( 'Item Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Item Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -118,7 +118,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab-thumbnail img' => 'height: {{SIZE}}px',
+					'{{WRAPPER}} .avt-post-grid-tab-thumbnail img' => 'height: {{SIZE}}px',
 				],
 			]
 		);
@@ -126,12 +126,12 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'grid_tab_item',
 			[
-				'label'   => esc_html__( 'Grid Tab Item', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Grid Tab Item', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'image',
 				'options' => [
-					'image' => esc_html__( 'Image', 'bdthemes-element-pack' ),
-					'title' => esc_html__( 'Title', 'bdthemes-element-pack' ),
+					'image' => esc_html__( 'Image', 'avator-widget-pack' ),
+					'title' => esc_html__( 'Title', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -149,7 +149,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'content_reverse',
 			[
-				'label'   => esc_html__( 'Content Reverse', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content Reverse', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -159,7 +159,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_query',
 			[
-				'label' => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Query', 'avator-widget-pack' ),
 			]
 		);
 
@@ -167,21 +167,21 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Posts::get_type(),
 			[
 				'name'  => 'posts',
-				'label' => esc_html__( 'Posts', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Posts', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order By', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order By', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'post_date',
 				'options' => [
-					'post_date'  => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'post_title' => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'menu_order' => esc_html__( 'Menu Order', 'bdthemes-element-pack' ),
-					'rand'       => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'post_date'  => esc_html__( 'Date', 'avator-widget-pack' ),
+					'post_title' => esc_html__( 'Title', 'avator-widget-pack' ),
+					'menu_order' => esc_html__( 'Menu Order', 'avator-widget-pack' ),
+					'rand'       => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -189,12 +189,12 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'desc',
 				'options' => [
-					'asc'  => esc_html__( 'ASC', 'bdthemes-element-pack' ),
-					'desc' => esc_html__( 'DESC', 'bdthemes-element-pack' ),
+					'asc'  => esc_html__( 'ASC', 'avator-widget-pack' ),
+					'desc' => esc_html__( 'DESC', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -202,7 +202,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'offset',
 			[
-				'label'     => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 0,
 				'condition' => [
@@ -216,14 +216,14 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional',
 			[
-				'label' => esc_html__( 'Additional', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -232,9 +232,9 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'title_tag',
 			[
-				'label'     => esc_html__( 'Title HTML Tag', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title HTML Tag', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
-				'options'   => element_pack_title_tags(),
+				'options'   => widget_pack_title_tags(),
 				'default'   => 'h3',
 				'condition' => [
 					'show_title' => 'yes',
@@ -246,7 +246,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_author',
 			[
-				'label'   => esc_html__( 'Author', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Author', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -255,7 +255,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_date',
 			[
-				'label'   => esc_html__( 'Date', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Date', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -264,7 +264,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_comments',
 			[
-				'label'   => esc_html__( 'Comments', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Comments', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -273,7 +273,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_category',
 			[
-				'label'     => esc_html__( 'Category', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Category', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'separator' => 'after'
@@ -283,7 +283,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'content_image',
 			[
-				'label'   => esc_html__('Post Image', 'bdthemes-element-pack'),
+				'label'   => esc_html__('Post Image', 'avator-widget-pack'),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes'
 			]
@@ -306,7 +306,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_excerpt',
 			[
-				'label'   => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -315,7 +315,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'excerpt_length',
 			[
-				'label'     => esc_html__( 'Excerpt Length', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt Length', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 45,
 				'condition' => [
@@ -328,7 +328,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_readmore',
 			[
-				'label'   => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -337,10 +337,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'readmore_text',
 			[
-				'label'       => esc_html__( 'Read More Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Read More Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Read More', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'condition'   => [
 					'show_readmore' => 'yes',
 				],
@@ -350,7 +350,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'post_grid_tab_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'condition'   => [
@@ -362,12 +362,12 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'icon!' => '',
@@ -378,7 +378,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -392,8 +392,8 @@ class Post_Grid_Tab extends Widget_Base {
 					'icon!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 				'separator' => 'after'
 			]
@@ -402,7 +402,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_close',
 			[
-				'label'   => esc_html__( 'Close Button', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Close Button', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -411,7 +411,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'show_arrows',
 			[
-				'label' => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Arrows', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -421,7 +421,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -429,7 +429,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'tab_padding',
 			[
-				'label'   => esc_html__( 'Item Padding', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Item Padding', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => '0',
@@ -447,25 +447,25 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'tab_text_align',
 			[
-				'label'   => __( 'Item Text Align', 'bdthemes-element-pack' ),
+				'label'   => __( 'Item Text Align', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab > dt' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab > dt' => 'text-align: {{VALUE}};',
 				],
 				'condition' => [
 					'grid_tab_item' => 'title',
@@ -478,7 +478,7 @@ class Post_Grid_Tab extends Widget_Base {
 			[
 				'name'      => 'tab_text_typography',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .bdt-post-grid-tab .gridtab > dt',
+				'selector'  => '{{WRAPPER}} .avt-post-grid-tab .gridtab > dt',
 				'condition' => [
 					'grid_tab_item' => 'title',
 				],
@@ -488,7 +488,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'item_border_width',
 			[
-				'label'   => esc_html__( 'Item Border Width', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Item Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10,
@@ -506,11 +506,11 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'tab_border_color',
 			[
-				'label'     => esc_html__( 'Item Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Item Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ddd',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab > dt, {{WRAPPER}} .bdt-post-grid-tab .gridtab > dd' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab > dt, {{WRAPPER}} .avt-post-grid-tab .gridtab > dd' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -518,7 +518,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'active_tab_no',
 			[
-				'label'     => esc_html__( 'Active Tab Number', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Tab Number', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'separator' => 'before',
 				'default'   => [
@@ -536,11 +536,11 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'active_tab_background',
 			[
-				'label'     => esc_html__( 'Active Item Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Item Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab > dt.is-active' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab > dt.is-active' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -548,10 +548,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'active_tab_text_color',
 			[
-				'label'     => esc_html__( 'Active Item Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Item Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab > dt.is-active' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab > dt.is-active' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'grid_tab_item' => 'title',
@@ -562,11 +562,11 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'      => __( 'Content Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Content Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-desc-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-desc-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -574,10 +574,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'content_background_color',
 			[
-				'label'     => esc_html__( 'Content Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Content Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab > dd' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab > dd' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -587,7 +587,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => 'yes',
@@ -598,10 +598,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Title Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-item-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -609,7 +609,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label'   => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -622,7 +622,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title'   => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-item-title'   => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -631,9 +631,9 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title',
+				'selector' => '{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-item-title',
 			]
 		);
 
@@ -642,7 +642,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_meta',
 			[
-				'label'     => esc_html__( 'Meta', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Meta', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -650,11 +650,11 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'meta_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#adb5bd',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-meta *' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-meta *' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -663,20 +663,20 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'meta_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-meta *',
+				'selector' => '{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-meta *',
 			]
 		);
 
 		$this->add_control(
 			'divider_color',
 			[
-				'label'     => esc_html__( 'Divider Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Divider Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#adb5bd',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-subnav span:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-subnav span:after' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -686,7 +686,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_excerpt',
 			[
-				'label'     => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_excerpt' => 'yes',
@@ -697,10 +697,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'excerpt_color',
 			[
-				'label'     => esc_html__( 'Excerpt Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-excerpt' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-excerpt' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -708,7 +708,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'excerpt_spacing',
 			[
-				'label'   => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -721,7 +721,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-excerpt' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-excerpt' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -730,8 +730,8 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'excerpt_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-excerpt',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-excerpt',
 			]
 		);
 
@@ -740,7 +740,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_readmore',
 			[
-				'label'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_readmore' => 'yes',
@@ -753,18 +753,18 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_readmore_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'readmore_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -772,10 +772,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'readmore_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -784,10 +784,10 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'readmore_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore',
+				'selector'    => '{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore',
 				'separator'   => 'before',
 			]
 		);
@@ -795,11 +795,11 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'readmore_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -808,18 +808,18 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'readmore_shadow',
-				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore',
+				'selector' => '{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore',
 			]
 		);
 
 		$this->add_responsive_control(
 			'readmore_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -828,7 +828,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'readmore_spacing',
 			[
-				'label'   => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 20,
@@ -841,7 +841,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -850,9 +850,9 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'readmore_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore',
+				'selector' => '{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore',
 			]
 		);
 
@@ -861,18 +861,18 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_readmore_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'readmore_hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -880,10 +880,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'readmore_hover_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -891,13 +891,13 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'readmore_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .avt-post-grid-tab-readmore:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -905,7 +905,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'readmore_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -919,7 +919,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_close_button',
 			[
-				'label'     => esc_html__( 'Close Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Close Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_close' => 'yes',
@@ -932,17 +932,17 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_close_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'close_button_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__close:before, {{WRAPPER}} .bdt-post-grid-tab .gridtab__close:after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__close:before, {{WRAPPER}} .avt-post-grid-tab .gridtab__close:after' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -950,10 +950,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'close_button_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__close' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__close' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -962,10 +962,10 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'close_button_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-post-grid-tab .gridtab__close',
+				'selector'    => '{{WRAPPER}} .avt-post-grid-tab .gridtab__close',
 				'separator'   => 'before',
 			]
 		);
@@ -973,11 +973,11 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'close_button_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__close' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__close' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -986,18 +986,18 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'close_button_shadow',
-				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .gridtab__close',
+				'selector' => '{{WRAPPER}} .avt-post-grid-tab .gridtab__close',
 			]
 		);
 
 		$this->add_responsive_control(
 			'close_button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__close' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__close' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -1008,17 +1008,17 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_close_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'close_button_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__close:hover::before, {{WRAPPER}} .bdt-post-grid-tab .gridtab__close:hover::after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__close:hover::before, {{WRAPPER}} .avt-post-grid-tab .gridtab__close:hover::after' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -1026,10 +1026,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'close_button_hover_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__close:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__close:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1037,13 +1037,13 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'close_button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'close_button_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__close:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__close:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1057,7 +1057,7 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_arrows',
 			[
-				'label'     => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrows', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_arrows' => 'yes',
@@ -1070,17 +1070,17 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_arrows_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'arrows_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow:before, {{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow:after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow:before, {{WRAPPER}} .avt-post-grid-tab .gridtab__arrow:after' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -1088,10 +1088,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'arrows_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1100,10 +1100,10 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'arrows_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow',
+				'selector'    => '{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow',
 				'separator'   => 'before',
 			]
 		);
@@ -1111,11 +1111,11 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'arrows_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1124,18 +1124,18 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'arrows_shadow',
-				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow',
+				'selector' => '{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow',
 			]
 		);
 
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -1146,17 +1146,17 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_arrows_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'arrows_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow:hover::before, {{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow:hover::after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow:hover::before, {{WRAPPER}} .avt-post-grid-tab .gridtab__arrow:hover::after' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -1164,10 +1164,10 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1175,13 +1175,13 @@ class Post_Grid_Tab extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'arrows_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .gridtab__arrow:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-grid-tab .gridtab__arrow:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1237,7 +1237,7 @@ class Post_Grid_Tab extends Widget_Base {
 
 	public function render() {
 		$settings = $this->get_settings();
-		$id       = 'bdt-post-grid-tab-' . $this->get_id();
+		$id       = 'avt-post-grid-tab-' . $this->get_id();
 
 		$this->query_posts();
 		$wp_query = $this->get_query();
@@ -1267,7 +1267,7 @@ class Post_Grid_Tab extends Widget_Base {
 
 	public function render_content_image($image_id, $size) {
 		
-		$loading_img = BDTEP_ASSETS_URL . 'images/loading.svg';
+		$loading_img = AWP_ASSETS_URL . 'images/loading.svg';
 
 		$placeholder_image_src = Utils::get_placeholder_image_src();
 		$image_src             = wp_get_attachment_image_src( $image_id, $size );
@@ -1278,8 +1278,8 @@ class Post_Grid_Tab extends Widget_Base {
 			$image_src = $image_src[0];
 		}
 		?>
-		<div class="bdt-post-grid-tab-image">
-			<div class="bdt-post-grid-tab-image-inner bdt-gt-mh bdt-cover-container">
+		<div class="avt-post-grid-tab-image">
+			<div class="avt-post-grid-tab-image-inner avt-gt-mh avt-cover-container">
 				<img class="<?php echo esc_attr($size); ?>" src="<?php echo esc_url($image_src); ?>" alt="<?php echo get_the_title(); ?>" >
 			</div>
 		</div>
@@ -1296,7 +1296,7 @@ class Post_Grid_Tab extends Widget_Base {
 			$image_src = $placeholder_image_src;
 		}
 		?>
-		<div class="bdt-post-grid-tab-thumbnail" title="<?php echo get_the_title(); ?>">
+		<div class="avt-post-grid-tab-thumbnail" title="<?php echo get_the_title(); ?>">
 			<img class="" src="<?php echo esc_url($image_src); ?>" alt="<?php echo get_the_title(); ?>">
 		</div>
 		<?php
@@ -1311,7 +1311,7 @@ class Post_Grid_Tab extends Widget_Base {
 
 		?>
 		<a href="<?php echo get_the_permalink(); ?>">
-			<<?php echo esc_attr($tag) ?> class="bdt-post-grid-tab-item-title bdt-margin-remove">
+			<<?php echo esc_attr($tag) ?> class="avt-post-grid-tab-item-title avt-margin-remove">
 				<?php the_title() ?>
 			</<?php echo esc_attr($tag) ?>>
 		</a>
@@ -1319,7 +1319,7 @@ class Post_Grid_Tab extends Widget_Base {
 	}
 
 	public function render_tab_title() {
-		echo '<div class="bdt-post-grid-tab-title">';
+		echo '<div class="avt-post-grid-tab-title">';
 		the_title();
 		echo '</div>';
 	}
@@ -1331,7 +1331,7 @@ class Post_Grid_Tab extends Widget_Base {
 		}
 		
 		echo 
-			'<span class="bdt-post-grid-tab-author bdt-text-capitalize">'.get_the_author().'</span>';		
+			'<span class="avt-post-grid-tab-author avt-text-capitalize">'.get_the_author().'</span>';		
 	}
 
 	public function render_date() {
@@ -1341,7 +1341,7 @@ class Post_Grid_Tab extends Widget_Base {
 		}
 		
 		echo 
-			'<span class="bdt-post-grid-tab-date">'.get_the_date().'</span>';		
+			'<span class="avt-post-grid-tab-date">'.get_the_date().'</span>';		
 	}
 
 	public function render_comments() {
@@ -1351,14 +1351,14 @@ class Post_Grid_Tab extends Widget_Base {
 		}
 		
 		echo 
-			'<span><i class="ep-bubble bdt-display-inline-block" aria-hidden="true"></i> '.get_comments_number().'</span>';
+			'<span><i class="ep-bubble avt-display-inline-block" aria-hidden="true"></i> '.get_comments_number().'</span>';
 	}
 
 	public function render_category() {
 
 		if ( ! $this->get_settings( 'show_category' ) or ! get_the_category_list() ) { return; }
 		?>
-		<span class="bdt-post-grid-tab-category">
+		<span class="avt-post-grid-tab-category">
 			<?php echo get_the_category_list(' '); ?>
 		</span>
 		<?php
@@ -1381,7 +1381,7 @@ class Post_Grid_Tab extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-post-grid-tab-excerpt">
+		<div class="avt-post-grid-tab-excerpt">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -1409,10 +1409,10 @@ class Post_Grid_Tab extends Widget_Base {
 
 		?>
 
-		<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-grid-tab-readmore bdt-display-inline-block <?php echo esc_attr($animation); ?>">
+		<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-grid-tab-readmore avt-display-inline-block <?php echo esc_attr($animation); ?>">
 			<?php echo esc_html($this->get_settings('readmore_text')); ?>
 			
-			<span class="bdt-button-icon-align-<?php echo esc_attr($this->get_settings('icon_align')); ?>">
+			<span class="avt-button-icon-align-<?php echo esc_attr($this->get_settings('icon_align')); ?>">
 
 				<?php if ( $is_new || $migrated ) :
 					Icons_Manager::render_icon( $settings['post_grid_tab_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1427,7 +1427,7 @@ class Post_Grid_Tab extends Widget_Base {
 
 	public function render_header($skin = 'default') {
 		$settings = $this->get_settings();
-		$this->add_render_attribute('post-grid-tab', 'class', ['bdt-post-grid-tab', 'bdt-post-grid-tab-skin-' . $skin]);
+		$this->add_render_attribute('post-grid-tab', 'class', ['avt-post-grid-tab', 'avt-post-grid-tab-skin-' . $skin]);
 
 		$this->add_render_attribute(
 			[
@@ -1472,16 +1472,16 @@ class Post_Grid_Tab extends Widget_Base {
 		$settings = $this->get_settings();
 		global $post;
 
-		$this->add_render_attribute( 'post-grid-tab-item', 'bdt-grid' );
+		$this->add_render_attribute( 'post-grid-tab-item', 'avt-grid' );
 
 
 		if ( $settings['content_image'] and ( $settings['show_title'] or $settings['show_author'] or $settings['show_date'] or $settings['show_comments'] or $settings['show_category'] or $settings['show_excerpt'] or $settings['show_readmore'] ) )  {
-			$this->add_render_attribute( 'post-grid-tab-item', 'class', [ 'bdt-post-grid-tab-item', 'bdt-grid', 'bdt-grid-collapse', 'bdt-child-width-1-2@m' ] );
+			$this->add_render_attribute( 'post-grid-tab-item', 'class', [ 'avt-post-grid-tab-item', 'avt-grid', 'avt-grid-collapse', 'avt-child-width-1-2@m' ] );
 			if ('yes' == $settings['content_reverse']) {
-				$this->add_render_attribute( 'post-grid-tab-item', 'class', 'bdt-flex-row-reverse' );
+				$this->add_render_attribute( 'post-grid-tab-item', 'class', 'avt-flex-row-reverse' );
 			}
 		} else {			
-			$this->add_render_attribute( 'post-grid-tab-item', 'class', [ 'bdt-post-grid-tab-item', 'bdt-grid', 'bdt-child-width-1-1' ] );
+			$this->add_render_attribute( 'post-grid-tab-item', 'class', [ 'avt-post-grid-tab-item', 'avt-grid', 'avt-child-width-1-1' ] );
 		}
 		
 
@@ -1490,12 +1490,12 @@ class Post_Grid_Tab extends Widget_Base {
 			<?php if ( $settings['content_image'] ) : ?>								
 				<?php $this->render_content_image(get_post_thumbnail_id( $post_id ), $image_size ); ?>
 			<?php endif; ?> 		
-	  		<div class="bdt-post-grid-tab-desc">
-	  			<div class="bdt-post-grid-desc-inner bdt-gt-mh">
+	  		<div class="avt-post-grid-tab-desc">
+	  			<div class="avt-post-grid-desc-inner avt-gt-mh">
 					<?php $this->render_title(); ?>
 
 	            	<?php if ($settings['show_author'] or $settings['show_date'] or $settings['show_category'] or $settings['show_comments']) : ?>
-						<div class="bdt-post-grid-tab-meta bdt-subnav bdt-flex-middle bdt-margin-small-top">
+						<div class="avt-post-grid-tab-meta avt-subnav avt-flex-middle avt-margin-small-top">
 							<?php $this->render_author(); ?>
 							<?php $this->render_date(); ?>
 							<?php $this->render_category(); ?>

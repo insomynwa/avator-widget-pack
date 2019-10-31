@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Comment\Widgets;
+namespace WidgetPack\Modules\Comment\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,19 +11,19 @@ class Comment extends Widget_Base {
 	protected $_has_template_content = false;
 
 	public function get_name() {
-		return 'bdt-comment'; 
+		return 'avt-comment'; 
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Comment', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Comment', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-comment';
+		return 'avt-wi-comment';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -34,7 +34,7 @@ class Comment extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
@@ -42,13 +42,13 @@ class Comment extends Widget_Base {
 		$this->add_control(
 			'layout',
 			[
-				'label'   => esc_html__( 'Comment Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Comment Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' =>  [
-					''         => esc_html__( 'Select', 'bdthemes-element-pack' ),
-					'disqus'   => esc_html__( 'Disqus', 'bdthemes-element-pack' ),
-					'facebook' => esc_html__( 'Facebook', 'bdthemes-element-pack' ),
+					''         => esc_html__( 'Select', 'avator-widget-pack' ),
+					'disqus'   => esc_html__( 'Disqus', 'avator-widget-pack' ),
+					'facebook' => esc_html__( 'Facebook', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -57,12 +57,12 @@ class Comment extends Widget_Base {
 		$this->add_control(
 			'comments_number',
 			[
-				'label'       => __( 'Comment Count', 'bdthemes-element-pack' ),
+				'label'       => __( 'Comment Count', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::NUMBER,
 				'min'         => 5,
 				'max'         => 100,
 				'default'     => 10,
-				'description' => __( 'Minimum number of comments: 5', 'bdthemes-element-pack' ),
+				'description' => __( 'Minimum number of comments: 5', 'avator-widget-pack' ),
 				'condition' => [
 					'layout' => 'facebook',
 				]
@@ -72,13 +72,13 @@ class Comment extends Widget_Base {
 		$this->add_control(
 			'order_by',
 			[
-				'label'   => __( 'Order By', 'bdthemes-element-pack' ),
+				'label'   => __( 'Order By', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'social',
 				'options' => [
-					'social'       => __( 'Social', 'bdthemes-element-pack' ),
-					'reverse_time' => __( 'Reverse Time', 'bdthemes-element-pack' ),
-					'time'         => __( 'Time', 'bdthemes-element-pack' ),
+					'social'       => __( 'Social', 'avator-widget-pack' ),
+					'reverse_time' => __( 'Reverse Time', 'avator-widget-pack' ),
+					'time'         => __( 'Time', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'layout' => 'facebook',
@@ -94,11 +94,11 @@ class Comment extends Widget_Base {
 		$settings  = $this->get_settings();
 		$id        = $this->get_id();
 		$permalink = get_the_permalink();
-		$options   = get_option( 'element_pack_api_settings' );
-		$user_name = (!empty($options['disqus_user_name'])) ? $options['disqus_user_name'] : 'bdthemes';
+		$options   = get_option( 'widget_pack_api_settings' );
+		$user_name = (!empty($options['disqus_user_name'])) ? $options['disqus_user_name'] : 'avator';
 		$app_id    = (!empty($options['facebook_app_id'])) ? $options['facebook_app_id'] : '461738690569028';
 
-		$this->add_render_attribute( 'comment', 'class', 'bdt-comment-container' );
+		$this->add_render_attribute( 'comment', 'class', 'avt-comment-container' );
 
 		$this->add_render_attribute(
 			[
@@ -138,12 +138,12 @@ class Comment extends Widget_Base {
 				<div <?php echo $this->get_render_attribute_string( 'fb-comment' ); ?>></div>
 				<div id="fb-root"></div>
 			<?php else : ?>
-				<div class="bdt-alert-warning" bdt-alert>
-				    <a class="bdt-alert-close" bdt-close></a>
+				<div class="avt-alert-warning" avt-alert>
+				    <a class="avt-alert-close" avt-close></a>
 				    <p>Select your comment provider from settings.</p>
 				</div>
 			<?php endif; ?>
-			<div class="bdt-clearfix"></div>
+			<div class="avt-clearfix"></div>
 		</div>
 		<?php
 	}

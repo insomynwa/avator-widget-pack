@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\EasyDigitalDownloads\Widgets;
+namespace WidgetPack\Modules\EasyDigitalDownloads\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -15,19 +15,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class EDD_Profile_Editor extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-easy-digital-profile-editor';
+		return 'avt-easy-digital-profile-editor';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Easy Download Profile Editor', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Easy Download Profile Editor', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-easy-digital-download';
+		return 'avt-wi-easy-digital-download';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -39,7 +39,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_fieldset',
 			[
-				'label' => esc_html__( 'Fieldset', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Fieldset', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -47,7 +47,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_responsive_control(
 			'fieldset_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -59,16 +59,16 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'fieldset_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} fieldset' => 'border-style: {{VALUE}};',
@@ -79,7 +79,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_responsive_control(
 			'fieldset_border_width',
 			[
-				'label' => esc_html__( 'Border Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -99,7 +99,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'fieldset_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} fieldset' => 'border-color: {{VALUE}};',
@@ -110,7 +110,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'caption_color',
 			[
-				'label'     => esc_html__( 'Caption Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Caption Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} legend' => 'color: {{VALUE}};',
@@ -122,7 +122,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'caption_border',
-				'label'       => esc_html__( 'Caption Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Caption Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} legend',
@@ -133,7 +133,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'caption_radius',
 			[
-				'label'      => esc_html__( 'Caption Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Caption Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -145,7 +145,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_responsive_control(
 			'caption_padding',
 			[
-				'label'      => esc_html__( 'Caption Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Caption Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -158,7 +158,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'caption_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} legend',
 			]
@@ -169,7 +169,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_label',
 			[
-				'label' => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Label', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -177,7 +177,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form label' => 'color: {{VALUE}};',
@@ -189,7 +189,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'label_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} #edd_profile_editor_form label',
 			]
@@ -200,7 +200,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_input',
 			[
-				'label' => esc_html__( 'Input', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Input', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -208,7 +208,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'input_placeholder_color',
 			[
-				'label'     => esc_html__( 'Placeholder Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Placeholder Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form input::placeholder' => 'color: {{VALUE}};',
@@ -220,7 +220,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'input_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form input' => 'color: {{VALUE}};',
@@ -232,7 +232,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'others_type_input_text_color',
 			[
-				'label'     => esc_html__( 'Others Type Input Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Others Type Input Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'      => '#666666',
 				'selectors' => [
@@ -246,7 +246,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'input_text_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form input' => 'background-color: {{VALUE}};',
@@ -258,7 +258,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_responsive_control(
 			'textarea_height',
 			[
-				'label'   => esc_html__( 'Textarea Height', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Textarea Height', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 125,
@@ -280,7 +280,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'input_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -292,7 +292,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_responsive_control(
 			'input_space',
 			[
-				'label'   => esc_html__( 'Element Space', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Element Space', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 25,
@@ -313,7 +313,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'input_border_show',
 			[
-				'label'        => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'separator'    => 'before',
@@ -323,7 +323,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'input_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} #edd_profile_editor_form input, {{WRAPPER}} #edd_profile_editor_form textarea, {{WRAPPER}} #edd_profile_editor_form .select.edd-select',
@@ -336,7 +336,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'input_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -353,7 +353,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_submit_button',
 			[
-				'label' => esc_html__( 'Submit Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Submit Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -363,14 +363,14 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit' => 'color: {{VALUE}};',
@@ -381,7 +381,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit' => 'background-color: {{VALUE}};',
@@ -393,7 +393,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit',
@@ -404,7 +404,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -424,7 +424,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'text_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -438,7 +438,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'button_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit',
 				'separator' => 'before',
@@ -450,14 +450,14 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit:hover' => 'color: {{VALUE}};',
@@ -468,7 +468,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit:hover' => 'background-color: {{VALUE}};',
@@ -479,7 +479,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -499,7 +499,7 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_additional_option',
 			[
-				'label' => esc_html__( 'Additional Option', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional Option', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -507,10 +507,10 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'fullwidth_input',
 			[
-				'label' => esc_html__( 'Fullwidth Input', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Fullwidth Input', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'On', 'bdthemes-element-pack' ),
-				'label_off' => esc_html__( 'Off', 'bdthemes-element-pack' ),
+				'label_on' => esc_html__( 'On', 'avator-widget-pack' ),
+				'label_off' => esc_html__( 'Off', 'avator-widget-pack' ),
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form input[type*="text"]'     => 'width: 100%;',
 					'{{WRAPPER}} #edd_profile_editor_form input[type*="email"]'    => 'width: 100%;',
@@ -527,10 +527,10 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'fullwidth_textarea',
 			[
-				'label' => esc_html__( 'Fullwidth Texarea', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Fullwidth Texarea', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'On', 'bdthemes-element-pack' ),
-				'label_off' => esc_html__( 'Off', 'bdthemes-element-pack' ),
+				'label_on' => esc_html__( 'On', 'avator-widget-pack' ),
+				'label_off' => esc_html__( 'Off', 'avator-widget-pack' ),
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form textarea' => 'width: 100%;',
 				],
@@ -540,10 +540,10 @@ class EDD_Profile_Editor extends Widget_Base {
 		$this->add_control(
 			'fullwidth_button',
 			[
-				'label' => esc_html__( 'Fullwidth Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Fullwidth Button', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'On', 'bdthemes-element-pack' ),
-				'label_off' => esc_html__( 'Off', 'bdthemes-element-pack' ),
+				'label_on' => esc_html__( 'On', 'avator-widget-pack' ),
+				'label_off' => esc_html__( 'Off', 'avator-widget-pack' ),
 				'selectors' => [
 					'{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit' => 'width: 100%;',
 				],

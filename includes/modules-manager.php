@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack;
+namespace WidgetPack;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -11,7 +11,7 @@ final class Manager {
 	private function is_module_active( $module_id ) {
 
 		$module_data = $this->get_module_data( $module_id );
-		$options     = get_option( 'element_pack_active_modules', [] );
+		$options     = get_option( 'widget_pack_active_modules', [] );
 		
 		if ( ! isset( $options[ $module_id ] ) ) {
 			return $module_data['default_activation'];
@@ -115,28 +115,28 @@ final class Manager {
 			'weather',
 		];
 
-		$faq              = element_pack_option('faq', 'element_pack_third_party_widget', 'on' );
-		$cf_seven         = element_pack_option('contact-form-seven', 'element_pack_third_party_widget', 'on' );
-		$event_calendar   = element_pack_option('event-calendar', 'element_pack_third_party_widget', 'on' );
-		$rev_slider       = element_pack_option('revolution-slider', 'element_pack_third_party_widget', 'on' );
-		$instagram_feed   = element_pack_option('instagram-feed', 'element_pack_third_party_widget', 'on' );
-		$wp_forms         = element_pack_option('wp-forms', 'element_pack_third_party_widget', 'on' );
-		$mailchimp_for_wp = element_pack_option('mailchimp-for-wp', 'element_pack_third_party_widget', 'on' );
-		$tm_grid          = element_pack_option('testimonial-grid', 'element_pack_third_party_widget', 'on' );
-		$tm_carousel      = element_pack_option('testimonial-carousel', 'element_pack_third_party_widget', 'on' );
-		$tm_slider        = element_pack_option('testimonial-slider', 'element_pack_third_party_widget', 'on' );
-		$woocommerce      = element_pack_option('woocommerce', 'element_pack_third_party_widget', 'on' );
-		$booked_calendar  = element_pack_option('booked-calendar', 'element_pack_third_party_widget', 'on' );
-		$bbpress          = element_pack_option('bbpress', 'element_pack_third_party_widget', 'on' );
-		$layerslider      = element_pack_option('layerslider', 'element_pack_third_party_widget', 'on' );
-		$downloadmonitor  = element_pack_option('download-monitor', 'element_pack_third_party_widget', 'on' );
-		$quform           = element_pack_option('quform', 'element_pack_third_party_widget', 'on' );
-		$ninja_forms      = element_pack_option('ninja-forms', 'element_pack_third_party_widget', 'on' );
-		$caldera_forms    = element_pack_option('caldera-forms', 'element_pack_third_party_widget', 'on' );
-		$gravity_forms    = element_pack_option('gravity-forms', 'element_pack_third_party_widget', 'on' );
-		$buddypress       = element_pack_option('buddypress', 'element_pack_third_party_widget', 'on' );
-		$ed_downloads     = element_pack_option('easy-digital-downloads', 'element_pack_third_party_widget', 'on' );
-		$tablepress       = element_pack_option('tablepress', 'element_pack_third_party_widget', 'on' );
+		$faq              = widget_pack_option('faq', 'widget_pack_third_party_widget', 'on' );
+		$cf_seven         = widget_pack_option('contact-form-seven', 'widget_pack_third_party_widget', 'on' );
+		$event_calendar   = widget_pack_option('event-calendar', 'widget_pack_third_party_widget', 'on' );
+		$rev_slider       = widget_pack_option('revolution-slider', 'widget_pack_third_party_widget', 'on' );
+		$instagram_feed   = widget_pack_option('instagram-feed', 'widget_pack_third_party_widget', 'on' );
+		$wp_forms         = widget_pack_option('wp-forms', 'widget_pack_third_party_widget', 'on' );
+		$mailchimp_for_wp = widget_pack_option('mailchimp-for-wp', 'widget_pack_third_party_widget', 'on' );
+		$tm_grid          = widget_pack_option('testimonial-grid', 'widget_pack_third_party_widget', 'on' );
+		$tm_carousel      = widget_pack_option('testimonial-carousel', 'widget_pack_third_party_widget', 'on' );
+		$tm_slider        = widget_pack_option('testimonial-slider', 'widget_pack_third_party_widget', 'on' );
+		$woocommerce      = widget_pack_option('woocommerce', 'widget_pack_third_party_widget', 'on' );
+		$booked_calendar  = widget_pack_option('booked-calendar', 'widget_pack_third_party_widget', 'on' );
+		$bbpress          = widget_pack_option('bbpress', 'widget_pack_third_party_widget', 'on' );
+		$layerslider      = widget_pack_option('layerslider', 'widget_pack_third_party_widget', 'on' );
+		$downloadmonitor  = widget_pack_option('download-monitor', 'widget_pack_third_party_widget', 'on' );
+		$quform           = widget_pack_option('quform', 'widget_pack_third_party_widget', 'on' );
+		$ninja_forms      = widget_pack_option('ninja-forms', 'widget_pack_third_party_widget', 'on' );
+		$caldera_forms    = widget_pack_option('caldera-forms', 'widget_pack_third_party_widget', 'on' );
+		$gravity_forms    = widget_pack_option('gravity-forms', 'widget_pack_third_party_widget', 'on' );
+		$buddypress       = widget_pack_option('buddypress', 'widget_pack_third_party_widget', 'on' );
+		$ed_downloads     = widget_pack_option('easy-digital-downloads', 'widget_pack_third_party_widget', 'on' );
+		$tablepress       = widget_pack_option('tablepress', 'widget_pack_third_party_widget', 'on' );
 
 		if( is_plugin_active('booked/booked.php') and 'on' === $booked_calendar ) {
 			$modules[] = 'booked-calendar';
@@ -170,7 +170,7 @@ final class Manager {
 			$modules[] = 'event-calendar';
 		}
 
-		if( is_plugin_active( 'bdthemes-faq/bdthemes-faq.php' ) and 'on' === $faq ) {
+		if( is_plugin_active( 'avator-faq/avator-faq.php' ) and 'on' === $faq ) {
 			$modules[] = 'faq';
 		}
 
@@ -206,13 +206,13 @@ final class Manager {
 			$modules[] = 'tablepress';
 		}
 
-        if( is_plugin_active( 'bdthemes-testimonials/bdthemes-testimonials.php' ) and 'on' === $tm_carousel ) {
+        if( is_plugin_active( 'avator-testimonials/avator-testimonials.php' ) and 'on' === $tm_carousel ) {
             $modules[] = 'testimonial-carousel';
         }
-        if( is_plugin_active( 'bdthemes-testimonials/bdthemes-testimonials.php' ) and 'on' === $tm_grid ) {
+        if( is_plugin_active( 'avator-testimonials/avator-testimonials.php' ) and 'on' === $tm_grid ) {
             $modules[] = 'testimonial-grid';
         }
-        if( is_plugin_active( 'bdthemes-testimonials/bdthemes-testimonials.php' ) and 'on' === $tm_slider ) {
+        if( is_plugin_active( 'avator-testimonials/avator-testimonials.php' ) and 'on' === $tm_slider ) {
             $modules[] = 'testimonial-slider';
         }
         
@@ -226,7 +226,7 @@ final class Manager {
 
 		// Fetch all modules data
 		foreach ( $modules as $module ) {
-			$this->_modules[ $module ] = require BDTEP_MODULES_PATH . $module . '/module.info.php';
+			$this->_modules[ $module ] = require AWP_MODULES_PATH . $module . '/module.info.php';
 		}
 
 		foreach ( $this->_modules as $module_id => $module_data ) {

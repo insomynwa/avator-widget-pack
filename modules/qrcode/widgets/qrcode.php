@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Qrcode\Widgets;
+namespace WidgetPack\Modules\Qrcode\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,19 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Qrcode extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-qrcode';
+		return 'avt-qrcode';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'QR Code', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'QR Code', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-qr-code';
+		return 'avt-wi-qr-code';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -38,17 +38,17 @@ class Qrcode extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_qrcode',
 			[
-				'label' => esc_html__( 'QR Code', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'QR Code', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'text',
 			[
-				'label'       => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Content', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXTAREA,
-				'placeholder' => 'http://bdthemes.com',
-				'default'     => 'http://bdthemes.com',
+				'placeholder' => 'http://avator.com',
+				'default'     => 'http://avator.com',
 				'condition'   => ['site_link!' => 'yes'],
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -57,7 +57,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'site_link',
 			[
-				'label' => esc_html__( 'This Page Link', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'This Page Link', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -65,13 +65,13 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'label_type',
 			[
-				'label'   => esc_html__( 'Label Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Label Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'text',
 				'options' => [
-					'none'  => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'text'  => esc_html__( 'Text', 'bdthemes-element-pack' ),
-					'image' => esc_html__( 'Image', 'bdthemes-element-pack' ),
+					'none'  => esc_html__( 'None', 'avator-widget-pack' ),
+					'text'  => esc_html__( 'Text', 'avator-widget-pack' ),
+					'image' => esc_html__( 'Image', 'avator-widget-pack' ),
 				]
 			]
 		);
@@ -79,11 +79,11 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'label',
 			[
-				'label'       => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => 'BDTHEMES',
-				'default'     => 'BDTHEMES',
+				'placeholder' => 'AVTHEMES',
+				'default'     => 'AVTHEMES',
 				'condition'   => [
 					'label_type' => 'text',
 				],
@@ -93,13 +93,13 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'image',
 			[
-				'label'     => __( 'Choose Image', 'bdthemes-element-pack' ),
+				'label'     => __( 'Choose Image', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::MEDIA,
 				'condition' => [
 					'label_type' => 'image',
 				],
 				'default' => [
-					'url' => BDTEP_ASSETS_URL.'images/no-image.jpg',
+					'url' => AWP_ASSETS_URL.'images/no-image.jpg',
 				],
 				'dynamic' => [ 'active' => true ],
 			]
@@ -108,12 +108,12 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'mode',
 			[
-				'label'   => esc_html__( 'Mode', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Mode', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 2,
 				'options' => [
-					1 => esc_html__( 'Strip', 'bdthemes-element-pack' ),
-					2 => esc_html__( 'Box', 'bdthemes-element-pack' ),
+					1 => esc_html__( 'Strip', 'avator-widget-pack' ),
+					2 => esc_html__( 'Box', 'avator-widget-pack' ),
 				],
 				'condition'   => [
 					'label_type!' => 'none',
@@ -124,19 +124,19 @@ class Qrcode extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -150,14 +150,14 @@ class Qrcode extends Widget_Base {
 		$this->start_controls_section(
 			'section_qr_code_additional',
 			[
-				'label' => esc_html__( 'Additional', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'size',
 			[
-				'label'   => esc_html__( 'Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 400,
@@ -175,7 +175,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'mSize',
 			[
-				'label'   => esc_html__( 'Label Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Label Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 11,
@@ -196,7 +196,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'mPosX',
 			[
-				'label'   => esc_html__( 'Label POS X:', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Label POS X:', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 50,
@@ -217,7 +217,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'mPosY',
 			[
-				'label'   => esc_html__( 'Label POS Y:', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Label POS Y:', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 50,
@@ -238,7 +238,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'minVersion',
 			[
-				'label'   => esc_html__( 'Min Version', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Min Version', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 6,
@@ -256,14 +256,14 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'ecLevel',
 			[
-				'label'   => esc_html__( 'Error Correction Level', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Error Correction Level', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'H',
 				'options' => [
-					'L' => esc_html__( 'Low (7%)', 'bdthemes-element-pack' ),
-					'M' => esc_html__( 'Medium (15%)', 'bdthemes-element-pack' ),
-					'Q' => esc_html__( 'Quartile (25%)', 'bdthemes-element-pack' ),
-					'H' => esc_html__( 'High (30%)', 'bdthemes-element-pack' ),
+					'L' => esc_html__( 'Low (7%)', 'avator-widget-pack' ),
+					'M' => esc_html__( 'Medium (15%)', 'avator-widget-pack' ),
+					'Q' => esc_html__( 'Quartile (25%)', 'avator-widget-pack' ),
+					'H' => esc_html__( 'High (30%)', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -273,7 +273,7 @@ class Qrcode extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_qrcode',
 			[
-				'label' => esc_html__( 'QR Code', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'QR Code', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -281,7 +281,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'fill',
 			[
-				'label'   => esc_html__( 'Code Color', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Code Color', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '#333333',
 			]
@@ -290,7 +290,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'fontcolor',
 			[
-				'label'     => esc_html__( 'Label Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Label Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ff9818',
 				'condition' => [
@@ -302,7 +302,7 @@ class Qrcode extends Widget_Base {
 		$this->add_control(
 			'radius',
 			[
-				'label'   => esc_html__( 'Code Radius', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Code Radius', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -322,9 +322,9 @@ class Qrcode extends Widget_Base {
 
 	protected function render() {
 		$settings   = $this->get_settings();
-		$id         = 'bdt-qrcode' . $this->get_id();
+		$id         = 'avt-qrcode' . $this->get_id();
 		$image_src  = wp_get_attachment_image_src( $settings['image']['id'], 'full' );
-		$image      = ($image_src) ? $image_src[0] : BDTEP_ASSETS_URL.'images/no-image.jpg';
+		$image      = ($image_src) ? $image_src[0] : AWP_ASSETS_URL.'images/no-image.jpg';
 		$qr_content = $settings['text'];
 		
 		if ($settings['site_link']) {
@@ -366,10 +366,10 @@ class Qrcode extends Widget_Base {
 		 );
 
 		?>
-		<div class="bdt-qrcode" <?php echo $this->get_render_attribute_string( 'qrcode' ); ?>></div>
+		<div class="avt-qrcode" <?php echo $this->get_render_attribute_string( 'qrcode' ); ?>></div>
 
 		<?php if ('image' === $settings['label_type'] and !empty($image)) : ?>
-			<img src="<?php echo esc_url($image); ?>" class="bdt-hidden bdt-qrcode-image" alt="<?php echo esc_html($settings["label"]); ?>">
+			<img src="<?php echo esc_url($image); ?>" class="avt-hidden avt-qrcode-image" alt="<?php echo esc_html($settings["label"]); ?>">
 		<?php endif;
     }
 
@@ -414,10 +414,10 @@ class Qrcode extends Widget_Base {
 			view.addRenderAttribute( 'qrcode', 'data-fontcolor', settings.fontcolor );
 		#>
 
-		<div class="bdt-qrcode" <# print( view.getRenderAttributeString( 'qrcode' ) ); #>></div>
+		<div class="avt-qrcode" <# print( view.getRenderAttributeString( 'qrcode' ) ); #>></div>
 
 		<# if ('image' === settings.label_type && image_url) { #>
-			<img src="{{image_url}}" class="bdt-hidden bdt-qrcode-image" alt="">
+			<img src="{{image_url}}" class="avt-hidden avt-qrcode-image" alt="">
 		<# } #>
 
 

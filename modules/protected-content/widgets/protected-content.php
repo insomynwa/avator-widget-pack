@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\ProtectedContent\Widgets;
+namespace WidgetPack\Modules\ProtectedContent\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -7,27 +7,27 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 
-use ElementPack\Modules\ProtectedContent\Module;
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Modules\ProtectedContent\Module;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Protected_Content extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-protected-content';
+		return 'avt-protected-content';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Protected Content', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Protected Content', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-protected-content';
+		return 'avt-wi-protected-content';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -38,20 +38,20 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_section(
 			'protection_type_section',
 			[
-				'label' => esc_html__( 'Protection Type', 'bdthemes-element-pack' )
+				'label' => esc_html__( 'Protection Type', 'avator-widget-pack' )
 			]
 		);
 		
 		$this->add_control(
 			'protection_type',
 			[
-				'label'       => esc_html__('Protection Type', 'bdthemes-element-pack'),
+				'label'       => esc_html__('Protection Type', 'avator-widget-pack'),
 				'label_block' => false,
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'user',
 				'options'     => [
-					'user'     => esc_html__('User Based', 'bdthemes-element-pack'),
-					'password' => esc_html__('Password Based', 'bdthemes-element-pack')
+					'user'     => esc_html__('User Based', 'avator-widget-pack'),
+					'password' => esc_html__('Password Based', 'avator-widget-pack')
 				]
 			]
 		);
@@ -59,7 +59,7 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
             'user_type',
             [
-				'label'       => __( 'Select User Type', 'bdthemes-element-pack' ),
+				'label'       => __( 'Select User Type', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'label_block' => true,
 				'multiple'    => true,
@@ -73,7 +73,7 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'content_password',
 			[
-				'label'     => esc_html__( 'Set Password', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Set Password', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => '123456',
 				'condition' => [
@@ -87,20 +87,20 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_section(
 			'protected_content',
 			[
-				'label' => esc_html__( 'Protected Content', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Protected Content', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'protected_content_type',
 			[
-				'label'   => esc_html__( 'Select Source', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Select Source', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'custom_content',
 				'options' => [
-					'custom_content' => esc_html__( 'Custom Content', 'bdthemes-element-pack' ),
-					'elementor'      => esc_html__( 'Elementor Template', 'bdthemes-element-pack' ),
-					'anywhere'       => esc_html__( 'AE Template', 'bdthemes-element-pack' ),
+					'custom_content' => esc_html__( 'Custom Content', 'avator-widget-pack' ),
+					'elementor'      => esc_html__( 'Elementor Template', 'avator-widget-pack' ),
+					'anywhere'       => esc_html__( 'AE Template', 'avator-widget-pack' ),
 				],				
 			]
 		);
@@ -108,10 +108,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_elementor_template',
 			[
-				'label'       => __( 'Select Template', 'bdthemes-element-pack' ),
+				'label'       => __( 'Select Template', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0',
-				'options'     => element_pack_et_options(),
+				'options'     => widget_pack_et_options(),
 				'label_block' => 'true',
 				'condition'   => ['protected_content_type' => 'elementor'],
 			]
@@ -121,10 +121,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_anywhere_template',
 			[
-				'label'       => esc_html__( 'Select Template', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Select Template', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0',
-				'options'     => element_pack_ae_options(),
+				'options'     => widget_pack_ae_options(),
 				'label_block' => 'true',
 				'condition'   => ['protected_content_type' => 'anywhere'],
 				'render_type' => 'template',
@@ -135,11 +135,11 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_custom_content',
 			[
-				'label'       => esc_html__( 'Custom Content', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Custom Content', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => esc_html__( 'This is your content that you want to be protected by either user role or password.', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'This is your content that you want to be protected by either user role or password.', 'avator-widget-pack' ),
 				'condition'   => [
 					'protected_content_type' => 'custom_content',
 				],
@@ -147,11 +147,11 @@ class Protected_Content extends Widget_Base {
 		);
 
 		$this->add_control(
-			'bdt_show_content',
+			'avt_show_content',
 			[
-				'label'       => __( 'Show Forcefully for Edit', 'bdthemes-element-pack' ),
+				'label'       => __( 'Show Forcefully for Edit', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,
-				'description' => __( 'You can show your protected content in editor for design it.', 'bdthemes-element-pack' ),
+				'description' => __( 'You can show your protected content in editor for design it.', 'avator-widget-pack' ),
 				'condition'   => [
 					'protection_type'	=> 'password'
 				]
@@ -163,21 +163,21 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_section(
 			'warning_message',
 			[
-				'label' => esc_html__( 'Warning Message' , 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Warning Message' , 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'warning_message_type',
 			[
-				'label'   => esc_html__( 'Message Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Message Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'custom_content',
 				'options' => [
-					'custom_content' => esc_html__( 'Custom Message', 'bdthemes-element-pack' ),
-					'elementor'      => esc_html__( 'Elementor Template', 'bdthemes-element-pack' ),
-					'anywhere'       => esc_html__( 'AE Template', 'bdthemes-element-pack' ),
-					'none'           => esc_html__( 'None', 'bdthemes-element-pack' ),
+					'custom_content' => esc_html__( 'Custom Message', 'avator-widget-pack' ),
+					'elementor'      => esc_html__( 'Elementor Template', 'avator-widget-pack' ),
+					'anywhere'       => esc_html__( 'AE Template', 'avator-widget-pack' ),
+					'none'           => esc_html__( 'None', 'avator-widget-pack' ),
 				],				
 			]
 		);
@@ -185,8 +185,8 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'warning_message_template',
 			[
-				'label'       => __( 'Enter Template ID', 'bdthemes-element-pack' ),
-				'description' => __( 'Go to your template > Edit template > look at here: http://prntscr.com/md5qvr for template ID.', 'bdthemes-element-pack' ),
+				'label'       => __( 'Enter Template ID', 'avator-widget-pack' ),
+				'description' => __( 'Go to your template > Edit template > look at here: http://prntscr.com/md5qvr for template ID.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition'   => ['warning_message_type' => 'elementor'],
@@ -197,7 +197,7 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'warning_message_anywhere_template',
 			[
-				'label'       => esc_html__( 'Enter Template ID', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Enter Template ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => 'true',
 				'condition'   => ['warning_message_type' => 'anywhere'],
@@ -209,9 +209,9 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'warning_message_text',
 			[
-				'label'     => esc_html__('Custom Message', 'bdthemes-element-pack'),
+				'label'     => esc_html__('Custom Message', 'avator-widget-pack'),
 				'type'      => Controls_Manager::TEXTAREA,
-				'default'   => esc_html__('You don\'t have permission to see this content.','bdthemes-element-pack'),
+				'default'   => esc_html__('You don\'t have permission to see this content.','avator-widget-pack'),
 				'dynamic'   => [ 'active' => true	],
 				'condition' => [
 					'warning_message_type' => 'custom_content'
@@ -222,7 +222,7 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'warning_message_close_button',
 			[
-				'label'   => esc_html__('Close Button', 'bdthemes-element-pack'),
+				'label'   => esc_html__('Close Button', 'avator-widget-pack'),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes'
 			]
@@ -233,7 +233,7 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_section(
 			'protected_content_style',
 			[
-				'label'     => esc_html__( 'Protected Content', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Protected Content', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'protected_content_type' => 'custom_content'
@@ -244,10 +244,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_content_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-protected-content .protected-content' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-protected-content .protected-content' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -255,10 +255,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_content_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-protected-content .protected-content' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .avt-protected-content .protected-content' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -266,12 +266,12 @@ class Protected_Content extends Widget_Base {
 		$this->add_responsive_control(
 			'protected_content_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'separator'  => 'before',
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-protected-content .protected-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-protected-content .protected-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -279,12 +279,12 @@ class Protected_Content extends Widget_Base {
 		$this->add_responsive_control(
 			'protected_content_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'separator'  => 'after',
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-protected-content .protected-content' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-protected-content .protected-content' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -293,7 +293,7 @@ class Protected_Content extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'protected_content_typography',
-				'selector' => '{{WRAPPER}} .bdt-protected-content .protected-content',
+				'selector' => '{{WRAPPER}} .avt-protected-content .protected-content',
 			]
 		);
 
@@ -302,7 +302,7 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_section(
 			'warning_message_style',
 			[
-				'label'     => esc_html__( 'Warning Message', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Warning Message', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'warning_message_type' => 'custom_content'
@@ -313,10 +313,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'warning_message_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-protected-content-message-text .bdt-alert' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-protected-content-message-text .avt-alert' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -324,10 +324,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'warning_message_close_button_color',
 			[
-				'label'     => esc_html__( 'Close Button Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Close Button Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-alert-close.bdt-close.bdt-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-alert-close.avt-close.avt-icon' => 'color: {{VALUE}};',
 				], 
 				'condition' => [
 					'warning_message_close_button' => 'yes'
@@ -338,10 +338,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'warning_message_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-protected-content-message-text .bdt-alert' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .avt-protected-content-message-text .avt-alert' => 'background: {{VALUE}};'
 				]
 			]
 		);
@@ -349,12 +349,12 @@ class Protected_Content extends Widget_Base {
 		$this->add_responsive_control(
 			'warning_message_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'separator'  => 'before',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-protected-content-message-text .bdt-alert' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-protected-content-message-text .avt-alert' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -362,12 +362,12 @@ class Protected_Content extends Widget_Base {
 		$this->add_responsive_control(
 			'warning_message_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'separator'  => 'after',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-protected-content-message-text .bdt-alert' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-protected-content-message-text .avt-alert' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -376,7 +376,7 @@ class Protected_Content extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'warning_message_typography',
-				'selector' => '{{WRAPPER}} .bdt-protected-content-message-text .bdt-alert'
+				'selector' => '{{WRAPPER}} .avt-protected-content-message-text .avt-alert'
 			]
 		);
 
@@ -385,7 +385,7 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_section(
 			'protected_content_password_input',
 			[
-				'label'     => esc_html__( 'Password Input', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Password Input', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'protection_type'	=> 'password'
@@ -396,16 +396,16 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_tabs('protected_content_password_input_control_tabs');
 
 		$this->start_controls_tab('protected_content_password_input_normal', [
-			'label' => esc_html__( 'Normal', 'bdthemes-element-pack' )
+			'label' => esc_html__( 'Normal', 'avator-widget-pack' )
 		]);
 
 		$this->add_control(
 			'protected_content_password_input_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -413,10 +413,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_content_password_input_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password' => 'background: {{VALUE}};'
 				] 
 			]
 		);
@@ -424,12 +424,12 @@ class Protected_Content extends Widget_Base {
 		$this->add_responsive_control(
 			'protected_content_password_input_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'separator'  => 'before',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				], 
 			]
 		);
@@ -437,11 +437,11 @@ class Protected_Content extends Widget_Base {
 		$this->add_responsive_control(
 			'protected_content_password_input_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				], 
 			]
 		);
@@ -451,19 +451,19 @@ class Protected_Content extends Widget_Base {
 			[
 				'name'      => 'protected_content_password_input_border',
 				'separator' => 'before',
-				'selector'  => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password',
+				'selector'  => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-password',
 			]
 		);
 
 		$this->add_responsive_control(
 			'protected_content_password_input_radius',
 			[
-				'label'      => esc_html__( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'separator'  => 'after',
 				'size_units' => [ 'px', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				], 
 			]
 		);
@@ -472,7 +472,7 @@ class Protected_Content extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'protected_content_password_input_shadow',
-				'selector' => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password',
+				'selector' => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-password',
 			]
 		);
 
@@ -480,23 +480,23 @@ class Protected_Content extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'protected_content_password_input_typography',
-				'selector' => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password',
+				'selector' => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-password',
 			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab('protected_content_password_input_hover', [
-			'label' => esc_html__( 'Hover', 'bdthemes-element-pack' )
+			'label' => esc_html__( 'Hover', 'avator-widget-pack' )
 		]);
 
 		$this->add_control(
 			'protected_content_password_input_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password:hover' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -504,10 +504,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_content_password_input_hover_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password:hover' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password:hover' => 'background: {{VALUE}};'
 				] 
 			]
 		);
@@ -515,10 +515,10 @@ class Protected_Content extends Widget_Base {
 		$this->add_control(
 			'protected_content_password_input_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password:hover' => 'border-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-password-protected-content-fields input.avt-password:hover' => 'border-color: {{VALUE}};'
 				],
 				'condition' => [
 					'protected_content_password_input_border!' => '',
@@ -530,7 +530,7 @@ class Protected_Content extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'protected_content_password_input_hover_shadow',
-				'selector' => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-password:hover',
+				'selector' => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-password:hover',
 			]
 		);
 
@@ -543,7 +543,7 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_section(
 			'protected_content_submit_button',
 			[
-				'label'     => esc_html__( 'Submit Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Submit Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'protection_type'	=> 'password'
@@ -554,16 +554,16 @@ class Protected_Content extends Widget_Base {
 		$this->start_controls_tabs('protected_content_submit_button_control_tabs');
 
 		$this->start_controls_tab('protected_content_submit_button_normal', [
-			'label' => esc_html__( 'Normal', 'bdthemes-element-pack' )
+			'label' => esc_html__( 'Normal', 'avator-widget-pack' )
 		]);
 
 			$this->add_control(
 				'protected_content_submit_button_color',
 				[
-					'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+					'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button' => 'color: {{VALUE}};'
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button' => 'color: {{VALUE}};'
 					]
 				]
 			);
@@ -571,10 +571,10 @@ class Protected_Content extends Widget_Base {
 			$this->add_control(
 				'protected_content_submit_button_background',
 				[
-					'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+					'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button' => 'background: {{VALUE}};'
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button' => 'background: {{VALUE}};'
 					] 
 				]
 			);
@@ -582,12 +582,12 @@ class Protected_Content extends Widget_Base {
 			$this->add_responsive_control(
 				'protected_content_submit_button_padding',
 				[
-					'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+					'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em' ],
 					'separator'  => 'before',
 					'selectors'  => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					], 
 				]
 			);
@@ -595,11 +595,11 @@ class Protected_Content extends Widget_Base {
 			$this->add_responsive_control(
 				'protected_content_submit_button_margin',
 				[
-					'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+					'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em' ],
 					'selectors'  => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					], 
 				]
 			);
@@ -609,19 +609,19 @@ class Protected_Content extends Widget_Base {
 				[
 					'name'      => 'protected_content_submit_button_border',
 					'separator' => 'before',
-					'selector'  => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button',
+					'selector'  => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-button',
 				]
 			);
 
 			$this->add_responsive_control(
 				'protected_content_submit_button_border_radius',
 				[
-					'label'      => esc_html__( 'Radius', 'bdthemes-element-pack' ),
+					'label'      => esc_html__( 'Radius', 'avator-widget-pack' ),
 					'type'       => Controls_Manager::DIMENSIONS,
 					'separator'  => 'after',
 					'size_units' => [ 'px', 'em' ],
 					'selectors'  => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					], 
 				]
 			);
@@ -630,7 +630,7 @@ class Protected_Content extends Widget_Base {
 				Group_Control_Box_Shadow::get_type(),
 				[
 					'name'     => 'protected_content_submit_button_shadow',
-					'selector' => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button',
+					'selector' => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-button',
 				]
 			);
 
@@ -638,23 +638,23 @@ class Protected_Content extends Widget_Base {
 				Group_Control_Typography::get_type(),
 				[
 					'name'     => 'protected_content_submit_button_typography',
-					'selector' => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button',
+					'selector' => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-button',
 				]
 			);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab('protected_content_submit_button_hover', [
-			'label' => esc_html__( 'Hover', 'bdthemes-element-pack' )
+			'label' => esc_html__( 'Hover', 'avator-widget-pack' )
 		]);
 
 			$this->add_control(
 				'protected_content_submit_button_hover_color',
 				[
-					'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+					'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button:hover' => 'color: {{VALUE}};'
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button:hover' => 'color: {{VALUE}};'
 					]
 				]
 			);
@@ -662,10 +662,10 @@ class Protected_Content extends Widget_Base {
 			$this->add_control(
 				'protected_content_submit_button_hover_background',
 				[
-					'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+					'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button:hover' => 'background: {{VALUE}};'
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button:hover' => 'background: {{VALUE}};'
 					] 
 				]
 			);
@@ -673,10 +673,10 @@ class Protected_Content extends Widget_Base {
 			$this->add_control(
 				'protected_content_submit_button_hover_border_color',
 				[
-					'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+					'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 					'type'      => Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button:hover' => 'border-color: {{VALUE}};'
+						'{{WRAPPER}} .avt-password-protected-content-fields input.avt-button:hover' => 'border-color: {{VALUE}};'
 					],
 					'condition' => [
 						'protected_content_submit_button_border!' => '',
@@ -688,7 +688,7 @@ class Protected_Content extends Widget_Base {
 				Group_Control_Box_Shadow::get_type(),
 				[
 					'name'     => 'protected_content_submit_button_hover_shadow',
-					'selector' => '{{WRAPPER}} .bdt-password-protected-content-fields input.bdt-button:hover',
+					'selector' => '{{WRAPPER}} .avt-password-protected-content-fields input.avt-button:hover',
 				]
 			);
 
@@ -714,29 +714,29 @@ class Protected_Content extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$close_button = ('yes' == $settings['warning_message_close_button']) ? true : false;
 		?>
-		<div class="bdt-protected-content-message">
+		<div class="avt-protected-content-message">
 			<?php
 			if ( 'custom_content' == $settings['warning_message_type'] ) { ?>
 
 				<?php if( !isset($_POST['content_password']) ) : ?>
 
 					<?php if ( !empty( $settings['warning_message_text'] ) ) : ?>
-						<div class="bdt-protected-content-message-text">
-							<?php element_pack_alert($settings['warning_message_text'], 'warning', $close_button); ?>
+						<div class="avt-protected-content-message-text">
+							<?php widget_pack_alert($settings['warning_message_text'], 'warning', $close_button); ?>
 						</div>
 					<?php endif; ?>
 				
 				<?php elseif(isset($_POST['content_password']) && ($settings['content_password'] !== $_POST['content_password'])) : ?>
-					<?php element_pack_alert( esc_html__('Ops, You entered wrong password!', 'bdthemes-element-pack'), 'warning', $close_button); ?>
+					<?php widget_pack_alert( esc_html__('Ops, You entered wrong password!', 'avator-widget-pack'), 'warning', $close_button); ?>
 				<?php endif; ?>
 
 				<?php 
 			} elseif ( 'elementor' == $settings['warning_message_type'] and !empty( $settings['warning_message_template'] ) ) {
-				echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['warning_message_template'] );
-				echo element_pack_template_edit_link( $settings['warning_message_template'] );
+				echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['warning_message_template'] );
+				echo widget_pack_template_edit_link( $settings['warning_message_template'] );
 			} elseif ( 'anywhere' == $settings['warning_message_type'] and !empty( $settings['warning_message_anywhere_template'] ) ) {
-				echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['warning_message_anywhere_template'] );
-				echo element_pack_template_edit_link( $settings['warning_message_anywhere_template'] );
+				echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['warning_message_anywhere_template'] );
+				echo widget_pack_template_edit_link( $settings['warning_message_anywhere_template'] );
 			}
 			?>
 		</div>  
@@ -745,13 +745,13 @@ class Protected_Content extends Widget_Base {
 
 	public function render_protected_form() {
 	    ?>
-	    <div class="bdt-password-protected-content-fields">
-	        <form method="post" class="bdt-grid bdt-grid-small" bdt-grid>
-	            <div class="bdt-width-auto">
-	                <input type="password" name="content_password" class="bdt-input bdt-password bdt-form-width-medium" placeholder="<?php esc_html_e( 'Enter Password', 'bdthemes-element-pack' ); ?>" />
+	    <div class="avt-password-protected-content-fields">
+	        <form method="post" class="avt-grid avt-grid-small" avt-grid>
+	            <div class="avt-width-auto">
+	                <input type="password" name="content_password" class="avt-input avt-password avt-form-width-medium" placeholder="<?php esc_html_e( 'Enter Password', 'avator-widget-pack' ); ?>" />
 	            </div>
-	            <div class="bdt-width-auto">
-	                <input type="submit" value="<?php esc_html_e( 'Submit', 'bdthemes-element-pack' ); ?>" class="bdt-button bdt-button-primary" />
+	            <div class="avt-width-auto">
+	                <input type="submit" value="<?php esc_html_e( 'Submit', 'avator-widget-pack' ); ?>" class="avt-button avt-button-primary" />
 	            </div>
 	        </form>
 
@@ -766,16 +766,16 @@ class Protected_Content extends Widget_Base {
 		<div class="protected-content">
 			<?php 
 				if ( 'custom_content' == $settings['protected_content_type'] and !empty( $settings['protected_custom_content'] ) ) { ?>
-					<div class="bdt-protected-content-message">
-						<?php echo wp_kses( $settings['protected_custom_content'], element_pack_allow_tags('text') ); ?>
+					<div class="avt-protected-content-message">
+						<?php echo wp_kses( $settings['protected_custom_content'], widget_pack_allow_tags('text') ); ?>
 					</div>
 					<?php
 				} elseif ('elementor' == $settings['protected_content_type'] and !empty( $settings['protected_elementor_template'] )) {
-					echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['protected_elementor_template'] );
-					echo element_pack_template_edit_link( $settings['protected_elementor_template'] );
+					echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['protected_elementor_template'] );
+					echo widget_pack_template_edit_link( $settings['protected_elementor_template'] );
 				} elseif ('anywhere' == $settings['protected_content_type'] and !empty( $settings['protected_anywhere_template'] )) {
-					echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['protected_anywhere_template'] );
-					echo element_pack_template_edit_link( $settings['protected_anywhere_template'] );
+					echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $settings['protected_anywhere_template'] );
+					echo widget_pack_template_edit_link( $settings['protected_anywhere_template'] );
 				}
 			?>
 		</div>
@@ -786,7 +786,7 @@ class Protected_Content extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 		
-		<div class="bdt-protected-content"> 
+		<div class="avt-protected-content"> 
 
 			<?php
 			if ( 'user' == $settings['protection_type'] ) {
@@ -797,8 +797,8 @@ class Protected_Content extends Widget_Base {
 				}
 			} elseif ( 'password' == $settings['protection_type'] ) {
 
-	        	if ( Element_Pack_Loader::elementor()->editor->is_edit_mode()) {
-	        		if( 'yes' !== $settings['bdt_show_content'] ) {
+	        	if ( Widget_Pack_Loader::elementor()->editor->is_edit_mode()) {
+	        		if( 'yes' !== $settings['avt_show_content'] ) {
 	            		$this->render_protected_message(); 
 	            		$this->render_protected_form();
 	            	} else {
@@ -814,7 +814,7 @@ class Protected_Content extends Widget_Base {
                             $this->render_protected_content();
                         }
                     } else {
-                        element_pack_alert( esc_html__('Ops, You Forget to set password!', 'bdthemes-element-pack') );
+                        widget_pack_alert( esc_html__('Ops, You Forget to set password!', 'avator-widget-pack') );
                     }
 
                     if( ! isset($_SESSION['content_password']) ) {

@@ -1,11 +1,11 @@
 <?php
-namespace ElementPack\Modules\SocialShare\Widgets;
+namespace WidgetPack\Modules\SocialShare\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
-use ElementPack\Modules\SocialShare\Module;
+use WidgetPack\Modules\SocialShare\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -28,19 +28,19 @@ class Social_Share extends Widget_Base {
 
 
 	public function get_name() {
-		return 'bdt-social-share';
+		return 'avt-social-share';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Social Share', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Social Share', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-social-share';
+		return 'avt-wi-social-share';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -48,7 +48,7 @@ class Social_Share extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'element-pack-font', 'bdt-social-share' ];
+		return [ 'widget-pack-font', 'avt-social-share' ];
 	}
 	
 	public function get_script_depends() {
@@ -59,7 +59,7 @@ class Social_Share extends Widget_Base {
 		$this->start_controls_section(
 			'section_buttons_content',
 			[
-				'label' => esc_html__( 'Share Buttons', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Share Buttons', 'avator-widget-pack' ),
 			]
 		);
 
@@ -72,7 +72,7 @@ class Social_Share extends Widget_Base {
 		$repeater->add_control(
 			'button',
 			[
-				'label' => esc_html__( 'Social Media', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Social Media', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => array_reduce( $medias_names, function( $options, $media_name ) use ( $medias ) {
 					$options[ $media_name ] = $medias[ $media_name ]['title'];
@@ -86,7 +86,7 @@ class Social_Share extends Widget_Base {
 		$repeater->add_control(
 			'text',
 			[
-				'label' => esc_html__( 'Custom Label', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Custom Label', 'avator-widget-pack' ),
 				'type' => Controls_Manager::TEXT,
 			]
 		);
@@ -109,7 +109,7 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label'       => esc_html__( 'View', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'View', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'label_block' => false,
 				'options'     => [
@@ -119,7 +119,7 @@ class Social_Share extends Widget_Base {
 				],
 				'default'      => 'icon-text',
 				'separator'    => 'before',
-				'prefix_class' => 'bdt-ss-btns-view-',
+				'prefix_class' => 'avt-ss-btns-view-',
 				'render_type'  => 'template',
 			]
 		);
@@ -127,7 +127,7 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'show_label',
 			[
-				'label'     => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Label', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -139,7 +139,7 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'show_counter',
 			[
-				'label'     => esc_html__( 'Count', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Count', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'view!' => 'icon',
@@ -150,39 +150,39 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'style',
 			[
-				'label'   => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'flat'     => esc_html__( 'Flat', 'bdthemes-element-pack' ),
-					'framed'   => esc_html__( 'Framed', 'bdthemes-element-pack' ),
-					'gradient' => esc_html__( 'Gradient', 'bdthemes-element-pack' ),
-					'minimal'  => esc_html__( 'Minimal', 'bdthemes-element-pack' ),
-					'boxed'    => esc_html__( 'Boxed Icon', 'bdthemes-element-pack' ),
+					'flat'     => esc_html__( 'Flat', 'avator-widget-pack' ),
+					'framed'   => esc_html__( 'Framed', 'avator-widget-pack' ),
+					'gradient' => esc_html__( 'Gradient', 'avator-widget-pack' ),
+					'minimal'  => esc_html__( 'Minimal', 'avator-widget-pack' ),
+					'boxed'    => esc_html__( 'Boxed Icon', 'avator-widget-pack' ),
 				],
 				'default'      => 'flat',
-				'prefix_class' => 'bdt-ss-btns-style-',
+				'prefix_class' => 'avt-ss-btns-style-',
 			]
 		);
 
 		$this->add_control(
 			'shape',
 			[
-				'label'   => esc_html__( 'Shape', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Shape', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'square'  => esc_html__( 'Square', 'bdthemes-element-pack' ),
-					'rounded' => esc_html__( 'Rounded', 'bdthemes-element-pack' ),
-					'circle'  => esc_html__( 'Circle', 'bdthemes-element-pack' ),
+					'square'  => esc_html__( 'Square', 'avator-widget-pack' ),
+					'rounded' => esc_html__( 'Rounded', 'avator-widget-pack' ),
+					'circle'  => esc_html__( 'Circle', 'avator-widget-pack' ),
 				],
 				'default'      => 'square',
-				'prefix_class' => 'bdt-ss-btns-shape-',
+				'prefix_class' => 'avt-ss-btns-shape-',
 			]
 		);
 
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'   => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '0',
 				'options' => [
@@ -194,34 +194,34 @@ class Social_Share extends Widget_Base {
 					'5' => '5',
 					'6' => '6',
 				],
-				'prefix_class' => 'bdt-ep-grid%s-',
+				'prefix_class' => 'avt-wp-grid%s-',
 			]
 		);
 
 		$this->add_control(
 			'alignment',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justify', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justify', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
-				'prefix_class' => 'bdt-ss-btns-align-',
+				'prefix_class' => 'avt-ss-btns-align-',
 				'condition'    => [
 					'columns' => '0',
 				],
@@ -231,11 +231,11 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'share_url_type',
 			[
-				'label'   => esc_html__( 'Target URL', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Target URL', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'current_page' => esc_html__( 'Current Page', 'bdthemes-element-pack' ),
-					'custom'       => esc_html__( 'Custom', 'bdthemes-element-pack' ),
+					'current_page' => esc_html__( 'Current Page', 'avator-widget-pack' ),
+					'custom'       => esc_html__( 'Custom', 'avator-widget-pack' ),
 				],
 				'default'   => 'current_page',
 				'separator' => 'before',
@@ -245,7 +245,7 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'share_url',
 			[
-				'label'         => esc_html__( 'URL', 'bdthemes-element-pack' ),
+				'label'         => esc_html__( 'URL', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'show_external' => false,
 				'placeholder'   => 'http://your-link.com',
@@ -261,7 +261,7 @@ class Social_Share extends Widget_Base {
 		$this->start_controls_section(
 			'section_buttons_style',
 			[
-				'label' => esc_html__( 'Share Buttons', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Share Buttons', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -269,14 +269,14 @@ class Social_Share extends Widget_Base {
 		$this->add_responsive_control(
 			'column_gap',
 			[
-				'label'   => esc_html__( 'Columns Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Columns Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ss-btn' => 'margin-right: calc({{SIZE}}{{UNIT}} / 2); margin-left: calc({{SIZE}}{{UNIT}} / 2);',
-					'{{WRAPPER}} .bdt-ep-grid'             => 'margin-right: calc(-{{SIZE}}{{UNIT}} / 2); margin-left: calc(-{{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .avt-ss-btn' => 'margin-right: calc({{SIZE}}{{UNIT}} / 2); margin-left: calc({{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .avt-wp-grid'             => 'margin-right: calc(-{{SIZE}}{{UNIT}} / 2); margin-left: calc(-{{SIZE}}{{UNIT}} / 2);',
 				],
 			]
 		);
@@ -284,13 +284,13 @@ class Social_Share extends Widget_Base {
 		$this->add_responsive_control(
 			'row_gap',
 			[
-				'label'   => esc_html__( 'Rows Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Rows Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ss-btn' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-ss-btn' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -298,7 +298,7 @@ class Social_Share extends Widget_Base {
 		$this->add_responsive_control(
 			'button_size',
 			[
-				'label' => esc_html__( 'Button Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -308,7 +308,7 @@ class Social_Share extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ss-btn' => 'font-size: calc({{SIZE}}{{UNIT}} * 10);',
+					'{{WRAPPER}} .avt-ss-btn' => 'font-size: calc({{SIZE}}{{UNIT}} * 10);',
 				],
 			]
 		);
@@ -316,7 +316,7 @@ class Social_Share extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => esc_html__( 'Icon Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Icon Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'em' => [
@@ -340,7 +340,7 @@ class Social_Share extends Widget_Base {
 				],
 				'size_units' => [ 'em', 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ss-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-ss-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'view!' => 'text',
@@ -351,7 +351,7 @@ class Social_Share extends Widget_Base {
 		$this->add_responsive_control(
 			'button_height',
 			[
-				'label' => esc_html__( 'Button Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'em' => [
@@ -375,7 +375,7 @@ class Social_Share extends Widget_Base {
 				],
 				'size_units' => [ 'em', 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ss-btn' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-ss-btn' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -383,7 +383,7 @@ class Social_Share extends Widget_Base {
 		$this->add_responsive_control(
 			'border_size',
 			[
-				'label'      => esc_html__( 'Border Size', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Size', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em' ],
 				'default'    => [
@@ -400,7 +400,7 @@ class Social_Share extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ss-btn' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-ss-btn' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'style' => [ 'framed', 'boxed' ],
@@ -411,7 +411,7 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'color_source',
 			[
-				'label'       => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'label_block' => false,
 				'options'     => [
@@ -419,7 +419,7 @@ class Social_Share extends Widget_Base {
 					'custom'   => 'Custom Color',
 				],
 				'default'      => 'original',
-				'prefix_class' => 'bdt-ss-btns-color-',
+				'prefix_class' => 'avt-ss-btns-color-',
 				'separator'    => 'before',
 			]
 		);
@@ -429,7 +429,7 @@ class Social_Share extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'     => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Normal', 'avator-widget-pack' ),
 				'condition' => [
 					'color_source' => 'custom',
 				],
@@ -439,16 +439,16 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'primary_color',
 			[
-				'label'     => esc_html__( 'Primary Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Primary Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-ss-btns-style-flat .bdt-ss-btn,
-					 {{WRAPPER}}.bdt-ss-btns-style-gradient .bdt-ss-btn,
-					 {{WRAPPER}}.bdt-ss-btns-style-boxed .bdt-ss-btn .bdt-ss-icon,
-					 {{WRAPPER}}.bdt-ss-btns-style-minimal .bdt-ss-btn .bdt-ss-icon' => 'background-color: {{VALUE}}',
-					'{{WRAPPER}}.bdt-ss-btns-style-framed .bdt-ss-btn,
-					 {{WRAPPER}}.bdt-ss-btns-style-minimal .bdt-ss-btn,
-					 {{WRAPPER}}.bdt-ss-btns-style-boxed .bdt-ss-btn' => 'color: {{VALUE}}; border-color: {{VALUE}}',
+					'{{WRAPPER}}.avt-ss-btns-style-flat .avt-ss-btn,
+					 {{WRAPPER}}.avt-ss-btns-style-gradient .avt-ss-btn,
+					 {{WRAPPER}}.avt-ss-btns-style-boxed .avt-ss-btn .avt-ss-icon,
+					 {{WRAPPER}}.avt-ss-btns-style-minimal .avt-ss-btn .avt-ss-icon' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}}.avt-ss-btns-style-framed .avt-ss-btn,
+					 {{WRAPPER}}.avt-ss-btns-style-minimal .avt-ss-btn,
+					 {{WRAPPER}}.avt-ss-btns-style-boxed .avt-ss-btn' => 'color: {{VALUE}}; border-color: {{VALUE}}',
 				],
 				'condition' => [
 					'color_source' => 'custom',
@@ -459,15 +459,15 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'secondary_color',
 			[
-				'label'     => esc_html__( 'Secondary Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Secondary Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-ss-btns-style-flat .bdt-ss-icon, 
-					 {{WRAPPER}}.bdt-ss-btns-style-flat .bdt-social-share-text, 
-					 {{WRAPPER}}.bdt-ss-btns-style-gradient .bdt-ss-icon,
-					 {{WRAPPER}}.bdt-ss-btns-style-gradient .bdt-social-share-text,
-					 {{WRAPPER}}.bdt-ss-btns-style-boxed .bdt-ss-icon,
-					 {{WRAPPER}}.bdt-ss-btns-style-minimal .bdt-ss-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}}.avt-ss-btns-style-flat .avt-ss-icon, 
+					 {{WRAPPER}}.avt-ss-btns-style-flat .avt-social-share-text, 
+					 {{WRAPPER}}.avt-ss-btns-style-gradient .avt-ss-icon,
+					 {{WRAPPER}}.avt-ss-btns-style-gradient .avt-social-share-text,
+					 {{WRAPPER}}.avt-ss-btns-style-boxed .avt-ss-icon,
+					 {{WRAPPER}}.avt-ss-btns-style-minimal .avt-ss-icon' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'color_source' => 'custom',
@@ -481,7 +481,7 @@ class Social_Share extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'     => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Hover', 'avator-widget-pack' ),
 				'condition' => [
 					'color_source' => 'custom',
 				],
@@ -491,16 +491,16 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'primary_color_hover',
 			[
-				'label'     => esc_html__( 'Primary Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Primary Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-ss-btns-style-flat .bdt-ss-btn:hover,
-					 {{WRAPPER}}.bdt-ss-btns-style-gradient .bdt-ss-btn:hover' => 'background-color: {{VALUE}}',
-					'{{WRAPPER}}.bdt-ss-btns-style-framed .bdt-ss-btn:hover,
-					 {{WRAPPER}}.bdt-ss-btns-style-minimal .bdt-ss-btn:hover,
-					 {{WRAPPER}}.bdt-ss-btns-style-boxed .bdt-ss-btn:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
-					'{{WRAPPER}}.bdt-ss-btns-style-boxed .bdt-ss-btn:hover .bdt-ss-icon, 
-					 {{WRAPPER}}.bdt-ss-btns-style-minimal .bdt-ss-btn:hover .bdt-ss-icon' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}}.avt-ss-btns-style-flat .avt-ss-btn:hover,
+					 {{WRAPPER}}.avt-ss-btns-style-gradient .avt-ss-btn:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}}.avt-ss-btns-style-framed .avt-ss-btn:hover,
+					 {{WRAPPER}}.avt-ss-btns-style-minimal .avt-ss-btn:hover,
+					 {{WRAPPER}}.avt-ss-btns-style-boxed .avt-ss-btn:hover' => 'color: {{VALUE}}; border-color: {{VALUE}}',
+					'{{WRAPPER}}.avt-ss-btns-style-boxed .avt-ss-btn:hover .avt-ss-icon, 
+					 {{WRAPPER}}.avt-ss-btns-style-minimal .avt-ss-btn:hover .avt-ss-icon' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'color_source' => 'custom',
@@ -511,15 +511,15 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'secondary_color_hover',
 			[
-				'label'     => esc_html__( 'Secondary Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Secondary Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-ss-btns-style-flat .bdt-ss-btn:hover .bdt-ss-icon, 
-					 {{WRAPPER}}.bdt-ss-btns-style-flat .bdt-ss-btn:hover .bdt-social-share-text, 
-					 {{WRAPPER}}.bdt-ss-btns-style-gradient .bdt-ss-btn:hover .bdt-ss-icon,
-					 {{WRAPPER}}.bdt-ss-btns-style-gradient .bdt-ss-btn:hover .bdt-social-share-text,
-					 {{WRAPPER}}.bdt-ss-btns-style-boxed .bdt-ss-btn:hover .bdt-ss-icon,
-					 {{WRAPPER}}.bdt-ss-btns-style-minimal .bdt-ss-btn:hover .bdt-ss-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}}.avt-ss-btns-style-flat .avt-ss-btn:hover .avt-ss-icon, 
+					 {{WRAPPER}}.avt-ss-btns-style-flat .avt-ss-btn:hover .avt-social-share-text, 
+					 {{WRAPPER}}.avt-ss-btns-style-gradient .avt-ss-btn:hover .avt-ss-icon,
+					 {{WRAPPER}}.avt-ss-btns-style-gradient .avt-ss-btn:hover .avt-social-share-text,
+					 {{WRAPPER}}.avt-ss-btns-style-boxed .avt-ss-btn:hover .avt-ss-icon,
+					 {{WRAPPER}}.avt-ss-btns-style-minimal .avt-ss-btn:hover .avt-ss-icon' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'color_source' => 'custom',
@@ -536,8 +536,8 @@ class Social_Share extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-social-share-title, {{WRAPPER}} .bdt-ss-counter',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-social-share-title, {{WRAPPER}} .avt-ss-counter',
 				'exclude'  => [ 'line_height' ],
 			]
 		);
@@ -545,7 +545,7 @@ class Social_Share extends Widget_Base {
 		$this->add_control(
 			'text_padding',
 			[
-				'label'      => esc_html__( 'Text Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Text Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -577,7 +577,7 @@ class Social_Share extends Widget_Base {
 
 		$show_text = 'text' === $settings['view'] ||  $settings['show_label'];
 		?>
-		<div class="bdt-social-share bdt-ep-grid">
+		<div class="avt-social-share avt-wp-grid">
 			<?php
 			foreach ( $settings['share_buttons'] as $button ) {
 				$social_name = $button['button'];
@@ -591,8 +591,8 @@ class Social_Share extends Widget_Base {
 					[
 						'social-attrs' => [
 							'class' => [
-								'bdt-ss-btn',
-								'bdt-ss-' . $social_name
+								'avt-ss-btn',
+								'avt-ss-' . $social_name
 							],
 							'data-social' => $social_name,
 						]
@@ -600,22 +600,22 @@ class Social_Share extends Widget_Base {
 				);
 
 				?>
-				<div class="bdt-social-share-item bdt-ep-grid-item">
+				<div class="avt-social-share-item avt-wp-grid-item">
 					<div <?php echo $this->get_render_attribute_string( 'social-attrs' ); ?>>
 						<?php if ( 'icon' === $settings['view'] || 'icon-text' === $settings['view'] ) : ?>
-							<span class="bdt-ss-icon">
+							<span class="avt-ss-icon">
 								<i class="<?php echo self::get_social_media_class( $social_name ); ?>"></i>
 							</span>
 						<?php endif; ?>
 						<?php if ( $show_text || $has_counter ) : ?>
-							<div class="bdt-social-share-text bdt-inline">
+							<div class="avt-social-share-text avt-inline">
 								<?php if ( 'yes' === $settings['show_label'] || 'text' === $settings['view'] ) : ?>
-									<span class="bdt-social-share-title">
+									<span class="avt-social-share-title">
 										<?php echo $button['text'] ? esc_html($button['text']) : Module::get_social_media( $social_name )['title']; ?>
 									</span>
 								<?php endif; ?>
 								<?php if ( $has_counter ) : ?>
-									<span class="bdt-social-share-counter" data-counter="<?php echo esc_attr($social_name); ?>"></span>
+									<span class="avt-social-share-counter" data-counter="<?php echo esc_attr($social_name); ?>"></span>
 								<?php endif; ?>
 							</div>
 						<?php endif; ?>

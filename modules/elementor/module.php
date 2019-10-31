@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Elementor;
+namespace WidgetPack\Modules\Elementor;
 
 use Elementor;
 use Elementor\Elementor_Base;
@@ -10,14 +10,14 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use ElementPack;
-use ElementPack\Plugin;
-use ElementPack\Base\Element_Pack_Module_Base;
-use ElementPack\Element_Pack_Loader;
+use WidgetPack;
+use WidgetPack\Plugin;
+use WidgetPack\Base\Widget_Pack_Module_Base;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Module extends Element_Pack_Module_Base {
+class Module extends Widget_Pack_Module_Base {
 
 	public $sections_data = [];
 
@@ -27,7 +27,7 @@ class Module extends Element_Pack_Module_Base {
 	}
 
 	public function get_name() {
-		return 'bdt-elementor';
+		return 'avt-elementor';
 	}
 
 	public function register_controls_bg_parallax($section, $section_id, $args) {
@@ -39,11 +39,11 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_parallax_on',
 			[
-				'label'        => BDTEP_CP . esc_html__( 'Enable Parallax?', 'bdthemes-element-pack' ),
+				'label'        => AWP_CP . esc_html__( 'Enable Parallax?', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
 				'return_value' => 'yes',
-				'description'  => esc_html__( 'Set parallax background by enable this option.', 'bdthemes-element-pack' ),
+				'description'  => esc_html__( 'Set parallax background by enable this option.', 'avator-widget-pack' ),
 				'separator'    => 'before',
 				'condition'    => [
 					'background_background' => ['classic'],
@@ -54,7 +54,7 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_parallax_value',
 			[
-				'label' => esc_html__( 'Parallax Amount', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Parallax Amount', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -67,7 +67,7 @@ class Module extends Element_Pack_Module_Base {
 					'unit' => 'px',
 					'size' => -200,
 				],
-				'description'  => esc_html__( 'How much parallax move happen on scroll.', 'bdthemes-element-pack' ),
+				'description'  => esc_html__( 'How much parallax move happen on scroll.', 'avator-widget-pack' ),
 				'condition'    => [
 					'section_parallax_on' => 'yes',
 				],
@@ -86,7 +86,7 @@ class Module extends Element_Pack_Module_Base {
 		$section->start_controls_section(
 			'section_sticky_controls',
 			[
-				'label' => BDTEP_CP . __( 'Sticky', 'bdthemes-element-pack' ),
+				'label' => AWP_CP . __( 'Sticky', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_ADVANCED,
 			]
 		);
@@ -95,17 +95,17 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_sticky_on',
 			[
-				'label'        => esc_html__( 'Enable Sticky', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Enable Sticky', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
-				'description'  => esc_html__( 'Set sticky options by enable this option.', 'bdthemes-element-pack' ),
+				'description'  => esc_html__( 'Set sticky options by enable this option.', 'avator-widget-pack' ),
 			]
 		);
 
 		$section->add_control(
 			'section_sticky_offset',
 			[
-				'label'   => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -119,10 +119,10 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_sticky_active_bg',
 			[
-				'label'     => esc_html__( 'Active Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-sticky.bdt-active' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.avt-sticky.avt-active' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'section_sticky_on' => 'yes',
@@ -133,11 +133,11 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_sticky_active_padding',
 			[
-				'label'      => esc_html__( 'Active Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Active Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}}.bdt-sticky.bdt-active' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}}.avt-sticky.avt-active' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'section_sticky_on' => 'yes',
@@ -148,9 +148,9 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'label'     => esc_html__( 'Active Box Shadow', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Box Shadow', 'avator-widget-pack' ),
 				'name'     => 'section_sticky_active_shadow',
-				'selector' => '{{WRAPPER}}.bdt-sticky.bdt-active',
+				'selector' => '{{WRAPPER}}.avt-sticky.avt-active',
 				'condition' => [
 					'section_sticky_on' => 'yes',
 				],
@@ -160,9 +160,9 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_sticky_animation',
 			[
-				'label'     => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
-				'options'   => element_pack_transition_options(),
+				'options'   => widget_pack_transition_options(),
 				'condition' => [
 					'section_sticky_on' => 'yes',
 				],
@@ -172,8 +172,8 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_sticky_bottom',
 			[
-				'label' => esc_html__( 'Scroll Until', 'bdthemes-element-pack' ),
-				'description'  => esc_html__( 'If you don\'t want to scroll after specific section so set that section ID/CLASS here. for example: #section1 or .section1 it\'s support ID/CLASS', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Scroll Until', 'avator-widget-pack' ),
+				'description'  => esc_html__( 'If you don\'t want to scroll after specific section so set that section ID/CLASS here. for example: #section1 or .section1 it\'s support ID/CLASS', 'avator-widget-pack' ),
 				'type' => Controls_Manager::TEXT,
 				'condition' => [
 					'section_sticky_on' => 'yes',
@@ -184,10 +184,10 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_sticky_on_scroll_up',
 			[
-				'label'        => esc_html__( 'Sticky on Scroll Up', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Sticky on Scroll Up', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
-				'description'  => esc_html__( 'Set sticky options when you scroll up your mouse.', 'bdthemes-element-pack' ),
+				'description'  => esc_html__( 'Set sticky options when you scroll up your mouse.', 'avator-widget-pack' ),
 				'condition' => [
 					'section_sticky_on' => 'yes',
 				],
@@ -198,15 +198,15 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_sticky_off_media',
 			[
-				'label'       => __( 'Turn Off', 'bdthemes-element-pack' ),
+				'label'       => __( 'Turn Off', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'options' => [
 					'960' => [
-						'title' => __( 'On Tablet', 'bdthemes-element-pack' ),
+						'title' => __( 'On Tablet', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-tablet',
 					],
 					'768' => [
-						'title' => __( 'On Mobile', 'bdthemes-element-pack' ),
+						'title' => __( 'On Mobile', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-mobile',
 					],
 				],
@@ -230,12 +230,12 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_particles_on',
 			[
-				'label'        => BDTEP_CP . esc_html__( 'Enable Particles?', 'bdthemes-element-pack' ),
+				'label'        => AWP_CP . esc_html__( 'Enable Particles?', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
 				'return_value' => 'yes',
-				'description'  => __( 'Switch on to enable Particles options! Note that currently particles are not visible in edit/preview mode for better elementor performance. It\'s only can viewed on the frontend. <b>Z-Index Problem: set column z-index 1 so particles will set behind the content.</b>', 'bdthemes-element-pack' ),
-				'prefix_class' => 'bdt-particles-',
+				'description'  => __( 'Switch on to enable Particles options! Note that currently particles are not visible in edit/preview mode for better elementor performance. It\'s only can viewed on the frontend. <b>Z-Index Problem: set column z-index 1 so particles will set behind the content.</b>', 'avator-widget-pack' ),
+				'prefix_class' => 'avt-particles-',
 				//'render_type'  => 'template',
 			]
 		);
@@ -243,12 +243,12 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_particles_js',
 			[
-				'label'     => esc_html__( 'Particles JSON', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Particles JSON', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXTAREA,
 				'condition' => [
 					'section_particles_on' => 'yes',
 				],
-				'description'   => __( 'Paste your particles JSON code here - Generate it from <a href="http://vincentgarreau.com/particles.js/#default" target="_blank">Here</a>.', 'bdthemes-element-pack' ),
+				'description'   => __( 'Paste your particles JSON code here - Generate it from <a href="http://vincentgarreau.com/particles.js/#default" target="_blank">Here</a>.', 'avator-widget-pack' ),
 				'default'       => '',
 				'dynamic'       => [ 'active' => true ],
 				//'render_type' => 'template',
@@ -268,7 +268,7 @@ class Module extends Element_Pack_Module_Base {
 		$section->start_controls_section(
 			'section_scheduled_content_controls',
 			[
-				'label' => BDTEP_CP . __( 'Schedule Content', 'bdthemes-element-pack' ),
+				'label' => AWP_CP . __( 'Schedule Content', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_ADVANCED,
 			]
 		);
@@ -276,37 +276,37 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_scheduled_content_on',
 			[
-				'label'        => __( 'Schedule Content?', 'bdthemes-element-pack' ),
+				'label'        => __( 'Schedule Content?', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
 				'return_value' => 'yes',
-				'description'  => __( 'Switch on to schedule the contents of this column|section!.', 'bdthemes-element-pack' ),
+				'description'  => __( 'Switch on to schedule the contents of this column|section!.', 'avator-widget-pack' ),
 			]
 		);
 		
 		$section->add_control(
 			'section_scheduled_content_start_date',
 			[
-				'label' => __( 'Start Date', 'bdthemes-element-pack' ),
+				'label' => __( 'Start Date', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DATE_TIME,
 				'default' => '2018-02-01 00:00:00',
 				'condition' => [
 					'section_scheduled_content_on' => 'yes',
 				],
-				'description' => __( 'Set start date for show this section.', 'bdthemes-element-pack' ),
+				'description' => __( 'Set start date for show this section.', 'avator-widget-pack' ),
 			]
 		);
 		
 		$section->add_control(
 			'section_scheduled_content_end_date',
 			[
-				'label' => __( 'End Date', 'bdthemes-element-pack' ),
+				'label' => __( 'End Date', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DATE_TIME,
 				'default' => '2018-02-28 00:00:00',
 				'condition' => [
 					'section_scheduled_content_on' => 'yes',
 				],
-				'description' => __( 'Set end date for hide the section.', 'bdthemes-element-pack' ),
+				'description' => __( 'Set end date for hide the section.', 'avator-widget-pack' ),
 			]
 		);
 
@@ -324,7 +324,7 @@ class Module extends Element_Pack_Module_Base {
 		$section->start_controls_section(
 			'section_parallax_content_controls',
 			[
-				'label' => BDTEP_CP . __( 'Parallax', 'bdthemes-element-pack' ),
+				'label' => AWP_CP . __( 'Parallax', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -332,26 +332,26 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_parallax_elements',
 			[
-				'label'   => __( 'Parallax Items', 'bdthemes-element-pack' ),
+				'label'   => __( 'Parallax Items', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields' => [
 					[
 						'name'        => 'section_parallax_title',
-						'label'       => __( 'Title', 'bdthemes-element-pack' ),
+						'label'       => __( 'Title', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::TEXT,
-						'default'     => __( 'Parallax 1' , 'bdthemes-element-pack' ),
+						'default'     => __( 'Parallax 1' , 'avator-widget-pack' ),
 						'label_block' => true,
 						'render_type' => 'ui',
 					],
 					[
 						'name'      => 'section_parallax_image',
-						'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
+						'label'     => esc_html__( 'Image', 'avator-widget-pack' ),
 						'type'      => Controls_Manager::MEDIA,
 						//'condition' => [ 'parallax_content' => 'parallax_image' ],
 					],
 					[
 						'name'    => 'section_parallax_depth',
-						'label'   => __( 'Depth', 'bdthemes-element-pack' ),
+						'label'   => __( 'Depth', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::NUMBER,
 						'default' => 0.1,
 						'min'     => 0,
@@ -360,7 +360,7 @@ class Module extends Element_Pack_Module_Base {
 					],
 					[
 						'name'    => 'section_parallax_bgp_x',
-						'label'   => __( 'Image X Position', 'bdthemes-element-pack' ),
+						'label'   => __( 'Image X Position', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::NUMBER,
 						'min'     => 0,
 						'max'     => 100,
@@ -368,7 +368,7 @@ class Module extends Element_Pack_Module_Base {
 					],
 					[
 						'name'    => 'section_parallax_bgp_y',
-						'label'   => __( 'Image Y Position', 'bdthemes-element-pack' ),
+						'label'   => __( 'Image Y Position', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::NUMBER,
 						'min'     => 0,
 						'max'     => 100,
@@ -376,13 +376,13 @@ class Module extends Element_Pack_Module_Base {
 					],
 					[
 						'name'    => 'section_parallax_bg_size',
-						'label'   => __( 'Image Size', 'bdthemes-element-pack' ),
+						'label'   => __( 'Image Size', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::SELECT,
 						'default' => 'cover',
 						'options' => [
-							'auto'    => __( 'Auto', 'bdthemes-element-pack' ),
-							'cover'   => __( 'Cover', 'bdthemes-element-pack' ),
-							'contain' => __( 'Contain', 'bdthemes-element-pack' ),
+							'auto'    => __( 'Auto', 'avator-widget-pack' ),
+							'cover'   => __( 'Cover', 'avator-widget-pack' ),
+							'contain' => __( 'Contain', 'avator-widget-pack' ),
 						],
 					],		
 									
@@ -395,13 +395,13 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_control(
 			'section_parallax_mode',
 			[
-				'label'   => esc_html__( 'Parallax Mode', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Parallax Mode', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''         => esc_html__( 'Relative', 'bdthemes-element-pack' ),
-					'clip'     => esc_html__( 'Clip', 'bdthemes-element-pack' ),
-					'hover'    => esc_html__( 'Hovar (Mobile also turn off)', 'bdthemes-element-pack' ),
+					''         => esc_html__( 'Relative', 'avator-widget-pack' ),
+					'clip'     => esc_html__( 'Clip', 'avator-widget-pack' ),
+					'hover'    => esc_html__( 'Hovar (Mobile also turn off)', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -424,8 +424,8 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_control(
 			'_widget_parallax_on',
 			[
-				'label'        => BDTEP_CP . esc_html__( 'Enable Parallax?', 'bdthemes-element-pack' ),
-				'description'  => esc_html__( 'Enable parallax for this element set below option after switch yes.', 'bdthemes-element-pack' ),
+				'label'        => AWP_CP . esc_html__( 'Enable Parallax?', 'avator-widget-pack' ),
+				'description'  => esc_html__( 'Enable parallax for this element set below option after switch yes.', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => '',
 				'return_value' => 'yes',
@@ -436,8 +436,8 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_control(
 			'_widget_parallax_x_value',
 			[
-				'label'       => esc_html__( 'Parallax X', 'bdthemes-element-pack' ),
-				'description' => esc_html__( 'If you need to parallax horizontally (x direction) so use this.', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Parallax X', 'avator-widget-pack' ),
+				'description' => esc_html__( 'If you need to parallax horizontally (x direction) so use this.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px' => [
@@ -455,8 +455,8 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_control(
 			'_widget_parallax_y_value',
 			[
-				'label'       => esc_html__( 'Parallax Y', 'bdthemes-element-pack' ),
-				'description' => esc_html__( 'If you need to parallax vertically (y direction) so use this.', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Parallax Y', 'avator-widget-pack' ),
+				'description' => esc_html__( 'If you need to parallax vertically (y direction) so use this.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px' => [
@@ -478,8 +478,8 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_control(
 			'_widget_parallax_viewport_value',
 			[
-				'label'       => esc_html__( 'ViewPort Start', 'bdthemes-element-pack' ),
-				'description' => esc_html__('Animation range depending on the viewport.', 'bdthemes-element-pack'),
+				'label'       => esc_html__( 'ViewPort Start', 'avator-widget-pack' ),
+				'description' => esc_html__('Animation range depending on the viewport.', 'avator-widget-pack'),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px' => [
@@ -501,14 +501,14 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_control(
 			'_widget_parallax_opacity_value',
 			[
-				'label'       => esc_html__( 'Opacity', 'bdthemes-element-pack' ),
-				'description' => esc_html__( 'This option set your element opacity when happen the parallax.', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Opacity', 'avator-widget-pack' ),
+				'description' => esc_html__( 'This option set your element opacity when happen the parallax.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0,1',
 				'options'     => [
-					''  => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'0,1' => esc_html__( '0 -> 1', 'bdthemes-element-pack' ),
-					'1,0' => esc_html__( '1 -> 0', 'bdthemes-element-pack' ),
+					''  => esc_html__( 'None', 'avator-widget-pack' ),
+					'0,1' => esc_html__( '0 -> 1', 'avator-widget-pack' ),
+					'1,0' => esc_html__( '1 -> 0', 'avator-widget-pack' ),
 				],
 				'condition'    => [
 					'_widget_parallax_on' => 'yes',
@@ -529,122 +529,122 @@ class Module extends Element_Pack_Module_Base {
 		}
 
 		$widget->add_control(
-			'element_pack_widget_tooltip',
+			'widget_pack_widget_tooltip',
 			[
-				'label'        => BDTEP_CP . esc_html__( 'Use Tooltip?', 'bdthemes-element-pack' ),
+				'label'        => AWP_CP . esc_html__( 'Use Tooltip?', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Yes', 'bdthemes-element-pack' ),
-				'label_off'    => esc_html__( 'No', 'bdthemes-element-pack' ),
+				'label_on'     => esc_html__( 'Yes', 'avator-widget-pack' ),
+				'label_off'    => esc_html__( 'No', 'avator-widget-pack' ),
 				'render_type'  => 'template',
 			]
 		);
 
-		$widget->start_controls_tabs( 'element_pack_widget_tooltip_tabs' );
+		$widget->start_controls_tabs( 'widget_pack_widget_tooltip_tabs' );
 
 		$widget->start_controls_tab(
-			'element_pack_widget_tooltip_settings_tab',
+			'widget_pack_widget_tooltip_settings_tab',
 			[
-				'label' => esc_html__( 'Settings', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Settings', 'avator-widget-pack' ),
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_text',
+			'widget_pack_widget_tooltip_text',
 			[
-				'label'       => esc_html__( 'Description', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Description', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'render_type' => 'template',
 				'default'     => 'This is Tooltip',
 				'dynamic'     => [ 'active' => true ],
 				'condition'   => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_placement',
+			'widget_pack_widget_tooltip_placement',
 			[
-				'label'   => esc_html__( 'Placement', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Placement', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'top',
 				'options' => [
-					'top-start'    => esc_html__( 'Top Left', 'bdthemes-element-pack' ),
-					'top'          => esc_html__( 'Top', 'bdthemes-element-pack' ),
-					'top-end'      => esc_html__( 'Top Right', 'bdthemes-element-pack' ),
-					'bottom-start' => esc_html__( 'Bottom Left', 'bdthemes-element-pack' ),
-					'bottom'       => esc_html__( 'Bottom', 'bdthemes-element-pack' ),
-					'bottom-end'   => esc_html__( 'Bottom Right', 'bdthemes-element-pack' ),
-					'left'         => esc_html__( 'Left', 'bdthemes-element-pack' ),
-					'right'        => esc_html__( 'Right', 'bdthemes-element-pack' ),
+					'top-start'    => esc_html__( 'Top Left', 'avator-widget-pack' ),
+					'top'          => esc_html__( 'Top', 'avator-widget-pack' ),
+					'top-end'      => esc_html__( 'Top Right', 'avator-widget-pack' ),
+					'bottom-start' => esc_html__( 'Bottom Left', 'avator-widget-pack' ),
+					'bottom'       => esc_html__( 'Bottom', 'avator-widget-pack' ),
+					'bottom-end'   => esc_html__( 'Bottom Right', 'avator-widget-pack' ),
+					'left'         => esc_html__( 'Left', 'avator-widget-pack' ),
+					'right'        => esc_html__( 'Right', 'avator-widget-pack' ),
 				],
 				'render_type'  => 'template',
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_animation',
+			'widget_pack_widget_tooltip_animation',
 			[
-				'label'   => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'shift-toward',
 				'options' => [
-					'shift-away'   => esc_html__( 'Shift-Away', 'bdthemes-element-pack' ),
-					'shift-toward' => esc_html__( 'Shift-Toward', 'bdthemes-element-pack' ),
-					'fade'         => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'scale'        => esc_html__( 'Scale', 'bdthemes-element-pack' ),
-					'perspective'  => esc_html__( 'Perspective', 'bdthemes-element-pack' ),
+					'shift-away'   => esc_html__( 'Shift-Away', 'avator-widget-pack' ),
+					'shift-toward' => esc_html__( 'Shift-Toward', 'avator-widget-pack' ),
+					'fade'         => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'scale'        => esc_html__( 'Scale', 'avator-widget-pack' ),
+					'perspective'  => esc_html__( 'Perspective', 'avator-widget-pack' ),
 				],
 				'render_type'  => 'template',
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_x_offset',
+			'widget_pack_widget_tooltip_x_offset',
 			[
-				'label'   => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 0,
 				'min'     => -1000,
 				'max'     => 1000,
 				'step'    => 1,
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_y_offset',
+			'widget_pack_widget_tooltip_y_offset',
 			[
-				'label'   => esc_html__( 'Distance', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Distance', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 0,
 				'min'     => -1000,
 				'max'     => 1000,
 				'step'    => 1,
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_arrow',
+			'widget_pack_widget_tooltip_arrow',
 			[
-				'label'        => esc_html__( 'Arrow', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Arrow', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'condition'    => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
@@ -652,19 +652,19 @@ class Module extends Element_Pack_Module_Base {
 		$widget->end_controls_tab();
 
 		$widget->start_controls_tab(
-			'element_pack_widget_tooltip_styles_tab',
+			'widget_pack_widget_tooltip_styles_tab',
 			[
-				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Style', 'avator-widget-pack' ),
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_responsive_control(
-			'element_pack_widget_tooltip_width',
+			'widget_pack_widget_tooltip_width',
 			[
-				'label'      => esc_html__( 'Width', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Width', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [
 					'px', 'em',
@@ -679,7 +679,7 @@ class Module extends Element_Pack_Module_Base {
 					'{{WRAPPER}} .tippy-tooltip' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 				'render_type'  => 'template',
 			]
@@ -687,15 +687,15 @@ class Module extends Element_Pack_Module_Base {
 
 		
 		$widget->add_control(
-			'element_pack_widget_tooltip_color',
+			'widget_pack_widget_tooltip_color',
 			[
-				'label'  => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-tooltip' => 'color: {{VALUE}}',
 				],
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
@@ -703,18 +703,18 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'element_pack_widget_tooltip_background',
+				'name'     => 'widget_pack_widget_tooltip_background',
 				'selector' => '{{WRAPPER}} .tippy-tooltip, {{WRAPPER}} .tippy-tooltip .tippy-backdrop',
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_arrow_color',
+			'widget_pack_widget_tooltip_arrow_color',
 			[
-				'label'  => esc_html__( 'Arrow Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Arrow Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-popper[x-placement^=left] .tippy-arrow'  => 'border-left-color: {{VALUE}}',
@@ -723,16 +723,16 @@ class Module extends Element_Pack_Module_Base {
 					'{{WRAPPER}} .tippy-popper[x-placement^=bottom] .tippy-arrow'=> 'border-bottom-color: {{VALUE}}',
 				],
 				'condition' => [
-					'element_pack_widget_tooltip'       => 'yes',
+					'widget_pack_widget_tooltip'       => 'yes',
 				],
 				'separator' => 'after',
 			]
 		);
 
 		$widget->add_responsive_control(
-			'element_pack_widget_tooltip_padding',
+			'widget_pack_widget_tooltip_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -740,7 +740,7 @@ class Module extends Element_Pack_Module_Base {
 				],
 				'render_type'  => 'template',
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
@@ -748,49 +748,49 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'        => 'element_pack_widget_tooltip_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'name'        => 'widget_pack_widget_tooltip_border',
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .tippy-tooltip',
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_responsive_control(
-			'element_pack_widget_tooltip_border_radius',
+			'widget_pack_widget_tooltip_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
 					'{{WRAPPER}} .tippy-tooltip' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_widget_tooltip_text_align',
+			'widget_pack_widget_tooltip_text_align',
 			[
-				'label'   => esc_html__( 'Text Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -798,7 +798,7 @@ class Module extends Element_Pack_Module_Base {
 					'{{WRAPPER}} .tippy-tooltip .tippy-content' => 'text-align: {{VALUE}};',
 				],
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 				'separator' => 'before',
 			]
@@ -807,10 +807,10 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'element_pack_widget_tooltip_box_shadow',
+				'name' => 'widget_pack_widget_tooltip_box_shadow',
 				'selector' => '{{WRAPPER}} .tippy-tooltip',
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
@@ -818,10 +818,10 @@ class Module extends Element_Pack_Module_Base {
 		$widget->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'element_pack_widget_tooltip_typography',
+				'name'     => 'widget_pack_widget_tooltip_typography',
 				'selector' => '{{WRAPPER}} .tippy-tooltip .tippy-content',
 				'condition' => [
-					'element_pack_widget_tooltip' => 'yes',
+					'widget_pack_widget_tooltip' => 'yes',
 				],
 			]
 		);
@@ -846,37 +846,37 @@ class Module extends Element_Pack_Module_Base {
 		}
 
 		$widget->add_control(
-			'element_pack_widget_transform',
+			'widget_pack_widget_transform',
 			[
-				'label'        => BDTEP_CP . esc_html__( 'Use Transform?', 'bdthemes-element-pack' ),
-				'description'        => esc_html__( 'Don\'t use with others addon effect so it will work abnormal.' , 'bdthemes-element-pack' ),
+				'label'        => AWP_CP . esc_html__( 'Use Transform?', 'avator-widget-pack' ),
+				'description'        => esc_html__( 'Don\'t use with others addon effect so it will work abnormal.' , 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-motion-effect-'
+				'prefix_class' => 'avt-motion-effect-'
 			]
 		);
 
 
-		$widget->start_controls_tabs( 'element_pack_widget_motion_effect_tabs' );
+		$widget->start_controls_tabs( 'widget_pack_widget_motion_effect_tabs' );
 
 		$widget->start_controls_tab(
-			'element_pack_widget_motion_effect_tab_normal',
+			'widget_pack_widget_motion_effect_tab_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 				'condition' => [
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 
 		$widget->add_control(
-			'element_pack_translate_toggle_normal',
+			'widget_pack_translate_toggle_normal',
 			[
-				'label' 		=> __( 'Translate', 'bdthemes-element-pack' ),
+				'label' 		=> __( 'Translate', 'avator-widget-pack' ),
 				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
 				'return_value' 	=> 'yes',
 				'condition' 	=> [
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -885,9 +885,9 @@ class Module extends Element_Pack_Module_Base {
 
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_transx_normal',
+			'widget_pack_widget_effect_transx_normal',
 			[
-				'label'      => esc_html__( 'Translate X', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Translate X', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -897,16 +897,16 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'condition' => [
-					'element_pack_translate_toggle_normal' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_translate_toggle_normal' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_transy_normal',
+			'widget_pack_widget_effect_transy_normal',
 			[
-				'label'      => esc_html__( 'Translate Y', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Translate Y', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -916,13 +916,13 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget' => 'transform: translate({{element_pack_widget_effect_transx_normal.SIZE || 0}}px, {{element_pack_widget_effect_transy_normal.SIZE || 0}}px);',
-					'(tablet){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget' => 'transform: translate({{element_pack_widget_effect_transx_normal_tablet.SIZE || 0}}px, {{element_pack_widget_effect_transy_normal_tablet.SIZE || 0}}px);',
-					'(mobile){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget' => 'transform: translate({{element_pack_widget_effect_transx_normal_mobile.SIZE || 0}}px, {{element_pack_widget_effect_transy_normal_mobile.SIZE || 0}}px);',
+					'(desktop){{WRAPPER}}.avt-motion-effect-yes.elementor-widget' => 'transform: translate({{widget_pack_widget_effect_transx_normal.SIZE || 0}}px, {{widget_pack_widget_effect_transy_normal.SIZE || 0}}px);',
+					'(tablet){{WRAPPER}}.avt-motion-effect-yes.elementor-widget' => 'transform: translate({{widget_pack_widget_effect_transx_normal_tablet.SIZE || 0}}px, {{widget_pack_widget_effect_transy_normal_tablet.SIZE || 0}}px);',
+					'(mobile){{WRAPPER}}.avt-motion-effect-yes.elementor-widget' => 'transform: translate({{widget_pack_widget_effect_transx_normal_mobile.SIZE || 0}}px, {{widget_pack_widget_effect_transy_normal_mobile.SIZE || 0}}px);',
 				],
 				'condition' => [
-					'element_pack_translate_toggle_normal' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_translate_toggle_normal' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -933,13 +933,13 @@ class Module extends Element_Pack_Module_Base {
 
 
 		$widget->add_control(
-			'element_pack_rotate_toggle_normal',
+			'widget_pack_rotate_toggle_normal',
 			[
-				'label' 		=> __( 'Rotate', 'bdthemes-element-pack' ),
+				'label' 		=> __( 'Rotate', 'avator-widget-pack' ),
 				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
 				'return_value' 	=> 'yes',
 				'condition' 	=> [
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -948,9 +948,9 @@ class Module extends Element_Pack_Module_Base {
 
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_rotatex_normal',
+			'widget_pack_widget_effect_rotatex_normal',
 			[
-				'label'      => esc_html__( 'Rotate X', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Rotate X', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -960,16 +960,16 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'condition' => [
-					'element_pack_rotate_toggle_normal' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_rotate_toggle_normal' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_rotatey_normal',
+			'widget_pack_widget_effect_rotatey_normal',
 			[
-				'label'      => esc_html__( 'Rotate Y', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Rotate Y', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -979,17 +979,17 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'condition' => [
-					'element_pack_rotate_toggle_normal' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_rotate_toggle_normal' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_rotatez_normal',
+			'widget_pack_widget_effect_rotatez_normal',
 			[
-				'label'   => __( 'Rotate Z', 'bdthemes-element-pack' ),
+				'label'   => __( 'Rotate Z', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -999,13 +999,13 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget' => 'transform: translate( {{element_pack_widget_effect_transx_normal.SIZE || 0}}px, {{element_pack_widget_effect_transy_normal.SIZE || 0}}px) rotateX({{element_pack_widget_effect_rotatex_normal.SIZE || 0}}deg) rotateY({{element_pack_widget_effect_rotatey_normal.SIZE || 0}}deg) rotateZ({{element_pack_widget_effect_rotatez_normal.SIZE || 0}}deg);',
-					'(tablet){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget' => 'transform: translate( {{element_pack_widget_effect_transx_normal_tablet.SIZE || 0}}px, {{element_pack_widget_effect_transy_normal_tablet.SIZE || 0}}px) rotateX({{element_pack_widget_effect_rotatex_normal.SIZE || 0}}deg) rotateY({{element_pack_widget_effect_rotatey_normal.SIZE || 0}}deg) rotateZ({{element_pack_widget_effect_rotatez_normal.SIZE || 0}}deg);',
-					'(mobile){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget' => 'transform: translate( {{element_pack_widget_effect_transx_normal_mobile.SIZE || 0}}px, {{element_pack_widget_effect_transy_normal_mobile.SIZE || 0}}px) rotateX({{element_pack_widget_effect_rotatex_normal.SIZE || 0}}deg) rotateY({{element_pack_widget_effect_rotatey_normal.SIZE || 0}}deg) rotateZ({{element_pack_widget_effect_rotatez_normal.SIZE || 0}}deg);',
+					'(desktop){{WRAPPER}}.avt-motion-effect-yes.elementor-widget' => 'transform: translate( {{widget_pack_widget_effect_transx_normal.SIZE || 0}}px, {{widget_pack_widget_effect_transy_normal.SIZE || 0}}px) rotateX({{widget_pack_widget_effect_rotatex_normal.SIZE || 0}}deg) rotateY({{widget_pack_widget_effect_rotatey_normal.SIZE || 0}}deg) rotateZ({{widget_pack_widget_effect_rotatez_normal.SIZE || 0}}deg);',
+					'(tablet){{WRAPPER}}.avt-motion-effect-yes.elementor-widget' => 'transform: translate( {{widget_pack_widget_effect_transx_normal_tablet.SIZE || 0}}px, {{widget_pack_widget_effect_transy_normal_tablet.SIZE || 0}}px) rotateX({{widget_pack_widget_effect_rotatex_normal.SIZE || 0}}deg) rotateY({{widget_pack_widget_effect_rotatey_normal.SIZE || 0}}deg) rotateZ({{widget_pack_widget_effect_rotatez_normal.SIZE || 0}}deg);',
+					'(mobile){{WRAPPER}}.avt-motion-effect-yes.elementor-widget' => 'transform: translate( {{widget_pack_widget_effect_transx_normal_mobile.SIZE || 0}}px, {{widget_pack_widget_effect_transy_normal_mobile.SIZE || 0}}px) rotateX({{widget_pack_widget_effect_rotatex_normal.SIZE || 0}}deg) rotateY({{widget_pack_widget_effect_rotatey_normal.SIZE || 0}}deg) rotateZ({{widget_pack_widget_effect_rotatez_normal.SIZE || 0}}deg);',
 				],
 				'condition' => [
-					'element_pack_rotate_toggle_normal' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_rotate_toggle_normal' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -1016,23 +1016,23 @@ class Module extends Element_Pack_Module_Base {
 		$widget->end_controls_tab();
 
 		$widget->start_controls_tab(
-			'element_pack_widget_motion_effect_tab_hover',
+			'widget_pack_widget_motion_effect_tab_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 				'condition' => [
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_control(
-			'element_pack_translate_toggle_hover',
+			'widget_pack_translate_toggle_hover',
 			[
-				'label' 		=> __( 'Translate', 'bdthemes-element-pack' ),
+				'label' 		=> __( 'Translate', 'avator-widget-pack' ),
 				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
 				'return_value' 	=> 'yes',
 				'condition' 	=> [
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -1041,9 +1041,9 @@ class Module extends Element_Pack_Module_Base {
 
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_transx_hover',
+			'widget_pack_widget_effect_transx_hover',
 			[
-				'label'      => esc_html__( 'Translate X', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Translate X', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -1053,16 +1053,16 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'condition' => [
-					'element_pack_translate_toggle_hover' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_translate_toggle_hover' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_transy_hover',
+			'widget_pack_widget_effect_transy_hover',
 			[
-				'label'      => esc_html__( 'Translate Y', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Translate Y', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -1072,13 +1072,13 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget:hover' => 'transform: translate({{element_pack_widget_effect_transx_hover.SIZE || 0}}px, {{element_pack_widget_effect_transy_hover.SIZE || 0}}px);',
-					'(tablet){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget:hover' => 'transform: translate({{element_pack_widget_effect_transx_hover_tablet.SIZE || 0}}px, {{element_pack_widget_effect_transy_hover_tablet.SIZE || 0}}px);',
-					'(mobile){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget:hover' => 'transform: translate({{element_pack_widget_effect_transx_hover_mobile.SIZE || 0}}px, {{element_pack_widget_effect_transy_hover_mobile.SIZE || 0}}px);',
+					'(desktop){{WRAPPER}}.avt-motion-effect-yes.elementor-widget:hover' => 'transform: translate({{widget_pack_widget_effect_transx_hover.SIZE || 0}}px, {{widget_pack_widget_effect_transy_hover.SIZE || 0}}px);',
+					'(tablet){{WRAPPER}}.avt-motion-effect-yes.elementor-widget:hover' => 'transform: translate({{widget_pack_widget_effect_transx_hover_tablet.SIZE || 0}}px, {{widget_pack_widget_effect_transy_hover_tablet.SIZE || 0}}px);',
+					'(mobile){{WRAPPER}}.avt-motion-effect-yes.elementor-widget:hover' => 'transform: translate({{widget_pack_widget_effect_transx_hover_mobile.SIZE || 0}}px, {{widget_pack_widget_effect_transy_hover_mobile.SIZE || 0}}px);',
 				],
 				'condition' => [
-					'element_pack_translate_toggle_hover' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_translate_toggle_hover' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -1089,13 +1089,13 @@ class Module extends Element_Pack_Module_Base {
 
 
 		$widget->add_control(
-			'element_pack_rotate_toggle_hover',
+			'widget_pack_rotate_toggle_hover',
 			[
-				'label' 		=> __( 'Rotate', 'bdthemes-element-pack' ),
+				'label' 		=> __( 'Rotate', 'avator-widget-pack' ),
 				'type' 			=> Controls_Manager::POPOVER_TOGGLE,
 				'return_value' 	=> 'yes',
 				'condition' 	=> [
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -1104,9 +1104,9 @@ class Module extends Element_Pack_Module_Base {
 
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_rotatex_hover',
+			'widget_pack_widget_effect_rotatex_hover',
 			[
-				'label'      => esc_html__( 'Rotate X', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Rotate X', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -1116,16 +1116,16 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'condition' => [
-					'element_pack_rotate_toggle_hover' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_rotate_toggle_hover' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_rotatey_hover',
+			'widget_pack_widget_effect_rotatey_hover',
 			[
-				'label'      => esc_html__( 'Rotate Y', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Rotate Y', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -1135,17 +1135,17 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'condition' => [
-					'element_pack_rotate_toggle_hover' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_rotate_toggle_hover' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
 
 
 		$widget->add_responsive_control(
-			'element_pack_widget_effect_rotatez_hover',
+			'widget_pack_widget_effect_rotatez_hover',
 			[
-				'label'   => __( 'Rotate Z', 'bdthemes-element-pack' ),
+				'label'   => __( 'Rotate Z', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -1155,13 +1155,13 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget:hover' => 'transform: translate( {{element_pack_widget_effect_transx_hover.SIZE || 0}}px, {{element_pack_widget_effect_transy_hover.SIZE || 0}}px) rotateX({{element_pack_widget_effect_rotatex_hover.SIZE || 0}}deg) rotateY({{element_pack_widget_effect_rotatey_hover.SIZE || 0}}deg) rotateZ({{element_pack_widget_effect_rotatez_hover.SIZE || 0}}deg);',
-					'(tablet){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget:hover' => 'transform: translate( {{element_pack_widget_effect_transx_hover_tablet.SIZE || 0}}px, {{element_pack_widget_effect_transy_hover_tablet.SIZE || 0}}px) rotateX({{element_pack_widget_effect_rotatex_hover.SIZE || 0}}deg) rotateY({{element_pack_widget_effect_rotatey_hover.SIZE || 0}}deg) rotateZ({{element_pack_widget_effect_rotatez_hover.SIZE || 0}}deg);',
-					'(mobile){{WRAPPER}}.bdt-motion-effect-yes.elementor-widget:hover' => 'transform: translate( {{element_pack_widget_effect_transx_hover_mobile.SIZE || 0}}px, {{element_pack_widget_effect_transy_hover_mobile.SIZE || 0}}px) rotateX({{element_pack_widget_effect_rotatex_hover.SIZE || 0}}deg) rotateY({{element_pack_widget_effect_rotatey_hover.SIZE || 0}}deg) rotateZ({{element_pack_widget_effect_rotatez_hover.SIZE || 0}}deg);',
+					'(desktop){{WRAPPER}}.avt-motion-effect-yes.elementor-widget:hover' => 'transform: translate( {{widget_pack_widget_effect_transx_hover.SIZE || 0}}px, {{widget_pack_widget_effect_transy_hover.SIZE || 0}}px) rotateX({{widget_pack_widget_effect_rotatex_hover.SIZE || 0}}deg) rotateY({{widget_pack_widget_effect_rotatey_hover.SIZE || 0}}deg) rotateZ({{widget_pack_widget_effect_rotatez_hover.SIZE || 0}}deg);',
+					'(tablet){{WRAPPER}}.avt-motion-effect-yes.elementor-widget:hover' => 'transform: translate( {{widget_pack_widget_effect_transx_hover_tablet.SIZE || 0}}px, {{widget_pack_widget_effect_transy_hover_tablet.SIZE || 0}}px) rotateX({{widget_pack_widget_effect_rotatex_hover.SIZE || 0}}deg) rotateY({{widget_pack_widget_effect_rotatey_hover.SIZE || 0}}deg) rotateZ({{widget_pack_widget_effect_rotatez_hover.SIZE || 0}}deg);',
+					'(mobile){{WRAPPER}}.avt-motion-effect-yes.elementor-widget:hover' => 'transform: translate( {{widget_pack_widget_effect_transx_hover_mobile.SIZE || 0}}px, {{widget_pack_widget_effect_transy_hover_mobile.SIZE || 0}}px) rotateX({{widget_pack_widget_effect_rotatex_hover.SIZE || 0}}deg) rotateY({{widget_pack_widget_effect_rotatey_hover.SIZE || 0}}deg) rotateZ({{widget_pack_widget_effect_rotatez_hover.SIZE || 0}}deg);',
 				],
 				'condition' => [
-					'element_pack_rotate_toggle_hover' => 'yes',
-					'element_pack_widget_transform' => 'yes',
+					'widget_pack_rotate_toggle_hover' => 'yes',
+					'widget_pack_widget_transform' => 'yes',
 				],
 			]
 		);
@@ -1180,14 +1180,14 @@ class Module extends Element_Pack_Module_Base {
 
 	protected function add_actions() {
 
-		$bg_parallax              = element_pack_option('section_parallax_show', 'element_pack_elementor_extend', 'on' );
-		$widget_parallax          = element_pack_option('widget_parallax_show', 'element_pack_elementor_extend', 'on' );
-		$widget_tooltip           = element_pack_option('widget_tooltip_show', 'element_pack_elementor_extend', 'off' );
-		$widget_motion            = element_pack_option('widget_motion_show', 'element_pack_elementor_extend', 'off' );
-		$section_particles        = element_pack_option('section_particles_show', 'element_pack_elementor_extend', 'on' );
-		$section_schedule         = element_pack_option('section_schedule_show', 'element_pack_elementor_extend', 'on' );
-		$section_sticky           = element_pack_option('section_sticky_show', 'element_pack_elementor_extend', 'on' );
-		$section_parallax_content = element_pack_option('section_parallax_content_show', 'element_pack_elementor_extend', 'on' );
+		$bg_parallax              = widget_pack_option('section_parallax_show', 'widget_pack_elementor_extend', 'on' );
+		$widget_parallax          = widget_pack_option('widget_parallax_show', 'widget_pack_elementor_extend', 'on' );
+		$widget_tooltip           = widget_pack_option('widget_tooltip_show', 'widget_pack_elementor_extend', 'off' );
+		$widget_motion            = widget_pack_option('widget_motion_show', 'widget_pack_elementor_extend', 'off' );
+		$section_particles        = widget_pack_option('section_particles_show', 'widget_pack_elementor_extend', 'on' );
+		$section_schedule         = widget_pack_option('section_schedule_show', 'widget_pack_elementor_extend', 'on' );
+		$section_sticky           = widget_pack_option('section_sticky_show', 'widget_pack_elementor_extend', 'on' );
+		$section_parallax_content = widget_pack_option('section_parallax_content_show', 'widget_pack_elementor_extend', 'on' );
 
 		if ( 'on' === $bg_parallax ) {
 			add_action( 'elementor/element/before_section_end', [ $this, 'register_controls_bg_parallax' ], 10, 3 );		
@@ -1243,7 +1243,7 @@ class Module extends Element_Pack_Module_Base {
 		$settings = $section->get_settings();
 		if( $section->get_settings( 'section_parallax_on' ) == 'yes' ) {
 			$parallax_settings = $section->get_settings( 'section_parallax_value' );
-			$section->add_render_attribute( '_wrapper', 'bdt-parallax', 'bgy: '.$parallax_settings['size'] );
+			$section->add_render_attribute( '_wrapper', 'avt-parallax', 'bgy: '.$parallax_settings['size'] );
 		}
 	}
 
@@ -1256,9 +1256,9 @@ class Module extends Element_Pack_Module_Base {
 			$current_date = strtotime(gmdate( 'Y-m-d H:i', ( time() + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ) ));
 
 			if ( ($current_date >= $star_date) and ($current_date <= $end_date) ) {
-				$section->add_render_attribute( '_wrapper', 'class', 'bdt-scheduled' );
+				$section->add_render_attribute( '_wrapper', 'class', 'avt-scheduled' );
 			} else {
-				$section->add_render_attribute( '_wrapper', 'class', 'bdt-hidden' );
+				$section->add_render_attribute( '_wrapper', 'class', 'avt-hidden' );
 			}
 		}
 	}
@@ -1276,7 +1276,7 @@ class Module extends Element_Pack_Module_Base {
 			}
 
 			if ( !empty($settings[ 'section_sticky_animation' ]) ) {
-				$sticky_option['animation'] = 'animation: bdt-animation-' . $settings[ 'section_sticky_animation' ] . '; top: 100';
+				$sticky_option['animation'] = 'animation: avt-animation-' . $settings[ 'section_sticky_animation' ] . '; top: 100';
 			}
 
 			if ( !empty($settings[ 'section_sticky_bottom' ]) ) {
@@ -1287,8 +1287,8 @@ class Module extends Element_Pack_Module_Base {
 				$sticky_option['media'] = 'media: ' . $settings[ 'section_sticky_off_media' ];
 			}
 			
-			$section->add_render_attribute( '_wrapper', 'bdt-sticky', implode(";",$sticky_option) );
-			$section->add_render_attribute( '_wrapper', 'class', 'bdt-sticky' );
+			$section->add_render_attribute( '_wrapper', 'avt-sticky', implode(";",$sticky_option) );
+			$section->add_render_attribute( '_wrapper', 'class', 'avt-sticky' );
 		}
 	}
 	
@@ -1310,41 +1310,41 @@ class Module extends Element_Pack_Module_Base {
 				$slider_settings['viewport'] = 'viewport: ' . $settings['_widget_parallax_viewport_value']['size'] . ';';
 			}
 
-			$widget->add_render_attribute( '_wrapper', 'bdt-parallax', implode(" ",$slider_settings) );
+			$widget->add_render_attribute( '_wrapper', 'avt-parallax', implode(" ",$slider_settings) );
 		}
 	}
 
 	public function widget_tooltip_before_render($widget) {    		
 		$settings = $widget->get_settings();
 
-		if( $settings['element_pack_widget_tooltip'] == 'yes' ) {
+		if( $settings['widget_pack_widget_tooltip'] == 'yes' ) {
 			$element_id = $widget->get_settings( '_element_id' );
 			if (empty($element_id)) {
-				$id = 'bdt-widget-tooltip-'.$widget->get_id();
+				$id = 'avt-widget-tooltip-'.$widget->get_id();
 				$widget->add_render_attribute( '_wrapper', 'id', $id, true );
 			} else {
 				$id = $widget->get_settings( '_element_id' );
 			}
 			
-			$widget->add_render_attribute( '_wrapper', 'class', 'bdt-tippy-tooltip' );
+			$widget->add_render_attribute( '_wrapper', 'class', 'avt-tippy-tooltip' );
 			$widget->add_render_attribute( '_wrapper', 'data-tippy', '', true );
 
-			if (!empty($settings['element_pack_widget_tooltip_text'])) {
-				$widget->add_render_attribute( '_wrapper', 'data-tippy-content', $settings['element_pack_widget_tooltip_text'], true );
+			if (!empty($settings['widget_pack_widget_tooltip_text'])) {
+				$widget->add_render_attribute( '_wrapper', 'data-tippy-content', $settings['widget_pack_widget_tooltip_text'], true );
 			}
-			if (!empty($settings['element_pack_widget_tooltip_placement'])) {
-				$widget->add_render_attribute( '_wrapper', 'data-tippy-placement', $settings['element_pack_widget_tooltip_placement'], true );
+			if (!empty($settings['widget_pack_widget_tooltip_placement'])) {
+				$widget->add_render_attribute( '_wrapper', 'data-tippy-placement', $settings['widget_pack_widget_tooltip_placement'], true );
 			}
-			if (!empty($settings['element_pack_widget_tooltip_arrow'])) {
+			if (!empty($settings['widget_pack_widget_tooltip_arrow'])) {
 				$widget->add_render_attribute( '_wrapper', 'data-tippy-arrow', 'true', true );
 			}
-			if (!empty($settings['element_pack_widget_tooltip_animation'])) {
-				$widget->add_render_attribute( '_wrapper', 'data-tippy-animation', $settings['element_pack_widget_tooltip_animation'], true );
+			if (!empty($settings['widget_pack_widget_tooltip_animation'])) {
+				$widget->add_render_attribute( '_wrapper', 'data-tippy-animation', $settings['widget_pack_widget_tooltip_animation'], true );
 			}
 			
-			if (!empty($settings['element_pack_widget_tooltip_x_offset']) or !empty($settings['element_pack_widget_tooltip_y_offset']) ) {
-				$xoffset = ( !empty($settings['element_pack_widget_tooltip_x_offset'] ) ? $settings['element_pack_widget_tooltip_x_offset'] : '0' ) ;
-				$yoffset = ( !empty($settings['element_pack_widget_tooltip_y_offset'] ) ? $settings['element_pack_widget_tooltip_y_offset'] : '0' ) ;
+			if (!empty($settings['widget_pack_widget_tooltip_x_offset']) or !empty($settings['widget_pack_widget_tooltip_y_offset']) ) {
+				$xoffset = ( !empty($settings['widget_pack_widget_tooltip_x_offset'] ) ? $settings['widget_pack_widget_tooltip_x_offset'] : '0' ) ;
+				$yoffset = ( !empty($settings['widget_pack_widget_tooltip_y_offset'] ) ? $settings['widget_pack_widget_tooltip_y_offset'] : '0' ) ;
 				$offset  = $xoffset .','. $yoffset;
 				$widget->add_render_attribute( '_wrapper', 'data-tippy-offset', $offset, true );
 			}
@@ -1366,16 +1366,16 @@ class Module extends Element_Pack_Module_Base {
 	public function widget_motion_effect_before_render($widget) {    		
 		$settings = $widget->get_settings();
 
-		// if( $settings['element_pack_widget_tooltip'] == 'yes' ) {
+		// if( $settings['widget_pack_widget_tooltip'] == 'yes' ) {
 		// 	$element_id = $widget->get_settings( '_element_id' );
 		// 	if (empty($element_id)) {
-		// 		$id = 'bdt-widget-tooltip-'.$widget->get_id();
+		// 		$id = 'avt-widget-tooltip-'.$widget->get_id();
 		// 		$widget->add_render_attribute( '_wrapper', 'id', $id, true );
 		// 	} else {
 		// 		$id = $widget->get_settings( '_element_id' );
 		// 	}
 			
-		// 	$widget->add_render_attribute( '_wrapper', 'class', 'bdt-tippy-tooltip' );
+		// 	$widget->add_render_attribute( '_wrapper', 'class', 'avt-tippy-tooltip' );
 		// 	$widget->add_render_attribute( '_wrapper', 'data-tippy', '', true );
 		// }
 	}
@@ -1394,7 +1394,7 @@ class Module extends Element_Pack_Module_Base {
 
 			$this->sections_data[$id] = [ 'particles_js' => $particle_js ];
 			
-			ElementPack\element_pack_config()->elements_data['sections'] = $this->sections_data;
+			WidgetPack\widget_pack_config()->elements_data['sections'] = $this->sections_data;
 		}
 
 		
@@ -1425,7 +1425,7 @@ class Module extends Element_Pack_Module_Base {
 
 		$id = $section->get_id();
 		$section->add_render_attribute( 'scene', 'class', 'parallax-scene' );
-		$section->add_render_attribute( '_wrapper', 'class', 'has-bdt-parallax' );
+		$section->add_render_attribute( '_wrapper', 'class', 'has-avt-parallax' );
 
 		if ( 'relative' === $settings['section_parallax_mode']) {
 			$section->add_render_attribute( 'scene', 'data-relative-input', 'true' );
@@ -1437,7 +1437,7 @@ class Module extends Element_Pack_Module_Base {
 
 
 		?>
-		<div data-parallax-id="bdt_scene<?php echo esc_attr($id); ?>" id="bdt_scene<?php echo esc_attr($id); ?>" <?php echo $section->get_render_attribute_string( 'scene' ); ?>>
+		<div data-parallax-id="avt_scene<?php echo esc_attr($id); ?>" id="avt_scene<?php echo esc_attr($id); ?>" <?php echo $section->get_render_attribute_string( 'scene' ); ?>>
 			<?php foreach ( $parallax_elements as $index => $item ) : ?>
 			
 				<?php 
@@ -1460,7 +1460,7 @@ class Module extends Element_Pack_Module_Base {
 
 				?>
 				
-				<div data-depth="<?php echo esc_attr($item['section_parallax_depth']); ?>" class="bdt-scene-item" <?php echo $section->get_render_attribute_string( 'item' ); ?>></div>
+				<div data-depth="<?php echo esc_attr($item['section_parallax_depth']); ?>" class="avt-scene-item" <?php echo $section->get_render_attribute_string( 'item' ); ?>></div>
 				
 			<?php endforeach; ?>
 		</div>
@@ -1476,100 +1476,100 @@ class Module extends Element_Pack_Module_Base {
 		if ( ! in_array( $section_id, $layout_sections ) ) { return; }
 
 		$section->start_controls_section(
-			'element_pack_lightbox_style',
+			'widget_pack_lightbox_style',
 			[
-				'label' => BDTEP_CP . esc_html__( 'Lightbox Global Style', 'bdthemes-element-pack' ),
+				'label' => AWP_CP . esc_html__( 'Lightbox Global Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$section->add_control(
-			'element_pack_lightbox_bg',
+			'widget_pack_lightbox_bg',
 			[
-				'label'     => esc_html__( 'Lightbox Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Lightbox Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'.bdt-lightbox' => 'background-color: {{VALUE}};',
+					'.avt-lightbox' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
 
 
 		$section->add_control(
-			'element_pack_cb_color',
+			'widget_pack_cb_color',
 			[
-				'label'     => esc_html__( 'Close Button Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Close Button Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'.bdt-lightbox .bdt-close.bdt-icon' => 'color: {{VALUE}};',
+					'.avt-lightbox .avt-close.avt-icon' => 'color: {{VALUE}};',
 				],
 			]
 		);
 		
 		$section->add_control(
-			'element_pack_cb_bg',
+			'widget_pack_cb_bg',
 			[
-				'label'     => esc_html__( 'Close Button Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Close Button Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'.bdt-lightbox .bdt-close.bdt-icon' => 'background-color: {{VALUE}};',
+					'.avt-lightbox .avt-close.avt-icon' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
 
 		$section->add_group_control(
 			Group_Control_Border::get_type(), [
-				'name'        => 'element_pack_cb_border',
-				'label'       => esc_html__( 'Close Button Border', 'bdthemes-element-pack' ),
+				'name'        => 'widget_pack_cb_border',
+				'label'       => esc_html__( 'Close Button Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '.bdt-lightbox .bdt-close.bdt-icon',
+				'selector'    => '.avt-lightbox .avt-close.avt-icon',
 			]
 		);
 
 		$section->add_control(
-			'element_pack_cb_radius',
+			'widget_pack_cb_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'.bdt-lightbox .bdt-close.bdt-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.avt-lightbox .avt-close.avt-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 		$section->add_control(
-			'element_pack_cb_padding',
+			'widget_pack_cb_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'.bdt-lightbox .bdt-close.bdt-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'.avt-lightbox .avt-close.avt-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 
 
 		$section->add_control(
-			'element_pack_toolbar_color',
+			'widget_pack_toolbar_color',
 			[
-				'label'     => esc_html__( 'Toolbar Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Toolbar Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'.bdt-lightbox .bdt-lightbox-toolbar' => 'color: {{VALUE}};',
+					'.avt-lightbox .avt-lightbox-toolbar' => 'color: {{VALUE}};',
 				],
 			]
 		);
 		
 		$section->add_control(
-			'element_pack_toolbar_bg',
+			'widget_pack_toolbar_bg',
 			[
-				'label'     => esc_html__( 'Toolbar Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Toolbar Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'.bdt-lightbox .bdt-lightbox-toolbar' => 'background-color: {{VALUE}};',
+					'.avt-lightbox .avt-lightbox-toolbar' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1577,18 +1577,18 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'element_pack_toolbar_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '.bdt-lightbox .bdt-lightbox-toolbar',
+				'name'     => 'widget_pack_toolbar_typography',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '.avt-lightbox .avt-lightbox-toolbar',
 			]
 		);
 
 
 
 		$section->add_control(
-			'element_pack_lightbox_max_height',
+			'widget_pack_lightbox_max_height',
 			[
-				'label'      => esc_html__( 'Max Height (vh)', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Max Height (vh)', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [
 					'vh',
@@ -1600,7 +1600,7 @@ class Module extends Element_Pack_Module_Base {
 					],
 				],
 				'selectors'  => [
-					'.bdt-lightbox .bdt-lightbox-items>*>*' => 'max-height: {{SIZE}}vh;',
+					'.avt-lightbox .avt-lightbox-items>*>*' => 'max-height: {{SIZE}}vh;',
 				],
 				'render_type'=> 'template',
 				'separator'  => 'before',
@@ -1620,17 +1620,17 @@ class Module extends Element_Pack_Module_Base {
 
 
 		$section->start_controls_section(
-			'element_pack_global_tooltip_style',
+			'widget_pack_global_tooltip_style',
 			[
-				'label' => BDTEP_CP . esc_html__( 'Tooltip Global Style', 'bdthemes-element-pack' ),
+				'label' => AWP_CP . esc_html__( 'Tooltip Global Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$section->add_responsive_control(
-			'element_pack_global_tooltip_width',
+			'widget_pack_global_tooltip_width',
 			[
-				'label'      => esc_html__( 'Width', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Width', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [
 					'px', 'em',
@@ -1649,9 +1649,9 @@ class Module extends Element_Pack_Module_Base {
 		);
 
 		$section->add_control(
-			'element_pack_global_tooltip_color',
+			'widget_pack_global_tooltip_color',
 			[
-				'label'  => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
 					'.elementor-widget .tippy-tooltip' => 'color: {{VALUE}}',
@@ -1662,15 +1662,15 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'element_pack_global_tooltip_background',
+				'name'     => 'widget_pack_global_tooltip_background',
 				'selector' => '.elementor-widget .tippy-tooltip, .elementor-widget .tippy-tooltip .tippy-backdrop',
 			]
 		);
 
 		$section->add_control(
-			'element_pack_global_tooltip_arrow_color',
+			'widget_pack_global_tooltip_arrow_color',
 			[
-				'label'  => esc_html__( 'Arrow Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Arrow Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
 					'.elementor-widget .tippy-popper[x-placement^=left] .tippy-arrow'  => 'border-left-color: {{VALUE}}',
@@ -1679,15 +1679,15 @@ class Module extends Element_Pack_Module_Base {
 					'.elementor-widget .tippy-popper[x-placement^=bottom] .tippy-arrow'=> 'border-bottom-color: {{VALUE}}',
 				],
 				'condition' => [
-					'element_pack_global_tooltip'       => 'yes',
+					'widget_pack_global_tooltip'       => 'yes',
 				],
 			]
 		);
 
 		$section->add_responsive_control(
-			'element_pack_global_tooltip_padding',
+			'widget_pack_global_tooltip_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -1701,8 +1701,8 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'        => 'element_pack_global_tooltip_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'name'        => 'widget_pack_global_tooltip_border',
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '.elementor-widget .tippy-tooltip',
@@ -1710,9 +1710,9 @@ class Module extends Element_Pack_Module_Base {
 		);
 
 		$section->add_responsive_control(
-			'element_pack_global_tooltip_border_radius',
+			'widget_pack_global_tooltip_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -1722,22 +1722,22 @@ class Module extends Element_Pack_Module_Base {
 		);
 
 		$section->add_control(
-			'element_pack_global_tooltip_text_align',
+			'widget_pack_global_tooltip_text_align',
 			[
-				'label'   => esc_html__( 'Text Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -1752,7 +1752,7 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'element_pack_global_tooltip_box_shadow',
+				'name' => 'widget_pack_global_tooltip_box_shadow',
 				'selector' => '.elementor-widget .tippy-tooltip',
 			]
 		);
@@ -1760,7 +1760,7 @@ class Module extends Element_Pack_Module_Base {
 		$section->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'element_pack_global_tooltip_typography',
+				'name'     => 'widget_pack_global_tooltip_typography',
 				'selector' => '.elementor-widget .tippy-tooltip .tippy-content',
 			]
 		);

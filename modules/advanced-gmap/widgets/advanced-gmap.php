@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\AdvancedGmap\Widgets;
+namespace WidgetPack\Modules\AdvancedGmap\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,19 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Advanced_Gmap extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-advanced-gmap';
+		return 'avt-advanced-gmap';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Advanced Google Map', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Advanced Google Map', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-advanced-google-map';
+		return 'avt-wi-advanced-google-map';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,14 +40,14 @@ class Advanced_Gmap extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_gmap',
 			[
-				'label' => esc_html__( 'Google Map', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Google Map', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'avd_google_map_zoom_control',
 			[
-				'label'   => esc_html__( 'Zoom Control', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Zoom Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -56,7 +56,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'avd_google_map_default_zoom',
 			[
-				'label' => esc_html__( 'Default Zoom', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Default Zoom', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -74,7 +74,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'avd_google_map_street_view',
 			[
-				'label'   => esc_html__( 'Street View Control', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Street View Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -83,7 +83,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'avd_google_map_type_control',
 			[
-				'label'   => esc_html__( 'Map Type Control', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Map Type Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -92,7 +92,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_responsive_control(
 			'avd_google_map_height',
 			[
-				'label' => esc_html__( 'Map Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Map Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -100,7 +100,7 @@ class Advanced_Gmap extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-gmap'  => 'min-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-advanced-gmap'  => 'min-height: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -108,7 +108,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'gmap_geocode',
 			[
-				'label' => esc_html__( 'Search Address', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Search Address', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 				'separator' => 'before',
 			]
@@ -117,24 +117,24 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_responsive_control(
 			'search_align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-gmap-search-wrapper' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-gmap-search-wrapper' => 'text-align: {{VALUE}};',
 				],
 				'condition' => [
 					'gmap_geocode' => 'yes',
@@ -145,7 +145,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_responsive_control(
 			'search_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -153,7 +153,7 @@ class Advanced_Gmap extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-gmap-search-wrapper'  => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-gmap-search-wrapper'  => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'gmap_geocode' => 'yes',
@@ -166,7 +166,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_marker',
 			[
-				'label' => esc_html__( 'Marker', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Marker', 'avator-widget-pack' ),
 			]
 		);
 
@@ -177,14 +177,14 @@ class Advanced_Gmap extends Widget_Base {
 		$repeater->start_controls_tab(
 			'tab_content_content',
 			[
-				'label' => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Content', 'avator-widget-pack' ),
 			]
 		);
 
 		$repeater->add_control(
 			'marker_lat',
 			[
-				'label'   => esc_html__( 'Latitude', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Latitude', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
 				'default' => '24.8238746',
@@ -194,7 +194,7 @@ class Advanced_Gmap extends Widget_Base {
 		$repeater->add_control(
 			'marker_lng',
 			[
-				'label'   => esc_html__( 'Longitude', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Longitude', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
 				'default' => '89.3816299',
@@ -204,7 +204,7 @@ class Advanced_Gmap extends Widget_Base {
 		$repeater->add_control(
 			'marker_title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
 				'default' => 'Another Place',
@@ -214,10 +214,10 @@ class Advanced_Gmap extends Widget_Base {
 		$repeater->add_control(
 			'marker_content',
 			[
-				'label'   => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => [ 'active' => true ],
-				'default' => esc_html__( 'Your Business Address Here', 'bdthemes-element-pack'),
+				'default' => esc_html__( 'Your Business Address Here', 'avator-widget-pack'),
 			]
 		);
 		
@@ -226,15 +226,15 @@ class Advanced_Gmap extends Widget_Base {
 		$repeater->start_controls_tab(
 			'tab_content_marker',
 			[
-				'label' => esc_html__( 'Marker', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Marker', 'avator-widget-pack' ),
 			]
 		);
 
 		$repeater->add_control(
 			'custom_marker',
 			[
-				'label'       => esc_html__( 'Custom marker', 'bdthemes-element-pack' ),
-				'description' => esc_html__('Use max 32x32 px size icon for better result.', 'bdthemes-element-pack'),
+				'label'       => esc_html__( 'Custom marker', 'avator-widget-pack' ),
+				'description' => esc_html__('Use max 32x32 px size icon for better result.', 'avator-widget-pack'),
 				'type'        => Controls_Manager::MEDIA,
 			]
 		);
@@ -252,8 +252,8 @@ class Advanced_Gmap extends Widget_Base {
 					[
 						'marker_lat'     => '24.8248746',
 						'marker_lng'     => '89.3826299',
-						'marker_title'   => esc_html__( 'BdThemes', 'bdthemes-element-pack' ),
-						'marker_content' => esc_html__( '<strong>BdThemes Limited</strong>,<br>Latifpur, Bogra - 5800,<br>Bangladesh', 'bdthemes-element-pack'),
+						'marker_title'   => esc_html__( 'Avator', 'avator-widget-pack' ),
+						'marker_content' => esc_html__( '<strong>Avator Limited</strong>,<br>Latifpur, Bogra - 5800,<br>Bangladesh', 'avator-widget-pack'),
 					],
 				],
 				'title_field' => '{{{ marker_title }}}',
@@ -265,7 +265,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_gmap',
 			[
-				'label' => esc_html__( 'GMap Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'GMap Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -273,10 +273,10 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'avd_google_map_style',
 			[
-				'label'   => esc_html__( 'Style Json Code', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Style Json Code', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'default' => '',
-		        'description' => esc_html__( 'Go to this link: <a href="https://snazzymaps.com/" target="_blank">snazzymaps.com</a> and pick a style, copy the json code from first with \'[\' to last with \']\' then come back and paste here', 'bdthemes-element-pack' ),
+		        'description' => esc_html__( 'Go to this link: <a href="https://snazzymaps.com/" target="_blank">snazzymaps.com</a> and pick a style, copy the json code from first with \'[\' to last with \']\' then come back and paste here', 'avator-widget-pack' ),
 			]
 		);
 
@@ -285,7 +285,7 @@ class Advanced_Gmap extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_search',
 			[
-				'label'     => esc_html__( 'Search', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Search', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'gmap_geocode' => 'yes',
@@ -296,10 +296,10 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'search_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-search.avt-search-default .avt-search-input' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -307,10 +307,10 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'search_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-search.avt-search-default .avt-search-input' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -318,11 +318,11 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_control(
 			'search_placeholder_color',
 			[
-				'label'     => esc_html__( 'Placeholder Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Placeholder Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input::placeholder' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-search.bdt-search-default span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-search.avt-search-default .avt-search-input::placeholder' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-search.avt-search-default span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -331,7 +331,7 @@ class Advanced_Gmap extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'search_shadow',
-				'selector' => '{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input',
+				'selector' => '{{WRAPPER}} .avt-search.avt-search-default .avt-search-input',
 			]
 		);
 
@@ -339,21 +339,21 @@ class Advanced_Gmap extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'search_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input',
+				'selector'    => '{{WRAPPER}} .avt-search.avt-search-default .avt-search-input',
 			]
 		);
 
 		$this->add_responsive_control(
 			'search_border_radius',
 			[
-				'label'      => esc_html__( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-search.avt-search-default .avt-search-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -361,11 +361,11 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_responsive_control(
 			'search_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-search.avt-search-default .avt-search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -373,11 +373,11 @@ class Advanced_Gmap extends Widget_Base {
 		$this->add_responsive_control(
 			'search_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-search.bdt-search-default .bdt-search-input' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-search.avt-search-default .avt-search-input' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -387,15 +387,15 @@ class Advanced_Gmap extends Widget_Base {
 
 	protected function render() {
 		$settings           = $this->get_settings();
-		$id                 = 'bdt-advanced-gmap-'.$this->get_id();
-		$ep_api_settings    = get_option( 'element_pack_api_settings' );
+		$id                 = 'avt-advanced-gmap-'.$this->get_id();
+		$ep_api_settings    = get_option( 'widget_pack_api_settings' );
 		
 		$map_settings       = [];
 		$map_settings['el'] = '#'.$id;
 		
 		$marker_settings    = [];
 		$marker_content     = [];
-		$bdt_counter        = 0;
+		$avt_counter        = 0;
 		$all_markers        = [];
 
 		foreach ( $settings['marker'] as $marker_item ) {
@@ -408,8 +408,8 @@ class Advanced_Gmap extends Widget_Base {
 
 			$all_markers[] = $marker_settings;
 
-			$bdt_counter++;
-			if ( 1 === $bdt_counter ) {
+			$avt_counter++;
+			if ( 1 === $avt_counter ) {
 				$map_settings['lat'] = ( $marker_item['marker_lat'] ) ? $marker_item['marker_lat'] : '';
 				$map_settings['lng'] = ( $marker_item['marker_lng'] ) ? $marker_item['marker_lng'] : '';
 			}
@@ -425,26 +425,26 @@ class Advanced_Gmap extends Widget_Base {
 		?>
 
 		<?php if(empty($ep_api_settings['google_map_key'])) : ?>
-			<div class="bdt-alert-warning" bdt-alert>
-			    <a class="bdt-alert-close" bdt-close></a>
-			    <?php $ep_setting_url = esc_url( admin_url('admin.php?page=element_pack_options#element_pack_api_settings')); ?>
-			    <p><?php printf(__( 'Please set your google map api key in <a href="%s">element pack settings</a> to show your map correctly.', 'bdthemes-element-pack' ), $ep_setting_url); ?></p>
+			<div class="avt-alert-warning" avt-alert>
+			    <a class="avt-alert-close" avt-close></a>
+			    <?php $ep_setting_url = esc_url( admin_url('admin.php?page=widget_pack_options#widget_pack_api_settings')); ?>
+			    <p><?php printf(__( 'Please set your google map api key in <a href="%s">widget pack settings</a> to show your map correctly.', 'avator-widget-pack' ), $ep_setting_url); ?></p>
 			</div>
 		<?php endif; ?>
 	
 		<?php if($settings['gmap_geocode']) : ?>
 
-			<div class="bdt-gmap-search-wrapper bdt-margin">
-			    <form method="post" id="<?php echo esc_attr($id); ?>form" class="bdt-search bdt-search-default">
-			        <span bdt-search-icon></span>
-			        <input id="<?php echo esc_attr($id); ?>address" name="address" class="bdt-search-input" type="search" placeholder="Search...">
+			<div class="avt-gmap-search-wrapper avt-margin">
+			    <form method="post" id="<?php echo esc_attr($id); ?>form" class="avt-search avt-search-default">
+			        <span avt-search-icon></span>
+			        <input id="<?php echo esc_attr($id); ?>address" name="address" class="avt-search-input" type="search" placeholder="Search...">
 			    </form>
 			</div>
 
 		<?php endif;
 
 		$this->add_render_attribute( 'advanced-gmap', 'id', $id );
-		$this->add_render_attribute( 'advanced-gmap', 'class', 'bdt-advanced-gmap' );
+		$this->add_render_attribute( 'advanced-gmap', 'class', 'avt-advanced-gmap' );
 		
 		$this->add_render_attribute( 'advanced-gmap', 'data-map_markers', wp_json_encode($all_markers) );
 

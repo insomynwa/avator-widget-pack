@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Table\Widgets;
+namespace WidgetPack\Modules\Table\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
@@ -11,19 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Table extends Widget_Base {
 	public function get_name() {
-		return 'bdt-table';
+		return 'avt-table';
 	}
 
 	public function get_title() {
-		return BDTEP . __( 'Table', 'bdthemes-element-pack' );
+		return AWP . __( 'Table', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-table';
+		return 'avt-wi-table';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -42,19 +42,19 @@ class Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_table',
 			[
-				'label' => __( 'Table', 'bdthemes-element-pack' ),
+				'label' => __( 'Table', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'source',
 			[
-				'label'   => __( 'Source', 'bdthemes-element-pack' ),
+				'label'   => __( 'Source', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'custom',
 				'options' => [
-					'custom'   => __( 'Custom', 'bdthemes-element-pack' ),
-					'csv_file' => __( 'CSV File', 'bdthemes-element-pack' ),
+					'custom'   => __( 'Custom', 'avator-widget-pack' ),
+					'csv_file' => __( 'CSV File', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -62,10 +62,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'content',
 			[
-				'label'       => __( 'Content', 'bdthemes-element-pack' ),
+				'label'       => __( 'Content', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXTAREA,
-				'default'     => __( '<table><thead><tr><th>Name</th><th>Age</th><th>Phone</th></tr></thead><tbody><tr><td>Tom</td><td>5</td><td>010281065</td></tr><tr><td>Jerry</td><td>4</td><td>012540515</td></tr><tr><td>Halum</td><td>12</td><td>011511441</td></tr></tbody></table>', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Table Data', 'bdthemes-element-pack' ),
+				'default'     => __( '<table><thead><tr><th>Name</th><th>Age</th><th>Phone</th></tr></thead><tbody><tr><td>Tom</td><td>5</td><td>010281065</td></tr><tr><td>Jerry</td><td>4</td><td>012540515</td></tr><tr><td>Halum</td><td>12</td><td>011511441</td></tr></tbody></table>', 'avator-widget-pack' ),
+				'placeholder' => __( 'Table Data', 'avator-widget-pack' ),
 				'rows'        => 10,
 				'condition'   => [
 					'source' => 'custom',
@@ -76,12 +76,12 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'file',
 			[
-				'label'         => __( 'Enter a CSV File URL', 'bdthemes-element-pack' ),
+				'label'         => __( 'Enter a CSV File URL', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'show_external' => false,
 				'label_block'   => true,
 				'default'       => [
-					'url' => BDTEP_ASSETS_URL . 'others/table.csv',
+					'url' => AWP_ASSETS_URL . 'others/table.csv',
 				],
 				'condition'     => [
 					'source' => 'csv_file',
@@ -92,25 +92,25 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'header_align',
 			[
-				'label'   => __( 'Header Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Header Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table th' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-table th' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -118,25 +118,25 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'body_align',
 			[
-				'label'   => __( 'Body Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Body Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table table' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-table table' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -144,7 +144,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'use_data_table',
 			[
-				'label'   => esc_html__( 'Datatable', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Datatable', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -153,13 +153,13 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'table_responsive_control',
 			[
-				'label'   => __( 'Responsive', 'bdthemes-element-pack' ),
+				'label'   => __( 'Responsive', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'table_responsive_2',
 				'options' => [
-					'table_responsive_no'     => esc_html__('No Responsive', 'bdthemes-element-pack'),
-					'table_responsive_1' 	  => esc_html__('Responsive 1', 'bdthemes-element-pack'),
-					'table_responsive_2' 	  => esc_html__('Responsive 2', 'bdthemes-element-pack'),
+					'table_responsive_no'     => esc_html__('No Responsive', 'avator-widget-pack'),
+					'table_responsive_1' 	  => esc_html__('Responsive 1', 'avator-widget-pack'),
+					'table_responsive_2' 	  => esc_html__('Responsive 2', 'avator-widget-pack'),
 				],
 				'separator' => 'before',
 			]
@@ -171,7 +171,7 @@ class Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_data_table',
 			[
-				'label'     => __( 'Data Table Settings', 'bdthemes-element-pack' ),
+				'label'     => __( 'Data Table Settings', 'avator-widget-pack' ),
 				'condition' => [
 					'use_data_table' => 'yes',
 				],
@@ -181,7 +181,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'show_searching',
 			[
-				'label'   => esc_html__( 'Search', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Search', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -190,7 +190,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'show_ordering',
 			[
-				'label'   => esc_html__( 'Ordering', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Ordering', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -199,7 +199,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'show_pagination',
 			[
-				'label'   => esc_html__( 'Pagination', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Pagination', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -208,7 +208,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'show_info',
 			[
-				'label'   => esc_html__( 'Info', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Info', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -219,7 +219,7 @@ class Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_table',
 			[
-				'label' => __( 'Table', 'bdthemes-element-pack' ),
+				'label' => __( 'Table', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -227,7 +227,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'stripe_style',
 			[
-				'label' => __( 'Stripe Style', 'bdthemes-element-pack' ),
+				'label' => __( 'Stripe Style', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -235,19 +235,19 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'table_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table table' => 'border-style: {{VALUE}};',
+					'{{WRAPPER}} .avt-table table' => 'border-style: {{VALUE}};',
 				],
 			]
 		);
@@ -255,7 +255,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'table_border_width',
 			[
-				'label'   => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -267,7 +267,7 @@ class Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table table' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table table' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -275,11 +275,11 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'table_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ccc',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table table' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table table' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -289,7 +289,7 @@ class Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_header',
 			[
-				'label' => __( 'Header', 'bdthemes-element-pack' ),
+				'label' => __( 'Header', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -297,11 +297,11 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'header_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#e7ebef',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table th' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table th' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -309,11 +309,11 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'header_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table th' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table th' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -321,19 +321,19 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'header_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table th' => 'border-style: {{VALUE}};',
+					'{{WRAPPER}} .avt-table th' => 'border-style: {{VALUE}};',
 				],
 			]
 		);
@@ -341,7 +341,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'header_border_width',
 			[
-				'label'   => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -353,7 +353,7 @@ class Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table th' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table th' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -361,11 +361,11 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'header_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ccc',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table th' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table th' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -373,7 +373,7 @@ class Table extends Widget_Base {
 		$this->add_responsive_control(
 			'header_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default'    => [
@@ -384,7 +384,7 @@ class Table extends Widget_Base {
 					'unit'   => 'em'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);		
@@ -394,7 +394,7 @@ class Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_body',
 			[
-				'label' => __( 'Body', 'bdthemes-element-pack' ),
+				'label' => __( 'Body', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -402,19 +402,19 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'cell_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table td' => 'border-style: {{VALUE}};',
+					'{{WRAPPER}} .avt-table td' => 'border-style: {{VALUE}};',
 				],
 			]
 		);
@@ -422,7 +422,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'cell_border_width',
 			[
-				'label'   => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -434,7 +434,7 @@ class Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table td' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table td' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -442,7 +442,7 @@ class Table extends Widget_Base {
 		$this->add_responsive_control(
 			'cell_padding',
 			[
-				'label'      => __( 'Cell Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Cell Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default'    => [
@@ -453,7 +453,7 @@ class Table extends Widget_Base {
 					'unit'   => 'em'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'after',
 			]
@@ -464,18 +464,18 @@ class Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'normal_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table td' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table td' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -483,10 +483,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'normal_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table td' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table td' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -494,11 +494,11 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'normal_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ccc',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table td' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table td' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -508,17 +508,17 @@ class Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'row_hover_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.elementor-widget-bdt-table .bdt-table table tr:hover td' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}.elementor-widget-avt-table .avt-table table tr:hover td' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -526,10 +526,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'row_hover_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.elementor-widget-bdt-table .bdt-table table tr:hover td' => 'color: {{VALUE}};',
+					'{{WRAPPER}}.elementor-widget-avt-table .avt-table table tr:hover td' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -539,7 +539,7 @@ class Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_stripe',
 			[
-				'label'     => __( 'Stripe', 'bdthemes-element-pack' ),
+				'label'     => __( 'Stripe', 'avator-widget-pack' ),
 				'condition' => [
 					'stripe_style' => 'yes',
 				],
@@ -549,10 +549,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'stripe_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .even td' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table .even td' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -560,10 +560,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'stripe_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .even td' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table .even td' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -577,7 +577,7 @@ class Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_filter_style',
 			[
-				'label'      => esc_html__( 'Filter', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Filter', 'avator-widget-pack' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -587,17 +587,17 @@ class Table extends Widget_Base {
 		$this->start_controls_tab(
 			'filter_header_style',
 			[
-				'label'     => __( 'Header', 'bdthemes-element-pack' ),
+				'label'     => __( 'Header', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'datatable_header_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .dataTables_length label, {{WRAPPER}} .bdt-table .dataTables_filter label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table .dataTables_length label, {{WRAPPER}} .avt-table .dataTables_filter label' => 'color: {{VALUE}};',
 				],
 				'separator' => 'after',
 			]
@@ -607,10 +607,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'datatable_header_input_color',
 			[
-				'label'     => esc_html__( 'Input Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Input Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .dataTables_filter input, {{WRAPPER}} .bdt-table .dataTables_length select' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table .dataTables_filter input, {{WRAPPER}} .avt-table .dataTables_length select' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -618,10 +618,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'datatable_header_input_background',
 			[
-				'label'     => esc_html__( 'Input Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Input Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .dataTables_filter input, {{WRAPPER}} .bdt-table .dataTables_length select' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table .dataTables_filter input, {{WRAPPER}} .avt-table .dataTables_length select' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -629,11 +629,11 @@ class Table extends Widget_Base {
 		$this->add_responsive_control(
 			'datatable_header_input_padding',
 			[
-				'label'      => esc_html__( 'Input Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Input Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-table .dataTables_filter input, {{WRAPPER}} .bdt-table .dataTables_length select' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table .dataTables_filter input, {{WRAPPER}} .avt-table .dataTables_length select' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -642,21 +642,21 @@ class Table extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'datatable_header_input_border',
-				'label'       => esc_html__( 'Input Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Input Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-table .dataTables_filter input, {{WRAPPER}} .bdt-table .dataTables_length select',
+				'selector'    => '{{WRAPPER}} .avt-table .dataTables_filter input, {{WRAPPER}} .avt-table .dataTables_length select',
 			]
 		);
 
 		$this->add_responsive_control(
 			'datatable_header_input_radius',
 			[
-				'label'      => esc_html__( 'Input Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Input Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-table .dataTables_filter input, {{WRAPPER}} .bdt-table .dataTables_length select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table .dataTables_filter input, {{WRAPPER}} .avt-table .dataTables_length select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -666,14 +666,14 @@ class Table extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'datatable_header_input_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-table .dataTables_filter input, {{WRAPPER}} .bdt-table .dataTables_length select',
+				'selector' => '{{WRAPPER}} .avt-table .dataTables_filter input, {{WRAPPER}} .avt-table .dataTables_length select',
 			]
 		);
 
 		$this->add_control(
 			'datatable_header_space',
 			[
-				'label'   => __( 'Space', 'bdthemes-element-pack' ),
+				'label'   => __( 'Space', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -685,7 +685,7 @@ class Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .dataTables_filter' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table .dataTables_filter' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -695,17 +695,17 @@ class Table extends Widget_Base {
 		$this->start_controls_tab(
 			'filter_footer_style',
 			[
-				'label'     => __( 'Footer', 'bdthemes-element-pack' ),
+				'label'     => __( 'Footer', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'datatable_footer_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .dataTables_info, {{WRAPPER}} .bdt-table .dataTables_paginate' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-table .dataTables_info, {{WRAPPER}} .avt-table .dataTables_paginate' => 'color: {{VALUE}};',
 				],
 				'separator' => 'after',
 			]
@@ -714,10 +714,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'datatable_footer_pagination_color',
 			[
-				'label'     => esc_html__( 'Pagination Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pagination Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .dataTables_paginate a' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .avt-table .dataTables_paginate a' => 'color: {{VALUE}} !important;',
 				],
 			]
 		);
@@ -725,10 +725,10 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'datatable_footer_pagination_active_color',
 			[
-				'label'     => esc_html__( 'Pagination Active Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pagination Active Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table .dataTables_paginate a.current' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .avt-table .dataTables_paginate a.current' => 'color: {{VALUE}} !important;',
 				],
 			]
 		);
@@ -736,7 +736,7 @@ class Table extends Widget_Base {
 		$this->add_control(
 			'datatable_footer_space',
 			[
-				'label'   => __( 'Space', 'bdthemes-element-pack' ),
+				'label'   => __( 'Space', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -748,7 +748,7 @@ class Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-table table' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-table table' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -762,32 +762,32 @@ class Table extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings();
-		$id       = 'bdt-table-' . $this->get_id();
+		$id       = 'avt-table-' . $this->get_id();
 
 		if ( empty($settings['content']) or empty($settings['file']['url']) ) {
 					
-			element_pack_alert( esc_html__('Opps!! You didn\'t enter any table data or CSV file', 'bdthemes-element-pack') );	
+			widget_pack_alert( esc_html__('Opps!! You didn\'t enter any table data or CSV file', 'avator-widget-pack') );	
 
 		}
 
 		if ('table_responsive_no' == $settings['table_responsive_control']) {
-			$this->add_render_attribute('table-wrapper', 'class', ['bdt-table']);
+			$this->add_render_attribute('table-wrapper', 'class', ['avt-table']);
 		}
 
 		if ('table_responsive_1' == $settings['table_responsive_control']) {
-			$this->add_render_attribute('table-wrapper', 'class', ['bdt-table', 'bdt-table-responsive']);
+			$this->add_render_attribute('table-wrapper', 'class', ['avt-table', 'avt-table-responsive']);
 		}
 		
 		if ('table_responsive_2' == $settings['table_responsive_control']) {
-			$this->add_render_attribute('table-wrapper', 'class', ['bdt-table', 'bdt-table-default-responsive']);
+			$this->add_render_attribute('table-wrapper', 'class', ['avt-table', 'avt-table-default-responsive']);
 		}
 		
-		$this->add_render_attribute( 'table-wrapper', 'class', $settings['stripe_style'] ? 'bdt-stripe' : '' );
+		$this->add_render_attribute( 'table-wrapper', 'class', $settings['stripe_style'] ? 'avt-stripe' : '' );
 		$this->add_render_attribute( 'table-wrapper', 'id', $id );
 
 		if ( 'yes' == $settings['use_data_table'] ) :
 			
-			$this->add_render_attribute( 'table-wrapper', 'class', 'bdt-data-table' );
+			$this->add_render_attribute( 'table-wrapper', 'class', 'avt-data-table' );
 
 			$this->add_render_attribute(
 				[
@@ -817,7 +817,7 @@ class Table extends Widget_Base {
 					echo do_shortcode($settings['content']);
 
 				} elseif ( 'csv_file' == $settings['source'] and !empty($settings['file']['url']) ) {
-					echo element_pack_parse_csv(esc_url($settings['file']['url']));
+					echo widget_pack_parse_csv(esc_url($settings['file']['url']));
 				}
 
 			?>

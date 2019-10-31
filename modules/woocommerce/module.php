@@ -1,18 +1,18 @@
 <?php
-namespace ElementPack\Modules\Woocommerce;
+namespace WidgetPack\Modules\Woocommerce;
 
-use ElementPack\Base\Element_Pack_Module_Base;
+use WidgetPack\Base\Widget_Pack_Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Module extends Element_Pack_Module_Base {
+class Module extends Widget_Pack_Module_Base {
 
 	public static function is_active() {
 		return function_exists( 'WC' );
 	}
 
 	public function get_name() {
-		return 'bdt-woocommerce';
+		return 'avt-woocommerce';
 	}
 
 	public function get_widgets() {

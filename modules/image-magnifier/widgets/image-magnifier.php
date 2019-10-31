@@ -1,31 +1,31 @@
 <?php
-namespace ElementPack\Modules\ImageMagnifier\Widgets;
+namespace WidgetPack\Modules\ImageMagnifier\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 
-use ElementPack\Modules\ImageMagnifier\Skins;
+use WidgetPack\Modules\ImageMagnifier\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Image_Magnifier extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-image-magnifier';
+		return 'avt-image-magnifier';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Image Magnifier', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Image Magnifier', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-image-magnifier';
+		return 'avt-wi-image-magnifier';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -37,7 +37,7 @@ class Image_Magnifier extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'imagezoom', 'imagesloaded', 'bdt-uikit-icons', ];
+		return [ 'imagezoom', 'imagesloaded', 'avt-uikit-icons', ];
 	}
 
 	// public function _register_skins() {
@@ -48,7 +48,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
@@ -57,17 +57,17 @@ class Image_Magnifier extends Widget_Base {
 		$this->start_controls_tab(
 			'image_choose_thumb_image',
 			[
-				'label' => __('Thumb Image', 'bdthemes-element-pack')
+				'label' => __('Thumb Image', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'image',
 			[
-				'label'   => esc_html__( 'Thumb Image', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Thumb Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [ 'active' => true ],
-				'description' => esc_html__( 'If you want to load magnifying image as large so open right tab', 'bdthemes-element-pack' ),
+				'description' => esc_html__( 'If you want to load magnifying image as large so open right tab', 'avator-widget-pack' ),
 			]
 		);
 
@@ -76,14 +76,14 @@ class Image_Magnifier extends Widget_Base {
 		$this->start_controls_tab(
 			'image_choose_magnify_image',
 			[
-				'label' => __('Magnify Image', 'bdthemes-element-pack')
+				'label' => __('Magnify Image', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'magnify_img',
 			[
-				'label'   => esc_html__( 'Magnify Image', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Magnify Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [ 'active' => true ],
 			]
@@ -96,13 +96,13 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'type',
 			[
-				'label'   => esc_html__( 'Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'inner',
 				'options' => [
-					'inner'    => esc_html__( 'Inner', 'bdthemes-element-pack' ),
-					'standard' => esc_html__( 'Standard', 'bdthemes-element-pack' ),
-					'follow'   => esc_html__( 'Follow', 'bdthemes-element-pack' ),
+					'inner'    => esc_html__( 'Inner', 'avator-widget-pack' ),
+					'standard' => esc_html__( 'Standard', 'avator-widget-pack' ),
+					'follow'   => esc_html__( 'Follow', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -110,7 +110,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'smooth_move',
 			[
-				'label'   => esc_html__( 'Smooth Move', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Smooth Move', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -119,7 +119,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'preload',
 			[
-				'label'   => esc_html__( 'Preload', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Preload', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -128,7 +128,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'zoom_ratio',
 			[
-				'label'       => esc_html__( 'Zoom Ratio', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Zoom Ratio', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::IMAGE_DIMENSIONS,
 				'description' => 'Zoom ratio widht and height, such as 480:300',
 			]
@@ -137,7 +137,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'horizontal_offset',
 			[
-				'label'   => esc_html__( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => '10',
@@ -151,7 +151,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'vertical_offset',
 			[
-				'label'   => esc_html__( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => '0',
@@ -165,12 +165,12 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'position',
 			[
-				'label'   => esc_html__( 'Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'right' => esc_html__( 'Right', 'bdthemes-element-pack' ),
-					'left'  => esc_html__( 'Left', 'bdthemes-element-pack' ),
+					'right' => esc_html__( 'Right', 'avator-widget-pack' ),
+					'left'  => esc_html__( 'Left', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'type' => 'standard',
@@ -183,7 +183,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label' => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Image', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -191,10 +191,10 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'image_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-image-magnifier' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-image-magnifier' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -202,10 +202,10 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_responsive_control(
 			'image_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-image-magnifier' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .avt-image-magnifier' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
 				],
 			]
 		);
@@ -214,10 +214,10 @@ class Image_Magnifier extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'image_border',
-				'label'       => __( 'Border', 'bdthemes-element-pack' ),
+				'label'       => __( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-image-magnifier',
+				'selector'    => '{{WRAPPER}} .avt-image-magnifier',
 				'separator'   => 'before',
 			]
 		);
@@ -225,11 +225,11 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-image-magnifier' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-image-magnifier' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -237,7 +237,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_control(
 			'image_opacity',
 			[
-				'label'   => __( 'Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -250,7 +250,7 @@ class Image_Magnifier extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-image-magnifier img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-image-magnifier img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -260,7 +260,7 @@ class Image_Magnifier extends Widget_Base {
 
 	public function render() {
 		$settings      = $this->get_settings_for_display();
-		$id            = 'bdt-image-magnifier-' . $this->get_id();
+		$id            = 'avt-image-magnifier-' . $this->get_id();
 		$image_url     = wp_get_attachment_image_src( $settings['image']['id'], 'full' );
 		$big_image_src = wp_get_attachment_image_src( $settings['magnify_img']['id'], 'full' );
 		$big_image_src = ( $big_image_src ) ? : $image_url;
@@ -275,7 +275,7 @@ class Image_Magnifier extends Widget_Base {
 		$this->add_render_attribute(
 			[
 				'image-magnifier' => [
-					'class' => [ 'bdt-image-magnifier-image' ],					
+					'class' => [ 'avt-image-magnifier-image' ],					
 					'src'   => esc_attr($image_url[0]),
 					'alt'   => '',
 				]
@@ -296,8 +296,8 @@ class Image_Magnifier extends Widget_Base {
 				        ]))
 					],
 					'class' => [
-						'bdt-image-magnifier',
-						'bdt-position-relative',
+						'avt-image-magnifier',
+						'avt-position-relative',
 					]
 				]
 			]
@@ -333,7 +333,7 @@ class Image_Magnifier extends Widget_Base {
             <?php
         } else {
         	?>
-        	<div class="bdt-alert-warning bdt-text-center">Opps!! You didn't choose any image for magnifying action</div>
+        	<div class="avt-alert-warning avt-text-center">Opps!! You didn't choose any image for magnifying action</div>
         	<?php
         }
 	}

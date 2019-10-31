@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PanelSlider\Widgets;
+namespace WidgetPack\Modules\PanelSlider\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,7 +11,7 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\PanelSlider\Skins;
+use WidgetPack\Modules\PanelSlider\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -21,19 +21,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Panel_Slider extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-panel-slider';
+		return 'avt-panel-slider';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Panel Slider', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Panel Slider', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-panel-slider';
+		return 'avt-wi-panel-slider';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -41,7 +41,7 @@ class Panel_Slider extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'imagesloaded', 'bdt-uikit-icons' ];
+		return [ 'imagesloaded', 'avt-uikit-icons' ];
 	}
 
 	protected function _register_skins() {
@@ -52,14 +52,14 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '3',
 				'tablet_default' => '2',
@@ -82,7 +82,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'skin_columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '4',
 				'tablet_default' => '2',
@@ -103,7 +103,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'column_space',
 			[
-				'label' => esc_html__('Column Space', 'bdthemes-element-pack'),
+				'label' => esc_html__('Column Space', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 			]
 		);
@@ -111,7 +111,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'slider_height',
 			[
-				'label'      => esc_html__('Slider Height', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Slider Height', 'avator-widget-pack'),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%' ],
 				'range'      => [
@@ -133,7 +133,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Show Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -142,17 +142,17 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'global_link',
 			[
-				'label'        => esc_html__( 'Global Link', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Global Link', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'description'  => 'If it apply then button link wii not work',
-				'prefix_class' => 'bdt-global-link-',
+				'prefix_class' => 'avt-global-link-',
 			]
 		);
 
 		$this->add_control(
 			'button',
 			[
-				'label'       => esc_html__( 'Show Button', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Show Button', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'default'     => 'yes',
 				'description' => 'It will work when link field no null.',
@@ -175,14 +175,14 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'navigation',
 			[
-				'label'   => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Navigation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'arrows',
 				'options' => [
-					'both'   => esc_html__( 'Arrows and Dots', 'bdthemes-element-pack' ),
-					'arrows' => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
-					'dots'   => esc_html__( 'Dots', 'bdthemes-element-pack' ),
-					'none'   => esc_html__( 'None', 'bdthemes-element-pack' ),
+					'both'   => esc_html__( 'Arrows and Dots', 'avator-widget-pack' ),
+					'arrows' => esc_html__( 'Arrows', 'avator-widget-pack' ),
+					'dots'   => esc_html__( 'Dots', 'avator-widget-pack' ),
+					'none'   => esc_html__( 'None', 'avator-widget-pack' ),
 				],
 				'frontend_available' => true,
 			]
@@ -191,23 +191,23 @@ class Panel_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon' => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon' => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon' => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justified', 'avator-widget-pack' ),
 						'icon' => 'fas fa-align-justify',
 					],
 				],
@@ -219,7 +219,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'slide_skew',
 			[
-				'label'   => esc_html__( 'Slide Skew', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Slide Skew', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -228,10 +228,10 @@ class Panel_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slider .bdt-panel-slide-item' => 'transform: skew(-{{SIZE}}deg);',
-					'{{WRAPPER}} .bdt-panel-slider .bdt-panel-slide-desc' => 'transform: skew({{SIZE}}deg);',
-					'{{WRAPPER}} .bdt-panel-slider .bdt-panel-slide-link' => 'transform: skew(-{{SIZE}}deg);',
-					'{{WRAPPER}} .bdt-panel-slider span'                  => 'transform: skew({{SIZE}}deg); display: inline-block;',
+					'{{WRAPPER}} .avt-panel-slider .avt-panel-slide-item' => 'transform: skew(-{{SIZE}}deg);',
+					'{{WRAPPER}} .avt-panel-slider .avt-panel-slide-desc' => 'transform: skew({{SIZE}}deg);',
+					'{{WRAPPER}} .avt-panel-slider .avt-panel-slide-link' => 'transform: skew(-{{SIZE}}deg);',
+					'{{WRAPPER}} .avt-panel-slider span'                  => 'transform: skew({{SIZE}}deg); display: inline-block;',
 				],
 				'condition' => [
 					'_skin' => ''
@@ -244,60 +244,60 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_sliders',
 			[
-				'label' => esc_html__( 'Sliders', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Sliders', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'tabs',
 			[
-				'label' => esc_html__( 'Slider Items', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Slider Items', 'avator-widget-pack' ),
 				'type' => Controls_Manager::REPEATER,
 				'default' => [
 					[
-						'tab_title'   => esc_html__( 'Slide #1', 'bdthemes-element-pack' ),
-						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'bdthemes-element-pack' ),
+						'tab_title'   => esc_html__( 'Slide #1', 'avator-widget-pack' ),
+						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'avator-widget-pack' ),
 					],
 					[
-						'tab_title'   => esc_html__( 'Slide #2', 'bdthemes-element-pack' ),
-						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'bdthemes-element-pack' ),
+						'tab_title'   => esc_html__( 'Slide #2', 'avator-widget-pack' ),
+						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'avator-widget-pack' ),
 					],
 					[
-						'tab_title'   => esc_html__( 'Slide #3', 'bdthemes-element-pack' ),
-						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'bdthemes-element-pack' ),
+						'tab_title'   => esc_html__( 'Slide #3', 'avator-widget-pack' ),
+						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'avator-widget-pack' ),
 					],
 					[
-						'tab_title'   => esc_html__( 'Slide #4', 'bdthemes-element-pack' ),
-						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'bdthemes-element-pack' ),
+						'tab_title'   => esc_html__( 'Slide #4', 'avator-widget-pack' ),
+						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'avator-widget-pack' ),
 					],
 				],
 				'fields' => [
 					[
 						'name'        => 'tab_title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::TEXT,
 						'dynamic'     => [ 'active' => true ],
-						'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
+						'default'     => esc_html__( 'Slide Title' , 'avator-widget-pack' ),
 						'label_block' => true,
 					],
 					[
 						'name'        => 'tab_image',
-						'label'       => esc_html__( 'Image', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Image', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::MEDIA,
 						'dynamic'     => [ 'active' => true ],
-						'description' => __('Use same size ratio image', 'bdthemes-element-pack'),
+						'description' => __('Use same size ratio image', 'avator-widget-pack'),
 					],
 					[
 						'name'       => 'tab_content',
-						'label'      => esc_html__( 'Content', 'bdthemes-element-pack' ),
+						'label'      => esc_html__( 'Content', 'avator-widget-pack' ),
 						'type'       => Controls_Manager::WYSIWYG,
 						'dynamic'     => [ 'active' => true ],
-						'default'    => esc_html__( 'Slide Content', 'bdthemes-element-pack' ),
+						'default'    => esc_html__( 'Slide Content', 'avator-widget-pack' ),
 						'show_label' => false,
 					],
 					[
 						'name'        => 'tab_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Link', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::URL,
 						'dynamic'     => [ 'active' => true ],
 						'placeholder' => 'http://your-link.com',
@@ -314,7 +314,7 @@ class Panel_Slider extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'      => 'thumbnail_size',
-				'label'     => esc_html__( 'Image Size', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Image Size', 'avator-widget-pack' ),
 				'exclude'   => [ 'custom' ],
 				'default'   => 'full',
 				'separator' => 'before'
@@ -326,7 +326,7 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'condition' => [
 					'button' => 'yes',
 				],
@@ -336,17 +336,17 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'button_text',
 			[
-				'label'       => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Read More', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Read More', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'panel_slider_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -355,12 +355,12 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left' => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left' => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'panel_slider_icon[value]!' => '',
@@ -371,7 +371,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -385,8 +385,8 @@ class Panel_Slider extends Widget_Base {
 					'panel_slider_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slider .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-panel-slider .bdt-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slider .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slider .avt-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -396,14 +396,14 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_slider_settings',
 			[
-				'label' => esc_html__( 'Slider Settings', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Slider Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'autoplay',
 			[
-				'label'   => esc_html__( 'Autoplay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Autoplay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -412,7 +412,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'autoplay_speed',
 			[
-				'label'     => esc_html__( 'Autoplay Speed', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Autoplay Speed', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => [
@@ -424,7 +424,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'loop',
 			[
-				'label'   => esc_html__( 'Loop', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Loop', 'avator-widget-pack' ),
 				'default' => 'yes',
 				'type'    => Controls_Manager::SWITCHER,
 			]
@@ -433,7 +433,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'pauseonhover',
 			[
-				'label' => esc_html__( 'Pause on Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Pause on Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -441,7 +441,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'infinite',
 			[
-				'label'   => esc_html__( 'Infinite Loop', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Infinite Loop', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -450,7 +450,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'   => esc_html__( 'Animation Speed', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Animation Speed', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 500,
 			]
@@ -459,8 +459,8 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'observer',
 			[
-				'label'       => __( 'Observer', 'bdthemes-element-pack' ),
-				'description' => __( 'When you use carousel in any hidden place (in tabs, accordion etc) keep it yes.', 'bdthemes-element-pack' ),
+				'label'       => __( 'Observer', 'avator-widget-pack' ),
+				'description' => __( 'When you use carousel in any hidden place (in tabs, accordion etc) keep it yes.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,				
 			]
 		);
@@ -468,9 +468,9 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'centered_slide',
 			[
-				'label'       => esc_html__( 'Centered Slide', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Centered Slide', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,
-				'description' => esc_html__( 'If you turn on this option so set column even number for good looking', 'bdthemes-element-pack' ),
+				'description' => esc_html__( 'If you turn on this option so set column even number for good looking', 'avator-widget-pack' ),
 				'condition'   => [
 					'_skin' => ''
 				]
@@ -482,7 +482,7 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_slider',
 			[
-				'label' => esc_html__( 'Slider', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Slider', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -490,10 +490,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_background_color',
 			[
-				'label'     => esc_html__( 'Overlay Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Overlay Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-overlay-gradient' => 'background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, {{VALUE}} 100%);',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-overlay-gradient' => 'background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, {{VALUE}} 100%);',
 				],
 			]
 		);
@@ -501,7 +501,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_opacity',
 			[
-				'label'   => esc_html__( 'Opacity', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Opacity', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0.4,
@@ -514,8 +514,8 @@ class Panel_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slider .bdt-panel-slide-item .bdt-panel-slide-thumb img' => 'opacity: {{SIZE}};',
-					'{{WRAPPER}} .bdt-panel-slider.bdt-skin-middle .swiper-slide:not(.swiper-slide-active):hover .bdt-panel-slide-thumb img' => 'opacity: {{SIZE}} !important;',
+					'{{WRAPPER}} .avt-panel-slider .avt-panel-slide-item .avt-panel-slide-thumb img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-panel-slider.avt-skin-middle .swiper-slide:not(.swiper-slide-active):hover .avt-panel-slide-thumb img' => 'opacity: {{SIZE}} !important;',
 
 				],
 			]
@@ -524,10 +524,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'desc_padding',
 			[
-				'label'     => esc_html__( 'Description Padding', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Description Padding', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::DIMENSIONS,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slider .bdt-panel-slide-desc' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .avt-panel-slider .avt-panel-slide-desc' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
 				],
 			]
 		);
@@ -535,16 +535,16 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'shadow_mode',
 			[
-				'label'        => esc_html__( 'Shadow Mode', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-ep-shadow-mode-',
+				'prefix_class' => 'avt-wp-shadow-mode-',
 			]
 		);
 
 		$this->add_control(
 			'shadow_color',
 			[
-				'label'     => esc_html__( 'Shadow Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Shadow Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'shadow_mode' => 'yes',
@@ -562,7 +562,7 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label'      => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'conditions' => [
 					'terms' => [
@@ -589,18 +589,18 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -608,10 +608,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -621,18 +621,18 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -640,10 +640,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -651,13 +651,13 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -665,7 +665,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -678,10 +678,10 @@ class Panel_Slider extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link',
+				'selector'    => '{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link',
 				'separator'   => 'before',
 			]
 		);
@@ -689,11 +689,11 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -702,18 +702,18 @@ class Panel_Slider extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link',
+				'selector' => '{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link',
 			]
 		);
 
 		$this->add_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -723,9 +723,9 @@ class Panel_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link',
+				'selector' => '{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-link',
 			]
 		);
 
@@ -734,7 +734,7 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' =>'yes',
@@ -745,10 +745,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -757,9 +757,9 @@ class Panel_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-title',
+				'selector' => '{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-title',
 			]
 		);
 
@@ -768,7 +768,7 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_text',
 			[
-				'label' => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -776,10 +776,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -788,9 +788,9 @@ class Panel_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'text_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-text',
+				'selector' => '{{WRAPPER}} .avt-panel-slide-item .avt-panel-slide-text',
 			]
 		);
 
@@ -799,7 +799,7 @@ class Panel_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation',
 			[
-				'label'     => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Navigation', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'navigation' => [ 'arrows', 'dots', 'both' ],
@@ -810,7 +810,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'heading_style_arrows',
 			[
-				'label'     => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrows', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -821,7 +821,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'hide_arrow_on_mobile',
 			[
-				'label'     => __( 'Hide Arrow on Mobile ?', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hide Arrow on Mobile ?', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -833,7 +833,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_position',
 			[
-				'label' => esc_html__( 'Arrows Position', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Arrows Position', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -842,8 +842,8 @@ class Panel_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slider .bdt-navigation-next' => 'right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-panel-slider .bdt-navigation-prev' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slider .avt-navigation-next' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slider .avt-navigation-prev' => 'left: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -854,7 +854,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_size',
 			[
-				'label' => esc_html__( 'Arrows Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Arrows Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -863,7 +863,7 @@ class Panel_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-navigation-prev svg, {{WRAPPER}} .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-navigation-prev svg, {{WRAPPER}} .avt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -874,10 +874,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-navigation-prev, {{WRAPPER}} .bdt-navigation-next' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-navigation-prev, {{WRAPPER}} .avt-navigation-next' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -888,10 +888,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_background',
 			[
-				'label'     => __( 'Hover Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hover Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-navigation-prev:hover, {{WRAPPER}} .bdt-navigation-next:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-navigation-prev:hover, {{WRAPPER}} .avt-navigation-next:hover' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -902,10 +902,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_color',
 			[
-				'label'     => __( 'Arrows Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-navigation-prev svg, {{WRAPPER}} .bdt-navigation-next svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-navigation-prev svg, {{WRAPPER}} .avt-navigation-next svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -916,10 +916,10 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_color',
 			[
-				'label'     => __( 'Arrows Hover Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-navigation-prev:hover svg, {{WRAPPER}} .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-navigation-prev:hover svg, {{WRAPPER}} .avt-navigation-next:hover svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -930,11 +930,11 @@ class Panel_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-navigation-prev, {{WRAPPER}} .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-navigation-prev, {{WRAPPER}} .avt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -945,12 +945,12 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'after',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-navigation-prev, {{WRAPPER}} .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-navigation-prev, {{WRAPPER}} .avt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -961,7 +961,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'heading_style_dots',
 			[
-				'label'     => esc_html__( 'Dots', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Dots', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -972,7 +972,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'dots_position',
 			[
-				'label' => esc_html__( 'Dots Position', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Dots Position', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -981,7 +981,7 @@ class Panel_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slider .swiper-pagination-bullets' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slider .swiper-pagination-bullets' => 'bottom: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -992,7 +992,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'dots_size',
 			[
-				'label' => esc_html__( 'Dots Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Dots Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1001,7 +1001,7 @@ class Panel_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-panel-slider .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-panel-slider .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -1012,7 +1012,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'dots_color',
 			[
-				'label'     => __( 'Dots Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Dots Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .swiper-pagination-bullet' => 'background-color: {{VALUE}}; opacity: 1;',
@@ -1026,7 +1026,7 @@ class Panel_Slider extends Widget_Base {
 		$this->add_control(
 			'active_dot_color',
 			[
-				'label'     => __( 'Active Dots Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Active Dots Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
@@ -1042,7 +1042,7 @@ class Panel_Slider extends Widget_Base {
 	}
 	
 	protected function render_header() {
-		$id              = 'bdt-panel-slider-' . $this->get_id();
+		$id              = 'avt-panel-slider-' . $this->get_id();
 		$settings        = $this->get_settings_for_display();
 		$skin_class      = '';
 		
@@ -1056,9 +1056,9 @@ class Panel_Slider extends Widget_Base {
 		$columns_mobile  = $settings['_skin'] ? $settings['skin_columns_mobile'] : $settings['columns_mobile'];
 
 		if ($settings['_skin']) {
-			$skin_class = 'bdt-skin-middle';
+			$skin_class = 'avt-skin-middle';
 		} else {
-			$skin_class = 'bdt-skin-default';
+			$skin_class = 'avt-skin-default';
 		}
 
 		$this->add_render_attribute(
@@ -1074,7 +1074,7 @@ class Panel_Slider extends Widget_Base {
 							"observer"       => $settings["observer"] ? true : false,
 							"observeParents" => $settings["observer"] ? true : false,
 							"spaceBetween"   => $settings['column_space']['size'] ? : 0,
-							"centeredSlides" => ( $settings["centered_slide"] or "bdt-middle" == $settings["_skin"] ) ? true : false,
+							"centeredSlides" => ( $settings["centered_slide"] or "avt-middle" == $settings["_skin"] ) ? true : false,
 							"breakpoints"    => [
 								(int) $viewport_lg => [
 									"slidesPerView" => (int) $columns_tablet,
@@ -1084,8 +1084,8 @@ class Panel_Slider extends Widget_Base {
 								]
 					      	],
 			      	        "navigation" => [
-			      				"nextEl" => "#" . $id . " .bdt-navigation-next",
-			      				"prevEl" => "#" . $id . " .bdt-navigation-prev",
+			      				"nextEl" => "#" . $id . " .avt-navigation-next",
+			      				"prevEl" => "#" . $id . " .avt-navigation-prev",
 			      			],
 			      			"pagination" => [
 			      			  "el"         => "#" . $id . " .swiper-pagination",
@@ -1095,7 +1095,7 @@ class Panel_Slider extends Widget_Base {
 				        ]))
 					],
 					'class' => [
-						'bdt-panel-slider',
+						'avt-panel-slider',
 						$skin_class,
 					],
 					'id' => $id
@@ -1111,7 +1111,7 @@ class Panel_Slider extends Widget_Base {
 
 	protected function render_footer($settings) {
 
-		$hide_on_mobile = $settings['hide_arrow_on_mobile'] ? ' bdt-visible@m' : '';
+		$hide_on_mobile = $settings['hide_arrow_on_mobile'] ? ' avt-visible@m' : '';
 
 			?>
 			</div>
@@ -1122,9 +1122,9 @@ class Panel_Slider extends Widget_Base {
 
 				<?php if ( 'dots' !== $settings['navigation'] ) : ?>
 
-					<a class="bdt-navigation-next bdt-icon bdt-position-z-index bdt-position-center-right<?php echo esc_attr( $hide_on_mobile ); ?>" bdt-icon="icon: chevron-right; ratio: 1.9"></a>	
+					<a class="avt-navigation-next avt-icon avt-position-z-index avt-position-center-right<?php echo esc_attr( $hide_on_mobile ); ?>" avt-icon="icon: chevron-right; ratio: 1.9"></a>	
 
-					<a class="bdt-navigation-prev bdt-icon bdt-position-z-index bdt-position-center-left<?php echo esc_attr( $hide_on_mobile ); ?>" bdt-icon="icon: chevron-left; ratio: 1.9"></a>	
+					<a class="avt-navigation-prev avt-icon avt-position-z-index avt-position-center-left<?php echo esc_attr( $hide_on_mobile ); ?>" avt-icon="icon: chevron-left; ratio: 1.9"></a>	
 
 				<?php endif; ?>
 			<?php endif; ?>
@@ -1143,14 +1143,14 @@ class Panel_Slider extends Widget_Base {
 			foreach ( $settings['tabs'] as $item ) :
 
 				$image_src = Group_Control_Image_Size::get_attachment_image_src( $item['tab_image']['id'], 'thumbnail_size', $settings );
-				$image_url =  $image_src ? : BDTEP_ASSETS_URL. '/images/panel-slider.svg';
+				$image_url =  $image_src ? : AWP_ASSETS_URL. '/images/panel-slider.svg';
 
 				$this->add_render_attribute(
 					[
 						'button-attr' => [
 							'class' => [
-								'bdt-panel-slide-link',
-								'bdt-transition-slide-top',
+								'avt-panel-slide-link',
+								'avt-transition-slide-top',
 								$settings['button_hover_animation'] ? 'elementor-animation-' . $settings['button_hover_animation'] : ''
 							],
 							'href'   => $item['tab_link']['url'] ? esc_url($item['tab_link']['url']) : '',
@@ -1159,7 +1159,7 @@ class Panel_Slider extends Widget_Base {
 					], '', '', true
 				);
 				
-				$this->add_render_attribute( 'panel-slide-item', 'class', ['bdt-panel-slide-item', 'swiper-slide', 'bdt-transition-toggle'], true );
+				$this->add_render_attribute( 'panel-slide-item', 'class', ['avt-panel-slide-item', 'swiper-slide', 'avt-transition-toggle'], true );
 
 				if ('yes' == $settings['global_link'] and $item['tab_link']['url']) {
 
@@ -1178,8 +1178,8 @@ class Panel_Slider extends Widget_Base {
 
 				?>
 				<div <?php echo $this->get_render_attribute_string( 'panel-slide-item' ); ?>>
-		        	<div class="bdt-panel-slide-thumb bdt-background-cover" style="background-image: url(<?php echo esc_url($image_url); ?>);"></div>
-		        	<div class="bdt-panel-slide-desc bdt-position-bottom-left bdt-position-z-index">
+		        	<div class="avt-panel-slide-thumb avt-background-cover" style="background-image: url(<?php echo esc_url($image_url); ?>);"></div>
+		        	<div class="avt-panel-slide-desc avt-position-bottom-left avt-position-z-index">
 			        	<?php if (!empty( $item['tab_link']['url']))  : ?>
 				        	<?php if ($settings['button'] and '' == $settings['_skin'])  : ?>
 								<a <?php echo $this->get_render_attribute_string( 'button-attr' ); ?>>
@@ -1187,7 +1187,7 @@ class Panel_Slider extends Widget_Base {
 										<?php echo esc_html($settings['button_text']); ?>
 									</span>
 									<?php if ($settings['panel_slider_icon']['value']) : ?>
-										<span class="bdt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
+										<span class="avt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
 
 											<?php if ( $is_new || $migrated ) :
 												Icons_Manager::render_icon( $settings['panel_slider_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1203,16 +1203,16 @@ class Panel_Slider extends Widget_Base {
 						<?php endif; ?>
 
 						<?php if ( 'yes' == $settings['show_title'] ) : ?>
-							<h3 class="bdt-panel-slide-title bdt-transition-slide-bottom"><?php echo esc_html($item['tab_title']); ?></h3>
+							<h3 class="avt-panel-slide-title avt-transition-slide-bottom"><?php echo esc_html($item['tab_title']); ?></h3>
 						<?php endif; ?>
 
 						<?php if ( '' !== $item['tab_content'] ) : ?>
-							<div class="bdt-panel-slide-text bdt-transition-slide-bottom"><?php echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
+							<div class="avt-panel-slide-text avt-transition-slide-bottom"><?php echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
 						<?php endif; ?>
 			  		</div>
 
 			  		<?php if ( '' !== $item['tab_content'] or 'yes' == $settings['show_title'] ) : ?>
-					<div class="bdt-transition-fade bdt-position-cover bdt-overlay bdt-overlay-gradient"></div>
+					<div class="avt-transition-fade avt-position-cover avt-overlay avt-overlay-gradient"></div>
 					<?php endif; ?>
 				</div>
 			<?php

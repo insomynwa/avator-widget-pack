@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 return [
-	'title' => esc_html__( 'Post Card', 'bdthemes-element-pack' ),
+	'title' => esc_html__( 'Post Card', 'avator-widget-pack' ),
 	'required' => true,
 	'default_activation' => true,
 ];

@@ -1,11 +1,11 @@
 <?php
-namespace ElementPack\Modules\Navbar;
+namespace WidgetPack\Modules\Navbar;
 
-use ElementPack\Base\Element_Pack_Module_Base;
+use WidgetPack\Base\Widget_Pack_Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Module extends Element_Pack_Module_Base {
+class Module extends Widget_Pack_Module_Base {
 
 	public function get_name() {
 		return 'navbar';
@@ -25,7 +25,7 @@ class Module extends Element_Pack_Module_Base {
 class ep_menu_walker extends \Walker_Nav_Menu {
     var $has_child = false;
     public function start_lvl(&$output, $depth = 0, $args = array()) {      
-        $output .= '<div class="bdt-navbar-dropdown"><ul class="bdt-nav bdt-navbar-dropdown-nav">';
+        $output .= '<div class="avt-navbar-dropdown"><ul class="avt-nav avt-navbar-dropdown-nav">';
     }
 
     public function end_lvl(&$output, $depth = 0, $args = array()) {
@@ -44,11 +44,11 @@ class ep_menu_walker extends \Walker_Nav_Menu {
         $data['style'] = '';
 
         if($args->walker->has_children){
-            $classes[] =' bdt-parent';
+            $classes[] =' avt-parent';
         }
        
         if($item->current || $item->current_item_parent || $item->current_item_ancestor) {
-            $classes[] = ' bdt-active';
+            $classes[] = ' avt-active';
         }
         if($item->dropdown_child && $depth > 0) {
             $classes[] = ' sub-dropdown';

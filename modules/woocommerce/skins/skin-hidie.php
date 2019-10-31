@@ -1,11 +1,11 @@
 <?php
-namespace ElementPack\Modules\Woocommerce\Skins;
+namespace WidgetPack\Modules\Woocommerce\Skins;
 
 use Elementor\Controls_Manager;
 use Elementor\Skin_Base;
 use Elementor\Widget_Base;
-use ElementPack\Modules\Woocommerce\Module;
-use ElementPack\Modules\Woocommerce\Widgets\Products;
+use WidgetPack\Modules\Woocommerce\Module;
+use WidgetPack\Modules\Woocommerce\Widgets\Products;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -16,7 +16,7 @@ class Skin_Hidie extends Skin_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Hidie', 'bdthemes-element-pack' );
+		return esc_html__( 'Hidie', 'avator-widget-pack' );
 	}
 
 	public function render() {
@@ -35,17 +35,17 @@ class Skin_Hidie extends Skin_Base {
 
 		if($wp_query->have_posts()) {			
 
-			$this->parent->add_render_attribute('wc-carousel-item', 'class', ['bdt-wc-carousel-item', 'swiper-slide', 'bdt-transition-toggle']);
+			$this->parent->add_render_attribute('wc-carousel-item', 'class', ['avt-wc-carousel-item', 'swiper-slide', 'avt-transition-toggle']);
 
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); global $product; ?>
 		  		<div <?php echo $this->parent->get_render_attribute_string( 'wc-carousel-item' ); ?>>
 
-					<div class="bdt-item-skin-hidie">
-			  			<div class="bdt-products-skin-inner">
-			  				<div class="bdt-products-skin-image">
+					<div class="avt-item-skin-hidie">
+			  			<div class="avt-products-skin-inner">
+			  				<div class="avt-products-skin-image">
 			  					
 				  				<?php if ( 'yes' == $settings['show_badge'] and $product->is_on_sale() ) : ?>
-						  			<div class="bdt-badge bdt-position-top-left bdt-position-small">
+						  			<div class="avt-badge avt-position-top-left avt-position-small">
 							  			<?php woocommerce_show_product_loop_sale_flash(); ?>
 						  			</div>
 					  			<?php endif; ?>
@@ -53,27 +53,27 @@ class Skin_Hidie extends Skin_Base {
 				               <?php $this->parent->render_image(); ?>
 
 				               <?php if ('yes' == $settings['show_cart']) : ?>
-				                	<div class="bdt-products-skin-add-to-cart">
+				                	<div class="avt-products-skin-add-to-cart">
 										<?php woocommerce_template_loop_add_to_cart();?>
 									</div>
 								<?php endif; ?>
 								
 								<!-- <?php //if ('yes' == $settings['show_add_to_link']) : ?>
-								<div class="bdt-products-skin-add-to-links">
+								<div class="avt-products-skin-add-to-links">
 		                            <ul>
-		                                <li class="wishlist"><a href="#" bdt-tooltip="Add to Wishlist" bdt-icon="icon: heart"></a></li>
-		                                <li class="quick"><a href="#" bdt-tooltip="Add to Quick" bdt-icon="icon: search"></a></li>
-		                                <li class="compare"><a href="#" bdt-tooltip="Add to Compare" bdt-icon="icon: shrink"></a></li>
+		                                <li class="wishlist"><a href="#" avt-tooltip="Add to Wishlist" avt-icon="icon: heart"></a></li>
+		                                <li class="quick"><a href="#" avt-tooltip="Add to Quick" avt-icon="icon: search"></a></li>
+		                                <li class="compare"><a href="#" avt-tooltip="Add to Compare" avt-icon="icon: shrink"></a></li>
 		                            </ul>
 		                        </div>
 		                        <?php //endif; ?> -->
 
 	                        </div>
 
-		           			<div class="bdt-products-skin-desc bdt-text-<?php echo esc_attr($text_align); ?>">
+		           			<div class="avt-products-skin-desc avt-text-<?php echo esc_attr($text_align); ?>">
 			               		<?php if ( 'yes' == $settings['show_title']) : ?>
-				           			<h2 class="bdt-products-skin-title">
-				           				<a class="bdt-wc-carousel-title" href="<?php the_permalink(); ?>" class="bdt-link-reset">
+				           			<h2 class="avt-products-skin-title">
+				           				<a class="avt-wc-carousel-title" href="<?php the_permalink(); ?>" class="avt-link-reset">
 							               <?php the_title(); ?>
 							           </a>
 					               </h2>
@@ -82,13 +82,13 @@ class Skin_Hidie extends Skin_Base {
 			           			<?php if (('yes' == $settings['show_price']) or ('yes' == $settings['show_rating'])) : ?>
 			           			
 					               	<?php if ('yes' == $settings['show_rating']) : ?>
-						               	<div class="bdt-wc-rating">
+						               	<div class="avt-wc-rating">
 						           			<?php woocommerce_template_loop_rating(); ?>
 					           			</div>
 				                	<?php endif; ?>
 
 				               		<?php if ( 'yes' == $settings['show_price']) : ?>
-					           			<span class="bdt-products-skin-price"><?php woocommerce_template_single_price(); ?></span>
+					           			<span class="avt-products-skin-price"><?php woocommerce_template_single_price(); ?></span>
 						            <?php endif; ?>
 
 			                	<?php endif; ?>
@@ -100,14 +100,14 @@ class Skin_Hidie extends Skin_Base {
 			<?php endwhile; wp_reset_postdata();
 
 		} else {
-			echo '<div class="bdt-alert-warning" bdt-alert>Oppps!! There is no product<div>';
+			echo '<div class="avt-alert-warning" avt-alert>Oppps!! There is no product<div>';
 		}
 	}
 
 	public function render_image() {
 		$settings = $this->parent->get_settings();
 		?>
-		<div class="bdt-wc-carousel-image bdt-background-cover">
+		<div class="avt-wc-carousel-image avt-background-cover">
 			<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
 				<img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), $settings['image_size']); ?>" alt="<?php echo get_the_title(); ?>">
 			</a>

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\DownloadMonitor\Widgets;
+namespace WidgetPack\Modules\DownloadMonitor\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -19,15 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 class DownloadMonitor extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-download-monitor';
+		return 'avt-download-monitor';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Download Monitor', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Download Monitor', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-download-monitor';
+		return 'avt-wi-download-monitor';
 	}
 
 	public function get_keywords() {
@@ -35,7 +35,7 @@ class DownloadMonitor extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	protected function download_file_list() {
@@ -59,7 +59,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_download_monitor',
 			[
-				'label' => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Content', 'avator-widget-pack' ),
 			]
 		);
 
@@ -69,7 +69,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'file_id',
 			[
-				'label'     => esc_html__( 'Select File', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Select File', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => $file_list,
 			]
@@ -79,7 +79,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'file_type_show',
 			[
-				'label'     => esc_html__( 'Show File Type', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Show File Type', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -91,7 +91,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'file_size_show',
 			[
-				'label'     => esc_html__( 'Show File Size', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Show File Size', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -103,7 +103,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'download_count_show',
 			[
-				'label'     => esc_html__( 'Show Download Count', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Show Download Count', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'file_id!' => '',
@@ -119,14 +119,14 @@ class DownloadMonitor extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_button',
 			[
-				'label' => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'alt_title',
 			[
-				'label' => esc_html__( 'Alternative Title', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Alternative Title', 'avator-widget-pack' ),
 				'type' => Controls_Manager::TEXT,
 			]
 		);
@@ -134,7 +134,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label' => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Link', 'avator-widget-pack' ),
 				'type' => Controls_Manager::URL,
 				'placeholder' => 'http://your-link.com',
 				'default' => [
@@ -147,19 +147,19 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -170,7 +170,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'download_monitor_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -179,12 +179,12 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'download_monitor_icon[value]!' => '',
@@ -195,7 +195,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label' => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -209,8 +209,8 @@ class DownloadMonitor extends Widget_Base {
 					'download_monitor_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-download-monitor-button .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-download-monitor-button .bdt-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-download-monitor-button .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-download-monitor-button .avt-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -223,7 +223,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label' => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -231,7 +231,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'heading_footer_button',
 			[
-				'label' => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -242,18 +242,18 @@ class DownloadMonitor extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-download-monitor-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} a.bdt-download-monitor-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} a.avt-download-monitor-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-download-monitor-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -263,7 +263,7 @@ class DownloadMonitor extends Widget_Base {
 			[
 				'name'      => 'button_background_color',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} a.bdt-download-monitor-button',
+				'selector'  => '{{WRAPPER}} a.avt-download-monitor-button',
 				'separator' => 'after',
 			]
 		);
@@ -272,17 +272,17 @@ class DownloadMonitor extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} a.bdt-download-monitor-button',
+				'selector' => '{{WRAPPER}} a.avt-download-monitor-button',
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'button_border',
-				'label' => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default' => '1px',
-				'selector' => '{{WRAPPER}} a.bdt-download-monitor-button',
+				'selector' => '{{WRAPPER}} a.avt-download-monitor-button',
 				'separator' => 'before',
 			]
 		);
@@ -290,11 +290,11 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-download-monitor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} a.avt-download-monitor-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -302,11 +302,11 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'button_text_padding',
 			[
-				'label' => esc_html__( 'Text Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-download-monitor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} a.avt-download-monitor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -315,9 +315,9 @@ class DownloadMonitor extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
-				'label' => esc_html__( 'Title Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Title Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} a.bdt-download-monitor-button .bdt-dm-title',
+				'selector' => '{{WRAPPER}} a.avt-download-monitor-button .avt-dm-title',
 			]
 		);
 
@@ -325,9 +325,9 @@ class DownloadMonitor extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_meta_typography',
-				'label' => esc_html__( 'Meta Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Meta Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} a.bdt-download-monitor-button .bdt-dm-meta > *',
+				'selector' => '{{WRAPPER}} a.avt-download-monitor-button .avt-dm-meta > *',
 			]
 		);
 
@@ -336,18 +336,18 @@ class DownloadMonitor extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-download-monitor-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} a.bdt-download-monitor-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} a.avt-download-monitor-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-download-monitor-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -357,7 +357,7 @@ class DownloadMonitor extends Widget_Base {
 			[
 				'name'      => 'button_background_hover_color',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} a.bdt-download-monitor-button:hover',
+				'selector'  => '{{WRAPPER}} a.avt-download-monitor-button:hover',
 				'separator' => 'after',
 			]
 		);
@@ -366,17 +366,17 @@ class DownloadMonitor extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'button_hover_box_shadow',
-				'selector' => '{{WRAPPER}} a.bdt-download-monitor-button:hover',
+				'selector' => '{{WRAPPER}} a.avt-download-monitor-button:hover',
 			]
 		);
 
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-download-monitor-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-download-monitor-button:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -384,7 +384,7 @@ class DownloadMonitor extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -424,7 +424,7 @@ class DownloadMonitor extends Widget_Base {
 				[
 					'download-monitor-button' => [
 						'class' => [
-							'bdt-download-monitor-button',
+							'avt-download-monitor-button',
 							'elementor-button',
 							'elementor-size-sm',
 							$settings['button_hover_animation'] ? 'elementor-animation-'.$settings['button_hover_animation'] : ''
@@ -442,8 +442,8 @@ class DownloadMonitor extends Widget_Base {
 			?>
             <a <?php echo $this->get_render_attribute_string( 'download-monitor-button' ); ?>>
 
-				<div class="bdt-dm-description">
-	            	<div class="bdt-dm-title">
+				<div class="avt-dm-description">
+	            	<div class="avt-dm-title">
 						<?php if ($settings['alt_title']) {
 							echo esc_html( $settings['alt_title'] );
 						} else {
@@ -451,30 +451,30 @@ class DownloadMonitor extends Widget_Base {
 						} ?>
 	            	</div>
 
-					<div class="bdt-dm-meta">
+					<div class="avt-dm-meta">
 		            	<?php if ('yes' === $settings['file_type_show']) : ?>
-		            	<div class="bdt-dm-file">
+		            	<div class="avt-dm-file">
 		            		<?php echo esc_html($download->get_version()->get_filetype()); ?>
 		            		
 		            	</div>
 		            	<?php endif; ?>
 		            	
 		            	<?php if ('yes' === $settings['file_size_show']) : ?>
-		            	<div class="bdt-dm-size">
+		            	<div class="avt-dm-size">
 		            		<?php echo esc_html($download->get_version()->get_filesize_formatted()); ?>
 		            	</div>
 		            	<?php endif; ?>
 
 		            	<?php if ('yes' === $settings['download_count_show']) : ?>
-		            	<div class="bdt-dm-count">
-		            		<?php esc_html_e('Downloaded', 'bdthemes-element-pack'); ?> <?php echo esc_html($download->get_download_count()); ?>
+		            	<div class="avt-dm-count">
+		            		<?php esc_html_e('Downloaded', 'avator-widget-pack'); ?> <?php echo esc_html($download->get_download_count()); ?>
 		            	</div>
 		            	<?php endif; ?>
 					</div>
 				</div>
             	
             	<?php if ($settings['download_monitor_icon']['value']) : ?>
-					<span class="bdt-dm-button-icon bdt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
+					<span class="avt-dm-button-icon avt-button-icon-align-<?php echo esc_html($settings['icon_align']); ?>">
 
 						<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $settings['download_monitor_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );

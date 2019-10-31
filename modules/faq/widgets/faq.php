@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Faq\Widgets;
+namespace WidgetPack\Modules\Faq\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -12,8 +12,8 @@ use Elementor\Group_Control_Background;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\QueryControl\Module;
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,19 +22,19 @@ class FAQ extends Widget_Base {
 
 
 	public function get_name() {
-		return 'bdt-faq';
+		return 'avt-faq';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'FAQ', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'FAQ', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-faq';
+		return 'avt-wi-faq';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -42,7 +42,7 @@ class FAQ extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'element-pack-font' ];
+		return [ 'widget-pack-font' ];
 	}
 
 	public function on_import( $element ) {
@@ -66,7 +66,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -74,7 +74,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'collapsible',
 			[
-				'label'   => __( 'Collapsible All Item', 'bdthemes-element-pack' ),
+				'label'   => __( 'Collapsible All Item', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -83,7 +83,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'multiple',
 			[
-				'label' => __( 'Multiple Open', 'bdthemes-element-pack' ),
+				'label' => __( 'Multiple Open', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -91,7 +91,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'icon',
 			[
-				'label' => __( 'Show Icon', 'bdthemes-element-pack' ),
+				'label' => __( 'Show Icon', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -101,7 +101,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'show_filter_bar',
 			[
-				'label' => esc_html__( 'Filter Bar', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Filter Bar', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -110,7 +110,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'excerpt_length',
 			[
-				'label'     => __( 'Excerpt Length', 'bdthemes-element-pack' ),
+				'label'     => __( 'Excerpt Length', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 50,
 			]
@@ -119,7 +119,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'show_read_more',
 			[
-				'label'   => __( 'Read More', 'bdthemes-element-pack' ),
+				'label'   => __( 'Read More', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -128,7 +128,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'active_item',
 			[
-				'label' => __( 'Active Item No', 'bdthemes-element-pack' ),
+				'label' => __( 'Active Item No', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::NUMBER,
 				'min'   => 1,
 				'max'   => 20,
@@ -140,18 +140,18 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Query', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'source',
 			[
-				'label'   => _x( 'Source', 'Posts Query Control', 'bdthemes-element-pack' ),
+				'label'   => _x( 'Source', 'Posts Query Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''        => esc_html__( 'Show All', 'bdthemes-element-pack' ),
-					'by_name' => esc_html__( 'Manual Selection', 'bdthemes-element-pack' ),
+					''        => esc_html__( 'Show All', 'avator-widget-pack' ),
+					'by_name' => esc_html__( 'Manual Selection', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -162,9 +162,9 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'post_categories',
 			[
-				'label'       => esc_html__( 'Categories', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
-				'options'     => element_pack_get_category('faq_filter'),
+				'options'     => widget_pack_get_category('faq_filter'),
 				'default'     => [],
 				'label_block' => true,
 				'multiple'    => true,
@@ -177,7 +177,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'limit',
 			[
-				'label'   => esc_html__( 'Limit', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 10,
 			]
@@ -186,14 +186,14 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order by', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order by', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'date',
 				'options' => [
-					'date'     => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'title'    => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'category' => esc_html__( 'Category', 'bdthemes-element-pack' ),
-					'rand'     => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'date'     => esc_html__( 'Date', 'avator-widget-pack' ),
+					'title'    => esc_html__( 'Title', 'avator-widget-pack' ),
+					'category' => esc_html__( 'Category', 'avator-widget-pack' ),
+					'rand'     => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -201,12 +201,12 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => [
-					'DESC' => esc_html__( 'Descending', 'bdthemes-element-pack' ),
-					'ASC'  => esc_html__( 'Ascending', 'bdthemes-element-pack' ),
+					'DESC' => esc_html__( 'Descending', 'avator-widget-pack' ),
+					'ASC'  => esc_html__( 'Ascending', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -216,7 +216,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_button',
 			[
-				'label'     => esc_html__( 'Read More Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Read More Button', 'avator-widget-pack' ),
 				'condition' => [
 					'show_read_more' => 'yes',
 				],
@@ -226,10 +226,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_button_text',
 			[
-				'label'       => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Read More', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Read More', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'label_block' => true,
 			]
 		);
@@ -237,7 +237,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'faq_more_button_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'more_button_icon',
 			]
@@ -246,12 +246,12 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_icon_align',
 			[
-				'label' => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left' => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left' => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'faq_more_button_icon[value]!' => '',
@@ -262,7 +262,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_icon_indent',
 			[
-				'label' => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -276,8 +276,8 @@ class FAQ extends Widget_Base {
 					'faq_more_button_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-button-icon-align-left' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -287,7 +287,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label' => __( 'Item', 'bdthemes-element-pack' ),
+				'label' => __( 'Item', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -295,25 +295,25 @@ class FAQ extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title'   => 'text-align: {{VALUE}};',
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title'   => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -321,7 +321,7 @@ class FAQ extends Widget_Base {
 		$this->add_responsive_control(
 			'item_spacing',
 			[
-				'label' => __( 'Item Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Item Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -330,7 +330,7 @@ class FAQ extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item + .bdt-faq-item' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item + .avt-faq-item' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -340,7 +340,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_title',
 			[
-				'label' => __( 'Title', 'bdthemes-element-pack' ),
+				'label' => __( 'Title', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -350,7 +350,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_title_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
@@ -359,18 +359,18 @@ class FAQ extends Widget_Base {
 			[
 				'name'      => 'title_background',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .bdt-accordion .bdt-accordion-title',
+				'selector'  => '{{WRAPPER}} .avt-accordion .avt-accordion-title',
 			]
 		);
 
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -380,18 +380,18 @@ class FAQ extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'title_shadow',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title',
 			]
 		);
 
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -402,18 +402,18 @@ class FAQ extends Widget_Base {
 				'name'        => 'title_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title',
+				'selector'    => '{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title',
 			]
 		);
 
 		$this->add_control(
 			'title_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -422,7 +422,7 @@ class FAQ extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-title',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-title',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
@@ -432,7 +432,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_title_active',
 			[
-				'label' => __( 'Active', 'bdthemes-element-pack' ),
+				'label' => __( 'Active', 'avator-widget-pack' ),
 			]
 		);
 
@@ -441,18 +441,18 @@ class FAQ extends Widget_Base {
 			[
 				'name'      => 'active_title_background',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .bdt-accordion .bdt-faq-item.bdt-open .bdt-accordion-title',
+				'selector'  => '{{WRAPPER}} .avt-accordion .avt-faq-item.avt-open .avt-accordion-title',
 			]
 		);
 
 		$this->add_control(
 			'active_title_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item.bdt-open .bdt-accordion-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item.avt-open .avt-accordion-title' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -462,7 +462,7 @@ class FAQ extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'active_title_shadow',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-faq-item.bdt-open .bdt-accordion-title',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-faq-item.avt-open .avt-accordion-title',
 			]
 		);
 
@@ -472,18 +472,18 @@ class FAQ extends Widget_Base {
 				'name'        => 'active_title_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-accordion .bdt-faq-item.bdt-open .bdt-accordion-title',
+				'selector'    => '{{WRAPPER}} .avt-accordion .avt-faq-item.avt-open .avt-accordion-title',
 			]
 		);
 
 		$this->add_control(
 			'active_title_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item.bdt-open .bdt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item.avt-open .avt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -493,7 +493,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_title_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
@@ -502,18 +502,18 @@ class FAQ extends Widget_Base {
 			[
 				'name'      => 'hover_title_background',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title:hover',
+				'selector'  => '{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title:hover',
 			]
 		);
 
 		$this->add_control(
 			'hover_title_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title:hover' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -523,7 +523,7 @@ class FAQ extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'hover_title_shadow',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title:hover',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title:hover',
 			]
 		);
 
@@ -533,18 +533,18 @@ class FAQ extends Widget_Base {
 				'name'        => 'hover_title_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title:hover',
+				'selector'    => '{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title:hover',
 			]
 		);
 
 		$this->add_control(
 			'hover_title_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item .bdt-accordion-title:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item .avt-accordion-title:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -558,7 +558,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_icon',
 			[
-				'label'     => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -568,22 +568,22 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_icon_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Start', 'bdthemes-element-pack' ),
+						'title' => __( 'Start', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => __( 'End', 'bdthemes-element-pack' ),
+						'title' => __( 'End', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -596,10 +596,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title .bdt-accordion-icon .fa:before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title .avt-accordion-icon .fa:before' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -607,7 +607,7 @@ class FAQ extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_space',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -616,8 +616,8 @@ class FAQ extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-icon.bdt-accordion-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-icon.bdt-accordion-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-icon.avt-accordion-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-icon.avt-accordion-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -627,17 +627,17 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_icon_active',
 			[
-				'label' => __( 'Active', 'bdthemes-element-pack' ),
+				'label' => __( 'Active', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_active_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item.bdt-open .bdt-accordion-icon .fa:before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item.avt-open .avt-accordion-icon .fa:before' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -647,17 +647,17 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_icon_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_hover_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-faq-item:hover .bdt-accordion-icon .fa:before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-faq-item:hover .avt-accordion-icon .fa:before' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -671,7 +671,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_content',
 			[
-				'label'     => __( 'Content', 'bdthemes-element-pack' ),
+				'label'     => __( 'Content', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -681,17 +681,17 @@ class FAQ extends Widget_Base {
 			[
 				'name'     => 'content_background_color',
 				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-content',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-content',
 			]
 		);
 
 		$this->add_control(
 			'content_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -701,7 +701,7 @@ class FAQ extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'content_shadow',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-content',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-content',
 			]
 		);
 
@@ -711,18 +711,18 @@ class FAQ extends Widget_Base {
 				'name'        => 'content_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-accordion .bdt-accordion-content',
+				'selector'    => '{{WRAPPER}} .avt-accordion .avt-accordion-content',
 			]
 		);
 
 		$this->add_control(
 			'content_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -730,11 +730,11 @@ class FAQ extends Widget_Base {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -742,7 +742,7 @@ class FAQ extends Widget_Base {
 		$this->add_responsive_control(
 			'content_spacing',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -751,7 +751,7 @@ class FAQ extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -760,7 +760,7 @@ class FAQ extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'content_typography',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-content',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-content',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -770,7 +770,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_filter',
 			[
-				'label'     => esc_html__( 'Filter Bar', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Filter Bar', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_filter_bar' => 'yes',
@@ -781,25 +781,25 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'filter_alignment',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters-wrapper' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -808,19 +808,19 @@ class FAQ extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'typography_filter',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li',
+				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li',
 			]
 		);
 
 		$this->add_control(
 			'filter_spacing',
 			[
-				'label'     => esc_html__( 'Bottom Space', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Bottom Space', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -830,14 +830,14 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'filter_tab_desktop',
 			[
-				'label' => __( 'Desktop', 'bdthemes-element-pack' )
+				'label' => __( 'Desktop', 'avator-widget-pack' )
 			]
 		);
 
 		$this->add_control(
 			'desktop_filter_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -845,11 +845,11 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'color_filter',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -857,10 +857,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'desktop_filter_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -868,11 +868,11 @@ class FAQ extends Widget_Base {
 		$this->add_responsive_control(
 			'desktop_filter_padding',
 			[
-				'label'      => __('Padding', 'bdthemes-element-pack'),
+				'label'      => __('Padding', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -883,18 +883,18 @@ class FAQ extends Widget_Base {
 				'name'        => 'desktop_filter_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-ep-grid-filters li'
+				'selector'    => '{{WRAPPER}} .avt-wp-grid-filters li'
 			]
 		);
 
 		$this->add_control(
 			'desktop_filter_radius',
 			[
-				'label'      => __('Radius', 'bdthemes-element-pack'),
+				'label'      => __('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -903,18 +903,18 @@ class FAQ extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_filter_shadow',
-				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li'
+				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li'
 			]
 		);
 
 		$this->add_control(
 			'filter_item_spacing',
 			[
-				'label'     => esc_html__( 'Space Between', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Space Between', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters > li.bdt-ep-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
-					'{{WRAPPER}} .bdt-ep-grid-filters > li.bdt-ep-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
 				],
 			]
 		);
@@ -922,7 +922,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'desktop_filter_active',
 			[
-				'label' => esc_html__( 'Active', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Active', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -930,11 +930,11 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'color_filter_active',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
@@ -942,10 +942,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'desktop_active_filter_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -953,10 +953,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'desktop_active_filter_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -964,11 +964,11 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'desktop_active_filter_radius',
 			[
-				'label'      => __('Radius', 'bdthemes-element-pack'),
+				'label'      => __('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -977,7 +977,7 @@ class FAQ extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_active_filter_shadow',
-				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active'
+				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li.avt-active'
 			]
 		);
 
@@ -986,14 +986,14 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'filter_tab_mobile',
 			[
-				'label' => __( 'Mobile', 'bdthemes-element-pack' )
+				'label' => __( 'Mobile', 'avator-widget-pack' )
 			]
 		);
 
 		$this->add_control(
 			'filter_mbtn_width',
 			[
-				'label' => __('Button Width(%)', 'bdthemes-element-pack'),
+				'label' => __('Button Width(%)', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1002,7 +1002,7 @@ class FAQ extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-button' => 'width: {{SIZE}}%;'
+					'{{WRAPPER}} .avt-button' => 'width: {{SIZE}}%;'
 				]
 			]
 		);
@@ -1010,10 +1010,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_color',
 			[
-				'label'     => __( 'Button Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-button' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-button' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -1021,10 +1021,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_background',
 			[
-				'label'     => __( 'Button Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-button' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-button' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -1032,10 +1032,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_dropdown_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-dropdown-nav li' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-dropdown-nav li' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -1043,10 +1043,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_dropdown_background',
 			[
-				'label'     => __( 'Dropdown Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Dropdown Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-dropdown' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-dropdown' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -1055,9 +1055,9 @@ class FAQ extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'filter_mbtn_dropdown_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bdt-dropdown-nav li',
+				'selector' => '{{WRAPPER}} .avt-dropdown-nav li',
 			]
 		);
 
@@ -1070,7 +1070,7 @@ class FAQ extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_more_button',
 			[
-				'label'     => esc_html__( 'Read More Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Read More Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_read_more' => 'yes',
@@ -1083,18 +1083,18 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_more_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'more_button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1102,10 +1102,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1115,18 +1115,18 @@ class FAQ extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_more_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'more_button_hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1134,10 +1134,10 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1145,13 +1145,13 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1164,10 +1164,10 @@ class FAQ extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'more_button_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button',
+				'selector'    => '{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button',
 				'separator'   => 'before',
 			]
 		);
@@ -1175,11 +1175,11 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1188,18 +1188,18 @@ class FAQ extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'more_button_shadow',
-				'selector' => '{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button',
+				'selector' => '{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button',
 			]
 		);
 
 		$this->add_control(
 			'more_button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -1209,16 +1209,16 @@ class FAQ extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'more_button_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button',
+				'selector' => '{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button',
 			]
 		);
 
 		$this->add_control(
 			'more_button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1226,7 +1226,7 @@ class FAQ extends Widget_Base {
 		$this->add_control(
 			'more_button_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1234,7 +1234,7 @@ class FAQ extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-faq .avt-faq-item .avt-faq-button' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1270,15 +1270,15 @@ class FAQ extends Widget_Base {
 
 	public function render_title() {
 		$settings = $this->get_settings();
-		$faq_icon = get_post_meta( get_the_ID(), 'bdthemes_faq_icon', true);
+		$faq_icon = get_post_meta( get_the_ID(), 'avator_faq_icon', true);
 		$faq_icon = (!empty($faq_icon)) ? $faq_icon : 'ep-question';
 
 		?>
-		<div class="bdt-accordion-title">
+		<div class="avt-accordion-title">
 			<?php if ( $settings['icon'] ) : ?>
-				<span class="bdt-accordion-icon bdt-accordion-icon-<?php echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
-					<i class="bdt-accordion-icon-closed <?php echo esc_attr($faq_icon); ?>"></i>
-					<i class="bdt-accordion-icon-opened ep-checkmark"></i>
+				<span class="avt-accordion-icon avt-accordion-icon-<?php echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
+					<i class="avt-accordion-icon-closed <?php echo esc_attr($faq_icon); ?>"></i>
+					<i class="avt-accordion-icon-opened ep-checkmark"></i>
 				</span>
 			<?php endif; ?>
 			<?php echo esc_html(get_the_title()) ; ?>
@@ -1299,7 +1299,7 @@ class FAQ extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-faq-excerpt">
+		<div class="avt-faq-excerpt">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -1322,11 +1322,11 @@ class FAQ extends Widget_Base {
 
 
 		if ('yes' == $settings['show_read_more']) : ?>
-			<div class="bdt-clearfix"></div>
-			<a href="<?php echo esc_url(get_permalink($post->ID)); ?>" class="bdt-faq-button<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['more_button_button_text']); ?>
+			<div class="avt-clearfix"></div>
+			<a href="<?php echo esc_url(get_permalink($post->ID)); ?>" class="avt-faq-button<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['more_button_button_text']); ?>
 
 				<?php if ($settings['faq_more_button_icon']['value']) : ?>
-					<span class="bdt-button-icon-align-<?php echo esc_attr($settings['more_button_icon_align']); ?>">
+					<span class="avt-button-icon-align-<?php echo esc_attr($settings['more_button_icon_align']); ?>">
 
 						<?php if ( $is_new || $migrated ) :
 							Icons_Manager::render_icon( $settings['faq_more_button_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1368,17 +1368,17 @@ class FAQ extends Widget_Base {
 		
 		?>
 
-		<div class="bdt-ep-grid-filters-wrapper">
+		<div class="avt-wp-grid-filters-wrapper">
 			
-			<button class="bdt-button bdt-button-default bdt-hidden@m" type="button"><?php esc_html_e( 'Filter', 'bdthemes-element-pack' ); ?></button>
-			<div bdt-dropdown="mode: click;" class="bdt-dropdown bdt-margin-remove-top bdt-margin-remove-bottom">
-			    <ul class="bdt-nav bdt-dropdown-nav">
+			<button class="avt-button avt-button-default avt-hidden@m" type="button"><?php esc_html_e( 'Filter', 'avator-widget-pack' ); ?></button>
+			<div avt-dropdown="mode: click;" class="avt-dropdown avt-margin-remove-top avt-margin-remove-bottom">
+			    <ul class="avt-nav avt-dropdown-nav">
 
-					<li class="bdt-ep-grid-filter bdt-active" bdt-filter-control><?php esc_html_e( 'All', 'bdthemes-element-pack' ); ?></li>
+					<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
 					
 					<?php foreach($faq_categories as $faq_category => $value) : ?>
 						<?php $filter_name = get_term_by('slug', $value, 'faq_filter'); ?>
-						<li class="bdt-ep-grid-filter" bdt-filter-control="[data-filter*='bdtf-<?php echo esc_attr(trim($value)); ?>']">
+						<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 							<?php echo $filter_name->name; ?>
 						</li>				
 					<?php endforeach; ?>
@@ -1387,12 +1387,12 @@ class FAQ extends Widget_Base {
 			</div>
 
 
-			<ul class="bdt-ep-grid-filters bdt-visible@m" bdt-margin>
-				<li class="bdt-ep-grid-filter bdt-active" bdt-filter-control><?php esc_html_e( 'All', 'bdthemes-element-pack' ); ?></li>
+			<ul class="avt-wp-grid-filters avt-visible@m" avt-margin>
+				<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
 		
 				<?php foreach($faq_categories as $product_category => $value) : ?>
 					<?php $filter_name = get_term_by('slug', $value, 'faq_filter'); ?>
-					<li class="bdt-ep-grid-filter" bdt-filter-control="[data-filter*='bdtf-<?php echo esc_attr(trim($value)); ?>']">
+					<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 						<?php echo $filter_name->name; ?>
 					</li>				
 				<?php endforeach; ?>
@@ -1407,8 +1407,8 @@ class FAQ extends Widget_Base {
 			[
 				'accordion-settings' => [
 					'id'            => $id,
-					'class'         => 'bdt-accordion',
-					'bdt-accordion' => [
+					'class'         => 'avt-accordion',
+					'avt-accordion' => [
 						wp_json_encode([
 							"collapsible" => $settings["collapsible"] ? true : false,
 							"multiple"    => $settings["multiple"] ? true : false,
@@ -1420,10 +1420,10 @@ class FAQ extends Widget_Base {
 			]
 		);
 
-		$this->add_render_attribute('faq-wrapper', 'class', 'bdt-faq-wrapper');
+		$this->add_render_attribute('faq-wrapper', 'class', 'avt-faq-wrapper');
 		
 		if ( $settings['show_filter_bar'] ) {
-			$this->add_render_attribute('faq-wrapper', 'bdt-filter', 'target: #bdt-accordion-' . $this->get_id());
+			$this->add_render_attribute('faq-wrapper', 'avt-filter', 'target: #avt-accordion-' . $this->get_id());
 		}
 
 		?>
@@ -1434,7 +1434,7 @@ class FAQ extends Widget_Base {
 			}
 
 			?>
-			<div class="bdt-faq">
+			<div class="avt-faq">
 				<div <?php echo $this->get_render_attribute_string( 'accordion-settings' ); ?>>
 		<?php
 	}
@@ -1454,11 +1454,11 @@ class FAQ extends Widget_Base {
 		$element_key = 'faq-item-' . $post->ID;
 		$item_filters = get_the_terms( $post->ID, 'faq_filter' ); 
 
-		$this->add_render_attribute($element_key, 'class', 'bdt-faq-item');
+		$this->add_render_attribute($element_key, 'class', 'avt-faq-item');
 
 		if( $settings['show_filter_bar'] and is_array($item_filters) ) {
 			foreach ($item_filters as $item_filter) {
-				$this->add_render_attribute($element_key, 'data-filter', 'bdtf-' . $item_filter->slug);
+				$this->add_render_attribute($element_key, 'data-filter', 'avtf-' . $item_filter->slug);
 			}
 		}
 
@@ -1466,7 +1466,7 @@ class FAQ extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string( $element_key ); ?>>				
 			<?php $this->render_title(); ?>
 
-			<div class="bdt-accordion-content">
+			<div class="avt-accordion-content">
 				<?php 
 				$this->render_excerpt();
 				$this->render_more_button_button($post);
@@ -1478,7 +1478,7 @@ class FAQ extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$id       = 'bdt-accordion-' . $this->get_id();
+		$id       = 'avt-accordion-' . $this->get_id();
 		
 		$wp_query = $this->query_posts();
 

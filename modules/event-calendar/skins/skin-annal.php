@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\EventCalendar\Skins;
+namespace WidgetPack\Modules\EventCalendar\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Skin_Annal extends Elementor_Skin_Base {
 
 	public function get_id() {
-		return 'bdt-event-grid-skin-annal';
+		return 'avt-event-grid-skin-annal';
 	}
 
 	public function get_title() {
-		return __( 'Annal', 'bdthemes-element-pack' );
+		return __( 'Annal', 'avator-widget-pack' );
 	}
 
 
@@ -29,8 +29,8 @@ class Skin_Annal extends Elementor_Skin_Base {
 
 
 		?> 
-		<div id="bdt-event-<?php echo esc_attr($id); ?>" class="bdt-event-grid-skin-annal bdt-event-calendar">
-	  		<div class="bdt-grid bdt-grid-<?php echo esc_attr($settings['column_gap']); ?> bdt-child-width-1-<?php echo esc_attr($mobile_cols); ?> bdt-child-width-1-<?php echo esc_attr($tablet_cols); ?>@s bdt-child-width-1-<?php echo esc_attr($desktop_cols); ?>@l" bdt-grid>
+		<div id="avt-event-<?php echo esc_attr($id); ?>" class="avt-event-grid-skin-annal avt-event-calendar">
+	  		<div class="avt-grid avt-grid-<?php echo esc_attr($settings['column_gap']); ?> avt-child-width-1-<?php echo esc_attr($mobile_cols); ?> avt-child-width-1-<?php echo esc_attr($tablet_cols); ?>@s avt-child-width-1-<?php echo esc_attr($desktop_cols); ?>@l" avt-grid>
 
 		<?php
 	}
@@ -55,7 +55,7 @@ class Skin_Annal extends Elementor_Skin_Base {
 
 		?>
 
-		<div class="bdt-event-image bdt-background-cover">
+		<div class="avt-event-image avt-background-cover">
 
 			<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
 				<img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), $settings['image_size']); ?>" alt="<?php echo get_the_title(); ?>">
@@ -76,9 +76,9 @@ class Skin_Annal extends Elementor_Skin_Base {
 		$event_date = tribe_get_start_date( null, false );
 
 		?>
-		<span class="bdt-event-date">
-			<a href="#" title="<?php esc_html_e('Start Date:', 'bdthemes-element-pack'); echo esc_html($start_datetime); ?>  - <?php esc_html_e('End Date:', 'bdthemes-element-pack'); echo esc_html($end_datetime); ?>"> 
-				<span class="bdt-event-day">
+		<span class="avt-event-date">
+			<a href="#" title="<?php esc_html_e('Start Date:', 'avator-widget-pack'); echo esc_html($start_datetime); ?>  - <?php esc_html_e('End Date:', 'avator-widget-pack'); echo esc_html($end_datetime); ?>"> 
+				<span class="avt-event-day">
 					<?php echo esc_html($event_date); ?>
 				</span>
 			</a>
@@ -98,21 +98,21 @@ class Skin_Annal extends Elementor_Skin_Base {
 		?>
 
 		<?php if ( !empty($cost) or $more_icon )  : ?>
-		<div class="bdt-event-meta bdt-grid">
+		<div class="avt-event-meta avt-grid">
 
 			<?php if (!empty($cost)) : ?>
-			    <div class="bdt-width-auto bdt-padding-remove">
-				    <div class="bdt-event-price">
-				    	<a href="#"><?php esc_html_e('Cost:', 'bdthemes-element-pack'); ?></a>
+			    <div class="avt-width-auto avt-padding-remove">
+				    <div class="avt-event-price">
+				    	<a href="#"><?php esc_html_e('Cost:', 'avator-widget-pack'); ?></a>
 				    	<a href="#"><?php echo esc_html($cost); ?></a>
 				    </div>
 			    </div>
 			<?php endif; ?>
 
 			<?php if (!empty($more_icon)) : ?>
-		    <div class="bdt-width-expand bdt-text-right">
-				<div class="bdt-more-icon">
-					<a href="#" bdt-tooltip="<?php echo esc_html( 'Find out more', 'bdthemes-element-pack' ); ?>" class="ep-arrow-right-4" aria-hidden="true"></a>
+		    <div class="avt-width-expand avt-text-right">
+				<div class="avt-more-icon">
+					<a href="#" avt-tooltip="<?php echo esc_html( 'Find out more', 'avator-widget-pack' ); ?>" class="ep-arrow-right-4" aria-hidden="true"></a>
 				</div>
 			</div>
 			<?php endif; ?>
@@ -132,14 +132,14 @@ class Skin_Annal extends Elementor_Skin_Base {
 		?>
 
 		<?php if ( !empty($website) or $address ) : ?>
-			<div class="bdt-address-website-icon">
+			<div class="avt-address-website-icon">
 				
 				<?php if (!empty($website)) : ?>
 					<a href="<?php echo esc_url($website); ?>" target="_blank" class="ep-earth" aria-hidden="true"></a>
 				<?php endif; ?>
 
 				<?php if ( $address ) : ?>
-					<a href="#" bdt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="ep-location" aria-hidden="true"></a>
+					<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="ep-location" aria-hidden="true"></a>
 				<?php endif; ?>
 
 			</div>
@@ -153,15 +153,15 @@ class Skin_Annal extends Elementor_Skin_Base {
 		$settings = $this->parent->get_settings_for_display();	
 
 		?> 
-		<div class="bdt-event-item">
+		<div class="avt-event-item">
 
-			<div class="bdt-event-item-inner">
+			<div class="avt-event-item-inner">
 			
 				<?php $this->render_website_address(); ?>
 
 				<?php $this->render_image(); ?>
 
-			    <div class="bdt-event-content">
+			    <div class="avt-event-content">
 
 			        <?php $this->render_date(); ?>
 

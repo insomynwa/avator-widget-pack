@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Carousel\Skins;
+namespace WidgetPack\Modules\Carousel\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Alice extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-alice';
+		return 'avt-alice';
 	}
 
 	public function get_title() {
-		return __( 'Alice', 'bdthemes-element-pack' );
+		return __( 'Alice', 'avator-widget-pack' );
 	}
 
 	public function render() {
@@ -56,9 +56,9 @@ class Skin_Alice extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="bdt-carousel-thumbnail bdt-overflow-hidden">
-			<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-background-cover" title="<?php echo get_the_title(); ?>">
-				<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo get_the_title(); ?>" class="bdt-transition-scale-up bdt-transition-opaque">
+		<div class="avt-carousel-thumbnail avt-overflow-hidden">
+			<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-background-cover" title="<?php echo get_the_title(); ?>">
+				<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo get_the_title(); ?>" class="avt-transition-scale-up avt-transition-opaque">
 			</a>
 		</div>
 		<?php
@@ -69,10 +69,10 @@ class Skin_Alice extends Elementor_Skin_Base {
 			[
 				'carousel-item' => [
 					'class' => [
-						'bdt-carousel-item',
+						'avt-carousel-item',
 						'swiper-slide',
-						'bdt-transition-toggle',
-						'bdt-position-relative',
+						'avt-transition-toggle',
+						'avt-position-relative',
 					],
 				],
 			]
@@ -89,13 +89,13 @@ class Skin_Alice extends Elementor_Skin_Base {
 		}
 		
 		?>
-		<span class="bdt-carousel-categories"><?php echo get_the_category_list(', '); ?></span>
+		<span class="avt-carousel-categories"><?php echo get_the_category_list(', '); ?></span>
 		<?php 
 	}
 
 	public function render_date() {
 		?>
-		<span class="bdt-carousel-date bdt-transition-slide-bottom"><?php echo apply_filters( 'the_date', get_the_date('M j, Y'), get_option( 'date_format' ), '', '' ); ?></span>
+		<span class="avt-carousel-date avt-transition-slide-bottom"><?php echo apply_filters( 'the_date', get_the_date('M j, Y'), get_option( 'date_format' ), '', '' ); ?></span>
 		<?php 
 	}
 
@@ -108,8 +108,8 @@ class Skin_Alice extends Elementor_Skin_Base {
 		$this->render_image(get_post_thumbnail_id( $post->ID ), $image_size = 'full' );
 
 		?>
-		<div class="bdt-custom-overlay bdt-position-cover"></div>
-		<div class="bdt-post-grid-desc bdt-position-center">
+		<div class="avt-custom-overlay avt-position-cover"></div>
+		<div class="avt-post-grid-desc avt-position-center">
 		<?php
 
 		$this->parent->render_overlay_header();

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\EasyDigitalDownloads\Widgets;
+namespace WidgetPack\Modules\EasyDigitalDownloads\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -16,19 +16,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Easy_Digital_Downloads extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-easy-digital-download';
+		return 'avt-easy-digital-download';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Easy Digital Downloads', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Easy Digital Downloads', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-easy-digital-download';
+		return 'avt-wi-easy-digital-download';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,7 +40,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_section(
 			'section_woocommerce_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -48,7 +48,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'columns',
 			[
-				'label'   => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'1' => '1',
@@ -65,7 +65,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'item_gap',
 			[
-				'label'   => esc_html__( 'Item Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Item Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10,
@@ -91,7 +91,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'number',
 			[
-				'label'   => esc_html__( 'Categories Count', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Categories Count', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => '4',
 			]
@@ -100,7 +100,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'edd_thumbnail_show',
 			[
-				'label'   => esc_html__( 'Show Thumbnail', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Thumbnail', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -109,7 +109,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'edd_excerpt_show',
 			[
-				'label'   => esc_html__( 'Show Excerpt', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Excerpt', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -118,7 +118,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'edd_price_show',
 			[
-				'label'   => esc_html__( 'Show Price', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Price', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -127,7 +127,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'edd_buy_button',
 			[
-				'label'   => esc_html__( 'Show Buy Button', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Buy Button', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -136,7 +136,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'edd_pagination_show',
 			[
-				'label'   => esc_html__( 'Show Pagination', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Pagination', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -147,7 +147,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_section(
 			'section_filter',
 			[
-				'label' => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Query', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -155,12 +155,12 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'source',
 			[
-				'label'   => _x( 'Source', 'Posts Query Control', 'bdthemes-element-pack' ),
+				'label'   => _x( 'Source', 'Posts Query Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''          => esc_html__( 'Show All', 'bdthemes-element-pack' ),
-					'by_id'     => esc_html__( 'Manual Selection', 'bdthemes-element-pack' ),
-					'by_parent' => esc_html__( 'By Parent', 'bdthemes-element-pack' ),
+					''          => esc_html__( 'Show All', 'avator-widget-pack' ),
+					'by_id'     => esc_html__( 'Manual Selection', 'avator-widget-pack' ),
+					'by_parent' => esc_html__( 'By Parent', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -175,7 +175,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'categories',
 			[
-				'label'       => esc_html__( 'Categories', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => $options,
 				'default'     => [],
@@ -187,12 +187,12 @@ class Easy_Digital_Downloads extends Widget_Base {
 			]
 		);
 
-		$parent_options = [ '0' => esc_html__( 'Only Top Level', 'bdthemes-element-pack' ) ] + $options;
+		$parent_options = [ '0' => esc_html__( 'Only Top Level', 'avator-widget-pack' ) ] + $options;
 
 		$this->add_control(
 			'parent',
 			[
-				'label'     => esc_html__( 'Parent', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Parent', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => '0',
 				'options'   => $parent_options,
@@ -205,7 +205,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'hide_empty',
 			[
-				'label' => esc_html__( 'Hide Empty', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hide Empty', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -213,14 +213,14 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order by', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order by', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'name',
 				'options' => [
-					'name'        => esc_html__( 'Name', 'bdthemes-element-pack' ),
-					'slug'        => esc_html__( 'Slug', 'bdthemes-element-pack' ),
-					'description' => esc_html__( 'Description', 'bdthemes-element-pack' ),
-					'count'       => esc_html__( 'Count', 'bdthemes-element-pack' ),
+					'name'        => esc_html__( 'Name', 'avator-widget-pack' ),
+					'slug'        => esc_html__( 'Slug', 'avator-widget-pack' ),
+					'description' => esc_html__( 'Description', 'avator-widget-pack' ),
+					'count'       => esc_html__( 'Count', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -228,12 +228,12 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'desc',
 				'options' => [
-					'asc'  => esc_html__( 'ASC', 'bdthemes-element-pack' ),
-					'desc' => esc_html__( 'DESC', 'bdthemes-element-pack' ),
+					'asc'  => esc_html__( 'ASC', 'avator-widget-pack' ),
+					'desc' => esc_html__( 'DESC', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -243,7 +243,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label' => esc_html__( 'Item', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Item', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -251,7 +251,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'item_bg_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner' => 'background-color: {{VALUE}};',
@@ -262,7 +262,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_responsive_control(
 			'item_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -276,7 +276,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'item_border',
-				'label'     => esc_html__( 'Item Border', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Item Border', 'avator-widget-pack' ),
 				'selector'  => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner',
 				'separator' => 'before',
 			]
@@ -285,7 +285,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_responsive_control(
 			'item_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -308,19 +308,19 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'edd_item_alignment',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -335,7 +335,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Image', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => ['edd_thumbnail_show' => 'yes'],
 			]
@@ -345,7 +345,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'image_border',
-				'label'    => esc_html__( 'Image Border', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Image Border', 'avator-widget-pack' ),
 				'selector' => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_image img',
 			]
 		);
@@ -353,7 +353,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -378,7 +378,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_description',
 			[
-				'label' => esc_html__( 'Description', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Description', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -387,14 +387,14 @@ class Easy_Digital_Downloads extends Widget_Base {
 			'heading_style_title',
 			[
 				'type'  => Controls_Manager::HEADING,
-				'label' => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Title', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_title a' => 'color: {{VALUE}};',
@@ -405,7 +405,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'hover_title_color',
 			[
-				'label'     => esc_html__( 'Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_title a:hover' => 'color: {{VALUE}};',
@@ -416,7 +416,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_responsive_control(
 			'title_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -429,7 +429,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_title a',
 			]
@@ -439,7 +439,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			'edd_excerpt_heading',
 			[
 				'type'      => Controls_Manager::HEADING,
-				'label'     => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'separator' => 'before',
 				'condition'	=> ['edd_excerpt_show' => 'yes'],
 			]
@@ -448,7 +448,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'eddexcerpt_color',
 			[
-				'label'     => esc_html__( 'Excerpt Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_excerpt' => 'color: {{VALUE}};',
@@ -461,7 +461,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_responsive_control(
 			'edd_excerpt_margin',
 			[
-				'label'      => esc_html__( 'Excerpt Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Excerpt Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -475,7 +475,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'edd_excerpt_typography',
-				'label'    => esc_html__( 'Excerpt Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Excerpt Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_excerpt',
 			]
@@ -485,7 +485,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			'heading_style_price',
 			[
 				'type'      => Controls_Manager::HEADING,
-				'label'     => esc_html__( 'Price', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Price', 'avator-widget-pack' ),
 				'separator' => 'before',
 				'condition'	=> ['edd_price_show' => 'yes'],
 			]
@@ -494,7 +494,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'edd_price_color',
 			[
-				'label'     => esc_html__( 'Price Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Price Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner span.edd_price, 
@@ -508,7 +508,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_responsive_control(
 			'edd_price_margin',
 			[
-				'label'      => esc_html__( 'Price Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Price Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -523,7 +523,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'edd_price_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner span.edd_price, 
 				 {{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_price_options span',
@@ -536,7 +536,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label' => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'	=> ['edd_buy_button' => 'yes'],
 			]
@@ -547,14 +547,14 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button' => 'color: {{VALUE}};',
@@ -565,7 +565,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button' => 'background-color: {{VALUE}};',
@@ -578,7 +578,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button',
@@ -589,7 +589,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -601,7 +601,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -614,7 +614,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'button_fullwidth',
 			[
-				'label'     => esc_html__( 'Fullwidth Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Fullwidth Button', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button' => 'width: 100%;',
@@ -635,7 +635,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'button_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button',
 				'separator' => 'before',
@@ -647,14 +647,14 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button:hover' => 'color: {{VALUE}};',
@@ -665,7 +665,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button:hover' => 'background-color: {{VALUE}};',
@@ -676,7 +676,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -696,7 +696,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_pagination_',
 			[
-				'label'     => esc_html__( 'Pagination', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pagination', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => ['edd_pagination_show' => 'yes'],
 			]
@@ -707,14 +707,14 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_pagination_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'pagination_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
@@ -726,7 +726,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_download_pagination .page-numbers' => 'background-color: {{VALUE}};',
@@ -739,7 +739,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'pagination_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} #edd_download_pagination .page-numbers',
@@ -750,7 +750,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -762,7 +762,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -775,7 +775,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_fullwidth',
 			[
-				'label'     => esc_html__( 'Fullwidth Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Fullwidth Button', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => [
 					'{{WRAPPER}} #edd_download_pagination .page-numbers' => 'width: 100%;',
@@ -796,7 +796,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'pagination_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} #edd_download_pagination .page-numbers',
 				'separator' => 'before',
@@ -808,14 +808,14 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_pagination_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'pagination_hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_download_pagination .page-numbers:hover' => 'color: {{VALUE}};',
@@ -826,7 +826,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_download_pagination .page-numbers:hover' => 'background-color: {{VALUE}};',
@@ -837,7 +837,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -856,7 +856,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_gap',
 			[
-				'label'   => esc_html__( 'Item Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Item Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -873,19 +873,19 @@ class Easy_Digital_Downloads extends Widget_Base {
 		$this->add_control(
 			'pagination_alignment',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],

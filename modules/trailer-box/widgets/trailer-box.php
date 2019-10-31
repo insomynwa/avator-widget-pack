@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\TrailerBox\Widgets;
+namespace WidgetPack\Modules\TrailerBox\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -17,19 +17,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Trailer_Box extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-trailer-box';
+		return 'avt-trailer-box';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Trailer Box', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Trailer Box', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-trailer-box';
+		return 'avt-wi-trailer-box';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,17 +40,17 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'pre_title',
 			[
-				'label'       => esc_html__( 'Pre Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Pre Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'Trailer box pre title', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Trailer box pre title', 'avator-widget-pack' ),
 				'label_block' => true,
 			]
 		);
@@ -58,11 +58,11 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'Trailer box title', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'Trailer Box Title', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Trailer box title', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'Trailer Box Title', 'avator-widget-pack' ),
 				'label_block' => true,
 			]
 		);
@@ -70,11 +70,11 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'content',
 			[
-				'label'       => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Content', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::WYSIWYG,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'Trailer box text' , 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'I am Trailer Box Description Text. You can change me anytime from settings.' , 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Trailer box text' , 'avator-widget-pack' ),
+				'default'     => esc_html__( 'I am Trailer Box Description Text. You can change me anytime from settings.' , 'avator-widget-pack' ),
 				'label_block' => true,
 			]
 		);
@@ -82,33 +82,33 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'origin',
 			[
-				'label'   => esc_html__( 'Origin', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Origin', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'bottom-left',
-				'options' => element_pack_position(),
+				'options' => widget_pack_position(),
 			]
 		);
 
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
@@ -121,7 +121,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'width',
 			[
-				'label' => esc_html__( 'Maximum Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Maximum Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -138,7 +138,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'height',
 			[
-				'label'   => esc_html__( 'Minimum Height', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Minimum Height', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 400,
@@ -150,7 +150,7 @@ class Trailer_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-trailer-box' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-trailer-box' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -158,13 +158,13 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'link_type',
 			[
-				'label'   => __( 'Link', 'bdthemes-element-pack' ),
+				'label'   => __( 'Link', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''       => __( 'None', 'bdthemes-element-pack' ),
-					'button' => __( 'Button', 'bdthemes-element-pack' ),
-					'item'   => __( 'Item', 'bdthemes-element-pack' ),
+					''       => __( 'None', 'avator-widget-pack' ),
+					'button' => __( 'Button', 'avator-widget-pack' ),
+					'item'   => __( 'Item', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -172,7 +172,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'button',
 			[
-				'label'       => esc_html__( 'link', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'link', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
 				'placeholder' => 'http://your-link.com',
@@ -190,7 +190,7 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'condition' => [
 					'link_type' => 'button',
 				],
@@ -200,11 +200,11 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'button_text',
 			[
-				'label'       => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'View Details', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'View Details', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'View Details', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'View Details', 'avator-widget-pack' ),
 				'label_block' => true,
 			]
 		);
@@ -212,7 +212,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'button_icon',
 			[
-				'label' => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -221,12 +221,12 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'button_icon[value]!' => '',
@@ -237,7 +237,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -251,8 +251,8 @@ class Trailer_Box extends Widget_Base {
 					'button_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-button-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-button-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-trailer-box .avt-trailer-box-button-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-trailer-box .avt-trailer-box-button-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -262,7 +262,7 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -270,10 +270,10 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'pre_title_color',
 			[
-				'label'     => esc_html__( 'Pre Title Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pre Title Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-pre-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-trailer-box .avt-trailer-box-pre-title' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'pre_title!' => '',
@@ -285,10 +285,10 @@ class Trailer_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'pre_title_typography',
-				'label'     => esc_html__( 'Title Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 				'separator' => 'after',
-				'selector'  => '{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-pre-title',
+				'selector'  => '{{WRAPPER}} .avt-trailer-box .avt-trailer-box-pre-title',
 				'condition' => [
 					'pre_title!' => '',
 				],
@@ -298,10 +298,10 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Title Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-trailer-box .avt-trailer-box-title' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'title!' => '',
@@ -313,9 +313,9 @@ class Trailer_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'title_typography',
-				'label'     => esc_html__( 'Title Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-title',
+				'selector'  => '{{WRAPPER}} .avt-trailer-box .avt-trailer-box-title',
 				'condition' => [
 					'title!' => '',
 				],
@@ -325,11 +325,11 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-trailer-box .avt-trailer-box-text' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'content!' => '',
@@ -340,10 +340,10 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'text_spacing',
 			[
-				'label' => esc_html__('Sapce', 'bdthemes-element-pack'),
+				'label' => esc_html__('Sapce', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-text' => 'margin-top: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-trailer-box .avt-trailer-box-text' => 'margin-top: {{SIZE}}px;',
 				],
 			]
 		);
@@ -352,9 +352,9 @@ class Trailer_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'text_typography',
-				'label'     => esc_html__( 'Text Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .bdt-trailer-box .bdt-trailer-box-text',
+				'selector'  => '{{WRAPPER}} .avt-trailer-box .avt-trailer-box-text',
 				'condition' => [
 					'content!' => '',
 				],
@@ -364,16 +364,16 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'item_animation',
 			[
-				'label'        => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'content',
-				'prefix_class' => 'bdt-item-transition-',				
+				'prefix_class' => 'avt-item-transition-',				
 				'render_type'  => 'ui',
 				'options'      => [
-					'content'    => esc_html__( 'Content', 'bdthemes-element-pack' ),
-					'scale-up'   => esc_html__( 'Image Scale Up', 'bdthemes-element-pack' ),
-					'scale-down' => esc_html__( 'Image Scale Down', 'bdthemes-element-pack' ),
-					'none'       => esc_html__( 'None', 'bdthemes-element-pack' ),
+					'content'    => esc_html__( 'Content', 'avator-widget-pack' ),
+					'scale-up'   => esc_html__( 'Image Scale Up', 'avator-widget-pack' ),
+					'scale-down' => esc_html__( 'Image Scale Down', 'avator-widget-pack' ),
+					'none'       => esc_html__( 'None', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -383,7 +383,7 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'link_type' => 'button',
@@ -396,18 +396,18 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-trailer-box-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} a.bdt-trailer-box-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} a.avt-trailer-box-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-trailer-box-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -415,10 +415,10 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-trailer-box-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-trailer-box-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -428,18 +428,18 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-trailer-box-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} a.bdt-trailer-box-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} a.avt-trailer-box-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-trailer-box-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -447,10 +447,10 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-trailer-box-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-trailer-box-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -458,13 +458,13 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} a.bdt-trailer-box-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} a.avt-trailer-box-button:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -472,7 +472,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -485,10 +485,10 @@ class Trailer_Box extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} a.bdt-trailer-box-button',
+				'selector'    => '{{WRAPPER}} a.avt-trailer-box-button',
 				'separator'   => 'before',
 			]
 		);
@@ -496,11 +496,11 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} a.bdt-trailer-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} a.avt-trailer-box-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -509,18 +509,18 @@ class Trailer_Box extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'button_shadow',
-				'selector' => '{{WRAPPER}} a.bdt-trailer-box-button',
+				'selector' => '{{WRAPPER}} a.avt-trailer-box-button',
 			]
 		);
 
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} a.bdt-trailer-box-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} a.avt-trailer-box-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -530,9 +530,9 @@ class Trailer_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} a.bdt-trailer-box-button',
+				'selector' => '{{WRAPPER}} a.avt-trailer-box-button',
 			]
 		);
 
@@ -542,7 +542,7 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_advanced_background_overlay',
 			[
-				'label'     => esc_html__( 'Background Overlay', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Overlay', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_ADVANCED,
 				'condition' => [
 					'_background_background' => [ 'classic', 'gradient' ],
@@ -555,7 +555,7 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_background_overlay_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
@@ -570,7 +570,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'background_overlay_opacity',
 			[
-				'label'   => esc_html__( 'Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => .5,
@@ -595,7 +595,7 @@ class Trailer_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_background_overlay_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
@@ -610,7 +610,7 @@ class Trailer_Box extends Widget_Base {
 		$this->add_control(
 			'background_overlay_hover_opacity',
 			[
-				'label'   => esc_html__( 'Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => .5,
@@ -640,7 +640,7 @@ class Trailer_Box extends Widget_Base {
 	public function render() {
 		$settings               = $this->get_settings_for_display();
 		
-		$origin                 = ' bdt-position-' . $settings['origin'];
+		$origin                 = ' avt-position-' . $settings['origin'];
 		$has_background_overlay = in_array( $settings['background_overlay_background'], [ 'classic', 'gradient' ] ) ||
 		in_array( $settings['background_overlay_hover_background'], [ 'classic', 'gradient' ] );
 		
@@ -666,23 +666,23 @@ class Trailer_Box extends Widget_Base {
 
 		?>
 
-			<div class="bdt-trailer-box bdt-position-relative">
-				<div class="bdt-trailer-box-desc bdt-position-medium<?php echo esc_attr($origin); ?>">
-					<div class="bdt-trailer-box-desc-inner">
+			<div class="avt-trailer-box avt-position-relative">
+				<div class="avt-trailer-box-desc avt-position-medium<?php echo esc_attr($origin); ?>">
+					<div class="avt-trailer-box-desc-inner">
 						<?php if ( '' !== $settings['pre_title'] ) : ?>
-							<h4 class="bdt-trailer-box-pre-title">
-								<?php echo wp_kses( $settings['pre_title'], element_pack_allow_tags('title') ); ?>		
+							<h4 class="avt-trailer-box-pre-title">
+								<?php echo wp_kses( $settings['pre_title'], widget_pack_allow_tags('title') ); ?>		
 							</h4>
 						<?php endif; ?>
 
 						<?php if ( '' !== $settings['title'] ) : ?>
-							<h3 class="bdt-trailer-box-title">
-								<?php echo wp_kses( $settings['title'], element_pack_allow_tags('title') ); ?>
+							<h3 class="avt-trailer-box-title">
+								<?php echo wp_kses( $settings['title'], widget_pack_allow_tags('title') ); ?>
 							</h3>
 						<?php endif; ?>
 
 						<?php if ( '' !== $settings['content'] ) : ?>
-							<div class="bdt-trailer-box-text"><?php echo wp_kses_post($settings['content']); ?></div>
+							<div class="avt-trailer-box-text"><?php echo wp_kses_post($settings['content']); ?></div>
 						<?php endif; ?>
 
 						<?php if ('button' === $settings['link_type']) : ?>
@@ -694,7 +694,7 @@ class Trailer_Box extends Widget_Base {
 											'href'   => esc_url($settings['button']['url']),
 											'target' => esc_attr($target),
 											'class'  => [
-												'bdt-trailer-box-button',
+												'avt-trailer-box-button',
 												$settings['button_hover_animation'] ? 'elementor-animation-'.$settings['button_hover_animation'] : ''
 											]
 										]
@@ -706,7 +706,7 @@ class Trailer_Box extends Widget_Base {
 									<?php echo esc_html($settings['button_text']); ?>
 
 									<?php if ($settings['button_icon']['value']) : ?>
-										<span class="bdt-trailer-box-button-icon-<?php echo esc_attr($settings['icon_align']); ?>">
+										<span class="avt-trailer-box-button-icon-<?php echo esc_attr($settings['icon_align']); ?>">
 
 											<?php if ( $is_new || $migrated ) :
 												Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );

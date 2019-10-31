@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\CryptoCurrency\Widgets;
+namespace WidgetPack\Modules\CryptoCurrency\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -18,19 +18,19 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 	protected $_has_template_content = false;
 
 	public function get_name() {
-		return 'bdt-crypto-currency-price-marquee';
+		return 'avt-crypto-currency-price-marquee';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Crypto Currency Price Marquee', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Crypto Currency Price Marquee', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-cryptocurrency-marquee';
+		return 'avt-wi-cryptocurrency-marquee';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -42,24 +42,24 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 	// }
 
 	public function get_style_depends() {
-		return ['bdt-crypto-currency'];
+		return ['avt-crypto-currency'];
 	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_cryptocurrency',
 			[
-				'label' => esc_html__( 'Crypto Currency', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Crypto Currency', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'crypto_currency',
 			[
-				'label'       => __( 'Crypto Currency', 'bdthemes-element-pack' ),
-				'description'       => __( 'If you want to show any selected crypto currency in your table so type those currency name here. For example: bitcoin,ethereum,litecoin', 'bdthemes-element-pack' ),
+				'label'       => __( 'Crypto Currency', 'avator-widget-pack' ),
+				'description'       => __( 'If you want to show any selected crypto currency in your table so type those currency name here. For example: bitcoin,ethereum,litecoin', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => __( 'bitcoin,ethereum' , 'bdthemes-element-pack' ),
+				'placeholder' => __( 'bitcoin,ethereum' , 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -68,10 +68,10 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 		$this->add_control(
 			'currency',
 			[
-				'label'       => __( 'Currency', 'bdthemes-element-pack' ),
+				'label'       => __( 'Currency', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'usd' , 'bdthemes-element-pack' ),
-				'placeholder' => __( 'usd' , 'bdthemes-element-pack' ),
+				'default'     => __( 'usd' , 'avator-widget-pack' ),
+				'placeholder' => __( 'usd' , 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -86,7 +86,7 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 		$this->start_controls_section(
 			'section_cryptocurrency_card_style',
 			[
-				'label' => __( 'CryptoCurrency Marquee', 'bdthemes-element-pack' ),
+				'label' => __( 'CryptoCurrency Marquee', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -96,10 +96,10 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 		$this->add_control(
 			'cryptocurrency_marquee_background_color',
 			[
-				'label' => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-price-marquee' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-price-marquee' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -139,11 +139,11 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 		$body = wp_remote_retrieve_body($request);
 		$coins = json_decode($body,true);
 		
-		$saved_coins = get_transient( 'element-pack-ccc' );
+		$saved_coins = get_transient( 'widget-pack-ccc' );
 
 		if (false == $saved_coins) {
-			set_transient( 'element-pack-ccc', $coins, 5 * MINUTE_IN_SECONDS );
-			$coins = get_transient( 'element-pack-ccc' );
+			set_transient( 'widget-pack-ccc', $coins, 5 * MINUTE_IN_SECONDS );
+			$coins = get_transient( 'widget-pack-ccc' );
 		}
 
 		return $coins;
@@ -155,7 +155,7 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 		$id       = $this->get_id();
 		$coins    = $this->render_coin_api();
 		$currency = $settings['currency'];
-		$currency_symbol = element_pack_currency_symbol($settings['currency']);
+		$currency_symbol = widget_pack_currency_symbol($settings['currency']);
 		$crypto_currency = ($settings['crypto_currency']) ? $settings['crypto_currency'] : false;
 		$locale = explode('-', get_bloginfo('language'));
 		$locale = $locale[0];
@@ -170,7 +170,7 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 		$this->add_render_attribute('cc-price-marquee', 'locale', $locale );
 	   	
 		?>
-		<div class="bdt-crypto-currency-price-marquee">
+		<div class="avt-crypto-currency-price-marquee">
 			
 			<coingecko-coin-price-marquee-widget  <?php echo $this->get_render_attribute_string( 'cc-price-marquee' ); ?>></coingecko-coin-price-marquee-widget>
 

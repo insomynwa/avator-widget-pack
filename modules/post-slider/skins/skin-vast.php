@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostSlider\Skins;
+namespace WidgetPack\Modules\PostSlider\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Utils;
@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Vast extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-vast';
+		return 'avt-vast';
 	}
 
 	public function get_title() {
-		return __( 'Vast', 'bdthemes-element-pack' );
+		return __( 'Vast', 'avator-widget-pack' );
 	}
 
 	public function render_loop_item() {
@@ -28,18 +28,18 @@ class Skin_Vast extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="bdt-post-slider-item">
-			<div class="bdt-position-relative bdt-post-slider-thumbnail">
+		<div class="avt-post-slider-item">
+			<div class="avt-position-relative avt-post-slider-thumbnail">
 				<img src="<?php echo esc_url($slider_thumbnail); ?>" alt="<?php echo get_the_title(); ?>">
 				<?php $this->render_navigation(); ?>
 			</div>
 
-			<div class="bdt-post-slider-content bdt-padding-large bdt-background-muted">
+			<div class="avt-post-slider-content avt-padding-large avt-background-muted">
 
 	            <?php if ($settings['show_tag']) : ?>
-	        		<?php $tags_list = get_the_tag_list('<span class="bdt-background-primary">','</span> <span class="bdt-background-primary">','</span>'); ?>
+	        		<?php $tags_list = get_the_tag_list('<span class="avt-background-primary">','</span> <span class="avt-background-primary">','</span>'); ?>
 	        		<?php if ($tags_list) : ?> 
-	            		<div class="bdt-post-slider-tag-wrap" bdt-slider-parallax="y: -200,200">
+	            		<div class="avt-post-slider-tag-wrap" avt-slider-parallax="y: -200,200">
 	            			<?php  echo  wp_kses_post($tags_list); ?>
             			</div>
 	            	<?php endif; ?>
@@ -48,13 +48,13 @@ class Skin_Vast extends Elementor_Skin_Base {
 				<?php $this->render_title(); ?>
 
 				<?php if ($settings['show_meta']) : ?>
-					<div class="bdt-post-slider-meta bdt-flex-inline bdt-flex-middile" bdt-slider-parallax="x: 250,-250">
-						<div class="bdt-post-slider-author bdt-border-circle bdt-overflow-hidden bdt-visible@m"><?php echo get_avatar( get_the_author_meta( 'ID' ) , 28 ); ?></div>
-						<div class="bdt-subnav bdt-flex bdt-flex-middle bdt-margin-remove">
-							<span class="bdt-margin-remove">
+					<div class="avt-post-slider-meta avt-flex-inline avt-flex-middile" avt-slider-parallax="x: 250,-250">
+						<div class="avt-post-slider-author avt-border-circle avt-overflow-hidden avt-visible@m"><?php echo get_avatar( get_the_author_meta( 'ID' ) , 28 ); ?></div>
+						<div class="avt-subnav avt-flex avt-flex-middle avt-margin-remove">
+							<span class="avt-margin-remove">
 								<?php echo esc_attr(get_the_author()); ?>
-								<span class="bdt-display-inline-block bdt-margin-remove">
-									<?php esc_html_e('On', 'bdthemes-element-pack'); ?> <?php echo get_the_date(); ?>
+								<span class="avt-display-inline-block avt-margin-remove">
+									<?php esc_html_e('On', 'avator-widget-pack'); ?> <?php echo get_the_date(); ?>
 								</span>
 							</span>
 							
@@ -82,26 +82,26 @@ class Skin_Vast extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="bdt-post-slider-text bdt-visible@m" bdt-slideshow-parallax="x: 500,-500">
-			<?php echo \element_pack_helper::custom_excerpt(intval($this->parent->get_settings( 'excerpt_length' ))); ?>
+		<div class="avt-post-slider-text avt-visible@m" avt-slideshow-parallax="x: 500,-500">
+			<?php echo \widget_pack_helper::custom_excerpt(intval($this->parent->get_settings( 'excerpt_length' ))); ?>
 		</div>
 		<?php
 	}
 
 	public function render_header() {
 		$settings = $this->parent->get_settings();
-		$id       = 'bdt-post-slider-' . $this->parent->get_id();
+		$id       = 'avt-post-slider-' . $this->parent->get_id();
 
 	    $this->parent->add_render_attribute(
 			[
 				'slider-settings' => [
 					'id'    => esc_attr($id),
 					'class' => [
-						'bdt-post-slider',
-						'bdt-post-slider-skin-vast',
-						'bdt-position-relative'
+						'avt-post-slider',
+						'avt-post-slider-skin-vast',
+						'avt-position-relative'
 					],
-					'bdt-slider' => [
+					'avt-slider' => [
 						wp_json_encode(array_filter([
 							"animation"         => $settings["slider_animations"],
 							"autoplay"          => $settings["autoplay"],
@@ -115,7 +115,7 @@ class Skin_Vast extends Elementor_Skin_Base {
 	    
 		?>
 		<div <?php echo ( $this->parent->get_render_attribute_string( 'slider-settings' ) ); ?>>
-			<div class="bdt-slider-items bdt-child-width-1-1">
+			<div class="avt-slider-items avt-child-width-1-1">
 		<?php
 	}
 
@@ -127,9 +127,9 @@ class Skin_Vast extends Elementor_Skin_Base {
 		$tag = $this->parent->get_settings( 'title_tag' );
 		
 		?>
-		<div class="bdt-post-slider-title-wrap">
+		<div class="avt-post-slider-title-wrap">
 			<a href="<?php echo get_permalink(); ?>">
-				<<?php echo esc_attr($tag) ?> class="bdt-post-slider-title bdt-margin-remove-bottom" bdt-slider-parallax="x: 200,-200">
+				<<?php echo esc_attr($tag) ?> class="avt-post-slider-title avt-margin-remove-bottom" avt-slider-parallax="x: 200,-200">
 					<?php the_title() ?>
 				</<?php echo esc_attr($tag) ?>>
 			</a>
@@ -151,16 +151,16 @@ class Skin_Vast extends Elementor_Skin_Base {
 		$id       = $this->parent->get_id();
 
 		?>
-		<div id="<?php echo esc_attr($id); ?>_nav"  class="bdt-post-slider-navigation">
-			<a class="bdt-position-center-left bdt-position-small bdt-hidden-hover" href="#" bdt-slidenav-previous bdt-slider-item="previous"></a>
-			<a class="bdt-position-center-right bdt-position-small bdt-hidden-hover" href="#" bdt-slidenav-next bdt-slider-item="next"></a>
+		<div id="<?php echo esc_attr($id); ?>_nav"  class="avt-post-slider-navigation">
+			<a class="avt-position-center-left avt-position-small avt-hidden-hover" href="#" avt-slidenav-previous avt-slider-item="previous"></a>
+			<a class="avt-position-center-right avt-position-small avt-hidden-hover" href="#" avt-slidenav-next avt-slider-item="next"></a>
 		</div>
 		<?php
 	}
 
 	public function render_content() {
 		?>
-		<div class="bdt-post-slider-text bdt-visible@m" bdt-slider-parallax="x: 500,-500">
+		<div class="avt-post-slider-text avt-visible@m" avt-slider-parallax="x: 500,-500">
 			<?php the_content(); ?>
 		</div>
 		<?php
@@ -173,12 +173,12 @@ class Skin_Vast extends Elementor_Skin_Base {
 		$settings  = $this->parent->get_settings();
 		$animation = ($settings['button_hover_animation']) ? ' elementor-animation-'.$settings['button_hover_animation'] : '';
 		?>
-		<div class="bdt-post-slider-button-wrap" bdt-slider-parallax="y: 200,-200">
-			<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-slider-button bdt-display-inline-block<?php echo esc_attr($animation); ?>">
+		<div class="avt-post-slider-button-wrap" avt-slider-parallax="y: 200,-200">
+			<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-slider-button avt-display-inline-block<?php echo esc_attr($animation); ?>">
 				<?php echo esc_attr($this->parent->get_settings( 'button_text' )); ?>
 
 				<?php if ($settings['icon']) : ?>
-					<span class="bdt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
+					<span class="avt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
 						<i class="<?php echo esc_attr($settings['icon']); ?>"></i>
 					</span>
 				<?php endif; ?>

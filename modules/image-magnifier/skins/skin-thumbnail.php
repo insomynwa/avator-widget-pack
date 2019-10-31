@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\ImageMagnifier\Skins;
+namespace WidgetPack\Modules\ImageMagnifier\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Thumbnail extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-thumbnail';
+		return 'avt-thumbnail';
 	}
 
 	public function get_title() {
-		return __( 'Thumbnail', 'bdthemes-element-pack' );
+		return __( 'Thumbnail', 'avator-widget-pack' );
 	}
 
 	public function render_navigation($settings) {
@@ -27,7 +27,7 @@ class Skin_Thumbnail extends Elementor_Skin_Base {
 
 	public function render_header($settings) {
 		?>
-		<div class="bdt-image-magnifier-skin-thumbnail">
+		<div class="avt-image-magnifier-skin-thumbnail">
 
 		<?php
 	}

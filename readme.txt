@@ -1,7 +1,7 @@
-=== Element Pack ===
-Contributors: bdthemes, selimmw
-Donate link: http://bdthemes.com/
-Tags: elementor, element, pack, addon, bdthemes
+=== Widget Pack ===
+Contributors: avator, selimmw
+Donate link: http://avator.com/
+Tags: elementor, element, pack, addon, avator
 Requires at least: 4.9.0
 Tested up to: 5.2.2
 Requires PHP: 5.6.0
@@ -16,9 +16,9 @@ Best Addon for Elementor WordPress Plugin with 115+ Most Popular Elements that n
 
 == Description ==
 
-Element Pack addon for Elementor has been developed with world’s best practice code standard and meets proper validation using the latest CSS, HTML5 and PHP 7.x technology to bring you a professional addon for Elementor Page Builder Plugin that is WordPress 5.2.x ready.
+Widget Pack addon for Elementor has been developed with world’s best practice code standard and meets proper validation using the latest CSS, HTML5 and PHP 7.x technology to bring you a professional addon for Elementor Page Builder Plugin that is WordPress 5.2.x ready.
 
-Element Pack for Elementor included most commonly used elements (which called widget) that help you to easily manage your website content simply drag and drop, seriously no programming knowledge required.
+Widget Pack for Elementor included most commonly used elements (which called widget) that help you to easily manage your website content simply drag and drop, seriously no programming knowledge required.
 
 It’s also multilingual ready (more pre-made translation coming very soon).
 
@@ -124,12 +124,12 @@ e.g.
 
 == Frequently Asked Questions ==
 
-### What page builder is support Element Pack plugin
+### What page builder is support Widget Pack plugin
 
 - Nowadays Elementor Page Builder is a powerful page builder for WordPress as like as Visual Composer. So it supports only the Elementor Page Builder. But we have plan more in the future.
 
 
-### Is Element Pack compatible my theme
+### Is Widget Pack compatible my theme
 
 - Normally our plugin is compatible with most of theme and cross browser that we have tested. If happen very few change to your site looking, no problem our strong support team is dedicated for fixing your minor problem.
 
@@ -140,7 +140,7 @@ e.g.
 
 == Screenshots ==
 
-[https://bdthemes.com/resource/images/element-pack/element-pack-version-history-31.jpg  Version History]
-[https://bdthemes.com/resource/images/element-pack/element-pack-intro.jpg  Element Pack Intro]
-[https://bdthemes.com/resource/images/element-pack/element-pack-language.jpg  Support multiple language]
-[https://bdthemes.com/resource/images/element-pack/element-pack-review.jpg  Element Pack Review]
+[https://avator.com/resource/images/widget-pack/widget-pack-version-history-31.jpg  Version History]
+[https://avator.com/resource/images/widget-pack/widget-pack-intro.jpg  Widget Pack Intro]
+[https://avator.com/resource/images/widget-pack/widget-pack-language.jpg  Support multiple language]
+[https://avator.com/resource/images/widget-pack/widget-pack-review.jpg  Widget Pack Review]

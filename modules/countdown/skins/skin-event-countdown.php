@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Countdown\Skins;
+namespace WidgetPack\Modules\Countdown\Skins;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
@@ -16,20 +16,20 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 	public function _register_controls_actions() {
 		parent::_register_controls_actions();
 
-		add_action( 'elementor/element/bdt-countdown/section_number_style/before_section_start',     [ $this, 'register_title_style_controls'        ] );
-		add_action( 'elementor/element/bdt-countdown/section_label_style/after_section_end',         [ $this, 'register_event_button_style_controls' ] );
-		add_action( 'elementor/element/bdt-countdown/section_content_count/after_section_end',       [ $this, 'register_event_button_controls'       ] );
-		add_action( 'elementor/element/bdt-countdown/section_content_layout/before_section_end',     [ $this, 'register_event_controls'              ] );
-		add_action( 'elementor/element/bdt-countdown/section_content_additional/before_section_end', [ $this, 'register_event_additional_controls'   ] );
+		add_action( 'elementor/element/avt-countdown/section_number_style/before_section_start',     [ $this, 'register_title_style_controls'        ] );
+		add_action( 'elementor/element/avt-countdown/section_label_style/after_section_end',         [ $this, 'register_event_button_style_controls' ] );
+		add_action( 'elementor/element/avt-countdown/section_content_count/after_section_end',       [ $this, 'register_event_button_controls'       ] );
+		add_action( 'elementor/element/avt-countdown/section_content_layout/before_section_end',     [ $this, 'register_event_controls'              ] );
+		add_action( 'elementor/element/avt-countdown/section_content_additional/before_section_end', [ $this, 'register_event_additional_controls'   ] );
 
 	}
 
 	public function get_id() {
-		return 'bdt-event-countdown';
+		return 'avt-event-countdown';
 	}
 
 	public function get_title() {
-		return __( 'Event Countdown', 'bdthemes-element-pack' );
+		return __( 'Event Countdown', 'avator-widget-pack' );
 	}
 
 	public function register_event_additional_controls( Widget_Base $widget ) {
@@ -38,7 +38,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'show_event_title',
 			[
-				'label'   => esc_html__( 'Show Event Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Event Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -47,7 +47,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'show_event_button',
 			[
-				'label'   => esc_html__( 'Show Event Button', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Event Button', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -63,7 +63,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 				'post_type'      => \Tribe__Events__Main::POSTTYPE,
 			));
 
-			$event_items = ['0' => esc_html__( 'Select Event', 'bdthemes-element-pack' ) ];
+			$event_items = ['0' => esc_html__( 'Select Event', 'avator-widget-pack' ) ];
 
 			foreach ($event_item as $key => $value) {
 				$event_items[$value] = get_the_title($value);
@@ -71,7 +71,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 
 			wp_reset_postdata();
 		} else {
-			$event_items = ['0' => esc_html__( 'Event Calendar Not Installed', 'bdthemes-element-pack' ) ];
+			$event_items = ['0' => esc_html__( 'Event Calendar Not Installed', 'avator-widget-pack' ) ];
 		}
 		return $event_items;
 	}
@@ -82,9 +82,9 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_id',
 			[
-				'label'       => esc_html__( 'Event List', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Event List', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
-				'description' => esc_html__( 'Select your event from this list', 'bdthemes-element-pack' ),
+				'description' => esc_html__( 'Select your event from this list', 'avator-widget-pack' ),
 				'options'     => self::get_event_list(),
 				'default'     => '0',
 			]
@@ -95,33 +95,33 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_event_button',
 			[
-				'label' => esc_html__( 'Event Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Event Button', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'event_button_text',
 			[
-				'label'   => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'VIEW DETAILS', 'bdthemes-element-pack' ),
+				'default' => esc_html__( 'VIEW DETAILS', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'event_button_size',
 			[
-				'label'   => esc_html__( 'Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'lg',
-				'options' => element_pack_button_sizes(),
+				'options' => widget_pack_button_sizes(),
 			]
 		);
 
 		$this->add_control(
 			'event_button_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -130,12 +130,12 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					$this->get_control_id( 'event_button_icon[value]!' ) => '',
@@ -146,7 +146,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_icon_indent',
 			[
-				'label' => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -160,8 +160,8 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 					$this->get_control_id( 'event_button_icon[value]!' ) => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-wrapper .bdt-event-button-icon.elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-countdown-wrapper .bdt-event-button-icon.elementor-align-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-countdown-wrapper .avt-event-button-icon.elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-countdown-wrapper .avt-event-button-icon.elementor-align-icon-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -173,7 +173,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_style_event_button',
 			[
-				'label'     => esc_html__( 'Event Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Event Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					$this->get_control_id( 'show_event_button' ) => 'yes',
@@ -186,18 +186,18 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_event_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'event_button_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -207,17 +207,17 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 			[
 				'name' => 'event_button_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bdt-event-button',
+				'selector' => '{{WRAPPER}} .avt-event-button',
 			]
 		);
 
 		$this->add_control(
 			'event_button_background_color',
 			[
-				'label'  => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -227,18 +227,18 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 				'name'        => 'event_button_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-event-button',
+				'selector'    => '{{WRAPPER}} .avt-event-button',
 			]
 		);
 
 		$this->add_control(
 			'event_button_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-event-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -246,11 +246,11 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -258,11 +258,11 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_icon_color',
 			[
-				'label'     => esc_html__( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button .bdt-event-button-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-event-button .bdt-event-button-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button .avt-event-button-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button .avt-event-button-icon svg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
 					$this->get_control_id( 'event_button_icon[value]!' ) => '',
@@ -276,17 +276,17 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->start_controls_tab(
 			'tab_event_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'event_button_hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -294,10 +294,10 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_hover_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -305,10 +305,10 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
 					'event_button_border_border!' => '',
@@ -319,7 +319,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -327,11 +327,11 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_button_hover_icon_color',
 			[
-				'label'     => esc_html__( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-button:hover .bdt-event-button-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-event-button:hover .bdt-event-button-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button:hover .avt-event-button-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-button:hover .avt-event-button-icon svg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
 					$this->get_control_id( 'event_button_icon[value]!' ) => '',
@@ -355,7 +355,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label' => esc_html__( 'Event Title', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Event Title', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					$this->get_control_id( 'show_event_title' ) => 'yes',
@@ -366,10 +366,10 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_title_background_color',
 			[
-				'label'  => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-event-title' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-countdown-event-title' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -377,10 +377,10 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_control(
 			'event_title_color',
 			[
-				'label'  => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-event-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-countdown-event-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -390,18 +390,18 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 				'name'        => 'event_title_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-countdown-event-title',
+				'selector'    => '{{WRAPPER}} .avt-countdown-event-title',
 			]
 		);
 
 		$this->add_responsive_control(
 			'event_title_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-event-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-countdown-event-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -409,11 +409,11 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'event_title_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-event-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-countdown-event-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -421,7 +421,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'event_title_space',
 			[
-				'label' => esc_html__( 'Space', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Space', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => 'px',
@@ -436,7 +436,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 				],
 				'size_units' => [ 'px' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-countdown-event-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-countdown-event-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -445,7 +445,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'event_title_typography',
-				'selector' => '{{WRAPPER}} .bdt-countdown-event-title',
+				'selector' => '{{WRAPPER}} .avt-countdown-event-title',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
@@ -459,7 +459,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 			[
 				'event-button-icon' => [
 					'class' => [
-						'bdt-event-button-icon',
+						'avt-event-button-icon',
 						'elementor-button-icon',
 						'elementor-align-icon-' . $this->get_instance_value('event_button_icon_align')
 					],
@@ -509,7 +509,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 					'event-button' => [
 						'class' => [
 							'elementor-button',
-							'bdt-event-button',
+							'avt-event-button',
 							'elementor-size-' . $this->get_instance_value('event_button_size'),
 							$this->get_instance_value('event_button_animation') ? 'elementor-animation-' . $this->get_instance_value('event_button_animation') : ''
 						],
@@ -534,22 +534,22 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 				[
 					'countdown' => [
 						'class' => [
-							'bdt-grid',
-							'bdt-flex-middle bdt-flex-' . esc_attr($settings['alignment']),
-							$this->get_instance_value('column_gap') ? 'bdt-grid-'.$this->get_instance_value('column_gap') : '',
+							'avt-grid',
+							'avt-flex-middle avt-flex-' . esc_attr($settings['alignment']),
+							$this->get_instance_value('column_gap') ? 'avt-grid-'.$this->get_instance_value('column_gap') : '',
 						],
-						'bdt-countdown' => [
+						'avt-countdown' => [
 							'date: ' . $final_time
 						],
-						'bdt-grid' => ''
+						'avt-grid' => ''
 					],
 				]
 			);
 
 			?>
-			<div class="bdt-countdown-wrapper bdt-countdown-skin-event bdt-text-<?php echo esc_attr($settings['alignment']); ?>">
+			<div class="avt-countdown-wrapper avt-countdown-skin-event avt-text-<?php echo esc_attr($settings['alignment']); ?>">
 				<?php if( '' != $event_id  and 'yes' == $this->get_instance_value('show_event_title') ) : ?>
-					<div class="bdt-countdown-event-title bdt-display-inline-block">
+					<div class="avt-countdown-event-title avt-display-inline-block">
 						<?php echo esc_attr($event_title); ?>
 					</div>
 				<?php endif; ?>
@@ -559,7 +559,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 					<?php echo wp_kses_post($string); ?>
 
 					<?php if( '' != $event_id  and 'yes' == $this->get_instance_value('show_event_button') ) : ?>
-						<div class="bdt-countdown bdt-countdown-event-button">
+						<div class="avt-countdown avt-countdown-event-button">
 							<a <?php echo $this->parent->get_render_attribute_string( 'event-button' ); ?>>
 								<?php $this->render_text(); ?>
 							</a>
@@ -568,7 +568,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 				</div>
 			</div>
 			<?php 
-		} else echo '<div class="bdt-alert-warning" bdt-alert><p>You couldn\'t select any event, please select a event from event list.</p></div>';
+		} else echo '<div class="avt-alert-warning" avt-alert><p>You couldn\'t select any event, please select a event from event list.</p></div>';
 	}
 }
 

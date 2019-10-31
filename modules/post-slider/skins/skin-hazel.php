@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostSlider\Skins;
+namespace WidgetPack\Modules\PostSlider\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Utils;
@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Hazel extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-hazel';
+		return 'avt-hazel';
 	}
 
 	public function get_title() {
-		return __( 'Hazel', 'bdthemes-element-pack' );
+		return __( 'Hazel', 'avator-widget-pack' );
 	}
 
 	public function render_loop_item() {
@@ -30,30 +30,30 @@ class Skin_Hazel extends Elementor_Skin_Base {
 		$slider_max_height = $settings['slider_max_height']['size'] ? 'style="height:' . $settings['slider_max_height']['size'] . 'px"': '';
 
 		?>
-		<div class="bdt-post-slider-item">
-			<div class="bdt-grid bdt-grid-collapse" bdt-grid>
-				<div class="bdt-position-relative bdt-width-1-2 bdt-width-2-3@m bdt-post-slider-thumbnail">
+		<div class="avt-post-slider-item">
+			<div class="avt-grid avt-grid-collapse" avt-grid>
+				<div class="avt-position-relative avt-width-1-2 avt-width-2-3@m avt-post-slider-thumbnail">
 					<div>
 						<img src="<?php echo esc_url($slider_thumbnail); ?>" alt="<?php echo get_the_title(); ?>">						
 					</div>
 				</div>
 
-				<div class="bdt-width-1-2 bdt-width-1-3@m">
-					<div class="bdt-post-slider-content" <?php echo esc_attr($slider_max_height); ?>>
+				<div class="avt-width-1-2 avt-width-1-3@m">
+					<div class="avt-post-slider-content" <?php echo esc_attr($slider_max_height); ?>>
 
 			            <?php if ($settings['show_tag']) : ?>
-			        		<?php $tags_list = get_the_tag_list('<span class="bdt-background-primary">','</span> <span class="bdt-background-primary">','</span>'); ?>
+			        		<?php $tags_list = get_the_tag_list('<span class="avt-background-primary">','</span> <span class="avt-background-primary">','</span>'); ?>
 			        		<?php if ($tags_list) : ?> 
-			            		<div class="bdt-post-slider-tag-wrap"><?php  echo  wp_kses_post($tags_list); ?></div>
+			            		<div class="avt-post-slider-tag-wrap"><?php  echo  wp_kses_post($tags_list); ?></div>
 			            	<?php endif; ?>
 			            <?php endif; ?>
 
 						<?php $this->render_title(); ?>
 
 						<?php if ($settings['show_meta']) : ?>
-							<div class="bdt-post-slider-meta bdt-flex-inline bdt-flex-middile bdt-subnav bdt-margin-small-top">
-								<div class="bdt-display-inline-block bdt-text-capitalize bdt-author"><?php echo esc_attr(get_the_author()); ?></div> 
-								<span class="bdt-padding-remove-horizontal"><?php esc_html_e('On', 'bdthemes-element-pack'); ?> <?php echo get_the_date(); ?></span>
+							<div class="avt-post-slider-meta avt-flex-inline avt-flex-middile avt-subnav avt-margin-small-top">
+								<div class="avt-display-inline-block avt-text-capitalize avt-author"><?php echo esc_attr(get_the_author()); ?></div> 
+								<span class="avt-padding-remove-horizontal"><?php esc_html_e('On', 'avator-widget-pack'); ?> <?php echo get_the_date(); ?></span>
 							</div>
 						<?php endif; ?>
 						
@@ -76,15 +76,15 @@ class Skin_Hazel extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="bdt-post-slider-text bdt-visible@m" bdt-slideshow-parallax="x: 500,-500">
-			<?php echo \element_pack_helper::custom_excerpt(intval($this->parent->get_settings( 'excerpt_length' ))); ?>
+		<div class="avt-post-slider-text avt-visible@m" avt-slideshow-parallax="x: 500,-500">
+			<?php echo \widget_pack_helper::custom_excerpt(intval($this->parent->get_settings( 'excerpt_length' ))); ?>
 		</div>
 		<?php
 	}
 
 	public function render_header() {
 		$settings = $this->parent->get_settings();
-		$id       = 'bdt-post-slider-' . $this->parent->get_id();
+		$id       = 'avt-post-slider-' . $this->parent->get_id();
 
 		$ratio = ($settings['slider_size_ratio']['width'] && $settings['slider_size_ratio']['height']) ? $settings['slider_size_ratio']['width'].":".$settings['slider_size_ratio']['height'] : '';
 
@@ -93,11 +93,11 @@ class Skin_Hazel extends Elementor_Skin_Base {
 				'slider-settings' => [
 					'id'    => esc_attr($id),
 					'class' => [
-						'bdt-post-slider',
-						'bdt-post-slider-skin-hazel',
-						'bdt-position-relative'
+						'avt-post-slider',
+						'avt-post-slider-skin-hazel',
+						'avt-position-relative'
 					],
-					'bdt-slideshow' => [
+					'avt-slideshow' => [
 						wp_json_encode(array_filter([
 							"animation"         => $settings["slider_animations"],
 							"min-height"        => $settings["slider_min_height"]["size"],
@@ -108,14 +108,14 @@ class Skin_Hazel extends Elementor_Skin_Base {
 							"pause-on-hover"    => $settings["pause_on_hover"]
 						]))
 					],
-					'bdt-height-match' => '.bdt-post-slider-match-height'
+					'avt-height-match' => '.avt-post-slider-match-height'
 				]
 			]
 		);
 	    
 		?>
 		<div <?php echo ( $this->parent->get_render_attribute_string( 'slider-settings' ) ); ?>>
-			<div class="bdt-slideshow-items bdt-child-width-1-1">
+			<div class="avt-slideshow-items avt-child-width-1-1">
 		<?php
 	}
 
@@ -127,9 +127,9 @@ class Skin_Hazel extends Elementor_Skin_Base {
 		$tag = $this->parent->get_settings( 'title_tag' );
 
 		?>
-		<div class="bdt-post-slider-title-wrap">
+		<div class="avt-post-slider-title-wrap">
 			<a href="<?php echo get_permalink(); ?>">
-				<<?php echo esc_attr($tag) ?> class="bdt-post-slider-title bdt-margin-remove-bottom">
+				<<?php echo esc_attr($tag) ?> class="avt-post-slider-title avt-margin-remove-bottom">
 					<?php the_title() ?>
 				</<?php echo esc_attr($tag) ?>>
 			</a>
@@ -152,16 +152,16 @@ class Skin_Hazel extends Elementor_Skin_Base {
 		$is_rtl = is_rtl() ? 'dir="ltr"' : '';
 
 		?>
-		<div id="<?php echo esc_attr($id); ?>_nav"  class="bdt-post-slider-navigation bdt-position-bottom-right bdt-width-1-2 bdt-width-1-3@m">
-			<div class="bdt-post-slider-navigation-inner bdt-grid bdt-grid-collapse" <?php echo esc_attr($is_rtl); ?>>
-				<a class="bdt-hidden-hover bdt-width-1-2" href="#" bdt-slideshow-item="previous">
+		<div id="<?php echo esc_attr($id); ?>_nav"  class="avt-post-slider-navigation avt-position-bottom-right avt-width-1-2 avt-width-1-3@m">
+			<div class="avt-post-slider-navigation-inner avt-grid avt-grid-collapse" <?php echo esc_attr($is_rtl); ?>>
+				<a class="avt-hidden-hover avt-width-1-2" href="#" avt-slideshow-item="previous">
 					<svg width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg">
 						<polyline fill="none" stroke="#000" stroke-width="1.4" points="12.775,1 1.225,12 12.775,23 "></polyline>
 					</svg>
-					<span class="bdt-slider-nav-text"><?php esc_html_e( 'PREV', 'bdthemes-element-pack' ) ?></span>
+					<span class="avt-slider-nav-text"><?php esc_html_e( 'PREV', 'avator-widget-pack' ) ?></span>
 				</a>
-				<a class="bdt-hidden-hover bdt-width-1-2" href="#" bdt-slideshow-item="next">
-					<span class="bdt-slider-nav-text"><?php esc_html_e( 'NEXT', 'bdthemes-element-pack' ) ?></span>
+				<a class="avt-hidden-hover avt-width-1-2" href="#" avt-slideshow-item="next">
+					<span class="avt-slider-nav-text"><?php esc_html_e( 'NEXT', 'avator-widget-pack' ) ?></span>
 					<svg width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg">
 						<polyline fill="none" stroke="#000" stroke-width="1.4" points="1.225,23 12.775,12 1.225,1 "></polyline>
 					</svg>
@@ -173,7 +173,7 @@ class Skin_Hazel extends Elementor_Skin_Base {
 
 	public function render_content() {
 		?>
-		<div class="bdt-post-slider-text bdt-visible@m">
+		<div class="avt-post-slider-text avt-visible@m">
 			<?php the_content(); ?>
 		</div>
 		<?php
@@ -186,12 +186,12 @@ class Skin_Hazel extends Elementor_Skin_Base {
 		$settings  = $this->parent->get_settings();
 		$animation = ($settings['button_hover_animation']) ? ' elementor-animation-'.$settings['button_hover_animation'] : '';
 		?>
-		<div class="bdt-post-slider-button-wrap">
-			<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-slider-button bdt-display-inline-block<?php echo esc_attr($animation); ?>">
+		<div class="avt-post-slider-button-wrap">
+			<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-slider-button avt-display-inline-block<?php echo esc_attr($animation); ?>">
 				<?php echo esc_attr($this->parent->get_settings( 'button_text' )); ?>
 
 				<?php if ($settings['icon']) : ?>
-					<span class="bdt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
+					<span class="avt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
 						<i class="<?php echo esc_attr($settings['icon']); ?>"></i>
 					</span>
 				<?php endif; ?>

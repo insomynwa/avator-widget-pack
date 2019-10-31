@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Helpdesk\Widgets;
+namespace WidgetPack\Modules\Helpdesk\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -10,25 +10,25 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
-use ElementPack\Modules\Navbar\ep_menu_walker;
+use WidgetPack\Modules\Navbar\ep_menu_walker;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Helpdesk extends Widget_Base {
 	public function get_name() {
-		return 'bdt-helpdesk';
+		return 'avt-helpdesk';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Help Desk', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Help Desk', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-help-desk';
+		return 'avt-wi-help-desk';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -36,7 +36,7 @@ class Helpdesk extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'element-pack-font' ];
+		return [ 'widget-pack-font' ];
 	}
 
 	public function get_script_depends() {
@@ -48,22 +48,22 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'helpdesk_position',
 			[
-				'label'   => __( 'Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'left'  => __( 'Left', 'bdthemes-element-pack' ),
-					'right' => __( 'Right', 'bdthemes-element-pack' ),
+					'left'  => __( 'Left', 'avator-widget-pack' ),
+					'right' => __( 'Right', 'avator-widget-pack' ),
 				],
 				'default'   => 'right',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-helpdesk-icons' => '{{VALUE}} : 30px;',
+					'{{WRAPPER}} .avt-helpdesk-icons' => '{{VALUE}} : 30px;',
 				],
 			]
 		);
@@ -71,7 +71,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_select_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'helpdesk_icon',
 				'default' => [
@@ -84,7 +84,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_responsive_control(
 			'helpdesk_size',
 			[
-				'label'   => esc_html__( 'Icon Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -98,7 +98,7 @@ class Helpdesk extends Widget_Base {
 				],
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item, {{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item, {{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -106,7 +106,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_responsive_control(
 			'helpdesk_space',
 			[
-				'label'   => esc_html__( 'Icon Space', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Space', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -116,13 +116,13 @@ class Helpdesk extends Widget_Base {
 				],
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-helpdesk-icons-open:checked ~ .bdt-helpdesk-icons-item:nth-child(3)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} - {{helpdesk_size.SIZE}}{{UNIT}}), 0);',
-					'{{WRAPPER}} .bdt-helpdesk-icons-open:checked ~ .bdt-helpdesk-icons-item:nth-child(4)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 2 - {{helpdesk_size.SIZE}}{{UNIT}} * 2), 0);',
-					'{{WRAPPER}} .bdt-helpdesk-icons-open:checked ~ .bdt-helpdesk-icons-item:nth-child(5)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 3 - {{helpdesk_size.SIZE}}{{UNIT}} * 3), 0);',
-					'{{WRAPPER}} .bdt-helpdesk-icons-open:checked ~ .bdt-helpdesk-icons-item:nth-child(6)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 4 - {{helpdesk_size.SIZE}}{{UNIT}} * 4), 0);',
-					'{{WRAPPER}} .bdt-helpdesk-icons-open:checked ~ .bdt-helpdesk-icons-item:nth-child(7)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 5 - {{helpdesk_size.SIZE}}{{UNIT}} * 5), 0);',
-					'{{WRAPPER}} .bdt-helpdesk-icons-open:checked ~ .bdt-helpdesk-icons-item:nth-child(8)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 6 - {{helpdesk_size.SIZE}}{{UNIT}} * 6), 0);',
-					'{{WRAPPER}} .bdt-helpdesk-icons-open:checked ~ .bdt-helpdesk-icons-item:nth-child(9)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 7 - {{helpdesk_size.SIZE}}{{UNIT}} * 7), 0);',
+					'{{WRAPPER}} .avt-helpdesk-icons-open:checked ~ .avt-helpdesk-icons-item:nth-child(3)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} - {{helpdesk_size.SIZE}}{{UNIT}}), 0);',
+					'{{WRAPPER}} .avt-helpdesk-icons-open:checked ~ .avt-helpdesk-icons-item:nth-child(4)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 2 - {{helpdesk_size.SIZE}}{{UNIT}} * 2), 0);',
+					'{{WRAPPER}} .avt-helpdesk-icons-open:checked ~ .avt-helpdesk-icons-item:nth-child(5)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 3 - {{helpdesk_size.SIZE}}{{UNIT}} * 3), 0);',
+					'{{WRAPPER}} .avt-helpdesk-icons-open:checked ~ .avt-helpdesk-icons-item:nth-child(6)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 4 - {{helpdesk_size.SIZE}}{{UNIT}} * 4), 0);',
+					'{{WRAPPER}} .avt-helpdesk-icons-open:checked ~ .avt-helpdesk-icons-item:nth-child(7)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 5 - {{helpdesk_size.SIZE}}{{UNIT}} * 5), 0);',
+					'{{WRAPPER}} .avt-helpdesk-icons-open:checked ~ .avt-helpdesk-icons-item:nth-child(8)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 6 - {{helpdesk_size.SIZE}}{{UNIT}} * 6), 0);',
+					'{{WRAPPER}} .avt-helpdesk-icons-open:checked ~ .avt-helpdesk-icons-item:nth-child(9)' => 'transform: translate3d(0, calc(-{{SIZE}}{{UNIT}} * 7 - {{helpdesk_size.SIZE}}{{UNIT}} * 7), 0);',
 				],
 			]
 		);
@@ -130,7 +130,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_title',
 			[
-				'label'       => esc_html__( 'Main Icon Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Main Icon Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Need help? Contact us with your favorite way.',
@@ -141,7 +141,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'messenger_show',
 			[
-				'label'   => esc_html__( 'Messenger', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Messenger', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'separator' => 'before',
@@ -151,7 +151,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'skype_show',
 			[
-				'label'   => esc_html__( 'Skype', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Skype', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -159,7 +159,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'viber_show',
 			[
-				'label'   => esc_html__( 'Viber', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Viber', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -167,7 +167,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'whatsapp_show',
 			[
-				'label'   => esc_html__( 'WhatsApp', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'WhatsApp', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -176,7 +176,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'telegram_show',
 			[
-				'label'   => esc_html__( 'Telegram', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Telegram', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -185,7 +185,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'custom_show',
 			[
-				'label'   => esc_html__( 'Custom', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Custom', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -193,7 +193,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'mailto_show',
 			[
-				'label'   => esc_html__( 'Email', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Email', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -204,7 +204,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_messenger',
 			[
-				'label' => esc_html__( 'Messenger', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Messenger', 'avator-widget-pack' ),
 				'condition' => [
 					'messenger_show' => 'yes',
 				],
@@ -214,7 +214,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'messenger_title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Chat on messenger',
@@ -225,12 +225,12 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'messenger_link',
 			[
-				'label'       => esc_html__( 'Link/ID', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Link/ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'bdthemes', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'avator', 'avator-widget-pack' ),
 				'default'     => [
-					'url' => 'bdthemes',
+					'url' => 'avator',
 				],
 			]
 		);
@@ -238,7 +238,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'messenger_onclick',
 			[
-				'label'   => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -246,7 +246,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'messenger_onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'description' => sprintf( __('For details please look <a href="%s" target="_blank">here</a>'), 'https://www.w3schools.com/jsref/event_onclick.asp' ),
@@ -261,7 +261,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_skype',
 			[
-				'label' => esc_html__( 'Skype', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Skype', 'avator-widget-pack' ),
 				'condition' => [
 					'skype_show' => 'yes',
 				],
@@ -271,7 +271,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'skype_title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Chat on skype',
@@ -282,12 +282,12 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'skype_link',
 			[
-				'label'       => esc_html__( 'Link/ID', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Link/ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'bdthemes', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'avator', 'avator-widget-pack' ),
 				'default'     => [
-					'url' => 'bdthemes',
+					'url' => 'avator',
 				],
 			]
 		);
@@ -295,7 +295,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'skype_onclick',
 			[
-				'label'   => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -303,7 +303,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'skype_onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'description' => sprintf( __('For details please look <a href="%s" target="_blank">here</a>'), 'https://www.w3schools.com/jsref/event_onclick.asp' ),
@@ -318,7 +318,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_viber',
 			[
-				'label' => esc_html__( 'Viber', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Viber', 'avator-widget-pack' ),
 				'condition' => [
 					'viber_show' => 'yes',
 				],
@@ -328,7 +328,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'viber_title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Chat on viber',
@@ -339,12 +339,12 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'viber_link',
 			[
-				'label'       => esc_html__( 'Link/ID', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Link/ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'bdthemes', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'avator', 'avator-widget-pack' ),
 				'default'     => [
-					'url' => 'bdthemes',
+					'url' => 'avator',
 				],
 			]
 		);
@@ -352,7 +352,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'viber_onclick',
 			[
-				'label'   => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -360,7 +360,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'viber_onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'description' => sprintf( __('For details please look <a href="%s" target="_blank">here</a>'), 'https://www.w3schools.com/jsref/event_onclick.asp' ),
@@ -375,7 +375,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_whatsapp',
 			[
-				'label' => esc_html__( 'WhatsApp', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'WhatsApp', 'avator-widget-pack' ),
 				'condition' => [
 					'whatsapp_show' => 'yes',
 				],
@@ -385,7 +385,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'whatsapp_title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Call via whatsapp',
@@ -396,10 +396,10 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'whatsapp_link',
 			[
-				'label'       => esc_html__( 'Number', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Number', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( '+8801718542596', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( '+8801718542596', 'avator-widget-pack' ),
 				'default'     => [
 					'url' => '+8801718542596',
 				],
@@ -409,7 +409,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'whatsapp_onclick',
 			[
-				'label'   => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -417,7 +417,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'whatsapp_onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'description' => sprintf( __('For details please look <a href="%s" target="_blank">here</a>'), 'https://www.w3schools.com/jsref/event_onclick.asp' ),
@@ -433,7 +433,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_telegram',
 			[
-				'label' => esc_html__( 'Telegram', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Telegram', 'avator-widget-pack' ),
 				'condition' => [
 					'telegram_show' => 'yes',
 				],
@@ -443,7 +443,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'telegram_title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Chat on telegram',
@@ -454,12 +454,12 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'telegram_link',
 			[
-				'label'       => esc_html__( 'User ID', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'User ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'bdthemes', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'avator', 'avator-widget-pack' ),
 				'default'     => [
-					'url' => 'bdthemes',
+					'url' => 'avator',
 				],
 			]
 		);
@@ -467,7 +467,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'telegram_onclick',
 			[
-				'label'   => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -475,7 +475,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'telegram_onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'description' => sprintf( __('For details please look <a href="%s" target="_blank">here</a>'), 'https://www.w3schools.com/jsref/event_onclick.asp' ),
@@ -491,7 +491,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_custom',
 			[
-				'label' => esc_html__( 'Custom', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Custom', 'avator-widget-pack' ),
 				'condition' => [
 					'custom_show' => 'yes',
 				],
@@ -502,7 +502,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'custom_title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Chat with us',
@@ -513,17 +513,17 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'custom_link',
 			[
-				'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Link', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => esc_html__( 'https://sample.com', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'https://sample.com', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'custom_onclick',
 			[
-				'label'   => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -531,7 +531,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'custom_onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'default' => 'Intercom("show");',
@@ -545,7 +545,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_custom_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'custom_icon',
 				'default' => [
@@ -560,7 +560,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_mailto',
 			[
-				'label' => esc_html__( 'Email', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Email', 'avator-widget-pack' ),
 				'condition' => [
 					'mailto_show' => 'yes',
 				],
@@ -570,7 +570,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'mailto_title',
 			[
-				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'render_type' => 'template',
 				'default'     => 'Email Us',
@@ -584,7 +584,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'mailto_link',
 			[
-				'label'       => esc_html__( 'Email Address', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Email Address', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
 				'placeholder' => $default_email,
@@ -597,25 +597,25 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'mailto_subject',
 			[
-				'label'   => esc_html__( 'Subject', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Subject', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Support related issue', 'bdthemes-element-pack'),
+				'default' => esc_html__( 'Support related issue', 'avator-widget-pack'),
 			]
 		);
 
 		$this->add_control(
 			'mailto_body',
 			[
-				'label'   => esc_html__( 'Body Text', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Body Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Hello, I am contact with you because ', 'bdthemes-element-pack'),
+				'default' => esc_html__( 'Hello, I am contact with you because ', 'avator-widget-pack'),
 			]
 		);
 
 		$this->add_control(
 			'mailto_onclick',
 			[
-				'label'   => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -624,7 +624,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'mailto_onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'description' => sprintf( __('For details please look <a href="%s" target="_blank">here</a>'), 'https://www.w3schools.com/jsref/event_onclick.asp' ),
@@ -640,7 +640,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_helpdesk_additional',
 			[
-				'label' => esc_html__( 'Additional', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional', 'avator-widget-pack' ),
 			]
 		);
 
@@ -648,7 +648,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_horizontal_offset',
 			[
-				'label'   => esc_html__( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -659,7 +659,7 @@ class Helpdesk extends Widget_Base {
 				],
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item, {{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button' => '{{helpdesk_position.VALUE}}: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item, {{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button' => '{{helpdesk_position.VALUE}}: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -667,7 +667,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_vertical_offset',
 			[
-				'label'   => esc_html__( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -678,7 +678,7 @@ class Helpdesk extends Widget_Base {
 				],
 				'size_units' => [ 'px' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons' => 'bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -686,7 +686,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip',
 			[
-				'label'   => esc_html__( 'Title as Tooltip', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title as Tooltip', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'separator' => 'before',
@@ -696,14 +696,14 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_placement',
 			[
-				'label'   => esc_html__( 'Placement', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Placement', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'left',
 				'options' => [
-					'top'          => esc_html__( 'Top', 'bdthemes-element-pack' ),
-					'bottom'       => esc_html__( 'Bottom', 'bdthemes-element-pack' ),
-					'left'         => esc_html__( 'Left', 'bdthemes-element-pack' ),
-					'right'        => esc_html__( 'Right', 'bdthemes-element-pack' ),
+					'top'          => esc_html__( 'Top', 'avator-widget-pack' ),
+					'bottom'       => esc_html__( 'Bottom', 'avator-widget-pack' ),
+					'left'         => esc_html__( 'Left', 'avator-widget-pack' ),
+					'right'        => esc_html__( 'Right', 'avator-widget-pack' ),
 				],
 				'render_type'  => 'template',
 				'condition' => [
@@ -715,15 +715,15 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_animation',
 			[
-				'label'   => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'shift-toward',
 				'options' => [
-					'shift-away'   => esc_html__( 'Shift-Away', 'bdthemes-element-pack' ),
-					'shift-toward' => esc_html__( 'Shift-Toward', 'bdthemes-element-pack' ),
-					'fade'         => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'scale'        => esc_html__( 'Scale', 'bdthemes-element-pack' ),
-					'perspective'  => esc_html__( 'Perspective', 'bdthemes-element-pack' ),
+					'shift-away'   => esc_html__( 'Shift-Away', 'avator-widget-pack' ),
+					'shift-toward' => esc_html__( 'Shift-Toward', 'avator-widget-pack' ),
+					'fade'         => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'scale'        => esc_html__( 'Scale', 'avator-widget-pack' ),
+					'perspective'  => esc_html__( 'Perspective', 'avator-widget-pack' ),
 				],
 				'render_type'  => 'template',
 				'condition' => [
@@ -735,7 +735,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_x_offset',
 			[
-				'label'   => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 0,
 				'min'     => -1000,
@@ -750,7 +750,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_y_offset',
 			[
-				'label'   => esc_html__( 'Distance', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Distance', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 0,
 				'min'     => -1000,
@@ -765,7 +765,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_arrow',
 			[
-				'label'        => esc_html__( 'Arrow', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Arrow', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'condition' => [
 					'helpdesk_tooltip' => 'yes'
@@ -776,8 +776,8 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_trigger',
 			[
-				'label'       => __( 'Trigger on Click', 'bdthemes-element-pack' ),
-				'description' => __( 'Don\'t set yes when you set lightbox image with marker.', 'bdthemes-element-pack' ),
+				'label'       => __( 'Trigger on Click', 'avator-widget-pack' ),
+				'description' => __( 'Don\'t set yes when you set lightbox image with marker.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'condition' => [
 					'helpdesk_tooltip' => 'yes'
@@ -790,7 +790,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_helpdesk_main_icon',
 			[
-				'label'     => esc_html__( 'Main Icons', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Main Icons', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -800,18 +800,18 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_style_helpdesk_normal',
 			[
-				'label' => esc_html__('Normal', 'bdthemes-element-pack')
+				'label' => esc_html__('Normal', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'helpdesk_main_icon_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -820,7 +820,7 @@ class Helpdesk extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'helpdesk_main_icon_background',
-				'selector' => '{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button'
+				'selector' => '{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button'
 			]
 		);
 
@@ -829,18 +829,18 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_style_helpdesk_main_icon_hover',
 			[
-				'label' => esc_html__('Hover', 'bdthemes-element-pack')
+				'label' => esc_html__('Hover', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'helpdesk_main_icon_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -849,7 +849,7 @@ class Helpdesk extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'helpdesk_main_icon_hover_background',
-				'selector' => '{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-open-button:hover'
+				'selector' => '{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-open-button:hover'
 			]
 		);
 
@@ -863,7 +863,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_helpdesk_icons',
 			[
-				'label'     => esc_html__( 'Icons Style', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Icons Style', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -873,18 +873,18 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_style_helpdesk_icons_normal',
 			[
-				'label' => esc_html__('Normal', 'bdthemes-element-pack')
+				'label' => esc_html__('Normal', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'helpdesk_icons_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -893,7 +893,7 @@ class Helpdesk extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'helpdesk_icons_background',
-				'selector' => '{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item'
+				'selector' => '{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item'
 			]
 		);
 
@@ -902,18 +902,18 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_style_helpdesk_icons_hover',
 			[
-				'label' => esc_html__('Hover', 'bdthemes-element-pack')
+				'label' => esc_html__('Hover', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'helpdesk_icons_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -922,7 +922,7 @@ class Helpdesk extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'helpdesk_icons_hover_background',
-				'selector' => '{{WRAPPER}} .bdt-helpdesk .bdt-helpdesk-icons-item:hover'
+				'selector' => '{{WRAPPER}} .avt-helpdesk .avt-helpdesk-icons-item:hover'
 			]
 		);
 
@@ -936,7 +936,7 @@ class Helpdesk extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_tooltip',
 			[
-				'label' => esc_html__( 'Tooltip', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Tooltip', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -944,7 +944,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_responsive_control(
 			'helpdesk_tooltip_width',
 			[
-				'label'      => esc_html__( 'Width', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Width', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [
 					'px', 'em',
@@ -973,7 +973,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-tooltip' => 'color: {{VALUE}}',
@@ -984,20 +984,20 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_text_align',
 			[
-				'label'   => esc_html__( 'Text Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -1018,7 +1018,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'helpdesk_tooltip_arrow_color',
 			[
-				'label'     => esc_html__( 'Arrow Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrow Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-popper[x-placement^=left] .tippy-arrow'  => 'border-left-color: {{VALUE}}',
@@ -1032,7 +1032,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_responsive_control(
 			'helpdesk_tooltip_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -1046,7 +1046,7 @@ class Helpdesk extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'helpdesk_tooltip_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .tippy-tooltip',
@@ -1056,7 +1056,7 @@ class Helpdesk extends Widget_Base {
 		$this->add_responsive_control(
 			'helpdesk_tooltip_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -1076,12 +1076,12 @@ class Helpdesk extends Widget_Base {
 		$this->add_control(
 			'tooltip_size',
 			[
-				'label'   => esc_html__( 'Tooltip Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Tooltip Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''      => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'large' => esc_html__( 'Large', 'bdthemes-element-pack' ),
-					'small' => esc_html__( 'small', 'bdthemes-element-pack' ),
+					''      => esc_html__( 'Default', 'avator-widget-pack' ),
+					'large' => esc_html__( 'Large', 'avator-widget-pack' ),
+					'small' => esc_html__( 'small', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -1094,7 +1094,7 @@ class Helpdesk extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings();
-		$id       = 'bdt-helpdesk-icons-' . $this->get_id();
+		$id       = 'avt-helpdesk-icons-' . $this->get_id();
 
 		if ( ! isset( $settings['helpdesk_icon'] ) && ! Icons_Manager::is_migration_allowed() ) {
 			// add old default
@@ -1106,10 +1106,10 @@ class Helpdesk extends Widget_Base {
 
 		?>
 		
-		<div class="bdt-helpdesk">
-			<nav class="bdt-helpdesk-icons">
-				<input type="checkbox" href="#" class="bdt-helpdesk-icons-open" name="bdt-helpdesk-icons-open" id="<?php echo esc_attr($id); ?>"/>
-				<label class="bdt-helpdesk-icons-open-button" for="<?php echo esc_attr($id); ?>" title="<?php echo esc_html($settings['helpdesk_title']); ?>">
+		<div class="avt-helpdesk">
+			<nav class="avt-helpdesk-icons">
+				<input type="checkbox" href="#" class="avt-helpdesk-icons-open" name="avt-helpdesk-icons-open" id="<?php echo esc_attr($id); ?>"/>
+				<label class="avt-helpdesk-icons-open-button" for="<?php echo esc_attr($id); ?>" title="<?php echo esc_html($settings['helpdesk_title']); ?>">
 
 					<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $settings['helpdesk_select_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1139,7 +1139,7 @@ class Helpdesk extends Widget_Base {
 			return;
 		}
 		
-		$this->add_render_attribute( 'messenger', 'class', ['bdt-helpdesk-icons-item', 'bdt-hdi-messenger'] );
+		$this->add_render_attribute( 'messenger', 'class', ['avt-helpdesk-icons-item', 'avt-hdi-messenger'] );
 
 		if ( ! empty( $settings['messenger_link']['url'] ) ) {
 
@@ -1188,7 +1188,7 @@ class Helpdesk extends Widget_Base {
 			return;
 		}
 		
-		$this->add_render_attribute( 'skype', 'class', ['bdt-helpdesk-icons-item', 'bdt-hdi-skype'] );
+		$this->add_render_attribute( 'skype', 'class', ['avt-helpdesk-icons-item', 'avt-hdi-skype'] );
 
 		if ( ! empty( $settings['skype_link']['url'] ) ) {
 
@@ -1237,7 +1237,7 @@ class Helpdesk extends Widget_Base {
 			return;
 		}
 		
-		$this->add_render_attribute( 'viber', 'class', ['bdt-helpdesk-icons-item', 'bdt-hdi-viber'] );
+		$this->add_render_attribute( 'viber', 'class', ['avt-helpdesk-icons-item', 'avt-hdi-viber'] );
 
 		if ( ! empty( $settings['viber_link']['url'] ) ) {
 
@@ -1286,7 +1286,7 @@ class Helpdesk extends Widget_Base {
 			return;
 		}
 		
-		$this->add_render_attribute( 'whatsapp', 'class', ['bdt-helpdesk-icons-item', 'bdt-hdi-whatsapp'] );
+		$this->add_render_attribute( 'whatsapp', 'class', ['avt-helpdesk-icons-item', 'avt-hdi-whatsapp'] );
 
 		if ( ! empty( $settings['whatsapp_link']['url'] ) ) {
 
@@ -1336,7 +1336,7 @@ class Helpdesk extends Widget_Base {
 			return;
 		}
 		
-		$this->add_render_attribute( 'telegram', 'class', ['bdt-helpdesk-icons-item', 'bdt-hdi-telegram'] );
+		$this->add_render_attribute( 'telegram', 'class', ['avt-helpdesk-icons-item', 'avt-hdi-telegram'] );
 
 		if ( ! empty( $settings['telegram_link']['url'] ) ) {
 
@@ -1385,7 +1385,7 @@ class Helpdesk extends Widget_Base {
 			return;
 		}
 		
-		$this->add_render_attribute( 'custom', 'class', ['bdt-helpdesk-icons-item', 'bdt-hdi-custom'] );
+		$this->add_render_attribute( 'custom', 'class', ['avt-helpdesk-icons-item', 'avt-hdi-custom'] );
 
 		if ( ! empty( $settings['custom_link']['url'] ) ) {
 
@@ -1450,7 +1450,7 @@ class Helpdesk extends Widget_Base {
 			return;
 		}
 		
-		$this->add_render_attribute( 'mailto', 'class', ['bdt-helpdesk-icons-item', 'bdt-hdi-mailto'] );
+		$this->add_render_attribute( 'mailto', 'class', ['avt-helpdesk-icons-item', 'avt-hdi-mailto'] );
 
 		if ( ! empty( $settings['mailto_link']['url'] ) ) {
 
@@ -1511,7 +1511,7 @@ class Helpdesk extends Widget_Base {
 		}
 
 		// Tooltip settings
-		$this->add_render_attribute( $icon, 'class', 'bdt-tippy-tooltip' );
+		$this->add_render_attribute( $icon, 'class', 'avt-tippy-tooltip' );
 		$this->add_render_attribute( $icon, 'data-tippy', '', true );
 
 		if ($settings['helpdesk_tooltip_placement']) {

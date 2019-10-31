@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Weather\Widgets;
+namespace WidgetPack\Modules\Weather\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,7 +9,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -20,19 +20,19 @@ class Weather extends Widget_Base {
 	public $weather_api_url = 'https://api.apixu.com/v1/forecast.json';
 
 	public function get_name() {
-		return 'bdt-weather';
+		return 'avt-weather';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Weather', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Weather', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-weather';
+		return 'avt-wi-weather';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -47,24 +47,24 @@ class Weather extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_weather',
 			[
-				'label' => esc_html__( 'Weather', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Weather', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'view',
 			[
-				'label'   => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'simple',
 				'options' => [
-					'simple'   => esc_html__( 'Simple', 'bdthemes-element-pack' ),
-					'today'    => esc_html__( 'Today', 'bdthemes-element-pack' ),
-					'tiny'     => esc_html__( 'Tiny', 'bdthemes-element-pack' ),
-					'forecast' => esc_html__( 'Forecast', 'bdthemes-element-pack' ),
-					'full'     => esc_html__( 'Full', 'bdthemes-element-pack' ),
+					'simple'   => esc_html__( 'Simple', 'avator-widget-pack' ),
+					'today'    => esc_html__( 'Today', 'avator-widget-pack' ),
+					'tiny'     => esc_html__( 'Tiny', 'avator-widget-pack' ),
+					'forecast' => esc_html__( 'Forecast', 'avator-widget-pack' ),
+					'full'     => esc_html__( 'Full', 'avator-widget-pack' ),
 				],
-				'prefix_class' => 'bdt-weather-layout-',
+				'prefix_class' => 'avt-weather-layout-',
 				'render_type' => 'template',
 			]
 		);
@@ -72,12 +72,12 @@ class Weather extends Widget_Base {
 		// $this->add_control(
 		// 	'location_type',
 		// 	[
-		// 		'label'   => esc_html__( 'Location Type', 'bdthemes-element-pack' ),
+		// 		'label'   => esc_html__( 'Location Type', 'avator-widget-pack' ),
 		// 		'type'    => Controls_Manager::SELECT,
 		// 		'default' => 'darksky',
 		// 		'options' => [
-		// 			'lat_long'        => esc_html__( 'Latitude Longitude', 'bdthemes-element-pack' ),
-		// 			'location' => esc_html__( 'Location Name', 'bdthemes-element-pack' ),
+		// 			'lat_long'        => esc_html__( 'Latitude Longitude', 'avator-widget-pack' ),
+		// 			'location' => esc_html__( 'Location Name', 'avator-widget-pack' ),
 		// 		],
 		// 	]
 		// );
@@ -85,8 +85,8 @@ class Weather extends Widget_Base {
 		// $this->add_control(
 		// 	'latitude',
 		// 	[
-		// 		'label'       => esc_html__( 'Latitude', 'bdthemes-element-pack' ),
-		// 		'description' => __( '<a href="https://www.latlong.net/">Look here</a> for your latitude.', 'bdthemes-element-pack' ),
+		// 		'label'       => esc_html__( 'Latitude', 'avator-widget-pack' ),
+		// 		'description' => __( '<a href="https://www.latlong.net/">Look here</a> for your latitude.', 'avator-widget-pack' ),
 		// 		'type'        => Controls_Manager::TEXT,
 		// 		'dynamic'     => [ 'active' => true ],
 		// 		'default'     => 24.823402,
@@ -99,8 +99,8 @@ class Weather extends Widget_Base {
 		// $this->add_control(
 		// 	'longitude',
 		// 	[
-		// 		'label'       => esc_html__( 'Longitude', 'bdthemes-element-pack' ),
-		// 		'description' => __( '<a href="https://www.latlong.net/">Look here</a> for your longitude.', 'bdthemes-element-pack' ),
+		// 		'label'       => esc_html__( 'Longitude', 'avator-widget-pack' ),
+		// 		'description' => __( '<a href="https://www.latlong.net/">Look here</a> for your longitude.', 'avator-widget-pack' ),
 		// 		'type'        => Controls_Manager::TEXT,
 		// 		'dynamic'     => [ 'active' => true ],
 		// 		'default'     => 89.384077,
@@ -113,8 +113,8 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'location',
 			[
-				'label'   => esc_html__( 'Location', 'bdthemes-element-pack' ),
-				'description'   => esc_html__( 'City and Region required, for example: Boston, MA', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Location', 'avator-widget-pack' ),
+				'description'   => esc_html__( 'City and Region required, for example: Boston, MA', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
 				'default' => 'Bogra, BD',
@@ -124,8 +124,8 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'country',
 			[
-				'label'   => esc_html__( 'Country (optional)', 'bdthemes-element-pack' ),
-				'description'   => esc_html__( 'If you want to override country name, for example: USA', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Country (optional)', 'avator-widget-pack' ),
+				'description'   => esc_html__( 'If you want to override country name, for example: USA', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
 			]
@@ -134,12 +134,12 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'units',
 			[
-				'label'   => esc_html__( 'Units', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Units', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'metric',
 				'options' => [
-					'metric'   => esc_html__( 'Metric', 'bdthemes-element-pack' ),
-					'imperial' => esc_html__( 'Imperial', 'bdthemes-element-pack' ),
+					'metric'   => esc_html__( 'Metric', 'avator-widget-pack' ),
+					'imperial' => esc_html__( 'Imperial', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -147,12 +147,12 @@ class Weather extends Widget_Base {
 		// $this->add_control(
 		// 	'timeformat',
 		// 	[
-		// 		'label'   => esc_html__( 'Time Format', 'bdthemes-element-pack' ),
+		// 		'label'   => esc_html__( 'Time Format', 'avator-widget-pack' ),
 		// 		'type'    => Controls_Manager::SELECT,
 		// 		'default' => 12,
 		// 		'options' => [
-		// 			12 => esc_html__( '12', 'bdthemes-element-pack' ),
-		// 			24 => esc_html__( '24', 'bdthemes-element-pack' ),
+		// 			12 => esc_html__( '12', 'avator-widget-pack' ),
+		// 			24 => esc_html__( '24', 'avator-widget-pack' ),
 		// 		],
 		// 		'condition' => [
 		// 			'view!' => ['tiny']
@@ -163,7 +163,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'show_city',
 			[
-				'label'   => esc_html__( 'Show City Name', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show City Name', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				// 'condition' => [
@@ -175,7 +175,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'show_country',
 			[
-				'label'   => esc_html__( 'Show Country Name', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Country Name', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'condition' => [
 					'view!' => ['tiny']
@@ -186,7 +186,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'show_temperature',
 			[
-				'label'   => esc_html__( 'Show Temperature', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Temperature', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				// 'condition' => [
@@ -198,7 +198,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'show_weather_condition_name',
 			[
-				'label'   => esc_html__( 'Show Weather Condition Name', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Weather Condition Name', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				// 'condition' => [
@@ -210,7 +210,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'show_weather_icon',
 			[
-				'label'   => esc_html__( 'Show Icon', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Icon', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'condition' => [
@@ -222,7 +222,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'show_weather_desc',
 			[
-				'label'   => esc_html__( 'Show Description', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Description', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'condition' => [
@@ -234,7 +234,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'show_today_name',
 			[
-				'label'   => esc_html__( 'Show Today Name', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Today Name', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'condition' => [
@@ -246,7 +246,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'weather_details',
 			[
-				'label'   => esc_html__( 'Weather Details', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Weather Details', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'condition' => [
@@ -258,7 +258,7 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'forecast',
 			[
-				'label' => esc_html__( 'Forecast', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Forecast', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -280,7 +280,7 @@ class Weather extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_weather',
 			[
-				'label' => esc_html__( 'Weather', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Weather', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -288,10 +288,10 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-weather' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-weather' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -299,10 +299,10 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label'     => esc_html__( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-weather [class*="bdtw-"]' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-weather [class*="avtw-"]' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -311,7 +311,7 @@ class Weather extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'tiny_text_typography',
-				'selector' => '{{WRAPPER}} .bdt-weather',
+				'selector' => '{{WRAPPER}} .avt-weather',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -321,11 +321,11 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'forecast_border',
 			[
-				'label' => __( 'Border', 'bdthemes-element-pack' ),
+				'label' => __( 'Border', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				// 'selectors' => [
-				// 	'{{WRAPPER}} .bdt-weather .bdt-wf-divider>li:nth-child(n+2)' => 'border-style: solid',
+				// 	'{{WRAPPER}} .avt-weather .avt-wf-divider>li:nth-child(n+2)' => 'border-style: solid',
 				// ],
 			]
 		);
@@ -333,17 +333,17 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'forecast_border_style',
 			[
-				'label'   => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'solid'  => esc_html__( 'Solid', 'bdthemes-element-pack' ),
-					'dotted' => esc_html__( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => esc_html__( 'Dashed', 'bdthemes-element-pack' ),
-					'double' => esc_html__( 'Double', 'bdthemes-element-pack' ),
+					'solid'  => esc_html__( 'Solid', 'avator-widget-pack' ),
+					'dotted' => esc_html__( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => esc_html__( 'Dashed', 'avator-widget-pack' ),
+					'double' => esc_html__( 'Double', 'avator-widget-pack' ),
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-weather .bdt-wf-divider>li:nth-child(n+2)' => 'border-top-style: {{VALUE}}',
+					'{{WRAPPER}} .avt-weather .avt-wf-divider>li:nth-child(n+2)' => 'border-top-style: {{VALUE}}',
 				],
 				'condition' => [
 					'forecast_border' => 'yes',
@@ -354,10 +354,10 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'forecast_border_color',
 			[
-				'label' => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-weather .bdt-wf-divider>li:nth-child(n+2)' => 'border-top-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-weather .avt-wf-divider>li:nth-child(n+2)' => 'border-top-color: {{VALUE}}',
 				],
 				'condition' => [
 					'forecast_border' => 'yes',
@@ -368,7 +368,7 @@ class Weather extends Widget_Base {
 		$this->add_responsive_control(
 			'forecast_border_width',
 			[
-				'label' => __( 'List Space', 'bdthemes-element-pack' ),
+				'label' => __( 'List Space', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -380,7 +380,7 @@ class Weather extends Widget_Base {
 					'size' => 10,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-weather .bdt-wf-divider>li:nth-child(n+2)' => 'margin-top: {{SIZE}}{{UNIT}}; padding-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-weather .avt-wf-divider>li:nth-child(n+2)' => 'margin-top: {{SIZE}}{{UNIT}}; padding-top: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'forecast_border' => 'yes',
@@ -394,7 +394,7 @@ class Weather extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_location',
 			[
-				'label'     => esc_html__( 'Tiny Style', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Tiny Style', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'view' => 'tiny'
@@ -406,10 +406,10 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'tiny_location_color',
 			[
-				'label'     => esc_html__( 'Location Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Location Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-weather-layout-tiny .bdt-weather .bdt-weather-city-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}}.avt-weather-layout-tiny .avt-weather .avt-weather-city-name' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -417,10 +417,10 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'tiny_temp_color',
 			[
-				'label'     => esc_html__( 'Tempareture Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Tempareture Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-weather-layout-tiny .bdt-weather .bdt-weather-today-temp' => 'color: {{VALUE}};',
+					'{{WRAPPER}}.avt-weather-layout-tiny .avt-weather .avt-weather-today-temp' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -429,10 +429,10 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'tiny_icon_color',
 			[
-				'label'     => esc_html__( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-weather-layout-tiny .bdt-weather .bdt-weather-today-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}}.avt-weather-layout-tiny .avt-weather .avt-weather-today-icon' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -440,10 +440,10 @@ class Weather extends Widget_Base {
 		$this->add_control(
 			'tiny_weather_desc',
 			[
-				'label'     => esc_html__( 'Description Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Description Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}}.bdt-weather-layout-tiny .bdt-weather .bdt-weather-today-desc' => 'color: {{VALUE}};',
+					'{{WRAPPER}}.avt-weather-layout-tiny .avt-weather .avt-weather-today-desc' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -456,13 +456,13 @@ class Weather extends Widget_Base {
 		$settings           = $this->get_settings_for_display();
 		$this->weather_data = $this->weather_data();		
 
-		$this->add_render_attribute( 'weather', 'class', 'bdt-weather' );
-		//$this->add_render_attribute( 'weather', 'class', 'bdt-weather-layout-' . $settings['view'] );
+		$this->add_render_attribute( 'weather', 'class', 'avt-weather' );
+		//$this->add_render_attribute( 'weather', 'class', 'avt-weather-layout-' . $settings['view'] );
 
 		?>
 
 		<div <?php echo $this->get_render_attribute_string('weather'); ?>>
-			<div class="bdt-weather-container">
+			<div class="avt-weather-container">
 
 				<?php if ( 'full' == $settings['view'] or 'simple' == $settings['view'] or 'today' == $settings['view'] ) : ?>
 					<?php $this->render_weather_today(); ?>
@@ -484,35 +484,35 @@ class Weather extends Widget_Base {
 	public function render_weather_today() {
 		$settings   = $this->get_settings_for_display();
 		$data       = $this->weather_data;
-		$speed_unit = ( 'metric' === $settings['units'] ) ? esc_html_x( 'km/h', 'Weather String', 'bdthemes-element-pack' ) : esc_html_x( 'm/h', 'Weather String', 'bdthemes-element-pack' );
+		$speed_unit = ( 'metric' === $settings['units'] ) ? esc_html_x( 'km/h', 'Weather String', 'avator-widget-pack' ) : esc_html_x( 'm/h', 'Weather String', 'avator-widget-pack' );
 		$speed      = ( 'metric' === $settings['units'] ) ? $data['today']['wind_speed']['kph'] : $data['today']['wind_speed']['mph'];
 
 		?>
 
-		<div class="bdt-weather-today">
+		<div class="avt-weather-today">
 			<?php if ( 'yes' == $settings['show_city'] or 'yes' == $settings['show_country'] or 'yes' == $settings['show_temperature'] or 'yes' == $settings['show_today_name'] ) : ?>
-			<div class="bdt-grid bdt-grid-collapse">
+			<div class="avt-grid avt-grid-collapse">
 				
-				<div class="bdt-width-3-5">
+				<div class="avt-width-3-5">
 						
 					<?php $this->render_weather_title(); ?>
 		
 					<?php if ( 'yes' == $settings['show_temperature'] ) : ?>
-						<div class="bdt-weather-today-temp"><?php echo $this->weather_temperature( $data['today']['temp'] ); ?></div>
+						<div class="avt-weather-today-temp"><?php echo $this->weather_temperature( $data['today']['temp'] ); ?></div>
 					<?php endif; ?>
 					
 					<?php if ( 'yes' == $settings['show_today_name'] ) : ?>
-						<div class="bdt-weather-today-name"><?php echo esc_html($data['today']['week_day']); ?></div>
+						<div class="avt-weather-today-name"><?php echo esc_html($data['today']['week_day']); ?></div>
 					<?php endif; ?>
 				</div>
 				
 				<?php if ( 'yes' == $settings['show_weather_icon'] ) : ?>
-				<div class="bdt-width-2-5 bdt-flex bdt-flex-middle bdt-text-center">
-					<div class="bdt-width-1-1">
-						<div class="bdt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+				<div class="avt-width-2-5 avt-flex avt-flex-middle avt-text-center">
+					<div class="avt-width-1-1">
+						<div class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></div>
 						
 						<?php if ( 'yes' == $settings['show_weather_condition_name'] ) : ?>
-							<div class="bdt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+							<div class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></div>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -520,10 +520,10 @@ class Weather extends Widget_Base {
 				
 			</div>
 			<?php else : ?>
-				<div class="bdt-text-center">
-					<div class="bdt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+				<div class="avt-text-center">
+					<div class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></div>
 					<?php if ( 'yes' == $settings['show_weather_condition_name'] ) : ?>
-						<div class="bdt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+						<div class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></div>
 					<?php endif; ?>
 					
 				</div>
@@ -531,38 +531,38 @@ class Weather extends Widget_Base {
 
 		</div>
 		<?php if ( 'yes' === $settings['weather_details'] ) : ?>
-			<div class="bdt-weather-details bdt-grid bdt-grid-collapse">
-				<div class="bdt-width-1-3">
-					<div class="bdt-weather-today-sunrise">
-						<span class="bdtw-sunrise"></span>
+			<div class="avt-weather-details avt-grid avt-grid-collapse">
+				<div class="avt-width-1-3">
+					<div class="avt-weather-today-sunrise">
+						<span class="avtw-sunrise"></span>
 						<?php echo esc_html($data['today']['sunrise']); ?>
 					</div>
-					<div class="bdt-weather-today-sunset">
-						<span class="bdtw-sunset"></span>
+					<div class="avt-weather-today-sunset">
+						<span class="avtw-sunset"></span>
 						<?php echo esc_html($data['today']['sunset']); ?>
 					</div>
 				</div>
-				<div class="bdt-width-1-3">
-					<div class="bdt-weather-today-min-temp">
-						<span class="bdtw-min-tempareture"></span>
-						<?php printf( '%1$s %2$s', esc_html__( 'Min:', 'bdthemes-element-pack' ), $this->weather_temperature( $data['today']['temp_min'] ) ); ?>
+				<div class="avt-width-1-3">
+					<div class="avt-weather-today-min-temp">
+						<span class="avtw-min-tempareture"></span>
+						<?php printf( '%1$s %2$s', esc_html__( 'Min:', 'avator-widget-pack' ), $this->weather_temperature( $data['today']['temp_min'] ) ); ?>
 					</div>
-					<div class="bdt-weather-today-max-temp">
-						<span class="bdtw-max-tempareture"></span>
-						<?php printf( '%1$s %2$s', esc_html__( 'Max:', 'bdthemes-element-pack' ), $this->weather_temperature( $data['today']['temp_max'] ) ); ?>
+					<div class="avt-weather-today-max-temp">
+						<span class="avtw-max-tempareture"></span>
+						<?php printf( '%1$s %2$s', esc_html__( 'Max:', 'avator-widget-pack' ), $this->weather_temperature( $data['today']['temp_max'] ) ); ?>
 					</div>
 				</div>
-				<div class="bdt-width-1-3">
-					<div class="bdt-weather-today-humidity">
-						<span class="bdtw-humidity"></span>
+				<div class="avt-width-1-3">
+					<div class="avt-weather-today-humidity">
+						<span class="avtw-humidity"></span>
 						<?php echo esc_html($data['today']['humidity']); ?>
 					</div>
-					<div class="bdt-weather-today-pressure">
-						<span class="bdtw-pressure"></span>
+					<div class="avt-weather-today-pressure">
+						<span class="avtw-pressure"></span>
 						<?php echo $this->get_weather_pressure( $data['today']['pressure'] ); ?>
 					</div>
-					<div class="bdt-weather-today-wind">
-						<span class="bdtw-<?php echo element_pack_wind_code( $data['today']['wind_deg'] ); ?>"></span>
+					<div class="avt-weather-today-wind">
+						<span class="avtw-<?php echo widget_pack_wind_code( $data['today']['wind_deg'] ); ?>"></span>
 						<?php echo esc_html($speed) .' '. esc_html($speed_unit); ?>
 					</div>
 				</div>
@@ -576,18 +576,18 @@ class Weather extends Widget_Base {
 		?>
 		
 		<?php if ( 'yes' == $settings['show_city'] ) : ?>
-			<span class="bdt-weather-city-name"><?php echo $this->weather_data['location']['city']; ?></span>
+			<span class="avt-weather-city-name"><?php echo $this->weather_data['location']['city']; ?></span>
 		<?php endif; ?>
 
 		<?php if ( 'yes' == $settings['show_temperature'] ) : ?>
-			<span class="bdt-weather-today-temp"><?php echo $this->weather_temperature( $data['today']['temp'] ); ?></span>
+			<span class="avt-weather-today-temp"><?php echo $this->weather_temperature( $data['today']['temp'] ); ?></span>
 		<?php endif; ?>
 
 		<?php if ( 'yes' == $settings['show_weather_icon'] ) : ?>
-			<span class="bdt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></span>
+			<span class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></span>
 		<?php endif; ?>
 		<?php if ( 'yes' == $settings['show_weather_desc'] ) : ?>
-			<span class="bdt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></span>
+			<span class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></span>
 		<?php endif; ?>
 
 		<?php
@@ -598,13 +598,13 @@ class Weather extends Widget_Base {
 		$data     = $this->weather_data;
 		?>
 		<?php if ( 'yes' == $settings['show_city'] or 'yes' == $settings['show_country'] ) : ?>
-			<div class="bdt-weather-title">
+			<div class="avt-weather-title">
 				<?php if ( 'yes' == $settings['show_city'] ) : ?>
-					<span class="bdt-weather-city-name"><?php echo $this->weather_data['location']['city']; ?></span>
+					<span class="avt-weather-city-name"><?php echo $this->weather_data['location']['city']; ?></span>
 				<?php endif; ?>
 
 				<?php if ( 'yes' == $settings['show_country'] ) : ?>
-					<span class="bdt-weather-country-name">
+					<span class="avt-weather-country-name">
 						
 						<?php if ( $settings['country'] ) : ?>
 							<?php echo esc_html($settings['country']); ?>
@@ -645,20 +645,20 @@ class Weather extends Widget_Base {
 			<?php $this->render_weather_title(); ?>
 		<?php endif; ?>
 
-		<ul class="bdt-weather-forecast bdt-list bdt-wf-divider"><?php
+		<ul class="avt-weather-forecast avt-list avt-wf-divider"><?php
 			for ( $i = 0; $i < $forecast_days; $i ++ ) { ?>
-				<li class="bdt-weather-forecast-item">
-					<div class="bdt-grid bdt-grid-collapse">
-						<div class="bdt-wf-day bdt-width-1-4">
+				<li class="avt-weather-forecast-item">
+					<div class="avt-grid avt-grid-collapse">
+						<div class="avt-wf-day avt-width-1-4">
 							<?php echo esc_html($forecast_data[ $i ]['week_day']); ?>
 						</div>
-						<div class="bdt-wf-icon bdt-width-1-4 bdt-text-center" title="<?php echo esc_attr( $this->weather_desc( $forecast_data[ $i ]['code'] ) ); ?>">
+						<div class="avt-wf-icon avt-width-1-4 avt-text-center" title="<?php echo esc_attr( $this->weather_desc( $forecast_data[ $i ]['code'] ) ); ?>">
 							<?php echo $this->weather_icon( $forecast_data[ $i ]['code'], true ); ?>
 						</div>
-						<div class="bdt-wf-max-temp bdt-width-1-4 bdt-text-center">
+						<div class="avt-wf-max-temp avt-width-1-4 avt-text-center">
 							<?php echo $this->weather_temperature( $forecast_data[ $i ]['temp_max'] ); ?>
 						</div>
-						<div class="bdt-wf-min-temp bdt-width-1-4 bdt-text-right">
+						<div class="avt-wf-min-temp avt-width-1-4 avt-text-right">
 							<?php echo $this->weather_temperature( $forecast_data[ $i ]['temp_min'] ); ?>
 						</div>
 					</div>
@@ -671,13 +671,13 @@ class Weather extends Widget_Base {
 
 	public function weather_data() {
 
-		$ep_api_settings = get_option( 'element_pack_api_settings' );
+		$ep_api_settings = get_option( 'widget_pack_api_settings' );
 		$api_key = !empty($ep_api_settings['apixu_api_key']) ? $ep_api_settings['apixu_api_key'] : '';
 
 		// return error message when api key not found
 		if ( ! $api_key ) {
 			
-			$message = esc_html__( 'Ops! I think you forget to set API key in Element Pack API settings.', 'bdthemes-element-pack' );
+			$message = esc_html__( 'Ops! I think you forget to set API key in Widget Pack API settings.', 'avator-widget-pack' );
 
 			$this->weather_error_notice($message);
 
@@ -691,7 +691,7 @@ class Weather extends Widget_Base {
 			return false;
 		}
 
-		$transient_key = sprintf( 'bdt-weather-data-%s', md5( $location ) );
+		$transient_key = sprintf( 'avt-weather-data-%s', md5( $location ) );
 
 		$data = get_transient( $transient_key );
 
@@ -722,7 +722,7 @@ class Weather extends Widget_Base {
 				if ( isset( $weather['error']['message'] ) ) {
 					$message = $weather['error']['message'];
 				} else {
-					$message = esc_html__( 'Weather data of this location not found.', 'bdthemes-element-pack' );
+					$message = esc_html__( 'Weather data of this location not found.', 'avator-widget-pack' );
 				}
 
 				echo $this->weather_error_notice( $message );
@@ -735,7 +735,7 @@ class Weather extends Widget_Base {
 				return false;
 			}
 
-			set_transient( $transient_key, $data, apply_filters( 'element-pack/weather/cached-time', HOUR_IN_SECONDS ) );
+			set_transient( $transient_key, $data, apply_filters( 'widget-pack/weather/cached-time', HOUR_IN_SECONDS ) );
 		}
 
 		return $data;
@@ -829,7 +829,7 @@ class Weather extends Widget_Base {
 	}
 
 	public function weather_desc( $code, $is_day = true ) {
-		$desc = element_pack_weather_code( $code, 'desc', $is_day );
+		$desc = widget_pack_weather_code( $code, 'desc', $is_day );
 
 		if ( empty( $desc ) ) { return ''; }
 
@@ -844,7 +844,7 @@ class Weather extends Widget_Base {
 			$temp = ( 'metric' === $units ) ? $temp['c'] : $temp['f'];
 		}
 
-		$temp_format = apply_filters( 'element-pack/weather/temperature-format', '%1$s%2$s' );
+		$temp_format = apply_filters( 'widget-pack/weather/temperature-format', '%1$s%2$s' );
 
 		return sprintf( $temp_format, $temp, $temp_unit );
 	}
@@ -857,7 +857,7 @@ class Weather extends Widget_Base {
 			$pressure = ( 'metric' === $units ) ? $pressure['mb'] : $pressure['in'];
 		}
 
-		$format = apply_filters( 'element-pack/weather/pressure-format', '%s' );
+		$format = apply_filters( 'widget-pack/weather/pressure-format', '%s' );
 
 		return sprintf( $format, $pressure );
 	}
@@ -865,11 +865,11 @@ class Weather extends Widget_Base {
 
 	public function weather_icon( $icon, $is_day = true ) {
 
-		$icon = element_pack_weather_code( $icon, 'icon' );
+		$icon = widget_pack_weather_code( $icon, 'icon' );
 		$time = ($is_day) ? 'd' : 'n';
 
 		$icon_class   = [];
-		$icon_class[] = sprintf( 'bdtw-%s', esc_attr( $icon ) );
+		$icon_class[] = sprintf( 'avtw-%s', esc_attr( $icon ) );
 
 		return sprintf( '<span class="%1$s%2$s"></span>', implode(' ', $icon_class), $time );
 	}
@@ -877,8 +877,8 @@ class Weather extends Widget_Base {
 	public function weather_error_notice($message) {
 		?>
 
-		<div class="bdt-alert-warning" bdt-alert>
-		    <a class="bdt-alert-close" bdt-close></a>
+		<div class="avt-alert-warning" avt-alert>
+		    <a class="avt-alert-close" avt-close></a>
 		    <p><?php echo esc_html($message); ?></p>
 		</div>
 		<?php

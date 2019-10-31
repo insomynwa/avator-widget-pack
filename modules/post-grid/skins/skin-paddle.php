@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostGrid\Skins;
+namespace WidgetPack\Modules\PostGrid\Skins;
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -7,11 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Skin_Paddle extends Elementor_Skin_Base {
 
 	public function get_id() {
-		return 'bdt-paddle';
+		return 'avt-paddle';
 	}
 
 	public function get_title() {
-		return __( 'Paddle', 'bdthemes-element-pack' );
+		return __( 'Paddle', 'avator-widget-pack' );
 	}
 
 	public function render() {
@@ -30,34 +30,34 @@ class Skin_Paddle extends Elementor_Skin_Base {
 		}
 
 		?> 
-		<div id="bdt-post-grid-<?php echo esc_attr($id); ?>" class="bdt-post-grid bdt-post-grid-skin-default">
-	  		<div class="bdt-grid bdt-grid-<?php echo esc_attr($settings['column_gap']); ?>" bdt-grid>
+		<div id="avt-post-grid-<?php echo esc_attr($id); ?>" class="avt-post-grid avt-post-grid-skin-default">
+	  		<div class="avt-grid avt-grid-<?php echo esc_attr($settings['column_gap']); ?>" avt-grid>
 
-				<?php $bdt_count = 0;
+				<?php $avt_count = 0;
 
-				$bdt_sum = $odd_columns + $even_columns;
+				$avt_sum = $odd_columns + $even_columns;
 			
 				while ($wp_query->have_posts()) :
 					$wp_query->the_post();						
 
-		  			if ( $bdt_count == $bdt_sum ) {
-		  				$bdt_count = 0;
+		  			if ( $avt_count == $avt_sum ) {
+		  				$avt_count = 0;
 		  			}
 
-		  			$bdt_count++;
+		  			$avt_count++;
 
-		  			if ( $bdt_count <= $odd_columns ) {
-						$bdt_grid_cols   = $odd_columns;
-						$bdt_post_class = ' bdt-primary';
+		  			if ( $avt_count <= $odd_columns ) {
+						$avt_grid_cols   = $odd_columns;
+						$avt_post_class = ' avt-primary';
 						$thumbnail_size = $settings['primary_thumbnail_size'];
 		  			} else {
-						$bdt_grid_cols   = $even_columns;
-						$bdt_post_class = ' bdt-secondary';
+						$avt_grid_cols   = $even_columns;
+						$avt_post_class = ' avt-secondary';
 						$thumbnail_size = $settings['secondary_thumbnail_size'];
 		  			}
 
 		  			?>
-		  			<div class="bdt-width-1-<?php echo esc_attr($bdt_grid_cols); ?>@m<?php echo esc_attr($bdt_post_class); ?>">
+		  			<div class="avt-width-1-<?php echo esc_attr($avt_grid_cols); ?>@m<?php echo esc_attr($avt_post_class); ?>">
 						<?php $this->parent->render_post_grid_item( get_the_ID(), $thumbnail_size, $settings['excerpt_length'] ); ?>
 					</div>
 
@@ -68,7 +68,7 @@ class Skin_Paddle extends Elementor_Skin_Base {
  		<?php 
 
  		if ($settings['show_pagination']) {
- 			element_pack_post_pagination($wp_query);
+ 			widget_pack_post_pagination($wp_query);
  		}
 		wp_reset_postdata();
 	}

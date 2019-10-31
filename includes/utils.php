@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Classes;
+namespace WidgetPack\Classes;
 
 if ( ! defined( 'ABSPATH' ) )  exit; // Exit if accessed directly
 

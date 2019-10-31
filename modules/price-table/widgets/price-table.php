@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PriceTable\Widgets;
+namespace WidgetPack\Modules\PriceTable\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,26 +13,26 @@ use Elementor\Group_Control_Background;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\PriceTable\Skins;
+use WidgetPack\Modules\PriceTable\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Price_Table extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-price-table';
+		return 'avt-price-table';
 	}
 
 	public function get_title() {
-		return BDTEP . __( 'Price Table', 'bdthemes-element-pack' );
+		return AWP . __( 'Price Table', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-pricing-table';
+		return 'avt-wi-pricing-table';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -51,24 +51,24 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => __( 'Layout', 'bdthemes-element-pack' ),
+				'label' => __( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'layout',
 			[
-				'label'   => __( 'Layout', 'bdthemes-element-pack' ),
+				'label'   => __( 'Layout', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '1',
 				'options' => [
-					'1' => __( 'Default', 'bdthemes-element-pack' ),
-					'2' => __( 'Two (Features and Price interchange)', 'bdthemes-element-pack' ),
-					'3' => __( 'Three (Features in at Last)', 'bdthemes-element-pack' ),
-					'4' => __( 'Four (Header in at Middle)', 'bdthemes-element-pack' ),
-					'5' => __( 'Five (No Features List)', 'bdthemes-element-pack' ),
-					'6' => __( 'Six (Image Under Header)', 'bdthemes-element-pack' ),
-					'7' => __( 'Seven (Image Under Features)', 'bdthemes-element-pack' ),
+					'1' => __( 'Default', 'avator-widget-pack' ),
+					'2' => __( 'Two (Features and Price interchange)', 'avator-widget-pack' ),
+					'3' => __( 'Three (Features in at Last)', 'avator-widget-pack' ),
+					'4' => __( 'Four (Header in at Middle)', 'avator-widget-pack' ),
+					'5' => __( 'Five (No Features List)', 'avator-widget-pack' ),
+					'6' => __( 'Six (Image Under Header)', 'avator-widget-pack' ),
+					'7' => __( 'Seven (Image Under Features)', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'_skin' => '',
@@ -81,14 +81,14 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_image',
 			[
-				'label' => __( 'Image', 'bdthemes-element-pack' ),
+				'label' => __( 'Image', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'image',
 			[
-				'label' => __( 'Choose Image', 'bdthemes-element-pack' ),
+				'label' => __( 'Choose Image', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::MEDIA,
 			]
 		);
@@ -96,25 +96,25 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table .bdt-price-table-image' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table .avt-price-table-image' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -124,25 +124,25 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_header',
 			[
-				'label' => __( 'Header', 'bdthemes-element-pack' ),
+				'label' => __( 'Header', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'heading',
 			[
-				'label'   => __( 'Title', 'bdthemes-element-pack' ),
+				'label'   => __( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Service Name', 'bdthemes-element-pack' ),
+				'default' => __( 'Service Name', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'heading_tag',
 			[
-				'label'   => __( 'HTML Tag', 'bdthemes-element-pack' ),
+				'label'   => __( 'HTML Tag', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => element_pack_title_tags(),
+				'options' => widget_pack_title_tags(),
 				'default' => 'h3',
 			]
 		);
@@ -150,9 +150,9 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'sub_heading',
 			[
-				'label'     => __( 'Subtitle', 'bdthemes-element-pack' ),
+				'label'     => __( 'Subtitle', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Service sub title', 'bdthemes-element-pack' ),
+				'default'   => __( 'Service sub title', 'avator-widget-pack' ),
 				'condition' => [
 					'_skin' => '',
 				],
@@ -164,36 +164,36 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_pricing',
 			[
-				'label' => __( 'Pricing', 'bdthemes-element-pack' ),
+				'label' => __( 'Pricing', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'currency_symbol',
 			[
-				'label'   => __( 'Currency Symbol', 'bdthemes-element-pack' ),
+				'label'   => __( 'Currency Symbol', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''             => __( 'None', 'bdthemes-element-pack' ),
-					'dollar'       => '&#36; ' 	. _x( 'Dollar', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'euro'         => '&#128; ' . _x( 'Euro', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'baht'         => '&#3647; '. _x( 'Baht', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'franc'        => '&#8355; '. _x( 'Franc', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'guilder'      => '&fnof; ' . _x( 'Guilder', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'krona'        => 'kr ' 	. _x( 'Krona', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'lira'         => '&#8356; '. _x( 'Lira', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'peseta'       => '&#8359 ' . _x( 'Peseta', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'peso'         => '&#8369; '. _x( 'Peso', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'pound'        => '&#163; ' . _x( 'Pound Sterling', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'real'         => 'R$ ' 	. _x( 'Real', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'ruble'        => '&#8381; '. _x( 'Ruble', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'rupee'        => '&#8360; '. _x( 'Rupee', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'indian_rupee' => '&#8377; '. _x( 'Rupee (Indian)', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'shekel'       => '&#8362; '. _x( 'Shekel', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'yen'          => '&#165; ' . _x( 'Yen/Yuan', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'bdt'          => '&#2547; '. _x( 'Taka', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'won'          => '&#8361; '. _x( 'Won', 'Currency Symbol', 'bdthemes-element-pack' ),
-					'custom'       => __( 'Custom', 'bdthemes-element-pack' ),
+					''             => __( 'None', 'avator-widget-pack' ),
+					'dollar'       => '&#36; ' 	. _x( 'Dollar', 'Currency Symbol', 'avator-widget-pack' ),
+					'euro'         => '&#128; ' . _x( 'Euro', 'Currency Symbol', 'avator-widget-pack' ),
+					'baht'         => '&#3647; '. _x( 'Baht', 'Currency Symbol', 'avator-widget-pack' ),
+					'franc'        => '&#8355; '. _x( 'Franc', 'Currency Symbol', 'avator-widget-pack' ),
+					'guilder'      => '&fnof; ' . _x( 'Guilder', 'Currency Symbol', 'avator-widget-pack' ),
+					'krona'        => 'kr ' 	. _x( 'Krona', 'Currency Symbol', 'avator-widget-pack' ),
+					'lira'         => '&#8356; '. _x( 'Lira', 'Currency Symbol', 'avator-widget-pack' ),
+					'peseta'       => '&#8359 ' . _x( 'Peseta', 'Currency Symbol', 'avator-widget-pack' ),
+					'peso'         => '&#8369; '. _x( 'Peso', 'Currency Symbol', 'avator-widget-pack' ),
+					'pound'        => '&#163; ' . _x( 'Pound Sterling', 'Currency Symbol', 'avator-widget-pack' ),
+					'real'         => 'R$ ' 	. _x( 'Real', 'Currency Symbol', 'avator-widget-pack' ),
+					'ruble'        => '&#8381; '. _x( 'Ruble', 'Currency Symbol', 'avator-widget-pack' ),
+					'rupee'        => '&#8360; '. _x( 'Rupee', 'Currency Symbol', 'avator-widget-pack' ),
+					'indian_rupee' => '&#8377; '. _x( 'Rupee (Indian)', 'Currency Symbol', 'avator-widget-pack' ),
+					'shekel'       => '&#8362; '. _x( 'Shekel', 'Currency Symbol', 'avator-widget-pack' ),
+					'yen'          => '&#165; ' . _x( 'Yen/Yuan', 'Currency Symbol', 'avator-widget-pack' ),
+					'avt'          => '&#2547; '. _x( 'Taka', 'Currency Symbol', 'avator-widget-pack' ),
+					'won'          => '&#8361; '. _x( 'Won', 'Currency Symbol', 'avator-widget-pack' ),
+					'custom'       => __( 'Custom', 'avator-widget-pack' ),
 				],
 				'default' => 'dollar',
 			]
@@ -202,7 +202,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'currency_symbol_custom',
 			[
-				'label'     => __( 'Custom Symbol', 'bdthemes-element-pack' ),
+				'label'     => __( 'Custom Symbol', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
 				'condition' => [
 					'currency_symbol' => 'custom',
@@ -213,7 +213,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'price',
 			[
-				'label'   => __( 'Price', 'bdthemes-element-pack' ),
+				'label'   => __( 'Price', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '49.99',
 			]
@@ -222,7 +222,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'sale',
 			[
-				'label' => __( 'Sale', 'bdthemes-element-pack' ),
+				'label' => __( 'Sale', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -230,7 +230,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'original_price',
 			[
-				'label'     => __( 'Original Price', 'bdthemes-element-pack' ),
+				'label'     => __( 'Original Price', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => '79',
 				'condition' => [
@@ -242,9 +242,9 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'period',
 			[
-				'label'   => __( 'Period', 'bdthemes-element-pack' ),
+				'label'   => __( 'Period', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Monthly', 'bdthemes-element-pack' ),
+				'default' => __( 'Monthly', 'avator-widget-pack' ),
 			]
 		);
 
@@ -253,7 +253,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_features',
 			[
-				'label'     => __( 'Features', 'bdthemes-element-pack' ),
+				'label'     => __( 'Features', 'avator-widget-pack' ),
 				'condition' => [
 					'layout!' => '5',
 				],
@@ -266,23 +266,23 @@ class Price_Table extends Widget_Base {
 
 		$repeater->start_controls_tab( 'features_list_tab_normal_text',
 			[
-				'label' => __( 'Normal Text', 'bdthemes-element-pack' )
+				'label' => __( 'Normal Text', 'avator-widget-pack' )
 			]
 		);
 
 		$repeater->add_control(
 			'item_text',
 			[
-				'label'   => __( 'Text', 'bdthemes-element-pack' ),
+				'label'   => __( 'Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'List Item', 'bdthemes-element-pack' ),
+				'default' => __( 'List Item', 'avator-widget-pack' ),
 			]
 		);
 
 		$repeater->add_control(
 			'price_table_item_icon',
 			[
-				'label'   => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'   => __( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'item_icon',
 				'default' => [
@@ -295,7 +295,7 @@ class Price_Table extends Widget_Base {
 		$repeater->add_control(
 			'item_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}} i' => 'color: {{VALUE}}',
@@ -307,14 +307,14 @@ class Price_Table extends Widget_Base {
 
 		$repeater->start_controls_tab( 'features_list_tab_tooltip_text',
 			[
-				'label' => __( 'Tooltip Text', 'bdthemes-element-pack' )
+				'label' => __( 'Tooltip Text', 'avator-widget-pack' )
 			]
 		);
 
 		$repeater->add_control(
 			'tooltip_text',
 			[
-				'label' => __( 'Text', 'bdthemes-element-pack' ),
+				'label' => __( 'Text', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::TEXT,
 			]
 		);
@@ -322,14 +322,14 @@ class Price_Table extends Widget_Base {
 		$repeater->add_control(
 			'tooltip_placement',
 			[
-				'label'   => __( 'Placement', 'bdthemes-element-pack' ),
+				'label'   => __( 'Placement', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'top'    => __( 'Top', 'bdthemes-element-pack' ),
-					'bottom' => __( 'Bottom', 'bdthemes-element-pack' ),
-					'left'   => __( 'Left', 'bdthemes-element-pack' ),
-					'right'  => __( 'Right', 'bdthemes-element-pack' ),
+					'top'    => __( 'Top', 'avator-widget-pack' ),
+					'bottom' => __( 'Bottom', 'avator-widget-pack' ),
+					'left'   => __( 'Left', 'avator-widget-pack' ),
+					'right'  => __( 'Right', 'avator-widget-pack' ),
 				],
 				'condition'   => [
 					'tooltip_text!' => '',
@@ -348,15 +348,15 @@ class Price_Table extends Widget_Base {
 				'fields'  => array_values( $repeater->get_controls() ),
 				'default' => [
 					[
-						'item_text' 			 => __( 'List Item #1', 'bdthemes-element-pack' ),
+						'item_text' 			 => __( 'List Item #1', 'avator-widget-pack' ),
 						'price_table_item_icon'  => ['value' => 'fas fa-check', 'library' => 'fa-solid'],
 					],
 					[
-						'item_text' => __( 'List Item #2', 'bdthemes-element-pack' ),
+						'item_text' => __( 'List Item #2', 'avator-widget-pack' ),
 						'price_table_item_icon'  => ['value' => 'fas fa-check', 'library' => 'fa-solid'],
 					],
 					[
-						'item_text' => __( 'List Item #3', 'bdthemes-element-pack' ),
+						'item_text' => __( 'List Item #3', 'avator-widget-pack' ),
 						'price_table_item_icon'  => ['value' => 'fas fa-check', 'library' => 'fa-solid'],
 					],
 				],
@@ -369,34 +369,34 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_footer',
 			[
-				'label' => __( 'Footer', 'bdthemes-element-pack' ),
+				'label' => __( 'Footer', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text',
 			[
-				'label'   => __( 'Button Text', 'bdthemes-element-pack' ),
+				'label'   => __( 'Button Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => __( 'Select Plan', 'bdthemes-element-pack' ),
+				'default' => __( 'Select Plan', 'avator-widget-pack' ),
 			]
 		);
 
 		if (class_exists('Easy_Digital_Downloads')) {
 			$edd_posts = get_posts( ['numberposts' => 10, 'post_type'   => 'download'] );
-			$options = ['0' => __( 'Select EDD', 'bdthemes-element-pack' )];
+			$options = ['0' => __( 'Select EDD', 'avator-widget-pack' )];
 			foreach ( $edd_posts as $edd_post ) {
 				$options[ $edd_post->ID ] = $edd_post->post_title;
 			}
 			
 		} else {
-			$options = ['0' => __( 'Not found', 'bdthemes-element-pack' )];
+			$options = ['0' => __( 'Not found', 'avator-widget-pack' )];
 		}
 
 		$this->add_control(
 			'edd_as_button',
 			[
-				'label' => __( 'Easy Digital Download Integration', 'bdthemes-element-pack' ),
+				'label' => __( 'Easy Digital Download Integration', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -405,7 +405,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'edd_id',
 			[
-				'label'       => __( 'Easy Digital Download Item', 'bdthemes-element-pack' ),
+				'label'       => __( 'Easy Digital Download Item', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => '0',
 				'options'     => $options,
@@ -419,7 +419,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label'       => __( 'Link', 'bdthemes-element-pack' ),
+				'label'       => __( 'Link', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => 'http://your-link.com',
 				'default'     => [
@@ -434,9 +434,9 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'footer_additional_info',
 			[
-				'label'     => __( 'Additional Info', 'bdthemes-element-pack' ),
+				'label'     => __( 'Additional Info', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXTAREA,
-				'default'   => __( 'This is footer text', 'bdthemes-element-pack' ),
+				'default'   => __( 'This is footer text', 'avator-widget-pack' ),
 				'rows'      => 2,
 				'condition' => [
 					'_skin' => '',
@@ -449,14 +449,14 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_ribbon',
 			[
-				'label' => __( 'Ribbon', 'bdthemes-element-pack' ),
+				'label' => __( 'Ribbon', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_ribbon',
 			[
-				'label'     => __( 'Show', 'bdthemes-element-pack' ),
+				'label'     => __( 'Show', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'separator' => 'before',
 			]
@@ -465,9 +465,9 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'ribbon_title',
 				[
-				'label'     => __( 'Title', 'bdthemes-element-pack' ),
+				'label'     => __( 'Title', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __( 'Popular', 'bdthemes-element-pack' ),
+				'default'   => __( 'Popular', 'avator-widget-pack' ),
 				'condition' => [
 					'show_ribbon' => 'yes',
 				],
@@ -477,23 +477,23 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'ribbon_align',
 			[
-				'label'   => __( 'Align', 'bdthemes-element-pack' ),
+				'label'   => __( 'Align', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justify', 'bdthemes-element-pack' ),
+						'title' => __( 'Justify', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
@@ -507,7 +507,7 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'ribbon_horizontal_position',
 			[
-				'label' => __( 'Horizontal Position', 'bdthemes-element-pack' ),
+				'label' => __( 'Horizontal Position', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -533,7 +533,7 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'ribbon_vertical_position',
 			[
-				'label' => __( 'Vertical Position', 'bdthemes-element-pack' ),
+				'label' => __( 'Vertical Position', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -559,7 +559,7 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'ribbon_rotate',
 			[
-				'label'   => __( 'Rotate', 'bdthemes-element-pack' ),
+				'label'   => __( 'Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -578,9 +578,9 @@ class Price_Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}} .bdt-price-table-ribbon-inner' => 'transform: translate({{ribbon_horizontal_position.SIZE}}{{UNIT}}, {{ribbon_vertical_position.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
-					'(tablet){{WRAPPER}} .bdt-price-table-ribbon-inner' => 'transform: translate({{ribbon_horizontal_position_tablet.SIZE}}{{UNIT}}, {{ribbon_vertical_position_tablet.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
-					'(mobile){{WRAPPER}} .bdt-price-table-ribbon-inner' => 'transform: translate({{ribbon_horizontal_position_mobile.SIZE}}{{UNIT}}, {{ribbon_vertical_position_mobile.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
+					'(desktop){{WRAPPER}} .avt-price-table-ribbon-inner' => 'transform: translate({{ribbon_horizontal_position.SIZE}}{{UNIT}}, {{ribbon_vertical_position.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
+					'(tablet){{WRAPPER}} .avt-price-table-ribbon-inner' => 'transform: translate({{ribbon_horizontal_position_tablet.SIZE}}{{UNIT}}, {{ribbon_vertical_position_tablet.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
+					'(mobile){{WRAPPER}} .avt-price-table-ribbon-inner' => 'transform: translate({{ribbon_horizontal_position_mobile.SIZE}}{{UNIT}}, {{ribbon_vertical_position_mobile.SIZE}}{{UNIT}}) rotate({{SIZE}}deg);',
 				],
 				'condition' => [
 					'show_ribbon' => 'yes',
@@ -593,7 +593,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label'     => __( 'Image', 'bdthemes-element-pack' ),
+				'label'     => __( 'Image', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'image[url]!' => '',
@@ -604,10 +604,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'image_bg_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-image' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-image' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -615,11 +615,11 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'image_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -627,7 +627,7 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'space',
 			[
-				'label'   => __( 'Size (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Size (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 100,
@@ -647,7 +647,7 @@ class Price_Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table img' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table img' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -655,7 +655,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'opacity',
 			[
-				'label'   => __( 'Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -668,7 +668,7 @@ class Price_Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-price-table img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -676,7 +676,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'hover_animation',
 			[
-				'label' => __( 'Hover Animation', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -685,8 +685,8 @@ class Price_Table extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'image_border',
-				'label'     => __( 'Image Border', 'bdthemes-element-pack' ),
-				'selector'  => '{{WRAPPER}} .bdt-price-table img',
+				'label'     => __( 'Image Border', 'avator-widget-pack' ),
+				'selector'  => '{{WRAPPER}} .avt-price-table img',
 				'separator' => 'before',
 			]
 		);
@@ -694,11 +694,11 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -710,7 +710,7 @@ class Price_Table extends Widget_Base {
 				'exclude' => [
 					'shadow_position',
 				],
-				'selector' => '{{WRAPPER}} .bdt-price-table img',
+				'selector' => '{{WRAPPER}} .avt-price-table img',
 			]
 		);
 
@@ -719,7 +719,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_header',
 			[
-				'label' => __( 'Header', 'bdthemes-element-pack' ),
+				'label' => __( 'Header', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -727,10 +727,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'header_bg_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-header' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-header' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -738,11 +738,11 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'header_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -750,7 +750,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_heading_style',
 			[
-				'label'     => __( 'Title', 'bdthemes-element-pack' ),
+				'label'     => __( 'Title', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -759,10 +759,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-heading' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -771,7 +771,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'heading_typography',
-				'selector' => '{{WRAPPER}} .bdt-price-table-heading',
+				'selector' => '{{WRAPPER}} .avt-price-table-heading',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
@@ -779,7 +779,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_sub_heading_style',
 			[
-				'label'     => __( 'Sub Title', 'bdthemes-element-pack' ),
+				'label'     => __( 'Sub Title', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -788,10 +788,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'sub_heading_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-subheading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-subheading' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -800,7 +800,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'sub_heading_typography',
-				'selector' => '{{WRAPPER}} .bdt-price-table-subheading',
+				'selector' => '{{WRAPPER}} .avt-price-table-subheading',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
 			]
 		);
@@ -810,7 +810,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_pricing',
 			[
-				'label' => __( 'Pricing', 'bdthemes-element-pack' ),
+				'label' => __( 'Pricing', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -818,10 +818,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'pricing_element_bg_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-price' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-price' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -829,11 +829,11 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'pricing_element_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-price' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -841,10 +841,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'price_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-currency, {{WRAPPER}} .bdt-price-table-integer-part, {{WRAPPER}} .bdt-price-table-fractional-part' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-currency, {{WRAPPER}} .avt-price-table-integer-part, {{WRAPPER}} .avt-price-table-fractional-part' => 'color: {{VALUE}}',
 				],
 				'separator' => 'before',
 			]
@@ -854,7 +854,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'price_typography',
-				'selector' => '{{WRAPPER}} .bdt-price-table-price',
+				'selector' => '{{WRAPPER}} .avt-price-table-price',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
@@ -862,7 +862,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_currency_style',
 			[
-				'label'     => __( 'Currency Symbol', 'bdthemes-element-pack' ),
+				'label'     => __( 'Currency Symbol', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -874,7 +874,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'currency_size',
 			[
-				'label' => __( 'Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -883,7 +883,7 @@ class Price_Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-currency' => 'font-size: calc({{SIZE}}em/100)',
+					'{{WRAPPER}} .avt-price-table-currency' => 'font-size: calc({{SIZE}}em/100)',
 				],
 				'condition' => [
 					'currency_symbol!' => '',
@@ -894,19 +894,19 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'currency_vertical_position',
 			[
-				'label'   => __( 'Vertical Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'top' => [
-						'title' => __( 'Top', 'bdthemes-element-pack' ),
+						'title' => __( 'Top', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __( 'Middle', 'bdthemes-element-pack' ),
+						'title' => __( 'Middle', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __( 'Bottom', 'bdthemes-element-pack' ),
+						'title' => __( 'Bottom', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -917,7 +917,7 @@ class Price_Table extends Widget_Base {
 					'bottom' => 'flex-end',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-currency' => 'align-self: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-currency' => 'align-self: {{VALUE}}',
 				],
 				'condition' => [
 					'currency_symbol!' => '',
@@ -928,7 +928,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'fractional_part_style',
 			[
-				'label'     => __( 'Fractional Part', 'bdthemes-element-pack' ),
+				'label'     => __( 'Fractional Part', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -937,7 +937,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'fractional-part_size',
 			[
-				'label' => __( 'Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -946,7 +946,7 @@ class Price_Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-fractional-part' => 'font-size: calc({{SIZE}}em/100)',
+					'{{WRAPPER}} .avt-price-table-fractional-part' => 'font-size: calc({{SIZE}}em/100)',
 				],
 			]
 		);
@@ -954,19 +954,19 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'fractional_part_vertical_position',
 			[
-				'label'   => __( 'Vertical Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'top' => [
-						'title' => __( 'Top', 'bdthemes-element-pack' ),
+						'title' => __( 'Top', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __( 'Middle', 'bdthemes-element-pack' ),
+						'title' => __( 'Middle', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __( 'Bottom', 'bdthemes-element-pack' ),
+						'title' => __( 'Bottom', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -977,7 +977,7 @@ class Price_Table extends Widget_Base {
 					'bottom' => 'flex-end',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-after-price' => 'justify-content: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-after-price' => 'justify-content: {{VALUE}}',
 				],
 			]
 		);
@@ -985,7 +985,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_original_price_style',
 			[
-				'label'     => __( 'Original Price', 'bdthemes-element-pack' ),
+				'label'     => __( 'Original Price', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -998,10 +998,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'original_price_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-original-price' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-original-price' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'sale'            => 'yes',
@@ -1014,7 +1014,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'original_price_typography',
-				'selector'  => '{{WRAPPER}} .bdt-price-table-original-price',
+				'selector'  => '{{WRAPPER}} .avt-price-table-original-price',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'sale'            => 'yes',
@@ -1026,19 +1026,19 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'original_price_vertical_position',
 			[
-				'label'   => __( 'Vertical Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'top' => [
-						'title' => __( 'Top', 'bdthemes-element-pack' ),
+						'title' => __( 'Top', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __( 'Middle', 'bdthemes-element-pack' ),
+						'title' => __( 'Middle', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __( 'Bottom', 'bdthemes-element-pack' ),
+						'title' => __( 'Bottom', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -1049,7 +1049,7 @@ class Price_Table extends Widget_Base {
 				],
 				'default'   => 'bottom',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-original-price' => 'align-self: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-original-price' => 'align-self: {{VALUE}}',
 				],
 				'condition' => [
 					'sale'            => 'yes',
@@ -1061,7 +1061,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_period_style',
 			[
-				'label'     => __( 'Period', 'bdthemes-element-pack' ),
+				'label'     => __( 'Period', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1073,10 +1073,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'period_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-period' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-period' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'period!' => '',
@@ -1088,7 +1088,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'period_typography',
-				'selector'  => '{{WRAPPER}} .bdt-price-table-period',
+				'selector'  => '{{WRAPPER}} .avt-price-table-period',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
 				'condition' => [
 					'period!' => '',
@@ -1099,7 +1099,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'period_position',
 			[
-				'label'   => __( 'Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
 					'below'  => 'Below',
@@ -1117,7 +1117,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_features',
 			[
-				'label'     => __( 'Features', 'bdthemes-element-pack' ),
+				'label'     => __( 'Features', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'layout!' => '5',
@@ -1129,18 +1129,18 @@ class Price_Table extends Widget_Base {
 
 		$this->start_controls_tab( 'tab_features_normal_text',
 			[
-				'label' => __( 'Normal Text', 'bdthemes-element-pack' )
+				'label' => __( 'Normal Text', 'avator-widget-pack' )
 			]
 		);
 
 		$this->add_control(
 			'features_list_bg_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-features-list' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1148,11 +1148,11 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'features_list_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-features-list' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-features-list' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1160,11 +1160,11 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'features_list_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list, {{WRAPPER}} .edd_price_options li span' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-price-table-features-list svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-features-list, {{WRAPPER}} .edd_price_options li span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-features-list svg' => 'fill: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -1174,7 +1174,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'features_list_typography',
-				'selector' => '{{WRAPPER}} .bdt-price-table-features-list li, {{WRAPPER}} .edd_price_options li span',
+				'selector' => '{{WRAPPER}} .avt-price-table-features-list li, {{WRAPPER}} .edd_price_options li span',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -1182,24 +1182,24 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'features_list_alignment',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-features-list' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -1207,7 +1207,7 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'item_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'%' => [
@@ -1216,7 +1216,7 @@ class Price_Table extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-feature-inner' => 'margin-left: calc((100% - {{SIZE}}%)/2); margin-right: calc((100% - {{SIZE}}%)/2)',
+					'{{WRAPPER}} .avt-price-table-feature-inner' => 'margin-left: calc((100% - {{SIZE}}%)/2); margin-right: calc((100% - {{SIZE}}%)/2)',
 				],
 			]
 		);
@@ -1224,7 +1224,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'list_divider',
 			[
-				'label'     => __( 'Divider', 'bdthemes-element-pack' ),
+				'label'     => __( 'Divider', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'separator' => 'before',
@@ -1234,20 +1234,20 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'divider_style',
 			[
-				'label'   => __( 'Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
 				],
 				'default'   => 'solid',
 				'condition' => [
 					'list_divider' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list li:before' => 'border-top-style: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-features-list li:before' => 'border-top-style: {{VALUE}};',
 				],
 			]
 		);
@@ -1255,14 +1255,14 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'divider_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ddd',
 				'condition' => [
 					'list_divider' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list li:before' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-features-list li:before' => 'border-top-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1270,7 +1270,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'divider_weight',
 			[
-				'label'   => __( 'Weight', 'bdthemes-element-pack' ),
+				'label'   => __( 'Weight', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -1286,7 +1286,7 @@ class Price_Table extends Widget_Base {
 					'list_divider' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list li:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-features-list li:before' => 'border-top-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1294,13 +1294,13 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'divider_width',
 			[
-				'label'     => __( 'Width', 'bdthemes-element-pack' ),
+				'label'     => __( 'Width', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'condition' => [
 					'list_divider' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list li:before' => 'margin-left: calc((100% - {{SIZE}}%)/2); margin-right: calc((100% - {{SIZE}}%)/2)',
+					'{{WRAPPER}} .avt-price-table-features-list li:before' => 'margin-left: calc((100% - {{SIZE}}%)/2); margin-right: calc((100% - {{SIZE}}%)/2)',
 				],
 			]
 		);
@@ -1308,7 +1308,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'divider_gap',
 			[
-				'label'   => __( 'Gap', 'bdthemes-element-pack' ),
+				'label'   => __( 'Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -1324,7 +1324,7 @@ class Price_Table extends Widget_Base {
 					'list_divider' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-features-list li:before' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-price-table-features-list li:before' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -1333,14 +1333,14 @@ class Price_Table extends Widget_Base {
 
 		$this->start_controls_tab( 'tab_features_tooltip_text',
 			[ 
-				'label' => __( 'Tooltip Text', 'bdthemes-element-pack' )
+				'label' => __( 'Tooltip Text', 'avator-widget-pack' )
 			]
 		);
 
 		$this->add_responsive_control(
 			'features_tooltip_width',
 			[
-				'label'      => esc_html__( 'Width', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Width', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [
 					'px', 'em',
@@ -1369,7 +1369,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'features_tooltip_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-tooltip' => 'color: {{VALUE}}',
@@ -1380,20 +1380,20 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'features_tooltip_text_align',
 			[
-				'label'   => esc_html__( 'Text Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -1414,7 +1414,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'features_tooltip_arrow_color',
 			[
-				'label'     => esc_html__( 'Arrow Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrow Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-popper[x-placement^=left] .tippy-arrow'  => 'border-left-color: {{VALUE}}',
@@ -1428,7 +1428,7 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'features_tooltip_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -1442,7 +1442,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'features_tooltip_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .tippy-tooltip',
@@ -1452,7 +1452,7 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'features_tooltip_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -1478,7 +1478,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_footer',
 			[
-				'label' => __( 'Footer', 'bdthemes-element-pack' ),
+				'label' => __( 'Footer', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1486,10 +1486,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'footer_bg_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-footer' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-footer' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1497,11 +1497,11 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'footer_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1509,7 +1509,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_footer_button',
 			[
-				'label'     => __( 'Button', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1521,15 +1521,15 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_size',
 			[
-				'label'   => __( 'Size', 'bdthemes-element-pack' ),
+				'label'   => __( 'Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'md',
 				'options' => [
-					'md' => __( 'Default', 'bdthemes-element-pack' ),
-					'sm' => __( 'Small', 'bdthemes-element-pack' ),
-					'xs' => __( 'Extra Small', 'bdthemes-element-pack' ),
-					'lg' => __( 'Large', 'bdthemes-element-pack' ),
-					'xl' => __( 'Extra Large', 'bdthemes-element-pack' ),
+					'md' => __( 'Default', 'avator-widget-pack' ),
+					'sm' => __( 'Small', 'avator-widget-pack' ),
+					'xs' => __( 'Extra Small', 'avator-widget-pack' ),
+					'lg' => __( 'Large', 'avator-widget-pack' ),
+					'xl' => __( 'Extra Large', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1542,7 +1542,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'     => __( 'Normal', 'bdthemes-element-pack' ),
+				'label'     => __( 'Normal', 'avator-widget-pack' ),
 				'condition' => [
 					'button_text!' => '',
 				],
@@ -1552,10 +1552,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-button' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1566,11 +1566,11 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_background_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#14ABF4',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-button' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1581,10 +1581,10 @@ class Price_Table extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'button_border',
-				'label'       => __( 'Border', 'bdthemes-element-pack' ),
+				'label'       => __( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-price-table-button',
+				'selector'    => '{{WRAPPER}} .avt-price-table-button',
 				'condition'   => [
 					'button_text!' => '',
 				],
@@ -1595,11 +1595,11 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1610,12 +1610,12 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_margin',
 			[
-				'label'      => __( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => __( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'separator'  => 'before',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1626,12 +1626,12 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_text_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'separator'  => 'after',
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1643,7 +1643,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'button_shadow',
-				'selector' => '{{WRAPPER}} .bdt-price-table-button',
+				'selector' => '{{WRAPPER}} .avt-price-table-button',
 			]
 		);
 
@@ -1651,9 +1651,9 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'button_typography',
-				'label'     => __( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => __( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .bdt-price-table-button',
+				'selector'  => '{{WRAPPER}} .avt-price-table-button',
 				'condition' => [
 					'button_text!' => '',
 				],
@@ -1665,7 +1665,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'     => __( 'Hover', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hover', 'avator-widget-pack' ),
 				'condition' => [
 					'button_text!' => '',
 				],
@@ -1675,10 +1675,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_hover_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-button:hover' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1689,10 +1689,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-button:hover' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1703,10 +1703,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-table-button:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -1717,7 +1717,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label'     => __( 'Animation', 'bdthemes-element-pack' ),
+				'label'     => __( 'Animation', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HOVER_ANIMATION,
 				'condition' => [
 					'button_text!' => '',
@@ -1732,7 +1732,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'heading_additional_info',
 			[
-				'label'     => __( 'Additional Info', 'bdthemes-element-pack' ),
+				'label'     => __( 'Additional Info', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1744,10 +1744,10 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'additional_info_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-additional_info' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-additional_info' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'footer_additional_info!' => '',
@@ -1759,7 +1759,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'additional_info_typography',
-				'selector'  => '{{WRAPPER}} .bdt-price-table-additional_info',
+				'selector'  => '{{WRAPPER}} .avt-price-table-additional_info',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'footer_additional_info!' => '',
@@ -1770,7 +1770,7 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'additional_info_margin',
 			[
-				'label'      => __( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => __( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
@@ -1780,7 +1780,7 @@ class Price_Table extends Widget_Base {
 					'left'   => 30,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-additional_info' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}} .avt-price-table-additional_info' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 				'condition' => [
 					'footer_additional_info!' => '',
@@ -1793,7 +1793,7 @@ class Price_Table extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_ribbon',
 			[
-				'label'     => __( 'Ribbon', 'bdthemes-element-pack' ),
+				'label'     => __( 'Ribbon', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_ribbon' => 'yes',
@@ -1804,11 +1804,11 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'ribbon_bg_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#14ABF4',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-ribbon-inner' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-ribbon-inner' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1816,12 +1816,12 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'ribbon_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-table-ribbon-inner' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-price-table-ribbon-inner' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1829,11 +1829,11 @@ class Price_Table extends Widget_Base {
 		$this->add_responsive_control(
 			'ribbon_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-ribbon-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-ribbon-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1841,11 +1841,11 @@ class Price_Table extends Widget_Base {
 		$this->add_control(
 			'ribbon_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-table-ribbon-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-table-ribbon-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1854,7 +1854,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'shadow',
-				'selector' => '{{WRAPPER}} .bdt-price-table-ribbon-inner',
+				'selector' => '{{WRAPPER}} .avt-price-table-ribbon-inner',
 			]
 		);
 
@@ -1862,7 +1862,7 @@ class Price_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'ribbon_typography',
-				'selector' => '{{WRAPPER}} .bdt-price-table-ribbon-inner',
+				'selector' => '{{WRAPPER}} .avt-price-table-ribbon-inner',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 			]
 		);
@@ -1901,7 +1901,7 @@ class Price_Table extends Widget_Base {
 			return;
 		}
 
-		$this->add_render_attribute( 'wrapper', 'class', 'bdt-price-table-image' );
+		$this->add_render_attribute( 'wrapper', 'class', 'avt-price-table-image' );
 
 		 ?>
 		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
@@ -1914,15 +1914,15 @@ class Price_Table extends Widget_Base {
 		$settings = $this->get_settings();
 
 		if ( $settings['heading'] || $settings['sub_heading'] ) : ?>
-			<div class="bdt-price-table-header">					
+			<div class="avt-price-table-header">					
 				<?php if ( ! empty( $settings['heading'] ) ) : ?>
-					<<?php echo esc_attr($settings['heading_tag']); ?> class="bdt-price-table-heading">
+					<<?php echo esc_attr($settings['heading_tag']); ?> class="avt-price-table-heading">
 						<?php echo esc_html($settings['heading']); ?>
 					</<?php echo esc_attr($settings['heading_tag']); ?>>
 				<?php endif; ?>
 
 				<?php if ( ! empty($settings['sub_heading']) and '' == $settings['_skin'] ) : ?>
-					<span class="bdt-price-table-subheading">
+					<span class="avt-price-table-subheading">
 						<?php echo esc_html($settings['sub_heading']); ?>
 					</span>
 				<?php endif; ?>
@@ -1953,32 +1953,32 @@ class Price_Table extends Widget_Base {
 		}
 
 		$period_position = $settings['period_position'];
-		$period_class    = ($period_position == 'below') ? ' bdt-price-table-period-position-below' : ' bdt-price-table-period-position-beside';
-		$period_element  = '<span class="bdt-price-table-period elementor-typo-excluded'.$period_class.'">' . $settings['period'] . '</span>';
+		$period_class    = ($period_position == 'below') ? ' avt-price-table-period-position-below' : ' avt-price-table-period-position-beside';
+		$period_element  = '<span class="avt-price-table-period elementor-typo-excluded'.$period_class.'">' . $settings['period'] . '</span>';
 
 		?>
-		<div class="bdt-price-table-price">
+		<div class="avt-price-table-price">
 			<?php if ( $settings['sale'] && ! empty( $settings['original_price'] ) ) : ?>
-				<div class="bdt-price-table-original-price elementor-typo-excluded">
+				<div class="avt-price-table-original-price elementor-typo-excluded">
 					<?php echo esc_html($symbol . $settings['original_price']); ?>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $symbol ) && is_numeric( $intpart ) ) : ?>
-				<span class="bdt-price-table-currency">
+				<span class="avt-price-table-currency">
 					<?php echo esc_attr($symbol); ?>
 				</span>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $intpart ) || 0 <= $intpart ) : ?>
-				<span class="bdt-price-table-integer-part">
+				<span class="avt-price-table-integer-part">
 					<?php echo esc_attr($intpart); ?>
 				</span>
 			<?php endif; ?>
 
 			<?php if ( 0 < $fraction || ( ! empty( $settings['period'] ) && 'beside' === $period_position ) ) : ?>
-				<div class="bdt-price-table-after-price">
-					<span class="bdt-price-table-fractional-part">
+				<div class="avt-price-table-after-price">
+					<span class="avt-price-table-fractional-part">
 						<?php echo esc_attr($fraction); ?>
 					</span>
 					<?php if ( ! empty( $settings['period'] ) && 'beside' === $period_position ) : ?>
@@ -1999,14 +1999,14 @@ class Price_Table extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		if ( ! empty( $settings['features_list'] ) ) : ?>
-			<ul class="bdt-price-table-features-list">
+			<ul class="avt-price-table-features-list">
 				<?php foreach ( $settings['features_list'] as $item ) :
 
-					$this->add_render_attribute( 'features', 'class', 'bdt-price-table-feature-text bdt-display-inline-block', true );
+					$this->add_render_attribute( 'features', 'class', 'avt-price-table-feature-text avt-display-inline-block', true );
 					
 					if ( $item['tooltip_text'] ) {
 						// Tooltip settings
-						$this->add_render_attribute( 'features', 'class', 'bdt-tippy-tooltip' );
+						$this->add_render_attribute( 'features', 'class', 'avt-tippy-tooltip' );
 						$this->add_render_attribute( 'features', 'data-tippy', '', true );
 						$this->add_render_attribute( 'features', 'data-tippy-arrow', 'true', true );
 						$this->add_render_attribute( 'features', 'data-tippy-placement', $item['tooltip_placement'], true );
@@ -2023,7 +2023,7 @@ class Price_Table extends Widget_Base {
 
 					?>
 					<li class="'elementor-repeater-item-<?php echo esc_attr($item['_id']); ?>">
-						<div class="bdt-price-table-feature-inner">
+						<div class="avt-price-table-feature-inner">
 							<?php if ( ! empty( $item['price_table_item_icon']['value'] ) ) : ?>
 
 								<?php if ( $is_new || $migrated ) :
@@ -2052,13 +2052,13 @@ class Price_Table extends Widget_Base {
 		$settings = $this->get_settings();
 
 		if ( ! empty( $settings['button_text'] ) || ! empty( $settings['footer_additional_info'] ) ) : ?>
-			<div class="bdt-price-table-footer">
+			<div class="avt-price-table-footer">
 				
 
 				<?php $this->render_button(); ?>
 
 				<?php if ( ! empty($settings['footer_additional_info']) and '' == $settings['_skin'] ) : ?>
-					<div class="bdt-price-table-additional_info">
+					<div class="avt-price-table-additional_info">
 						<?php echo wp_kses_post($settings['footer_additional_info']); ?>
 					</div>
 				<?php endif; ?>
@@ -2073,7 +2073,7 @@ class Price_Table extends Widget_Base {
 		$button_animation = (! empty( $settings['button_hover_animation'] )) ? ' elementor-animation-' . $settings['button_hover_animation'] : '';
 
 		$this->add_render_attribute( 'button', 'class', [
-				'bdt-price-table-button',
+				'avt-price-table-button',
 				'elementor-button',
 				$button_size,
 			]
@@ -2096,7 +2096,7 @@ class Price_Table extends Widget_Base {
 				'download_id' => $settings['edd_id'], 
 				'price' => false, 
 				'text' => esc_html($settings['button_text']),
-				'class' => 'bdt-price-table-button elementor-button ' . $button_size . $button_animation, 
+				'class' => 'avt-price-table-button elementor-button ' . $button_size . $button_animation, 
 			] );
 		} else {
 			if ( ! empty( $settings['button_text'] ) ) : ?>
@@ -2111,14 +2111,14 @@ class Price_Table extends Widget_Base {
 		$settings = $this->get_settings();
 
 		if ( $settings['show_ribbon'] && ! empty( $settings['ribbon_title'] ) ) :
-			$this->add_render_attribute( 'ribbon-wrapper', 'class', 'bdt-price-table-ribbon' );
+			$this->add_render_attribute( 'ribbon-wrapper', 'class', 'avt-price-table-ribbon' );
 
 			if ( ! empty( $settings['ribbon_align'] ) ) :
 				$this->add_render_attribute( 'ribbon-wrapper', 'class', 'elementor-ribbon-' . $settings['ribbon_align'] );
 			endif; ?>
 
 			<div <?php echo $this->get_render_attribute_string( 'ribbon-wrapper' ); ?>>
-				<div class="bdt-price-table-ribbon-inner">
+				<div class="avt-price-table-ribbon-inner">
 					<?php echo esc_html($settings['ribbon_title']); ?>
 				</div>
 			</div>
@@ -2129,7 +2129,7 @@ class Price_Table extends Widget_Base {
 		$settings = $this->get_settings();
 
 		?>
-		<div class="bdt-price-table bdt-price-table-skin-default">
+		<div class="avt-price-table avt-price-table-skin-default">
 			<?php
 			if ('1' == $settings['layout']) :
 				$this->render_image();
@@ -2232,9 +2232,9 @@ class Price_Table extends Widget_Base {
 				intpart = price[0],
 				fraction = price[1],
 				buttonSize = (settings.button_size) ? ' elementor-size-' + settings.button_size : '',
-				periodElement = '<span class="bdt-price-table-period elementor-typo-excluded">' + settings.period + '</span>',
+				periodElement = '<span class="avt-price-table-period elementor-typo-excluded">' + settings.period + '</span>',
 				
-				buttonClasses = 'bdt-price-table-button elementor-button' + buttonSize;
+				buttonClasses = 'avt-price-table-button elementor-button' + buttonSize;
 
 			if ( settings.button_hover_animation ) {
 				buttonClasses += ' elementor-animation-' + settings.button_hover_animation;
@@ -2262,38 +2262,38 @@ class Price_Table extends Widget_Base {
 		
 		<# function render_image() { #>
 			<# if ( image_url ) { #>
-				<div class="bdt-price-table-image"><img src="{{ image_url }}" class="{{ imgClass }}" /></div>
+				<div class="avt-price-table-image"><img src="{{ image_url }}" class="{{ imgClass }}" /></div>
 			<# } #>
 		<# } #>
 
 		<# function render_header() { #>
 			<# if ( settings.heading || settings.sub_heading ) { #>
-				<div class="bdt-price-table-header">
+				<div class="avt-price-table-header">
 					<# if ( settings.heading ) { #>
-						<{{{settings.heading_tag}}} class="bdt-price-table-heading">{{{ settings.heading }}}</{{{settings.heading_tag}}}>
+						<{{{settings.heading_tag}}} class="avt-price-table-heading">{{{ settings.heading }}}</{{{settings.heading_tag}}}>
 					<# } #>
 					<# if ( settings.sub_heading && '' == settings._skin ) { #>
-						<span class="bdt-price-table-subheading">{{{ settings.sub_heading }}}</span>
+						<span class="avt-price-table-subheading">{{{ settings.sub_heading }}}</span>
 					<# } #>
 				</div>
 			<# } #>
 		<# } #>
 
 		<# function render_price() { #>
-			<div class="bdt-price-table-price">
+			<div class="avt-price-table-price">
 				<# if ( settings.sale && settings.original_price ) { #>
-					<div class="bdt-price-table-original-price elementor-typo-excluded">{{{ symbol + settings.original_price }}}</div>
+					<div class="avt-price-table-original-price elementor-typo-excluded">{{{ symbol + settings.original_price }}}</div>
 				<# } #>
 
 				<# if (  ! _.isEmpty( symbol ) && isFinite( intpart ) ) { #>
-					<span class="bdt-price-table-currency">{{{ symbol }}}</span>
+					<span class="avt-price-table-currency">{{{ symbol }}}</span>
 				<# } #>
 				<# if ( intpart ) { #>
-					<span class="bdt-price-table-integer-part">{{{ intpart }}}</span>
+					<span class="avt-price-table-integer-part">{{{ intpart }}}</span>
 				<# } #>
-				<div class="bdt-price-table-after-price">
+				<div class="avt-price-table-after-price">
 					<# if ( fraction ) { #>
-						<span class="bdt-price-table-fractional-part">{{{ fraction }}}</span>
+						<span class="avt-price-table-fractional-part">{{{ fraction }}}</span>
 					<# } #>
 					<# if ( settings.period && 'beside' === settings.period_position ) { #>
 						{{{ periodElement }}}
@@ -2308,13 +2308,13 @@ class Price_Table extends Widget_Base {
 
 		<# function render_features_list() { #>
 			<# if ( settings.features_list ) { #>
-				<ul class="bdt-price-table-features-list">
+				<ul class="avt-price-table-features-list">
 					<# _.each( settings.features_list, function( item, index ) {
 
-						view.addRenderAttribute( 'features', 'class', 'bdt-price-table-feature-text bdt-display-inline-block', true );
+						view.addRenderAttribute( 'features', 'class', 'avt-price-table-feature-text avt-display-inline-block', true );
 						
 						if ( item.tooltip_text ) {
-							view.addRenderAttribute( 'features', 'class', 'bdt-tippy-tooltip' );
+							view.addRenderAttribute( 'features', 'class', 'avt-tippy-tooltip' );
 							view.addRenderAttribute( 'features', 'data-tippy', '', true );
 							view.addRenderAttribute( 'features', 'data-tippy-arrow', 'true', true );
 							view.addRenderAttribute( 'features', 'data-tippy-placement', item.tooltip_placement, true );
@@ -2327,7 +2327,7 @@ class Price_Table extends Widget_Base {
 
 						#>
 						<li class="elementor-repeater-item-{{ item._id }}">
-							<div class="bdt-price-table-feature-inner">
+							<div class="avt-price-table-feature-inner">
 
 								<# if ( iconHTML[ index ] && iconHTML[ index ].rendered && ( ! item.item_icon || migrated[ index ] ) ) { #>
 									{{{ iconHTML[ index ].value }}}
@@ -2350,12 +2350,12 @@ class Price_Table extends Widget_Base {
 
 		<# function render_footer() { #>
 			<# if ( settings.button_text || settings.footer_additional_info ) { #>
-				<div class="bdt-price-table-footer">
+				<div class="avt-price-table-footer">
 					<# if ( settings.button_text ) { #>
 						<a href="#" class="{{ buttonClasses }}">{{{ settings.button_text }}}</a>
 					<# } #>
 					<# if ( settings.footer_additional_info  && '' == settings._skin ) { #>
-						<p class="bdt-price-table-additional_info">{{{ settings.footer_additional_info }}}</p>
+						<p class="avt-price-table-additional_info">{{{ settings.footer_additional_info }}}</p>
 					<# } #>
 				</div>
 			<# } #>
@@ -2363,18 +2363,18 @@ class Price_Table extends Widget_Base {
 
 		<# function render_ribbon() { #>
 			<# if ( 'yes' === settings.show_ribbon && settings.ribbon_title ) {
-				var ribbonClasses = 'bdt-price-table-ribbon';
+				var ribbonClasses = 'avt-price-table-ribbon';
 				if ( settings.ribbon_align ) {
 					ribbonClasses += ' elementor-ribbon-' + settings.ribbon_align;
 				} #>
 				<div class="{{ ribbonClasses }}">
-					<div class="bdt-price-table-ribbon-inner">{{{ settings.ribbon_title }}}</div>
+					<div class="avt-price-table-ribbon-inner">{{{ settings.ribbon_title }}}</div>
 				</div>
 			<# } #>
 		<# } #>
 
 		<# if ('' == settings._skin) { #>
-			<div class="bdt-price-table">
+			<div class="avt-price-table">
 				<#
 				if ('1' == settings.layout) {
 					render_image();
@@ -2434,12 +2434,12 @@ class Price_Table extends Widget_Base {
 			</div>
 		<# } #>
 
-		<# if ('bdt-partait' == settings._skin) { #>
-			<div class="bdt-price-table bdt-price-table-skin-partait">
+		<# if ('avt-partait' == settings._skin) { #>
+			<div class="avt-price-table avt-price-table-skin-partait">
 
-				<div class="bdt-grid bdt-grid-collapse bdt-child-width-1-2@m" bdt-grid bdt-height-match="target: > div > .bdt-pricing-column">
+				<div class="avt-grid avt-grid-collapse avt-child-width-1-2@m" avt-grid avt-height-match="target: > div > .avt-pricing-column">
 					<div>
-						<div class="bdt-pricing-column">
+						<div class="avt-pricing-column">
 							<#
 							render_header();
 							render_price();
@@ -2449,7 +2449,7 @@ class Price_Table extends Widget_Base {
 					</div>
 
 					<div>
-						<div class="bdt-pricing-column bdt-price-table-features-list-wrap bdt-flex bdt-flex-middle bdt-price-table-features-list-wrap">
+						<div class="avt-pricing-column avt-price-table-features-list-wrap avt-flex avt-flex-middle avt-price-table-features-list-wrap">
 							<#
 							render_features_list();
 							#>

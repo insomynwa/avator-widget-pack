@@ -17,14 +17,14 @@
         ticker.settings = {};
         ticker._element = $(element);
         
-        ticker._label            = ticker._element.children(".bdt-news-ticker-label"),
-        ticker._news             = ticker._element.children(".bdt-news-ticker-content"),
+        ticker._label            = ticker._element.children(".avt-news-ticker-label"),
+        ticker._news             = ticker._element.children(".avt-news-ticker-content"),
         ticker._ul               = ticker._news.children("ul"),
         ticker._li               = ticker._ul.children("li"),
-        ticker._controls         = ticker._element.children(".bdt-news-ticker-controls"),
-        ticker._prev             = ticker._controls.find(".bdt-news-ticker-prev").parent(),
-        ticker._action           = ticker._controls.find(".bdt-news-ticker-action").parent(),
-        ticker._next             = ticker._controls.find(".bdt-news-ticker-next").parent();
+        ticker._controls         = ticker._element.children(".avt-news-ticker-controls"),
+        ticker._prev             = ticker._controls.find(".avt-news-ticker-prev").parent(),
+        ticker._action           = ticker._controls.find(".avt-news-ticker-action").parent(),
+        ticker._next             = ticker._controls.find(".avt-news-ticker-next").parent();
 
         ticker._pause            = false;
         ticker._controlsIsActive = true;
@@ -444,13 +444,13 @@
         ticker.init = function() {
             ticker.settings = $.extend({}, defaults, options);
 
-            //ticker._element.append('<div class="bdt-breaking-loading"></div>');
+            //ticker._element.append('<div class="avt-breaking-loading"></div>');
             //window.onload = function(){
 
-            	//ticker._element.find('.bdt-breaking-loading').hide();
+            	//ticker._element.find('.avt-breaking-loading').hide();
 
 	            //adding effect type class
-	            ticker._element.addClass('bdt-effect-'+ticker.settings.effect+' bdt-direction-'+ticker.settings.direction);
+	            ticker._element.addClass('avt-effect-'+ticker.settings.effect+' avt-direction-'+ticker.settings.direction);
 	            
 	            setContainerWidth();
 
@@ -461,13 +461,13 @@
 
 	            //set playing status class
 	            if (!ticker.settings.autoPlay)
-	                ticker._action.find('span').removeClass('bdt-news-ticker-pause').addClass('bdt-news-ticker-play');
+	                ticker._action.find('span').removeClass('avt-news-ticker-pause').addClass('avt-news-ticker-play');
 	            else
-	                ticker._action.find('span').removeClass('bdt-news-ticker-play').addClass('bdt-news-ticker-pause');
+	                ticker._action.find('span').removeClass('avt-news-ticker-play').addClass('avt-news-ticker-pause');
 
 
 	            ticker._element.on('mouseleave', function(e){                
-	                var activePosition = $(document.elementFromPoint(e.clientX, e.clientY)).parents('.bdt-breaking-news')[0];
+	                var activePosition = $(document.elementFromPoint(e.clientX, e.clientY)).parents('.avt-breaking-news')[0];
 	                if ($(this)[0] === activePosition) {
 	                    return;
 	                }
@@ -509,15 +509,15 @@
 
 	            ticker._action.on('click', function(){
 	                if (ticker._controlsIsActive){
-	                    if (ticker._action.find('span').hasClass('bdt-news-ticker-pause'))
+	                    if (ticker._action.find('span').hasClass('avt-news-ticker-pause'))
 	                    {
-	                        ticker._action.find('span').removeClass('bdt-news-ticker-pause').addClass('bdt-news-ticker-play');
+	                        ticker._action.find('span').removeClass('avt-news-ticker-pause').addClass('avt-news-ticker-play');
 	                        ticker.stop();
 	                    }
 	                    else
 	                    {
 	                        ticker.settings.autoPlay = true;
-	                        ticker._action.find('span').removeClass('bdt-news-ticker-play').addClass('bdt-news-ticker-pause');
+	                        ticker._action.find('span').removeClass('avt-news-ticker-play').addClass('avt-news-ticker-pause');
 	                        //ticker._pause = false;
 	                    }
 	                } 

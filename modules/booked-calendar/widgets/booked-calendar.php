@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\BookedCalendar\Widgets;
+namespace WidgetPack\Modules\BookedCalendar\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -16,19 +16,19 @@ class BookedCalendar extends Widget_Base {
 	protected $_has_template_content = false;
 
 	public function get_name() {
-		return 'bdt-booked';
+		return 'avt-booked';
 	}
 
 	public function get_title() {
-		return BDTEP . __( 'Booked Calendar', 'bdthemes-element-pack' );
+		return AWP . __( 'Booked Calendar', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-booked-calendar';
+		return 'avt-wi-booked-calendar';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
     
     public function get_keywords() {
@@ -39,19 +39,19 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => __( 'Layout', 'bdthemes-element-pack' ),
+				'label' => __( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'calendar_style',
 			[
-				'label'   => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''     => esc_html__('Default', 'bdthemes-element-pack') ,
-					'list' => esc_html__('List', 'bdthemes-element-pack') ,
+					''     => esc_html__('Default', 'avator-widget-pack') ,
+					'list' => esc_html__('List', 'avator-widget-pack') ,
 				],
 			]
 		);
@@ -59,7 +59,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_day',
 			[
-				'label'   => esc_html__( 'Day', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Day', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => date('d'),
 				'options' => [
@@ -99,22 +99,22 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_month',
 			[
-				'label'   => esc_html__( 'Month', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Month', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => date('m'),
 				'options' => [
-					'01' => esc_html__('January', 'bdthemes-element-pack'),
-					'02' => esc_html__('February', 'bdthemes-element-pack'),
-					'03' => esc_html__('March', 'bdthemes-element-pack'),
-					'04' => esc_html__('April', 'bdthemes-element-pack'),
-					'05' => esc_html__('May', 'bdthemes-element-pack'),
-					'06' => esc_html__('June', 'bdthemes-element-pack'),
-					'07' => esc_html__('July', 'bdthemes-element-pack'),
-					'08' => esc_html__('August', 'bdthemes-element-pack'),
-					'09' => esc_html__('September', 'bdthemes-element-pack'),
-					'10' => esc_html__('October', 'bdthemes-element-pack'),
-					'11' => esc_html__('November', 'bdthemes-element-pack'),
-					'12' => esc_html__('December', 'bdthemes-element-pack'),
+					'01' => esc_html__('January', 'avator-widget-pack'),
+					'02' => esc_html__('February', 'avator-widget-pack'),
+					'03' => esc_html__('March', 'avator-widget-pack'),
+					'04' => esc_html__('April', 'avator-widget-pack'),
+					'05' => esc_html__('May', 'avator-widget-pack'),
+					'06' => esc_html__('June', 'avator-widget-pack'),
+					'07' => esc_html__('July', 'avator-widget-pack'),
+					'08' => esc_html__('August', 'avator-widget-pack'),
+					'09' => esc_html__('September', 'avator-widget-pack'),
+					'10' => esc_html__('October', 'avator-widget-pack'),
+					'11' => esc_html__('November', 'avator-widget-pack'),
+					'12' => esc_html__('December', 'avator-widget-pack'),
 				],
 			]
 		);
@@ -122,7 +122,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_year',
 			[
-				'label'   => esc_html__( 'Year', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Year', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => date('Y'),
 				'options' => [
@@ -146,12 +146,12 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_size',
 			[
-				'label'   => esc_html__( 'Calendar Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Calendar Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''      => esc_html__('Default', 'bdthemes-element-pack') ,
-					'small' => esc_html__('Small', 'bdthemes-element-pack') ,
+					''      => esc_html__('Default', 'avator-widget-pack') ,
+					'small' => esc_html__('Small', 'avator-widget-pack') ,
 				],
 			]
 		);
@@ -159,7 +159,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_members_only',
 			[
-				'label' => esc_html__( 'Members Only', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Members Only', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -169,7 +169,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_header',
 			[
-				'label'     => __( 'Header', 'bdthemes-element-pack' ),
+				'label'     => __( 'Header', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style!' => 'list',
@@ -180,7 +180,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'header_background',
 			[
-				'label'     => __( 'Header Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Header Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar thead th' => 'background-color: {{VALUE}} !important;',
@@ -193,7 +193,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'header_color',
 			[
-				'label'     => __( 'Header Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Header Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar thead th' => 'color: {{VALUE}} !important;',
@@ -204,7 +204,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'border_color',
 			[
-				'label' => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar thead th'                    => 'border-color: {{VALUE}} !important;',
@@ -222,7 +222,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_date',
 			[
-				'label'     => __( 'Date', 'bdthemes-element-pack' ),
+				'label'     => __( 'Date', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style!' => 'list',
@@ -233,7 +233,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'date_background',
 			[
-				'label'     => __( 'Date Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Date Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td .date' => 'background-color: {{VALUE}};',
@@ -245,7 +245,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'date_color',
 			[
-				'label'     => __( 'Date Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Date Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td' => 'color: {{VALUE}};',
@@ -256,7 +256,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'date_hover_background',
 			[
-				'label'     => __( 'Date Hover Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Date Hover Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td:hover .date span' => 'background-color: {{VALUE}};',
@@ -267,7 +267,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'date_hover_color',
 			[
-				'label'     => __( 'Date Hover Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Date Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td:hover .date span' => 'color: {{VALUE}};',
@@ -278,7 +278,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'current_date_color',
 			[
-				'label'     => __( 'Current Date Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Current Date Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td.today .date span' => 'color: {{VALUE}} !important;',
@@ -290,7 +290,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'current_date_border_color',
 			[
-				'label'     => __( 'Current Date Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Current Date Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td.today .date span' => 'border-color: {{VALUE}};',
@@ -301,7 +301,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'current_date_hover_background',
 			[
-				'label'     => __( 'Current Date Hover Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Current Date Hover Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td.today:hover .date span' => 'background-color: {{VALUE}} !important;',
@@ -312,7 +312,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'current_date_hover_color',
 			[
-				'label'     => __( 'Current Date Hover Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Current Date Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td.today:hover .date span' => 'color: {{VALUE}} !important;',
@@ -323,7 +323,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'prev_next_date_background',
 			[
-				'label'     => __( 'Prev Date/Next Month Date Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Prev Date/Next Month Date Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td.prev-month .date'           => 'background-color: {{VALUE}} !important;',
@@ -339,7 +339,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'prev_next_date_color',
 			[
-				'label'     => __( 'Prev/Next Date Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Prev/Next Date Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar td.prev-date .date'            => 'color: {{VALUE}} !important;',
@@ -355,7 +355,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_apointments',
 			[
-				'label'     => __( 'Appointments', 'bdthemes-element-pack' ),
+				'label'     => __( 'Appointments', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style!' => 'list',
@@ -366,7 +366,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar .booked-appt-list'                 => 'background-color: {{VALUE}};',
@@ -378,7 +378,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .booked-calendar-wrap .booked-appt-list h2'                                     => 'color: {{VALUE}};',
@@ -391,7 +391,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'active_date_background_color',
 			[
-				'label'     => __( 'Active Date Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Active Date Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.booked-calendar tr.week td.active .date'                      => 'background-color: {{VALUE}};',
@@ -407,7 +407,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_heading',
 			[
-				'label'     => __( 'Heading', 'bdthemes-element-pack' ),
+				'label'     => __( 'Heading', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style' => 'list',
@@ -418,7 +418,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'list_heading_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .booked-appt-list > h2' => 'color: {{VALUE}};',
@@ -440,7 +440,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_time',
 			[
-				'label'     => __( 'Time', 'bdthemes-element-pack' ),
+				'label'     => __( 'Time', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style' => 'list',
@@ -451,7 +451,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'list_time_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeslot-range' => 'color: {{VALUE}};',
@@ -462,7 +462,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'list_time_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeslot-range .booked-icon.booked-icon-clock' => 'color: {{VALUE}};',
@@ -473,7 +473,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'list_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .spots-available' => 'color: {{VALUE}};',
@@ -495,7 +495,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation_button',
 			[
-				'label'     => __( 'Navigation Button', 'bdthemes-element-pack' ),
+				'label'     => __( 'Navigation Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style' => 'list',
@@ -508,14 +508,14 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_navigation_button_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'navigation_button_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} [class*="booked-list-view-date-"]' => 'color: {{VALUE}};',
@@ -547,7 +547,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'navigation_button_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -567,7 +567,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'navigation_button_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -592,14 +592,14 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_navigation_button_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'navigation_button_hover_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} [class*="booked-list-view-date-"]:hover' => 'color: {{VALUE}};',
@@ -620,7 +620,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'navigation_button_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'navigation_button_border_border!' => '',
@@ -641,7 +641,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_appointment_button',
 			[
-				'label'     => __( 'Appointment Button', 'bdthemes-element-pack' ),
+				'label'     => __( 'Appointment Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style' => 'list',
@@ -654,14 +654,14 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_appointment_button_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'appointment_button_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .new-appt.button' => 'color: {{VALUE}};',
@@ -693,7 +693,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'appointment_button_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -713,7 +713,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'appointment_button_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -738,14 +738,14 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_appointment_button_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'appointment_button_hover_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .new-appt.button:hover' => 'color: {{VALUE}} !important;',
@@ -756,7 +756,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'appointment_button_hover_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .new-appt.button:hover' => 'background-color: {{VALUE}} !important;',
@@ -767,7 +767,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'appointment_button_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'navigation_button_border_border!' => '',
@@ -787,7 +787,7 @@ class BookedCalendar extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_additional',
 			[
-				'label'     => __( 'Additional', 'bdthemes-element-pack' ),
+				'label'     => __( 'Additional', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'calendar_style' => 'list',
@@ -798,7 +798,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_icon_color',
 			[
-				'label'     => __( 'Calendar Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Calendar Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .booked-list-view a.booked_list_date_picker_trigger' => 'color: {{VALUE}};',
@@ -809,7 +809,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_icon_background',
 			[
-				'label'     => __( 'Calendar Icon Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Calendar Icon Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .booked-list-view a.booked_list_date_picker_trigger' => 'background-color: {{VALUE}};',
@@ -831,7 +831,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_icon_radius',
 			[
-				'label'      => __( 'Calendar Icon Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Calendar Icon Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -851,7 +851,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_icon_padding',
 			[
-				'label'      => __( 'Calendar Icon Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Calendar Icon Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -863,7 +863,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_row_border_color',
 			[
-				'label'     => __( 'Row Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Row Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .booked-calendar-wrap .booked-appt-list .timeslot' => 'border-color: {{VALUE}};',
@@ -874,7 +874,7 @@ class BookedCalendar extends Widget_Base {
 		$this->add_control(
 			'calendar_row_border_width',
 			[
-				'label' => __( 'Row Border Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Row Border Width', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\BusinessHours\Widgets;
+namespace WidgetPack\Modules\BusinessHours\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -15,19 +15,19 @@ class Business_Hours extends Widget_Base {
 	//protected $_has_template_content = false;
 
 	public function get_name() {
-		return 'bdt-business-hours';
+		return 'avt-business-hours';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Business Hours', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Business Hours', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-business-hours';
+		return 'avt-wi-business-hours';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -38,7 +38,7 @@ class Business_Hours extends Widget_Base {
 		$this->start_controls_section(
 			'section_business_days_layout',
 			[
-				'label' => esc_html__( 'Business Days & Times', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Business Days & Times', 'avator-widget-pack' ),
 			]
 		);
 
@@ -47,7 +47,7 @@ class Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'enter_day',
 			[
-				'label'       => esc_html__( 'Enter Day', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Enter Day', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => 'Monday',
@@ -57,7 +57,7 @@ class Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'enter_time',
 			[
-				'label'       => esc_html__( 'Enter Time', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Enter Time', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => '10:00 AM - 6:00 PM',
@@ -67,7 +67,7 @@ class Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'current_styling_heading',
 			[
-				'label'     => esc_html__( 'Styling', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Styling', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -76,7 +76,7 @@ class Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'highlight_this',
 			[
-				'label'        => esc_html__( 'Style This Day', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Style This Day', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default'      => 'no',
@@ -87,7 +87,7 @@ class Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'single_business_day_color',
 			[
-				'label'     => esc_html__( 'Day Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Day Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -95,7 +95,7 @@ class Business_Hours extends Widget_Base {
 				],
 				'default'   => '#db6159',
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} .bdt-business-day-off' => 'color: {{VALUE}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .avt-business-day-off' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'highlight_this' => 'yes',
@@ -107,7 +107,7 @@ class Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'single_business_timing_color',
 			[
-				'label'     => esc_html__( 'Time Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Time Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
@@ -115,7 +115,7 @@ class Business_Hours extends Widget_Base {
 				],
 				'default'   => '#db6159',
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} .bdt-business-time-off' => 'color: {{VALUE}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .avt-business-time-off' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'highlight_this' => 'yes',
@@ -127,10 +127,10 @@ class Business_Hours extends Widget_Base {
 		$repeater->add_control(
 			'single_business_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-business-hours-inner {{CURRENT_ITEM}}.border-divider' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-business-hours-inner {{CURRENT_ITEM}}.border-divider' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'highlight_this' => 'yes',
@@ -146,33 +146,33 @@ class Business_Hours extends Widget_Base {
 				'fields'      => array_values( $repeater->get_controls() ),
 				'default'     => [
 					[
-						'enter_day'  => esc_html__( 'Monday', 'bdthemes-element-pack' ),
-						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'bdthemes-element-pack' ),
+						'enter_day'  => esc_html__( 'Monday', 'avator-widget-pack' ),
+						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'avator-widget-pack' ),
 					],
 					[
-						'enter_day'  => esc_html__( 'Tuesday', 'bdthemes-element-pack' ),
-						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'bdthemes-element-pack' ),
+						'enter_day'  => esc_html__( 'Tuesday', 'avator-widget-pack' ),
+						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'avator-widget-pack' ),
 					],
 					[
-						'enter_day'  => esc_html__( 'Wednesday', 'bdthemes-element-pack' ),
-						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'bdthemes-element-pack' ),
+						'enter_day'  => esc_html__( 'Wednesday', 'avator-widget-pack' ),
+						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'avator-widget-pack' ),
 					],
 					[
-						'enter_day'  => esc_html__( 'Thursday', 'bdthemes-element-pack' ),
-						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'bdthemes-element-pack' ),
+						'enter_day'  => esc_html__( 'Thursday', 'avator-widget-pack' ),
+						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'avator-widget-pack' ),
 					],
 					[
-						'enter_day'  => esc_html__( 'Friday', 'bdthemes-element-pack' ),
-						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'bdthemes-element-pack' ),
+						'enter_day'  => esc_html__( 'Friday', 'avator-widget-pack' ),
+						'enter_time' => esc_html__( '10:00 AM - 6:00 PM', 'avator-widget-pack' ),
 					],
 					[
-						'enter_day'      => esc_html__( 'Saturday', 'bdthemes-element-pack' ),
-						'enter_time'     => esc_html__( '10:00 AM - 6:00 PM', 'bdthemes-element-pack' ),
+						'enter_day'      => esc_html__( 'Saturday', 'avator-widget-pack' ),
+						'enter_time'     => esc_html__( '10:00 AM - 6:00 PM', 'avator-widget-pack' ),
 					],
 					[
-						'enter_day'      => esc_html__( 'Sunday', 'bdthemes-element-pack' ),
-						'enter_time'     => esc_html__( 'Closed', 'bdthemes-element-pack' ),
-						'highlight_this' => esc_html__( 'yes', 'bdthemes-element-pack' ),
+						'enter_day'      => esc_html__( 'Sunday', 'avator-widget-pack' ),
+						'enter_time'     => esc_html__( 'Closed', 'avator-widget-pack' ),
+						'highlight_this' => esc_html__( 'yes', 'avator-widget-pack' ),
 					],
 				],
 				'title_field' => '{{{ enter_day }}}',
@@ -184,7 +184,7 @@ class Business_Hours extends Widget_Base {
 		$this->start_controls_section(
 			'section_bs_general',
 			[
-				'label' => esc_html__( 'General', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'General', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -192,12 +192,12 @@ class Business_Hours extends Widget_Base {
 		$this->add_responsive_control(
 			'section_bs_list_padding',
 			[
-				'label'      => esc_html__( 'Row Spacing', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Row Spacing', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default' => ['top' => 5, 'right' => 5, 'bottom' => 5, 'left' => 5],
 				'selectors'  => [
-					'{{WRAPPER}} div.bdt-business-hours-inner div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} div.avt-business-hours-inner div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -207,7 +207,7 @@ class Business_Hours extends Widget_Base {
 		$this->start_controls_section(
 			'section_bs_divider',
 			[
-				'label' => esc_html__( 'Divider', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Divider', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -215,7 +215,7 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'day_divider',
 			[
-				'label'        => esc_html__( 'Divider', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Divider', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default'      => 'no',
@@ -225,16 +225,16 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'day_divider_style',
 			[
-				'label'     => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Style', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'options'   => [
-					'solid'  => esc_html__( 'Solid', 'bdthemes-element-pack' ),
-					'dotted' => esc_html__( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => esc_html__( 'Dashed', 'bdthemes-element-pack' ),
+					'solid'  => esc_html__( 'Solid', 'avator-widget-pack' ),
+					'dotted' => esc_html__( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => esc_html__( 'Dashed', 'avator-widget-pack' ),
 				],
 				'default'   => 'solid',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-business-hours div.bdt-business-hours-inner div.border-divider:not(:first-child)' => 'border-top-style: {{VALUE}};',
+					'{{WRAPPER}} .avt-business-hours div.avt-business-hours-inner div.border-divider:not(:first-child)' => 'border-top-style: {{VALUE}};',
 				],
 				'condition' => [
 					'day_divider' => 'yes',
@@ -245,11 +245,11 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'day_divider_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#e8e8e8',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-business-hours div.bdt-business-hours-inner div.border-divider:not(:first-child)' => 'border-top-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-business-hours div.avt-business-hours-inner div.border-divider:not(:first-child)' => 'border-top-color: {{VALUE}};',
 				],
 				'condition' => [
 					'day_divider' => 'yes',
@@ -260,7 +260,7 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'day_divider_weight',
 			[
-				'label'     => esc_html__( 'Weight', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Weight', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'default'   => [
 					'size' => 1,
@@ -273,7 +273,7 @@ class Business_Hours extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-business-hours div.bdt-business-hours-inner div.border-divider:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-business-hours div.avt-business-hours-inner div.border-divider:not(:first-child)' => 'border-top-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'day_divider' => 'yes',
@@ -286,7 +286,7 @@ class Business_Hours extends Widget_Base {
 		$this->start_controls_section(
 			'section_business_day_style',
 			[
-				'label' => esc_html__( 'Day and Time', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Day and Time', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -295,31 +295,31 @@ class Business_Hours extends Widget_Base {
 			'bs_note_heading',
 			[
 				'type' => Controls_Manager::RAW_HTML,
-				'raw'  => sprintf( '<p style="font-size: 12px;font-style: italic;line-height: 1.4;color: #a4afb7;">%s</p>', esc_html__( 'Note: By default, the color & typography options will inherit from parent styling. If you wish you can override that styling from here.', 'bdthemes-element-pack' ) ),
+				'raw'  => sprintf( '<p style="font-size: 12px;font-style: italic;line-height: 1.4;color: #a4afb7;">%s</p>', esc_html__( 'Note: By default, the color & typography options will inherit from parent styling. If you wish you can override that styling from here.', 'avator-widget-pack' ) ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'business_hours_day_align',
 			[
-				'label'     => esc_html__( 'Day Alignment', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Day Alignment', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => [
 					'left'   => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right'  => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} div.bdt-business-hours-inner .heading-date' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} div.avt-business-hours-inner .heading-date' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -327,24 +327,24 @@ class Business_Hours extends Widget_Base {
 		$this->add_responsive_control(
 			'business_hours_time_align',
 			[
-				'label'     => esc_html__( 'Time Alignment', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Time Alignment', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => [
 					'left'   => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right'  => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} div.bdt-business-hours-inner .heading-time' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} div.avt-business-hours-inner .heading-time' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -352,14 +352,14 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'business_day_color',
 			[
-				'label'     => esc_html__( 'Day Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Day Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_3,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-business-day' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-business-day' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .elementor-widget-container' => 'overflow: hidden;',
 				],
 			]
@@ -368,7 +368,7 @@ class Business_Hours extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'    => esc_html__( 'Day Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Day Typography', 'avator-widget-pack' ),
 				'name'     => 'business_day_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .heading-date',
@@ -378,14 +378,14 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'business_timing_color',
 			[
-				'label'     => esc_html__( 'Time Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Time Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'scheme'    => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_3,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-business-time' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-business-time' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -393,7 +393,7 @@ class Business_Hours extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'label'    => esc_html__( 'Time Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Time Typography', 'avator-widget-pack' ),
 				'name'     => 'business_timings_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .heading-time',
@@ -403,7 +403,7 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'business_hours_striped',
 			[
-				'label'        => esc_html__( 'Striped Effect', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Striped Effect', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default'      => 'no',
@@ -413,7 +413,7 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'business_hours_striped_odd_color',
 			[
-				'label'     => esc_html__( 'Striped Odd Rows Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Striped Odd Rows Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#eaeaea',
 				'selectors' => [
@@ -428,7 +428,7 @@ class Business_Hours extends Widget_Base {
 		$this->add_control(
 			'striped_effect_even',
 			[
-				'label'     => esc_html__( 'Striped Even Rows Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Striped Even Rows Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#FFFFFF',
 				'selectors' => [
@@ -447,12 +447,12 @@ class Business_Hours extends Widget_Base {
 		$settings = $this->get_settings();
 		?>
 
-		<div class="bdt-business-hours">
+		<div class="avt-business-hours">
 			<?php
 			if ( count( $settings['business_days_times'] ) ) {
 			$count = 0;
 			?>
-				<div class="bdt-business-hours-inner">
+				<div class="avt-business-hours-inner">
 					<?php
 					foreach ( $settings['business_days_times'] as $item ) {
 						$day_settings = $this->get_repeater_setting_key( 'enter_day', 'business_days_times', $count );
@@ -461,37 +461,37 @@ class Business_Hours extends Widget_Base {
 						$time_settings = $this->get_repeater_setting_key( 'enter_time', 'business_days_times', $count );
 						$this->add_inline_editing_attributes( $time_settings );
 
-						$this->add_render_attribute( 'bdt-inner-element', 'class', 'bdt-inner bdt-grid bdt-grid-small', true );
-						$this->add_render_attribute( 'bdt-inner-heading-time', 'class', 'inner-heading-time' );
-						$this->add_render_attribute( 'bdt-bs-background' . $item['_id'], 'class', 'elementor-repeater-item-' . $item['_id'] );
-						$this->add_render_attribute( 'bdt-bs-background' . $item['_id'], 'class', 'border-divider' );
+						$this->add_render_attribute( 'avt-inner-element', 'class', 'avt-inner avt-grid avt-grid-small', true );
+						$this->add_render_attribute( 'avt-inner-heading-time', 'class', 'inner-heading-time' );
+						$this->add_render_attribute( 'avt-bs-background' . $item['_id'], 'class', 'elementor-repeater-item-' . $item['_id'] );
+						$this->add_render_attribute( 'avt-bs-background' . $item['_id'], 'class', 'border-divider' );
 
 						if ( 'yes' === $item['highlight_this'] ) {
-							$this->add_render_attribute( 'bdt-bs-background' . $item['_id'], 'class', 'bdt-highlight-bg' );
+							$this->add_render_attribute( 'avt-bs-background' . $item['_id'], 'class', 'avt-highlight-bg' );
 						} elseif ( 'yes' === $settings['business_hours_striped'] ) {
-							$this->add_render_attribute( 'bdt-bs-background' . $item['_id'], 'class', 'stripes' );
+							$this->add_render_attribute( 'avt-bs-background' . $item['_id'], 'class', 'stripes' );
 						}
 						
-						$this->add_render_attribute( 'bdt-highlight-day' . $item['_id'], 'class', 'heading-date bdt-width-expand' );
-						$this->add_render_attribute( 'bdt-highlight-time' . $item['_id'], 'class', 'heading-time bdt-width-auto' );
+						$this->add_render_attribute( 'avt-highlight-day' . $item['_id'], 'class', 'heading-date avt-width-expand' );
+						$this->add_render_attribute( 'avt-highlight-time' . $item['_id'], 'class', 'heading-time avt-width-auto' );
 
 						if ( 'yes' === $item['highlight_this'] ) {
-							$this->add_render_attribute( 'bdt-highlight-day' . $item['_id'], 'class', 'bdt-business-day-off' );
-							$this->add_render_attribute( 'bdt-highlight-time' . $item['_id'], 'class', 'bdt-business-time-off' );
+							$this->add_render_attribute( 'avt-highlight-day' . $item['_id'], 'class', 'avt-business-day-off' );
+							$this->add_render_attribute( 'avt-highlight-time' . $item['_id'], 'class', 'avt-business-time-off' );
 						} else {
-							$this->add_render_attribute( 'bdt-highlight-day' . $item['_id'], 'class', 'bdt-business-day' );
-							$this->add_render_attribute( 'bdt-highlight-time' . $item['_id'], 'class', 'bdt-business-time' );
+							$this->add_render_attribute( 'avt-highlight-day' . $item['_id'], 'class', 'avt-business-day' );
+							$this->add_render_attribute( 'avt-highlight-time' . $item['_id'], 'class', 'avt-business-time' );
 						}
 						?>
-						<div <?php echo $this->get_render_attribute_string( 'bdt-bs-background' . $item['_id'] ); ?>>
-							<div <?php echo $this->get_render_attribute_string( 'bdt-inner-element' ); ?>>
-								<span <?php echo $this->get_render_attribute_string( 'bdt-highlight-day' . $item['_id'] ); ?>>
+						<div <?php echo $this->get_render_attribute_string( 'avt-bs-background' . $item['_id'] ); ?>>
+							<div <?php echo $this->get_render_attribute_string( 'avt-inner-element' ); ?>>
+								<span <?php echo $this->get_render_attribute_string( 'avt-highlight-day' . $item['_id'] ); ?>>
 									<span <?php echo $this->get_render_attribute_string( $day_settings ); ?>><?php echo esc_html($item['enter_day']); ?></span>
 								</span>
 
 								<?php if ( ! empty($item['enter_time']) ) : ?>
-									<span <?php echo $this->get_render_attribute_string( 'bdt-highlight-time' . $item['_id'] ); ?>>
-										<span <?php echo $this->get_render_attribute_string( 'bdt-inner-heading-time' ); ?>>
+									<span <?php echo $this->get_render_attribute_string( 'avt-highlight-time' . $item['_id'] ); ?>>
+										<span <?php echo $this->get_render_attribute_string( 'avt-inner-heading-time' ); ?>>
 											<span <?php echo $this->get_render_attribute_string( $time_settings ); ?>><?php echo esc_html($item['enter_time']); ?></span>
 										</span>
 									</span>
@@ -509,42 +509,42 @@ class Business_Hours extends Widget_Base {
 
 	protected function _content_template() {
 		?>
-		<div class="bdt-business-hours">
-			<div class="bdt-business-hours-inner">
+		<div class="avt-business-hours">
+			<div class="avt-business-hours-inner">
 			<#  if ( settings.business_days_times ) {
 
 					var count = 0;
 
 					_.each( settings.business_days_times, function( item ) {
 
-						var bdt_current_item_wrap = 'elementor-repeater-item-' + item._id;
-						var bdt_bs_background;
+						var avt_current_item_wrap = 'elementor-repeater-item-' + item._id;
+						var avt_bs_background;
 						if ( 'yes' == item.highlight_this ) {
-							bdt_bs_background = 'bdt-highlight-bg';
+							avt_bs_background = 'avt-highlight-bg';
 						} else if ( 'yes' == settings.business_hours_striped ) {
-							bdt_bs_background = 'stripes';
+							avt_bs_background = 'stripes';
 						} else {
-							bdt_bs_background = 'bs-background';
+							avt_bs_background = 'bs-background';
 						}
-						var bdt_highlight_day;
-						var bdt_highlight_time;
+						var avt_highlight_day;
+						var avt_highlight_time;
 						if ( 'yes' == item.highlight_this ) {
-							bdt_highlight_day  = 'bdt-business-day-off';
-							bdt_highlight_time = 'bdt-business-time-off';
+							avt_highlight_day  = 'avt-business-day-off';
+							avt_highlight_time = 'avt-business-time-off';
 						} else {
-							bdt_highlight_day  = 'bdt-business-day';
-							bdt_highlight_time = 'bdt-business-time';
+							avt_highlight_day  = 'avt-business-day';
+							avt_highlight_time = 'avt-business-time';
 						}
 
 					#>
-					<div class="{{ bdt_current_item_wrap }} {{ bdt_bs_background }} border-divider">
-						<div class="bdt-inner bdt-grid">
-							<span class="{{ bdt_highlight_day }} heading-date bdt-width-expand">
+					<div class="{{ avt_current_item_wrap }} {{ avt_bs_background }} border-divider">
+						<div class="avt-inner avt-grid">
+							<span class="{{ avt_highlight_day }} heading-date avt-width-expand">
 								<span class="elementor-inline-editing" data-elementor-setting-key="business_days_times.{{ count }}.enter_day" data-elementor-inline-editing-toolbar="basic">{{ item.enter_day }}</span>
 							</span>
 
 							<# if ( item.enter_time ) { #>
-								<span class="{{ bdt_highlight_time }} heading-time bdt-width-auto">
+								<span class="{{ avt_highlight_time }} heading-time avt-width-auto">
 									<span class="inner-heading-time">								
 										<span class="elementor-inline-editing" data-elementor-setting-key="business_days_times.{{ count }}.enter_time" data-elementor-inline-editing-toolbar="basic">{{ item.enter_time }}</span>
 									</span>

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostGrid\Skins;
+namespace WidgetPack\Modules\PostGrid\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Skin_Filter extends Elementor_Skin_Base {
 
 	public function get_id() {
-		return 'bdt-filter';
+		return 'avt-filter';
 	}
 
 	public function get_title() {
-		return __( 'Filter', 'bdthemes-element-pack' );
+		return __( 'Filter', 'avator-widget-pack' );
 	}
 
 	public function render_comments() {
@@ -22,14 +22,14 @@ class Skin_Filter extends Elementor_Skin_Base {
 		}
 		
 		echo 
-			'<span class="bdt-post-grid-comments"><i class="ep-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
+			'<span class="avt-post-grid-comments"><i class="ep-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
 	}
 
 	public function render_category() {
 
 		if ( ! $this->parent->get_settings( 'show_category' ) ) { return; }
 		?>
-		<div class="bdt-post-grid-category bdt-position-z-index bdt-position-small bdt-position-top-right">
+		<div class="avt-post-grid-category avt-position-z-index avt-position-small avt-position-top-right">
 			<?php echo get_the_category_list(' '); ?>
 		</div>
 		<?php
@@ -89,13 +89,13 @@ class Skin_Filter extends Elementor_Skin_Base {
 		$post_categories = array_unique($post_categories);
 
         ?>
-		<div class="bdt-ep-grid-filters-wrapper">
+		<div class="avt-wp-grid-filters-wrapper">
 
-			<ul class="bdt-ep-grid-filters">
+			<ul class="avt-wp-grid-filters">
 		
 				<?php foreach($post_categories as $post_category => $value) : ?>
 					<?php $filter_name = get_term_by('slug', $value, 'category'); ?>
-					<li class="bdt-ep-grid-filter bdt-active" bdt-filter-control="[data-filter*='bdtf-<?php echo esc_attr(trim($value)); ?>']">
+					<li class="avt-wp-grid-filter avt-active" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 						<?php echo esc_html($filter_name->name); ?>
 					</li>				
 				<?php endforeach; ?>
@@ -107,12 +107,12 @@ class Skin_Filter extends Elementor_Skin_Base {
 	public function render() {
 		
 		$settings   = $this->parent->get_settings();
-		$id         = 'bdt-post-grid-skin-filter-' . $this->parent->get_id();
+		$id         = 'avt-post-grid-skin-filter-' . $this->parent->get_id();
 
 		?>
-		<div bdt-filter="target: #<?php echo esc_attr( $id ); ?>">
+		<div avt-filter="target: #<?php echo esc_attr( $id ); ?>">
 			<?php $this->render_filter_menu(); ?>
-			<div class="bdt-grid bdt-child-width-1-3" id="<?php echo esc_attr( $id ); ?>" bdt-grid>
+			<div class="avt-grid avt-child-width-1-3" id="<?php echo esc_attr( $id ); ?>" avt-grid>
 		<?php
 
 		$categories = $this->render_query();
@@ -135,21 +135,21 @@ class Skin_Filter extends Elementor_Skin_Base {
 
 	        while( $wp_query->have_posts() ) : $wp_query->the_post();
 
-	        	$bdt_filter_name = ( 'by_name' === $settings['source'] and ! empty($settings['post_categories'] ) ) ? $category : $category->slug;
+	        	$avt_filter_name = ( 'by_name' === $settings['source'] and ! empty($settings['post_categories'] ) ) ? $category : $category->slug;
 
 	        	?>
-				<div class="bdt-post-grid-item bdt-transition-toggle bdt-position-relative bdtf-<?php echo esc_attr($bdt_filter_name); ?>" data-filter="bdtf-<?php echo esc_attr($bdt_filter_name); ?>">
+				<div class="avt-post-grid-item avt-transition-toggle avt-position-relative avtf-<?php echo esc_attr($avt_filter_name); ?>" data-filter="avtf-<?php echo esc_attr($avt_filter_name); ?>">
 
 					<?php $this->parent->render_image(get_post_thumbnail_id( get_the_ID() ), $settings['thumbnail_size'] ); ?>
 			  		
-			  		<div class="bdt-post-grid-desc bdt-padding">
+			  		<div class="avt-post-grid-desc avt-padding">
 						<?php $this->parent->render_title(); ?>
 
 						<?php $this->parent->render_excerpt( $settings['excerpt_length'] ); ?>
 						<?php $this->parent->render_readmore(); ?>
 						
 						<?php if ($settings['show_author'] or $settings['show_date'] or $settings['show_comments']) : ?>
-							<div class="bdt-post-grid-meta bdt-subnav bdt-flex-middle bdt-margin-small-top bdt-padding-remove-horizontal">
+							<div class="avt-post-grid-meta avt-subnav avt-flex-middle avt-margin-small-top avt-padding-remove-horizontal">
 								<?php $this->parent->render_author(); ?>
 								<?php $this->parent->render_date(); ?>
 								<?php $this->render_comments(); ?>

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\TestimonialGrid\Widgets;
+namespace WidgetPack\Modules\TestimonialGrid\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -12,19 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Testimonial_Grid extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-testimonial-grid';
+		return 'avt-testimonial-grid';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Testimonial Grid', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Testimonial Grid', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-testimonial-grid';
+		return 'avt-wi-testimonial-grid';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -32,7 +32,7 @@ class Testimonial_Grid extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'element-pack-font' ];
+		return [ 'widget-pack-font' ];
 	}
 
 	public function get_script_depends() {
@@ -44,20 +44,20 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'layout',
 			[
-				'label'   => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '1',
 				'options' => [
-					'1' => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'2' => esc_html__( 'Top Avatar', 'bdthemes-element-pack' ),
-					'3' => esc_html__( 'Reverse', 'bdthemes-element-pack' ),
+					'1' => esc_html__( 'Default', 'avator-widget-pack' ),
+					'2' => esc_html__( 'Top Avatar', 'avator-widget-pack' ),
+					'3' => esc_html__( 'Reverse', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -65,7 +65,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '2',
 				'tablet_default' => '2',
@@ -83,7 +83,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'posts',
 			[
-				'label'   => esc_html__( 'Posts Per Page', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Posts Per Page', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 4,
 			]
@@ -92,7 +92,7 @@ class Testimonial_Grid extends Widget_Base {
 		// $this->add_control(
 		// 	'show_pagination',
 		// 	[
-		// 		'label' => esc_html__( 'Pagination', 'bdthemes-element-pack' ),
+		// 		'label' => esc_html__( 'Pagination', 'avator-widget-pack' ),
 		// 		'type'  => Controls_Manager::SWITCHER,
 		// 	]
 		// );
@@ -100,7 +100,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'item_gap',
 			[
-				'label'   => esc_html__( 'Column Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Column Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 35,
@@ -113,8 +113,8 @@ class Testimonial_Grid extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid > .bdt-grid'     => 'margin-left: -{{SIZE}}px',
-					'{{WRAPPER}} .bdt-testimonial-grid > .bdt-grid > *' => 'padding-left: {{SIZE}}px',
+					'{{WRAPPER}} .avt-testimonial-grid > .avt-grid'     => 'margin-left: -{{SIZE}}px',
+					'{{WRAPPER}} .avt-testimonial-grid > .avt-grid > *' => 'padding-left: {{SIZE}}px',
 				],
 			]
 		);
@@ -122,7 +122,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'row_gap',
 			[
-				'label'   => esc_html__( 'Row Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Row Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 35,
@@ -135,8 +135,8 @@ class Testimonial_Grid extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid > .bdt-grid'     => 'margin-top: -{{SIZE}}px',
-					'{{WRAPPER}} .bdt-testimonial-grid > .bdt-grid > *' => 'margin-top: {{SIZE}}px',
+					'{{WRAPPER}} .avt-testimonial-grid > .avt-grid'     => 'margin-top: -{{SIZE}}px',
+					'{{WRAPPER}} .avt-testimonial-grid > .avt-grid > *' => 'margin-top: {{SIZE}}px',
 				],
 			]
 		);
@@ -144,7 +144,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'show_image',
 			[
-				'label'   => esc_html__( 'Testimonial Image', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Testimonial Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -153,7 +153,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -162,7 +162,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'show_address',
 			[
-				'label'   => esc_html__( 'Address', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Address', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -171,7 +171,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'show_text',
 			[
-				'label'   => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -180,7 +180,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'text_limit',
 			[
-				'label'     => esc_html__( 'Text Limit', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Limit', 'avator-widget-pack' ),
 				'description' => 'Its just work for text , but not working excerpt.',
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 25,
@@ -193,7 +193,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'show_rating',
 			[
-				'label'   => esc_html__( 'Rating', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Rating', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -202,7 +202,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'show_filter_bar',
 			[
-				'label' => esc_html__( 'Filter Bar', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Filter Bar', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -210,7 +210,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'item_match_height',
 			[
-				'label' => esc_html__( 'Item Match Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Item Match Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -218,7 +218,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'item_masonry',
 			[
-				'label' => esc_html__( 'Masonry', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Masonry', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -228,18 +228,18 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Query', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'source',
 			[
-				'label'   => _x( 'Source', 'Posts Query Control', 'bdthemes-element-pack' ),
+				'label'   => _x( 'Source', 'Posts Query Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''        => esc_html__( 'Show All', 'bdthemes-element-pack' ),
-					'by_name' => esc_html__( 'Manual Selection', 'bdthemes-element-pack' ),
+					''        => esc_html__( 'Show All', 'avator-widget-pack' ),
+					'by_name' => esc_html__( 'Manual Selection', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -256,7 +256,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'post_categories',
 			[
-				'label'       => esc_html__( 'Categories', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => $post_options,
 				'default'     => [],
@@ -271,14 +271,14 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order by', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order by', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'date',
 				'options' => [
-					'date'     => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'title'    => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'category' => esc_html__( 'Category', 'bdthemes-element-pack' ),
-					'rand'     => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'date'     => esc_html__( 'Date', 'avator-widget-pack' ),
+					'title'    => esc_html__( 'Title', 'avator-widget-pack' ),
+					'category' => esc_html__( 'Category', 'avator-widget-pack' ),
+					'rand'     => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -286,12 +286,12 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => [
-					'DESC' => esc_html__( 'Descending', 'bdthemes-element-pack' ),
-					'ASC'  => esc_html__( 'Ascending', 'bdthemes-element-pack' ),
+					'DESC' => esc_html__( 'Descending', 'avator-widget-pack' ),
+					'ASC'  => esc_html__( 'Ascending', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -301,7 +301,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label' => esc_html__( 'Item', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Item', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -311,17 +311,17 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -330,10 +330,10 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'item_border',
-				'label'       => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner',
+				'selector'    => '{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner',
 				'separator'   => 'before',
 			]
 		);
@@ -341,11 +341,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'item_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -354,18 +354,18 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_shadow',
-				'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner',
+				'selector' => '{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner',
 			]
 		);
 
 		$this->add_responsive_control(
 			'item_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -375,17 +375,17 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_hover_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -393,13 +393,13 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'item_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'item_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -408,7 +408,7 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_hover_shadow',
-				'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-item-inner:hover',
+				'selector' => '{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-item-inner:hover',
 			]
 		);
 		
@@ -421,7 +421,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Image', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_image' => 'yes',
@@ -433,10 +433,10 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'image_border',
-				'label'       => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-img-wrapper',
+				'selector'    => '{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-img-wrapper',
 				'separator'   => 'before',
 			]
 		);
@@ -444,13 +444,13 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'image_hover_border_color',
 			[
-				'label'     => esc_html__( 'Hover Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Hover Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'image_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-img-wrapper:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-img-wrapper:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -458,11 +458,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'image_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-img-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-img-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -470,11 +470,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'image_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-img-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-img-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -484,7 +484,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => 'yes',
@@ -495,10 +495,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -506,11 +506,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'title_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -519,9 +519,9 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-title',
+				'selector' => '{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-title',
 			]
 		);
 
@@ -530,7 +530,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_address',
 			[
-				'label'     => esc_html__( 'Address', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Address', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_address' => 'yes',
@@ -541,10 +541,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'address_color',
 			[
-				'label'     => esc_html__( 'Company Name/Address Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Company Name/Address Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-address' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-address' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -552,11 +552,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'address_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-address' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-address' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -565,9 +565,9 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'address_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-address',
+				'selector' => '{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-address',
 			]
 		);
 
@@ -576,7 +576,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_text',
 			[
-				'label'     => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_text' => 'yes',
@@ -587,10 +587,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -598,11 +598,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'text_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -611,9 +611,9 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'text_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-text',
+				'selector' => '{{WRAPPER}} .avt-testimonial-grid .avt-testimonial-grid-text',
 			]
 		);
 
@@ -622,7 +622,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_rating',
 			[
-				'label'     => esc_html__( 'Rating', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Rating', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_rating' => 'yes',
@@ -633,11 +633,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'rating_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#e7e7e7',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-rating .bdt-rating-item' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-rating .avt-rating-item' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -645,15 +645,15 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'active_rating_color',
 			[
-				'label'     => esc_html__( 'Active Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#FFCC00',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-rating.bdt-rating-1 .bdt-rating-item:nth-child(1)'    => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-rating.bdt-rating-2 .bdt-rating-item:nth-child(-n+2)' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-rating.bdt-rating-3 .bdt-rating-item:nth-child(-n+3)' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-rating.bdt-rating-4 .bdt-rating-item:nth-child(-n+4)' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-rating.bdt-rating-5 .bdt-rating-item:nth-child(-n+5)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-rating.avt-rating-1 .avt-rating-item:nth-child(1)'    => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-rating.avt-rating-2 .avt-rating-item:nth-child(-n+2)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-rating.avt-rating-3 .avt-rating-item:nth-child(-n+3)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-rating.avt-rating-4 .avt-rating-item:nth-child(-n+4)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-rating.avt-rating-5 .avt-rating-item:nth-child(-n+5)' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -661,11 +661,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'rating_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-testimonial-grid .bdt-rating' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-testimonial-grid .avt-rating' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -675,7 +675,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_filter',
 			[
-				'label'     => esc_html__( 'Filter Bar', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Filter Bar', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_filter_bar' => 'yes',
@@ -686,25 +686,25 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'filter_alignment',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters-wrapper' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -713,19 +713,19 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'typography_filter',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li',
+				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li',
 			]
 		);
 
 		$this->add_control(
 			'filter_spacing',
 			[
-				'label'     => esc_html__( 'Bottom Space', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Bottom Space', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -735,14 +735,14 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_tab(
 			'filter_tab_desktop',
 			[
-				'label' => __( 'Desktop', 'bdthemes-element-pack' )
+				'label' => __( 'Desktop', 'avator-widget-pack' )
 			]
 		);
 
 		$this->add_control(
 			'desktop_filter_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -750,11 +750,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'color_filter',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -762,10 +762,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'desktop_filter_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -773,11 +773,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_responsive_control(
 			'desktop_filter_padding',
 			[
-				'label'      => __('Padding', 'bdthemes-element-pack'),
+				'label'      => __('Padding', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -788,18 +788,18 @@ class Testimonial_Grid extends Widget_Base {
 				'name'        => 'desktop_filter_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-ep-grid-filters li'
+				'selector'    => '{{WRAPPER}} .avt-wp-grid-filters li'
 			]
 		);
 
 		$this->add_control(
 			'desktop_filter_radius',
 			[
-				'label'      => __('Radius', 'bdthemes-element-pack'),
+				'label'      => __('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wp-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -808,18 +808,18 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_filter_shadow',
-				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li'
+				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li'
 			]
 		);
 
 		$this->add_control(
 			'filter_item_spacing',
 			[
-				'label'     => esc_html__( 'Space Between', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Space Between', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters > li.bdt-ep-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
-					'{{WRAPPER}} .bdt-ep-grid-filters > li.bdt-ep-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
 				],
 			]
 		);
@@ -827,7 +827,7 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'desktop_filter_active',
 			[
-				'label' => esc_html__( 'Active', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Active', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -835,11 +835,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'color_filter_active',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
@@ -847,10 +847,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'desktop_active_filter_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -858,10 +858,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'desktop_active_filter_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -869,11 +869,11 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'desktop_active_filter_radius',
 			[
-				'label'      => __('Radius', 'bdthemes-element-pack'),
+				'label'      => __('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -882,7 +882,7 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_active_filter_shadow',
-				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li.bdt-active'
+				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li.avt-active'
 			]
 		);
 
@@ -891,14 +891,14 @@ class Testimonial_Grid extends Widget_Base {
 		$this->start_controls_tab(
 			'filter_tab_mobile',
 			[
-				'label' => __( 'Mobile', 'bdthemes-element-pack' )
+				'label' => __( 'Mobile', 'avator-widget-pack' )
 			]
 		);
 
 		$this->add_control(
 			'filter_mbtn_width',
 			[
-				'label' => __('Button Width(%)', 'bdthemes-element-pack'),
+				'label' => __('Button Width(%)', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -907,7 +907,7 @@ class Testimonial_Grid extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-button' => 'width: {{SIZE}}%;'
+					'{{WRAPPER}} .avt-button' => 'width: {{SIZE}}%;'
 				]
 			]
 		);
@@ -915,10 +915,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_color',
 			[
-				'label'     => __( 'Button Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-button' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-button' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -926,10 +926,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_background',
 			[
-				'label'     => __( 'Button Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-button' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-button' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -937,10 +937,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_dropdown_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-dropdown-nav li' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-dropdown-nav li' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -948,10 +948,10 @@ class Testimonial_Grid extends Widget_Base {
 		$this->add_control(
 			'filter_mbtn_dropdown_background',
 			[
-				'label'     => __( 'Dropdown Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Dropdown Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-dropdown' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-dropdown' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -960,9 +960,9 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'filter_mbtn_dropdown_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bdt-dropdown-nav li',
+				'selector' => '{{WRAPPER}} .avt-dropdown-nav li',
 			]
 		);
 
@@ -984,7 +984,7 @@ class Testimonial_Grid extends Widget_Base {
 
 		?>
 		<div>
-			<div class="bdt-testimonial-grid-img-wrapper bdt-overflow-hidden bdt-border-circle bdt-background-cover">
+			<div class="avt-testimonial-grid-img-wrapper avt-overflow-hidden avt-border-circle avt-background-cover">
 				<img src="<?php echo esc_url($testimonial_thumb[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
 			</div>
 		</div>
@@ -999,7 +999,7 @@ class Testimonial_Grid extends Widget_Base {
 		}
 
 		?>
-		<h4 class="bdt-testimonial-grid-title bdt-margin-remove-bottom"><?php echo esc_attr(get_the_title( $post_id )); ?></h4>
+		<h4 class="avt-testimonial-grid-title avt-margin-remove-bottom"><?php echo esc_attr(get_the_title( $post_id )); ?></h4>
 		<?php
 	}
 
@@ -1011,8 +1011,8 @@ class Testimonial_Grid extends Widget_Base {
 		}
 
 		?>
-        <p class="bdt-testimonial-grid-address bdt-text-meta bdt-margin-remove">
-        	<?php echo get_post_meta( $post_id, 'bdthemes_tm_company_name', true ); ?>
+        <p class="avt-testimonial-grid-address avt-text-meta avt-margin-remove">
+        	<?php echo get_post_meta( $post_id, 'avator_tm_company_name', true ); ?>
     	</p>
 		<?php
 	}
@@ -1035,7 +1035,7 @@ class Testimonial_Grid extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-testimonial-grid-text">
+		<div class="avt-testimonial-grid-text">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -1052,13 +1052,13 @@ class Testimonial_Grid extends Widget_Base {
 		}
 
 		?>
-		<div class="bdt-testimonial-grid-rating">
-			<ul class="bdt-rating bdt-rating-<?php echo get_post_meta( $post_id, 'bdthemes_tm_rating', true ); ?> bdt-grid bdt-grid-collapse" bdt-grid>
-				<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="bdt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+		<div class="avt-testimonial-grid-rating">
+			<ul class="avt-rating avt-rating-<?php echo get_post_meta( $post_id, 'avator_tm_rating', true ); ?> avt-grid avt-grid-collapse" avt-grid>
+				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
 			</ul>
 		</div>
 		<?php
@@ -1088,17 +1088,17 @@ class Testimonial_Grid extends Widget_Base {
 		
 		?>
 
-		<div class="bdt-ep-grid-filters-wrapper">
+		<div class="avt-wp-grid-filters-wrapper">
 			
-			<button class="bdt-button bdt-button-default bdt-hidden@m" type="button"><?php esc_html_e( 'Filter', 'bdthemes-element-pack' ); ?></button>
-			<div bdt-dropdown="mode: click;" class="bdt-dropdown bdt-margin-remove-top bdt-margin-remove-bottom">
-			    <ul class="bdt-nav bdt-dropdown-nav">
+			<button class="avt-button avt-button-default avt-hidden@m" type="button"><?php esc_html_e( 'Filter', 'avator-widget-pack' ); ?></button>
+			<div avt-dropdown="mode: click;" class="avt-dropdown avt-margin-remove-top avt-margin-remove-bottom">
+			    <ul class="avt-nav avt-dropdown-nav">
 
-					<li class="bdt-ep-grid-filter bdt-active" bdt-filter-control><?php esc_html_e( 'All', 'bdthemes-element-pack' ); ?></li>
+					<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
 					
 					<?php foreach($testi_categories as $testi_category => $value) : ?>
 						<?php $filter_name = get_term_by('slug', $value, 'testimonial_categories'); ?>
-						<li class="bdt-ep-grid-filter" bdt-filter-control="[data-filter*='bdtf-<?php echo esc_attr(trim($value)); ?>']">
+						<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 							<?php echo esc_html($filter_name->name); ?>
 						</li>				
 					<?php endforeach; ?>
@@ -1107,12 +1107,12 @@ class Testimonial_Grid extends Widget_Base {
 			</div>
 
 
-			<ul class="bdt-ep-grid-filters bdt-visible@m" bdt-margin>
-				<li class="bdt-ep-grid-filter bdt-active" bdt-filter-control><?php esc_html_e( 'All', 'bdthemes-element-pack' ); ?></li>
+			<ul class="avt-wp-grid-filters avt-visible@m" avt-margin>
+				<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
 		
 				<?php foreach($testi_categories as $product_category => $value) : ?>
 					<?php $filter_name = get_term_by('slug', $value, 'testimonial_categories'); ?>
-					<li class="bdt-ep-grid-filter" bdt-filter-control="[data-filter*='bdtf-<?php echo esc_attr(trim($value)); ?>']">
+					<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 						<?php echo esc_html($filter_name->name); ?>
 					</li>				
 				<?php endforeach; ?>
@@ -1124,21 +1124,21 @@ class Testimonial_Grid extends Widget_Base {
 	public function render_header() {
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute('testimonial-grid-wrapper', 'class', ['bdt-testimonial-grid-layout-'.$settings['layout'], 'bdt-testimonial-grid', 'bdt-ep-grid-filter-container']);
+		$this->add_render_attribute('testimonial-grid-wrapper', 'class', ['avt-testimonial-grid-layout-'.$settings['layout'], 'avt-testimonial-grid', 'avt-wp-grid-filter-container']);
 
-		$this->add_render_attribute('testimonial-grid', 'bdt-grid', '');
-		$this->add_render_attribute('testimonial-grid', 'class', 'bdt-grid');
+		$this->add_render_attribute('testimonial-grid', 'avt-grid', '');
+		$this->add_render_attribute('testimonial-grid', 'class', 'avt-grid');
 
 		if ( $settings['show_filter_bar'] ) {
-			$this->add_render_attribute('testimonial-grid-wrapper', 'bdt-filter', 'target: #bdt-testimonial-grid-' . $this->get_id());
+			$this->add_render_attribute('testimonial-grid-wrapper', 'avt-filter', 'target: #avt-testimonial-grid-' . $this->get_id());
 		}
 
 		if ( $settings['item_match_height'] ) {
-			$this->add_render_attribute('testimonial-grid', 'bdt-height-match', 'div > .bdt-testimonial-grid-item-inner');
+			$this->add_render_attribute('testimonial-grid', 'avt-height-match', 'div > .avt-testimonial-grid-item-inner');
 		}
 
 		if ( $settings['item_masonry'] ) {
-			$this->add_render_attribute('testimonial-grid', 'bdt-grid', 'masonry: true;');
+			$this->add_render_attribute('testimonial-grid', 'avt-grid', 'masonry: true;');
 		}
 
 		?>
@@ -1149,7 +1149,7 @@ class Testimonial_Grid extends Widget_Base {
 		}
 
 		?>
-		<div id="bdt-testimonial-grid-<?php echo $this->get_id(); ?>" <?php echo $this->get_render_attribute_string( 'testimonial-grid' ); ?>>
+		<div id="avt-testimonial-grid-<?php echo $this->get_id(); ?>" <?php echo $this->get_render_attribute_string( 'testimonial-grid' ); ?>>
 		<?php
 	}
 
@@ -1164,7 +1164,7 @@ class Testimonial_Grid extends Widget_Base {
 		$settings = $this->get_settings();
 
 		$args = array(
-			'post_type'      => 'bdthemes-testimonial',
+			'post_type'      => 'avator-testimonial',
 			'posts_per_page' => $settings['posts'],
 			'orderby'        => $settings['orderby'],
 			'order'          => $settings['order'],
@@ -1190,10 +1190,10 @@ class Testimonial_Grid extends Widget_Base {
 
 		if($wp_query->have_posts()) {			
 
-			$this->add_render_attribute('testimonial-grid-item', 'class', 'bdt-testimonial-grid-item');
-			$this->add_render_attribute('testimonial-grid-item', 'class', 'bdt-width-1-'. $settings['columns_mobile']);
-			$this->add_render_attribute('testimonial-grid-item', 'class', 'bdt-width-1-'. $settings['columns_tablet'] .'@s');
-			$this->add_render_attribute('testimonial-grid-item', 'class', 'bdt-width-1-'. $settings['columns'] .'@m');
+			$this->add_render_attribute('testimonial-grid-item', 'class', 'avt-testimonial-grid-item');
+			$this->add_render_attribute('testimonial-grid-item', 'class', 'avt-width-1-'. $settings['columns_mobile']);
+			$this->add_render_attribute('testimonial-grid-item', 'class', 'avt-width-1-'. $settings['columns_tablet'] .'@s');
+			$this->add_render_attribute('testimonial-grid-item', 'class', 'avt-width-1-'. $settings['columns'] .'@m');
 
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
@@ -1202,18 +1202,18 @@ class Testimonial_Grid extends Widget_Base {
 				if( $settings['show_filter_bar'] ) {
 					$item_filters = get_the_terms( get_the_ID(), 'testimonial_categories' ); 
 	    			foreach ($item_filters as $item_filter) {
-	    				$this->add_render_attribute('testimonial-grid-item', 'data-filter', 'bdtf-' . $item_filter->slug, true);
+	    				$this->add_render_attribute('testimonial-grid-item', 'data-filter', 'avtf-' . $item_filter->slug, true);
 	    			}
 	    		}
 	    		?>
 
 		  		<div <?php echo $this->get_render_attribute_string( 'testimonial-grid-item' ); ?>>
 	  				<?php if ('1' == $settings['layout']) : ?>
-			  			<div class="bdt-testimonial-grid-item-inner">
-				  			<div class="bdt-grid bdt-position-relative bdt-grid-small bdt-flex-middle" bdt-grid>
+			  			<div class="avt-testimonial-grid-item-inner">
+				  			<div class="avt-grid avt-position-relative avt-grid-small avt-flex-middle" avt-grid>
 				               <?php $this->render_image( get_the_ID() ); ?>
 			               		<?php if ( $settings['show_title'] || $settings['show_address'] ) : ?>
-				           			<div class="bdt-testimonial-grid-title-address">
+				           			<div class="avt-testimonial-grid-title-address">
 						               <?php
 						               $this->render_title( get_the_ID() );
 						               $this->render_address( get_the_ID() );
@@ -1224,7 +1224,7 @@ class Testimonial_Grid extends Widget_Base {
 						                	<?php endif; ?>
 					                	
 					               			<?php if ('2' >= $settings['columns']) : ?>
-									           	<div class="bdt-position-center-right">
+									           	<div class="avt-position-center-right">
 								           			<?php $this->render_rating( get_the_ID() ); ?>
 									           	</div>
 						                	<?php endif; ?>
@@ -1238,10 +1238,10 @@ class Testimonial_Grid extends Widget_Base {
 					<?php endif; ?>
 
 					<?php if ('2' == $settings['layout']) : ?>
-			  			<div class="bdt-testimonial-grid-item-inner bdt-position-relative bdt-text-center">
+			  			<div class="avt-testimonial-grid-item-inner avt-position-relative avt-text-center">
 			               <div class=""><?php $this->render_image( get_the_ID() ); ?></div>
 		               		<?php if ( $settings['show_title'] || $settings['show_address'] ) : ?>
-			           			<div class="bdt-testimonial-grid-title-address">
+			           			<div class="avt-testimonial-grid-title-address">
 					               <?php
 					               $this->render_title( get_the_ID() );
 					               $this->render_address( get_the_ID() );
@@ -1254,12 +1254,12 @@ class Testimonial_Grid extends Widget_Base {
 					<?php endif; ?>
 
 					<?php if ('3' == $settings['layout']) : ?>
-			  			<div class="bdt-testimonial-grid-item-inner">
+			  			<div class="avt-testimonial-grid-item-inner">
 			          		<?php $this->render_excerpt(); ?>
-				  			<div class="bdt-grid bdt-position-relative bdt-grid-small bdt-flex-middle" bdt-grid>
+				  			<div class="avt-grid avt-position-relative avt-grid-small avt-flex-middle" avt-grid>
 				               <?php $this->render_image( get_the_ID() ); ?>
 			               		<?php if ( $settings['show_title'] || $settings['show_address'] ) : ?>
-				           			<div class="bdt-testimonial-grid-title-address">
+				           			<div class="avt-testimonial-grid-title-address">
 						               <?php
 						               $this->render_title( get_the_ID() );
 						               $this->render_address( get_the_ID() );
@@ -1270,7 +1270,7 @@ class Testimonial_Grid extends Widget_Base {
 						                	<?php endif; ?>
 
 					               			<?php if ('2' >= $settings['columns']) : ?>
-									           	<div class="bdt-position-center-right">
+									           	<div class="avt-position-center-right">
 								           			<?php $this->render_rating( get_the_ID() ); ?>
 									           	</div>
 						                	<?php endif; ?>
@@ -1285,13 +1285,13 @@ class Testimonial_Grid extends Widget_Base {
 			<?php endwhile;
 
 			// if ($settings['show_pagination']) {
-			// 	element_pack_post_pagination($wp_query);
+			// 	widget_pack_post_pagination($wp_query);
 			// }
 
 			wp_reset_postdata();
 
 		} else {
-			echo '<div class="bdt-alert-warning" bdt-alert>Oppps!! There is no post, please select actual post or categories.<div>';
+			echo '<div class="avt-alert-warning" avt-alert>Oppps!! There is no post, please select actual post or categories.<div>';
 		}
 	}
 

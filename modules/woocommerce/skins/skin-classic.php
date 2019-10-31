@@ -1,11 +1,11 @@
 <?php
-namespace ElementPack\Modules\Woocommerce\Skins;
+namespace WidgetPack\Modules\Woocommerce\Skins;
 
 use Elementor\Controls_Manager;
 use Elementor\Skin_Base;
 use Elementor\Widget_Base;
-use ElementPack\Modules\Woocommerce\Module;
-use ElementPack\Modules\Woocommerce\Widgets\Products;
+use WidgetPack\Modules\Woocommerce\Module;
+use WidgetPack\Modules\Woocommerce\Widgets\Products;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -13,7 +13,7 @@ class Skin_Classic extends Skin_Base {
 
 	protected function _register_controls_actions() {
 		parent::_register_controls_actions();
-		add_action( 'elementor/element/bdt-wc-products/section_woocommerce_layout/after_section_start', [ $this, 'register_controls' ] );
+		add_action( 'elementor/element/avt-wc-products/section_woocommerce_layout/after_section_start', [ $this, 'register_controls' ] );
 	}
 
 	public function get_id() {
@@ -21,7 +21,7 @@ class Skin_Classic extends Skin_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Classic', 'bdthemes-element-pack' );
+		return esc_html__( 'Classic', 'avator-widget-pack' );
 	}
 
 	public function register_controls( Widget_Base $widget ) {
@@ -30,7 +30,7 @@ class Skin_Classic extends Skin_Base {
 		$this->add_control(
 			'columns',
 			[
-				'label' => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'1' => '1',

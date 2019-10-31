@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Buddypress\Widgets;
+namespace WidgetPack\Modules\Buddypress\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -12,19 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Buddypress_Group extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-buddypress-group';
+		return 'avt-buddypress-group';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'BuddyPress Group', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'BuddyPress Group', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-buddypress';
+		return 'avt-wi-buddypress';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -35,20 +35,20 @@ class Buddypress_Group extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label'     => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'groups_type',
 			[
-				'label'   => esc_html__( 'Groups Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Groups Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'newest',
 				'options' => [
-					'newest'  => esc_html__('Newest', 'bdthemes-element-pack'),
-					'popular' => esc_html__('Popular', 'bdthemes-element-pack'),
-					'active'  => esc_html__('Active', 'bdthemes-element-pack'),
+					'newest'  => esc_html__('Newest', 'avator-widget-pack'),
+					'popular' => esc_html__('Popular', 'avator-widget-pack'),
+					'active'  => esc_html__('Active', 'avator-widget-pack'),
 				],
 			]
 		);
@@ -56,7 +56,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_responsive_control(
 			'max_groups',
 			[
-				'label'   => esc_html__( 'Max Groups', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Max Groups', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 5,
@@ -74,7 +74,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '6',
 				'tablet_default' => '4',
@@ -94,7 +94,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_responsive_control(
 			'column_gap',
 			[
-				'label'   => esc_html__( 'Column Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Column Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -107,8 +107,8 @@ class Buddypress_Group extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-buddypress-groups .bdt-grid'     => 'margin-left: -{{SIZE}}px',
-					'{{WRAPPER}} .bdt-buddypress-groups .bdt-grid > *' => 'padding-left: {{SIZE}}px',
+					'{{WRAPPER}} .avt-buddypress-groups .avt-grid'     => 'margin-left: -{{SIZE}}px',
+					'{{WRAPPER}} .avt-buddypress-groups .avt-grid > *' => 'padding-left: {{SIZE}}px',
 				],
 			]
 		);
@@ -116,7 +116,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_responsive_control(
 			'row_gap',
 			[
-				'label'   => esc_html__( 'Row Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Row Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -129,8 +129,8 @@ class Buddypress_Group extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-buddypress-groups .bdt-grid'     => 'margin-top: -{{SIZE}}px',
-					'{{WRAPPER}} .bdt-buddypress-groups .bdt-grid > *' => 'margin-top: {{SIZE}}px',
+					'{{WRAPPER}} .avt-buddypress-groups .avt-grid'     => 'margin-top: -{{SIZE}}px',
+					'{{WRAPPER}} .avt-buddypress-groups .avt-grid > *' => 'margin-top: {{SIZE}}px',
 				],
 			]
 		);
@@ -138,19 +138,19 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -161,7 +161,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'show_avatar',
 			[
-				'label'   => esc_html__( 'Show Avatar', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Avatar', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -170,7 +170,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Show Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -179,7 +179,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'show_meta_as_tooltip',
 			[
-				'label'   => esc_html__( 'Show Meta as Tooltip', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Meta as Tooltip', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -190,7 +190,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_avatar',
 			[
-				'label'     => esc_html__( 'Avatar', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Avatar', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_avatar' => 'yes',
@@ -202,10 +202,10 @@ class Buddypress_Group extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'avatar_border',
-				'label'       => __( 'Border', 'bdthemes-element-pack' ),
+				'label'       => __( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-bp-group-avatar img',
+				'selector'    => '{{WRAPPER}} .avt-bp-group-avatar img',
 				'separator'   => 'before',
 			]
 		);
@@ -213,11 +213,11 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'avatar_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-bp-group-avatar img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-bp-group-avatar img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -225,7 +225,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'avatar_opacity',
 			[
-				'label'   => __( 'Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -238,7 +238,7 @@ class Buddypress_Group extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-bp-group-avatar img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-bp-group-avatar img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -246,7 +246,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'avatar_spacing',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -254,7 +254,7 @@ class Buddypress_Group extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-bp-group-avatar img'  => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-bp-group-avatar img'  => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -264,7 +264,7 @@ class Buddypress_Group extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => __( 'Title', 'bdthemes-element-pack' ),
+				'label'     => __( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => 'yes',
@@ -275,10 +275,10 @@ class Buddypress_Group extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-bp-group-title a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-bp-group-title a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -287,7 +287,7 @@ class Buddypress_Group extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'selector' => '{{WRAPPER}} .bdt-bp-group-title a',
+				'selector' => '{{WRAPPER}} .avt-bp-group-title a',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 			]
 		);
@@ -309,43 +309,43 @@ class Buddypress_Group extends Widget_Base {
 
 		if ( bp_is_active( 'groups' ) and bp_has_groups( $groups_args ) ) : ?>
 
-			<div class="bdt-buddypress-groups">			
-				<div class="bdt-grid bdt-grid-small bdt-text-<?php echo esc_attr($settings['align']); ?> bdt-flex-<?php echo esc_attr($settings['align']); ?>" bdt-grid>
+			<div class="avt-buddypress-groups">			
+				<div class="avt-grid avt-grid-small avt-text-<?php echo esc_attr($settings['align']); ?> avt-flex-<?php echo esc_attr($settings['align']); ?>" avt-grid>
 
 
 			<?php while ( bp_groups() ) : bp_the_group(); ?>
 
 				<?php
-				$this->add_render_attribute('bp-group', 'class', 'bdt-bp-group');
+				$this->add_render_attribute('bp-group', 'class', 'avt-bp-group');
 
 				if ('auto' !== $settings['columns']) {
-					$this->add_render_attribute('bp-group', 'class', 'bdt-width-1-'. $settings['columns_mobile']);
-					$this->add_render_attribute('bp-group', 'class', 'bdt-width-1-'. $settings['columns_tablet'] .'@s');
-					$this->add_render_attribute('bp-group', 'class', 'bdt-width-1-'. $settings['columns'] .'@m');
+					$this->add_render_attribute('bp-group', 'class', 'avt-width-1-'. $settings['columns_mobile']);
+					$this->add_render_attribute('bp-group', 'class', 'avt-width-1-'. $settings['columns_tablet'] .'@s');
+					$this->add_render_attribute('bp-group', 'class', 'avt-width-1-'. $settings['columns'] .'@m');
 				} else {
-					$this->add_render_attribute('bp-group', 'class', 'bdt-width-auto');
+					$this->add_render_attribute('bp-group', 'class', 'avt-width-auto');
 				}
 				?>
 
 				<?php if ($settings['show_meta_as_tooltip']) : ?>
 					<?php if ( 'active' === $type ) : ?>
-						<?php $this->add_render_attribute('bp-group', 'bdt-tooltip', 'title: ' . bp_get_group_last_active(), true); ?>
+						<?php $this->add_render_attribute('bp-group', 'avt-tooltip', 'title: ' . bp_get_group_last_active(), true); ?>
 					<?php elseif ( 'newest' === $type ) : ?>
-						<?php $this->add_render_attribute('bp-group', 'bdt-tooltip', 'title: ' . bp_get_group_date_created(), true); ?>
+						<?php $this->add_render_attribute('bp-group', 'avt-tooltip', 'title: ' . bp_get_group_date_created(), true); ?>
 					<?php elseif ( 'popular' === $type ) : ?>
-						<?php $this->add_render_attribute('bp-group', 'bdt-tooltip', 'title: ' . bp_get_group_member_count(), true); ?>
+						<?php $this->add_render_attribute('bp-group', 'avt-tooltip', 'title: ' . bp_get_group_member_count(), true); ?>
 					<?php endif; ?>
 				<?php endif; ?>
 
 				<div <?php echo $this->get_render_attribute_string('bp-group'); ?>>
 					<?php if ($settings['show_avatar']) : ?>
-						<div class="bdt-bp-group-avatar">
+						<div class="avt-bp-group-avatar">
 							<a href="<?php bp_group_permalink() ?>"><?php bp_group_avatar_thumb() ?></a>
 						</div>
 					<?php endif; ?>
 
 					<?php if ($settings['show_title']) : ?>
-						<div class="bdt-bp-group-title"><?php bp_group_link(); ?></div>
+						<div class="avt-bp-group-title"><?php bp_group_link(); ?></div>
 					<?php endif; ?>								
 				</div>
 			<?php endwhile; ?>
@@ -353,7 +353,7 @@ class Buddypress_Group extends Widget_Base {
 		</div>
 
 		<?php else: ?>
-			<div class="bdt-alert-warning" bdt-alert>No groups matched the current filter or group not active. </div>
+			<div class="avt-alert-warning" avt-alert>No groups matched the current filter or group not active. </div>
 		<?php endif;
 
 	}

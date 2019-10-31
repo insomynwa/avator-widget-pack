@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostSlider\Widgets;
+namespace WidgetPack\Modules\PostSlider\Widgets;
 
 use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
@@ -11,10 +11,10 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
-use ElementPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Module;
 
-use ElementPack\Modules\PostSlider\Skins;
+use WidgetPack\Modules\PostSlider\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,19 +25,19 @@ class Post_Slider extends Widget_Base {
 	public $_query = null;
 
 	public function get_name() {
-		return 'bdt-post-slider';
+		return 'avt-post-slider';
 	}
 
 	public function get_title() {
-		return BDTEP . __( 'Post Slider', 'bdthemes-element-pack' );
+		return AWP . __( 'Post Slider', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-post-slider';
+		return 'avt-wi-post-slider';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -75,14 +75,14 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => __( 'Layout', 'bdthemes-element-pack' ),
+				'label' => __( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_limit',
 			[
-				'label' => esc_html__( 'Post Limit', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Post Limit', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -91,7 +91,7 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'condition' => [
-					'_skin' => ['bdt-hazel', 'bdt-vast'],
+					'_skin' => ['avt-hazel', 'avt-vast'],
 				],
 				'default' => [
 					'size' => 4,
@@ -102,7 +102,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'show_tag',
 			[
-				'label'   => __( 'Show Tag', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Tag', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -111,7 +111,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => __( 'Show Title', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -120,9 +120,9 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'title_tag',
 			[
-				'label'     => __( 'Title HTML Tag', 'bdthemes-element-pack' ),
+				'label'     => __( 'Title HTML Tag', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
-				'options'   => element_pack_title_tags(),
+				'options'   => widget_pack_title_tags(),
 				'default'   => 'h1',
 				'condition' => [
 					'show_title' => 'yes',
@@ -133,7 +133,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'show_text',
 			[
-				'label'   => __( 'Show Excerpt', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Excerpt', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -142,7 +142,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'excerpt_length',
 			[
-				'label'     => __( 'Excerpt Length', 'bdthemes-element-pack' ),
+				'label'     => __( 'Excerpt Length', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 35,
 				'condition' => [
@@ -154,7 +154,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'show_button',
 			[
-				'label' => __( 'Read More Button', 'bdthemes-element-pack' ),
+				'label' => __( 'Read More Button', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -162,7 +162,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'show_meta',
 			[
-				'label'   => __( 'Meta', 'bdthemes-element-pack' ),
+				'label'   => __( 'Meta', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -171,7 +171,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'show_pagination_thumb',
 			[
-				'label'     => __( 'Pagination Thumb', 'bdthemes-element-pack' ),
+				'label'     => __( 'Pagination Thumb', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -183,11 +183,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_size_ratio',
 			[
-				'label'       => esc_html__( 'Size Ratio', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Size Ratio', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::IMAGE_DIMENSIONS,
 				'description' => 'Slider ratio to widht and height, such as 16:9',
 				'condition'   => [
-					'_skin!' => 'bdt-vast',
+					'_skin!' => 'avt-vast',
 				],
 			]
 		);
@@ -195,10 +195,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_min_height',
 			[
-				'label'     => esc_html__( 'Slider Minimum Height', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Slider Minimum Height', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'condition' => [
-					'_skin!' => 'bdt-vast',
+					'_skin!' => 'avt-vast',
 				],
 				'range' => [
 					'px' => [
@@ -212,10 +212,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_max_height',
 			[
-				'label'     => esc_html__( 'Slider Max Height', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Slider Max Height', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'condition' => [
-					'_skin!' => 'bdt-vast',
+					'_skin!' => 'avt-vast',
 				],
 				'range' => [
 					'px' => [
@@ -229,7 +229,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'slider_container_width',
 			[
-				'label' => esc_html__( 'Container Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Container Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -238,9 +238,9 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-content-wrap' => 'max-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-content'      => 'max-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-pagination'   => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-content-wrap' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-content'      => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-pagination'   => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'_skin' => '',
@@ -251,7 +251,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'content_width',
 			[
-				'label' => esc_html__( 'Content Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Content Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -260,7 +260,7 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-content' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-content' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'_skin' => '',
@@ -271,19 +271,19 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'content_align',
 			[
-				'label'   => esc_html__( 'Content Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -298,7 +298,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'condition' => [
 					'show_button' => 'yes',
 				],
@@ -308,17 +308,17 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'button_text',
 			[
-				'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Button Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Read More', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Read More', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'post_slider_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -327,12 +327,12 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'post_slider_icon[value]!' => '',
@@ -343,7 +343,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -357,8 +357,8 @@ class Post_Slider extends Widget_Base {
 					'post_slider_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-post-slider .bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -368,7 +368,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => __( 'Query', 'bdthemes-element-pack' ),
+				'label' => __( 'Query', 'avator-widget-pack' ),
 			]
 		);
 
@@ -376,14 +376,14 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Posts::get_type(),
 			[
 				'name'  => 'posts',
-				'label' => __( 'Posts', 'bdthemes-element-pack' ),
+				'label' => __( 'Posts', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'advanced',
 			[
-				'label' => __( 'Advanced', 'bdthemes-element-pack' ),
+				'label' => __( 'Advanced', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -391,14 +391,14 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => __( 'Order By', 'bdthemes-element-pack' ),
+				'label'   => __( 'Order By', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'post_date',
 				'options' => [
-					'post_date'  => __( 'Date', 'bdthemes-element-pack' ),
-					'post_title' => __( 'Title', 'bdthemes-element-pack' ),
-					'menu_order' => __( 'Menu Order', 'bdthemes-element-pack' ),
-					'rand'       => __( 'Random', 'bdthemes-element-pack' ),
+					'post_date'  => __( 'Date', 'avator-widget-pack' ),
+					'post_title' => __( 'Title', 'avator-widget-pack' ),
+					'menu_order' => __( 'Menu Order', 'avator-widget-pack' ),
+					'rand'       => __( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -406,12 +406,12 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => __( 'Order', 'bdthemes-element-pack' ),
+				'label'   => __( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'desc',
 				'options' => [
-					'asc'  => __( 'ASC', 'bdthemes-element-pack' ),
-					'desc' => __( 'DESC', 'bdthemes-element-pack' ),
+					'asc'  => __( 'ASC', 'avator-widget-pack' ),
+					'desc' => __( 'DESC', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -419,7 +419,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'offset',
 			[
-				'label'     => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 0,
 				'condition' => [
@@ -433,14 +433,14 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_post_slider_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'autoplay',
 			[
-				'label' => esc_html__( 'Autoplay', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Autoplay', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -448,7 +448,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'autoplay_interval',
 			[
-				'label'     => esc_html__( 'Autoplay Interval', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Autoplay Interval', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 7000,
 				'condition' => [
@@ -460,7 +460,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label' => esc_html__( 'Pause on Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Pause on Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -468,7 +468,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'   => esc_html__( 'Animation Speed', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Animation Speed', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 500,
 			]
@@ -477,15 +477,15 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_animations',
 			[
-				'label'     => esc_html__( 'Slider Animations', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Slider Animations', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'fade',
 				'options'   => [
-					'slide' => esc_html__( 'Slide', 'bdthemes-element-pack' ),
-					'fade'  => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'scale' => esc_html__( 'Scale', 'bdthemes-element-pack' ),
-					'push'  => esc_html__( 'Push', 'bdthemes-element-pack' ),
-					'pull'  => esc_html__( 'Pull', 'bdthemes-element-pack' ),
+					'slide' => esc_html__( 'Slide', 'avator-widget-pack' ),
+					'fade'  => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'scale' => esc_html__( 'Scale', 'avator-widget-pack' ),
+					'push'  => esc_html__( 'Push', 'avator-widget-pack' ),
+					'pull'  => esc_html__( 'Pull', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -493,7 +493,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'kenburns_animation',
 			[
-				'label'     => esc_html__( 'Kenburns Animation', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Kenburns Animation', 'avator-widget-pack' ),
 				'separator' => 'before',
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
@@ -505,7 +505,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'kenburns_reverse',
 			[
-				'label'     => esc_html__( 'Kenburn Reverse', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Kenburn Reverse', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'kenburns_animation' => 'yes'
@@ -518,7 +518,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_slider',
 			[
-				'label'     => esc_html__( 'Slider', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Slider', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'_skin' => ''
@@ -529,13 +529,13 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'overlay',
 			[
-				'label'   => esc_html__( 'Overlay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Overlay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'background',
 				'options' => [
-					'none'       => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'background' => esc_html__( 'Background', 'bdthemes-element-pack' ),
-					'blend'      => esc_html__( 'Blend', 'bdthemes-element-pack' ),
+					'none'       => esc_html__( 'None', 'avator-widget-pack' ),
+					'background' => esc_html__( 'Background', 'avator-widget-pack' ),
+					'blend'      => esc_html__( 'Blend', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -543,14 +543,14 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'overlay_color',
 			[
-				'label'     => esc_html__( 'Overlay Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Overlay Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333333',
 				'condition' => [
 					'overlay' => ['background', 'blend']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-overlay-default' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider .avt-overlay-default' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -558,7 +558,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'overlay_opacity',
 			[
-				'label'   => esc_html__( 'Overlay Opacity', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Overlay Opacity', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0.4,
@@ -574,7 +574,7 @@ class Post_Slider extends Widget_Base {
 					'overlay' => ['background', 'blend']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-overlay-default' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} .avt-post-slider .avt-overlay-default' => 'opacity: {{SIZE}};'
 				]
 			]
 		);
@@ -582,10 +582,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'blend_type',
 			[
-				'label'     => esc_html__( 'Blend Type', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Blend Type', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'multiply',
-				'options'   => element_pack_blend_options(),
+				'options'   => widget_pack_blend_options(),
 				'condition' => [
 					'overlay' => 'blend',
 				],
@@ -597,10 +597,10 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_bottom_part',
 			[
-				'label'     => esc_html__( 'Bottom Part', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Bottom Part', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'_skin' => 'bdt-vast'
+					'_skin' => 'avt-vast'
 				]
 			]
 		);
@@ -608,11 +608,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'bottom_part_bg',
 			[
-				'label'       => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::COLOR,
 				'label_block' => true,
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-vast .bdt-post-slider-content' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-vast .avt-post-slider-content' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -622,10 +622,10 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_right_part',
 			[
-				'label'     => esc_html__( 'Right Part', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Right Part', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'_skin' => 'bdt-hazel'
+					'_skin' => 'avt-hazel'
 				]
 			]
 		);
@@ -633,11 +633,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_bg',
 			[
-				'label'       => esc_html__( 'Description Background', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Description Background', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::COLOR,
 				'label_block' => true,
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-thumbnail ~ div' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-thumbnail ~ div' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -645,12 +645,12 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_nav_color',
 			[
-				'label'       => esc_html__( 'Navigation Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Navigation Color', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::COLOR,
 				'label_block' => true,
 				'separator'   => 'before',
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner a' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -658,11 +658,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_nav_hover_color',
 			[
-				'label'       => esc_html__( 'Navigation Hover Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Navigation Hover Color', 'avator-widget-pack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::COLOR,
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner a:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner a:hover' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -670,12 +670,12 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_nav_bg',
 			[
-				'label'       => esc_html__( 'Navigation Background', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Navigation Background', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::COLOR,
 				'label_block' => true,
 				'separator'   => 'before',
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner a' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner a' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -683,11 +683,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_nav_hover_bg',
 			[
-				'label'       => esc_html__( 'Navigation Hover Background', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Navigation Hover Background', 'avator-widget-pack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::COLOR,
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner a:hover' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner a:hover' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -695,12 +695,12 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_nav_arrows_color',
 			[
-				'label'       => esc_html__( 'Arrows Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Arrows Color', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::COLOR,
 				'label_block' => true,
 				'separator'   => 'before',
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner a svg polyline' => 'stroke: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner a svg polyline' => 'stroke: {{VALUE}};'
 				]
 			]
 		);
@@ -708,11 +708,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_nav_hover_arrows_color',
 			[
-				'label'       => esc_html__( 'Arrows Hover Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Arrows Hover Color', 'avator-widget-pack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::COLOR,
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner a:hover svg polyline' => 'stroke: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner a:hover svg polyline' => 'stroke: {{VALUE}};'
 				]
 			]
 		);
@@ -720,13 +720,13 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'right_part_line_color',
 			[
-				'label'       => esc_html__( 'Line Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Line Color', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::COLOR,
 				'label_block' => true,
 				'separator'   => 'before',
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner a:first-child:after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-post-slider-skin-hazel .bdt-post-slider-navigation-inner'                     => 'border-top-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner a:first-child:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider-skin-hazel .avt-post-slider-navigation-inner'                     => 'border-top-color: {{VALUE}};'
 				]
 			]
 		);
@@ -736,7 +736,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_tag',
 			[
-				'label'     => esc_html__( 'Tag', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Tag', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_tag' => [ 'yes' ],
@@ -747,10 +747,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'tag_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-tag-wrap span' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-tag-wrap span' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -758,10 +758,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'tag_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-tag-wrap span a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-tag-wrap span a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -770,15 +770,15 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'tag_border',
-				'label'    => __( 'Border', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-tag-wrap span',
+				'label'    => __( 'Border', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-tag-wrap span',
 			]
 		);
 
 		$this->add_control(
 			'tag_border_radius',
 			[
-				'label' => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -787,7 +787,7 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-tag-wrap span' => 'border-radius: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-tag-wrap span' => 'border-radius: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -796,8 +796,8 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'tag_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-tag-wrap span',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-tag-wrap span',
 			]
 		);
 
@@ -806,7 +806,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => [ 'yes' ],
@@ -817,10 +817,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -829,15 +829,15 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-title',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-title',
 			]
 		);
 
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -846,7 +846,7 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-title' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-title' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -856,7 +856,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_text',
 			[
-				'label' => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -864,10 +864,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -876,15 +876,15 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'text_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-text',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-text',
 			]
 		);
 
 		$this->add_responsive_control(
 			'text_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -893,7 +893,7 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-text' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-text' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -903,7 +903,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_meta',
 			[
-				'label' => esc_html__( 'Meta', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Meta', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -911,10 +911,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'meta_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-meta' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-meta' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -923,15 +923,15 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'meta_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-meta',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-meta',
 			]
 		);
 
 		$this->add_responsive_control(
 			'meta_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -940,7 +940,7 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-meta' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-meta' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -950,7 +950,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_button' => 'yes',
@@ -963,18 +963,18 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -982,10 +982,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -994,10 +994,10 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'button_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button',
+				'selector'    => '{{WRAPPER}} .avt-post-slider .avt-post-slider-button',
 				'separator'   => 'before',
 			]
 		);
@@ -1005,11 +1005,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1017,11 +1017,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -1030,7 +1030,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'button_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1039,7 +1039,7 @@ class Post_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button-wrap' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button-wrap' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1048,8 +1048,8 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'button_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-button',
 			]
 		);
 
@@ -1058,18 +1058,18 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1077,10 +1077,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'button_hover_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1088,13 +1088,13 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'button_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-button:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1102,7 +1102,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1116,7 +1116,7 @@ class Post_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_pagination',
 			[
-				'label'     => esc_html__( 'Pagination', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pagination', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'_skin' => '',
@@ -1127,11 +1127,11 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'pagination_text_color',
 			[
-				'label'     => esc_html__( 'Pagination Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pagination Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-pagination h6'   => 'color: {{VALUE}}',
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-pagination span' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-pagination h6'   => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-pagination span' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1139,10 +1139,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'thumb_background_color',
 			[
-				'label'     => esc_html__( 'Thumb Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Thumb Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-thumb-wrap' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-thumb-wrap' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'show_pagination_thumb' => 'yes',
@@ -1153,7 +1153,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'thumb_opacity',
 			[
-				'label' => esc_html__( 'Thumb Opacity', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Thumb Opacity', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1166,7 +1166,7 @@ class Post_Slider extends Widget_Base {
 					'show_pagination_thumb' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-thumb-wrap img' => 'opacity: {{SIZE}};'
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-thumb-wrap img' => 'opacity: {{SIZE}};'
 				]
 			]
 		);
@@ -1175,8 +1175,8 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'thumb_border',
-				'label'     => __( 'Border', 'bdthemes-element-pack' ),
-				'selector'  => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-thumb-wrap',
+				'label'     => __( 'Border', 'avator-widget-pack' ),
+				'selector'  => '{{WRAPPER}} .avt-post-slider .avt-post-slider-thumb-wrap',
 				'condition' => [
 					'show_pagination_thumb' => 'yes',
 				],
@@ -1186,7 +1186,7 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'thumb_border_radius',
 			[
-				'label' => __( 'Thumb Border Radius', 'bdthemes-element-pack' ),
+				'label' => __( 'Thumb Border Radius', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1198,7 +1198,7 @@ class Post_Slider extends Widget_Base {
 					'show_pagination_thumb' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-thumb-wrap' => 'border-radius: {{SIZE}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-thumb-wrap' => 'border-radius: {{SIZE}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -1206,10 +1206,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'pagination_border_color',
 			[
-				'label'     => esc_html__( 'Upper Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Upper Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-pagination .bdt-thumbnav' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-pagination .avt-thumbnav' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1217,10 +1217,10 @@ class Post_Slider extends Widget_Base {
 		$this->add_control(
 			'pagination_active_border_color',
 			[
-				'label'     => esc_html__( 'Active Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-pagination .bdt-active .bdt-post-slider-pagination-item' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-slider .avt-post-slider-pagination .avt-active .avt-post-slider-pagination-item' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1229,8 +1229,8 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'pagination_title_typography',
-				'label'    => esc_html__( 'Title Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-pagination .bdt-thumbnav .bdt-post-slider-pagination-item h6',
+				'label'    => esc_html__( 'Title Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-pagination .avt-thumbnav .avt-post-slider-pagination-item h6',
 			]
 		);
 
@@ -1238,8 +1238,8 @@ class Post_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'pagination_date_typography',
-				'label'    => esc_html__( 'Date Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-post-slider .bdt-post-slider-pagination .bdt-thumbnav .bdt-post-slider-pagination-item .bdt-post-slider-date',
+				'label'    => esc_html__( 'Date Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-post-slider .avt-post-slider-pagination .avt-thumbnav .avt-post-slider-pagination-item .avt-post-slider-date',
 			]
 		);
 
@@ -1251,7 +1251,7 @@ class Post_Slider extends Widget_Base {
 		$settings = $this->get_settings();
 		$query_args = Module::get_query_args( 'posts', $settings );
 
-		$post_limit = ('bdt-hazel' == $settings['_skin'] or 'bdt-vast' == $settings['_skin']) ? $settings['item_limit']['size'] : 4;
+		$post_limit = ('avt-hazel' == $settings['_skin'] or 'avt-vast' == $settings['_skin']) ? $settings['item_limit']['size'] : 4;
 
 		$query_args['posts_per_page'] = $post_limit;
 
@@ -1297,7 +1297,7 @@ class Post_Slider extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-post-slider-text bdt-visible@m" bdt-slideshow-parallax="x: 500,-500">
+		<div class="avt-post-slider-text avt-visible@m" avt-slideshow-parallax="x: 500,-500">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -1314,9 +1314,9 @@ class Post_Slider extends Widget_Base {
 		$tag = $this->get_settings( 'title_tag' );
 
 		?>
-		<div class="bdt-post-slider-title-wrap">
+		<div class="avt-post-slider-title-wrap">
 			<a href="<?php echo esc_url(get_permalink()); ?>">
-				<<?php echo esc_attr($tag) ?> class="bdt-post-slider-title bdt-margin-remove-bottom" bdt-slideshow-parallax="x: 200,-200">
+				<<?php echo esc_attr($tag) ?> class="avt-post-slider-title avt-margin-remove-bottom" avt-slideshow-parallax="x: 200,-200">
 					<?php the_title() ?>
 				</<?php echo esc_attr($tag) ?>>
 			</a>
@@ -1342,12 +1342,12 @@ class Post_Slider extends Widget_Base {
 		$is_new    = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 
 		?>
-		<div class="bdt-post-slider-button-wrap" bdt-slideshow-parallax="y: 200,-200">
-			<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-slider-button bdt-display-inline-block<?php echo esc_attr($animation); ?>">
+		<div class="avt-post-slider-button-wrap" avt-slideshow-parallax="y: 200,-200">
+			<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-slider-button avt-display-inline-block<?php echo esc_attr($animation); ?>">
 				<?php echo esc_attr($this->get_settings( 'button_text' )); ?>
 
 				<?php if ($settings['post_slider_icon']['value']) : ?>
-					<span class="bdt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
+					<span class="avt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
 
 						<?php if ( $is_new || $migrated ) :
 							Icons_Manager::render_icon( $settings['post_slider_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1364,7 +1364,7 @@ class Post_Slider extends Widget_Base {
 
 	public function render_header() {
 		$settings = $this->get_settings();
-		$id       = 'bdt-post-slider-' . $this->get_id();
+		$id       = 'avt-post-slider-' . $this->get_id();
 
 		$ratio = ($settings['slider_size_ratio']['width'] && $settings['slider_size_ratio']['height']) ? $settings['slider_size_ratio']['width'].":".$settings['slider_size_ratio']['height'] : '';
 
@@ -1373,10 +1373,10 @@ class Post_Slider extends Widget_Base {
 				'slider-settings' => [
 					'id'    => esc_attr($id),
 					'class' => [
-						'bdt-post-slider',
-						'bdt-post-slider-skin-default'
+						'avt-post-slider',
+						'avt-post-slider-skin-default'
 					],
-					'bdt-slideshow' => [
+					'avt-slideshow' => [
 						wp_json_encode(array_filter([
 							"animation"         => $settings["slider_animations"],
 							"min-height"        => $settings["slider_min_height"]["size"],
@@ -1393,7 +1393,7 @@ class Post_Slider extends Widget_Base {
 	    
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'slider-settings' ); ?>>
-			<div class="bdt-slideshow-items">
+			<div class="avt-slideshow-items">
 		<?php
 	}
 
@@ -1423,31 +1423,31 @@ class Post_Slider extends Widget_Base {
 			[
 				'post-slider-item' => [
 					'class' => [
-						'bdt-slideshow-item',
-						'bdt-post-slider-item'
+						'avt-slideshow-item',
+						'avt-post-slider-item'
 					]
 				]
 			], '', '', true
 		);
 
-		$kenburns_reverse = $settings['kenburns_reverse'] ? ' bdt-animation-reverse' : '';
+		$kenburns_reverse = $settings['kenburns_reverse'] ? ' avt-animation-reverse' : '';
 
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'post-slider-item' ); ?>>
 			<?php if( $settings['kenburns_animation'] ) : ?>
-				<div class="bdt-position-cover bdt-animation-kenburns<?php echo esc_attr( $kenburns_reverse ); ?> bdt-transform-origin-center">
+				<div class="avt-position-cover avt-animation-kenburns<?php echo esc_attr( $kenburns_reverse ); ?> avt-transform-origin-center">
 			<?php endif; ?>
-				<img src="<?php echo esc_url($slider_thumbnail); ?>" alt="<?php echo get_the_title(); ?>" bdt-cover>
+				<img src="<?php echo esc_url($slider_thumbnail); ?>" alt="<?php echo get_the_title(); ?>" avt-cover>
 			<?php if( $settings['kenburns_animation'] ) : ?>
 	            </div>
 	        <?php endif; ?>
-			<div class="bdt-post-slider-content-wrap bdt-position-center bdt-position-z-index">
-				<div class="bdt-post-slider-content">
+			<div class="avt-post-slider-content-wrap avt-position-center avt-position-z-index">
+				<div class="avt-post-slider-content">
 
 	                <?php if ($settings['show_tag']) : ?>
-	                	<div class="bdt-post-slider-tag-wrap" bdt-slideshow-parallax="y: -200,200">
+	                	<div class="avt-post-slider-tag-wrap" avt-slideshow-parallax="y: -200,200">
 	                		<?php
-							$tags_list = get_the_tag_list( '<span class="bdt-background-primary">', '</span> <span class="bdt-background-primary">', '</span>');
+							$tags_list = get_the_tag_list( '<span class="avt-background-primary">', '</span> <span class="avt-background-primary">', '</span>');
 		                		if ($tags_list) :
 		                    		echo  wp_kses_post($tags_list);
 		                		endif; ?>
@@ -1458,12 +1458,12 @@ class Post_Slider extends Widget_Base {
 					$this->render_excerpt();
 
 					if ($settings['show_meta']) : ?>
-						<div class="bdt-post-slider-meta bdt-flex-inline bdt-flex-middile" bdt-slideshow-parallax="x: 250,-250">
-							<div class="bdt-post-slider-author bdt-margin-small-right bdt-border-circle bdt-overflow-hidden bdt-visible@m">
+						<div class="avt-post-slider-meta avt-flex-inline avt-flex-middile" avt-slideshow-parallax="x: 250,-250">
+							<div class="avt-post-slider-author avt-margin-small-right avt-border-circle avt-overflow-hidden avt-visible@m">
 								<?php echo get_avatar( get_the_author_meta( 'ID' ) , 28 ); ?>
 							</div>
-							<span class="bdt-author bdt-text-capitalize"><?php echo esc_attr(get_the_author()); ?> </span>
-							<span><?php esc_html_e('On', 'bdthemes-element-pack'); ?> <?php echo get_the_date(); ?></span>
+							<span class="avt-author avt-text-capitalize"><?php echo esc_attr(get_the_author()); ?> </span>
+							<span><?php esc_html_e('On', 'avator-widget-pack'); ?> <?php echo get_the_date(); ?></span>
 						</div>
 					<?php endif; ?>
 					
@@ -1473,8 +1473,8 @@ class Post_Slider extends Widget_Base {
 			</div>
 
 			<?php if( 'none' !== $settings['overlay'] ) :
-				$blend_type = ( 'blend' == $settings['overlay']) ? ' bdt-blend-'.$settings['blend_type'] : ''; ?>
-				<div class="bdt-overlay-default bdt-position-cover<?php echo esc_attr($blend_type); ?>"></div>
+				$blend_type = ( 'blend' == $settings['overlay']) ? ' avt-blend-'.$settings['blend_type'] : ''; ?>
+				<div class="avt-overlay-default avt-position-cover<?php echo esc_attr($blend_type); ?>"></div>
 	        <?php endif; ?>
 		</div>
 		<?php
@@ -1495,18 +1495,18 @@ class Post_Slider extends Widget_Base {
 		$ps_count = 0;
 
 		?>
-		<div id="<?php echo esc_attr($id); ?>_nav"  class="bdt-post-slider-pagination bdt-position-bottom-center">
-		     <ul class="bdt-thumbnav bdt-grid bdt-grid-small bdt-child-width-auto bdt-child-width-1-4@m bdt-flex-center" bdt-grid> 
+		<div id="<?php echo esc_attr($id); ?>_nav"  class="avt-post-slider-pagination avt-position-bottom-center">
+		     <ul class="avt-thumbnav avt-grid avt-grid-small avt-child-width-auto avt-child-width-1-4@m avt-flex-center" avt-grid> 
 
 		<?php		      
 		while ( $wp_query->have_posts() ) {
 			$wp_query->the_post();
 
 			?>
-			<li bdt-slideshow-item="<?php echo esc_attr($ps_count); ?>">
-				<div class="bdt-post-slider-pagination-item">
+			<li avt-slideshow-item="<?php echo esc_attr($ps_count); ?>">
+				<div class="avt-post-slider-pagination-item">
 					<a href="#">
-						<div class="bdt-flex bdt-flex-middle bdt-text-left">
+						<div class="avt-flex avt-flex-middle avt-text-left">
 							<?php if ($settings['show_pagination_thumb']) :	
 
 								$placeholder_image_src = Utils::get_placeholder_image_src();
@@ -1519,13 +1519,13 @@ class Post_Slider extends Widget_Base {
 								}
 
 								?>
-								<div class="bdt-width-auto bdt-post-slider-thumb-wrap">
+								<div class="avt-width-auto avt-post-slider-thumb-wrap">
 									<img src="<?php echo esc_url($slider_thumbnail); ?>">
 								</div>
 		        			<?php endif; ?>
-							<div class="bdt-margin-small-left bdt-visible@m">
-								<h6 class="bdt-margin-remove-bottom"><?php echo esc_attr(get_the_title()); ?></h6>
-								<span class="bdt-post-slider-date"><?php echo get_the_date(); ?><span>
+							<div class="avt-margin-small-left avt-visible@m">
+								<h6 class="avt-margin-remove-bottom"><?php echo esc_attr(get_the_title()); ?></h6>
+								<span class="avt-post-slider-date"><?php echo get_the_date(); ?><span>
 							</div>
 						</div>
 					</a>

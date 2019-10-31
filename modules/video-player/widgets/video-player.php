@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\VideoPlayer\Widgets;
+namespace WidgetPack\Modules\VideoPlayer\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,26 +9,26 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Video_Player extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-video-player';
+		return 'avt-video-player';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Video Player', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Video Player', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-video-player';
+		return 'avt-wi-video-player';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -36,7 +36,7 @@ class Video_Player extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'bdt-video-player' ];
+		return [ 'avt-video-player' ];
 	}
 	public function get_script_depends() {
 		return [ 'jplayer' ];
@@ -46,17 +46,17 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Video', 'bdthemes-element-pack' ),
+				'label' => __( 'Video', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'title',
 			[
-				'label'       => __( 'Title', 'bdthemes-element-pack' ),
+				'label'       => __( 'Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'Big Buck Bunny' , 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Video Title' , 'bdthemes-element-pack' ),
+				'default'     => __( 'Big Buck Bunny' , 'avator-widget-pack' ),
+				'placeholder' => __( 'Video Title' , 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -65,7 +65,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'source',
 			[
-				'label'       => esc_html__( 'Video Source', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Video Source', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => 'http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v',
 				'placeholder' => 'https://example.com/video.mp4',
@@ -83,7 +83,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'poster',
 			[
-				'label'   => __( 'Choose Poster', 'bdthemes-element-pack' ),
+				'label'   => __( 'Choose Poster', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [ 'active' => true ],
 				'default' => [
@@ -95,7 +95,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'player_width',
 			[
-				'label' => esc_html__( 'Player Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Player Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -112,20 +112,20 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'player_align',
 			[
-				'label'        => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'prefix_class' => 'elementor%s-align-',
 				'options'      => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -140,14 +140,14 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional',
 			[
-				'label' => __( 'Additional', 'bdthemes-element-pack' ),
+				'label' => __( 'Additional', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'title_hide',
 			[
-				'label' => __( 'Title Hide', 'bdthemes-element-pack' ),
+				'label' => __( 'Title Hide', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -155,7 +155,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'seek_bar',
 			[
-				'label'   => __( 'Seek Bar', 'bdthemes-element-pack' ),
+				'label'   => __( 'Seek Bar', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -164,14 +164,14 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'time_duration',
 			[
-				'label'   => esc_html__( 'Time/Duration', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Time/Duration', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'both',
 				'options' => [
-					''         => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'time'     => esc_html__( 'Time', 'bdthemes-element-pack' ),
-					'duration' => esc_html__( 'Duration', 'bdthemes-element-pack' ),
-					'both'     => esc_html__( 'Both', 'bdthemes-element-pack' ),
+					''         => esc_html__( 'None', 'avator-widget-pack' ),
+					'time'     => esc_html__( 'Time', 'avator-widget-pack' ),
+					'duration' => esc_html__( 'Duration', 'avator-widget-pack' ),
+					'both'     => esc_html__( 'Both', 'avator-widget-pack' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-play, {{WRAPPER}} .jp-video .jp-pause' => 'border-style: {{VALUE}};',
@@ -182,7 +182,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_mute',
 			[
-				'label'   => __( 'Volume Mute/Unmute', 'bdthemes-element-pack' ),
+				'label'   => __( 'Volume Mute/Unmute', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -191,7 +191,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_bar',
 			[
-				'label'   => __( 'Volume Bar', 'bdthemes-element-pack' ),
+				'label'   => __( 'Volume Bar', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -200,7 +200,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'fullscreen',
 			[
-				'label'   => __( 'Fullscreen Control', 'bdthemes-element-pack' ),
+				'label'   => __( 'Fullscreen Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -209,7 +209,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'smooth_show',
 			[
-				'label'   => __( 'Smoothly Enter', 'bdthemes-element-pack' ),
+				'label'   => __( 'Smoothly Enter', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -218,8 +218,8 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'keyboard_enable',
 			[
-				'label'       => __( 'Keyboard Enable', 'bdthemes-element-pack' ),
-				'description' => __( 'for example: when you press p=Play, m=Mute, >=Volume + <=Volume -, l=Loop etc  ', 'bdthemes-element-pack' ),
+				'label'       => __( 'Keyboard Enable', 'avator-widget-pack' ),
+				'description' => __( 'for example: when you press p=Play, m=Mute, >=Volume + <=Volume -, l=Loop etc  ', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,
 				'default'     => 'yes',
 			]
@@ -228,7 +228,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_level',
 			[
-				'label' => esc_html__( 'Default Volume', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Default Volume', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -246,8 +246,8 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'sticky_mode',
 			[
-				'label'       => __( 'Sticky Mode', 'bdthemes-element-pack' ),
-				'description' => __( 'When you activate is you video will sticky at playing time.', 'bdthemes-element-pack' ),
+				'label'       => __( 'Sticky Mode', 'avator-widget-pack' ),
+				'description' => __( 'When you activate is you video will sticky at playing time.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,
 			]
 		);
@@ -257,7 +257,7 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_control',
 			[
-				'label' => __( 'Control Area', 'bdthemes-element-pack' ),
+				'label' => __( 'Control Area', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -265,7 +265,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'control_padding',
 			[
-				'label'     => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'     => __( 'Padding', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-interface' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -276,7 +276,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'control_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-interface, {{WRAPPER}} .jp-video .jp-player-title' => 'background-color: {{VALUE}};',
@@ -289,7 +289,7 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_play_button',
 			[
-				'label' => __( 'Play/Pause Button', 'bdthemes-element-pack' ),
+				'label' => __( 'Play/Pause Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -299,14 +299,14 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_play_button_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'play_button_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-play svg, {{WRAPPER}} .jp-video .jp-pause svg' => 'fill: {{VALUE}};',
@@ -317,7 +317,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'play_button_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-play, {{WRAPPER}} .jp-video .jp-pause' => 'background-color: {{VALUE}};',
@@ -328,14 +328,14 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'play_button_border',
 			[
-				'label'   => esc_html__( 'Border Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Border Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''       => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'solid'  => esc_html__( 'Solid', 'bdthemes-element-pack' ),
-					'dotted' => esc_html__( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => esc_html__( 'Dashed', 'bdthemes-element-pack' ),
+					''       => esc_html__( 'None', 'avator-widget-pack' ),
+					'solid'  => esc_html__( 'Solid', 'avator-widget-pack' ),
+					'dotted' => esc_html__( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => esc_html__( 'Dashed', 'avator-widget-pack' ),
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .jp-video .jp-play, {{WRAPPER}} .jp-video .jp-pause' => 'border-style: {{VALUE}};',
@@ -346,7 +346,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'play_button_border_width',
 			[
-				'label'      => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Width', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
 					'{{WRAPPER}} .jp-video .jp-play, {{WRAPPER}} .jp-video .jp-pause' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -360,7 +360,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'play_button_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-play, {{WRAPPER}} .jp-video .jp-pause' => 'border-color: {{VALUE}};',
@@ -374,7 +374,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'play_button_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -394,7 +394,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'play_button_size',
 			[
-				'label' => esc_html__( 'Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -413,14 +413,14 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_play_button_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'play_button_hover_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-play:hover svg, {{WRAPPER}} .jp-video .jp-pause:hover svg' => 'fill: {{VALUE}};',
@@ -431,7 +431,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'play_button_hover_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-play:hover, {{WRAPPER}} .jp-video .jp-pause:hover' => 'background-color: {{VALUE}};',
@@ -442,7 +442,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'play_button_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'play_button_border_border!' => '',
@@ -470,7 +470,7 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_time',
 			[
-				'label'     => __( 'Time/Duration', 'bdthemes-element-pack' ),
+				'label'     => __( 'Time/Duration', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'time_duration!' => '',
@@ -481,7 +481,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'time_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => 'rgba(51, 51, 51, 0.6)',
 				'selectors' => [
@@ -504,7 +504,7 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_seek_bar',
 			[
-				'label'     => __( 'Seek Bar', 'bdthemes-element-pack' ),
+				'label'     => __( 'Seek Bar', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'seek_bar'     => 'yes',
@@ -515,7 +515,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'seek_bar_height',
 			[
-				'label' => __( 'Bar Height', 'bdthemes-element-pack' ),
+				'label' => __( 'Bar Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -532,7 +532,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'seek_bar_color',
 			[
-				'label'     => __( 'Bar Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Bar Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-seek-bar' => 'background-color: {{VALUE}};',
@@ -543,7 +543,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'seek_bar_adjust_color',
 			[
-				'label'     => __( 'Active Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Active Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-seek-bar .jp-play-bar' => 'background-color: {{VALUE}};',
@@ -554,7 +554,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'seek_bar_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -568,7 +568,7 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_volume_button',
 			[
-				'label'     => __( 'Volume Button', 'bdthemes-element-pack' ),
+				'label'     => __( 'Volume Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'volume_mute' => 'yes',
@@ -581,14 +581,14 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_volume_button_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'volume_button_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-mute svg, {{WRAPPER}} .jp-video .jp-unmute svg' => 'fill: {{VALUE}};',
@@ -599,7 +599,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_button_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-mute, {{WRAPPER}} .jp-video .jp-unmute' => 'background-color: {{VALUE}};',
@@ -610,14 +610,14 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_button_border',
 			[
-				'label'   => esc_html__( 'Border Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Border Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''       => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'solid'  => esc_html__( 'Solid', 'bdthemes-element-pack' ),
-					'dotted' => esc_html__( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => esc_html__( 'Dashed', 'bdthemes-element-pack' ),
+					''       => esc_html__( 'None', 'avator-widget-pack' ),
+					'solid'  => esc_html__( 'Solid', 'avator-widget-pack' ),
+					'dotted' => esc_html__( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => esc_html__( 'Dashed', 'avator-widget-pack' ),
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .jp-video .jp-mute, {{WRAPPER}} .jp-video .jp-unmute' => 'border-style: {{VALUE}};',
@@ -628,7 +628,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_button_border_width',
 			[
-				'label'     => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Width', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-mute, {{WRAPPER}} .jp-video .jp-unmute' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -642,7 +642,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_button_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-mute, {{WRAPPER}} .jp-video .jp-unmute' => 'border-color: {{VALUE}};',
@@ -656,7 +656,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'volume_button_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -676,7 +676,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'volume_button_size',
 			[
-				'label' => esc_html__( 'Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -696,14 +696,14 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_volume_button_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'volume_button_hover_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-mute:hover svg, {{WRAPPER}} .jp-video .jp-unmute:hover svg' => 'fill: {{VALUE}};',
@@ -714,7 +714,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_button_hover_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-mute:hover, {{WRAPPER}} .jp-video .jp-unmute:hover' => 'background-color: {{VALUE}};',
@@ -725,7 +725,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_button_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'volume_button_border_border!' => '',
@@ -753,7 +753,7 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_volume_bar',
 			[
-				'label'     => __( 'Volume Bar', 'bdthemes-element-pack' ),
+				'label'     => __( 'Volume Bar', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'volume_bar'     => 'yes',
@@ -764,7 +764,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_bar_height',
 			[
-				'label' => __( 'Bar Height', 'bdthemes-element-pack' ),
+				'label' => __( 'Bar Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -781,7 +781,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_bar_color',
 			[
-				'label'     => __( 'Bar Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Bar Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-volume-bar' => 'background-color: {{VALUE}};',
@@ -792,7 +792,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'volume_bar_adjust_color',
 			[
-				'label'     => __( 'Active Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Active Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-volume-bar .jp-volume-bar-value' => 'background-color: {{VALUE}};',
@@ -805,7 +805,7 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_fullscreen_button',
 			[
-				'label'     => __( 'Fullscreen Button', 'bdthemes-element-pack' ),
+				'label'     => __( 'Fullscreen Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'fullscreen' => 'yes',
@@ -818,14 +818,14 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_fullscreen_button_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'fullscreen_button_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-full-screen svg' => 'fill: {{VALUE}};',
@@ -836,7 +836,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'fullscreen_button_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-full-screen' => 'background-color: {{VALUE}};',
@@ -847,14 +847,14 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'fullscreen_button_border',
 			[
-				'label'   => esc_html__( 'Border Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Border Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					''       => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'solid'  => esc_html__( 'Solid', 'bdthemes-element-pack' ),
-					'dotted' => esc_html__( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => esc_html__( 'Dashed', 'bdthemes-element-pack' ),
+					''       => esc_html__( 'None', 'avator-widget-pack' ),
+					'solid'  => esc_html__( 'Solid', 'avator-widget-pack' ),
+					'dotted' => esc_html__( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => esc_html__( 'Dashed', 'avator-widget-pack' ),
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .jp-video .jp-full-screen' => 'border-style: {{VALUE}};',
@@ -865,7 +865,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'fullscreen_button_border_width',
 			[
-				'label'     => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Width', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::DIMENSIONS,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-full-screen' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -879,7 +879,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'fullscreen_button_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-full-screen' => 'border-color: {{VALUE}};',
@@ -893,7 +893,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'fullscreen_button_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -913,7 +913,7 @@ class Video_Player extends Widget_Base {
 		$this->add_responsive_control(
 			'fullscreen_button_size',
 			[
-				'label' => esc_html__( 'Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -932,14 +932,14 @@ class Video_Player extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_fullscreen_button_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'fullscreen_button_hover_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-full-screen:hover svg' => 'fill: {{VALUE}};',
@@ -950,7 +950,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'fullscreen_button_hover_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .jp-video .jp-full-screen:hover' => 'background-color: {{VALUE}};',
@@ -961,7 +961,7 @@ class Video_Player extends Widget_Base {
 		$this->add_control(
 			'fullscreen_button_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'fullscreen_button_border_border!' => '',
@@ -992,13 +992,13 @@ class Video_Player extends Widget_Base {
 		$id       = $this->get_id();
 
 		?>
-		<div class="bdt-video-player">
+		<div class="avt-video-player">
 		<div id="jp_container_<?php echo esc_attr($id); ?>" class="jp-video jp-video-360p" role="application" aria-label="media player">
 			<div class="jp-type-single">
 				<div id="jplayer_<?php echo esc_attr($id); ?>" class="jp-jplayer"></div>
 				<div class="jp-gui">
 
-					<div class="jp-video-play bdt-position-center">
+					<div class="jp-video-play avt-position-center">
 						<a class="jp-video-play-icon" role="button" tabindex="0">
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 41.999 41.999" xml:space="preserve" width="24" height="24">
 							<path d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40
@@ -1009,16 +1009,16 @@ class Video_Player extends Widget_Base {
 					</div>
 
 					<div class="jp-interface">
-						<div class="jp-controls bdt-grid bdt-grid-small bdt-flex-middle bdt-position-relative" bdt-grid>
-							<div class="bdt-width-auto">
-								<a href="javascript:;" class="jp-play" tabindex="1" title="<?php esc_html_e('Play', 'bdthemes-element-pack'); ?>">
+						<div class="jp-controls avt-grid avt-grid-small avt-flex-middle avt-position-relative" avt-grid>
+							<div class="avt-width-auto">
+								<a href="javascript:;" class="jp-play" tabindex="1" title="<?php esc_html_e('Play', 'avator-widget-pack'); ?>">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 41.999 41.999" xml:space="preserve">
 									<path d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40
 										c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20
 										c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z M7.5,39.095V2.904l26.239,18.096L7.5,39.095z"/>
 										<g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
 								</a>
-								<a href="javascript:;" class="jp-pause" tabindex="1" title="<?php esc_html_e('Pause', 'bdthemes-element-pack'); ?>">
+								<a href="javascript:;" class="jp-pause" tabindex="1" title="<?php esc_html_e('Pause', 'avator-widget-pack'); ?>">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 										 viewBox="0 0 42 42" xml:space="preserve">
 										 <g>
@@ -1031,12 +1031,12 @@ class Video_Player extends Widget_Base {
 							</div>
 
 							<?php if ('time' === $settings['time_duration'] or 'both' === $settings['time_duration']) : ?>
-								<div class="bdt-width-auto"><div class="jp-current-time"></div></div>
+								<div class="avt-width-auto"><div class="jp-current-time"></div></div>
 							<?php endif; ?>
 							
 							<?php if ('yes' === $settings['seek_bar']) : ?>
-								<div class="bdt-width-expand bdt-jp-seek-bar">
-									<div class="jp-progress" title="<?php echo esc_html($settings['title']); ?>" bdt-tooltip>
+								<div class="avt-width-expand avt-jp-seek-bar">
+									<div class="jp-progress" title="<?php echo esc_html($settings['title']); ?>" avt-tooltip>
 										<div class="jp-seek-bar">
 											<div class="jp-play-bar"></div>
 										</div>
@@ -1045,12 +1045,12 @@ class Video_Player extends Widget_Base {
 							<?php endif; ?>
 							
 							<?php if ('duration' === $settings['time_duration'] or 'both' === $settings['time_duration']) : ?>
-								<div class="bdt-width-auto bdt-visible@m bdt-jp-duration"><div class="jp-duration"></div></div>
+								<div class="avt-width-auto avt-visible@m avt-jp-duration"><div class="jp-duration"></div></div>
 							<?php endif; ?>
 
 							<?php if ('yes' === $settings['volume_mute']) : ?>
-								<div class="bdt-width-auto bdt-jp-mute">
-									<a href="javascript:;" class="jp-mute" tabindex="1" title="<?php esc_html_e('Mute', 'bdthemes-element-pack'); ?>">
+								<div class="avt-width-auto avt-jp-mute">
+									<a href="javascript:;" class="jp-mute" tabindex="1" title="<?php esc_html_e('Mute', 'avator-widget-pack'); ?>">
 										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 52.026 52.026">
 											<g>
 											 	<path d="M28.404,3.413c-0.976-0.552-2.131-0.534-3.09,0.044c-0.046,0.027-0.09,0.059-0.13,0.093L11.634,15.013H1
@@ -1071,7 +1071,7 @@ class Video_Player extends Widget_Base {
 											<g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
 										</svg>
 									</a>
-									<a href="javascript:;" class="jp-unmute" tabindex="1" title="<?php esc_html_e('Unmute', 'bdthemes-element-pack'); ?>">
+									<a href="javascript:;" class="jp-unmute" tabindex="1" title="<?php esc_html_e('Unmute', 'avator-widget-pack'); ?>">
 										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 54 54">
 											<g>
 											 	<path d="M46.414,26l7.293-7.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L45,24.586l-7.293-7.293
@@ -1092,7 +1092,7 @@ class Video_Player extends Widget_Base {
 							<?php endif; ?>
 
 							<?php if ('yes' === $settings['volume_bar']) : ?>
-								<div class="bdt-width-auto bdt-visible@m bdt-jp-volume-bar">
+								<div class="avt-width-auto avt-visible@m avt-jp-volume-bar">
 									<div class="jp-volume-bar">
 										<div class="jp-volume-bar-value"></div>
 									</div>
@@ -1100,7 +1100,7 @@ class Video_Player extends Widget_Base {
 							<?php endif; ?>
 
 							<?php if ('yes' === $settings['fullscreen']) : ?>
-								<div class="bdt-width-auto bdt-visible@m">
+								<div class="avt-width-auto avt-visible@m">
 									<a class="jp-full-screen" role="button" tabindex="0">
 										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 										  <g>
@@ -1119,12 +1119,12 @@ class Video_Player extends Widget_Base {
 							
 						<?php if ('yes' != $settings['title_hide']) : ?>
 							<div class="jp-player-title">
-								<div class="bdt-position-center">
-									<div class="bdt-grid" bdt-grid>
-										<div class="bdt-width-1-2">
+								<div class="avt-position-center">
+									<div class="avt-grid" avt-grid>
+										<div class="avt-width-1-2">
 											<div class="jp-title" aria-label="title">&nbsp;</div>
 										</div>
-										<div class="bdt-width-1-2 bdt-text-right">
+										<div class="avt-width-1-2 avt-text-right">
 											<span class="jp-current-time"></span> / <span class="jp-duration"></span>
 										</div>
 									</div>
@@ -1151,7 +1151,7 @@ class Video_Player extends Widget_Base {
 						$(this).jPlayer("pauseOthers");
 					},
 					cssSelectorAncestor: "#jp_container_<?php echo esc_attr($id); ?>",
-					swfPath: "<?php echo BDTEP_ASSETS_URL; ?>vendor/js",
+					swfPath: "<?php echo AWP_ASSETS_URL; ?>vendor/js",
 					supplied: "webmv, ogv, m4v",
 					size: {
 						width: "100%",
@@ -1187,7 +1187,7 @@ class Video_Player extends Widget_Base {
 		$id = $this->get_id();
 
 		?>
-		<div class="bdt-video" id="bdt-video-<?php echo esc_attr($id); ?>">
+		<div class="avt-video" id="avt-video-<?php echo esc_attr($id); ?>">
 			<?php $this->render_loop(); ?>
 		</div>		
 		<?php

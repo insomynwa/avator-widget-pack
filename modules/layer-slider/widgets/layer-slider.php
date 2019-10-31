@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\LayerSlider\Widgets;
+namespace WidgetPack\Modules\LayerSlider\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,19 +9,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Layer_Slider extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-layer-slider';
+		return 'avt-layer-slider';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Layer Slider', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Layer Slider', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-layer-slider';
+		return 'avt-wi-layer-slider';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -46,7 +46,7 @@ class Layer_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
@@ -55,7 +55,7 @@ class Layer_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_name',
 			[
-				'label'   => esc_html__( 'Select Slider', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Select Slider', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => $slider_list,
 			]
@@ -64,8 +64,8 @@ class Layer_Slider extends Widget_Base {
 		$this->add_control(
 			'firstslide',
 			[
-				'label'       => esc_html__( 'First Slide', 'bdthemes-element-pack' ),
-				'description' => esc_html__( 'Which slide you want to show first?', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'First Slide', 'avator-widget-pack' ),
+				'description' => esc_html__( 'Which slide you want to show first?', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => 1,
 				

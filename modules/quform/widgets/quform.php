@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Quform\Widgets;
+namespace WidgetPack\Modules\Quform\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -15,19 +15,19 @@ class QuForm extends Widget_Base {
 	protected $_has_template_content = false;
 
 	public function get_name() {
-		return 'bdt-quform';
+		return 'avt-quform';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'QuForm', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'QuForm', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-quform';
+		return 'avt-wi-quform';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -38,17 +38,17 @@ class QuForm extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'contact_form',
 			[
-				'label'   => esc_html__( 'Select Form', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Select Form', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '0',
-				'options' => element_pack_quform_options(),
+				'options' => widget_pack_quform_options(),
 			]
 		);
 
@@ -57,7 +57,7 @@ class QuForm extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_label',
 			[
-				'label' => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Label', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -65,7 +65,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-label' => 'color: {{VALUE}};',
@@ -77,7 +77,7 @@ class QuForm extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'label_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .quform-form .quform-label',
 			]
@@ -88,7 +88,7 @@ class QuForm extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_sub_label',
 			[
-				'label' => esc_html__( 'Sub Label', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Sub Label', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -96,7 +96,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'sub_label_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-description' => 'color: {{VALUE}};',
@@ -108,7 +108,7 @@ class QuForm extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'sub_label_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .quform-form .quform-description',
 			]
@@ -119,7 +119,7 @@ class QuForm extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_input',
 			[
-				'label' => esc_html__( 'Input', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Input', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -127,7 +127,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'input_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-input input' => 'color: {{VALUE}};',
@@ -140,7 +140,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'others_type_input_text_color',
 			[
-				'label'     => esc_html__( 'Others Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Others Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#666666',
 				'selectors' => [
@@ -152,7 +152,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'input_text_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-input input' => 'background-color: {{VALUE}};',
@@ -165,7 +165,7 @@ class QuForm extends Widget_Base {
 		$this->add_responsive_control(
 			'textarea_height',
 			[
-				'label'   => esc_html__( 'Textarea Height', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Textarea Height', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 125,
@@ -187,7 +187,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'input_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -201,7 +201,7 @@ class QuForm extends Widget_Base {
 		$this->add_responsive_control(
 			'input_space',
 			[
-				'label'   => esc_html__( 'Element Space', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Element Space', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 25,
@@ -222,7 +222,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'input_border_show',
 			[
-				'label'     => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'separator' => 'before',
 			]
@@ -231,7 +231,7 @@ class QuForm extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'input_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .quform-form .quform-input input, 
@@ -246,7 +246,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'input_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -263,7 +263,7 @@ class QuForm extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_submit_button',
 			[
-				'label' => esc_html__( 'Submit Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Submit Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -273,14 +273,14 @@ class QuForm extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-button-submit .quform-submit' => 'color: {{VALUE}};',
@@ -291,7 +291,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-button-submit .quform-submit' => 'background-color: {{VALUE}};',
@@ -303,7 +303,7 @@ class QuForm extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .quform-form .quform-button-submit .quform-submit',
@@ -314,7 +314,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -334,7 +334,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'text_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -348,7 +348,7 @@ class QuForm extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'button_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .quform-form .quform-button-submit .quform-submit',
 				'separator' => 'before',
@@ -360,14 +360,14 @@ class QuForm extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-button-submit .quform-submit:hover' => 'color: {{VALUE}};',
@@ -378,7 +378,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-button-submit .quform-submit:hover' => 'background-color: {{VALUE}};',
@@ -389,7 +389,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -409,7 +409,7 @@ class QuForm extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_error',
 			[
-				'label' => esc_html__( 'Error', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Error', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -417,7 +417,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'error_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-error-inner' => 'color: {{VALUE}};',
@@ -428,7 +428,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'error_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-error-inner' => 'background-color: {{VALUE}};',
@@ -440,7 +440,7 @@ class QuForm extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'error_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .quform-form .quform-error-inner',
 			]
@@ -451,7 +451,7 @@ class QuForm extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_additional_option',
 			[
-				'label' => esc_html__( 'Additional Option', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional Option', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -459,7 +459,7 @@ class QuForm extends Widget_Base {
 		$this->add_control(
 			'fullwidth_button',
 			[
-				'label'     => esc_html__( 'Fullwidth Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Fullwidth Button', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => [
 					'{{WRAPPER}} .quform-form .quform-button-submit,
@@ -475,7 +475,7 @@ class QuForm extends Widget_Base {
 		$settings = $this->get_settings();
 
 		if (!$settings['contact_form']) {
-			return '<div class="bdt-alert bdt-alert-warning">'.__('Please select a Contact Form From Setting!', 'bdthemes-element-pack').'</div>';
+			return '<div class="avt-alert avt-alert-warning">'.__('Please select a Contact Form From Setting!', 'avator-widget-pack').'</div>';
 		}
 
 		$attributes = [

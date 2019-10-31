@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack;
+namespace WidgetPack;
 
 class Notices {
 
@@ -17,7 +17,7 @@ class Notices {
 	public function __construct() {
 
 		add_action( 'admin_notices', [ $this, 'show_notices' ] );
-		add_action( 'wp_ajax_element-pack-notices', [ $this, 'dismiss' ] );
+		add_action( 'wp_ajax_widget-pack-notices', [ $this, 'dismiss' ] );
 
 	}
 
@@ -61,7 +61,7 @@ class Notices {
 			'type'             => 'info',
 			'show_if'          => true,
 			'message'          => '',
-			'class'            => 'element-pack-notice',
+			'class'            => 'widget-pack-notice',
 			'dismissible'      => false,
 			'dismissible-meta' => 'transient',
 			'dismissible-time' => WEEK_IN_SECONDS,
@@ -88,10 +88,10 @@ class Notices {
 			}
 
 			// Notice ID.
-			$notice_id    = 'element-pack-notice-id-' . $notice['id'];
+			$notice_id    = 'widget-pack-notice-id-' . $notice['id'];
 			$notice['id'] = $notice_id;
 			if ( ! isset( $notice['id'] ) ) {
-				$notice_id    = 'element-pack-notice-id-' . $notice['id'];
+				$notice_id    = 'widget-pack-notice-id-' . $notice['id'];
 				$notice['id'] = $notice_id;
 			} else {
 				$notice_id = $notice['id'];

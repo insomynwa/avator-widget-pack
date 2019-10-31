@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\ThumbGallery\Widgets;
+namespace WidgetPack\Modules\ThumbGallery\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,10 +11,10 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
-use ElementPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Module;
 
-use ElementPack\Modules\ThumbGallery\Skins;
+use WidgetPack\Modules\ThumbGallery\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,19 +22,19 @@ class Thumb_Gallery extends Widget_Base {
 	public $_query = null;
 
 	public function get_name() {
-		return 'bdt-thumb-gallery';
+		return 'avt-thumb-gallery';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Thumb Gallery', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Thumb Gallery', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-thumb-gallery';
+		return 'avt-wi-thumb-gallery';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -42,7 +42,7 @@ class Thumb_Gallery extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'imagesloaded', 'bdt-uikit-icons' ];
+		return [ 'imagesloaded', 'avt-uikit-icons' ];
 	}
 
 	public function on_import( $element ) {
@@ -70,14 +70,14 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'posts_per_page',
 			[
-				'label'     => esc_html__( 'Limit', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Limit', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5,
 				'condition' => [
@@ -89,10 +89,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'content_position',
 			[
-				'label'   => esc_html__( 'Content Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
-				'options' => element_pack_position(),
+				'options' => widget_pack_position(),
                 'conditions'   => [
                     'relation' => 'or',
                     'terms' => [
@@ -116,7 +116,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'content_width',
 			[
-				'label' => esc_html__( 'Content Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Content Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -125,7 +125,7 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-content' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-content' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
                 'conditions'   => [
                     'relation' => 'or',
@@ -150,24 +150,24 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'content_align',
 			[
-				'label'   => esc_html__( 'Content Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
@@ -194,7 +194,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Show Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -203,9 +203,9 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'title_tag',
 			[
-				'label'     => esc_html__( 'Title HTML Tag', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title HTML Tag', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
-				'options'   => element_pack_title_tags(),
+				'options'   => widget_pack_title_tags(),
 				'default'   => 'h3',
 				'condition' => [
 					'show_title' => 'yes',
@@ -216,7 +216,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'show_text',
 			[
-				'label'   => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -225,7 +225,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'excerpt_length',
 			[
-				'label'     => esc_html__( 'Text Length', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Length', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 25,
 				'condition' => [
@@ -237,7 +237,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'show_button',
 			[
-				'label'   => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Button', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -246,7 +246,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'slider_size_ratio',
 			[
-				'label'       => esc_html__( 'Size Ratio', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Size Ratio', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::IMAGE_DIMENSIONS,
 				'description' => 'Slider ratio to widht and height, such as 16:9',
 			]
@@ -255,7 +255,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'slider_min_height',
 			[
-				'label' => esc_html__( 'Minimum Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Minimum Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -269,7 +269,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'slideshow_fullscreen',
 			[
-				'label' => esc_html__( 'Fullscreen', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Fullscreen', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -279,7 +279,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'condition' => [
 					'show_button' => 'yes',
 				],
@@ -289,17 +289,17 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'button_text',
 			[
-				'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Button Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Read More', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Read More', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'thumb_gallery_icon',
 			[
-				'label' => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -308,12 +308,12 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'thumb_gallery_icon[value]!' => '',
@@ -324,7 +324,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -338,8 +338,8 @@ class Thumb_Gallery extends Widget_Base {
 					'thumb_gallery_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -349,21 +349,21 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_navigation',
 			[
-				'label' => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Navigation', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'navigation',
 			[
-				'label'   => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Navigation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'thumbnavs',
 				'options' => [
-					'arrows'           => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
-					'thumbnavs'        => esc_html__( 'Thumbnavs', 'bdthemes-element-pack' ),
-					'arrows-thumbnavs' => esc_html__( 'Arrows and Thumbnavs', 'bdthemes-element-pack' ),
-					'none'             => esc_html__( 'None', 'bdthemes-element-pack' ),
+					'arrows'           => esc_html__( 'Arrows', 'avator-widget-pack' ),
+					'thumbnavs'        => esc_html__( 'Thumbnavs', 'avator-widget-pack' ),
+					'arrows-thumbnavs' => esc_html__( 'Arrows and Thumbnavs', 'avator-widget-pack' ),
+					'none'             => esc_html__( 'None', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -371,10 +371,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_position',
 			[
-				'label'     => __( 'Arrows Position', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'center',
-				'options'   => element_pack_navigation_position(),
+				'options'   => widget_pack_navigation_position(),
 				'condition' => [
 					'navigation!' => ['thumbnavs', 'none'],
 				],
@@ -384,10 +384,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_position',
 			[
-				'label'     => esc_html__( 'Thumbnavs Position', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Thumbnavs Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'bottom-center',
-				'options'   => element_pack_thumbnavs_position(),
+				'options'   => widget_pack_thumbnavs_position(),
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
 				],
@@ -397,7 +397,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_outside',
 			[
-				'label'      => esc_html__( 'Thumbnavs Outside', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Thumbnavs Outside', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SWITCHER,
 				'conditions' => [
 					'terms' => [
@@ -419,7 +419,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumbnavs_width',
 			[
-				'label' => esc_html__( 'Thumbnavs Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Thumbnavs Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -431,7 +431,7 @@ class Thumb_Gallery extends Widget_Base {
 					'size' => 110,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery-thumbnav a' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery-thumbnav a' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
@@ -442,7 +442,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumbnavs_height',
 			[
-				'label' => esc_html__( 'Thumbnavs Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Thumbnavs Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -454,7 +454,7 @@ class Thumb_Gallery extends Widget_Base {
 					'size' => 80,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery-thumbnav a' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery-thumbnav a' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
@@ -469,7 +469,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_query',
 			[
-				'label'     => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Query', 'avator-widget-pack' ),
 				'condition' => [
 					'_skin' => '',
 				],
@@ -480,14 +480,14 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Posts::get_type(),
 			[
 				'name'  => 'posts',
-				'label' => esc_html__( 'Posts', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Posts', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'advanced',
 			[
-				'label' => esc_html__( 'Advanced', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Advanced', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -495,14 +495,14 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order By', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order By', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'post_date',
 				'options' => [
-					'post_date'  => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'post_title' => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'menu_order' => esc_html__( 'Menu Order', 'bdthemes-element-pack' ),
-					'rand'       => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'post_date'  => esc_html__( 'Date', 'avator-widget-pack' ),
+					'post_title' => esc_html__( 'Title', 'avator-widget-pack' ),
+					'menu_order' => esc_html__( 'Menu Order', 'avator-widget-pack' ),
+					'rand'       => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -510,12 +510,12 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'desc',
 				'options' => [
-					'asc'  => esc_html__( 'ASC', 'bdthemes-element-pack' ),
-					'desc' => esc_html__( 'DESC', 'bdthemes-element-pack' ),
+					'asc'  => esc_html__( 'ASC', 'avator-widget-pack' ),
+					'desc' => esc_html__( 'DESC', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -525,7 +525,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_content',
 			[
-				'label' => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Content', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
                 'conditions'   => [
                     'relation' => 'or',
@@ -550,10 +550,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'content_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-content' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-content' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -561,11 +561,11 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -574,21 +574,21 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'content_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-content',
+				'selector'    => '{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-content',
 			]
 		);
 
 		$this->add_control(
 			'content_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -596,10 +596,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'content_transition',
 			[
-				'label'   => esc_html__( 'Content Transition', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content Transition', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'fade',
-				'options' => element_pack_transition_options(),
+				'options' => widget_pack_transition_options(),
 			]
 		);
 
@@ -608,7 +608,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => 'yes',
@@ -619,10 +619,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'title_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-title' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-title' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -630,10 +630,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -641,11 +641,11 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -654,9 +654,9 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-title',
+				'selector' => '{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-title',
 			]
 		);
 
@@ -665,7 +665,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_text',
 			[
-				'label'     => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_text' => 'yes',
@@ -676,10 +676,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'text_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-text' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-text' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -687,10 +687,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -698,11 +698,11 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'text_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -710,7 +710,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'text_space',
 			[
-				'label' => esc_html__( 'Space', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Space', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -719,7 +719,7 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-text' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-text' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -728,9 +728,9 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'text_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-text',
+				'selector' => '{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-text',
 			]
 		);
 
@@ -739,7 +739,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_button' => 'yes'
@@ -752,18 +752,18 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -771,10 +771,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'button_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -783,18 +783,18 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'button_shadow',
-				'selector' => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button',
+				'selector' => '{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button',
 			]
 		);
 
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -802,7 +802,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'button_space',
 			[
-				'label' => esc_html__( 'Space', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Space', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -811,7 +811,7 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -820,21 +820,21 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'button_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button',
+				'selector'    => '{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button',
 			]
 		);
 
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -843,9 +843,9 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'button_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button',
+				'selector' => '{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button',
 			]
 		);
 
@@ -854,18 +854,18 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -873,10 +873,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'button_hover_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -884,13 +884,13 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'button_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumb-gallery-button:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -898,7 +898,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -912,7 +912,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation',
 			[
-				'label'     => __( 'Navigation', 'bdthemes-element-pack' ),
+				'label'     => __( 'Navigation', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'navigation!' => 'none',
@@ -923,7 +923,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'heading_arrows',
 			[
-				'label'     => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrows', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 				'condition' => [
@@ -935,7 +935,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_size',
 			[
-				'label' => __( 'Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -947,7 +947,7 @@ class Thumb_Gallery extends Widget_Base {
 					'size' => 48,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev svg, {{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev svg, {{WRAPPER}} .avt-thumb-gallery .avt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'navigation!' => [ 'thumbnavs', 'none' ],
@@ -958,10 +958,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev svg, {{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next svg' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev svg, {{WRAPPER}} .avt-thumb-gallery .avt-navigation-next svg' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation!' => [ 'thumbnavs', 'none' ],
@@ -972,10 +972,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_background',
 			[
-				'label'     => __( 'Hover Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hover Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev:hover svg, {{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next:hover svg' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev:hover svg, {{WRAPPER}} .avt-thumb-gallery .avt-navigation-next:hover svg' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation!' => [ 'thumbnavs', 'none' ],
@@ -986,10 +986,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev svg, {{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev svg, {{WRAPPER}} .avt-thumb-gallery .avt-navigation-next svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation!' => [ 'thumbnavs', 'none' ],
@@ -1000,10 +1000,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_color',
 			[
-				'label'     => __( 'Hover Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev:hover svg, {{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev:hover svg, {{WRAPPER}} .avt-thumb-gallery .avt-navigation-next:hover svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation!' => [ 'thumbnavs', 'none' ],
@@ -1014,11 +1014,11 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev svg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next svg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev svg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-next svg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation!' => [ 'thumbnavs', 'none' ],
@@ -1029,11 +1029,11 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev svg, {{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next svg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev svg, {{WRAPPER}} .avt-thumb-gallery .avt-navigation-next svg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation!' => [ 'thumbnavs', 'none' ],
@@ -1044,7 +1044,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_space',
 			[
-				'label' => __( 'Space', 'bdthemes-element-pack' ),
+				'label' => __( 'Space', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1053,8 +1053,8 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev' => 'margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-next' => 'margin-left: {{SIZE}}px;',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1076,7 +1076,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'heading_thumbnavs',
 			[
-				'label'     => esc_html__( 'Thumbnavs', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Thumbnavs', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 				'condition' => [
@@ -1090,7 +1090,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_thumbnavs_normal',
 			[
-				'label'     => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Normal', 'avator-widget-pack' ),
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
 				],
@@ -1100,10 +1100,10 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery-thumbnav a' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery-thumbnav a' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
@@ -1115,7 +1115,7 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'thumbnavs_shadow',
-				'selector'  => '{{WRAPPER}} .bdt-thumb-gallery-thumbnav a',
+				'selector'  => '{{WRAPPER}} .avt-thumb-gallery-thumbnav a',
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
 				],
@@ -1126,10 +1126,10 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'thumbnavs_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-thumb-gallery-thumbnav a',
+				'selector'    => '{{WRAPPER}} .avt-thumb-gallery-thumbnav a',
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
 				],
@@ -1139,11 +1139,11 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumb-gallery-thumbnav a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-thumb-gallery-thumbnav a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
@@ -1154,7 +1154,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_spacing',
 			[
-				'label' => esc_html__( 'Space Between', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Space Between', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1162,10 +1162,10 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-thumbnav:not(.bdt-thumbnav-vertical) > *' => 'padding-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-thumbnav:not(.bdt-thumbnav-vertical)'     => 'margin-left: -{{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-thumbnav-vertical > *'                    => 'padding-top: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-thumbnav-vertical'                        => 'margin-top: -{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumbnav:not(.avt-thumbnav-vertical) > *' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumbnav:not(.avt-thumbnav-vertical)'     => 'margin-left: -{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumbnav-vertical > *'                    => 'padding-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-thumbnav-vertical'                        => 'margin-top: -{{SIZE}}{{UNIT}};',
 
 				],
 				'condition' => [
@@ -1179,7 +1179,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_thumbnavs_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 				'condition' => [
 					'navigation!' => ['arrows', 'both', 'none'],
 				],
@@ -1190,7 +1190,7 @@ class Thumb_Gallery extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'thumbnavs_hover_shadow',
-				'selector'  => '{{WRAPPER}} .bdt-thumb-gallery-thumbnav a:hover',
+				'selector'  => '{{WRAPPER}} .avt-thumb-gallery-thumbnav a:hover',
 				'condition' => [
 					'navigation!' => ['arrows', 'both', 'none'],
 				],
@@ -1200,13 +1200,13 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'thumbnavs_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery-thumbnav a:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-thumb-gallery-thumbnav a:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
 					'navigation!' => ['arrows', 'both', 'none'],
@@ -1221,7 +1221,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'heading_position',
 			[
-				'label'     => esc_html__( 'Position', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 				'condition' => [
@@ -1233,7 +1233,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_ncx_position',
 			[
-				'label'   => __( 'Arrows Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Arrows Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1264,7 +1264,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_ncy_position',
 			[
-				'label'   => __( 'Arrows Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Arrows Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 40,
@@ -1276,7 +1276,7 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
 				],
 				'conditions'   => [
 					'terms' => [
@@ -1298,7 +1298,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'arrows_acx_position',
 			[
-				'label'   => __( 'Arrows Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Arrows Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 20,
@@ -1310,8 +1310,8 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-navigation-next' => 'right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-prev' => 'left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-navigation-next' => 'right: {{SIZE}}px;',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1332,7 +1332,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_x_position',
 			[
-				'label'   => __( 'Thumbnavs Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Thumbnavs Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1352,7 +1352,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnavs_y_position',
 			[
-				'label'   => __( 'Thumbnavs Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Thumbnavs Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -30,
@@ -1364,7 +1364,7 @@ class Thumb_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-thumb-gallery .bdt-thumbnav-wrapper .bdt-thumbnav' => 'transform: translate({{thumbnavs_x_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-thumb-gallery .avt-thumbnav-wrapper .avt-thumbnav' => 'transform: translate({{thumbnavs_x_position.size}}px, {{SIZE}}px);',
 				],
 				'condition' => [
 					'navigation!' => ['arrows', 'none'],
@@ -1377,7 +1377,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1385,7 +1385,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'   => esc_html__( 'Autoplay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Autoplay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -1394,7 +1394,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'autoplay_interval',
 			[
-				'label'     => esc_html__( 'Autoplay Interval', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Autoplay Interval', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 7000,
 				'condition' => [
@@ -1406,7 +1406,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label' => esc_html__( 'Pause on Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Pause on Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -1414,7 +1414,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'   => esc_html__( 'Animation Speed', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Animation Speed', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 500,
 			]
@@ -1423,16 +1423,16 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'slider_animations',
 			[
-				'label'     => esc_html__( 'Slider Animations', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Slider Animations', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'separator' => 'before',
 				'default'   => 'slide',
 				'options'   => [
-					'slide' => esc_html__( 'Slide', 'bdthemes-element-pack' ),
-					'fade'  => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'scale' => esc_html__( 'Scale', 'bdthemes-element-pack' ),
-					'push'  => esc_html__( 'Push', 'bdthemes-element-pack' ),
-					'pull'  => esc_html__( 'Pull', 'bdthemes-element-pack' ),
+					'slide' => esc_html__( 'Slide', 'avator-widget-pack' ),
+					'fade'  => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'scale' => esc_html__( 'Scale', 'avator-widget-pack' ),
+					'push'  => esc_html__( 'Push', 'avator-widget-pack' ),
+					'pull'  => esc_html__( 'Pull', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -1440,7 +1440,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'kenburns_animation',
 			[
-				'label'     => esc_html__( 'Kenburns Animation', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Kenburns Animation', 'avator-widget-pack' ),
 				'separator' => 'before',
 				'type'      => Controls_Manager::SWITCHER,
 			]
@@ -1449,7 +1449,7 @@ class Thumb_Gallery extends Widget_Base {
 		$this->add_control(
 			'kenburns_reverse',
 			[
-				'label'     => esc_html__( 'Kenburn Reverse', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Kenburn Reverse', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'kenburns_animation' => 'yes'
@@ -1510,7 +1510,7 @@ class Thumb_Gallery extends Widget_Base {
 		}
 
 		$tag = $this->get_settings( 'title_tag' );
-		$classes = ['bdt-thumb-gallery-title'];
+		$classes = ['avt-thumb-gallery-title'];
 		?>
 
 		<<?php echo esc_attr($tag) ?> class="<?php echo implode(" ", $classes); ?>">
@@ -1536,7 +1536,7 @@ class Thumb_Gallery extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-thumb-gallery-text bdt-text-small">
+		<div class="avt-thumb-gallery-text avt-text-small">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -1564,12 +1564,12 @@ class Thumb_Gallery extends Widget_Base {
 		$is_new    = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 		
 		?>
-			<div class="bdt-thumb-gallery-button-wrapper">
-				<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-thumb-gallery-button bdt-display-inline-block<?php echo esc_attr($animation); ?>">
+			<div class="avt-thumb-gallery-button-wrapper">
+				<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-thumb-gallery-button avt-display-inline-block<?php echo esc_attr($animation); ?>">
 					<?php echo esc_attr($settings['button_text']); ?>
 				
 					<?php if ($settings['thumb_gallery_icon']['value']) : ?>
-						<span class="bdt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
+						<span class="avt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
 
 							<?php if ( $is_new || $migrated ) :
 								Icons_Manager::render_icon( $settings['thumb_gallery_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1594,10 +1594,10 @@ class Thumb_Gallery extends Widget_Base {
 			[
 				'slider-settings' => [
 					'class'         => [
-						'bdt-position-relative',
-						'bdt-visible-toggle'
+						'avt-position-relative',
+						'avt-visible-toggle'
 					],
-					'bdt-slideshow' => [
+					'avt-slideshow' => [
 						wp_json_encode(array_filter([
 							"animation"         => $settings["slider_animations"],
 							"ratio"             => $ratio,
@@ -1612,7 +1612,7 @@ class Thumb_Gallery extends Widget_Base {
 		);
 
 		?>
-		<div id="bdt-thumb-gallery-<?php echo esc_attr($id); ?>" class="bdt-thumb-gallery">
+		<div id="avt-thumb-gallery-<?php echo esc_attr($id); ?>" class="avt-thumb-gallery">
 			<div <?php echo ( $this->get_render_attribute_string( 'slider-settings' ) ) ?>>
 		<?php
 	}
@@ -1626,11 +1626,11 @@ class Thumb_Gallery extends Widget_Base {
 
 	public function render_loop_items() {
 		$settings         = $this->get_settings();
-		$kenburns_reverse = $settings['kenburns_reverse'] ? ' bdt-animation-reverse' : '';
+		$kenburns_reverse = $settings['kenburns_reverse'] ? ' avt-animation-reverse' : '';
 		
 		$this->query_posts();
 
-		$content_transition = $settings['content_transition'] ? ' bdt-transition-' . $settings['content_transition'] : '';
+		$content_transition = $settings['content_transition'] ? ' avt-transition-' . $settings['content_transition'] : '';
 
 		$wp_query = $this->get_query();
 
@@ -1638,10 +1638,10 @@ class Thumb_Gallery extends Widget_Base {
 			return;
 		}
 
-		$fullscreen = $settings['slideshow_fullscreen'] ? ' bdt-height-viewport="offset-top: true;"' : '';
+		$fullscreen = $settings['slideshow_fullscreen'] ? ' avt-height-viewport="offset-top: true;"' : '';
 
 		?>
-		<ul class="bdt-slideshow-items"<?php echo esc_attr($fullscreen); ?>>
+		<ul class="avt-slideshow-items"<?php echo esc_attr($fullscreen); ?>>
 
 		<?php
 		
@@ -1659,20 +1659,20 @@ class Thumb_Gallery extends Widget_Base {
 			}
 
 			?>
-			<li class="bdt-slideshow-item">
+			<li class="avt-slideshow-item">
 				<?php if( $settings['kenburns_animation'] ) : ?>
-					<div class="bdt-position-cover bdt-animation-kenburns<?php echo esc_attr( $kenburns_reverse ); ?> bdt-transform-origin-center-left">
+					<div class="avt-position-cover avt-animation-kenburns<?php echo esc_attr( $kenburns_reverse ); ?> avt-transform-origin-center-left">
 				<?php endif; ?>
 
-					<img src="<?php echo esc_url($gallery_thumbnail); ?>" alt="<?php echo get_the_title(); ?>" bdt-cover>
+					<img src="<?php echo esc_url($gallery_thumbnail); ?>" alt="<?php echo get_the_title(); ?>" avt-cover>
 
 				<?php if( $settings['kenburns_animation'] ) : ?>
 		            </div>
 		        <?php endif; ?>
-				<div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['content_position']); ?> bdt-position-large">
+				<div class="avt-position-z-index avt-position-<?php echo esc_attr($settings['content_position']); ?> avt-position-large">
 					<?php if ( $settings['show_title'] || $settings['show_text'] || $settings['show_button'] ) : ?>
-						<div class="bdt-text-<?php echo esc_attr($settings['content_align']); ?>">
-							<div class="bdt-thumb-gallery-content<?php echo esc_attr($content_transition); ?>">
+						<div class="avt-text-<?php echo esc_attr($settings['content_align']); ?>">
+							<div class="avt-thumb-gallery-content<?php echo esc_attr($content_transition); ?>">
 					        	<?php $this->render_title(); ?>
 					        	<?php $this->render_excerpt(); ?>
 					        	<?php $this->render_button(); ?>
@@ -1699,10 +1699,10 @@ class Thumb_Gallery extends Widget_Base {
 		}
 
 		?>
-		<div class="bdt-thumb-gallery-navigation-wrapper bdt-position-z-index bdt-visible@m bdt-position-<?php echo esc_attr($settings['arrows_position']); ?>">
-			<div class="bdt-arrows-container bdt-slidenav-container">
-				<a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9" bdt-slideshow-item="previous"></a>
-				<a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9" bdt-slideshow-item="next"></a>
+		<div class="avt-thumb-gallery-navigation-wrapper avt-position-z-index avt-visible@m avt-position-<?php echo esc_attr($settings['arrows_position']); ?>">
+			<div class="avt-arrows-container avt-slidenav-container">
+				<a href="" class="avt-navigation-prev avt-slidenav-previous avt-icon avt-slidenav" avt-icon="icon: chevron-left; ratio: 1.9" avt-slideshow-item="previous"></a>
+				<a href="" class="avt-navigation-next avt-slidenav-next avt-icon avt-slidenav" avt-icon="icon: chevron-right; ratio: 1.9" avt-slideshow-item="next"></a>
 			</div>
 		</div>
     	<?php
@@ -1727,15 +1727,15 @@ class Thumb_Gallery extends Widget_Base {
 			if ($settings['thumbnavs_outside']) {
 				$thumbnavs_outside = '-out';
 			}
-			$vertical_thumbnav = ' bdt-thumbnav-vertical';
+			$vertical_thumbnav = ' avt-thumbnav-vertical';
 		}
 
 		?>
-		<div class="bdt-thumbnav-wrapper bdt-position-<?php echo esc_attr($settings['thumbnavs_position'].$thumbnavs_outside); ?> bdt-position-small">
-        	<ul class="bdt-thumbnav<?php echo esc_attr($vertical_thumbnav); ?>">
+		<div class="avt-thumbnav-wrapper avt-position-<?php echo esc_attr($settings['thumbnavs_position'].$thumbnavs_outside); ?> avt-position-small">
+        	<ul class="avt-thumbnav<?php echo esc_attr($vertical_thumbnav); ?>">
 
 		<?php		
-		$bdt_counter = 0;
+		$avt_counter = 0;
 		      
 		while ( $wp_query->have_posts() ) {
 			$wp_query->the_post();			
@@ -1750,8 +1750,8 @@ class Thumb_Gallery extends Widget_Base {
 				$gallery_thumbnail = $gallery_thumbnail[0];
 			}
 
-			echo '<li class="bdt-thumb-gallery-thumbnav" bdt-slideshow-item="' . $bdt_counter . '"><a class="bdt-overflow-hidden bdt-background-cover" href="#" style="background-image: url(' . esc_url($gallery_thumbnail) . ')"></a></li>';
-			$bdt_counter++;
+			echo '<li class="avt-thumb-gallery-thumbnav" avt-slideshow-item="' . $avt_counter . '"><a class="avt-overflow-hidden avt-background-cover" href="#" style="background-image: url(' . esc_url($gallery_thumbnail) . ')"></a></li>';
+			$avt_counter++;
 		}
 
 		wp_reset_postdata();

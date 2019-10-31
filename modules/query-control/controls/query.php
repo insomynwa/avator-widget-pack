@@ -1,8 +1,8 @@
 <?php
-namespace ElementPack\Modules\QueryControl\Controls;
+namespace WidgetPack\Modules\QueryControl\Controls;
 
 use Elementor\Control_Select2;
-use ElementPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

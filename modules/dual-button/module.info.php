@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 return [
-	'title'              => esc_html__( 'Dual Button', 'bdthemes-element-pack' ),
+	'title'              => esc_html__( 'Dual Button', 'avator-widget-pack' ),
 	'required'           => true,
 	'default_activation' => true,
 ];

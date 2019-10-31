@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostBlock\Skins;
+namespace WidgetPack\Modules\PostBlock\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Utils;
@@ -15,15 +15,15 @@ class Skin_Genesis extends Elementor_Skin_Base {
 	}
 
 	public function get_title() {
-		return __( 'Genesis', 'bdthemes-element-pack' );
+		return __( 'Genesis', 'avator-widget-pack' );
 	}
 
 	public function render() {
 		$settings = $this->parent->get_settings();
-		$id       = uniqid('bdtpbm_');
+		$id       = uniqid('avtpbm_');
 
 		$animation        = ($settings['read_more_hover_animation']) ? ' elementor-animation-'.$settings['read_more_hover_animation'] : '';
-		$bdt_list_divider = ( $settings['show_list_divider'] ) ? ' bdt-has-divider' : '';
+		$avt_list_divider = ( $settings['show_list_divider'] ) ? ' avt-has-divider' : '';
 
 		$this->parent->query_posts($settings['posts_limit']);
 		$wp_query = $this->parent->get_query();
@@ -35,12 +35,12 @@ class Skin_Genesis extends Elementor_Skin_Base {
 					'post-block' => [
 						'id'    => esc_attr( $id ),
 						'class' => [
-							'bdt-post-block',
-							'bdt-grid',
-							'bdt-grid-match',
-							'bdt-post-block-skin-genesis',
+							'avt-post-block',
+							'avt-grid',
+							'avt-grid-match',
+							'avt-post-block-skin-genesis',
 						],
-						'bdt-grid' => ''
+						'avt-grid' => ''
 					]
 				]
 			);
@@ -56,11 +56,11 @@ class Skin_Genesis extends Elementor_Skin_Base {
 			?> 
 			<div <?php echo $this->parent->get_render_attribute_string( 'post-block' ); ?>>
 
-				<?php $bdt_count = 0;
+				<?php $avt_count = 0;
 			
 				while ( $wp_query->have_posts() ) : $wp_query->the_post();
 
-					$bdt_count++;
+					$avt_count++;
 
 					$placeholder_image_src = Utils::get_placeholder_image_src();
 					$image_src             = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'large' );
@@ -71,27 +71,27 @@ class Skin_Genesis extends Elementor_Skin_Base {
 						$image_src = $image_src[0];
 					}
 
-					if( $bdt_count <= $settings['featured_item']) : ?>
+					if( $avt_count <= $settings['featured_item']) : ?>
 
-				  		<div class="bdt-width-1-<?php echo esc_attr($settings['featured_item']); ?>@m">
-				  			<div class="bdt-post-block-item featured-part">
-								<div class="bdt-post-block-img-wrapper bdt-margin-bottom">
+				  		<div class="avt-width-1-<?php echo esc_attr($settings['featured_item']); ?>@m">
+				  			<div class="avt-post-block-item featured-part">
+								<div class="avt-post-block-img-wrapper avt-margin-bottom">
 									<a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>">
 					  					<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
 					  				</a>
 								</div>
 						  		
-						  		<div class="bdt-post-block-desc">
+						  		<div class="avt-post-block-desc">
 
 									<?php if ($settings['featured_show_title']) : ?>
-										<h4 class="bdt-post-block-title">
-											<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-block-link" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a>
+										<h4 class="avt-post-block-title">
+											<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-block-link" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a>
 										</h4>
 									<?php endif ?>
 
 	            	            	<?php if ($settings['featured_show_category'] or $settings['featured_show_date']) : ?>
 
-	            						<div class="bdt-post-block-meta bdt-subnav bdt-flex-middle">
+	            						<div class="avt-post-block-meta avt-subnav avt-flex-middle">
 	            							<?php if ($settings['featured_show_date']) : ?>
 	            								<?php echo '<span>'.esc_attr(get_the_date('d F Y')).'</span>'; ?>
 	            							<?php endif ?>
@@ -107,10 +107,10 @@ class Skin_Genesis extends Elementor_Skin_Base {
 									<?php $this->parent->render_excerpt(); ?>
 
 									<?php if ($settings['featured_show_read_more']) : ?>
-										<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-block-read-more bdt-link-reset<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['read_more_text']); ?>
+										<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-block-read-more avt-link-reset<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['read_more_text']); ?>
 											
 											<?php if ($settings['post_block_icon']['value']) : ?>
-												<span class="bdt-post-block-read-more-icon-<?php echo esc_attr($settings['icon_align']); ?>">
+												<span class="avt-post-block-read-more-icon-<?php echo esc_attr($settings['icon_align']); ?>">
 
 													<?php if ( $is_new || $migrated ) :
 														Icons_Manager::render_icon( $settings['post_block_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -130,31 +130,31 @@ class Skin_Genesis extends Elementor_Skin_Base {
 							
 						</div>
 					
-					<?php if ($bdt_count == $settings['featured_item']) : ?>
+					<?php if ($avt_count == $settings['featured_item']) : ?>
 
-			  		<div class="bdt-post-block-item list-part bdt-width-1-1@m bdt-margin-medium-top">
-			  			<ul class="bdt-child-width-1-<?php echo esc_attr($settings['featured_item']); ?>@m<?php echo esc_attr($bdt_list_divider); ?>" bdt-grid bdt-scrollspy="cls: bdt-animation-fade; target: > .bdt-post-block-item; delay: 300;">
+			  		<div class="avt-post-block-item list-part avt-width-1-1@m avt-margin-medium-top">
+			  			<ul class="avt-child-width-1-<?php echo esc_attr($settings['featured_item']); ?>@m<?php echo esc_attr($avt_list_divider); ?>" avt-grid avt-scrollspy="cls: avt-animation-fade; target: > .avt-post-block-item; delay: 300;">
 			  		<?php endif; ?>
 
 					<?php else : ?>
 						<?php $post_thumbnail  = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' ); ?>
 					  			<li>
-						  			<div class="bdt-flex">
-						  				<div class="bdt-post-block-thumbnail bdt-width-auto">
+						  			<div class="avt-flex">
+						  				<div class="avt-post-block-thumbnail avt-width-auto">
 						  					<a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>">
 							  					<img src="<?php echo esc_url($post_thumbnail[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
 							  				</a>
 						  				</div>
-								  		<div class="bdt-post-block-desc bdt-width-expand bdt-margin-small-left">
+								  		<div class="avt-post-block-desc avt-width-expand avt-margin-small-left">
 											<?php if ($settings['list_show_title']) : ?>
-												<h4 class="bdt-post-block-title">
-													<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-block-link" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a>
+												<h4 class="avt-post-block-title">
+													<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-block-link" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a>
 												</h4>
 											<?php endif ?>
 
 							            	<?php if ($settings['list_show_category'] or $settings['list_show_date']) : ?>
 
-												<div class="bdt-post-block-meta bdt-subnav bdt-flex-middle">
+												<div class="avt-post-block-meta avt-subnav avt-flex-middle">
 													<?php if ($settings['list_show_date']) : ?>
 														<?php echo '<span>'.esc_attr(get_the_date('d F Y')).'</span>'; ?>
 													<?php endif ?>

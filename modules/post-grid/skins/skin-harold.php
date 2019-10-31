@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostGrid\Skins;
+namespace WidgetPack\Modules\PostGrid\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Skin_Harold extends Elementor_Skin_Base {
 
 	public function get_id() {
-		return 'bdt-harold';
+		return 'avt-harold';
 	}
 
 	public function get_title() {
-		return __( 'Harold', 'bdthemes-element-pack' );
+		return __( 'Harold', 'avator-widget-pack' );
 	}
 
 	public function render_comments() {
@@ -22,14 +22,14 @@ class Skin_Harold extends Elementor_Skin_Base {
 		}
 		
 		echo 
-			'<span class="bdt-post-grid-comments"><i class="ep-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
+			'<span class="avt-post-grid-comments"><i class="ep-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
 	}
 
 	public function render_category() {
 
 		if ( ! $this->parent->get_settings( 'show_category' ) ) { return; }
 		?>
-		<div class="bdt-post-grid-category bdt-position-small bdt-position-top-right">
+		<div class="avt-post-grid-category avt-position-small avt-position-top-right">
 			<?php echo get_the_category_list(' '); ?>
 		</div>
 		<?php
@@ -40,11 +40,11 @@ class Skin_Harold extends Elementor_Skin_Base {
 		global $post;
 
 		?>
-		<div class="bdt-post-grid-item bdt-transition-toggle bdt-position-relative bdt-box-shadow-small">								
+		<div class="avt-post-grid-item avt-transition-toggle avt-position-relative avt-box-shadow-small">								
 			<?php $this->parent->render_image(get_post_thumbnail_id( $post_id ), $image_size ); ?>
 
 	  		
-	  		<div class="bdt-post-grid-desc bdt-padding">
+	  		<div class="avt-post-grid-desc avt-padding">
 				<?php $this->parent->render_title(); ?>
 
 				<?php $this->parent->render_excerpt($excerpt_length); ?>
@@ -52,7 +52,7 @@ class Skin_Harold extends Elementor_Skin_Base {
 			</div>
 
 			<?php if ($settings['show_author'] or $settings['show_date'] or $settings['show_comments']) : ?>
-				<div class="bdt-post-grid-meta bdt-subnav bdt-flex-middle">
+				<div class="avt-post-grid-meta avt-subnav avt-flex-middle">
 					<?php $this->parent->render_author(); ?>
 					<?php $this->parent->render_date(); ?>
 					<?php $this->render_comments(); ?>
@@ -83,48 +83,48 @@ class Skin_Harold extends Elementor_Skin_Base {
 			$wp_query = $this->parent->get_query();
 		}
 
-		$this->parent->add_render_attribute( 'grid-height', 'class', ['bdt-grid', 'bdt-grid-medium', 'bdt-grid-' . esc_attr($settings['column_gap'])] );
-		$this->parent->add_render_attribute( 'grid-height', 'bdt-grid', '' );
+		$this->parent->add_render_attribute( 'grid-height', 'class', ['avt-grid', 'avt-grid-medium', 'avt-grid-' . esc_attr($settings['column_gap'])] );
+		$this->parent->add_render_attribute( 'grid-height', 'avt-grid', '' );
 
 		if ( 'match-height' == $settings['secondary_grid_height'] ) {
-			$this->parent->add_render_attribute( 'grid-height', 'bdt-height-match', 'target: > div ~ div .bdt-post-grid-desc' );
+			$this->parent->add_render_attribute( 'grid-height', 'avt-height-match', 'target: > div ~ div .avt-post-grid-desc' );
 		} /*elseif ( 'masonry' == $settings['secondary_grid_height'] ) {
-			$this->parent->add_render_attribute( 'grid-height', 'bdt-grid', 'masonry: true' );
+			$this->parent->add_render_attribute( 'grid-height', 'avt-grid', 'masonry: true' );
 		}*/
 		
 
 		?> 
-		<div id="bdt-post-grid-<?php echo esc_attr($id); ?>" class="bdt-post-grid bdt-post-grid-skin-harold">
+		<div id="avt-post-grid-<?php echo esc_attr($id); ?>" class="avt-post-grid avt-post-grid-skin-harold">
 	  		<div <?php echo $this->parent->get_render_attribute_string( 'grid-height' ); ?>>
 
-				<?php $bdt_count = 0;
+				<?php $avt_count = 0;
 			
 				while ($wp_query->have_posts()) :
 					$wp_query->the_post();
 						
-		  			$bdt_count++;
+		  			$avt_count++;
 
 	  				if( $page == '1' ) {
-			  			if ( $bdt_count <= 1) {
-							$bdt_grid_raw   = ' bdt-width-1-1@m bdt-width-1-1@s bdt-width-1-1';
-							$bdt_post_class = ' bdt-primary bdt-text-center';
+			  			if ( $avt_count <= 1) {
+							$avt_grid_raw   = ' avt-width-1-1@m avt-width-1-1@s avt-width-1-1';
+							$avt_post_class = ' avt-primary avt-text-center';
 							$thumbnail_size = $settings['primary_thumbnail_size'];
 							$excerpt_length = $settings['primary_excerpt_length'];
 			  			} else {
-							$bdt_grid_raw   = ' bdt-width-1-' . esc_attr($settings['columns']) . '@m bdt-width-1-' . esc_attr($settings['columns_tablet']) . '@s bdt-width-1-' . esc_attr($settings['columns_mobile']) ;
-							$bdt_post_class = ' bdt-secondary';
+							$avt_grid_raw   = ' avt-width-1-' . esc_attr($settings['columns']) . '@m avt-width-1-' . esc_attr($settings['columns_tablet']) . '@s avt-width-1-' . esc_attr($settings['columns_mobile']) ;
+							$avt_post_class = ' avt-secondary';
 							$thumbnail_size = $settings['secondary_thumbnail_size'];
 							$excerpt_length = $settings['secondary_excerpt_length'];
 			  			}
 		  			} else {
-						$bdt_grid_raw   = ' bdt-width-1-' . esc_attr($settings['columns']) . '@m bdt-width-1-' . esc_attr($settings['columns_tablet']) . '@s bdt-width-1-' . esc_attr($settings['columns_mobile']) ;
-						$bdt_post_class = ' bdt-secondary';
+						$avt_grid_raw   = ' avt-width-1-' . esc_attr($settings['columns']) . '@m avt-width-1-' . esc_attr($settings['columns_tablet']) . '@s avt-width-1-' . esc_attr($settings['columns_mobile']) ;
+						$avt_post_class = ' avt-secondary';
 						$thumbnail_size = $settings['secondary_thumbnail_size'];
 						$excerpt_length = $settings['secondary_excerpt_length'];
 		  			}
 
 		  			?>	  			
-		  			<div class="<?php echo esc_attr($bdt_grid_raw . $bdt_post_class); ?>">
+		  			<div class="<?php echo esc_attr($avt_grid_raw . $avt_post_class); ?>">
 						<?php $this->render_post_grid_item( get_the_ID(), $thumbnail_size, $excerpt_length); ?>
 					</div>
 				<?php endwhile; ?>
@@ -133,7 +133,7 @@ class Skin_Harold extends Elementor_Skin_Base {
  		<?php
 
  		if ($settings['show_pagination']) {
- 			element_pack_post_pagination($wp_query);
+ 			widget_pack_post_pagination($wp_query);
  		}
 		wp_reset_postdata();
 	}

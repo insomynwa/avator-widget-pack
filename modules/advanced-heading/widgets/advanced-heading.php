@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\AdvancedHeading\Widgets;
+namespace WidgetPack\Modules\AdvancedHeading\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -15,19 +15,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class AdvancedHeading extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-advanced-heading';
+		return 'avt-advanced-heading';
 	}
 
 	public function get_title() {
-		return BDTEP . __( 'Advanced Heading', 'bdthemes-element-pack' );
+		return AWP . __( 'Advanced Heading', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-advanced-heading';
+		return 'avt-wi-advanced-heading';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -38,36 +38,36 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_heading',
 			[
-				'label' => __( 'Heading', 'bdthemes-element-pack' ),
+				'label' => __( 'Heading', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'sub_heading',
 			[
-				'label'       => __( 'Sub Heading', 'bdthemes-element-pack' ),
+				'label'       => __( 'Sub Heading', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => __( 'Enter your prefix title', 'bdthemes-element-pack' ),
-				'default'     => __( 'SUB HEADING HERE', 'bdthemes-element-pack' ),
+				'placeholder' => __( 'Enter your prefix title', 'avator-widget-pack' ),
+				'default'     => __( 'SUB HEADING HERE', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'main_heading',
 			[
-				'label'       => __( 'Main Heading', 'bdthemes-element-pack' ),
+				'label'       => __( 'Main Heading', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => __( 'Enter your main heading here', 'bdthemes-element-pack' ),
-				'default'     => __( 'I am Advanced Heading', 'bdthemes-element-pack' ),
+				'placeholder' => __( 'Enter your main heading here', 'avator-widget-pack' ),
+				'default'     => __( 'I am Advanced Heading', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'split_main_heading',
 			[
-				'label'     => __( 'Split Main Heading', 'bdthemes-element-pack' ),
+				'label'     => __( 'Split Main Heading', 'avator-widget-pack' ),
 				'separator' => 'before',
 				'type'      => Controls_Manager::SWITCHER,
 			]
@@ -76,12 +76,12 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'split_text',
 			[
-				'label'       => __( 'Split Text', 'bdthemes-element-pack' ),
+				'label'       => __( 'Split Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
 				'label_block' => true,
-                'placeholder' => __( 'Enter your split text', 'bdthemes-element-pack' ),
-                'default'     => __( 'Split Text', 'bdthemes-element-pack' ),
+                'placeholder' => __( 'Enter your split text', 'avator-widget-pack' ),
+                'default'     => __( 'Split Text', 'avator-widget-pack' ),
                 'condition'   => [
                     'split_main_heading' => 'yes'
 				]
@@ -91,7 +91,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label'       => __( 'Link', 'bdthemes-element-pack' ),
+				'label'       => __( 'Link', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
 				'placeholder' => 'http://your-link.com',
@@ -101,9 +101,9 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'header_size',
 			[
-				'label'   => __( 'HTML Tag', 'bdthemes-element-pack' ),
+				'label'   => __( 'HTML Tag', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => element_pack_title_tags(),
+				'options' => widget_pack_title_tags(),
 				'default' => 'h2',
 			]
 		);
@@ -111,19 +111,19 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -140,42 +140,42 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_advanced_heading',
 			[
-				'label' => __( 'Advanced Heading', 'bdthemes-element-pack' ),
+				'label' => __( 'Advanced Heading', 'avator-widget-pack' ),
 			]
 		);
 		$this->add_control(
 			'advanced_heading',
 			[
-				'label'       => __( 'Advanced Heading', 'bdthemes-element-pack' ),
+				'label'       => __( 'Advanced Heading', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => __( 'Enter your advanced heading', 'bdthemes-element-pack' ),
-				'description' => __( 'This heading will show as style as background and you can move and style many way.', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'Advanced Heading', 'bdthemes-element-pack' ),
+				'placeholder' => __( 'Enter your advanced heading', 'avator-widget-pack' ),
+				'description' => __( 'This heading will show as style as background and you can move and style many way.', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'Advanced Heading', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'advanced_heading_align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading-content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading-content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -184,7 +184,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'advanced_heading_x_position',
 			[
-				'label'   => __( 'X Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'X Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -207,7 +207,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'advanced_heading_y_position',
 			[
-				'label'   => __( 'Y Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Y Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -230,11 +230,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'advanced_heading_origin',
 			[
-				'label'       => __( 'Rotate Origin', 'bdthemes-element-pack' ),
-				'description' => __( 'Origin work when you set rotate value', 'bdthemes-element-pack' ),
+				'label'       => __( 'Rotate Origin', 'avator-widget-pack' ),
+				'description' => __( 'Origin work when you set rotate value', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'top-left',
-				'options'     => element_pack_position(),
+				'options'     => widget_pack_position(),
 			]
 		);
 
@@ -242,7 +242,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'advanced_heading_rotate',
 			[
-				'label'   => __( 'Rotate', 'bdthemes-element-pack' ),
+				'label'   => __( 'Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -261,9 +261,9 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position.SIZE}}px, {{advanced_heading_y_position.SIZE}}px) rotate({{SIZE}}deg);',
-					'(tablet){{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position_tablet.SIZE}}px, {{advanced_heading_y_position_tablet.SIZE}}px) rotate({{SIZE}}deg);',
-					'(mobile){{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position_mobile.SIZE}}px, {{advanced_heading_y_position_mobile.SIZE}}px) rotate({{SIZE}}deg);',
+					'(desktop){{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position.SIZE}}px, {{advanced_heading_y_position.SIZE}}px) rotate({{SIZE}}deg);',
+					'(tablet){{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position_tablet.SIZE}}px, {{advanced_heading_y_position_tablet.SIZE}}px) rotate({{SIZE}}deg);',
+					'(mobile){{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'transform: translate({{advanced_heading_x_position_mobile.SIZE}}px, {{advanced_heading_y_position_mobile.SIZE}}px) rotate({{SIZE}}deg);',
 				],
 			]
 		);
@@ -273,14 +273,14 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'advanced_heading_hide',
 			[
-				'label'       => __( 'Hide at', 'bdthemes-element-pack' ),
-				'description' => __( 'Some cases you need to hide it because when you set heading at outer position mobile device can show wrong width in that case you can hide it at mobile or tablet device. if you set overflow hidden on section or body so you don\'t need it.', 'bdthemes-element-pack' ),
+				'label'       => __( 'Hide at', 'avator-widget-pack' ),
+				'description' => __( 'Some cases you need to hide it because when you set heading at outer position mobile device can show wrong width in that case you can hide it at mobile or tablet device. if you set overflow hidden on section or body so you don\'t need it.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'm',
 				'options'     => [
-					''  => esc_html__('Nothing', 'bdthemes-element-pack'),
-					'm' => esc_html__('Tablet and Mobile ', 'bdthemes-element-pack'),
-					's' => esc_html__('Mobile', 'bdthemes-element-pack'),
+					''  => esc_html__('Nothing', 'avator-widget-pack'),
+					'm' => esc_html__('Tablet and Mobile ', 'avator-widget-pack'),
+					's' => esc_html__('Mobile', 'avator-widget-pack'),
 				],
 			]
 		);
@@ -291,7 +291,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_sub_heading',
 			[
-				'label'     => __( 'Sub Heading', 'bdthemes-element-pack' ),
+				'label'     => __( 'Sub Heading', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'sub_heading!' => '',
@@ -302,10 +302,10 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'sub_heading_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-sub-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-sub-heading' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -315,7 +315,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'name'     => 'sub_heading_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-sub-heading',
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-sub-heading',
 			]
 		);
 
@@ -323,18 +323,18 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name'     => 'sub_heading_text_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-sub-heading',
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-sub-heading',
 			]
 		);
 
 		$this->add_control(
 			'sub_heading_style',
 			[
-				'label'   => __( 'Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''     => esc_html__('None', 'bdthemes-element-pack'),
-					'line' => esc_html__('Line', 'bdthemes-element-pack'),
+					''     => esc_html__('None', 'avator-widget-pack'),
+					'line' => esc_html__('Line', 'avator-widget-pack'),
 				],
 				'separator' => 'before',
 			]
@@ -343,10 +343,10 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'sub_heading_style_color',
 			[
-				'label'     => __( 'Style Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Style Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-sub-heading .line:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-sub-heading .line:after' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'sub_heading_style' => 'line',
@@ -357,7 +357,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'sub_heading_style_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -366,7 +366,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-sub-heading .line:after' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-sub-heading .line:after' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'sub_heading_style' => 'line',
@@ -377,7 +377,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'sub_heading_style_height',
 			[
-				'label' => __( 'Height', 'bdthemes-element-pack' ),
+				'label' => __( 'Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -386,7 +386,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-sub-heading .line:after' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-sub-heading .line:after' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'sub_heading_style' => 'line',
@@ -397,14 +397,14 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'sub_heading_style_align',
 			[
-				'label'   => __( 'Style Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Style Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'right'      => __( 'After', 'bdthemes-element-pack' ),
-					'left'       => __( 'Before', 'bdthemes-element-pack' ),
-					'left-right' => __( 'After and Before', 'bdthemes-element-pack' ),
-					'bottom'     => __( 'Bottom', 'bdthemes-element-pack' ),
+					'right'      => __( 'After', 'avator-widget-pack' ),
+					'left'       => __( 'Before', 'avator-widget-pack' ),
+					'left-right' => __( 'After and Before', 'avator-widget-pack' ),
+					'bottom'     => __( 'Bottom', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'sub_heading_style' => 'line',
@@ -415,7 +415,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'sub_heading_style_indent',
 			[
-				'label'   => __( 'Style Spacing', 'bdthemes-element-pack' ),
+				'label'   => __( 'Style Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -429,9 +429,9 @@ class AdvancedHeading extends Widget_Base {
 					'sub_heading_style' => 'line',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-button-icon-align-right'  => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-button-icon-align-left'   => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-button-icon-align-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-button-icon-align-right'  => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-button-icon-align-left'   => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-button-icon-align-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -441,7 +441,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_main_heading',
 			[
-				'label'     => __( 'Main Heading', 'bdthemes-element-pack' ),
+				'label'     => __( 'Main Heading', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'main_heading!' => '',
@@ -454,17 +454,17 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_style_normal',
 			[
-				'label' => esc_html__('Normal', 'bdthemes-element-pack')
+				'label' => esc_html__('Normal', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'main_heading_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -472,10 +472,10 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'main_heading_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div' => 'background-color: {{VALUE}};',
 				]
 			]
 		);
@@ -483,11 +483,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'main_heading_padding',
 			[
-				'label'      => esc_html__('Padding', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Padding', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -498,18 +498,18 @@ class AdvancedHeading extends Widget_Base {
 				'name'        => 'main_heading_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div'
+				'selector'    => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div'
 			]
 		);
 
 		$this->add_control(
 			'main_heading_radius',
 			[
-				'label'      => esc_html__('Radius', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -518,7 +518,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'main_heading_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div'
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div'
 			]
 		);
 
@@ -526,7 +526,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name'     => 'main_heading_text_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div'
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div'
 			]
 		);
 
@@ -535,14 +535,14 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'name'     => 'main_heading_typography',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div',
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div',
 			]
 		);
 
 		$this->add_control(
 			'heading_mainh_split_text',
 			[
-				'label'     => __( 'Split Text', 'bdthemes-element-pack' ),
+				'label'     => __( 'Split Text', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -554,11 +554,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'mainh_split_text_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-mainh-split-text' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -570,10 +570,10 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'mainh_split_text_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-mainh-split-text' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -585,13 +585,13 @@ class AdvancedHeading extends Widget_Base {
         $this->add_responsive_control(
             'split_text_space',
             [
-                'label'   => __( 'Split Space', 'bdthemes-element-pack' ),
+                'label'   => __( 'Split Space', 'avator-widget-pack' ),
                 'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 10,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-main-heading .bdt-main-heading-inner' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-main-heading .avt-main-heading-inner' => 'margin-right: {{SIZE}}{{UNIT}};',
                 ],
                 'condition'   => [
                     'split_main_heading' => 'yes'
@@ -603,11 +603,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'mainh_split_text_padding',
 			[
-				'label'      => esc_html__('Padding', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Padding', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-mainh-split-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -622,7 +622,7 @@ class AdvancedHeading extends Widget_Base {
 				'name'        => 'mainh_split_text_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text',
+				'selector'    => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-mainh-split-text',
 				'condition'   => [
 					'split_main_heading' => 'yes',
 					'split_text!'        => ''
@@ -633,11 +633,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'mainh_split_text_radius',
 			[
-				'label'      => esc_html__('Radius', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-mainh-split-text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				],
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -650,7 +650,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'mainh_split_text_shadow',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text',
+				'selector'  => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-mainh-split-text',
 				'condition' => [
 					'split_main_heading' => 'yes',
 					'split_text!'        => ''
@@ -663,7 +663,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'name'      => 'mainh_split_text_typography',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
-				'selector'  => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text',
+				'selector'  => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-mainh-split-text',
 				'condition' => [
 					'split_main_heading' => 'yes',
 					'split_text!'        => ''
@@ -676,16 +676,16 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_style_advanced',
 			[
-				'label' => esc_html__('Advanced', 'bdthemes-element-pack')
+				'label' => esc_html__('Advanced', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'main_heading_advanced_color',
 			[
-				'label'        => __( 'Advanced Style', 'bdthemes-element-pack' ),
+				'label'        => __( 'Advanced Style', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-ep-main-color-',
+				'prefix_class' => 'avt-wp-main-color-',
 				'render_type'  => 'template',
 			]
 		);
@@ -694,7 +694,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'main_heading_advanced_color',
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div'
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-main-heading > div'
 			]
 		);
 
@@ -705,11 +705,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'main_heading_style',
 			[
-				'label'   => __( 'Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''     => esc_html__('None', 'bdthemes-element-pack'),
-					'line' => esc_html__('Line', 'bdthemes-element-pack'),
+					''     => esc_html__('None', 'avator-widget-pack'),
+					'line' => esc_html__('Line', 'avator-widget-pack'),
 				],
 				'separator' => 'before',
 			]
@@ -718,10 +718,10 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'main_heading_style_color',
 			[
-				'label'     => __( 'Style Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Style Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .line:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .line:after' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'main_heading_style' => 'line',
@@ -732,7 +732,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'main_heading_style_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -741,7 +741,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .line:after' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .line:after' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'main_heading_style' => 'line',
@@ -752,7 +752,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'main_heading_style_height',
 			[
-				'label' => __( 'Height', 'bdthemes-element-pack' ),
+				'label' => __( 'Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -761,7 +761,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .line:after' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .line:after' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'main_heading_style' => 'line',
@@ -772,14 +772,14 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'main_heading_style_align',
 			[
-				'label'   => __( 'Style Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Style Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'bottom',
 				'options' => [
-					'right'      => __( 'After', 'bdthemes-element-pack' ),
-					'left'       => __( 'Before', 'bdthemes-element-pack' ),
-					'left-right' => __( 'After and Before', 'bdthemes-element-pack' ),
-					'bottom'     => __( 'Bottom', 'bdthemes-element-pack' ),
+					'right'      => __( 'After', 'avator-widget-pack' ),
+					'left'       => __( 'Before', 'avator-widget-pack' ),
+					'left-right' => __( 'After and Before', 'avator-widget-pack' ),
+					'bottom'     => __( 'Bottom', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'main_heading_style' => 'line',
@@ -790,7 +790,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_responsive_control(
 			'main_heading_style_indent',
 			[
-				'label'   => __( 'Style Spacing', 'bdthemes-element-pack' ),
+				'label'   => __( 'Style Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -804,9 +804,9 @@ class AdvancedHeading extends Widget_Base {
 					'main_heading_style' => 'line',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-button-icon-align-right'  => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-button-icon-align-left'   => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-button-icon-align-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-button-icon-align-right'  => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-button-icon-align-left'   => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-main-heading .avt-button-icon-align-bottom' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -816,7 +816,7 @@ class AdvancedHeading extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_advanced_heading',
 			[
-				'label'     => __( 'Advanced Heading', 'bdthemes-element-pack' ),
+				'label'     => __( 'Advanced Heading', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'advanced_heading!' => '',
@@ -827,9 +827,9 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'advanced_heading_advanced_color',
 			[
-				'label'        => __( 'Advanced Style', 'bdthemes-element-pack' ),
+				'label'        => __( 'Advanced Style', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-ep-advanced-color-',
+				'prefix_class' => 'avt-wp-advanced-color-',
 				'render_type'  => 'template',
 			]
 		);
@@ -838,7 +838,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'advanced_heading_advanced_color',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div',
+				'selector'  => '{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div',
 				'condition' => [
 					'advanced_heading_advanced_color' => 'yes',
 				],
@@ -848,10 +848,10 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'advanced_heading_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'advanced_heading_advanced_color!' => 'yes',
@@ -862,10 +862,10 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'advanced_heading_background_color',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'advanced_heading_advanced_color!' => 'yes',
@@ -876,11 +876,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'advanced_heading_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -890,7 +890,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'name'      => 'advanced_heading_typography',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div',
+				'selector'  => '{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div',
 				'separator' => 'before',
 			]
 		);
@@ -899,7 +899,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name'     => 'advanced_heading_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div',
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div',
 			]
 		);
 
@@ -908,10 +908,10 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'advanced_heading_border',
-				'label'       => __( 'Border', 'bdthemes-element-pack' ),
+				'label'       => __( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div',
+				'selector'    => '{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div',
 				'separator'   => 'before',
 			]
 		);
@@ -919,11 +919,11 @@ class AdvancedHeading extends Widget_Base {
 		$this->add_control(
 			'advanced_heading_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -933,14 +933,14 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'advanced_heading_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div',
+				'selector' => '{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div',
 			]
 		);
 
 		$this->add_control(
 			'advanced_heading_opacity',
 			[
-				'label' => __( 'Opacity', 'bdthemes-element-pack' ),
+				'label' => __( 'Opacity', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -950,7 +950,7 @@ class AdvancedHeading extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-advanced-heading .avt-advanced-heading-content > div' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -971,22 +971,22 @@ class AdvancedHeading extends Widget_Base {
 			return;
 		}
 
-		$this->add_render_attribute( 'heading', 'class', 'bdt-heading-title' );
+		$this->add_render_attribute( 'heading', 'class', 'avt-heading-title' );
 
 
 		if ($settings['sub_heading']) {
 			$subh_style = '';
 			if ('line' === $settings['sub_heading_style']) {
 				if ('left-right' === $settings['sub_heading_style_align']) {
-					$subh_style = '<div class="line bdt-button-icon-align-left"></div><div class="line bdt-button-icon-align-right"></div>';
+					$subh_style = '<div class="line avt-button-icon-align-left"></div><div class="line avt-button-icon-align-right"></div>';
 				} elseif ('bottom' === $settings['sub_heading_style_align']) {
-					$subh_style = '<div class="line bdt-button-icon-align-'.$settings['sub_heading_style_align'].'"></div>';
+					$subh_style = '<div class="line avt-button-icon-align-'.$settings['sub_heading_style_align'].'"></div>';
 				} else {
-					$subh_style = '<div class="line bdt-button-icon-align-'.$settings['sub_heading_style_align'].'"></div>';
+					$subh_style = '<div class="line avt-button-icon-align-'.$settings['sub_heading_style_align'].'"></div>';
 				}
 			}
 
-			$sub_heading = '<div class="bdt-sub-heading"><div class="bdt-sub-heading-content">'.$settings['sub_heading'].'</div>'.$subh_style.'</div> ';
+			$sub_heading = '<div class="avt-sub-heading"><div class="avt-sub-heading-content">'.$settings['sub_heading'].'</div>'.$subh_style.'</div> ';
 		}
 
 		if ($settings['advanced_heading']) {
@@ -995,8 +995,8 @@ class AdvancedHeading extends Widget_Base {
 				[
 					'avd-hclass' => [
 						'class' => [
-							'bdt-advanced-heading-content',
-							$settings['advanced_heading_hide'] ? 'bdt-visible@'. $settings['advanced_heading_hide'] : '',
+							'avt-advanced-heading-content',
+							$settings['advanced_heading_hide'] ? 'avt-visible@'. $settings['advanced_heading_hide'] : '',
 						],
 					],
 				]
@@ -1006,7 +1006,7 @@ class AdvancedHeading extends Widget_Base {
 				[
 					'avd-hcclass' => [
 						'class' => [
-							$settings['advanced_heading_origin'] ? 'bdt-transform-origin-'.$settings['advanced_heading_origin'] : '',
+							$settings['advanced_heading_origin'] ? 'avt-transform-origin-'.$settings['advanced_heading_origin'] : '',
 						],
 					],
 				]
@@ -1015,10 +1015,10 @@ class AdvancedHeading extends Widget_Base {
 	   		$advanced_heading = '<div ' . $this->get_render_attribute_string( 'avd-hclass' ) . '><div ' . $this->get_render_attribute_string( 'avd-hcclass' ) . '>' .$settings['advanced_heading']. '</div></div>';
 		}
 
-		$this->add_render_attribute( 'main_heading', 'class', 'bdt-main-heading-inner' );
+		$this->add_render_attribute( 'main_heading', 'class', 'avt-main-heading-inner' );
 		$this->add_inline_editing_attributes( 'main_heading' );
 
-		$this->add_render_attribute( 'split_heading', 'class', 'bdt-mainh-split-text' );
+		$this->add_render_attribute( 'split_heading', 'class', 'avt-mainh-split-text' );
 
 		if ($settings['main_heading']) :
 
@@ -1026,11 +1026,11 @@ class AdvancedHeading extends Widget_Base {
 
 			if ('line' === $settings['main_heading_style']) {
 				if ('left-right' === $settings['main_heading_style_align']) {
-					$mainh_style = '<div class="line bdt-button-icon-align-left"></div><div class="line bdt-button-icon-align-right"></div>';
+					$mainh_style = '<div class="line avt-button-icon-align-left"></div><div class="line avt-button-icon-align-right"></div>';
 				} elseif ('bottom' === $settings['main_heading_style_align']) {
-					$mainh_style = '<div class="line bdt-button-icon-align-'.$settings['main_heading_style_align'].'"></div>';
+					$mainh_style = '<div class="line avt-button-icon-align-'.$settings['main_heading_style_align'].'"></div>';
 				} else {
-					$mainh_style = '<div class="line bdt-button-icon-align-'.$settings['main_heading_style_align'].'"></div>';
+					$mainh_style = '<div class="line avt-button-icon-align-'.$settings['main_heading_style_align'].'"></div>';
 				}
 			}
 
@@ -1040,7 +1040,7 @@ class AdvancedHeading extends Widget_Base {
 
 			$main_heading = '<div '.$this->get_render_attribute_string( 'main_heading' ).'>' . $settings['main_heading'] . '</div>';
 
-			$main_heading = '<div class="bdt-main-heading">' . $main_heading . $split_heading . $mainh_style . '</div>';
+			$main_heading = '<div class="avt-main-heading">' . $main_heading . $split_heading . $mainh_style . '</div>';
 
 		endif;
 
@@ -1059,7 +1059,7 @@ class AdvancedHeading extends Widget_Base {
 			$main_heading = sprintf( '<a %1$s>%2$s</a>', $this->get_render_attribute_string( 'url' ), $main_heading );
 		}
 
-		$heading_html[] = '<div id ="'.$id.'" class="bdt-advanced-heading">';
+		$heading_html[] = '<div id ="'.$id.'" class="avt-advanced-heading">';
 		
 		
 		$heading_html[] = $advanced_heading;
@@ -1079,43 +1079,43 @@ class AdvancedHeading extends Widget_Base {
 		var subh_style    = '';
 		var mainh_style   = '';
 
-		view.addRenderAttribute( 'main_heading', 'class', 'bdt-main-heading-inner' );
+		view.addRenderAttribute( 'main_heading', 'class', 'avt-main-heading-inner' );
 		view.addInlineEditingAttributes( 'main_heading' );
 
-		view.addRenderAttribute( 'split_text', 'class', 'bdt-mainh-split-text' );
+		view.addRenderAttribute( 'split_text', 'class', 'avt-mainh-split-text' );
 		view.addInlineEditingAttributes( 'split_text' );
 
-		view.addRenderAttribute( 'main_heading_wrapper', 'class', [ 'bdt-heading-title', 'elementor-size-' + settings.size ] );
+		view.addRenderAttribute( 'main_heading_wrapper', 'class', [ 'avt-heading-title', 'elementor-size-' + settings.size ] );
 
-		view.addRenderAttribute('advanced_heading_content', 'class', ['bdt-advanced-heading-content'] );
+		view.addRenderAttribute('advanced_heading_content', 'class', ['avt-advanced-heading-content'] );
 
-		view.addRenderAttribute('advanced_heading', 'class', 'bdt-transform-origin-' + settings.advanced_heading_origin );
+		view.addRenderAttribute('advanced_heading', 'class', 'avt-transform-origin-' + settings.advanced_heading_origin );
 
 		var avdh_content_print = view.getRenderAttributeString( 'advanced_heading_content' );
 		var avdh_transform_print = view.getRenderAttributeString( 'advanced_heading' );
 
 		if ( 'line' === settings.sub_heading_style ) {
 			if ('left-right' === settings.sub_heading_style_align) {
-				subh_style = '<div class="line bdt-button-icon-align-left"></div><div class="line bdt-button-icon-align-right"></div>';
+				subh_style = '<div class="line avt-button-icon-align-left"></div><div class="line avt-button-icon-align-right"></div>';
 			} else if ('bottom' === settings.sub_heading_style_align) {
-				subh_style = '<div class="line bdt-button-icon-align-' + settings.sub_heading_style_align + '"></div>';
+				subh_style = '<div class="line avt-button-icon-align-' + settings.sub_heading_style_align + '"></div>';
 			} else {
-				subh_style = '<div class="line bdt-button-icon-align-' + settings.sub_heading_style_align + '"></div>';
+				subh_style = '<div class="line avt-button-icon-align-' + settings.sub_heading_style_align + '"></div>';
 			}
 		}
 
 		if ( 'line' === settings.main_heading_style ) {
 			if ('left-right' === settings.main_heading_style_align) {
-				mainh_style = '<div class="line bdt-button-icon-align-left"></div><div class="line bdt-button-icon-align-right"></div>';
+				mainh_style = '<div class="line avt-button-icon-align-left"></div><div class="line avt-button-icon-align-right"></div>';
 			} else if ('bottom' === settings.main_heading_style_align) {
-				mainh_style = '<div class="line bdt-button-icon-align-' + settings.main_heading_style_align + '"></div>';
+				mainh_style = '<div class="line avt-button-icon-align-' + settings.main_heading_style_align + '"></div>';
 			} else {
-				mainh_style = '<div class="line bdt-button-icon-align-' + settings.main_heading_style_align + '"></div>';
+				mainh_style = '<div class="line avt-button-icon-align-' + settings.main_heading_style_align + '"></div>';
 			}
 		}
 
 		#>
-		<div class="bdt-advanced-heading">
+		<div class="avt-advanced-heading">
 			<div <# print(avdh_content_print) #> >
 				<div <# print(avdh_transform_print) #>>
 					<# print(settings.advanced_heading) #>
@@ -1123,8 +1123,8 @@ class AdvancedHeading extends Widget_Base {
 			</div>
 			
 			<# if ( settings.sub_heading != '' ) { #>
-			<div class="bdt-sub-heading">
-				<div class="bdt-sub-heading-content">
+			<div class="avt-sub-heading">
+				<div class="avt-sub-heading-content">
 					<# print(settings.sub_heading); #>
 				</div>
 				<# print(subh_style); #>
@@ -1132,7 +1132,7 @@ class AdvancedHeading extends Widget_Base {
 			<# } #>
 
 			<{{settings.header_size}} <# print(view.getRenderAttributeString( 'main_heading_wrapper' )) #> >
-				<div class="bdt-main-heading">
+				<div class="avt-main-heading">
 
 					<# if ( '' !== settings.link.url ) { #>
 						<a href="{{{settings.link.url}}}">

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\VideoGallery\Widgets;
+namespace WidgetPack\Modules\VideoGallery\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -19,19 +19,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Video_Gallery extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-video-gallery';
+		return 'avt-video-gallery';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Video Gallery', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Video Gallery', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-video-gallery';
+		return 'avt-wi-video-gallery';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -39,7 +39,7 @@ class Video_Gallery extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'bdt-video-gallery' ];
+		return [ 'avt-video-gallery' ];
 	}
 
 	public function get_script_depends() {
@@ -51,19 +51,19 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_custom_gallery_content',
 			[
-				'label' => esc_html__( 'Video Gallery', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Video Gallery', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'thumb_layout',
 			[
-				'label'   => esc_html__( 'Thumb Layout', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Thumb Layout', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'vertical',
 				'options' => [
-					'vertical'   => esc_html__( 'Vertical', 'bdthemes-element-pack' ),
-					'horizontal' => esc_html__( 'Horizontal', 'bdthemes-element-pack' ),
+					'vertical'   => esc_html__( 'Vertical', 'avator-widget-pack' ),
+					'horizontal' => esc_html__( 'Horizontal', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -75,20 +75,20 @@ class Video_Gallery extends Widget_Base {
 		$repeater->start_controls_tab(
 			'tab_video_gallery_source',
 			[
-				'label' => esc_html__( 'Source', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Source', 'avator-widget-pack' ),
 			]
 		);
 
 		$repeater->add_control(
 			'source_type',
 			[
-				'label'       => esc_html__( 'Video Type', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Video Type', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'remote_url',
 				'label_block' => true,
 				'options'     => [
-					'remote_url' => esc_html__( 'Remote Video', 'bdthemes-element-pack' ),
-					'hosted_url' => esc_html__( 'Local Video', 'bdthemes-element-pack' ),
+					'remote_url' => esc_html__( 'Remote Video', 'avator-widget-pack' ),
+					'hosted_url' => esc_html__( 'Local Video', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -97,13 +97,13 @@ class Video_Gallery extends Widget_Base {
 			'remote_url',
 			[
 				'type'          => Controls_Manager::URL,
-				'label'         => __( 'Video Source', 'bdthemes-element-pack' ),
+				'label'         => __( 'Video Source', 'avator-widget-pack' ),
 				'label_block'   => true,
 				'show_external' => false,
-				'placeholder'   => __( 'https://www.youtube.com/watch?v=vN9DnFiRMX0&feature=youtu.be', 'bdthemes-element-pack' ),
+				'placeholder'   => __( 'https://www.youtube.com/watch?v=vN9DnFiRMX0&feature=youtu.be', 'avator-widget-pack' ),
 				'dynamic'       => [ 'active' => true ],
 				'default'       => [
-					'url' => __( 'https://www.youtube.com/watch?v=vN9DnFiRMX0&feature=youtu.be', 'bdthemes-element-pack' ),
+					'url' => __( 'https://www.youtube.com/watch?v=vN9DnFiRMX0&feature=youtu.be', 'avator-widget-pack' ),
 				],
 				'condition'     => [
 					'source_type' => 'remote_url',
@@ -134,18 +134,18 @@ class Video_Gallery extends Widget_Base {
 		$repeater->start_controls_tab(
 			'tab_video_gallery_desc',
 			[
-				'label' => esc_html__( 'Description', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Description', 'avator-widget-pack' ),
 			]
 		);
 
 		$repeater->add_control(
 			'title',
 			[
-				'label'       => esc_html__( 'Title and Description', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Title and Description', 'avator-widget-pack' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'default' => esc_html__( 'Video Title' , 'bdthemes-element-pack' ),
+				'default' => esc_html__( 'Video Title' , 'avator-widget-pack' ),
 			]
 		);
 
@@ -154,7 +154,7 @@ class Video_Gallery extends Widget_Base {
 			[
 				'type'    => Controls_Manager::TEXTAREA,
 				'dynamic' => [ 'active' => true ],
-				'default' => esc_html__( 'Women typing keyboard' , 'bdthemes-element-pack' ),
+				'default' => esc_html__( 'Women typing keyboard' , 'avator-widget-pack' ),
 			]
 		);
 
@@ -163,14 +163,14 @@ class Video_Gallery extends Widget_Base {
 		$repeater->start_controls_tab(
 			'tab_video_gallery_poster',
 			[
-				'label' => esc_html__( 'Poster', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Poster', 'avator-widget-pack' ),
 			]
 		);
 
 		$repeater->add_control(
 			'poster',
 			[
-				'label'   => esc_html__( 'Poster', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Poster', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [ 'active' => true ],
 			]
@@ -187,38 +187,38 @@ class Video_Gallery extends Widget_Base {
 				'fields'  => array_values( $repeater->get_controls() ),
 				'default' => [
 					[
-						'title'      => esc_html__( 'Youtube Video', 'bdthemes-element-pack' ),
-						'desc'       => esc_html__( 'Women typing keyboard', 'bdthemes-element-pack' ),
+						'title'      => esc_html__( 'Youtube Video', 'avator-widget-pack' ),
+						'desc'       => esc_html__( 'Women typing keyboard', 'avator-widget-pack' ),
 						'remote_url' => [ 'url' => 'https://www.youtube.com/watch?v=vN9DnFiRMX0&feature=youtu.be' ],
 					],
 					[
-						'title'      => esc_html__( 'Vimeo Video', 'bdthemes-element-pack' ),
-						'desc'       => esc_html__( 'Auto VR Concept', 'bdthemes-element-pack' ),
+						'title'      => esc_html__( 'Vimeo Video', 'avator-widget-pack' ),
+						'desc'       => esc_html__( 'Auto VR Concept', 'avator-widget-pack' ),
 						'remote_url' => [ 'url' => 'https://vimeo.com/258349022' ],
 					],
 					[
-						'title'      => esc_html__( 'Wista Video', 'bdthemes-element-pack' ),
-						'desc'       => esc_html__( 'Brendan - Make It Clap', 'bdthemes-element-pack' ),
+						'title'      => esc_html__( 'Wista Video', 'avator-widget-pack' ),
+						'desc'       => esc_html__( 'Brendan - Make It Clap', 'avator-widget-pack' ),
 						'remote_url' => [ 'url' => 'https://home.wistia.com/medias/e4a27b971d' ],
 					],
 					[
-						'title'      => esc_html__( 'Dailymotion Video', 'bdthemes-element-pack' ),
-						'desc'       => esc_html__( 'Drama B - DREAMS', 'bdthemes-element-pack' ),
+						'title'      => esc_html__( 'Dailymotion Video', 'avator-widget-pack' ),
+						'desc'       => esc_html__( 'Drama B - DREAMS', 'avator-widget-pack' ),
 						'remote_url' => [ 'url' => 'http://www.dailymotion.com/embed/video/x2ioxee' ],
 					],
 					[
-						'title'      => esc_html__( 'MP4 Format Video', 'bdthemes-element-pack' ),
-						'desc'       => esc_html__( 'BdThemes Intro', 'bdthemes-element-pack' ),
-						'remote_url' => [ 'url' => 'https://bdthemes.net/demo/wordpress/element-pack/wp-content/uploads/2018/02/countdown.mp4' ],
+						'title'      => esc_html__( 'MP4 Format Video', 'avator-widget-pack' ),
+						'desc'       => esc_html__( 'Avator Intro', 'avator-widget-pack' ),
+						'remote_url' => [ 'url' => 'https://avator.net/demo/wordpress/widget-pack/wp-content/uploads/2018/02/countdown.mp4' ],
 					],
 					[
-						'title'      => esc_html__( 'WEBM Format Video', 'bdthemes-element-pack' ),
-						'desc'       => esc_html__( 'Fish Frenzy - Oceans Clip', 'bdthemes-element-pack' ),
+						'title'      => esc_html__( 'WEBM Format Video', 'avator-widget-pack' ),
+						'desc'       => esc_html__( 'Fish Frenzy - Oceans Clip', 'avator-widget-pack' ),
 						'remote_url' => [ 'url' => 'https://s3.amazonaws.com/fooplugins/rvs/oceans-clip.webm' ],
 					],
 					[
-						'title'      => esc_html__( 'OGV Format Video', 'bdthemes-element-pack' ),
-						'desc'       => esc_html__( 'Fish Frenzy - Oceans Clip', 'bdthemes-element-pack' ),
+						'title'      => esc_html__( 'OGV Format Video', 'avator-widget-pack' ),
+						'desc'       => esc_html__( 'Fish Frenzy - Oceans Clip', 'avator-widget-pack' ),
 						'remote_url' => [ 'url' => 'https://s3.amazonaws.com/fooplugins/rvs/oceans-clip.ogv' ],
 					],
 				],
@@ -231,14 +231,14 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_video',
 			[
-				'label' => esc_html__( 'Video', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Video', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_video_title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -247,7 +247,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'show_video_desc',
 			[
-				'label'   => esc_html__( 'Description', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Description', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -258,37 +258,37 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_thumbnail',
 			[
-				'label' => esc_html__( 'Thumbnail', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Thumbnail', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_thumbnail_thumb',
 			[
-				'label'        => esc_html__( 'Thumbnail', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Thumbnail', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-thumbnail-',
+				'prefix_class' => 'avt-video-gallery-thumbnail-',
 			]
 		);
 
 		$this->add_control(
 			'show_thumbnail_title',
 			[
-				'label'        => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-title-',
+				'prefix_class' => 'avt-video-gallery-title-',
 			]
 		);
 
 		$this->add_control(
 			'show_thumbnail_desc',
 			[
-				'label'        => esc_html__( 'Description', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Description', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-desc-',
+				'prefix_class' => 'avt-video-gallery-desc-',
 			]
 		);
 		
@@ -297,14 +297,14 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional',
 			[
-				'label' => esc_html__( 'Additional', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_play_btn_on_hover',
 			[
-				'label' => esc_html__( 'Play Button on Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Play Button on Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -312,7 +312,7 @@ class Video_Gallery extends Widget_Base {
 		/*$this->add_control(
 			'play_on_click_thumb',
 			[
-				'label' => esc_html__( 'Play on Click Thumb', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Play on Click Thumb', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);*/
@@ -320,7 +320,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'continuous_play',
 			[
-				'label' => esc_html__( 'Play when Navigate', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Play when Navigate', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -330,7 +330,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_video_title',
 			[
-				'label'     => esc_html__( 'Video Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Video Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_video_title' => 'yes',
@@ -341,7 +341,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'video_title_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-item-text h2' => 'color: {{VALUE}}',
@@ -361,7 +361,7 @@ class Video_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'video_title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .rvs-item-text h2',
 			]
@@ -372,7 +372,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_video_desc',
 			[
-				'label'     => esc_html__( 'Video Description', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Video Description', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_video_desc' => 'yes',
@@ -383,10 +383,10 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'video_desc_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-vg-video-desc' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-vg-video-desc' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -394,7 +394,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'video_desc_space',
 			[
-				'label' => __( 'Space', 'bdthemes-element-pack' ),
+				'label' => __( 'Space', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -404,7 +404,7 @@ class Video_Gallery extends Widget_Base {
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-vg-video-desc' => 'margin-top: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .avt-vg-video-desc' => 'margin-top: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);
@@ -413,9 +413,9 @@ class Video_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'video_desc_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-vg-video-desc',
+				'selector' => '{{WRAPPER}} .avt-vg-video-desc',
 			]
 		);
 
@@ -424,7 +424,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_thumb_item',
 			[
-				'label' => __( 'Thumb Item', 'bdthemes-element-pack' ),
+				'label' => __( 'Thumb Item', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -434,14 +434,14 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_thumb_item_normal',
 			[
-				'label' => __('Normal', 'bdthemes-element-pack')
+				'label' => __('Normal', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'thumb_item_bg',
 			[
-				'label'      => __( 'Background', 'bdthemes-element-pack' ),
+				'label'      => __( 'Background', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::COLOR,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item' => 'background-color: {{VALUE}};',
@@ -452,7 +452,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumb_item_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -463,7 +463,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumb_item_margin',
 			[
-				'label'      => __( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => __( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -484,7 +484,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumb_item_radius',
 			[
-				'label'      => __( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -506,14 +506,14 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_thumb_item_hover',
 			[
-				'label' => __('Hover', 'bdthemes-element-pack')
+				'label' => __('Hover', 'avator-widget-pack')
 			]
 		);
 
 		$this->add_control(
 			'thumb_item_hover_bg',
 			[
-				'label'      => __( 'Background', 'bdthemes-element-pack' ),
+				'label'      => __( 'Background', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::COLOR,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item:hover' => 'background-color: {{VALUE}};',
@@ -524,7 +524,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumb_item_hover_border_color',
 			[
-				'label'      => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Color', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::COLOR,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item:hover' => 'border-color: {{VALUE}} !important;',
@@ -535,7 +535,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumb_item_hover_radius',
 			[
-				'label'      => __( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -557,14 +557,14 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_thumb_item_active',
 			[
-				'label' => __('Active', 'bdthemes-element-pack')
+				'label' => __('Active', 'avator-widget-pack')
 			]
 		);		
 
 		$this->add_control(
 			'thumb_item_active_bg',
 			[
-				'label'      => __( 'Background', 'bdthemes-element-pack' ),
+				'label'      => __( 'Background', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::COLOR,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item.rvs-active' => 'background-color: {{VALUE}};',
@@ -575,7 +575,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumb_item_active_border_color',
 			[
-				'label'      => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Color', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::COLOR,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item.rvs-active' => 'border-color: {{VALUE}} !important;',
@@ -592,7 +592,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_thumbnail',
 			[
-				'label'     => __( 'Thumbnail', 'bdthemes-element-pack' ),
+				'label'     => __( 'Thumbnail', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_thumbnail_thumb' => 'yes',
@@ -603,7 +603,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumb_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => '%',
@@ -630,7 +630,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumbnail_margin',
 			[
-				'label'      => __( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => __( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item span' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -641,7 +641,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumbnail_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
 					'{{WRAPPER}} .rvs-nav-item span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -653,14 +653,14 @@ class Video_Gallery extends Widget_Base {
 
 		$this->start_controls_tab( 'normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'opacity',
 			[
-				'label' => __( 'Opacity', 'bdthemes-element-pack' ),
+				'label' => __( 'Opacity', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -688,14 +688,14 @@ class Video_Gallery extends Widget_Base {
 
 		$this->start_controls_tab( 'hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'opacity_hover',
 			[
-				'label' => __( 'Opacity', 'bdthemes-element-pack' ),
+				'label' => __( 'Opacity', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -721,7 +721,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'background_hover_transition',
 			[
-				'label' => __( 'Transition Duration (s)', 'bdthemes-element-pack' ),
+				'label' => __( 'Transition Duration (s)', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -752,7 +752,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumbnail_radius',
 			[
-				'label'      => __( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -774,7 +774,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_thumbnail_title',
 			[
-				'label'     => esc_html__( 'Thumbnail Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Thumbnail Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_thumbnail_title' => 'yes',
@@ -785,7 +785,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnail_title_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-nav-item-title' => 'color: {{VALUE}}',
@@ -796,7 +796,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnail_title_hover_color',
 			[
-				'label'     => esc_html__( 'Text Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-nav-item-title:hover' => 'color: {{VALUE}}',
@@ -808,7 +808,7 @@ class Video_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'thumbnail_title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .rvs-nav-item-title',
 			]
@@ -819,7 +819,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_thumbnail_desc',
 			[
-				'label'     => esc_html__( 'Thumbnail Description', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Thumbnail Description', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_thumbnail_desc' => 'yes',
@@ -830,7 +830,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnail_desc_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-nav-item-credits' => 'color: {{VALUE}}',
@@ -841,7 +841,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'thumbnail_desc_hover_color',
 			[
-				'label'     => esc_html__( 'Text Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-nav-item-credits:hover' => 'color: {{VALUE}}',
@@ -853,7 +853,7 @@ class Video_Gallery extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'thumbnail_desc_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .rvs-nav-item-credits',
 			]
@@ -862,7 +862,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'thumbnail_desc_space',
 			[
-				'label'     => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label'     => __( 'Spacing', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-nav-item-credits' => 'margin-top: {{SIZE}}{{UNIT}};',
@@ -875,7 +875,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_play_button',
 			[
-				'label' => __( 'Play/Pause Button', 'bdthemes-element-pack' ),
+				'label' => __( 'Play/Pause Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -885,14 +885,14 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_play_btn_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'play_btn_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-play-video' => 'color: {{VALUE}};',
@@ -903,7 +903,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'play_btn_bg',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-play-video' => 'background-color: {{VALUE}};',
@@ -914,7 +914,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'play_btn_size',
 			[
-				'label' => __( 'Size (px)', 'bdthemes-element-pack' ),
+				'label' => __( 'Size (px)', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -943,7 +943,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_responsive_control(
 			'play_btn_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'before',
@@ -966,14 +966,14 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_play_btn_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'play_btn_hover_icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-play-video:hover' => 'color: {{VALUE}};',
@@ -984,7 +984,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'play_btn_hover_bg',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .rvs-play-video:hover' => 'background-color: {{VALUE}};',
@@ -995,7 +995,7 @@ class Video_Gallery extends Widget_Base {
 		$this->add_control(
 			'play_btn_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'play_btn_border_border!' => '',
@@ -1028,7 +1028,7 @@ class Video_Gallery extends Widget_Base {
 
 		foreach ( $settings['video_gallery'] as $video ) :
 
-			$video_poster = ( $video['poster']['url'] ) ? $video['poster']['url'] : BDTEP_ASSETS_URL . 'images/video-thumbnail.svg';
+			$video_poster = ( $video['poster']['url'] ) ? $video['poster']['url'] : AWP_ASSETS_URL . 'images/video-thumbnail.svg';
 			$video_source = $video['remote_url']['url'];
 
 			if ( 'hosted_url' == $video['source_type'] ) {
@@ -1055,11 +1055,11 @@ class Video_Gallery extends Widget_Base {
 					<div class="rvs-item-text">
 
 						<?php if ( $settings['show_video_title'] ) : ?>
-							<h2 class="bdt-vg-video-title"><?php echo esc_html( $video['title'] ); ?></h2>
+							<h2 class="avt-vg-video-title"><?php echo esc_html( $video['title'] ); ?></h2>
 						<?php endif; ?>
 
 						<?php if ( $settings['show_video_desc'] ) : ?>
-							<div class="bdt-vg-video-desc"><?php echo wp_kses_post( $video['desc'] ); ?></div>
+							<div class="avt-vg-video-desc"><?php echo wp_kses_post( $video['desc'] ); ?></div>
 						<?php endif; ?>
 
 					</div>
@@ -1081,7 +1081,7 @@ class Video_Gallery extends Widget_Base {
 
 			<?php foreach ( $settings['video_gallery'] as $video ) :
 
-				$video_thumbnail = ( $video['poster']['url'] ) ? $video['poster']['url'] : BDTEP_ASSETS_URL . 'images/video-thumbnail.svg';
+				$video_thumbnail = ( $video['poster']['url'] ) ? $video['poster']['url'] : AWP_ASSETS_URL . 'images/video-thumbnail.svg';
 
 				$youtube_id = (preg_match( '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $video['remote_url']['url'], $match ) ) ? $match[1] : false;
 
@@ -1121,7 +1121,7 @@ class Video_Gallery extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$id       = $this->get_id();
 
-		$this->add_render_attribute( 'video-gallery', 'class', ['bdt-video-gallery', 'rvs-container', 'rvs-flat-circle-play'] );
+		$this->add_render_attribute( 'video-gallery', 'class', ['avt-video-gallery', 'rvs-container', 'rvs-flat-circle-play'] );
 		
 		if ( 'horizontal' == $settings['thumb_layout'] ) {
 			$this->add_render_attribute( 'video-gallery', 'class', 'rvs-horizontal' );

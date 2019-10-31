@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostGallery\Skins;
+namespace WidgetPack\Modules\PostGallery\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Utils;
@@ -8,20 +8,20 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Trosia extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-trosia';
+		return 'avt-trosia';
 	}
 
 	public function get_title() {
-		return __( 'Trosia', 'bdthemes-element-pack' );
+		return __( 'Trosia', 'avator-widget-pack' );
 	}
 
 	public function render_overlay() {
 		$settings = $this->parent->get_settings();
 		
 		?>
-		<div class="bdt-position-cover bdt-overlay bdt-overlay-default">
-			<div class="bdt-post-gallery-content">
-				<div class="bdt-gallery-content-inner bdt-transition-fade">
+		<div class="avt-position-cover avt-overlay avt-overlay-default">
+			<div class="avt-post-gallery-content">
+				<div class="avt-gallery-content-inner avt-transition-fade">
 					<?php 
 
 					$placeholder_img_src = Utils::get_placeholder_image_src();
@@ -38,9 +38,9 @@ class Skin_Trosia extends Elementor_Skin_Base {
 						[
 							'lightbox-settings' => [
 								'class' => [
-									'bdt-gallery-item-link',
-									'bdt-gallery-lightbox-item',
-									('icon' == $settings['link_type']) ? 'bdt-link-icon' : 'bdt-link-text'
+									'avt-gallery-item-link',
+									'avt-gallery-lightbox-item',
+									('icon' == $settings['link_type']) ? 'avt-link-icon' : 'avt-link-text'
 								],
 								'data-elementor-open-lightbox' => 'no',
 								'data-caption'                 => get_the_title(),
@@ -50,27 +50,27 @@ class Skin_Trosia extends Elementor_Skin_Base {
 					);					
 					
 					if ( 'none' !== $settings['show_link'])  : ?>
-						<div class="bdt-flex-inline bdt-gallery-item-link-wrapper">
+						<div class="avt-flex-inline avt-gallery-item-link-wrapper">
 							<?php if (( 'lightbox' == $settings['show_link'] ) || ( 'both' == $settings['show_link'] )) : ?>
 								<a <?php echo $this->parent->get_render_attribute_string( 'lightbox-settings' ); ?>>
 									<?php if ( 'icon' == $settings['link_type'] ) : ?>
-										<span bdt-icon="icon: search"></span>
+										<span avt-icon="icon: search"></span>
 									<?php elseif ( 'text' == $settings['link_type'] ) : ?>
-										<span><?php esc_html_e( 'ZOOM', 'bdthemes-element-pack' ); ?></span>
+										<span><?php esc_html_e( 'ZOOM', 'avator-widget-pack' ); ?></span>
 									<?php endif; ?>
 								</a>
 							<?php endif; ?>
 							
 							<?php if (( 'post' == $settings['show_link'] ) || ( 'both' == $settings['show_link'] )) : ?>
 								<?php 
-									$link_type_class =  ( 'icon' == $settings['link_type'] ) ? ' bdt-link-icon' : ' bdt-link-text';
+									$link_type_class =  ( 'icon' == $settings['link_type'] ) ? ' avt-link-icon' : ' avt-link-text';
 									$target =  ( $settings['external_link'] ) ? 'target="_blank"' : '';
 								?>
-								<a class="bdt-gallery-item-link<?php echo esc_attr($link_type_class); ?>" href="<?php echo get_permalink(); ?>" <?php echo esc_attr($target); ?>>
+								<a class="avt-gallery-item-link<?php echo esc_attr($link_type_class); ?>" href="<?php echo get_permalink(); ?>" <?php echo esc_attr($target); ?>>
 									<?php if ( 'icon' == $settings['link_type'] ) : ?>
-										<span bdt-icon="icon: link"></span>
+										<span avt-icon="icon: link"></span>
 									<?php elseif ( 'text' == $settings['link_type'] ) : ?>
-										<span><?php esc_html_e( 'VIEW', 'bdthemes-element-pack' ); ?></span>
+										<span><?php esc_html_e( 'VIEW', 'avator-widget-pack' ); ?></span>
 									<?php endif; ?>
 								</a>
 							<?php endif; ?>
@@ -93,7 +93,7 @@ class Skin_Trosia extends Elementor_Skin_Base {
 			}
 		}
 
-		$this->parent->add_render_attribute('post-gallery-item', 'class', 'bdt-gallery-item bdt-transition-toggle', true);
+		$this->parent->add_render_attribute('post-gallery-item', 'class', 'avt-gallery-item avt-transition-toggle', true);
 
 		if ($settings['show_filter_bar']) {
 			$tags_classes = array_map( function( $tag ) {
@@ -102,24 +102,24 @@ class Skin_Trosia extends Elementor_Skin_Base {
 			$this->parent->add_render_attribute('post-gallery-item', 'data-filter', implode(' ', $tags_classes), true);
 		}
 
-		$this->parent->add_render_attribute('post-gallery-item', 'class', 'bdt-width-1-'. $settings['columns_mobile']);
-		$this->parent->add_render_attribute('post-gallery-item', 'class', 'bdt-width-1-'. $settings['columns_tablet'] .'@s');
-		$this->parent->add_render_attribute('post-gallery-item', 'class', 'bdt-width-1-'. $settings['columns'] .'@m');
+		$this->parent->add_render_attribute('post-gallery-item', 'class', 'avt-width-1-'. $settings['columns_mobile']);
+		$this->parent->add_render_attribute('post-gallery-item', 'class', 'avt-width-1-'. $settings['columns_tablet'] .'@s');
+		$this->parent->add_render_attribute('post-gallery-item', 'class', 'avt-width-1-'. $settings['columns'] .'@m');
 
 		?>
 		<div <?php echo $this->parent->get_render_attribute_string( 'post-gallery-item' ); ?>>
-			<div class="bdt-post-gallery-inner" <?php echo $this->parent->get_render_attribute_string( 'post-gallery-item-inner' ); ?>>
+			<div class="avt-post-gallery-inner" <?php echo $this->parent->get_render_attribute_string( 'post-gallery-item-inner' ); ?>>
 				<?php
 					$this->parent->render_thumbnail();
 					$this->render_overlay();
 				?>
-				<div class="bdt-post-gallery-desc bdt-text-left bdt-position-z-index bdt-position-bottom">
+				<div class="avt-post-gallery-desc avt-text-left avt-position-z-index avt-position-bottom">
 					<?php
 					$this->parent->render_title(); 
 					$this->parent->render_excerpt();
 					?>
 				</div>
-				<div class="bdt-position-top-left">
+				<div class="avt-position-top-left">
 					<?php
 					$this->parent->render_categories_names();
 					?>
@@ -153,7 +153,7 @@ class Skin_Trosia extends Elementor_Skin_Base {
 		$this->parent->render_footer();
 
 		if ($settings['show_pagination']) {
-			element_pack_post_pagination($wp_query);
+			widget_pack_post_pagination($wp_query);
 		}
 		
 		wp_reset_postdata();

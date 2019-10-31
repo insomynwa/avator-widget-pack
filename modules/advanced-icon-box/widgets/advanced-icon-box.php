@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\AdvancedIconBox\Widgets;
+namespace WidgetPack\Modules\AdvancedIconBox\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -19,19 +19,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Advanced_Icon_Box extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-advanced-icon-box';
+		return 'avt-advanced-icon-box';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Advanced Icon Box', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Advanced Icon Box', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-advanced-icon-box';
+		return 'avt-wi-advanced-icon-box';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -42,26 +42,26 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_icon_box',
 			[
-				'label' => __( 'Icon Box', 'bdthemes-element-pack' ),
+				'label' => __( 'Icon Box', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_type',
 			[
-				'label'        => esc_html__('Icon Type', 'bdthemes-element-pack'),
+				'label'        => esc_html__('Icon Type', 'avator-widget-pack'),
 				'type'         => Controls_Manager::CHOOSE,
 				'toggle'       => false,
 				'default'      => 'icon',
-				'prefix_class' => 'bdt-icon-type-',
+				'prefix_class' => 'avt-icon-type-',
 				'render_type'  => 'template',
 				'options'      => [
 					'icon' => [
-						'title' => esc_html__('Icon', 'bdthemes-element-pack'),
+						'title' => esc_html__('Icon', 'avator-widget-pack'),
 						'icon'  => 'fas fa-star'
 					],
 					'image' => [
-						'title' => esc_html__('Image', 'bdthemes-element-pack'),
+						'title' => esc_html__('Image', 'avator-widget-pack'),
 						'icon'  => 'far fa-image'
 					]
 				]
@@ -71,7 +71,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'selected_icon',
 			[
-				'label'            => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'            => __( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -88,7 +88,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'image',
 			[
-				'label'       => __( 'Image Icon', 'bdthemes-element-pack' ),
+				'label'       => __( 'Image Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::MEDIA,
 				'render_type' => 'template',
 				'default'     => [
@@ -103,13 +103,13 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_text',
 			[
-				'label'   => __( 'Title & Description', 'bdthemes-element-pack' ),
+				'label'   => __( 'Title & Description', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
-				'default'     => __( 'Icon Box Heading', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Enter your title', 'bdthemes-element-pack' ),
+				'default'     => __( 'Icon Box Heading', 'avator-widget-pack' ),
+				'placeholder' => __( 'Enter your title', 'avator-widget-pack' ),
 				'label_block' => true,
 			]
 		);
@@ -117,9 +117,9 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_link',
 			[
-				'label'        => __( 'Title Link', 'bdthemes-element-pack' ),
+				'label'        => __( 'Title Link', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-title-link-'
+				'prefix_class' => 'avt-title-link-'
 			]
 		);
 
@@ -127,7 +127,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_link_url',
 			[
-				'label'       => __( 'Title Link URL', 'bdthemes-element-pack' ),
+				'label'       => __( 'Title Link URL', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
 				'placeholder' => 'http://your-link.com',
@@ -141,7 +141,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'show_separator',
 			[
-				'label'        => __( 'Title Separator', 'bdthemes-element-pack' ),
+				'label'        => __( 'Title Separator', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'separator'    => 'before',				
 			]
@@ -154,8 +154,8 @@ class Advanced_Icon_Box extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
-				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Enter your description', 'bdthemes-element-pack' ),
+				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'avator-widget-pack' ),
+				'placeholder' => __( 'Enter your description', 'avator-widget-pack' ),
 				'rows'        => 10,
 				'separator'   => 'before',
 				'show_label'  => false,
@@ -165,21 +165,21 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'position',
 			[
-				'label'     => __( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'separator' => 'before',
 				'default'   => 'top',
 				'options'   => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'top' => [
-						'title' => __( 'Top', 'bdthemes-element-pack' ),
+						'title' => __( 'Top', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -206,19 +206,19 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_vertical_alignment',
 			[
-				'label'   => __( 'Icon Vertical Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Icon Vertical Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'top'   => [
-						'title' => __( 'Top', 'bdthemes-element-pack' ),
+						'title' => __( 'Top', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle' => [
-						'title' => __( 'Middle', 'bdthemes-element-pack' ),
+						'title' => __( 'Middle', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom' => [
-						'title' => __( 'Bottom', 'bdthemes-element-pack' ),
+						'title' => __( 'Bottom', 'avator-widget-pack' ),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -236,7 +236,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_readmore',
 			[
-				'label'     => __( 'Read More', 'bdthemes-element-pack' ),
+				'label'     => __( 'Read More', 'avator-widget-pack' ),
 				'condition' => [
 					'readmore' => 'yes',
 				],
@@ -246,24 +246,24 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'readmore_text',
 			[
-				'label'       => __( 'Text', 'bdthemes-element-pack' ),
+				'label'       => __( 'Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => __( 'Read More', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Read More', 'bdthemes-element-pack' ),
+				'default'     => __( 'Read More', 'avator-widget-pack' ),
+				'placeholder' => __( 'Read More', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'readmore_link',
 			[
-				'label'     => __( 'Link to', 'bdthemes-element-pack' ),
+				'label'     => __( 'Link to', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::URL,
 				'separator' => 'before',
 				'dynamic'   => [
 					'active' => true,
 				],
-				'placeholder' => __( 'https://your-link.com', 'bdthemes-element-pack' ),
+				'placeholder' => __( 'https://your-link.com', 'avator-widget-pack' ),
 				'default'     => [
 					'url' => '#',
 				],
@@ -277,7 +277,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'onclick',
 			[
-				'label'     => esc_html__( 'OnClick', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'OnClick', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'readmore'       => 'yes',
@@ -289,7 +289,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'onclick_event',
 			[
-				'label'       => esc_html__( 'OnClick Event', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'OnClick Event', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder' => 'myFunction()',
 				'description' => sprintf( esc_html__('For details please look <a href="%s" target="_blank">here</a>'), 'https://www.w3schools.com/jsref/event_onclick.asp' ),
@@ -304,7 +304,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'advanced_readmore_icon',
 			[
-				'label'       => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => __( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'readmore_icon',
 				'separator'   => 'before',
@@ -318,12 +318,12 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'readmore_icon_align',
 			[
-				'label'   => __( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'   => __( 'Left', 'bdthemes-element-pack' ),
-					'right'  => __( 'Right', 'bdthemes-element-pack' ),
+					'left'   => __( 'Left', 'avator-widget-pack' ),
+					'right'  => __( 'Right', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'advanced_readmore_icon[value]!' => '',
@@ -334,7 +334,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'readmore_icon_indent',
 			[
-				'label' => __( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -349,8 +349,8 @@ class Advanced_Icon_Box extends Widget_Base {
 					'readmore_text!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore .bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore .avt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -358,16 +358,16 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'readmore_on_hover',
 			[
-				'label'        => __( 'Show on Hover', 'bdthemes-element-pack' ),
+				'label'        => __( 'Show on Hover', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-readmore-on-hover-',
+				'prefix_class' => 'avt-readmore-on-hover-',
 			]
 		);
 
 		$this->add_responsive_control(
 			'readmore_horizontal_offset',
 			[
-				'label' => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label' => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -50,
@@ -393,7 +393,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'readmore_vertical_offset',
 			[
-				'label' => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label' => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -411,9 +411,9 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}}.bdt-readmore-on-hover-yes .bdt-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset.SIZE}}%, {{SIZE}}%);',
-					'(tablet){{WRAPPER}}.bdt-readmore-on-hover-yes .bdt-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset_tablet.SIZE}}%, {{SIZE}}%);',
-					'(mobile){{WRAPPER}}.bdt-readmore-on-hover-yes .bdt-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset_mobile.SIZE}}%, {{SIZE}})%);',
+					'(desktop){{WRAPPER}}.avt-readmore-on-hover-yes .avt-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset.SIZE}}%, {{SIZE}}%);',
+					'(tablet){{WRAPPER}}.avt-readmore-on-hover-yes .avt-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset_tablet.SIZE}}%, {{SIZE}}%);',
+					'(mobile){{WRAPPER}}.avt-readmore-on-hover-yes .avt-advanced-icon-box-readmore' => 'transform: translate({{readmore_horizontal_offset_mobile.SIZE}}%, {{SIZE}})%);',
 				],
 				'condition' => [
 					'readmore_on_hover' => 'yes',
@@ -426,7 +426,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_indicator',
 			[
-				'label'     => __( 'Indicator', 'bdthemes-element-pack' ),
+				'label'     => __( 'Indicator', 'avator-widget-pack' ),
 				'condition' => [
 					'indicator' => 'yes',
 				],
@@ -436,7 +436,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'indicator_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -446,7 +446,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],				
 				'selectors' => [
-					'{{WRAPPER}} .bdt-indicator-svg' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-indicator-svg' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -454,7 +454,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'indicator_horizontal_offset',
 			[
-				'label' => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label' => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -478,7 +478,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'indicator_vertical_offset',
 			[
-				'label' => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label' => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -502,7 +502,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'indicator_rotate',
 			[
-				'label'   => esc_html__( 'Rotate', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -521,9 +521,9 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}} .bdt-indicator-svg' => 'transform: translate({{indicator_horizontal_offset.SIZE}}px, {{indicator_vertical_offset.SIZE}}px) rotate({{SIZE}}deg);',
-					'(tablet){{WRAPPER}} .bdt-indicator-svg' => 'transform: translate({{indicator_horizontal_offset_tablet.SIZE}}px, {{indicator_vertical_offset_tablet.SIZE}}px) rotate({{SIZE}}deg);',
-					'(mobile){{WRAPPER}} .bdt-indicator-svg' => 'transform: translate({{indicator_horizontal_offset_mobile.SIZE}}px, {{indicator_vertical_offset_mobile.SIZE}}px) rotate({{SIZE}}deg);',
+					'(desktop){{WRAPPER}} .avt-indicator-svg' => 'transform: translate({{indicator_horizontal_offset.SIZE}}px, {{indicator_vertical_offset.SIZE}}px) rotate({{SIZE}}deg);',
+					'(tablet){{WRAPPER}} .avt-indicator-svg' => 'transform: translate({{indicator_horizontal_offset_tablet.SIZE}}px, {{indicator_vertical_offset_tablet.SIZE}}px) rotate({{SIZE}}deg);',
+					'(mobile){{WRAPPER}} .avt-indicator-svg' => 'transform: translate({{indicator_horizontal_offset_mobile.SIZE}}px, {{indicator_vertical_offset_mobile.SIZE}}px) rotate({{SIZE}}deg);',
 				],
 			]
 		);
@@ -533,7 +533,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_badge',
 			[
-				'label'     => __( 'Badge', 'bdthemes-element-pack' ),
+				'label'     => __( 'Badge', 'avator-widget-pack' ),
 				'condition' => [
 					'badge' => 'yes',
 				],
@@ -543,7 +543,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'badge_text',
 			[
-				'label'       => __( 'Badge Text', 'bdthemes-element-pack' ),
+				'label'       => __( 'Badge Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'default'     => 'POPULAR',
 				'placeholder' => 'Type Badge Title',
@@ -556,17 +556,17 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'badge_position',
 			[
-				'label'   => esc_html__( 'Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'top-right',
-				'options' => element_pack_position(),
+				'options' => widget_pack_position(),
 			]
 		);
 
 		$this->add_responsive_control(
 			'badge_horizontal_offset',
 			[
-				'label' => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label' => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -590,7 +590,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'badge_vertical_offset',
 			[
-				'label' => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label' => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -614,7 +614,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'badge_rotate',
 			[
-				'label'   => esc_html__( 'Rotate', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -633,9 +633,9 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'(desktop){{WRAPPER}} .bdt-advanced-icon-box-badge' => 'transform: translate({{badge_horizontal_offset.SIZE}}px, {{badge_vertical_offset.SIZE}}px) rotate({{SIZE}}deg);',
-					'(tablet){{WRAPPER}} .bdt-advanced-icon-box-badge' => 'transform: translate({{badge_horizontal_offset_tablet.SIZE}}px, {{badge_vertical_offset_tablet.SIZE}}px) rotate({{SIZE}}deg);',
-					'(mobile){{WRAPPER}} .bdt-advanced-icon-box-badge' => 'transform: translate({{badge_horizontal_offset_mobile.SIZE}}px, {{badge_vertical_offset_mobile.SIZE}}px) rotate({{SIZE}}deg);',
+					'(desktop){{WRAPPER}} .avt-advanced-icon-box-badge' => 'transform: translate({{badge_horizontal_offset.SIZE}}px, {{badge_vertical_offset.SIZE}}px) rotate({{SIZE}}deg);',
+					'(tablet){{WRAPPER}} .avt-advanced-icon-box-badge' => 'transform: translate({{badge_horizontal_offset_tablet.SIZE}}px, {{badge_vertical_offset_tablet.SIZE}}px) rotate({{SIZE}}deg);',
+					'(mobile){{WRAPPER}} .avt-advanced-icon-box-badge' => 'transform: translate({{badge_horizontal_offset_mobile.SIZE}}px, {{badge_vertical_offset_mobile.SIZE}}px) rotate({{SIZE}}deg);',
 				],
 			]
 		);
@@ -645,14 +645,14 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional',
 			[
-				'label' => __( 'Additional Options', 'bdthemes-element-pack' ),
+				'label' => __( 'Additional Options', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'top_icon_vertical_offset',
 			[
-				'label' => esc_html__('Icon Vertical Offset', 'bdthemes-element-pack'),
+				'label' => esc_html__('Icon Vertical Offset', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -664,7 +664,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'position' => 'top',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-icon' => 'margin-top: -{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-icon' => 'margin-top: -{{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -672,7 +672,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'top_icon_horizontal_offset',
 			[
-				'label' => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
+				'label' => esc_html__('Icon Horizontal Offset', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -687,7 +687,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'position' => 'top',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-icon' => 'transform: translateX({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box-icon' => 'transform: translateX({{SIZE}}{{UNIT}});',
 				],
 			]
 		);
@@ -695,7 +695,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'left_icon_horizontal_offset',
 			[
-				'label' => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
+				'label' => esc_html__('Icon Horizontal Offset', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -710,7 +710,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'position' => 'left',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-icon' => 'margin-left: -{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-icon' => 'margin-left: -{{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -718,7 +718,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'right_icon_horizontal_offset',
 			[
-				'label' => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
+				'label' => esc_html__('Icon Horizontal Offset', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -733,7 +733,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'position' => 'right',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-icon' => 'margin-right: -{{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-icon' => 'margin-right: -{{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -741,7 +741,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'left_right_icon_vertical_offset',
 			[
-				'label' => esc_html__('Icon Vertical Offset', 'bdthemes-element-pack'),
+				'label' => esc_html__('Icon Vertical Offset', 'avator-widget-pack'),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -753,7 +753,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'position' => ['left', 'right'],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-icon' => 'transform: translateY({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box-icon' => 'transform: translateY({{SIZE}}{{UNIT}});',
 				],
 			]
 		);
@@ -761,7 +761,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_size',
 			[
-				'label'   => __( 'Title HTML Tag', 'bdthemes-element-pack' ),
+				'label'   => __( 'Title HTML Tag', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'h3',
 				'options' => [
@@ -781,7 +781,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'readmore',
 			[
-				'label'     => __( 'Read More Button', 'bdthemes-element-pack' ),
+				'label'     => __( 'Read More Button', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'separator' => 'before',
 				'default'   => 'yes',
@@ -791,7 +791,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'indicator',
 			[
-				'label' => __( 'Indicator', 'bdthemes-element-pack' ),
+				'label' => __( 'Indicator', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -799,7 +799,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'badge',
 			[
-				'label' => __( 'Badge', 'bdthemes-element-pack' ),
+				'label' => __( 'Badge', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -807,17 +807,17 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'global_link',
 			[
-				'label'        => __( 'Global Link', 'bdthemes-element-pack' ),
+				'label'        => __( 'Global Link', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'bdt-global-link-',
-				'description'  => __( 'Be aware! When Global Link activated then title link and read more link will not work', 'bdthemes-element-pack' ),
+				'prefix_class' => 'avt-global-link-',
+				'description'  => __( 'Be aware! When Global Link activated then title link and read more link will not work', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'global_link_url',
 			[
-				'label'       => __( 'Global Link URL', 'bdthemes-element-pack' ),
+				'label'       => __( 'Global Link URL', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
 				'placeholder' => 'http://your-link.com',
@@ -832,7 +832,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_icon_box',
 			[
-				'label'      => __( 'Icon/Image', 'bdthemes-element-pack' ),
+				'label'      => __( 'Icon/Image', 'avator-widget-pack' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'conditions' => [
 					'relation' => 'or',
@@ -857,17 +857,17 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'icon_colors_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'icon_type!' => 'image',
@@ -879,7 +879,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'icon_background',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper',
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper',
 				'separator' => 'before'
 			]
 		);
@@ -887,12 +887,12 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label'      => esc_html__('Padding', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Padding', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'separator'  => 'before',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -905,19 +905,19 @@ class Advanced_Icon_Box extends Widget_Base {
 				'placeholder' => '1px',
 				'separator'   => 'before',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper'
+				'selector'    => '{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper'
 			]
 		);
 
 		$this->add_control(
 			'icon_radius',
 			[
-				'label'      => esc_html__('Radius', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'after',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 				'condition' => [
 					'icon_radius_advanced_show!' => 'yes',
@@ -928,7 +928,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_radius_advanced_show',
 			[
-				'label' => __( 'Advanced Radius', 'bdthemes-element-pack' ),
+				'label' => __( 'Advanced Radius', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -936,15 +936,15 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_radius_advanced',
 			[
-				'label'       => esc_html__('Radius', 'bdthemes-element-pack'),
-				'description' => sprintf(__('For example: <b>%1s</b> or Go <a href="%2s" target="_blank">this link</a> and copy and paste the radius value.', 'bdthemes-element-pack'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
+				'label'       => esc_html__('Radius', 'avator-widget-pack'),
+				'description' => sprintf(__('For example: <b>%1s</b> or Go <a href="%2s" target="_blank">this link</a> and copy and paste the radius value.', 'avator-widget-pack'), '75% 25% 43% 57% / 46% 29% 71% 54%', 'https://9elements.github.io/fancy-border-radius/'),
 				'type'        => Controls_Manager::TEXT,
 				'size_units'  => [ 'px', '%' ],
 				'separator'   => 'after',
 				'default'     => '75% 25% 43% 57% / 46% 29% 71% 54%',
 				'selectors'   => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper'     => 'border-radius: {{VALUE}}; overflow: hidden;',
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper img' => 'border-radius: {{VALUE}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper'     => 'border-radius: {{VALUE}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper img' => 'border-radius: {{VALUE}}; overflow: hidden;'
 				],
 				'condition' => [
 					'icon_radius_advanced_show' => 'yes',
@@ -956,7 +956,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'icon_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper'
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper'
 			]
 		);
 
@@ -964,7 +964,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'icon_typography',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper',
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper',
 				'condition' => [
 					'icon_type!' => 'image',
 				],
@@ -974,7 +974,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_space',
 			[
-				'label'     => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label'     => __( 'Spacing', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'separator' => 'before',
 				'default'   => [
@@ -987,10 +987,10 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}}.elementor-position-right .bdt-advanced-icon-box-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.elementor-position-left .bdt-advanced-icon-box-icon'  => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.elementor-position-top .bdt-advanced-icon-box-icon'   => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'(mobile){{WRAPPER}} .bdt-advanced-icon-box-icon'                  => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.elementor-position-right .avt-advanced-icon-box-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.elementor-position-left .avt-advanced-icon-box-icon'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.elementor-position-top .avt-advanced-icon-box-icon'   => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'(mobile){{WRAPPER}} .avt-advanced-icon-box-icon'                  => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -998,10 +998,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'image_fullwidth',
 			[
-				'label' => __( 'Image Fullwidth', 'bdthemes-element-pack' ),
+				'label' => __( 'Image Fullwidth', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper' => 'width: 100%;box-sizing: border-box;',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper' => 'width: 100%;box-sizing: border-box;',
 				],
 				'condition' => [
 					'icon_type' => 'image'
@@ -1012,7 +1012,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => __( 'Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', 'vh', 'vw' ],
 				'range' => [
@@ -1022,7 +1022,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 				],
 				'conditions' => [
 					'relation' => 'or',
@@ -1046,7 +1046,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'rotate',
 			[
-				'label'   => __( 'Rotate', 'bdthemes-element-pack' ),
+				'label'   => __( 'Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1059,8 +1059,8 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper i'   => 'transform: rotate({{SIZE}}{{UNIT}});',
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper img' => 'transform: rotate({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper i'   => 'transform: rotate({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper img' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 			]
 		);
@@ -1068,7 +1068,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_background_rotate',
 			[
-				'label'   => __( 'Background Rotate', 'bdthemes-element-pack' ),
+				'label'   => __( 'Background Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1081,7 +1081,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-icon-wrapper' => 'transform: rotate({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-icon-wrapper' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 			]
 		);
@@ -1089,7 +1089,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'image_icon_heading',
 			[
-				'label'     => __( 'Image Effect', 'bdthemes-element-pack' ),
+				'label'     => __( 'Image Effect', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1102,7 +1102,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Css_Filter::get_type(),
 			[
 				'name'      => 'css_filters',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box img',
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box img',
 				'condition' => [
 					'icon_type' => 'image',
 				],
@@ -1112,7 +1112,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'image_opacity',
 			[
-				'label' => __( 'Opacity', 'bdthemes-element-pack' ),
+				'label' => __( 'Opacity', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1122,7 +1122,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box img' => 'opacity: {{SIZE}};',
 				],
 				'condition' => [
 					'icon_type' => 'image',
@@ -1133,7 +1133,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'background_hover_transition',
 			[
-				'label' => __( 'Transition Duration', 'bdthemes-element-pack' ),
+				'label' => __( 'Transition Duration', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0.3,
@@ -1145,7 +1145,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box img' => 'transition-duration: {{SIZE}}s',
+					'{{WRAPPER}} .avt-advanced-icon-box img' => 'transition-duration: {{SIZE}}s',
 				],
 				'condition' => [
 					'icon_type' => 'image',
@@ -1158,17 +1158,17 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'icon_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_hover_color',
 			[
-				'label'     => __( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'icon_type!' => 'image',
@@ -1182,24 +1182,24 @@ class Advanced_Icon_Box extends Widget_Base {
 			[
 				'name'      => 'icon_hover_background',
 				'separator' => 'before',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper:after',
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper:after',
 			]
 		);
 		
 		$this->add_control(
 			'icon_effect',
 			[
-				'label'        => __( 'Effect', 'bdthemes-element-pack' ),
+				'label'        => __( 'Effect', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SELECT,
-				'prefix_class' => 'bdt-icon-effect-',
+				'prefix_class' => 'avt-icon-effect-',
 				'default'      => 'none',
 				'options'      => [
-					'none' => __( 'None', 'bdthemes-element-pack' ),
-					'a'    => __( 'Effect A', 'bdthemes-element-pack' ),
-					'b'    => __( 'Effect B', 'bdthemes-element-pack' ),
-					'c'    => __( 'Effect C', 'bdthemes-element-pack' ),
-					'd'    => __( 'Effect D', 'bdthemes-element-pack' ),
-					'e'    => __( 'Effect E', 'bdthemes-element-pack' ),
+					'none' => __( 'None', 'avator-widget-pack' ),
+					'a'    => __( 'Effect A', 'avator-widget-pack' ),
+					'b'    => __( 'Effect B', 'avator-widget-pack' ),
+					'c'    => __( 'Effect C', 'avator-widget-pack' ),
+					'd'    => __( 'Effect D', 'avator-widget-pack' ),
+					'e'    => __( 'Effect E', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -1207,11 +1207,11 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper'  => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper'  => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
 					'icon_border_border!' => '',
@@ -1222,13 +1222,13 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_hover_radius',
 			[
-				'label'      => esc_html__('Radius', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Radius', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'after',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -1237,14 +1237,14 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'icon_hover_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper'
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper'
 			]
 		);
 
 		$this->add_control(
 			'icon_hover_rotate',
 			[
-				'label'   => __( 'Rotate', 'bdthemes-element-pack' ),
+				'label'   => __( 'Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => 'deg',
@@ -1256,8 +1256,8 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper i'   => 'transform: rotate({{SIZE}}{{UNIT}});',
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper img' => 'transform: rotate({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper i'   => 'transform: rotate({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper img' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 			]
 		);
@@ -1265,7 +1265,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'icon_hover_background_rotate',
 			[
-				'label'   => __( 'Background Rotate', 'bdthemes-element-pack' ),
+				'label'   => __( 'Background Rotate', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => 'deg',
@@ -1277,7 +1277,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper' => 'transform: rotate({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper' => 'transform: rotate({{SIZE}}{{UNIT}});',
 				],
 			]
 		);
@@ -1285,7 +1285,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'image_icon_hover_heading',
 			[
-				'label'     => __( 'Image Effect', 'bdthemes-element-pack' ),
+				'label'     => __( 'Image Effect', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -1298,7 +1298,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Css_Filter::get_type(),
 			[
 				'name'      => 'css_filters_hover',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper img',
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper img',
 				'condition' => [
 					'icon_type' => 'image',
 				],
@@ -1308,7 +1308,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'image_opacity_hover',
 			[
-				'label' => __( 'Opacity', 'bdthemes-element-pack' ),
+				'label' => __( 'Opacity', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1318,7 +1318,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-icon-wrapper img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-icon-wrapper img' => 'opacity: {{SIZE}};',
 				],
 				'condition' => [
 					'icon_type' => 'image',
@@ -1335,7 +1335,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_content',
 			[
-				'label' => __( 'Content', 'bdthemes-element-pack' ),
+				'label' => __( 'Content', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1343,28 +1343,28 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'bdthemes-element-pack' ),
+						'title' => __( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1372,11 +1372,11 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'      => esc_html__('Padding', 'bdthemes-element-pack'),
+				'label'      => esc_html__('Padding', 'avator-widget-pack'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-advanced-icon-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-advanced-icon-box-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -1387,14 +1387,14 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'content_style_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'heading_title',
 			[
-				'label'     => __( 'Title', 'bdthemes-element-pack' ),
+				'label'     => __( 'Title', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1403,7 +1403,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'title_bottom_space',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1412,7 +1412,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1420,10 +1420,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-content .bdt-advanced-icon-box-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-content .avt-advanced-icon-box-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1432,14 +1432,14 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box-content .bdt-advanced-icon-box-title',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box-content .avt-advanced-icon-box-title',
 			]
 		);
 
 		$this->add_control(
 			'heading_description',
 			[
-				'label'     => __( 'Description', 'bdthemes-element-pack' ),
+				'label'     => __( 'Description', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1448,10 +1448,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'description_bottom_space',
 			[
-				'label'     => esc_html__('Spacing', 'bdthemes-element-pack'),
+				'label'     => esc_html__('Spacing', 'avator-widget-pack'),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-content .bdt-advanced-icon-box-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-content .avt-advanced-icon-box-description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1459,10 +1459,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'description_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-content .bdt-advanced-icon-box-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-content .avt-advanced-icon-box-description' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1471,7 +1471,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'description_typography',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box-content .bdt-advanced-icon-box-description',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box-content .avt-advanced-icon-box-description',
 			]
 		);
 
@@ -1480,14 +1480,14 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'content_style_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'heading_title_hover',
 			[
-				'label'     => __( 'Title', 'bdthemes-element-pack' ),
+				'label'     => __( 'Title', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1496,10 +1496,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_color_hover',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-advanced-icon-box-content .bdt-advanced-icon-box-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-advanced-icon-box-content .avt-advanced-icon-box-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1508,14 +1508,14 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography_hover',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-advanced-icon-box-content .bdt-advanced-icon-box-title',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box:hover .avt-advanced-icon-box-content .avt-advanced-icon-box-title',
 			]
 		);
 
 		$this->add_control(
 			'heading_description_hover',
 			[
-				'label'     => __( 'Description', 'bdthemes-element-pack' ),
+				'label'     => __( 'Description', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1524,10 +1524,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'description_color_hover',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-advanced-icon-box-content .bdt-advanced-icon-box-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box:hover .avt-advanced-icon-box-content .avt-advanced-icon-box-description' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1536,7 +1536,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'description_typography_hover',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box:hover .bdt-advanced-icon-box-content .bdt-advanced-icon-box-description',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box:hover .avt-advanced-icon-box-content .avt-advanced-icon-box-description',
 			]
 		);
 
@@ -1551,7 +1551,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_title_separator',
 			[
-				'label'     => __( 'Title Separator', 'bdthemes-element-pack' ),
+				'label'     => __( 'Title Separator', 'avator-widget-pack' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_separator' => 'yes',
@@ -1562,32 +1562,32 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_separator_type',
 			[
-				'label'   => esc_html__( 'Separator Type', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Separator Type', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'line',
 				'options' => [
-					'line'  	  => esc_html__( 'Line', 'bdthemes-element-pack' ),
-					'bloomstar'   => esc_html__( 'Bloomstar', 'bdthemes-element-pack' ),
-					'bobbleaf' 	  => esc_html__( 'Bobbleaf', 'bdthemes-element-pack' ),
-					'demaxa' 	  => esc_html__( 'Demaxa', 'bdthemes-element-pack' ),
-					'fill-circle' => esc_html__( 'Fill Circle', 'bdthemes-element-pack' ),
-					'finalio' 	  => esc_html__( 'Finalio', 'bdthemes-element-pack' ),
-					//'fitical' 	  => esc_html__( 'Fitical', 'bdthemes-element-pack' ),
-					'jemik' 	  => esc_html__( 'Jemik', 'bdthemes-element-pack' ),
-					//'genizen' 	  => esc_html__( 'Genizen', 'bdthemes-element-pack' ),
-					'leaf-line'   => esc_html__( 'Leaf Line', 'bdthemes-element-pack' ),
-					//'lendine' 	  => esc_html__( 'Lendine', 'bdthemes-element-pack' ),
-					'multinus' 	  => esc_html__( 'Multinus', 'bdthemes-element-pack' ),
-					//'oradox' 	  => esc_html__( 'Oradox', 'bdthemes-element-pack' ),
-					'rotate-box'  => esc_html__( 'Rotate Box', 'bdthemes-element-pack' ),
-					'sarator' 	  => esc_html__( 'Sarator', 'bdthemes-element-pack' ),
-					'separk' 	  => esc_html__( 'Separk', 'bdthemes-element-pack' ),
-					'slash-line'  => esc_html__( 'Slash Line', 'bdthemes-element-pack' ),
-					//'subtrexo' 	  => esc_html__( 'Subtrexo', 'bdthemes-element-pack' ),
-					'tripline' 	  => esc_html__( 'Tripline', 'bdthemes-element-pack' ),
-					'vague' 	  => esc_html__( 'Vague', 'bdthemes-element-pack' ),
-					'zigzag-dot'  => esc_html__( 'Zigzag Dot', 'bdthemes-element-pack' ),
-					'zozobe' 	  => esc_html__( 'Zozobe', 'bdthemes-element-pack' ),
+					'line'  	  => esc_html__( 'Line', 'avator-widget-pack' ),
+					'bloomstar'   => esc_html__( 'Bloomstar', 'avator-widget-pack' ),
+					'bobbleaf' 	  => esc_html__( 'Bobbleaf', 'avator-widget-pack' ),
+					'demaxa' 	  => esc_html__( 'Demaxa', 'avator-widget-pack' ),
+					'fill-circle' => esc_html__( 'Fill Circle', 'avator-widget-pack' ),
+					'finalio' 	  => esc_html__( 'Finalio', 'avator-widget-pack' ),
+					//'fitical' 	  => esc_html__( 'Fitical', 'avator-widget-pack' ),
+					'jemik' 	  => esc_html__( 'Jemik', 'avator-widget-pack' ),
+					//'genizen' 	  => esc_html__( 'Genizen', 'avator-widget-pack' ),
+					'leaf-line'   => esc_html__( 'Leaf Line', 'avator-widget-pack' ),
+					//'lendine' 	  => esc_html__( 'Lendine', 'avator-widget-pack' ),
+					'multinus' 	  => esc_html__( 'Multinus', 'avator-widget-pack' ),
+					//'oradox' 	  => esc_html__( 'Oradox', 'avator-widget-pack' ),
+					'rotate-box'  => esc_html__( 'Rotate Box', 'avator-widget-pack' ),
+					'sarator' 	  => esc_html__( 'Sarator', 'avator-widget-pack' ),
+					'separk' 	  => esc_html__( 'Separk', 'avator-widget-pack' ),
+					'slash-line'  => esc_html__( 'Slash Line', 'avator-widget-pack' ),
+					//'subtrexo' 	  => esc_html__( 'Subtrexo', 'avator-widget-pack' ),
+					'tripline' 	  => esc_html__( 'Tripline', 'avator-widget-pack' ),
+					'vague' 	  => esc_html__( 'Vague', 'avator-widget-pack' ),
+					'zigzag-dot'  => esc_html__( 'Zigzag Dot', 'avator-widget-pack' ),
+					'zozobe' 	  => esc_html__( 'Zozobe', 'avator-widget-pack' ),
 				],
 				//'render_type' => 'none',		
 			]
@@ -1596,20 +1596,20 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_separator_border_style',
 			[
-				'label'   => esc_html__( 'Separator Style', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Separator Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'solid'  => esc_html__( 'Solid', 'bdthemes-element-pack' ),
-					'dotted' => esc_html__( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => esc_html__( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => esc_html__( 'Groove', 'bdthemes-element-pack' ),
+					'solid'  => esc_html__( 'Solid', 'avator-widget-pack' ),
+					'dotted' => esc_html__( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => esc_html__( 'Dashed', 'avator-widget-pack' ),
+					'groove' => esc_html__( 'Groove', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'title_separator_type' => 'line'
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator' => 'border-top-style: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator' => 'border-top-style: {{VALUE}};',
 				],
 			]
 		);
@@ -1617,13 +1617,13 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_separator_line_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'title_separator_type' => 'line'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1631,7 +1631,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'title_separator_height',
 			[
-				'label' => __( 'Height', 'bdthemes-element-pack' ),
+				'label' => __( 'Height', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1643,7 +1643,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'title_separator_type' => 'line'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator' => 'border-top-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator' => 'border-top-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1652,7 +1652,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'title_separator_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1669,7 +1669,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'title_separator_type' => 'line'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1678,13 +1678,13 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_separator_svg_fill_color',
 			[
-				'label'     => esc_html__( 'Fill Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Fill Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'title_separator_type!' => 'line'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator-wrapper svg *' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator-wrapper svg *' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1692,13 +1692,13 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_separator_svg_stroke_color',
 			[
-				'label'     => esc_html__( 'Stroke Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Stroke Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'title_separator_type!' => 'line'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator-wrapper svg *' => 'stroke: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator-wrapper svg *' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -1707,7 +1707,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'title_separator_svg_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -1724,7 +1724,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'title_separator_type!' => 'line'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator-wrapper > *' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator-wrapper > *' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1733,7 +1733,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'title_separator_spacing',
 			[
-				'label' => __( 'Separator Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Separator Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1741,7 +1741,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box .bdt-title-separator-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box .avt-title-separator-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1752,7 +1752,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_readmore',
 			[
-				'label'     => __( 'Read More', 'bdthemes-element-pack' ),
+				'label'     => __( 'Read More', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'readmore'       => 'yes',
@@ -1763,7 +1763,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'readmore_attention',
 			[
-				'label' => __( 'Attention', 'bdthemes-element-pack' ),
+				'label' => __( 'Attention', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -1773,18 +1773,18 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_readmore_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'readmore_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1793,7 +1793,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'readmore_background',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box-readmore', 
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box-readmore', 
 				'separator' => 'before', 
 			]
 		);
@@ -1805,19 +1805,19 @@ class Advanced_Icon_Box extends Widget_Base {
 				'placeholder' => '1px',
 				'separator'   => 'before',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-advanced-icon-box-readmore'
+				'selector'    => '{{WRAPPER}} .avt-advanced-icon-box-readmore'
 			]
 		);
 
 		$this->add_responsive_control(
 			'readmore_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'after', 
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1826,18 +1826,18 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'readmore_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box-readmore',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box-readmore',
 			]
 		);
 
 		$this->add_responsive_control(
 			'readmore_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1846,7 +1846,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'readmore_typography',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box-readmore',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box-readmore',
 			]
 		);
 
@@ -1855,18 +1855,18 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_readmore_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'readmore_hover_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1875,7 +1875,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'readmore_hover_background',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box-readmore:hover',
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box-readmore:hover',
 				'separator' => 'before',
 			]
 		);
@@ -1883,10 +1883,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'readmore_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-readmore:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-readmore:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
 					'readmore_border_border!' => ''
@@ -1898,14 +1898,14 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'readmore_hover_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box-readmore:hover',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box-readmore:hover',
 			]
 		);
 
 		$this->add_control(
 			'readmore_hover_animation',
 			[
-				'label' => __( 'Hover Animation', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover Animation', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1919,7 +1919,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_indicator',
 			[
-				'label'     => __( 'Indicator', 'bdthemes-element-pack' ),
+				'label'     => __( 'Indicator', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'indicator' => 'yes',
@@ -1930,15 +1930,15 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'indicator_style',
 			[
-				'label'   => __( 'Indicator Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Indicator Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '1',
 				'options' => [
-					'1'   => __( 'Style 1', 'bdthemes-element-pack' ),
-					'2'   => __( 'Style 2', 'bdthemes-element-pack' ),
-					'3'   => __( 'Style 3', 'bdthemes-element-pack' ),
-					'4'   => __( 'Style 4', 'bdthemes-element-pack' ),
-					'5'   => __( 'Style 5', 'bdthemes-element-pack' ),
+					'1'   => __( 'Style 1', 'avator-widget-pack' ),
+					'2'   => __( 'Style 2', 'avator-widget-pack' ),
+					'3'   => __( 'Style 3', 'avator-widget-pack' ),
+					'4'   => __( 'Style 4', 'avator-widget-pack' ),
+					'5'   => __( 'Style 5', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -1946,10 +1946,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'indicator_fill_color',
 			[
-				'label'     => __( 'Fill Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Fill Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-indicator-svg svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-indicator-svg svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1957,10 +1957,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'indicator_stroke_color',
 			[
-				'label'     => __( 'Stroke Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Stroke Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-indicator-svg svg' => 'stroke: {{VALUE}};',
+					'{{WRAPPER}} .avt-indicator-svg svg' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -1970,7 +1970,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_badge',
 			[
-				'label'     => __( 'Badge', 'bdthemes-element-pack' ),
+				'label'     => __( 'Badge', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'badge' => 'yes',
@@ -1981,10 +1981,10 @@ class Advanced_Icon_Box extends Widget_Base {
 		$this->add_control(
 			'badge_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-badge span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-badge span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1993,7 +1993,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'badge_background',
-				'selector'  => '{{WRAPPER}} .bdt-advanced-icon-box-badge span', 
+				'selector'  => '{{WRAPPER}} .avt-advanced-icon-box-badge span', 
 				'separator' => 'before', 
 			]
 		);
@@ -2005,19 +2005,19 @@ class Advanced_Icon_Box extends Widget_Base {
 				'placeholder' => '1px',
 				'separator'   => 'before',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-advanced-icon-box-badge span'
+				'selector'    => '{{WRAPPER}} .avt-advanced-icon-box-badge span'
 			]
 		);
 
 		$this->add_responsive_control(
 			'badge_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'after', 
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-badge span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-badge span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2026,18 +2026,18 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'badge_shadow',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box-badge span',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box-badge span',
 			]
 		);
 
 		$this->add_responsive_control(
 			'badge_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-advanced-icon-box-badge span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-advanced-icon-box-badge span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2046,7 +2046,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'badge_typography',
-				'selector' => '{{WRAPPER}} .bdt-advanced-icon-box-badge span',
+				'selector' => '{{WRAPPER}} .avt-advanced-icon-box-badge span',
 			]
 		);
 
@@ -2073,13 +2073,13 @@ class Advanced_Icon_Box extends Widget_Base {
 			$this->add_render_attribute( 'image-icon', 'alt', $settings['title_text'] );
 		}
 
-		$this->add_render_attribute( 'description_text', 'class', 'bdt-advanced-icon-box-description' );
+		$this->add_render_attribute( 'description_text', 'class', 'avt-advanced-icon-box-description' );
 
 		$this->add_inline_editing_attributes( 'title_text', 'none' );
 		$this->add_inline_editing_attributes( 'description_text' );
 
 
-		$this->add_render_attribute( 'readmore', 'class', ['bdt-advanced-icon-box-readmore', 'bdt-display-inline-block'] );
+		$this->add_render_attribute( 'readmore', 'class', ['avt-advanced-icon-box-readmore', 'avt-display-inline-block'] );
 		
 		if ( ! empty( $settings['readmore_link']['url'] ) ) {
 			$this->add_render_attribute( 'readmore', 'href', $settings['readmore_link']['url'] );
@@ -2095,7 +2095,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		}
 
 		if ($settings['readmore_attention']) {
-			$this->add_render_attribute( 'readmore', 'class', 'bdt-ep-attention-button' );
+			$this->add_render_attribute( 'readmore', 'class', 'avt-wp-attention-button' );
 		}		
 
 		if ( $settings['readmore_hover_animation'] ) {
@@ -2106,7 +2106,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			$this->add_render_attribute( 'readmore', 'onclick', $settings['onclick_event'] );
 		}
 
-		$this->add_render_attribute( 'advanced-icon-box-title', 'class', 'bdt-advanced-icon-box-title' );
+		$this->add_render_attribute( 'advanced-icon-box-title', 'class', 'avt-advanced-icon-box-title' );
 		
 		if ('yes' == $settings['title_link'] and $settings['title_link_url']['url']) {
 
@@ -2115,7 +2115,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			$this->add_render_attribute( 'advanced-icon-box-title', 'onclick', "window.open('" . $settings['title_link_url']['url'] . "', '$target')" );
 		}
 
-		$this->add_render_attribute( 'advanced-icon-box', 'class', 'bdt-advanced-icon-box' );
+		$this->add_render_attribute( 'advanced-icon-box', 'class', 'avt-advanced-icon-box' );
 		
 		if ('yes' == $settings['global_link'] and $settings['global_link_url']['url']) {
 
@@ -2143,8 +2143,8 @@ class Advanced_Icon_Box extends Widget_Base {
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'advanced-icon-box' ); ?>>
 			<?php if ( $has_icon or $has_image ) : ?>
-				<div class="bdt-advanced-icon-box-icon">
-					<span class="bdt-icon-wrapper">
+				<div class="avt-advanced-icon-box-icon">
+					<span class="avt-icon-wrapper">
 
 
 						<?php if ( $has_icon and 'icon' == $settings['icon_type'] ) { ?>
@@ -2163,11 +2163,11 @@ class Advanced_Icon_Box extends Widget_Base {
 				</div>
 			<?php endif; ?>
 
-			<div class="bdt-advanced-icon-box-content">
+			<div class="avt-advanced-icon-box-content">
 				<?php if ( $settings['title_text'] ) : ?>
 					<<?php echo esc_html($settings['title_size']); ?> <?php echo $this->get_render_attribute_string( 'advanced-icon-box-title' ); ?>>
 						<span <?php echo $this->get_render_attribute_string( 'title_text' ); ?>>
-							<?php echo wp_kses( $settings['title_text'], element_pack_allow_tags('title') ); ?>
+							<?php echo wp_kses( $settings['title_text'], widget_pack_allow_tags('title') ); ?>
 						</span>
 					</<?php echo esc_html($settings['title_size']); ?>>
 				<?php endif; ?>
@@ -2175,13 +2175,13 @@ class Advanced_Icon_Box extends Widget_Base {
 				<?php if ( $settings['show_separator'] ) : ?>
 				
 				<?php if ( 'line' == $settings['title_separator_type'] ) : ?>
-					<div class="bdt-title-separator-wrapper">
-						<div class="bdt-title-separator"></div>
+					<div class="avt-title-separator-wrapper">
+						<div class="avt-title-separator"></div>
 					</div>
 				<?php elseif ( 'line' != $settings['title_separator_type'] ) : ?>
-					<div class="bdt-title-separator-wrapper">
+					<div class="avt-title-separator-wrapper">
 						<?php 
-							$svg_image = BDTEP_ASSETS_PATH .'images/separator/'. $settings['title_separator_type'] . '.svg';
+							$svg_image = AWP_ASSETS_PATH .'images/separator/'. $settings['title_separator_type'] . '.svg';
 
 							if (file_exists($svg_image)) {
 
@@ -2201,7 +2201,7 @@ class Advanced_Icon_Box extends Widget_Base {
 
 				<?php if ( $settings['description_text'] ) : ?>
 					<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?>>
-						<?php echo wp_kses( $settings['description_text'], element_pack_allow_tags('text') ); ?>
+						<?php echo wp_kses( $settings['description_text'], widget_pack_allow_tags('text') ); ?>
 					</div>
 				<?php endif; ?>
 
@@ -2211,7 +2211,7 @@ class Advanced_Icon_Box extends Widget_Base {
 						
 						<?php if ($settings['advanced_readmore_icon']['value']) : ?>
 
-							<span class="bdt-button-icon-align-{{ settings.readmore_icon_align }}">
+							<span class="avt-button-icon-align-{{ settings.readmore_icon_align }}">
 
 								<?php if ( $readmore_is_new || $readmore_migrated ) :
 									Icons_Manager::render_icon( $settings['advanced_readmore_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -2228,14 +2228,14 @@ class Advanced_Icon_Box extends Widget_Base {
 		</div>
 
 		<?php if ( $settings['indicator'] ) : ?>
-			<div class="bdt-indicator-svg bdt-svg-style-<?php echo esc_attr($settings['indicator_style']); ?>">
-				<?php echo element_pack_svg_icon('arrow-' . $settings['indicator_style']); ?>
+			<div class="avt-indicator-svg avt-svg-style-<?php echo esc_attr($settings['indicator_style']); ?>">
+				<?php echo widget_pack_svg_icon('arrow-' . $settings['indicator_style']); ?>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( $settings['badge'] and '' != $settings['badge_text'] ) : ?>
-			<div class="bdt-advanced-icon-box-badge bdt-position-<?php echo esc_attr($settings['badge_position']); ?>">
-				<span class="bdt-badge bdt-padding-small"><?php echo esc_html($settings['badge_text']); ?></span>
+			<div class="avt-advanced-icon-box-badge avt-position-<?php echo esc_attr($settings['badge_position']); ?>">
+				<span class="avt-badge avt-padding-small"><?php echo esc_html($settings['badge_text']); ?></span>
 			</div>
 		<?php endif; ?>
 
@@ -2245,26 +2245,26 @@ class Advanced_Icon_Box extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<#
-		view.addRenderAttribute( 'description_text', 'class', 'bdt-advanced-icon-box-description' );
+		view.addRenderAttribute( 'description_text', 'class', 'avt-advanced-icon-box-description' );
 
 		view.addInlineEditingAttributes( 'title_text', 'none' );
 		view.addInlineEditingAttributes( 'description_text' );
 
-		view.addRenderAttribute( 'advanced-icon-box-title', 'class', 'bdt-advanced-icon-box-title' );
-		view.addRenderAttribute( 'advanced-icon-box', 'class', 'bdt-advanced-icon-box' );
+		view.addRenderAttribute( 'advanced-icon-box-title', 'class', 'avt-advanced-icon-box-title' );
+		view.addRenderAttribute( 'advanced-icon-box', 'class', 'avt-advanced-icon-box' );
 
 		iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
 		
-		imageURL = '<?php echo BDTEP_ASSETS_URL; ?>images/separator/' + settings.title_separator_type + '.svg';	
+		imageURL = '<?php echo AWP_ASSETS_URL; ?>images/separator/' + settings.title_separator_type + '.svg';	
 
 		#>
 
 		<div {{{ view.getRenderAttributeString( 'advanced-icon-box' ) }}}>
 			
-			<div class="bdt-advanced-icon-box-icon">
+			<div class="avt-advanced-icon-box-icon">
 				<# if (( settings.image.url && settings.icon_type == 'image' ) || ( settings.icon  && settings.icon_type == 'icon' ) || ( settings.selected_icon.value  && settings.icon_type == 'icon' )) { #>
-					<span class="bdt-icon-wrapper">
+					<span class="avt-icon-wrapper">
 						<# if ( settings.image.url && settings.icon_type == 'image' ) { #>
 							<img src="{{{settings.image.url}}}" alt="{{{ settings.title_text }}}">
 						<# } else if ( settings.selected_icon.value  && settings.icon_type == 'icon' ) { #>
@@ -2278,18 +2278,18 @@ class Advanced_Icon_Box extends Widget_Base {
 				<# } #>
 			</div>
 			
-			<div class="bdt-advanced-icon-box-content">
+			<div class="avt-advanced-icon-box-content">
 				<{{{ settings.title_size }}} {{{ view.getRenderAttributeString( 'advanced-icon-box-title' ) }}}>
 					<span {{{ view.getRenderAttributeString( 'title_text' ) }}}>{{{ settings.title_text }}}</span>
 				</{{{ settings.title_size }}}>
 				
 				<# if ( 'yes' == settings.show_separator) { #>
 					<# if ( 'line' == settings.title_separator_type ) { #>
-						<div class="bdt-title-separator-wrapper">
-							<div class="bdt-title-separator"></div>
+						<div class="avt-title-separator-wrapper">
+							<div class="avt-title-separator"></div>
 						</div>
 					<# } else if ( 'line' != settings.title_separator_type ) { #>
-						<div class="bdt-title-separator-wrapper">
+						<div class="avt-title-separator-wrapper">
 							<img src="{{{ imageURL }}}" >
 						</div>
 					<# } #>
@@ -2299,7 +2299,7 @@ class Advanced_Icon_Box extends Widget_Base {
 
 				<#
 				var animation = (settings.readmore_hover_animation) ? ' elementor-animation-' + settings.readmore_hover_animation : '';
-				var attention = (settings.attention_button) ? ' bdt-ep-attention-button' : '';
+				var attention = (settings.attention_button) ? ' avt-wp-attention-button' : '';
 				var onclick = view.addRenderAttribute( 'button', 'onclick', settings.onclick_event );
 
 
@@ -2311,11 +2311,11 @@ class Advanced_Icon_Box extends Widget_Base {
 				#>
 
 				<# if ( settings.readmore == 'yes' ) { #>
-					<a class="bdt-advanced-icon-box-readmore {{animation}}{{attention}}" href="{{ settings.readmore_link.url }}" {{onclick}}>
+					<a class="avt-advanced-icon-box-readmore {{animation}}{{attention}}" href="{{ settings.readmore_link.url }}" {{onclick}}>
 						{{{ settings.readmore_text }}}
 
 						<# if ( settings.advanced_readmore_icon.value ) { #>
-							<span class="bdt-button-icon-align-{{ settings.readmore_icon_align }}">
+							<span class="avt-button-icon-align-{{ settings.readmore_icon_align }}">
 
 								<# if ( iconHTML && iconHTML.rendered && ( ! settings.readmore_icon || migrated ) ) { #>
 									{{{ iconHTML.value }}}
@@ -2331,7 +2331,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		</div>
 
 		<# if ( settings.indicator === 'yes' ) { #>
-			<div class="bdt-indicator-svg bdt-svg-style-{{{settings.indicator_style}}}">
+			<div class="avt-indicator-svg avt-svg-style-{{{settings.indicator_style}}}">
 				<# if (settings.indicator_style == '1') { #>
 				        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50"><path d="M145.2,26.8c0.3,5.3,0.7,10.5,1.1,15.8c-10.5-10.1-19.1-22.4-31-30.9C104.7,4.1,91.9,0.9,79,1.4C48.2,2.5,22.3,22.7,0.4,42.5c-0.8,0.7,0.2,2,1.1,1.3c23.4-18.3,47.6-39.2,79-39.8c13.4-0.2,26,3.8,36.5,12.2c10,8.1,17.7,18.5,26.8,27.5C137,42,130.5,40,124,37.8c-1.1-0.4-1.7,1.2-0.6,1.7c7.8,3.4,15.9,5.9,24.2,7.9c0.1,0,0.1,0,0.2,0c0.1,0.1,0.2,0.2,0.2,0.2c1.3,1.2,2.9-1.1,1.6-2.2c-0.1-0.1-0.2-0.2-0.3-0.2c-0.4-6.3-0.8-12.6-1.4-18.9C147.7,24.6,145.1,25,145.2,26.8z"/></svg>
 				<# } else if (settings.indicator_style == '2') { #>
@@ -2348,8 +2348,8 @@ class Advanced_Icon_Box extends Widget_Base {
 		<# } #>
 
 		<# if ( settings.badge && settings.badge_text != '' ) { #>
-			<div class="bdt-advanced-icon-box-badge bdt-position-{{{settings.badge_position}}}">
-				<span class="bdt-badge bdt-padding-small">{{{settings.badge_text}}}</span>
+			<div class="avt-advanced-icon-box-badge avt-position-{{{settings.badge_position}}}">
+				<span class="avt-badge avt-padding-small">{{{settings.badge_text}}}</span>
 			</div>
 		<# } #>
 

@@ -41,22 +41,22 @@ var SideNavi = ( function ($) {
 		isVisible = !(isVisible);
 	}
 	function isActiveItem (item) {
-		return item.hasClass('bdt-active');
+		return item.hasClass('avt-active');
 	}
 	function setActiveTab () {
 		$(cssElements.tab + cssElements.active, container).removeClass(cssElements.active.replace('.',''));
 		$(cssElements.tab + ':eq(' + activeIndex + ')',container).addClass(cssElements.active.replace('.',''));
 	}
 	function removeActiveItem () {
-		$(cssElements.item + cssElements.active, container).removeClass('bdt-active');
+		$(cssElements.item + cssElements.active, container).removeClass('avt-active');
 	}
 	function setActiveItem (item) {
 		removeActiveItem();
 		setActiveTab();
-		item.addClass('bdt-active');
+		item.addClass('avt-active');
 	}
 	function setDefaultItem (item) {
-		item.removeClass('bdt-active');
+		item.removeClass('avt-active');
 	}
 	function slideEvent () {
 

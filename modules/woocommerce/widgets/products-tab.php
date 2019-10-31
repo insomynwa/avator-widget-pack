@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Woocommerce\Widgets;
+namespace WidgetPack\Modules\Woocommerce\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -14,19 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Products_Tab extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-wc-products-tab';
+		return 'avt-wc-products-tab';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'WC - Products Tab', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'WC - Products Tab', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-woocommerce';
+		return 'avt-wi-woocommerce';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -46,14 +46,14 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_woocommerce_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '4',
 				'tablet_default' => '2',
@@ -72,7 +72,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'item_gap',
 			[
-				'label'   => esc_html__( 'Column Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Column Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -85,8 +85,8 @@ class Products_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-wrapper.bdt-grid'     => 'margin-left: -{{SIZE}}px',
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-wrapper.bdt-grid > *' => 'padding-left: {{SIZE}}px',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-wrapper.avt-grid'     => 'margin-left: -{{SIZE}}px',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-wrapper.avt-grid > *' => 'padding-left: {{SIZE}}px',
 				],
 			]
 		);
@@ -94,7 +94,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'row_gap',
 			[
-				'label'   => esc_html__( 'Row Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Row Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -107,8 +107,8 @@ class Products_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-wrapper.bdt-grid'     => 'margin-top: -{{SIZE}}px',
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-wrapper.bdt-grid > *' => 'margin-top: {{SIZE}}px',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-wrapper.avt-grid'     => 'margin-top: -{{SIZE}}px',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-wrapper.avt-grid > *' => 'margin-top: {{SIZE}}px',
 				],
 			]
 		);
@@ -117,19 +117,19 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label'   => __( 'Text Align', 'bdthemes-element-pack' ),
+				'label'   => __( 'Text Align', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -140,7 +140,7 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'      => 'image',
-				'label'     => esc_html__( 'Image Size', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Image Size', 'avator-widget-pack' ),
 				'exclude'   => [ 'custom' ],
 				'default'   => 'medium',
 			]
@@ -152,14 +152,14 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_woocommerce_additional',
 			[
-				'label' => esc_html__( 'Additional', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_thumb',
 			[
-				'label'   => esc_html__( 'Show Thumbnail', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Thumbnail', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -168,7 +168,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'show_badge',
 			[
-				'label'   => esc_html__( 'Show Badge', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Badge', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -177,7 +177,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -186,7 +186,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'show_rating',
 			[
-				'label'   => esc_html__( 'Rating', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Rating', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -195,7 +195,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'show_price',
 			[
-				'label'   => esc_html__( 'Price', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Price', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -204,7 +204,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'show_cart',
 			[
-				'label'   => esc_html__( 'Add to Cart', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Add to Cart', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -213,7 +213,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'show_add_to_link',
 			[
-				'label'   => esc_html__( 'Add to Link', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Add to Link', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -224,18 +224,18 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Query', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'source',
 			[
-				'label'   => _x( 'Source', 'Posts Query Control', 'bdthemes-element-pack' ),
+				'label'   => _x( 'Source', 'Posts Query Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''        => esc_html__( 'Show All', 'bdthemes-element-pack' ),
-					'by_name' => esc_html__( 'Manual Selection', 'bdthemes-element-pack' ),
+					''        => esc_html__( 'Show All', 'avator-widget-pack' ),
+					'by_name' => esc_html__( 'Manual Selection', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -252,7 +252,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'product_categories',
 			[
-				'label'       => esc_html__( 'Categories', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => $options,
 				'default'     => [],
@@ -267,7 +267,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'exclude_products',
 			[
-				'label'       => esc_html__( 'Exclude Product(s)', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Exclude Product(s)', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'placeholder'     => 'product_id',
 				'label_block' => true,
@@ -278,7 +278,7 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'posts_per_page',
 			[
-				'label'   => esc_html__( 'Product Limit', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Product Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 8,
 			]
@@ -287,13 +287,13 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'meta_key',
 			[
-				'label'   => esc_html__( 'Meta Key', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Meta Key', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'total_sales',
 				'options' => [
-					'total_sales'    => esc_html__( 'Total Sales', 'bdthemes-element-pack' ),
-					'_regular_price' => esc_html__( 'Regular Price', 'bdthemes-element-pack' ),
-					'_sale_price'    => esc_html__( 'Sale Price', 'bdthemes-element-pack' ),
+					'total_sales'    => esc_html__( 'Total Sales', 'avator-widget-pack' ),
+					'_regular_price' => esc_html__( 'Regular Price', 'avator-widget-pack' ),
+					'_sale_price'    => esc_html__( 'Sale Price', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -301,14 +301,14 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order by', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order by', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'date',
 				'options' => [
-					'date'     => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'title'    => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'category' => esc_html__( 'Category', 'bdthemes-element-pack' ),
-					'rand'     => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'date'     => esc_html__( 'Date', 'avator-widget-pack' ),
+					'title'    => esc_html__( 'Title', 'avator-widget-pack' ),
+					'category' => esc_html__( 'Category', 'avator-widget-pack' ),
+					'rand'     => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -316,12 +316,12 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => [
-					'DESC' => esc_html__( 'Descending', 'bdthemes-element-pack' ),
-					'ASC'  => esc_html__( 'Ascending', 'bdthemes-element-pack' ),
+					'DESC' => esc_html__( 'Descending', 'avator-widget-pack' ),
+					'ASC'  => esc_html__( 'Ascending', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -332,7 +332,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label'     => esc_html__( 'Item', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Item', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -342,17 +342,17 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-inner' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-inner' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -361,10 +361,10 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'item_border',
-				'label'       => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-inner',
+				'selector'    => '{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-inner',
 				'separator'   => 'before',
 			]
 		);
@@ -372,11 +372,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'item_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -385,18 +385,18 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_shadow',
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-inner',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-inner',
 			]
 		);
 
 		$this->add_responsive_control(
 			'item_padding',
 			[
-				'label'      => esc_html__( 'Item Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Item Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -404,11 +404,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'desc_padding',
 			[
-				'label'      => esc_html__( 'Description Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Description Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -418,17 +418,17 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_hover_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-inner:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-inner:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -436,13 +436,13 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'item_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'item_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-inner:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-inner:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -451,7 +451,7 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_hover_shadow',
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-products-skin-inner:hover',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-products-skin-inner:hover',
 			]
 		);
 
@@ -464,7 +464,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label' => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Image', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -473,20 +473,20 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'image_border',
-				'label'    => esc_html__( 'Image Border', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-image',
+				'label'    => esc_html__( 'Image Border', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-products-skin-image',
 			]
 		);
 
 		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};', 
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};', 
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -498,7 +498,7 @@ class Products_Tab extends Widget_Base {
 				'exclude' => [
 					'shadow_position',
 				],
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-image',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-products-skin-image',
 			]
 		);
 
@@ -507,7 +507,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => 'yes',
@@ -518,10 +518,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -529,10 +529,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'hover_title_color',
 			[
-				'label'     => esc_html__( 'Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-title:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-title:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -540,11 +540,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'title_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -553,9 +553,9 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-title a',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-products-skin-title a',
 			]
 		);
 
@@ -565,7 +565,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_rating',
 			[
-				'label'     => esc_html__( 'Rating', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Rating', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_rating' => 'yes',
@@ -576,11 +576,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'rating_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#e7e7e7',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .star-rating:before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .star-rating:before' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -588,11 +588,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'active_rating_color',
 			[
-				'label'     => esc_html__( 'Active Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#FFCC00',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .star-rating span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .star-rating span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -600,11 +600,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'rating_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .star-rating' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .star-rating' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -614,7 +614,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_price',
 			[
-				'label'     => esc_html__( 'Price', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Price', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_price' => 'yes',
@@ -625,10 +625,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'old_price_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price del' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-price del' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -636,11 +636,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'old_price_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price del' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-price del' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -649,16 +649,16 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'old_price_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price del',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-products-skin-price del',
 			]
 		);
 
 		$this->add_control(
 			'sale_price_heading',
 			[
-				'label'     => esc_html__( 'Sale Price', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Sale Price', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -667,10 +667,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'sale_price_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price, {{WRAPPER}} .bdt-products-tab .bdt-products-skin-price ins' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-price, {{WRAPPER}} .avt-products-tab .avt-products-skin-price ins' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -678,11 +678,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'sale_price_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price, {{WRAPPER}} .bdt-products-tab .bdt-products-skin-price ins' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-price, {{WRAPPER}} .avt-products-tab .avt-products-skin-price ins' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -691,9 +691,9 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'sale_price_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price, {{WRAPPER}} .bdt-products-tab .bdt-products-skin-price ins',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-products-skin-price, {{WRAPPER}} .avt-products-tab .avt-products-skin-price ins',
 			]
 		);
 
@@ -702,7 +702,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label'     => esc_html__( 'Add To Cart', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Add To Cart', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_cart' => 'yes',
@@ -715,18 +715,18 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -734,10 +734,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -746,10 +746,10 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a',
+				'selector'    => '{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a',
 				'separator'   => 'before',
 			]
 		);
@@ -757,11 +757,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -769,11 +769,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -783,7 +783,7 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'button_shadow',
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a',
 			]
 		);
 
@@ -791,9 +791,9 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'button_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a',
+				'selector'  => '{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a',
 				'separator' => 'before',
 			]
 		);
@@ -803,17 +803,17 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -821,10 +821,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -832,13 +832,13 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-cart a:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -853,7 +853,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_add_to_link',
 			[
-				'label'     => esc_html__( 'Add To Link', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Add To Link', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_add_to_link' => 'yes',
@@ -866,18 +866,18 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_add_to_link_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'add_to_link_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -885,10 +885,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'add_to_link_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -897,10 +897,10 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'add_to_link_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a',
+				'selector'    => '{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a',
 				'separator'   => 'before',
 			]
 		);
@@ -908,11 +908,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'add_to_link_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -920,11 +920,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'add_to_link_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -934,7 +934,7 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'add_to_link_shadow',
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a',
 			]
 		);
 
@@ -943,17 +943,17 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_add_to_link_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'add_to_link_hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -961,10 +961,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'add_to_link_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -972,13 +972,13 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'add_to_link_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-links a:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-products-skin-add-to-links a:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -992,7 +992,7 @@ class Products_Tab extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_badge',
 			[
-				'label'     => esc_html__( 'Badge', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Badge', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1000,11 +1000,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'badge_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-badge' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-badge' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1012,10 +1012,10 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'badge_bg_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-badge' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-badge' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1023,11 +1023,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'badge_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -1036,11 +1036,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_responsive_control(
 			'badge_margin',
 			[
-				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-badge' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-badge' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1049,10 +1049,10 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'badge_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-badge',
+				'selector'    => '{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-badge',
 				'separator'   => 'before',
 			]
 		);
@@ -1060,11 +1060,11 @@ class Products_Tab extends Widget_Base {
 		$this->add_control(
 			'badge_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1073,7 +1073,7 @@ class Products_Tab extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'badge_shadow',
-				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-item-skin-hidie .bdt-badge',
+				'selector' => '{{WRAPPER}} .avt-products-tab .avt-item-skin-hidie .avt-badge',
 				'separator' => 'before',
 			]
 		);
@@ -1097,7 +1097,7 @@ class Products_Tab extends Widget_Base {
 
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute('wc-products', 'class', ['bdt-products-tab']);
+		$this->add_render_attribute('wc-products', 'class', ['avt-products-tab']);
 
 
 		?>
@@ -1123,7 +1123,7 @@ class Products_Tab extends Widget_Base {
 
 		$args = array(
 			'post_type'           => 'product',
-			'post_bdt-products-skin-status'         => 'publish',
+			'post_avt-products-skin-status'         => 'publish',
 			'ignore_sticky_posts' => 1,
 			'posts_per_page'      => $settings['posts_per_page'],
 			'meta_key'            => $settings['meta_key'],
@@ -1149,7 +1149,7 @@ class Products_Tab extends Widget_Base {
 
 	public function render_loop_item() {
 		$settings = $this->get_settings();
-		$id       = 'bdt-products-skin-' . $this->get_id();
+		$id       = 'avt-products-skin-' . $this->get_id();
 
 		$text_align = $settings['text_align'] ? : 'left';
 
@@ -1157,18 +1157,18 @@ class Products_Tab extends Widget_Base {
 
 		if($wp_query->have_posts()) {
 
-			$this->add_render_attribute('wc-products-wrapper', 'bdt-grid', '');
+			$this->add_render_attribute('wc-products-wrapper', 'avt-grid', '');
 
 			$this->add_render_attribute(
 				[
 					'wc-products-wrapper' => [
 						'class' => [
-							'bdt-products-skin-wrapper',
-							'bdt-grid',
-							'bdt-grid-medium',
-							'bdt-child-width-1-'. $settings['columns_mobile'],
-							'bdt-child-width-1-'. $settings['columns_tablet'] .'@s',
-							'bdt-child-width-1-'. $settings['columns'] .'@m',
+							'avt-products-skin-wrapper',
+							'avt-grid',
+							'avt-grid-medium',
+							'avt-child-width-1-'. $settings['columns_mobile'],
+							'avt-child-width-1-'. $settings['columns_tablet'] .'@s',
+							'avt-child-width-1-'. $settings['columns'] .'@m',
 						],
 						'id' => esc_attr( $id ),
 					],
@@ -1179,19 +1179,19 @@ class Products_Tab extends Widget_Base {
 			<div <?php echo $this->get_render_attribute_string( 'wc-products-wrapper' ); ?>>
 			<?php			
 
-			$this->add_render_attribute( 'wc-product', 'class', 'bdt-products-tab-item' );
+			$this->add_render_attribute( 'wc-product', 'class', 'avt-products-tab-item' );
 
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); global $product; ?>
 				
 
 		  		<div <?php echo $this->get_render_attribute_string( 'wc-product' ); ?>>
 
-		  			<div class="bdt-item-skin-hidie">
-			  			<div class="bdt-products-skin-inner">
-			  				<div class="bdt-products-skin-image">
+		  			<div class="avt-item-skin-hidie">
+			  			<div class="avt-products-skin-inner">
+			  				<div class="avt-products-skin-image">
 			  					
 				  				<?php if ( 'yes' == $settings['show_badge'] and $product->is_on_sale() ) : ?>
-						  			<div class="bdt-badge bdt-position-top-left bdt-position-small">
+						  			<div class="avt-badge avt-position-top-left avt-position-small">
 							  			<?php woocommerce_show_product_loop_sale_flash(); ?>
 						  			</div>
 					  			<?php endif; ?>
@@ -1199,27 +1199,27 @@ class Products_Tab extends Widget_Base {
 				               <?php $this->render_image(); ?>
 
 				               <?php if ('yes' == $settings['show_cart']) : ?>
-				                	<div class="bdt-products-skin-add-to-cart">
+				                	<div class="avt-products-skin-add-to-cart">
 										<?php woocommerce_template_loop_add_to_cart();?>
 									</div>
 								<?php endif; ?>
 
 								<?php if ('yes' == $settings['show_add_to_link']) : ?>
-								<div class="bdt-products-skin-add-to-links">
+								<div class="avt-products-skin-add-to-links">
 		                            <ul>
-		                                <li class="wishlist"><a href="#" bdt-tooltip="Add to Wishlist" bdt-icon="icon: heart"></a></li>
-		                                <li class="quick"><a href="#" bdt-tooltip="Add to Quick" bdt-icon="icon: search"></a></li>
-		                                <li class="compare"><a href="#" bdt-tooltip="Add to Compare" bdt-icon="icon: shrink"></a></li>
+		                                <li class="wishlist"><a href="#" avt-tooltip="Add to Wishlist" avt-icon="icon: heart"></a></li>
+		                                <li class="quick"><a href="#" avt-tooltip="Add to Quick" avt-icon="icon: search"></a></li>
+		                                <li class="compare"><a href="#" avt-tooltip="Add to Compare" avt-icon="icon: shrink"></a></li>
 		                            </ul>
 		                        </div>
 		                    	<?php endif; ?>
 
 	                        </div>
 
-		           			<div class="bdt-products-skin-desc bdt-text-<?php echo esc_attr($text_align); ?>">
+		           			<div class="avt-products-skin-desc avt-text-<?php echo esc_attr($text_align); ?>">
 			               		<?php if ( 'yes' == $settings['show_title']) : ?>
-				           			<h2 class="bdt-products-skin-title">
-				           				<a href="<?php the_permalink(); ?>" class="bdt-link-reset">
+				           			<h2 class="avt-products-skin-title">
+				           				<a href="<?php the_permalink(); ?>" class="avt-link-reset">
 							               <?php the_title(); ?>
 							           </a>
 					               </h2>
@@ -1228,13 +1228,13 @@ class Products_Tab extends Widget_Base {
 			           			<?php if (('yes' == $settings['show_price']) or ('yes' == $settings['show_rating'])) : ?>
 			           			
 					               	<?php if ('yes' == $settings['show_rating']) : ?>
-						               	<div class="bdt-wc-rating">
+						               	<div class="avt-wc-rating">
 						           			<?php woocommerce_template_loop_rating(); ?>
 					           			</div>
 				                	<?php endif; ?>
 
 				               		<?php if ( 'yes' == $settings['show_price']) : ?>
-					           			<span class="bdt-products-skin-price"><?php woocommerce_template_single_price(); ?></span>
+					           			<span class="avt-products-skin-price"><?php woocommerce_template_single_price(); ?></span>
 						            <?php endif; ?>
 
 			                	<?php endif; ?>
@@ -1252,7 +1252,7 @@ class Products_Tab extends Widget_Base {
 			wp_reset_postdata();
 			
 		} else {
-			echo '<div class="bdt-alert-warning" bdt-alert>' . esc_html__( 'Ops! There is no product.', 'bdthemes-element-pack' ) .'<div>';
+			echo '<div class="avt-alert-warning" avt-alert>' . esc_html__( 'Ops! There is no product.', 'avator-widget-pack' ) .'<div>';
 		}
 	}
 

@@ -1,12 +1,12 @@
 <?php
-namespace ElementPack\Modules\ContactForm;
+namespace WidgetPack\Modules\ContactForm;
 
-use ElementPack\Base\Element_Pack_Module_Base;
-use ElementPack\Classes\Utils;
+use WidgetPack\Base\Widget_Pack_Module_Base;
+use WidgetPack\Classes\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Module extends Element_Pack_Module_Base {
+class Module extends Widget_Pack_Module_Base {
 
 	public function get_name() {
 		return 'contact-form';
@@ -21,7 +21,7 @@ class Module extends Element_Pack_Module_Base {
 
 	public function is_valid_captcha(){
 
-		$ep_api_settings = get_option( 'element_pack_api_settings' );
+		$ep_api_settings = get_option( 'widget_pack_api_settings' );
 
 		if(isset($_POST['g-recaptcha-response']) and !empty($ep_api_settings['recaptcha_secret_key'])) {
 			$request  = wp_remote_get( 'https://www.google.com/recaptcha/api/siteverify?secret='.$ep_api_settings['recaptcha_secret_key'].'&response='.esc_url( $_POST["g-recaptcha-response"] ).'&remoteip='.$_SERVER["REMOTE_ADDR"] );
@@ -42,11 +42,11 @@ class Module extends Element_Pack_Module_Base {
 	public function contact_form() {
 
 		$email             = get_bloginfo( 'admin_email' );
-		$error_empty       = esc_html__( 'Please fill in all the required fields.', 'bdthemes-element-pack' );
-		$error_noemail     = esc_html__( 'Please enter a valid e-mail address.', 'bdthemes-element-pack' );
-		$result            = esc_html__( 'Unknown error! please check your setings.', 'bdthemes-element-pack' );
-		$ep_api_settings   = get_option( 'element_pack_api_settings' );
-		$ep_other_settings = get_option( 'element_pack_other_settings' );
+		$error_empty       = esc_html__( 'Please fill in all the required fields.', 'avator-widget-pack' );
+		$error_noemail     = esc_html__( 'Please enter a valid e-mail address.', 'avator-widget-pack' );
+		$result            = esc_html__( 'Unknown error! please check your setings.', 'avator-widget-pack' );
+		$ep_api_settings   = get_option( 'widget_pack_api_settings' );
+		$ep_other_settings = get_option( 'widget_pack_other_settings' );
 
 		if (!empty($ep_other_settings['contact_form_email'])) {
 			$email = $ep_other_settings['contact_form_email'];
@@ -76,7 +76,7 @@ class Module extends Element_Pack_Module_Base {
 			    }
 			}
 
-			$success = sprintf( esc_html__('Thanks for being with us, %s. We got your e-mail! We\'ll reply you very soon...', 'bdthemes-element-pack' ), $form_data['name']);
+			$success = sprintf( esc_html__('Thanks for being with us, %s. We got your e-mail! We\'ll reply you very soon...', 'avator-widget-pack' ), $form_data['name']);
 
 			// and if the e-mail is not valid, switch $error to TRUE and set the result text to the shortcode attribute named 'error_noemail'
 			if ( ! is_email( $form_data['email'] ) ) {
@@ -87,7 +87,7 @@ class Module extends Element_Pack_Module_Base {
 			if (!empty($ep_api_settings['recaptcha_site_key']) and !empty($ep_api_settings['recaptcha_secret_key'])) {
 				if ( !$this->is_valid_captcha() ) {
 					$error  = true;
-					$result = esc_html__("reCAPTCHA is invalid!", "bdthemes-element-pack");
+					$result = esc_html__("reCAPTCHA is invalid!", "avator-widget-pack");
 				}
 			}
 
@@ -112,9 +112,9 @@ class Module extends Element_Pack_Module_Base {
 			}		
 	    	
 	    	if ($error == false ) {
-		    	echo '<span class="bdt-text-success">' . $result . '</span>';
+		    	echo '<span class="avt-text-success">' . $result . '</span>';
 	    	} else {
-	    		echo '<span class="bdt-text-warning">' . $result . '</span>';
+	    		echo '<span class="avt-text-warning">' . $result . '</span>';
 	    	}
 		}
 
@@ -140,8 +140,8 @@ class Module extends Element_Pack_Module_Base {
 	public function __construct() {
 		parent::__construct();
 
-		add_action('wp_ajax_element_pack_contact_form', [$this, 'contact_form']);
-		add_action('wp_ajax_nopriv_element_pack_contact_form', [$this, 'contact_form']);
+		add_action('wp_ajax_widget_pack_contact_form', [$this, 'contact_form']);
+		add_action('wp_ajax_nopriv_widget_pack_contact_form', [$this, 'contact_form']);
 	}
 
 }

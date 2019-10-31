@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\CircleMenu\Widgets;
+namespace WidgetPack\Modules\CircleMenu\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -14,19 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Circle_Menu extends Widget_Base {
 	public function get_name() {
-		return 'bdt-circle-menu';
+		return 'avt-circle-menu';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Circle Menu', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Circle Menu', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-circle-menu';
+		return 'avt-wi-circle-menu';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -34,7 +34,7 @@ class Circle_Menu extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'circle-menu', 'bdt-uikit-icons' ];
+		return [ 'circle-menu', 'avt-uikit-icons' ];
 	}
 
 	protected function _register_controls() {
@@ -42,34 +42,34 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_iconnav',
 			[
-				'label' => esc_html__( 'Circle Menu', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Circle Menu', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'toggle_icon',
 			[
-				'label'   => __( 'Choose Toggle Icon', 'bdthemes-element-pack' ),
+				'label'   => __( 'Choose Toggle Icon', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'plus' => [
-						'title' => __( 'Plus', 'bdthemes-element-pack' ),
+						'title' => __( 'Plus', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-plus',
 					],
 					'plus-circle' => [
-						'title' => __( 'Plus Circle', 'bdthemes-element-pack' ),
+						'title' => __( 'Plus Circle', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-plus-circle',
 					],
 					'close' => [
-						'title' => __( 'Close', 'bdthemes-element-pack' ),
+						'title' => __( 'Close', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-times',
 					],
 					'cog' => [
-						'title' => __( 'Settings', 'bdthemes-element-pack' ),
+						'title' => __( 'Settings', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-cog',
 					],
 					'menu' => [
-						'title' => __( 'Bars', 'bdthemes-element-pack' ),
+						'title' => __( 'Bars', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-bars',
 					],
 				],
@@ -80,56 +80,56 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'circle_menu',
 			[
-				'label'   => esc_html__( 'Circle Menu Items', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Circle Menu Items', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::REPEATER,
 				'default' => [
 					[
 						'circle_menu_icon'  => ['value' => 'fas fa-home', 'library' => 'fa-solid'],
 						'iconnav_link' 		=> [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						], 
-						'title' 			=> esc_html__( 'Home', 'bdthemes-element-pack' ) 
+						'title' 			=> esc_html__( 'Home', 'avator-widget-pack' ) 
 					],
 					[
 						'circle_menu_icon'  => ['value' => 'fas fa-shopping-bag', 'library' => 'fa-solid'],
 						'iconnav_link' => [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						],
-						'title' 			=> esc_html__( 'Products', 'bdthemes-element-pack' ) 
+						'title' 			=> esc_html__( 'Products', 'avator-widget-pack' ) 
 					],
 					[
 						'circle_menu_icon'  => ['value' => 'fas fa-wrench', 'library' => 'fa-solid'],
 						'iconnav_link' 		=> [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						],
-						'title' 			=> esc_html__( 'Settings', 'bdthemes-element-pack' ) 
+						'title' 			=> esc_html__( 'Settings', 'avator-widget-pack' ) 
 					],
 					[
 						'circle_menu_icon'  => ['value' => 'fas fa-book', 'library' => 'fa-solid'],
 						'iconnav_link' 		=> [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						],
-						'title' 			=> esc_html__( 'Documentation', 'bdthemes-element-pack' ) 
+						'title' 			=> esc_html__( 'Documentation', 'avator-widget-pack' ) 
 					],
 					[
 						'circle_menu_icon'  => ['value' => 'fas fa-envelope', 'library' => 'fa-solid'],
 						'iconnav_link' 		=> [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						],
-						'title' 			=> esc_html__( 'Contact Us', 'bdthemes-element-pack' ) 
+						'title' 			=> esc_html__( 'Contact Us', 'avator-widget-pack' ) 
 					],
 				],
 				'fields' => [
 					[
 						'name'    => 'title',
-						'label'   => esc_html__( 'Menu Title', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Menu Title', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::TEXT,
 						'dynamic' => [ 'active' => true ],
 						'default' => 'Home',
 					],
 					[
 						'name'    => 'circle_menu_icon',
-						'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Icon', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::ICONS,
 						'fa4compatibility' => 'icon',
 						'default' => [
@@ -139,7 +139,7 @@ class Circle_Menu extends Widget_Base {
 					],
 					[
 						'name'        => 'iconnav_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Link', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::URL,
 						'default'     => [ 'url' => '#' ],
 						'dynamic'     => [ 'active' => true ],
@@ -155,24 +155,24 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'toggle_icon_position',
 			[
-				'label'   => __( 'Toggle Icon Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Toggle Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '',
-				'options' => element_pack_position(),			
+				'options' => widget_pack_position(),			
 			]
 		);
 
 		$this->add_control(
 			'toggle_icon_x_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' =>  0,
@@ -190,7 +190,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'toggle_icon_y_position',
 			[
-				'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,'default' => [
 					'size' =>  0,
 				],
@@ -202,7 +202,7 @@ class Circle_Menu extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu-container' => 'transform: translate({{toggle_icon_x_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-circle-menu-container' => 'transform: translate({{toggle_icon_x_position.size}}px, {{SIZE}}px);',
 				],
 			]
 		);
@@ -212,31 +212,31 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional_settings',
 			[
-				'label' => esc_html__( 'Additional Settings', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'direction',
 			[
-				'label'   => __( 'Menu Direction', 'bdthemes-element-pack' ),
+				'label'   => __( 'Menu Direction', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'bottom-right',
 				'options' => [
-					'top'          => esc_html__('Top', 'bdthemes-element-pack'),
-					'right'        => esc_html__('Right', 'bdthemes-element-pack'),
-					'bottom'       => esc_html__('Bottom', 'bdthemes-element-pack'),
-					'left'         => esc_html__('Left', 'bdthemes-element-pack'),
-					'top'          => esc_html__('Top', 'bdthemes-element-pack'),
-					'full'         => esc_html__('Full', 'bdthemes-element-pack'),
-					'top-left'     => esc_html__('Top-Left', 'bdthemes-element-pack'),
-					'top-right'    => esc_html__('Top-Right', 'bdthemes-element-pack'),
-					'top-half'     => esc_html__('Top-Half', 'bdthemes-element-pack'),
-					'bottom-left'  => esc_html__('Bottom-Left', 'bdthemes-element-pack'),
-					'bottom-right' => esc_html__('Bottom-Right', 'bdthemes-element-pack'),
-					'bottom-half'  => esc_html__('Bottom-Half', 'bdthemes-element-pack'),
-					'left-half'    => esc_html__('Left-Half', 'bdthemes-element-pack'),
-					'right-half'   => esc_html__('Right-Half', 'bdthemes-element-pack'),
+					'top'          => esc_html__('Top', 'avator-widget-pack'),
+					'right'        => esc_html__('Right', 'avator-widget-pack'),
+					'bottom'       => esc_html__('Bottom', 'avator-widget-pack'),
+					'left'         => esc_html__('Left', 'avator-widget-pack'),
+					'top'          => esc_html__('Top', 'avator-widget-pack'),
+					'full'         => esc_html__('Full', 'avator-widget-pack'),
+					'top-left'     => esc_html__('Top-Left', 'avator-widget-pack'),
+					'top-right'    => esc_html__('Top-Right', 'avator-widget-pack'),
+					'top-half'     => esc_html__('Top-Half', 'avator-widget-pack'),
+					'bottom-left'  => esc_html__('Bottom-Left', 'avator-widget-pack'),
+					'bottom-right' => esc_html__('Bottom-Right', 'avator-widget-pack'),
+					'bottom-half'  => esc_html__('Bottom-Half', 'avator-widget-pack'),
+					'left-half'    => esc_html__('Left-Half', 'avator-widget-pack'),
+					'right-half'   => esc_html__('Right-Half', 'avator-widget-pack'),
 				]
 			]
 		);
@@ -244,7 +244,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'item_diameter',
 			[
-				'label'   => __( 'Circle Menu Size', 'bdthemes-element-pack' ),
+				'label'   => __( 'Circle Menu Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 35,
@@ -262,7 +262,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'circle_radius',
 			[
-				'label'   => __( 'Circle Menu Distance', 'bdthemes-element-pack' ),
+				'label'   => __( 'Circle Menu Distance', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 100,
@@ -280,7 +280,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'   => __( 'Speed', 'bdthemes-element-pack' ),
+				'label'   => __( 'Speed', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 500,
@@ -298,7 +298,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'delay',
 			[
-				'label'   => __( 'Delay', 'bdthemes-element-pack' ),
+				'label'   => __( 'Delay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1000,
@@ -316,7 +316,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'step_out',
 			[
-				'label'   => __( 'Step Out', 'bdthemes-element-pack' ),
+				'label'   => __( 'Step Out', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 20,
@@ -334,7 +334,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'step_in',
 			[
-				'label'   => __( 'Step In', 'bdthemes-element-pack' ),
+				'label'   => __( 'Step In', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -20,
@@ -352,12 +352,12 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'trigger',
 			[
-				'label'   => __( 'Trigger', 'bdthemes-element-pack' ),
+				'label'   => __( 'Trigger', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'hover',
 				'options' => [
-					'hover' => esc_html__('Hover', 'bdthemes-element-pack'),
-					'click' => esc_html__('Click', 'bdthemes-element-pack'),
+					'hover' => esc_html__('Hover', 'avator-widget-pack'),
+					'click' => esc_html__('Click', 'avator-widget-pack'),
 				],
 			]
 		);
@@ -367,7 +367,7 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -375,7 +375,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_responsive_control(
 			'toggle_icon_size',
 			[
-				'label' => esc_html__( 'Toggle Icon Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Toggle Icon Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -387,7 +387,7 @@ class Circle_Menu extends Widget_Base {
 					'size' => 16,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon a svg' => 'height: {{SIZE}}px; width: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon a svg' => 'height: {{SIZE}}px; width: {{SIZE}}px;',
 				],
 			]
 		);
@@ -395,15 +395,15 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'transition_function',
 			[
-				'label'   => esc_html__( 'Transition', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Transition', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'ease',
 				'options' => [
-					'ease'        => esc_html('Ease', 'bdthemes-element-pack'),
-					'linear'      => esc_html('Linear', 'bdthemes-element-pack'),
-					'ease-in'     => esc_html('Ease-In', 'bdthemes-element-pack'),
-					'ease-out'    => esc_html('Ease-Out', 'bdthemes-element-pack'),
-					'ease-in-out' => esc_html('Ease-In-Out', 'bdthemes-element-pack'),
+					'ease'        => esc_html('Ease', 'avator-widget-pack'),
+					'linear'      => esc_html('Linear', 'avator-widget-pack'),
+					'ease-in'     => esc_html('Ease-In', 'avator-widget-pack'),
+					'ease-out'    => esc_html('Ease-Out', 'avator-widget-pack'),
+					'ease-in-out' => esc_html('Ease-In-Out', 'avator-widget-pack'),
 				],
 			]
 		);
@@ -413,7 +413,7 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_toggle_icon',
 			[
-				'label' => esc_html__( 'Toggle Icon', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Toggle Icon', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -423,17 +423,17 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_toggle_icon_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 		
 		$this->add_control(
 			'toggle_icon_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -441,10 +441,10 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'toggle_icon_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -453,21 +453,21 @@ class Circle_Menu extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'toggle_icon_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon',
+				'selector'    => '{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon',
 			]
 		);
 
 		$this->add_responsive_control(
 			'toggle_icon_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -476,17 +476,17 @@ class Circle_Menu extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'toggle_icon_shadow',
-				'selector' => '{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon',
+				'selector' => '{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon',
 			]
 		);
 
 		$this->add_responsive_control(
 			'toggle_icon_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
 				],
 			]
 		);
@@ -496,17 +496,17 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_tab(
 			'toggle_icon_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'toggle_icon_hover_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -514,10 +514,10 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'toggle_icon_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -525,13 +525,13 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'toggle_icon_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'toggle_icon_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-toggle-icon:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li.avt-toggle-icon:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -545,7 +545,7 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_circle_menu_icon',
 			[
-				'label' => esc_html__( 'Circle Icon', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Circle Icon', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -555,17 +555,17 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_circle_menu_icon_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 		
 		$this->add_control(
 			'circle_menu_icon_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-menu-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li.avt-menu-icon' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -573,11 +573,11 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'circle_menu_icon_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu-container .bdt-menu-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-circle-menu-container .bdt-menu-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu-container .avt-menu-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu-container .avt-menu-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -586,21 +586,21 @@ class Circle_Menu extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'circle_menu_icon_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-circle-menu li.bdt-menu-icon',
+				'selector'    => '{{WRAPPER}} .avt-circle-menu li.avt-menu-icon',
 			]
 		);
 
 		$this->add_responsive_control(
 			'circle_menu_icon_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-menu-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+					'{{WRAPPER}} .avt-circle-menu li.avt-menu-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -609,17 +609,17 @@ class Circle_Menu extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'circle_menu_icon_shadow',
-				'selector' => '{{WRAPPER}} .bdt-circle-menu li.bdt-menu-icon',
+				'selector' => '{{WRAPPER}} .avt-circle-menu li.avt-menu-icon',
 			]
 		);
 
 		$this->add_responsive_control(
 			'circle_menu_icon_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-menu-icon' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .avt-circle-menu li.avt-menu-icon' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
 				],
 			]
 		);
@@ -627,7 +627,7 @@ class Circle_Menu extends Widget_Base {
 		$this->add_responsive_control(
 			'circle_menu_icon_size',
 			[
-				'label'      => esc_html__( 'Icon Size', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Icon Size', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -637,7 +637,7 @@ class Circle_Menu extends Widget_Base {
 					],
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-circle-menu li.bdt-menu-icon' => 'font-size: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-circle-menu li.avt-menu-icon' => 'font-size: {{SIZE}}px;',
 				],
 			]
 		);
@@ -647,17 +647,17 @@ class Circle_Menu extends Widget_Base {
 		$this->start_controls_tab(
 			'circle_menu_icon_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'circle_menu_icon_hover_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -665,11 +665,11 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'circle_menu_icon_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu-container .bdt-menu-icon:hover i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-circle-menu-container .bdt-menu-icon:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu-container .avt-menu-icon:hover i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu-container .avt-menu-icon:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -677,13 +677,13 @@ class Circle_Menu extends Widget_Base {
 		$this->add_control(
 			'circle_menu_icon_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'circle_menu_icon_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-circle-menu li:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-circle-menu li:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -701,7 +701,7 @@ class Circle_Menu extends Widget_Base {
 			[
 				'iconnav-link' => [
 					'class' => [
-						'bdt-position-center',
+						'avt-position-center',
 					],
 					'target' => [
 						$list['iconnav_link']['is_external'] ? '_blank' : '_self',
@@ -728,7 +728,7 @@ class Circle_Menu extends Widget_Base {
 		$is_new    = empty( $list['icon'] ) && Icons_Manager::is_migration_allowed();
 
 		?>
-	    <li class="bdt-menu-icon">
+	    <li class="avt-menu-icon">
 			<a <?php echo $this->get_render_attribute_string( 'iconnav-link' ); ?>>
 				<?php if ($list['circle_menu_icon']['value']) : ?>
 					<span>
@@ -749,7 +749,7 @@ class Circle_Menu extends Widget_Base {
 
 	protected function render() {
 		$settings    = $this->get_settings();
-		$id          = 'bdt-circle-menu-' . $this->get_id();
+		$id          = 'avt-circle-menu-' . $this->get_id();
 		$toggle_icon = ($settings['toggle_icon']) ? : 'plus';
 
 		$this->add_render_attribute(
@@ -759,8 +759,8 @@ class Circle_Menu extends Widget_Base {
 						esc_attr($id),
 					],
 					'class' => [
-						'bdt-circle-menu-container',
-						$settings['toggle_icon_position'] ? 'bdt-position-fixed bdt-position-' . $settings['toggle_icon_position'] : '',
+						'avt-circle-menu-container',
+						$settings['toggle_icon_position'] ? 'avt-position-fixed avt-position-' . $settings['toggle_icon_position'] : '',
 					],
 				],
 			]
@@ -773,14 +773,14 @@ class Circle_Menu extends Widget_Base {
 						'javascript:void(0)',
 					],
 					'class' => [
-						'bdt-icon bdt-link-reset',
-						'bdt-position-center',
+						'avt-icon avt-link-reset',
+						'avt-position-center',
 					],
-					'bdt-icon' => [
+					'avt-icon' => [
 						'icon: ' . esc_attr($toggle_icon) . '; ratio: 1.1',
 					],
 					'title' => [
-						esc_html('Click me to show menus.', 'bdthemes-element-pack'),
+						esc_html('Click me to show menus.', 'avator-widget-pack'),
 					],
 				],
 			]
@@ -806,8 +806,8 @@ class Circle_Menu extends Widget_Base {
 		
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'circle-menu-container' ); ?>>
-            <ul class="bdt-circle-menu" <?php echo $this->get_render_attribute_string( 'circle-menu-settings' ); ?>>
-            	<li class="bdt-toggle-icon">
+            <ul class="avt-circle-menu" <?php echo $this->get_render_attribute_string( 'circle-menu-settings' ); ?>>
+            	<li class="avt-toggle-icon">
             		<a <?php echo $this->get_render_attribute_string( 'toggle-icon' ); ?>></a>
             	</li>
 				<?php

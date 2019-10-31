@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostCard\Widgets;
+namespace WidgetPack\Modules\PostCard\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -12,8 +12,8 @@ use Elementor\Utils;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\QueryControl\Module;
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -21,19 +21,19 @@ class Post_Card extends Widget_Base {
 	public $_query = null;
 
 	public function get_name() {
-		return 'bdt-post-card';
+		return 'avt-post-card';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Post Card', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Post Card', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-post-card';
+		return 'avt-wi-post-card';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -61,14 +61,14 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'thumb',
 			[
-				'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -78,7 +78,7 @@ class Post_Card extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'      => 'thumbnail',
-				'label'     => esc_html__( 'Image Size', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Image Size', 'avator-widget-pack' ),
 				'exclude'   => [ 'custom' ],
 				'default'   => 'large',
 				'condition' => [
@@ -90,7 +90,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -99,7 +99,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'meta',
 			[
-				'label'   => esc_html__( 'Meta Data', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Meta Data', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -108,7 +108,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'tags',
 			[
-				'label'   => esc_html__( 'Tags', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Tags', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -117,7 +117,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'excerpt',
 			[
-				'label'   => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -126,7 +126,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'excerpt_length',
 			[
-				'label'     => esc_html__( 'Excerpt Length', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt Length', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 15,
 				'condition' => [
@@ -138,7 +138,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'button',
 			[
-				'label'   => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Button', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -149,7 +149,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => __( 'Query', 'bdthemes-element-pack' ),
+				'label' => __( 'Query', 'avator-widget-pack' ),
 			]
 		);
 
@@ -157,14 +157,14 @@ class Post_Card extends Widget_Base {
 			Group_Control_Posts::get_type(),
 			[
 				'name'  => 'posts',
-				'label' => __( 'Posts', 'bdthemes-element-pack' ),
+				'label' => __( 'Posts', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'advanced',
 			[
-				'label' => __( 'Advanced', 'bdthemes-element-pack' ),
+				'label' => __( 'Advanced', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -172,14 +172,14 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => __( 'Order By', 'bdthemes-element-pack' ),
+				'label'   => __( 'Order By', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'post_date',
 				'options' => [
-					'post_date'  => __( 'Date', 'bdthemes-element-pack' ),
-					'post_title' => __( 'Title', 'bdthemes-element-pack' ),
-					'menu_order' => __( 'Menu Order', 'bdthemes-element-pack' ),
-					'rand'       => __( 'Random', 'bdthemes-element-pack' ),
+					'post_date'  => __( 'Date', 'avator-widget-pack' ),
+					'post_title' => __( 'Title', 'avator-widget-pack' ),
+					'menu_order' => __( 'Menu Order', 'avator-widget-pack' ),
+					'rand'       => __( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -187,7 +187,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'offset',
 			[
-				'label'     => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 0,
 				'condition' => [
@@ -199,12 +199,12 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => __( 'Order', 'bdthemes-element-pack' ),
+				'label'   => __( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'desc',
 				'options' => [
-					'asc'  => __( 'ASC', 'bdthemes-element-pack' ),
-					'desc' => __( 'DESC', 'bdthemes-element-pack' ),
+					'asc'  => __( 'ASC', 'avator-widget-pack' ),
+					'desc' => __( 'DESC', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -214,7 +214,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'condition' => [
 					'button' => 'yes',
 				],
@@ -224,10 +224,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'button_text',
 			[
-				'label'       => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Read More', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Read More', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'label_block' => true,
 			]
 		);
@@ -235,7 +235,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'post_card_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -244,12 +244,12 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'post_card_icon[value]!' => '',
@@ -260,7 +260,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -274,8 +274,8 @@ class Post_Card extends Widget_Base {
 					'post_card_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-post-card .bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-card .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-card .avt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -285,7 +285,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label' => esc_html__( 'Item', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Item', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -293,11 +293,11 @@ class Post_Card extends Widget_Base {
 		$this->add_responsive_control(
 			'padding',
 			[
-				'label'      => esc_html__( 'Description Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Description Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -305,10 +305,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'item_background',
 			[
-				'label'     => esc_html__( 'Item Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Item Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-desc' => 'background-color: {{SIZE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-desc' => 'background-color: {{SIZE}};',
 				],
 			]
 		);
@@ -316,10 +316,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'shadow_color',
 			[
-				'label'     => esc_html__( 'Highlightrd Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Highlightrd Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card > div:nth-child(2) .bdt-post-card-item' => 'box-shadow: 0 0 0 20px {{SIZE}};',
+					'{{WRAPPER}} .avt-post-card > div:nth-child(2) .avt-post-card-item' => 'box-shadow: 0 0 0 20px {{SIZE}};',
 				],
 			]
 		);
@@ -329,7 +329,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_tags',
 			[
-				'label'     => esc_html__( 'Tags', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Tags', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'tags' => 'yes',
@@ -340,10 +340,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'tags_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-tag a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-tag a' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -351,10 +351,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'tag_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-tag a' => 'background: {{SIZE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-tag a' => 'background: {{SIZE}};',
 				],
 			]
 		);
@@ -363,9 +363,9 @@ class Post_Card extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'tags_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-tag a',
+				'selector' => '{{WRAPPER}} .avt-post-card .avt-post-card-tag a',
 			]
 		);
 
@@ -374,7 +374,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'title' => 'yes',
@@ -385,10 +385,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-title' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -397,9 +397,9 @@ class Post_Card extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-title',
+				'selector' => '{{WRAPPER}} .avt-post-card .avt-post-card-title',
 			]
 		);
 
@@ -408,7 +408,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_meta',
 			[
-				'label'     => esc_html__( 'Meta', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Meta', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'meta' => 'yes',
@@ -419,11 +419,11 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'meta_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-meta *' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-meta span:before' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-meta *' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-meta span:before' => 'background: {{VALUE}}',
 				],
 			]
 		);
@@ -432,9 +432,9 @@ class Post_Card extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'meta_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-meta *',
+				'selector' => '{{WRAPPER}} .avt-post-card .avt-post-card-meta *',
 			]
 		);
 
@@ -443,7 +443,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_excerpt',
 			[
-				'label'     => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'excerpt' => 'yes',
@@ -454,10 +454,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'excerpt_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-excerpt' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-excerpt' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -466,9 +466,9 @@ class Post_Card extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'excerpt_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-excerpt',
+				'selector' => '{{WRAPPER}} .avt-post-card .avt-post-card-excerpt',
 			]
 		);
 
@@ -477,7 +477,7 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label'     => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'button' => 'yes',
@@ -490,18 +490,18 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -509,10 +509,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -522,18 +522,18 @@ class Post_Card extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -541,10 +541,10 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -552,13 +552,13 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -566,7 +566,7 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -579,10 +579,10 @@ class Post_Card extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-post-card .bdt-post-card-button',
+				'selector'    => '{{WRAPPER}} .avt-post-card .avt-post-card-button',
 				'separator'   => 'before',
 			]
 		);
@@ -590,11 +590,11 @@ class Post_Card extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -603,18 +603,18 @@ class Post_Card extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'button_shadow',
-				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-button',
+				'selector' => '{{WRAPPER}} .avt-post-card .avt-post-card-button',
 			]
 		);
 
 		$this->add_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-card .bdt-post-card-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-card .avt-post-card-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -624,9 +624,9 @@ class Post_Card extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-button',
+				'selector' => '{{WRAPPER}} .avt-post-card .avt-post-card-button',
 			]
 		);
 
@@ -650,7 +650,7 @@ class Post_Card extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-post-card-excerpt">
+		<div class="avt-post-card-excerpt">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -669,7 +669,7 @@ class Post_Card extends Widget_Base {
 
 	public function render() {
 		$settings = $this->get_settings();
-		$id       = uniqid('bdtpc_');
+		$id       = uniqid('avtpc_');
 		$media    = '';
 		
 		$animation = ($settings['button_hover_animation']) ? ' elementor-animation-'.$settings['button_hover_animation'] : '';
@@ -686,14 +686,14 @@ class Post_Card extends Widget_Base {
 			[
 				'post-card' => [
 					'class' => [
-						'bdt-post-card',
-						'bdt-grid-collapse',
-						'bdt-child-width-1-1@s',
-						'bdt-child-width-1-3@m',
-						'bdt-grid',
-						'bdt-grid-match'
+						'avt-post-card',
+						'avt-grid-collapse',
+						'avt-child-width-1-1@s',
+						'avt-child-width-1-3@m',
+						'avt-grid',
+						'avt-grid-match'
 					],
-					'bdt-grid' => ''
+					'avt-grid' => ''
 				]
 			]
 		);
@@ -723,43 +723,43 @@ class Post_Card extends Widget_Base {
 					$image_src = $image_src[0];
 				}
 		  
-	  			$media = '<a href="'.esc_url(get_permalink()).'" title="' . esc_attr(get_the_title()) . '" class="bdt-post-card-thumb"><img src="'.esc_url($image_src).'" alt="' . esc_attr(get_the_title()) . '" /></a>';
+	  			$media = '<a href="'.esc_url(get_permalink()).'" title="' . esc_attr(get_the_title()) . '" class="avt-post-card-thumb"><img src="'.esc_url($image_src).'" alt="' . esc_attr(get_the_title()) . '" /></a>';
 		  		
 		  	endif; ?>
 
 	  		<div>
-		  		<div class="bdt-post-card-item">
+		  		<div class="avt-post-card-item">
 			  
 					<?php echo wp_kses_post($media); ?>
 			  		
-			  		<div class="bdt-post-card-desc">
+			  		<div class="avt-post-card-desc">
 
 			  			<?php if ('yes' == $settings['tags']) : ?>
 
 				  			<?php $tags_list = get_the_tag_list( '<span>', '</span> <span>', '</span>'); ?>
 
 			                <?php if ($tags_list) : ?>
-			                    <p class="bdt-post-card-tag" ><?php echo  wp_kses_post($tags_list); ?></p>
+			                    <p class="avt-post-card-tag" ><?php echo  wp_kses_post($tags_list); ?></p>
 			                <?php endif ?>
 		            	<?php endif ?>
 
 		            	<?php if ('yes' == $settings['title']) : ?>
-							<h4 class="bdt-post-card-title"><a href="<?php echo esc_url(get_permalink()); ?>" title="<?php esc_attr(get_the_title()) ; ?>"><?php echo esc_html(get_the_title()) ; ?></a></h4>
+							<h4 class="avt-post-card-title"><a href="<?php echo esc_url(get_permalink()); ?>" title="<?php esc_attr(get_the_title()) ; ?>"><?php echo esc_html(get_the_title()) ; ?></a></h4>
 						<?php endif ?>
 
 						<?php if ('yes' == $settings['meta']) :
 							$meta_list = '<span>'.get_the_date().'</span><span>'.get_the_category_list(', ').'</span>'; ?>
 							
-							<div class="bdt-post-card-meta bdt-subnav bdt-flex-middle"><?php echo wp_kses_post($meta_list); ?></div>
+							<div class="avt-post-card-meta avt-subnav avt-flex-middle"><?php echo wp_kses_post($meta_list); ?></div>
 						<?php endif ?>
 
 						<?php $this->render_excerpt(); ?>
 
 						<?php if ('yes' == $settings['button']) : ?>
-							<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-card-button<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['button_text']); ?>
+							<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-card-button<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['button_text']); ?>
 
 								<?php if ($settings['post_card_icon']['value']) : ?>
-									<span class="bdt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
+									<span class="avt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
 
 										<?php if ( $is_new || $migrated ) :
 											Icons_Manager::render_icon( $settings['post_card_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );

@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////
 //																	//
 // 	Don't translate your language here.								//
-// 	We have dedicated translation app for translate Element Pack	//
-// 	Please go to https://bdthemes.co/ep-translate/			 		//
+// 	We have dedicated translation app for translate Widget Pack	//
+// 	Please go to https://avator.co/ep-translate/			 		//
 // 	Register there and modify your language and download it. 		//
 //																	//
 //////////////////////////////////////////////////////////////////////

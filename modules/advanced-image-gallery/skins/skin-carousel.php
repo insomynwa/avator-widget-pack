@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\AdvancedImageGallery\Skins;
+namespace WidgetPack\Modules\AdvancedImageGallery\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -7,11 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Carousel extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-carousel';
+		return 'avt-carousel';
 	}
 
 	public function get_title() {
-		return __( 'Carousel', 'bdthemes-element-pack' );
+		return __( 'Carousel', 'avator-widget-pack' );
 	}
 
 	public function render_header() {
@@ -19,32 +19,32 @@ class Skin_Carousel extends Elementor_Skin_Base {
 		$settings = $this->parent->get_settings_for_display();
 		$id       = $this->parent->get_id();
 
-		$this->parent->add_render_attribute('advanced-image-gallery', 'id', 'bdt-avdg-' . esc_attr($id) );
-		$this->parent->add_render_attribute('advanced-image-gallery', 'class', ['bdt-advanced-image-gallery', 'bdt-skin-carousel'] );
-		$this->parent->add_render_attribute('advanced-image-gallery', 'bdt-grid', '');
-		$this->parent->add_render_attribute('advanced-image-gallery', 'class', ['bdt-grid', 'bdt-grid-small'] );
+		$this->parent->add_render_attribute('advanced-image-gallery', 'id', 'avt-avdg-' . esc_attr($id) );
+		$this->parent->add_render_attribute('advanced-image-gallery', 'class', ['avt-advanced-image-gallery', 'avt-skin-carousel'] );
+		$this->parent->add_render_attribute('advanced-image-gallery', 'avt-grid', '');
+		$this->parent->add_render_attribute('advanced-image-gallery', 'class', ['avt-grid', 'avt-grid-small'] );
 		
 		if ( 'masonry' == $settings['grid_type'] ) {
-			$this->parent->add_render_attribute('advanced-image-gallery', 'bdt-grid', 'masonry: true');
+			$this->parent->add_render_attribute('advanced-image-gallery', 'avt-grid', 'masonry: true');
 		}
 		if ( $settings['show_lightbox'] ) {
-			$this->parent->add_render_attribute('advanced-image-gallery', 'bdt-lightbox', 'animation: slide');
+			$this->parent->add_render_attribute('advanced-image-gallery', 'avt-lightbox', 'animation: slide');
 		}
 
-		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'bdt-slider-items');
-		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'bdt-child-width-1-' . esc_attr($settings['columns_mobile']));
-		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'bdt-child-width-1-' . esc_attr($settings['columns_tablet']) .'@s');
-		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'bdt-child-width-1-' . esc_attr($settings['columns']) .'@m');
+		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'avt-slider-items');
+		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'avt-child-width-1-' . esc_attr($settings['columns_mobile']));
+		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'avt-child-width-1-' . esc_attr($settings['columns_tablet']) .'@s');
+		$this->parent->add_render_attribute('advanced-image-gallery', 'class', 'avt-child-width-1-' . esc_attr($settings['columns']) .'@m');
 
 		$this->parent->add_render_attribute(
 			[
 				'slider-settings' => [
 					'class' => [
-						( 'both' == $settings['navigation'] ) ? 'bdt-arrows-dots-align-' . $settings['both_position'] : '',
-						( 'arrows' == $settings['navigation'] or 'arrows-thumbnavs' == $settings['navigation'] ) ? 'bdt-arrows-align-' . $settings['arrows_position'] : '',
-						( 'dots' == $settings['navigation'] ) ? 'bdt-dots-align-'. $settings['dots_position'] : '',
+						( 'both' == $settings['navigation'] ) ? 'avt-arrows-dots-align-' . $settings['both_position'] : '',
+						( 'arrows' == $settings['navigation'] or 'arrows-thumbnavs' == $settings['navigation'] ) ? 'avt-arrows-align-' . $settings['arrows_position'] : '',
+						( 'dots' == $settings['navigation'] ) ? 'avt-dots-align-'. $settings['dots_position'] : '',
 					],
-					'bdt-slider' => [
+					'avt-slider' => [
 						wp_json_encode(array_filter([
 							"autoplay"          => ( $settings["autoplay"] ) ? true : false,
 							"autoplay-interval" => $settings["autoplay_interval"],
@@ -92,10 +92,10 @@ class Skin_Carousel extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="bdt-position-z-index bdt-visible@m bdt-position-<?php echo esc_attr($arrows_position); ?>">
-			<div class="bdt-arrows-container bdt-slidenav-container">
-				<a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9" bdt-slider-item="previous"></a>
-				<a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9" bdt-slider-item="next"></a>
+		<div class="avt-position-z-index avt-visible@m avt-position-<?php echo esc_attr($arrows_position); ?>">
+			<div class="avt-arrows-container avt-slidenav-container">
+				<a href="" class="avt-navigation-prev avt-slidenav-previous avt-icon avt-slidenav" avt-icon="icon: chevron-left; ratio: 1.9" avt-slider-item="previous"></a>
+				<a href="" class="avt-navigation-next avt-slidenav-next avt-icon avt-slidenav" avt-icon="icon: chevron-right; ratio: 1.9" avt-slider-item="next"></a>
 			</div>
 		</div>
 		<?php
@@ -110,17 +110,17 @@ class Skin_Carousel extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="bdt-position-z-index bdt-visible@m bdt-position-<?php echo esc_attr($dots_position); ?>">
-			<div class="bdt-dotnav-wrapper bdt-dots-container">
-				<ul class="bdt-dotnav bdt-flex-center">
+		<div class="avt-position-z-index avt-visible@m avt-position-<?php echo esc_attr($dots_position); ?>">
+			<div class="avt-dotnav-wrapper avt-dots-container">
+				<ul class="avt-dotnav avt-flex-center">
 
 				    <?php		
-					$bdt_counter = 0;
+					$avt_counter = 0;
 
 					foreach ( $settings['avd_gallery_images'] as $index => $item ) :
 					      
-						echo '<li class="bdt-slider-dotnav bdt-active" bdt-slider-item="' . esc_attr($bdt_counter) . '"><a href="#"></a></li>';
-						$bdt_counter++;
+						echo '<li class="avt-slider-dotnav avt-active" avt-slider-item="' . esc_attr($avt_counter) . '"><a href="#"></a></li>';
+						$avt_counter++;
 
 					endforeach; ?>
 
@@ -132,23 +132,23 @@ class Skin_Carousel extends Elementor_Skin_Base {
 
 	public function render_both_navigation($settings) {
 		?>
-		<div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['both_position']); ?>">
-			<div class="bdt-arrows-dots-container bdt-slidenav-container ">
+		<div class="avt-position-z-index avt-position-<?php echo esc_attr($settings['both_position']); ?>">
+			<div class="avt-arrows-dots-container avt-slidenav-container ">
 				
-				<div class="bdt-flex bdt-flex-middle">
+				<div class="avt-flex avt-flex-middle">
 					<div>
-						<a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9" bdt-slider-item="previous"></a>						
+						<a href="" class="avt-navigation-prev avt-slidenav-previous avt-icon avt-slidenav" avt-icon="icon: chevron-left; ratio: 1.9" avt-slider-item="previous"></a>						
 					</div>
 
 					<?php if ('center' !== $settings['both_position']) : ?>
-						<div class="bdt-dotnav-wrapper bdt-dots-container">
-							<ul class="bdt-dotnav">
+						<div class="avt-dotnav-wrapper avt-dots-container">
+							<ul class="avt-dotnav">
 							    <?php		
-								$bdt_counter = 0;
+								$avt_counter = 0;
 
 								foreach ( $settings['avd_gallery_images'] as $index => $item ) :								      
-									echo '<li class="bdt-slider-dotnav bdt-active" bdt-slider-item="' . esc_attr($bdt_counter) . '"><a href="#"></a></li>';
-									$bdt_counter++;
+									echo '<li class="avt-slider-dotnav avt-active" avt-slider-item="' . esc_attr($avt_counter) . '"><a href="#"></a></li>';
+									$avt_counter++;
 								endforeach; ?>
 
 							</ul>
@@ -156,7 +156,7 @@ class Skin_Carousel extends Elementor_Skin_Base {
 					<?php endif; ?>
 					
 					<div>
-						<a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9" bdt-slider-item="next"></a>						
+						<a href="" class="avt-navigation-next avt-slidenav-next avt-icon avt-slidenav" avt-icon="icon: chevron-right; ratio: 1.9" avt-slider-item="next"></a>						
 					</div>
 					
 				</div>
@@ -167,9 +167,9 @@ class Skin_Carousel extends Elementor_Skin_Base {
 
 	public function render_loop_item($settings) {
 
-		$this->parent->add_render_attribute('advanced-image-gallery-item', 'class', ['bdt-gallery-item', 'bdt-transition-toggle']);
+		$this->parent->add_render_attribute('advanced-image-gallery-item', 'class', ['avt-gallery-item', 'avt-transition-toggle']);
 
-		$this->parent->add_render_attribute('advanced-image-gallery-inner', 'class', 'bdt-advanced-image-gallery-inner');
+		$this->parent->add_render_attribute('advanced-image-gallery-inner', 'class', 'avt-advanced-image-gallery-inner');
 		
 		if ($settings['tilt_show']) {
 			$this->parent->add_render_attribute('advanced-image-gallery-inner', 'data-tilt', '');

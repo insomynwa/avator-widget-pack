@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\EasyDigitalDownloads\Widgets;
+namespace WidgetPack\Modules\EasyDigitalDownloads\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,19 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class EDD_Download_History extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-easy-digital-download-history';
+		return 'avt-easy-digital-download-history';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Easy Digital Downloads History', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Easy Digital Downloads History', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-easy-digital-download';
+		return 'avt-wi-easy-digital-download';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -34,26 +34,26 @@ class EDD_Download_History extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_table',
 			[
-				'label' => __( 'Table', 'bdthemes-element-pack' ),
+				'label' => __( 'Table', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'header_align',
 			[
-				'label'   => __( 'Header Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Header Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -67,19 +67,19 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'body_align',
 			[
-				'label'   => __( 'Body Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Body Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -95,7 +95,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_table',
 			[
-				'label' => __( 'Table', 'bdthemes-element-pack' ),
+				'label' => __( 'Table', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -103,16 +103,16 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'table_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} #edd_user_history' => 'border-style: {{VALUE}};',
@@ -123,7 +123,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'table_border_width',
 			[
-				'label'   => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'min'  => 0,
@@ -139,7 +139,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'table_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ccc',
 				'selectors' => [
@@ -153,7 +153,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_header',
 			[
-				'label' => __( 'Header', 'bdthemes-element-pack' ),
+				'label' => __( 'Header', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -161,7 +161,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'header_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#dfe3e6',
 				'selectors' => [
@@ -173,7 +173,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'header_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#333',
 				'selectors' => [
@@ -185,16 +185,16 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'header_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} #edd_user_history th' => 'border-style: {{VALUE}};',
@@ -205,7 +205,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'header_border_width',
 			[
-				'label'   => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'min'  => 0,
@@ -221,7 +221,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'header_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ccc',
 				'selectors' => [
@@ -233,7 +233,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_responsive_control(
 			'header_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default'    => [
@@ -254,7 +254,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_body',
 			[
-				'label' => __( 'Body', 'bdthemes-element-pack' ),
+				'label' => __( 'Body', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -262,16 +262,16 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'cell_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} #edd_user_history td' => 'border-style: {{VALUE}};',
@@ -282,7 +282,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'cell_border_width',
 			[
-				'label'   => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'min'  => 0,
@@ -298,7 +298,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_responsive_control(
 			'cell_padding',
 			[
-				'label'      => __( 'Cell Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Cell Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default'    => [
@@ -320,14 +320,14 @@ class EDD_Download_History extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'normal_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => [
@@ -339,7 +339,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'normal_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_user_history tr:nth-child(odd) td' => 'color: {{VALUE}};',
@@ -350,7 +350,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'normal_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ccc',
 				'selectors' => [
@@ -364,14 +364,14 @@ class EDD_Download_History extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_stripe',
 			[
-				'label' => __( 'Stripe', 'bdthemes-element-pack' ),
+				'label' => __( 'Stripe', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'stripe_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#f7f7f7',
 				'selectors' => [
@@ -383,7 +383,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'stripe_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} #edd_user_history tr:nth-child(even) td' => 'color: {{VALUE}};',
@@ -394,7 +394,7 @@ class EDD_Download_History extends Widget_Base {
 		$this->add_control(
 			'stripe_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ccc',
 				'selectors' => [

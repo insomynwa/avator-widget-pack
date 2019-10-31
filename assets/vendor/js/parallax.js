@@ -1024,7 +1024,7 @@ function setParallax(){
   "use strict";
   jQuery(".parallax-scene:not(.parallax-added)").each(function(){
     try{
-      var elem=jQuery(this).next(".has-bdt-parallax")[0];
+      var elem=jQuery(this).next(".has-avt-parallax")[0];
       jQuery(this).prependTo(elem);   
       var parallax = new Parallax(this);
     }catch(e){

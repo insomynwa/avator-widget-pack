@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\DeviceSlider\Widgets;
+namespace WidgetPack\Modules\DeviceSlider\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,7 +9,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Utils;
 
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -18,19 +18,19 @@ class Device_Slider extends Widget_Base {
 
 
 	public function get_name() {
-		return 'bdt-device-slider';
+		return 'avt-device-slider';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Device Slider', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Device Slider', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-device-slider';
+		return 'avt-wi-device-slider';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -50,24 +50,24 @@ class Device_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_sliders',
 			[
-				'label' => esc_html__( 'Sliders', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Sliders', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'device_type',
 			[
-				'label'   => esc_html__( 'Select Device', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Select Device', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'desktop',
 				'options' => [
-					'desktop'    => esc_html__('Desktop', 'bdthemes-element-pack') ,
-					'macbookpro' => esc_html__('Macbook Pro', 'bdthemes-element-pack') ,
-					'macbookair' => esc_html__('Macbook Air', 'bdthemes-element-pack') ,
-					'tablet'     => esc_html__('Tablet', 'bdthemes-element-pack') ,
-					'mobile'     => esc_html__('Mobile', 'bdthemes-element-pack') ,
-					'galaxy'     => esc_html__('Galaxy S9', 'bdthemes-element-pack') ,
-					'iphonex'    => esc_html__('IPhone X', 'bdthemes-element-pack') ,
+					'desktop'    => esc_html__('Desktop', 'avator-widget-pack') ,
+					'macbookpro' => esc_html__('Macbook Pro', 'avator-widget-pack') ,
+					'macbookair' => esc_html__('Macbook Air', 'avator-widget-pack') ,
+					'tablet'     => esc_html__('Tablet', 'avator-widget-pack') ,
+					'mobile'     => esc_html__('Mobile', 'avator-widget-pack') ,
+					'galaxy'     => esc_html__('Galaxy S9', 'avator-widget-pack') ,
+					'iphonex'    => esc_html__('IPhone X', 'avator-widget-pack') ,
 				],
 			]
 		);
@@ -76,36 +76,36 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'slides',
 			[
-				'label' => esc_html__( 'Slider Items', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Slider Items', 'avator-widget-pack' ),
 				'type' => Controls_Manager::REPEATER,
 				'default' => [
 					[
-						'title' => esc_html__( 'Slide Item 1', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Slide Item 1', 'avator-widget-pack' ),
 					],
 					[
-						'title' => esc_html__( 'Slide Item 2', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Slide Item 2', 'avator-widget-pack' ),
 					],
 					[
-						'title' => esc_html__( 'Slide Item 3', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Slide Item 3', 'avator-widget-pack' ),
 					],
 					[
-						'title' => esc_html__( 'Slide Item 4', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Slide Item 4', 'avator-widget-pack' ),
 					],
 				],
 				'fields' => [
 					
 					[
 						'name'        => 'title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::TEXT,
-						'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
+						'default'     => esc_html__( 'Slide Title' , 'avator-widget-pack' ),
 						'label_block' => true,
 						'dynamic'     => [ 'active' => true ],
 					],
 					
 					[
 						'name'          => 'title_link',
-						'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
+						'label'         => esc_html__( 'Title Link', 'avator-widget-pack' ),
 						'type'          => Controls_Manager::URL,
 						'default'       => ['url' => ''],
 						'show_external' => false,
@@ -116,31 +116,31 @@ class Device_Slider extends Widget_Base {
 					],
 					[
 						'name'    => 'background',
-						'label'   => esc_html__( 'Background', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Background', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::CHOOSE,
 						'default' => 'color',
 						'options' => [
 							'color' => [
-								'title' => esc_html__( 'Color', 'bdthemes-element-pack' ),
+								'title' => esc_html__( 'Color', 'avator-widget-pack' ),
 								'icon'  => 'fas fa-paint-brush',
 							],
 							'image' => [
-								'title' => esc_html__( 'Image', 'bdthemes-element-pack' ),
+								'title' => esc_html__( 'Image', 'avator-widget-pack' ),
 								'icon'  => 'fas fa-image',
 							],
 							'video' => [
-								'title' => esc_html__( 'Video', 'bdthemes-element-pack' ),
+								'title' => esc_html__( 'Video', 'avator-widget-pack' ),
 								'icon'  => 'fas fa-play-circle',
 							],
 							'youtube' => [
-								'title' => esc_html__( 'Youtube', 'bdthemes-element-pack' ),
+								'title' => esc_html__( 'Youtube', 'avator-widget-pack' ),
 								'icon'  => 'fab fa-youtube',
 							],
 						],
 					],
 					[
 						'name'      => 'color',
-						'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+						'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#14ABF4',
 						'condition' => [
@@ -152,7 +152,7 @@ class Device_Slider extends Widget_Base {
 					],
 					[
 						'name'      => 'image',
-						'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
+						'label'     => esc_html__( 'Image', 'avator-widget-pack' ),
 						'type'      => Controls_Manager::MEDIA,
 						'default' => [
 							'url' => Utils::get_placeholder_image_src(),
@@ -164,7 +164,7 @@ class Device_Slider extends Widget_Base {
 					],
 					[
 						'name'      => 'video_link',
-						'label'     => esc_html__( 'Video Link', 'bdthemes-element-pack' ),
+						'label'     => esc_html__( 'Video Link', 'avator-widget-pack' ),
 						'type'      => Controls_Manager::TEXT,
 						'condition' => [
 							'background' => 'video'
@@ -174,7 +174,7 @@ class Device_Slider extends Widget_Base {
 					],
 					[
 						'name'      => 'youtube_link',
-						'label'     => esc_html__( 'Youtube Link', 'bdthemes-element-pack' ),
+						'label'     => esc_html__( 'Youtube Link', 'avator-widget-pack' ),
 						'type'      => Controls_Manager::TEXT,
 						'condition' => [
 							'background' => 'youtube'
@@ -190,7 +190,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'slider_size',
 			[
-				'label' => esc_html__( 'Slider Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Slider Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -199,7 +199,7 @@ class Device_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-device-slider-container' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 				'render_type'  => 'template',
 			]
@@ -208,23 +208,23 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
-				'prefix_class' => 'bdt-device-slider-align-',
+				'prefix_class' => 'avt-device-slider-align-',
 				'condition' => [
 					'slider_size!' => [ '' ],
 				],
@@ -234,7 +234,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => esc_html__( 'Show Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -243,14 +243,14 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'navigation',
 			[
-				'label'   => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Navigation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'arrows',
 				'options' => [
-					'arrows'           => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
-					'dots'             => esc_html__( 'Dots', 'bdthemes-element-pack' ),
-					'arrows_dots'      => esc_html__( 'Arrows and Dots', 'bdthemes-element-pack' ),
-					'none'             => esc_html__( 'None', 'bdthemes-element-pack' ),
+					'arrows'           => esc_html__( 'Arrows', 'avator-widget-pack' ),
+					'dots'             => esc_html__( 'Dots', 'avator-widget-pack' ),
+					'arrows_dots'      => esc_html__( 'Arrows and Dots', 'avator-widget-pack' ),
+					'none'             => esc_html__( 'None', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -260,7 +260,7 @@ class Device_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Title Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Title Layout', 'avator-widget-pack' ),
 				'condition' => [
 					'show_title' => [ 'yes' ],
 				],
@@ -270,10 +270,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'content_position',
 			[
-				'label'   => esc_html__( 'Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
-				'options' => element_pack_position(),
+				'options' => widget_pack_position(),
 			]
 		);
 
@@ -281,24 +281,24 @@ class Device_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'content_align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => esc_html__( 'Justified', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
@@ -311,7 +311,7 @@ class Device_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_slider',
 			[
-				'label' => esc_html__( 'Slider', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Slider', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -319,13 +319,13 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'overlay',
 			[
-				'label'   => esc_html__( 'Overlay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Overlay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => [
-					'none'       => esc_html__( 'None', 'bdthemes-element-pack' ),
-					'background' => esc_html__( 'Background', 'bdthemes-element-pack' ),
-					'blend'      => esc_html__( 'Blend', 'bdthemes-element-pack' ),
+					'none'       => esc_html__( 'None', 'avator-widget-pack' ),
+					'background' => esc_html__( 'Background', 'avator-widget-pack' ),
+					'blend'      => esc_html__( 'Blend', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -333,13 +333,13 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'overlay_color',
 			[
-				'label'     => esc_html__( 'Overlay Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Overlay Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'overlay' => ['background', 'blend']
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-overlay-default' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .avt-device-slider-container .avt-overlay-default' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -347,10 +347,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'blend_type',
 			[
-				'label'     => esc_html__( 'Blend Type', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Blend Type', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'multiply',
-				'options'   => element_pack_blend_options(),
+				'options'   => widget_pack_blend_options(),
 				'condition' => [
 					'overlay' => 'blend',
 				],
@@ -362,7 +362,7 @@ class Device_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => [ 'yes' ],
@@ -373,10 +373,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-slideshow-items .bdt-device-slider-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-device-slider-container .avt-slideshow-items .avt-device-slider-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -384,10 +384,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'title_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-slideshow-items .bdt-device-slider-title' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-device-slider-container .avt-slideshow-items .avt-device-slider-title' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -395,11 +395,11 @@ class Device_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-slideshow-items .bdt-device-slider-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-device-slider-container .avt-slideshow-items .avt-device-slider-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -407,11 +407,11 @@ class Device_Slider extends Widget_Base {
 		$this->add_responsive_control(
 			'title_radius',
 			[
-				'label'      => esc_html__( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-slideshow-items .bdt-device-slider-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-device-slider-container .avt-slideshow-items .avt-device-slider-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -420,9 +420,9 @@ class Device_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-device-slider-container .bdt-slideshow-items .bdt-device-slider-title',
+				'selector' => '{{WRAPPER}} .avt-device-slider-container .avt-slideshow-items .avt-device-slider-title',
 			]
 		);
 
@@ -431,7 +431,7 @@ class Device_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation',
 			[
-				'label'     => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Navigation', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'navigation!' => 'none',
@@ -442,7 +442,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'heading_arrows',
 			[
-				'label'     => esc_html__( 'Arrows', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrows', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 				'condition' => [
@@ -454,10 +454,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_color',
 			[
-				'label'     => esc_html__( 'Arrows Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrows Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-slidenav' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-device-slider-container .avt-slidenav' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'arrows_dots', 'arrows_thumbnavs' ],
@@ -468,10 +468,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_color',
 			[
-				'label'     => esc_html__( 'Arrows Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrows Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-slidenav:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-device-slider-container .avt-slidenav:hover' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'arrows_dots', 'arrows_thumbnavs' ],
@@ -482,7 +482,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'heading_dots',
 			[
-				'label'     => esc_html__( 'Dots', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Dots', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'after',
 				'condition' => [
@@ -494,10 +494,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'dots_color',
 			[
-				'label'     => esc_html__( 'Dots Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Dots Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-dotnav li a' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-device-slider-container .avt-dotnav li a' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'arrows_dots' ],
@@ -508,10 +508,10 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'active_dot_color',
 			[
-				'label'     => esc_html__( 'Active Dot Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Active Dot Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-dotnav li.bdt-active a' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-device-slider-container .avt-dotnav li.avt-active a' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'arrows_dots' ],
@@ -522,7 +522,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'dots_size',
 			[
-				'label' => esc_html__( 'Dots Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Dots Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -531,7 +531,7 @@ class Device_Slider extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-device-slider-container .bdt-dotnav a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-device-slider-container .avt-dotnav a' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'arrows_dots' ],
@@ -544,7 +544,7 @@ class Device_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -552,7 +552,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'   => esc_html__( 'Autoplay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Autoplay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -561,7 +561,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'autoplay_interval',
 			[
-				'label'     => esc_html__( 'Autoplay Interval', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Autoplay Interval', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 7000,
 				'condition' => [
@@ -573,7 +573,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label' => esc_html__( 'Pause on Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Pause on Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -581,7 +581,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'              => esc_html__( 'Animation Speed', 'bdthemes-element-pack' ),
+				'label'              => esc_html__( 'Animation Speed', 'avator-widget-pack' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 500,
 				'frontend_available' => true,
@@ -591,16 +591,16 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'slider_animations',
 			[
-				'label'     => esc_html__( 'Slider Animations', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Slider Animations', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'separator' => 'before',
 				'default'   => 'slide',
 				'options'   => [
-					'slide' => esc_html__( 'Slide', 'bdthemes-element-pack' ),
-					'fade'  => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'scale' => esc_html__( 'Scale', 'bdthemes-element-pack' ),
-					'push'  => esc_html__( 'Push', 'bdthemes-element-pack' ),
-					'pull'  => esc_html__( 'Pull', 'bdthemes-element-pack' ),
+					'slide' => esc_html__( 'Slide', 'avator-widget-pack' ),
+					'fade'  => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'scale' => esc_html__( 'Scale', 'avator-widget-pack' ),
+					'push'  => esc_html__( 'Push', 'avator-widget-pack' ),
+					'pull'  => esc_html__( 'Pull', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -608,7 +608,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'kenburns_animation',
 			[
-				'label'     => esc_html__( 'Kenburns Animation', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Kenburns Animation', 'avator-widget-pack' ),
 				'separator' => 'before',
 				'type'      => Controls_Manager::SWITCHER,
 			]
@@ -617,7 +617,7 @@ class Device_Slider extends Widget_Base {
 		$this->add_control(
 			'kenburns_reverse',
 			[
-				'label'     => esc_html__( 'Kenburn Reverse', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Kenburn Reverse', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'kenburns_animation' => 'yes'
@@ -650,7 +650,7 @@ class Device_Slider extends Widget_Base {
 		}
 
 
-		$slider_settings['bdt-slideshow'] = wp_json_encode(array_filter([
+		$slider_settings['avt-slideshow'] = wp_json_encode(array_filter([
 			"animation"         => $settings["slider_animations"],
 			"ratio"             => $ratio,
 			"autoplay"          => ("yes" === $settings["autoplay"]) ? true : false,
@@ -660,11 +660,11 @@ class Device_Slider extends Widget_Base {
 
 
 		?>
-		<div class="bdt-device-slider-container">
-			<div class="bdt-device-slider bdt-device-slider-<?php echo esc_attr($device_type); ?>">
-				<div <?php echo \element_pack_helper::attrs($slider_settings); ?>>
-					<div class="bdt-position-relative bdt-visible-toggle">
-						<ul class="bdt-slideshow-items">
+		<div class="avt-device-slider-container">
+			<div class="avt-device-slider avt-device-slider-<?php echo esc_attr($device_type); ?>">
+				<div <?php echo \widget_pack_helper::attrs($slider_settings); ?>>
+					<div class="avt-position-relative avt-visible-toggle">
+						<ul class="avt-slideshow-items">
 		<?php
 	}
 
@@ -674,23 +674,23 @@ class Device_Slider extends Widget_Base {
 			?>
 				</ul>
 						<?php if ('arrows' == $settings['navigation'] or 'arrows_dots' == $settings['navigation']) : ?>
-							<a class="bdt-position-center-left bdt-position-small bdt-hidden-hover" href="#" bdt-slidenav-previous bdt-slideshow-item="previous"></a>
-				    		<a class="bdt-position-center-right bdt-position-small bdt-hidden-hover" href="#" bdt-slidenav-next bdt-slideshow-item="next"></a>
+							<a class="avt-position-center-left avt-position-small avt-hidden-hover" href="#" avt-slidenav-previous avt-slideshow-item="previous"></a>
+				    		<a class="avt-position-center-right avt-position-small avt-hidden-hover" href="#" avt-slidenav-next avt-slideshow-item="next"></a>
 						<?php endif; ?>
 
 
 						<?php if ('dots' == $settings['navigation'] or 'arrows_dots' == $settings['navigation']) : ?>
-							<div class="bdt-dotnav-wrapper">
-								<ul class="bdt-dotnav bdt-flex-center">
+							<div class="avt-dotnav-wrapper">
+								<ul class="avt-dotnav avt-flex-center">
 
 								    <?php		
-									$bdt_counter    = 0;
+									$avt_counter    = 0;
 									$slideshow_dots = $this->get_settings('slides');
 									      
 									foreach ( $slideshow_dots as $dot ) :
 										
-										echo '<li class="bdt-slideshow-dotnav bdt-active" bdt-slideshow-item="'.$bdt_counter.'"><a href="#"></a></li>';
-										$bdt_counter++;
+										echo '<li class="avt-slideshow-dotnav avt-active" avt-slideshow-item="'.$avt_counter.'"><a href="#"></a></li>';
+										$avt_counter++;
 
 									endforeach; ?>
 								</ul>
@@ -698,8 +698,8 @@ class Device_Slider extends Widget_Base {
 						<?php endif; ?>
 					</div>
 				</div>
-				<div class="bdt-device-slider-device">
-					<img src="<?php echo BDTEP_ASSETS_URL; ?>images/devices/<?php echo esc_attr( $device_type ); ?>.svg" alt="Device Slider">
+				<div class="avt-device-slider-device">
+					<img src="<?php echo AWP_ASSETS_URL; ?>images/devices/<?php echo esc_attr( $device_type ); ?>.svg" alt="Device Slider">
 				</div>
 			</div>
 		</div>
@@ -710,7 +710,7 @@ class Device_Slider extends Widget_Base {
 		$image_src = wp_get_attachment_image_src( $image['image']['id'], 'full' );
 
 		if ($image_src) :
-			echo '<img src="'.esc_url($image_src[0]).'" alt="<?php echo esc_html($alt); ?>" bdt-cover>';
+			echo '<img src="'.esc_url($image_src[0]).'" alt="<?php echo esc_html($alt); ?>" avt-cover>';
 		endif;
 
 	}
@@ -719,7 +719,7 @@ class Device_Slider extends Widget_Base {
 		$video_src = $link['video_link'];
 
 		?>
-		<video autoplay loop muted playslinline bdt-cover>
+		<video autoplay loop muted playslinline avt-cover>
 			<source src="<?php echo  $video_src; ?>" type="video/mp4">
 		</video>
 		<?php
@@ -731,7 +731,7 @@ class Device_Slider extends Widget_Base {
 		 $url = '//www.youtube.com/embed/' . $id . '?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent&amp;playsinline=1&playlist=' . $id;
 
 		?>
-		<iframe src="<?php echo  esc_url( $url); ?>" frameborder="0" allowfullscreen bdt-cover></iframe>
+		<iframe src="<?php echo  esc_url( $url); ?>" frameborder="0" allowfullscreen avt-cover></iframe>
 		<?php
 	}
 
@@ -739,11 +739,11 @@ class Device_Slider extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		?>
-        <div class="bdt-slideshow-content-wrapper bdt-position-z-index bdt-position-<?php echo esc_attr($settings['content_position']); ?> bdt-position-large bdt-text-<?php echo esc_attr($settings['content_align']); ?>">
+        <div class="avt-slideshow-content-wrapper avt-position-z-index avt-position-<?php echo esc_attr($settings['content_position']); ?> avt-position-large avt-text-<?php echo esc_attr($settings['content_align']); ?>">
 
 			<?php if ($content['title'] && ( 'yes' == $settings['show_title'] )) : ?>
 				<div>
-					<h2 class="bdt-device-slider-title bdt-display-inline-block" bdt-slideshow-parallax="x:300, -300">
+					<h2 class="avt-device-slider-title avt-display-inline-block" avt-slideshow-parallax="x:300, -300">
 						<?php if ( '' !== $content['title_link']['url'] ) : ?>
 							<a href="<?php echo esc_url( $content['title_link']['url'] ); ?>">
 						<?php endif; ?>
@@ -761,15 +761,15 @@ class Device_Slider extends Widget_Base {
 
 	public function render() {
 		$settings         = $this->get_settings_for_display();
-		$kenburns_reverse = $settings['kenburns_reverse'] ? ' bdt-animation-reverse' : '';
+		$kenburns_reverse = $settings['kenburns_reverse'] ? ' avt-animation-reverse' : '';
 
 		$this->render_header();
 
 			foreach ( $settings['slides'] as $slide ) : ?>
 					    
-			        <li class="bdt-slideshow-item elementor-repeater-item-<?php echo esc_attr($slide['_id']); ?>">
+			        <li class="avt-slideshow-item elementor-repeater-item-<?php echo esc_attr($slide['_id']); ?>">
 				        <?php if( 'yes' == $settings['kenburns_animation'] ) : ?>
-							<div class="bdt-position-cover bdt-animation-kenburns<?php echo esc_attr( $kenburns_reverse ); ?> bdt-transform-origin-center-left">
+							<div class="avt-position-cover avt-animation-kenburns<?php echo esc_attr( $kenburns_reverse ); ?> avt-transform-origin-center-left">
 						<?php endif; ?>
 
 				            <?php if (( $slide['background'] == 'image' ) && $slide['image']) : ?>
@@ -785,8 +785,8 @@ class Device_Slider extends Widget_Base {
 				        <?php endif; ?>
 
 				        <?php if( 'none' !== $settings['overlay'] ) :
-				        	$blend_type = ( 'blend' == $settings['overlay']) ? ' bdt-blend-'.$settings['blend_type'] : ''; ?>
-				            <div class="bdt-overlay-default bdt-position-cover<?php echo esc_attr($blend_type); ?>"></div>
+				        	$blend_type = ( 'blend' == $settings['overlay']) ? ' avt-blend-'.$settings['blend_type'] : ''; ?>
+				            <div class="avt-overlay-default avt-position-cover<?php echo esc_attr($blend_type); ?>"></div>
 				        <?php endif; ?>
 
 			            <?php $this->rendar_item_content($slide); ?>

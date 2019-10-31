@@ -877,9 +877,9 @@
 
             if(this.options.theme === "uikit") {
 
-                this.element.find(headerClass + "," + subheaderClass).addClass("bdt-nav bdt-nav-default");
+                this.element.find(headerClass + "," + subheaderClass).addClass("avt-nav avt-nav-default");
 
-                this.focusClass = "bdt-active";
+                this.focusClass = "avt-active";
 
             }
 

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Marker\Widgets;
+namespace WidgetPack\Modules\Marker\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -21,15 +21,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Marker extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-marker';
+		return 'avt-marker';
 	}
 
 	public function get_title() {
-		return BDTEP . __( 'Marker', 'bdthemes-element-pack' );
+		return AWP . __( 'Marker', 'avator-widget-pack' );
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -37,7 +37,7 @@ class Marker extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-marker';
+		return 'avt-wi-marker';
 	}
 
 	public function get_script_depends() {
@@ -48,7 +48,7 @@ class Marker extends Widget_Base {
 		$this->start_controls_section(
 			'section_marker_image',
 			[
-				'label' => __( 'Marker Image', 'bdthemes-element-pack' ),
+				'label' => __( 'Marker Image', 'avator-widget-pack' ),
 			]
 		);
 
@@ -56,7 +56,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'image',
 			[
-				'label'   => __( 'Choose Image', 'bdthemes-element-pack' ),
+				'label'   => __( 'Choose Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [ 'active' => true ],
 				'default' => [
@@ -69,7 +69,7 @@ class Marker extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'    => 'image', // Actually its `image_size`.
-				'label'   => __( 'Image Size', 'bdthemes-element-pack' ),
+				'label'   => __( 'Image Size', 'avator-widget-pack' ),
 				'default' => 'large',
 			]
 		);
@@ -77,19 +77,19 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -103,22 +103,22 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'caption',
 			[
-				'label'       => __( 'Caption', 'bdthemes-element-pack' ),
+				'label'       => __( 'Caption', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
 				'default'     => '',
-				'placeholder' => __( 'Enter your caption about the image', 'bdthemes-element-pack' ),
-				'title'       => __( 'Input image caption here', 'bdthemes-element-pack' ),
+				'placeholder' => __( 'Enter your caption about the image', 'avator-widget-pack' ),
+				'title'       => __( 'Input image caption here', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'link',
 			[
-				'label'       => __( 'Link to', 'bdthemes-element-pack' ),
+				'label'       => __( 'Link to', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => __( 'http://your-link.com', 'bdthemes-element-pack' ),
+				'placeholder' => __( 'http://your-link.com', 'avator-widget-pack' ),
 				'condition'   => [
 					'link_to' => 'custom',
 				],
@@ -132,18 +132,18 @@ class Marker extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_sliders',
 			[
-				'label' => esc_html__( 'Markers', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Markers', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'markers',
 			[
-				'label'   => esc_html__( 'Marker Items', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Marker Items', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::REPEATER,
 				'default' => [
 					[
-						'marker_title'      => esc_html__( 'Marker #1', 'bdthemes-element-pack' ),
+						'marker_title'      => esc_html__( 'Marker #1', 'avator-widget-pack' ),
 						'marker_x_position' => [
 							'size' => 50,
 							'unit' => '%',
@@ -154,7 +154,7 @@ class Marker extends Widget_Base {
 						]
 					],
 					[
-						'marker_title'      => esc_html__( 'Marker #2', 'bdthemes-element-pack' ),
+						'marker_title'      => esc_html__( 'Marker #2', 'avator-widget-pack' ),
 						'marker_x_position' => [
 							'size' => 30,
 							'unit' => '%',
@@ -165,7 +165,7 @@ class Marker extends Widget_Base {
 						]
 					],
 					[
-						'marker_title'      => esc_html__( 'Marker #3', 'bdthemes-element-pack' ),
+						'marker_title'      => esc_html__( 'Marker #3', 'avator-widget-pack' ),
 						'marker_x_position' => [
 							'size' => 80,
 							'unit' => '%',
@@ -179,32 +179,32 @@ class Marker extends Widget_Base {
 				'fields' => [
 					[
 						'name'        => 'marker_title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::TEXT,
 						'dynamic'     => [ 'active' => true ],
-						'default'     => esc_html__( 'Marker Title' , 'bdthemes-element-pack' ),
+						'default'     => esc_html__( 'Marker Title' , 'avator-widget-pack' ),
 						'label_block' => true,
 					],
 					[
 						'name'    => 'marker_tooltip',
-						'label'   => __( 'Tooltip', 'bdthemes-element-pack' ),
+						'label'   => __( 'Tooltip', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::SWITCHER,
 						'default' => 'yes',
 					],
 					[
 						'name'    => 'marker_tooltip_placement',						
-						'label'   => esc_html__( 'Placement', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Placement', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::SELECT,
 						'default' => 'top',
 						'options' => [
-							'top-start'    => esc_html__( 'Top Left', 'bdthemes-element-pack' ),
-							'top'          => esc_html__( 'Top', 'bdthemes-element-pack' ),
-							'top-end'      => esc_html__( 'Top Right', 'bdthemes-element-pack' ),
-							'bottom-start' => esc_html__( 'Bottom Left', 'bdthemes-element-pack' ),
-							'bottom'       => esc_html__( 'Bottom', 'bdthemes-element-pack' ),
-							'bottom-end'   => esc_html__( 'Bottom Right', 'bdthemes-element-pack' ),
-							'left'         => esc_html__( 'Left', 'bdthemes-element-pack' ),
-							'right'        => esc_html__( 'Right', 'bdthemes-element-pack' ),
+							'top-start'    => esc_html__( 'Top Left', 'avator-widget-pack' ),
+							'top'          => esc_html__( 'Top', 'avator-widget-pack' ),
+							'top-end'      => esc_html__( 'Top Right', 'avator-widget-pack' ),
+							'bottom-start' => esc_html__( 'Bottom Left', 'avator-widget-pack' ),
+							'bottom'       => esc_html__( 'Bottom', 'avator-widget-pack' ),
+							'bottom-end'   => esc_html__( 'Bottom Right', 'avator-widget-pack' ),
+							'left'         => esc_html__( 'Left', 'avator-widget-pack' ),
+							'right'        => esc_html__( 'Right', 'avator-widget-pack' ),
 						],
 						'render_type' => 'template',
 						'condition'   => [
@@ -213,7 +213,7 @@ class Marker extends Widget_Base {
 					],
 					[
 						'name'    => 'marker_x_position',
-						'label'   => esc_html__( 'X Postion', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'X Postion', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::SLIDER,
 						'default' => [
 							'size' => 20,
@@ -228,7 +228,7 @@ class Marker extends Widget_Base {
 					],
 					[
 						'name'    => 'marker_y_position',
-						'label'   => esc_html__( 'Y Postion', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Y Postion', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::SLIDER,
 						'default' => [
 							'size' => 20,
@@ -244,25 +244,25 @@ class Marker extends Widget_Base {
 					
 					[
 						'name'    => 'marker_select_icon',
-						'label'   => esc_html__( 'Select Icon', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Select Icon', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::ICONS,
 						'fa4compatibility' => 'icon',
 					],
 
 					[
 						'name'    => 'link_to',
-						'label'   => esc_html__( 'Link to', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Link to', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::SELECT,
 						'default' => '',
 						'options' => [
-							''         => __( 'None', 'bdthemes-element-pack' ),
-							'custom'   => __( 'Custom URL', 'bdthemes-element-pack' ),
-							'lightbox' => __( 'Lightbox', 'bdthemes-element-pack' ),
+							''         => __( 'None', 'avator-widget-pack' ),
+							'custom'   => __( 'Custom URL', 'avator-widget-pack' ),
+							'lightbox' => __( 'Lightbox', 'avator-widget-pack' ),
 						],
 					],
 					[
 						'name'        => 'marker_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Link', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::URL,
 						'dynamic'     => [ 'active' => true ],
 						'placeholder' => 'http://your-link.com',
@@ -275,7 +275,7 @@ class Marker extends Widget_Base {
 					],
 					[
 						'name'    => 'image_link',
-						'label'   => esc_html__( 'Choose Image', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Choose Image', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::MEDIA,
 						'default' => [
 							'url' => Utils::get_placeholder_image_src(),
@@ -292,7 +292,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_animation',
 			[
-				'label'   => __( 'Pulse Animation', 'bdthemes-element-pack' ),
+				'label'   => __( 'Pulse Animation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -304,22 +304,22 @@ class Marker extends Widget_Base {
 		$this->start_controls_section(
 			'section_tooltip_settings',
 			[
-				'label' => __( 'Tooltip Settings', 'bdthemes-element-pack' ),
+				'label' => __( 'Tooltip Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'marker_tooltip_animation',
 			[
-				'label'   => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'shift-toward',
 				'options' => [
-					'shift-away'   => esc_html__( 'Shift-Away', 'bdthemes-element-pack' ),
-					'shift-toward' => esc_html__( 'Shift-Toward', 'bdthemes-element-pack' ),
-					'fade'         => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'scale'        => esc_html__( 'Scale', 'bdthemes-element-pack' ),
-					'perspective'  => esc_html__( 'Perspective', 'bdthemes-element-pack' ),
+					'shift-away'   => esc_html__( 'Shift-Away', 'avator-widget-pack' ),
+					'shift-toward' => esc_html__( 'Shift-Toward', 'avator-widget-pack' ),
+					'fade'         => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'scale'        => esc_html__( 'Scale', 'avator-widget-pack' ),
+					'perspective'  => esc_html__( 'Perspective', 'avator-widget-pack' ),
 				],
 				'render_type'  => 'template',
 			]
@@ -328,7 +328,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_x_offset',
 			[
-				'label'   => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -339,7 +339,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_y_offset',
 			[
-				'label'   => esc_html__( 'Distance', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Distance', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -350,7 +350,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_arrow',
 			[
-				'label'        => esc_html__( 'Arrow', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Arrow', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 			]
 		);
@@ -358,8 +358,8 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_trigger',
 			[
-				'label'       => __( 'Trigger on Click', 'bdthemes-element-pack' ),
-				'description' => __( 'Don\'t set yes when you set lightbox image with marker.', 'bdthemes-element-pack' ),
+				'label'       => __( 'Trigger on Click', 'avator-widget-pack' ),
+				'description' => __( 'Don\'t set yes when you set lightbox image with marker.', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SWITCHER,
 			]
 		);
@@ -370,7 +370,7 @@ class Marker extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label' => __( 'Image', 'bdthemes-element-pack' ),
+				'label' => __( 'Image', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -378,7 +378,7 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'space',
 			[
-				'label'   => __( 'Size (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Size (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 100,
@@ -398,7 +398,7 @@ class Marker extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-marker-wrapper' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-marker-wrapper' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -406,7 +406,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'opacity',
 			[
-				'label'   => __( 'Opacity', 'bdthemes-element-pack' ),
+				'label'   => __( 'Opacity', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -419,7 +419,7 @@ class Marker extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-marker-wrapper img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-marker-wrapper img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -428,8 +428,8 @@ class Marker extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'image_border',
-				'label'     => __( 'Image Border', 'bdthemes-element-pack' ),
-				'selector'  => '{{WRAPPER}} .bdt-marker-wrapper img',
+				'label'     => __( 'Image Border', 'avator-widget-pack' ),
+				'selector'  => '{{WRAPPER}} .avt-marker-wrapper img',
 				'separator' => 'before',
 			]
 		);
@@ -437,11 +437,11 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'image_radius',
 			[
-				'label'      => __( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-marker-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-marker-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -453,7 +453,7 @@ class Marker extends Widget_Base {
 				'exclude' => [
 					'shadow_position',
 				],
-				'selector' => '{{WRAPPER}} .bdt-marker-wrapper img',
+				'selector' => '{{WRAPPER}} .avt-marker-wrapper img',
 			]
 		);
 
@@ -462,7 +462,7 @@ class Marker extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_caption',
 			[
-				'label' => __( 'Caption', 'bdthemes-element-pack' ),
+				'label' => __( 'Caption', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -470,24 +470,24 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'caption_align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => '',
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'bdthemes-element-pack' ),
+						'title' => __( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
@@ -500,7 +500,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .marker-caption-text' => 'color: {{VALUE}};',
@@ -526,7 +526,7 @@ class Marker extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_marker',
 			[
-				'label' => __( 'Marker', 'bdthemes-element-pack' ),
+				'label' => __( 'Marker', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -535,17 +535,17 @@ class Marker extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'marker_background_color',
-				'selector' => '{{WRAPPER}} .bdt-marker-wrapper .bdt-marker',
+				'selector' => '{{WRAPPER}} .avt-marker-wrapper .avt-marker',
 			]
 		);
 
 		$this->add_control(
 			'marker_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-marker-wrapper .bdt-marker' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-marker-wrapper .avt-marker' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -553,7 +553,7 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_size',
 			[
-				'label' => __( 'Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -562,8 +562,8 @@ class Marker extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-marker-wrapper .bdt-marker > svg' => 'width: calc({{SIZE}}{{UNIT}} - 12px); height: auto;',
-					'{{WRAPPER}} .bdt-marker-wrapper .bdt-marker > i' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .avt-marker-wrapper .avt-marker > svg' => 'width: calc({{SIZE}}{{UNIT}} - 12px); height: auto;',
+					'{{WRAPPER}} .avt-marker-wrapper .avt-marker > i' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -571,7 +571,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_opacity',
 			[
-				'label'   => __( 'Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -584,7 +584,7 @@ class Marker extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-marker-wrapper .bdt-marker' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-marker-wrapper .avt-marker' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -593,8 +593,8 @@ class Marker extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'marker_border',
-				'label'     => __( 'Image Border', 'bdthemes-element-pack' ),
-				'selector'  => '{{WRAPPER}} .bdt-marker-wrapper .bdt-marker',
+				'label'     => __( 'Image Border', 'avator-widget-pack' ),
+				'selector'  => '{{WRAPPER}} .avt-marker-wrapper .avt-marker',
 				'separator' => 'before',
 			]
 		);
@@ -602,11 +602,11 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-marker-wrapper .bdt-marker' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-marker-wrapper .avt-marker' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -614,12 +614,12 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_radius',
 			[
-				'label'      => __( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-marker-wrapper .bdt-marker' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-marker-animated .bdt-marker:before, {{WRAPPER}} .bdt-marker-animated .bdt-marker:after' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-marker-wrapper .avt-marker' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-marker-animated .avt-marker:before, {{WRAPPER}} .avt-marker-animated .avt-marker:after' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -631,7 +631,7 @@ class Marker extends Widget_Base {
 				'exclude' => [
 					'shadow_position',
 				],
-				'selector' => '{{WRAPPER}} .bdt-marker-wrapper .bdt-marker',
+				'selector' => '{{WRAPPER}} .avt-marker-wrapper .avt-marker',
 			]
 		);
 
@@ -640,7 +640,7 @@ class Marker extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_tooltip',
 			[
-				'label' => esc_html__( 'Tooltip', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Tooltip', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -648,7 +648,7 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_tooltip_width',
 			[
-				'label'      => esc_html__( 'Width', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Width', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [
 					'px', 'em',
@@ -677,7 +677,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-tooltip' => 'color: {{VALUE}}',
@@ -688,20 +688,20 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_text_align',
 			[
-				'label'   => esc_html__( 'Text Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
@@ -722,7 +722,7 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_arrow_color',
 			[
-				'label'     => esc_html__( 'Arrow Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Arrow Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .tippy-popper[x-placement^=left] .tippy-arrow'  => 'border-left-color: {{VALUE}}',
@@ -736,7 +736,7 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_tooltip_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -750,7 +750,7 @@ class Marker extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'marker_tooltip_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .tippy-tooltip',
@@ -760,7 +760,7 @@ class Marker extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_tooltip_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -780,12 +780,12 @@ class Marker extends Widget_Base {
 		$this->add_control(
 			'tooltip_size',
 			[
-				'label'   => esc_html__( 'Tooltip Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Tooltip Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''      => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'large' => esc_html__( 'Large', 'bdthemes-element-pack' ),
-					'small' => esc_html__( 'small', 'bdthemes-element-pack' ),
+					''      => esc_html__( 'Default', 'avator-widget-pack' ),
+					'large' => esc_html__( 'Large', 'avator-widget-pack' ),
+					'small' => esc_html__( 'small', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -795,7 +795,7 @@ class Marker extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$id       = 'bdt-marker-' . $this->get_id();
+		$id       = 'avt-marker-' . $this->get_id();
 
 		if ( empty( $settings['image']['url'] ) ) {
 			return;
@@ -803,15 +803,15 @@ class Marker extends Widget_Base {
 
 		$has_caption = ! empty( $settings['caption'] );
 
-		$this->add_render_attribute( 'wrapper', 'class', 'bdt-marker-wrapper bdt-inline bdt-dark' );
+		$this->add_render_attribute( 'wrapper', 'class', 'avt-marker-wrapper avt-inline avt-dark' );
 		$this->add_render_attribute( 'wrapper', 'id', esc_attr($id) );
 
 		if ('yes' === $settings['marker_animation']) {
-			$this->add_render_attribute( 'wrapper', 'class', 'bdt-marker-animated' );
-			$this->add_render_attribute( 'wrapper', 'bdt-scrollspy', 'target: .bdt-marker-wrapper > a.bdt-marker-item; cls:bdt-animation-scale-up; delay: 300;' );
+			$this->add_render_attribute( 'wrapper', 'class', 'avt-marker-animated' );
+			$this->add_render_attribute( 'wrapper', 'avt-scrollspy', 'target: .avt-marker-wrapper > a.avt-marker-item; cls:avt-animation-scale-up; delay: 300;' );
 		}
 
-		$this->add_render_attribute( 'wrapper', 'bdt-lightbox', 'toggle: .bdt-marker-lightbox-item; animation: slide;' );
+		$this->add_render_attribute( 'wrapper', 'avt-lightbox', 'toggle: .avt-marker-lightbox-item; animation: slide;' );
 
 		if ( $has_caption ) : ?>
 			<figure class="marker-caption">
@@ -825,7 +825,7 @@ class Marker extends Widget_Base {
 		    
 		    foreach ($settings['markers'] as $marker) {
 
-				$this->add_render_attribute('marker', 'class',  ['bdt-marker-item bdt-position-absolute bdt-transform-center bdt-marker bdt-icon'], true);
+				$this->add_render_attribute('marker', 'class',  ['avt-marker-item avt-position-absolute avt-transform-center avt-marker avt-icon'], true);
 				$this->add_render_attribute('marker', 'style', 'left:' . $marker['marker_x_position']['size'] . '%;', true);
 				$this->add_render_attribute('marker', 'style', 'top:' . $marker['marker_y_position']['size'] . '%;');
 				$this->add_render_attribute('marker', 'data-tippy-content', [$marker['marker_title']], true);
@@ -834,7 +834,7 @@ class Marker extends Widget_Base {
 					if ( 'lightbox' === $marker['link_to'] ) {
 						$this->add_render_attribute( 'marker', 'data-elementor-open-lightbox', 'no', true);
 						$this->add_render_attribute( 'marker', 'data-caption', $marker['marker_title'], true);
-						$this->add_render_attribute( 'marker', 'class', 'bdt-marker-lightbox-item');
+						$this->add_render_attribute( 'marker', 'class', 'avt-marker-lightbox-item');
 						$this->add_render_attribute( 'marker', 'href', $marker['image_link']['url'], true);
 					} else {
 						$this->add_render_attribute('marker', 'href', $marker['marker_link']['url'], true);
@@ -851,7 +851,7 @@ class Marker extends Widget_Base {
 
 				if ($marker['marker_title'] and $marker['marker_tooltip']) {
 					// Tooltip settings
-					$this->add_render_attribute( 'marker', 'class', 'bdt-tippy-tooltip' );
+					$this->add_render_attribute( 'marker', 'class', 'avt-tippy-tooltip' );
 					$this->add_render_attribute( 'marker', 'data-tippy', '', true );
 
 					if ($marker['marker_tooltip_placement']) {
@@ -924,10 +924,10 @@ class Marker extends Widget_Base {
 
 			var has_caption = ! settings.caption;
 
-			view.addRenderAttribute( 'wrapper', 'class', [ 'bdt-marker-wrapper', 'bdt-inline', 'bdt-dark' ] );
+			view.addRenderAttribute( 'wrapper', 'class', [ 'avt-marker-wrapper', 'avt-inline', 'avt-dark' ] );
 
 			if ('yes' === settings.marker_animation) {
-				view.addRenderAttribute( 'wrapper', 'class', [ 'bdt-marker-animated' ] );
+				view.addRenderAttribute( 'wrapper', 'class', [ 'avt-marker-animated' ] );
 			}
 
 			var marker_wrapper = view.getRenderAttributeString( 'wrapper' ); #>
@@ -949,7 +949,7 @@ class Marker extends Widget_Base {
 			
 				<# _.each( settings.markers, function( item, index ) { 
 								
-					view.addRenderAttribute( 'marker', 'class', [ 'bdt-position-absolute', 'bdt-transform-center', 'bdt-marker', 'bdt-icon' ], true );
+					view.addRenderAttribute( 'marker', 'class', [ 'avt-position-absolute', 'avt-transform-center', 'avt-marker', 'avt-icon' ], true );
 					view.addRenderAttribute( 'marker', 'style', 'left:' + item.marker_x_position.size + '%;', true );
 					view.addRenderAttribute( 'marker', 'style', 'top:' + item.marker_y_position.size + '%;' );
 					view.addRenderAttribute( 'marker', 'title', [item.marker_title], true );
@@ -958,7 +958,7 @@ class Marker extends Widget_Base {
 						if ( 'lightbox' === item.link_to ) {
 							view.addRenderAttribute( 'marker', 'data-elementor-open-lightbox', 'no');
 							view.addRenderAttribute( 'marker', 'data-caption', item.marker_title);
-							view.addRenderAttribute( 'marker', 'class', 'bdt-marker-lightbox-item');
+							view.addRenderAttribute( 'marker', 'class', 'avt-marker-lightbox-item');
 							view.addRenderAttribute('marker', 'href', item.image_link.url, true);
 						} else {
 							view.addRenderAttribute('marker', 'href', item.marker_link.url, true);
@@ -973,7 +973,7 @@ class Marker extends Widget_Base {
 
 					if (item.marker_title) {
 
-						view.addRenderAttribute( 'marker', 'class', 'bdt-tippy-tooltip' );
+						view.addRenderAttribute( 'marker', 'class', 'avt-tippy-tooltip' );
 						view.addRenderAttribute( 'marker', 'data-tippy', '', true );
 						if (item.marker_tooltip_placement ) {
 							view.addRenderAttribute( 'marker', 'data-tippy-placement', item.marker_tooltip_placement, true );

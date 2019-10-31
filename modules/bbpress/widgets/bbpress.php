@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Bbpress\Widgets;
+namespace WidgetPack\Modules\Bbpress\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,19 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Bbpress extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-bbpress';
+		return 'avt-bbpress';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Bbpress', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Bbpress', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-bbpress';
+		return 'avt-wi-bbpress';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -36,29 +36,29 @@ class Bbpress extends Widget_Base {
 		$this->start_controls_section(
 			'section_bbpress_content',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'bbpress_layout',
 			[
-				'label'   => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'forum-index',
 				'options' => [
-					'forum-index'  => esc_html__('Forum Index', 'bdthemes-element-pack'),
-					'forum-form'   => esc_html__('Forum Form', 'bdthemes-element-pack'),
-					'single-forum' => esc_html__('Single Forum', 'bdthemes-element-pack'),
-					'topic-index'  => esc_html__('Topic Index', 'bdthemes-element-pack'),
-					'topic-form'   => esc_html__('Topic Form', 'bdthemes-element-pack'),
-					'single-topic' => esc_html__('Single Topic', 'bdthemes-element-pack'),
-					'reply-form'   => esc_html__('Single Topic', 'bdthemes-element-pack'),
-					'single-reply' => esc_html__('Single Reply', 'bdthemes-element-pack'),
-					'topic-tags'   => esc_html__('Topic Tags', 'bdthemes-element-pack'),
-					'single-tag'   => esc_html__('Single Tag', 'bdthemes-element-pack'),
-					'single-view'  => esc_html__('Single View', 'bdthemes-element-pack'),
-					'stats'        => esc_html__('Stats', 'bdthemes-element-pack'),
+					'forum-index'  => esc_html__('Forum Index', 'avator-widget-pack'),
+					'forum-form'   => esc_html__('Forum Form', 'avator-widget-pack'),
+					'single-forum' => esc_html__('Single Forum', 'avator-widget-pack'),
+					'topic-index'  => esc_html__('Topic Index', 'avator-widget-pack'),
+					'topic-form'   => esc_html__('Topic Form', 'avator-widget-pack'),
+					'single-topic' => esc_html__('Single Topic', 'avator-widget-pack'),
+					'reply-form'   => esc_html__('Single Topic', 'avator-widget-pack'),
+					'single-reply' => esc_html__('Single Reply', 'avator-widget-pack'),
+					'topic-tags'   => esc_html__('Topic Tags', 'avator-widget-pack'),
+					'single-tag'   => esc_html__('Single Tag', 'avator-widget-pack'),
+					'single-view'  => esc_html__('Single View', 'avator-widget-pack'),
+					'stats'        => esc_html__('Stats', 'avator-widget-pack'),
 				],
 			]
 		);
@@ -66,8 +66,8 @@ class Bbpress extends Widget_Base {
 		$this->add_control(
 			'bbpress_id',
 			[
-				'label'       => esc_html__( 'ID', 'bdthemes-element-pack' ),
-				'description' => esc_html__( 'Enter your forum ID here, to get this id go to dashboard then go into the forum and open a specific post', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'ID', 'avator-widget-pack' ),
+				'description' => esc_html__( 'Enter your forum ID here, to get this id go to dashboard then go into the forum and open a specific post', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'condition'   => [
 					'bbpress_layout' => [ 'single-forum', 'topic-form', 'single-topic', 'single-reply', 'single-tag', 'single-view' ]
@@ -80,7 +80,7 @@ class Bbpress extends Widget_Base {
 		$this->start_controls_section(
 			'section_header_style',
 			[
-				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);		

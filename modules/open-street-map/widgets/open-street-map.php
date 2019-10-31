@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\OpenStreetMap\Widgets;
+namespace WidgetPack\Modules\OpenStreetMap\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -16,19 +16,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Open_Street_Map extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-open-street-map';
+		return 'avt-open-street-map';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( ' Open Street Map', 'bdthemes-element-pack' );
+		return AWP . esc_html__( ' Open Street Map', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-open-street-map';
+		return 'avt-wi-open-street-map';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -43,14 +43,14 @@ class Open_Street_Map extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_osmap',
 			[
-				'label' => esc_html__( 'Open Street Map', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Open Street Map', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'zoom_control',
 			[
-				'label'   => esc_html__( 'Zoom Control', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Zoom Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -59,7 +59,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_control(
 			'zoom',
 			[
-				'label' => esc_html__( 'Zoom', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Zoom', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 15,
@@ -76,7 +76,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_responsive_control(
 			'open_street_map_height',
 			[
-				'label' => esc_html__( 'Map Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Map Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -84,7 +84,7 @@ class Open_Street_Map extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-open-street-map'  => 'min-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-open-street-map'  => 'min-height: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -92,24 +92,24 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_responsive_control(
 			'search_align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-osmap-search-wrapper' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-osmap-search-wrapper' => 'text-align: {{VALUE}};',
 				],
 				'condition' => [
 					'osmap_geocode' => 'yes',
@@ -120,7 +120,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_responsive_control(
 			'search_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -128,7 +128,7 @@ class Open_Street_Map extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-osmap-search-wrapper'  => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-osmap-search-wrapper'  => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'osmap_geocode' => 'yes',
@@ -141,7 +141,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_marker',
 			[
-				'label' => esc_html__( 'Marker', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Marker', 'avator-widget-pack' ),
 			]
 		);
 
@@ -150,7 +150,7 @@ class Open_Street_Map extends Widget_Base {
 		$repeater->add_control(
 			'marker_title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => 'Marker #1',
 			]
@@ -159,7 +159,7 @@ class Open_Street_Map extends Widget_Base {
 		$repeater->add_control(
 			'marker_lat',
 			[
-				'label' => esc_html__( 'Latitude', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Latitude', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::TEXT,
 				'default' => '24.82391',
 			]
@@ -168,7 +168,7 @@ class Open_Street_Map extends Widget_Base {
 		$repeater->add_control(
 			'marker_lng',
 			[
-				'label'   => esc_html__( 'Longitude', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Longitude', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '89.38414',
 			]
@@ -177,20 +177,20 @@ class Open_Street_Map extends Widget_Base {
 		$repeater->add_control(
 			'marker_content',
 			[
-				'label'   => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Your Business Address Here', 'bdthemes-element-pack'),
+				'default' => esc_html__( 'Your Business Address Here', 'avator-widget-pack'),
 			]
 		);
 
 		$repeater->add_control(
 			'custom_marker',
 			[
-				'label'       => esc_html__( 'Custom marker', 'bdthemes-element-pack' ),
-				'description' => esc_html__('Use max 32x32 px size icon for better result.', 'bdthemes-element-pack'),
+				'label'       => esc_html__( 'Custom marker', 'avator-widget-pack' ),
+				'description' => esc_html__('Use max 32x32 px size icon for better result.', 'avator-widget-pack'),
 				'type'        => Controls_Manager::MEDIA,
 				'default'     => [
-					'url' => BDTEP_ASSETS_URL . 'images/location.svg',
+					'url' => AWP_ASSETS_URL . 'images/location.svg',
 				]
 			]
 		);
@@ -204,8 +204,8 @@ class Open_Street_Map extends Widget_Base {
 					[
 						'marker_lat'     => '24.82391',
 						'marker_lng'     => '89.38414',
-						'marker_title'   => esc_html__( 'Marker #1', 'bdthemes-element-pack' ),
-						'marker_content' => esc_html__( '<strong>BdThemes Limited</strong>,<br>Latifpur, Bogra - 5800,<br>Bangladesh', 'bdthemes-element-pack'),
+						'marker_title'   => esc_html__( 'Marker #1', 'avator-widget-pack' ),
+						'marker_content' => esc_html__( '<strong>Avator Limited</strong>,<br>Latifpur, Bogra - 5800,<br>Bangladesh', 'avator-widget-pack'),
 					],
 				],
 				'title_field' => '{{{ marker_title }}}',
@@ -217,7 +217,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_tooltip',
 			[
-				'label' => esc_html__( 'Tooltip', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Tooltip', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -225,7 +225,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .leaflet-popup-content-wrapper' => 'color: {{VALUE}}',
@@ -236,7 +236,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_button_color',
 			[
-				'label'     => esc_html__( 'Close Button Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Close Button Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .leaflet-popup-close-button' => 'color: {{VALUE}}',
@@ -247,7 +247,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_control(
 			'marker_tooltip_button_hover_color',
 			[
-				'label'     => esc_html__( 'Close Button Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Close Button Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .leaflet-popup-close-button:hover' => 'color: {{VALUE}}',
@@ -266,7 +266,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_tooltip_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -279,7 +279,7 @@ class Open_Street_Map extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'marker_tooltip_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .leaflet-popup-content-wrapper',
@@ -289,7 +289,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_responsive_control(
 			'marker_tooltip_border_radius',
 			[
-				'label'      => __( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -319,7 +319,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_zoom_control',
 			[
-				'label'     => esc_html__( 'Zoom Control', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Zoom Control', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'zoom_control' => 'yes'
@@ -330,7 +330,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_control(
 			'zoom_control_color',
 			[
-				'label'     => esc_html__( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .leaflet-touch .leaflet-bar a' => 'color: {{VALUE}}',
@@ -350,7 +350,7 @@ class Open_Street_Map extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'zoom_control_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .leaflet-touch .leaflet-bar a',
@@ -360,7 +360,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_responsive_control(
 			'zoom_control_border_radius',
 			[
-				'label'      => __( 'Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -372,7 +372,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_control(
 			'zoom_control_bar_color',
 			[
-				'label'     => esc_html__( 'Bar Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Bar Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
@@ -384,7 +384,7 @@ class Open_Street_Map extends Widget_Base {
 		$this->add_control(
 			'zoom_control_bar_width',
 			[
-				'label'     => __('Bar Width', 'bdthemes-element-pack'),
+				'label'     => __('Bar Width', 'avator-widget-pack'),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
 					'{{WRAPPER}} .leaflet-touch .leaflet-bar' => 'border-width: {{SIZE}}{{UNIT}}',
@@ -397,10 +397,10 @@ class Open_Street_Map extends Widget_Base {
 
 	protected function render() {
 		$settings           = $this->get_settings();
-		$ep_api_settings    = get_option( 'element_pack_api_settings' );
+		$ep_api_settings    = get_option( 'widget_pack_api_settings' );
 
 		$marker_settings    = [];
-		$bdt_counter        = 0;
+		$avt_counter        = 0;
 
 		if ( ( '' != $ep_api_settings['open_street_map_access_token'] ) ) {
 			$map_settings['osmAccessToken'] = $ep_api_settings['open_street_map_access_token'];
@@ -415,9 +415,9 @@ class Open_Street_Map extends Widget_Base {
 
 				$all_markers[] = $marker_settings;
 
-				$bdt_counter++;
+				$avt_counter++;
 
-				if ( 1 === $bdt_counter ) {
+				if ( 1 === $avt_counter ) {
 					$map_settings['lat'] = ( $marker_item['marker_lat'] ) ? $marker_item['marker_lat'] : '';
 					$map_settings['lng'] = ( $marker_item['marker_lng'] ) ? $marker_item['marker_lng'] : '';
 				}
@@ -432,14 +432,14 @@ class Open_Street_Map extends Widget_Base {
 			
 
 			?>
-			<div class="bdt-open-street-map" style="width: auto; height: 400px;" <?php echo $this->get_render_attribute_string( 'open-street-map' ); ?>></div>
+			<div class="avt-open-street-map" style="width: auto; height: 400px;" <?php echo $this->get_render_attribute_string( 'open-street-map' ); ?>></div>
 			<?php
 		} else {
 			?>
-			<div class="bdt-alert-warning" bdt-alert>
-			    <a class="bdt-alert-close" bdt-close></a>
-			    <?php $ep_setting_url = esc_url( admin_url('admin.php?page=element_pack_options#element_pack_api_settings')); ?>
-			    <p><?php printf(__( 'Please set your open street map accesss token in <a href="%s">element pack settings</a> to show your map correctly.', 'bdthemes-element-pack' ), $ep_setting_url); ?></p>
+			<div class="avt-alert-warning" avt-alert>
+			    <a class="avt-alert-close" avt-close></a>
+			    <?php $ep_setting_url = esc_url( admin_url('admin.php?page=widget_pack_options#widget_pack_api_settings')); ?>
+			    <p><?php printf(__( 'Please set your open street map accesss token in <a href="%s">widget pack settings</a> to show your map correctly.', 'avator-widget-pack' ), $ep_setting_url); ?></p>
 			</div>
 			<?php
 		}		

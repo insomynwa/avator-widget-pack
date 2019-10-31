@@ -6,8 +6,8 @@
  * @link https://tareq.co Tareq Hasan
  */
 
-if ( !class_exists( 'ElementPack_Settings_API' ) ):
-class ElementPack_Settings_API {
+if ( !class_exists( 'WidgetPack_Settings_API' ) ):
+class WidgetPack_Settings_API {
 
     /**
      * settings sections array
@@ -124,8 +124,8 @@ class ElementPack_Settings_API {
 
                 $args = array(
                     'id'                => $name,
-                    'class'             => isset( $option['class'] ) ? $option['class'] : 'bdt-wo-' . $name,
-                    'label_for'         => "bdt_ep_{$section}[{$name}]",
+                    'class'             => isset( $option['class'] ) ? $option['class'] : 'avt-wo-' . $name,
+                    'label_for'         => "avt_ep_{$section}[{$name}]",
                     'desc'              => isset( $option['desc'] ) ? $option['desc'] : '',
                     'name'              => $label,
                     'section'           => $section,
@@ -229,9 +229,9 @@ class ElementPack_Settings_API {
         
 
         $html   = '<fieldset>';
-        $html  .= sprintf( '<label for="bdt_ep_%1$s[%2$s]">', $args['section'], $args['id'] );
+        $html  .= sprintf( '<label for="avt_ep_%1$s[%2$s]">', $args['section'], $args['id'] );
         $html  .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
-        $html  .= sprintf( '<input type="checkbox" class="checkbox" id="bdt_ep_%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
+        $html  .= sprintf( '<input type="checkbox" class="checkbox" id="avt_ep_%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
         $html  .= sprintf( '%1$s</label>', $args['desc'] );
         $html  .= '</fieldset>'; 
 
@@ -240,14 +240,14 @@ class ElementPack_Settings_API {
                 if ( ! current_user_can( 'activate_plugins' ) ) { return; }
                 if ( ! is_plugin_active($plugin_path) ) {
                     $active_link = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin_path . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin_path );
-                    $html = '<a href="' . $active_link . '" class="element-pack-3pp-active" title="Activate the plugin first then you can activate this widget."><span class="dashicons dashicons-admin-plugins"></span></a>';
+                    $html = '<a href="' . $active_link . '" class="widget-pack-3pp-active" title="Activate the plugin first then you can activate this widget."><span class="dashicons dashicons-admin-plugins"></span></a>';
                 }
             } else {
                 if ($paid) {
-                    $html = '<a href="' . $paid . '" class="element-pack-3pp-download" title="Download and install plugin first then you can activate this widget."><span class="dashicons dashicons-download"></span></a>';
+                    $html = '<a href="' . $paid . '" class="widget-pack-3pp-download" title="Download and install plugin first then you can activate this widget."><span class="dashicons dashicons-download"></span></a>';
                 } else {
                     $install_link = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $plugin_name ), 'install-plugin_' . $plugin_name );
-                    $html = '<a href="' . $install_link . '" class="element-pack-3pp-install" title="Install the plugin first then you can activate this widget."><span class="dashicons dashicons-download"></span></a>';
+                    $html = '<a href="' . $install_link . '" class="widget-pack-3pp-install" title="Install the plugin first then you can activate this widget."><span class="dashicons dashicons-download"></span></a>';
                 }            
             }
         }
@@ -275,8 +275,8 @@ class ElementPack_Settings_API {
         $html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="" />', $args['section'], $args['id'] );
         foreach ( $args['options'] as $key => $label ) {
             $checked = isset( $value[$key] ) ? $value[$key] : '0';
-            $html    .= sprintf( '<label for="bdt_ep_%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key );
-            $html    .= sprintf( '<input type="checkbox" class="checkbox" id="bdt_ep_%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $checked, $key, false ) );
+            $html    .= sprintf( '<label for="avt_ep_%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key );
+            $html    .= sprintf( '<input type="checkbox" class="checkbox" id="avt_ep_%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $checked, $key, false ) );
             $html    .= sprintf( '%1$s</label><br>',  $label );
         }
 
@@ -297,8 +297,8 @@ class ElementPack_Settings_API {
         $html  = '<fieldset>';
 
         foreach ( $args['options'] as $key => $label ) {
-            $html .= sprintf( '<label for="bdt_ep_%1$s[%2$s][%3$s]">',  $args['section'], $args['id'], $key );
-            $html .= sprintf( '<input type="radio" class="radio" id="bdt_ep_%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $value, $key, false ) );
+            $html .= sprintf( '<label for="avt_ep_%1$s[%2$s][%3$s]">',  $args['section'], $args['id'], $key );
+            $html .= sprintf( '<input type="radio" class="radio" id="avt_ep_%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $value, $key, false ) );
             $html .= sprintf( '%1$s</label><br>', $label );
         }
 
@@ -570,9 +570,9 @@ class ElementPack_Settings_API {
         foreach ( $this->settings_sections as $tab ) {
             $html .= sprintf( '<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title'] );
         }
-        
-        $html .=  '<a href="#element_pack_video_tutorial" class="nav-tab" id="element_pack_video_tutorial-tab">Video Tutorial</a>';
-        $html .=  '<a href="#element_pack_system_requirement" class="nav-tab" id="element_pack_system_requirement-tab">System Requirement</a>';
+
+        // $html .=  '<a href="#widget_pack_video_tutorial" class="nav-tab" id="widget_pack_video_tutorial-tab">Video Tutorial</a>';
+        $html .=  '<a href="#widget_pack_system_requirement" class="nav-tab" id="widget_pack_system_requirement-tab">System Requirement</a>';
 
         $html .= '</h2>';
 
@@ -605,28 +605,28 @@ class ElementPack_Settings_API {
                 </div>
             <?php } ?>
 
-            <div id="element_pack_video_tutorial" class="group" style="display: none;">
-                 <?php $this->element_pack_video_tutorial(); ?>               
-            </div>
+            <!-- <div id="widget_pack_video_tutorial" class="group" style="display: none;"> -->
+                 <?php // $this->widget_pack_video_tutorial(); ?>
+            <!-- </div> -->
 
-            <div id="element_pack_system_requirement" class="group" style="display: none;">
-                 <?php $this->element_pack_system_requirement(); ?>               
+            <div id="widget_pack_system_requirement" class="group" style="display: none;">
+                 <?php $this->widget_pack_system_requirement(); ?>
             </div>
         </div>
         <?php
         $this->script();
     }
 
-    function element_pack_video_tutorial() {
+    function widget_pack_video_tutorial() {
         ?>
-            <div class="element_pack_video_wrapper">
+            <!-- <div class="widget_pack_video_wrapper">
                 <iframe width="854" height="480" src="https://www.youtube.com/embed/videoseries?list=PLP0S85GEw7DOJf_cbgUIL20qqwqb5x8KA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
+            </div> -->
         <?php
     }
 
 
-    function element_pack_system_requirement() {
+    function widget_pack_system_requirement() {
         $php_version        = phpversion();
         $max_execution_time = ini_get('max_execution_time');
         $memory_limit       = ini_get('memory_limit');
@@ -723,8 +723,8 @@ class ElementPack_Settings_API {
 
         </ul>
 
-        <div class="bdt-admin-alert"> 
-            <strong>Note:</strong> If you have multiple addons like element pack so you need some more requirement some cases so make sure you added more memory for others addon too.
+        <div class="avt-admin-alert"> 
+            <strong>Note:</strong> If you have multiple addons like widget pack so you need some more requirement some cases so make sure you added more memory for others addon too.
         </div>
         <?php
     }
@@ -789,18 +789,18 @@ class ElementPack_Settings_API {
                 });
 
                 //make the subheading single row
-                $('.elementor_page_element_pack_options .column-merge').each(function (index, element) {       
+                $('.elementor_page_widget_pack_options .column-merge').each(function (index, element) {       
                     var $element = $(element);
                     var $element_parent = $element.parent('td');
                     $element_parent.attr('colspan', 2);
                     $element_parent.prev('th').remove();
                 });
 
-                $("#element_pack_active_modules .bdt-wo-select-all-widget .checkbox").click(function(){ 
-                    $("#element_pack_active_modules .checkbox").prop("checked",$(this).prop("checked"));
+                $("#widget_pack_active_modules .avt-wo-select-all-widget .checkbox").click(function(){ 
+                    $("#widget_pack_active_modules .checkbox").prop("checked",$(this).prop("checked"));
                 });
-                $("#element_pack_third_party_widget .bdt-wo-select-all-widget .checkbox").click(function(){ 
-                    $("#element_pack_third_party_widget .checkbox").prop("checked",$(this).prop("checked"));
+                $("#widget_pack_third_party_widget .avt-wo-select-all-widget .checkbox").click(function(){ 
+                    $("#widget_pack_third_party_widget .checkbox").prop("checked",$(this).prop("checked"));
                 });
         });
         </script>

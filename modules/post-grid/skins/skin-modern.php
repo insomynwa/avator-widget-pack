@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostGrid\Skins;
+namespace WidgetPack\Modules\PostGrid\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Skin_Modern extends Elementor_Skin_Base {
 
 	public function get_id() {
-		return 'bdt-modern';
+		return 'avt-modern';
 	}
 
 	public function get_title() {
-		return __( 'Modern', 'bdthemes-element-pack' );
+		return __( 'Modern', 'avator-widget-pack' );
 	}
 
 	public function render() {
@@ -28,44 +28,44 @@ class Skin_Modern extends Elementor_Skin_Base {
 		}
 
 		?> 
-		<div id="bdt-post-grid-<?php echo esc_attr($id); ?>" class="bdt-post-grid bdt-post-grid-skin-modern">
-	  		<div class="bdt-grid bdt-grid-<?php echo esc_attr($settings['column_gap']); ?>" bdt-grid>
+		<div id="avt-post-grid-<?php echo esc_attr($id); ?>" class="avt-post-grid avt-post-grid-skin-modern">
+	  		<div class="avt-grid avt-grid-<?php echo esc_attr($settings['column_gap']); ?>" avt-grid>
 
 				<?php 
-				$bdt_count = 0;
+				$avt_count = 0;
 			
 				while ($wp_query->have_posts()) :
 					$wp_query->the_post();
-					$bdt_count++;
+					$avt_count++;
 		  			?>
 
 
-					<?php if ( 1 == $bdt_count ) : ?>
-					    <div class="bdt-width-2-5@m bdt-primary">
+					<?php if ( 1 == $avt_count ) : ?>
+					    <div class="avt-width-2-5@m avt-primary">
 					        <?php $this->parent->render_post_grid_item( get_the_ID(), $settings['primary_thumbnail_size'], $settings['excerpt_length'] ); ?>
 					    </div>
 
-					    <div class="bdt-width-2-5@m bdt-secondary">
-					        <div class="bdt-grid bdt-grid-<?php echo esc_attr($settings['column_gap']); ?>" bdt-grid>
+					    <div class="avt-width-2-5@m avt-secondary">
+					        <div class="avt-grid avt-grid-<?php echo esc_attr($settings['column_gap']); ?>" avt-grid>
 
 					<?php endif; ?>
-					            <?php if ( 2 == $bdt_count ) : ?>
-						            <div class="bdt-width-1-1@m">
+					            <?php if ( 2 == $avt_count ) : ?>
+						            <div class="avt-width-1-1@m">
 						                <?php $this->parent->render_post_grid_item( get_the_ID(), $settings['secondary_thumbnail_size'], $settings['excerpt_length'] ); ?>
 						            </div>
 					            <?php endif; ?>
 
-								<?php if ( 3 == $bdt_count or 4 == $bdt_count ) : ?>
-						            <div class="bdt-width-1-2@m">
+								<?php if ( 3 == $avt_count or 4 == $avt_count ) : ?>
+						            <div class="avt-width-1-2@m">
 						                <?php $this->parent->render_post_grid_item( get_the_ID(), $settings['secondary_thumbnail_size'], $settings['excerpt_length'] ); ?>
 						            </div>
 					            <?php endif; ?>
 
-					<?php if ( 5 == $bdt_count ) : ?>
+					<?php if ( 5 == $avt_count ) : ?>
 					        </div>
 					    </div>
 
-					    <div class="bdt-width-1-5@m bdt-primary bdt-tertiary">
+					    <div class="avt-width-1-5@m avt-primary avt-tertiary">
 					        <?php $this->parent->render_post_grid_item( get_the_ID(), $settings['primary_thumbnail_size'], $settings['excerpt_length'] ); ?>
 					    </div>
 
@@ -78,7 +78,7 @@ class Skin_Modern extends Elementor_Skin_Base {
  		<?php
  		
  		if ($settings['show_pagination']) {
- 			element_pack_post_pagination($wp_query);
+ 			widget_pack_post_pagination($wp_query);
  		}
  		
 		wp_reset_postdata();

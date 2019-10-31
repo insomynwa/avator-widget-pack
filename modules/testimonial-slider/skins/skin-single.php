@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\TestimonialSlider\Skins;
+namespace WidgetPack\Modules\TestimonialSlider\Skins;
 
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Single extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-single';
+		return 'avt-single';
 	}
 
 	public function get_title() {
-		return __( 'Single', 'bdthemes-element-pack' );
+		return __( 'Single', 'avator-widget-pack' );
 	}
 
 	public function render_image() {
@@ -20,14 +20,14 @@ class Skin_Single extends Elementor_Skin_Base {
 		$testimonial_thumb = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );		
 
 		if ( ! $testimonial_thumb ) {
-			$testimonial_thumb = BDTEP_ASSETS_URL.'images/member.svg';
+			$testimonial_thumb = AWP_ASSETS_URL.'images/member.svg';
 		} else {
 			$testimonial_thumb = $testimonial_thumb[0];
 		}
 
 		?>
 		<div>
-    		<div class="bdt-testimonial-thumb">
+    		<div class="avt-testimonial-thumb">
 				<img src="<?php echo esc_url( $testimonial_thumb ); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" />
 			</div>
 		</div>
@@ -39,7 +39,7 @@ class Skin_Single extends Elementor_Skin_Base {
 		$id       = $this->parent->get_id();
 		$index = 1;
 
-    	$rating_align = ($settings['thumb']) ? '' : ' bdt-flex-center';
+    	$rating_align = ($settings['thumb']) ? '' : ' avt-flex-center';
 
 
     	$this->parent->query_posts();
@@ -54,35 +54,35 @@ class Skin_Single extends Elementor_Skin_Base {
 
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-		  		<li class="bdt-slider-item">
+		  		<li class="avt-slider-item">
 	             
-	            	<div class="bdt-grid bdt-flex-middle" bdt-grid bdt-height-match="target: > div > div">
+	            	<div class="avt-grid avt-flex-middle" avt-grid avt-height-match="target: > div > div">
 
 	            		<?php if ('right' !== $settings['alignment']) : ?>
-		            	<div class="bdt-testimonial-image-part bdt-width-auto@m">
+		            	<div class="avt-testimonial-image-part avt-width-auto@m">
 		            		<?php $this->render_image(); ?>
 		        		</div>
 		        		<?php endif; ?>
 
-	                	<div class="bdt-testimonial-desc-part bdt-width-expand@m">
+	                	<div class="avt-testimonial-desc-part avt-width-expand@m">
 
-	                		<div class="bdt-slider-item-inner bdt-grid-item-match">
+	                		<div class="avt-slider-item-inner avt-grid-item-match">
 		                	
 								<?php if ('after' == $settings['meta_position']) : ?>
-				                	<div class="bdt-testimonial-text bdt-text-<?php echo esc_attr($settings['alignment']); ?>">
+				                	<div class="avt-testimonial-text avt-text-<?php echo esc_attr($settings['alignment']); ?>">
 				                		<?php $this->parent->render_excerpt(); ?>
 				                			
 			                		</div>
 			                	<?php endif; ?>
 			                	
-		                		<div class="bdt-flex bdt-flex-<?php echo esc_attr($settings['alignment']); ?> bdt-flex-middle">
+		                		<div class="avt-flex avt-flex-<?php echo esc_attr($settings['alignment']); ?> avt-flex-middle">
 
 				                    <?php $this->parent->render_meta('testmonial-meta-' . $index); ?>
 
 				                </div>
 
 		    					<?php if ('before' == $settings['meta_position']) : ?>
-		                    		<div class="bdt-testimonial-text bdt-text-<?php echo esc_attr($settings['alignment']); ?>">
+		                    		<div class="avt-testimonial-text avt-text-<?php echo esc_attr($settings['alignment']); ?>">
 				                		<?php $this->parent->render_excerpt(); ?>
 				                			
 			                		</div>
@@ -91,7 +91,7 @@ class Skin_Single extends Elementor_Skin_Base {
 		                </div>
 
 	            		<?php if ('right' == $settings['alignment']) : ?>
-		            	<div class="bdt-testimonial-image-part bdt-width-auto@m">
+		            	<div class="avt-testimonial-image-part avt-width-auto@m">
 		            		<?php $this->render_image( get_the_ID() ); ?>
 		        		</div>
 		        		<?php endif; ?>

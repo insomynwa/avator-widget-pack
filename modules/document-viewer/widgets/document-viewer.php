@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\DocumentViewer\Widgets;
+namespace WidgetPack\Modules\DocumentViewer\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,19 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Document_Viewer extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-document-viewer';
+		return 'avt-document-viewer';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Document Viewer', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Document Viewer', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-document-viewer';
+		return 'avt-wi-document-viewer';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -36,18 +36,18 @@ class Document_Viewer extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'file_source',
 			[
-				'label'         => esc_html__( 'File Source', 'bdthemes-element-pack' ),
-				'description'   => esc_html__( 'any type of document file: pdf, xls, docx, ppt etc', 'bdthemes-element-pack' ),
+				'label'         => esc_html__( 'File Source', 'avator-widget-pack' ),
+				'description'   => esc_html__( 'any type of document file: pdf, xls, docx, ppt etc', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'dynamic'       => [ 'active' => true ],
-				'placeholder'   => esc_html__( 'https://example.com/sample.pdf', 'bdthemes-element-pack' ),
+				'placeholder'   => esc_html__( 'https://example.com/sample.pdf', 'avator-widget-pack' ),
 				'label_block'   => true,
 				'show_external' => false,
 			]
@@ -56,7 +56,7 @@ class Document_Viewer extends Widget_Base {
 		$this->add_responsive_control(
 			'document_height',
 			[
-				'label' => esc_html__( 'Document Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Document Height', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 800,
@@ -69,7 +69,7 @@ class Document_Viewer extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-document-viewer iframe' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-document-viewer iframe' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -84,13 +84,13 @@ class Document_Viewer extends Widget_Base {
 		?>
 
 		<?php if ($final_url) : ?>
-        <div class="bdt-document-viewer">
-        	<iframe src="<?php echo esc_url($final_url); ?>" class="bdt-document"></iframe>
+        <div class="avt-document-viewer">
+        	<iframe src="<?php echo esc_url($final_url); ?>" class="avt-document"></iframe>
         </div>
         <?php else : ?>
-        	<div class="bdt-alert-warning" bdt-alert>
-        	    <a class="bdt-alert-close" bdt-close></a>
-        	    <p><?php esc_html_e( 'Please enter correct URL of your document.', 'bdthemes-element-pack' ); ?></p>
+        	<div class="avt-alert-warning" avt-alert>
+        	    <a class="avt-alert-close" avt-close></a>
+        	    <p><?php esc_html_e( 'Please enter correct URL of your document.', 'avator-widget-pack' ); ?></p>
         	</div>
         <?php endif; ?>
 

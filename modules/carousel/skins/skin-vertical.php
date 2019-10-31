@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Carousel\Skins;
+namespace WidgetPack\Modules\Carousel\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Utils;
@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Vertical extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-vertical';
+		return 'avt-vertical';
 	}
 
 	public function get_title() {
-		return __( 'Vertical', 'bdthemes-element-pack' );
+		return __( 'Vertical', 'avator-widget-pack' );
 	}
 
 	public function render() {
@@ -44,14 +44,14 @@ class Skin_Vertical extends Elementor_Skin_Base {
 		$this->parent->render_loop_header();
 
 			?>
-			<div class="bdt-carousel-layout-vertical">
-				<div class="bdt-grid bdt-grid-small" bdt-grid>
-					<div class="bdt-width-1-2@m">
+			<div class="avt-carousel-layout-vertical">
+				<div class="avt-grid avt-grid-small" avt-grid>
+					<div class="avt-width-1-2@m">
 
 		<?php $this->parent->render_thumbnail(); ?>
 		
 			</div>
-			<div class="bdt-width-expand">
+			<div class="avt-width-expand">
 			<?php
 
 		$this->parent->render_overlay_header();

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\AdvancedImageGallery\Skins;
+namespace WidgetPack\Modules\AdvancedImageGallery\Skins;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -7,11 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Hidden extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-hidden';
+		return 'avt-hidden';
 	}
 
 	public function get_title() {
-		return __( 'Hidden', 'bdthemes-element-pack' );
+		return __( 'Hidden', 'avator-widget-pack' );
 	}
 
 	public function render_header() {
@@ -19,12 +19,12 @@ class Skin_Hidden extends Elementor_Skin_Base {
 		$settings = $this->parent->get_settings_for_display();
 		$id       = $this->parent->get_id();
 
-		$this->parent->add_render_attribute('advanced-image-gallery', 'id', 'bdt-avdg-' . esc_attr($id) );
+		$this->parent->add_render_attribute('advanced-image-gallery', 'id', 'avt-avdg-' . esc_attr($id) );
 
-		$this->parent->add_render_attribute('advanced-image-gallery', 'class', ['bdt-advanced-image-gallery', 'bdt-skin-' . $settings['_skin'] ] );
+		$this->parent->add_render_attribute('advanced-image-gallery', 'class', ['avt-advanced-image-gallery', 'avt-skin-' . $settings['_skin'] ] );
 
-		if ($settings['show_lightbox'] or 'bdt-hidden' === $settings['_skin'] ) {
-			$this->parent->add_render_attribute('advanced-image-gallery', 'bdt-lightbox', 'animation: slide');
+		if ($settings['show_lightbox'] or 'avt-hidden' === $settings['_skin'] ) {
+			$this->parent->add_render_attribute('advanced-image-gallery', 'avt-lightbox', 'animation: slide');
 		}
 
 		?>
@@ -35,9 +35,9 @@ class Skin_Hidden extends Elementor_Skin_Base {
 	public function render_loop_item() {
 		$settings = $this->parent->get_settings_for_display();
 
-		$this->parent->add_render_attribute('advanced-image-gallery-item', 'class', ['bdt-gallery-item', 'bdt-transition-toggle']);
+		$this->parent->add_render_attribute('advanced-image-gallery-item', 'class', ['avt-gallery-item', 'avt-transition-toggle']);
 
-		$this->parent->add_render_attribute('advanced-image-gallery-inner', 'class', 'bdt-advanced-image-gallery-inner');
+		$this->parent->add_render_attribute('advanced-image-gallery-inner', 'class', 'avt-advanced-image-gallery-inner');
 		
 		if ($settings['tilt_show']) {
 			$this->parent->add_render_attribute('advanced-image-gallery-inner', 'data-tilt', '');

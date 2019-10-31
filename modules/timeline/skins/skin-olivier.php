@@ -1,22 +1,22 @@
 <?php
-namespace ElementPack\Modules\Timeline\Skins;
+namespace WidgetPack\Modules\Timeline\Skins;
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Olivier extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-olivier';
+		return 'avt-olivier';
 	}
 
 	public function get_title() {
-		return __( 'Olivier', 'bdthemes-element-pack' );
+		return __( 'Olivier', 'avator-widget-pack' );
 	}
 
 	public function render_script() {
 		$settings = $this->parent->get_settings_for_display();
 
-		$this->parent->add_render_attribute( 'timeline', 'class', [ 'bdt-timeline', 'bdt-timeline-skin-olivier' ] );
+		$this->parent->add_render_attribute( 'timeline', 'class', [ 'avt-timeline', 'avt-timeline-skin-olivier' ] );
 		$this->parent->add_render_attribute( 'timeline', 'data-visible_items', $settings['visible_items'] );
 	}
 
@@ -27,13 +27,13 @@ class Skin_Olivier extends Elementor_Skin_Base {
 		
 		?>
 		<div <?php echo $this->parent->get_render_attribute_string( 'timeline' ); ?>>
-			<div class="bdt-timeline-wrapper">
-				<div class="bdt-timeline-items">					
+			<div class="avt-timeline-wrapper">
+				<div class="avt-timeline-items">					
 					
 					<?php foreach ( $timeline_items as $item ) : ?>							
 						
-						<div class="bdt-timeline-item">
-							<div class="bdt-timeline-content">
+						<div class="avt-timeline-item">
+							<div class="avt-timeline-content">
 								<?php $this->parent->render_item( '', '', $item ); ?>
 							</div>
 						</div>
@@ -49,7 +49,7 @@ class Skin_Olivier extends Elementor_Skin_Base {
 	public function render_post() {
 		$settings = $this->parent->get_settings_for_display();
 
-		$this->parent->add_render_attribute( 'timeline', 'class', [ 'bdt-timeline', 'bdt-timeline-skin-olivier' ] );
+		$this->parent->add_render_attribute( 'timeline', 'class', [ 'avt-timeline', 'avt-timeline-skin-olivier' ] );
 		$this->parent->add_render_attribute( 'timeline', 'data-visible_items', $settings['visible_items'] );
 		
 		$wp_query = $this->parent->render_query();
@@ -58,13 +58,13 @@ class Skin_Olivier extends Elementor_Skin_Base {
 		
 			?>
 			<div <?php echo $this->parent->get_render_attribute_string( 'timeline' ); ?>>
-				<div class="bdt-timeline-wrapper">
-					<div class="bdt-timeline-items">
+				<div class="avt-timeline-wrapper">
+					<div class="avt-timeline-items">
 
 						<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>							
 						
-							<div class="bdt-timeline-item">
-								<div class="bdt-timeline-content">
+							<div class="avt-timeline-item">
+								<div class="avt-timeline-content">
 									<?php $this->parent->render_item( '', '', '' ); ?>
 								</div>
 							</div>

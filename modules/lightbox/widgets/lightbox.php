@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Lightbox\Widgets;
+namespace WidgetPack\Modules\Lightbox\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -20,15 +20,15 @@ class Lightbox extends Widget_Base {
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Lightbox', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Lightbox', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-lightbox';
+		return 'avt-wi-lightbox';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -36,7 +36,7 @@ class Lightbox extends Widget_Base {
 	}
 	
 	public function get_script_depends() {
-		return [ 'imagesloaded', 'bdt-uikit-icons' ];
+		return [ 'imagesloaded', 'avt-uikit-icons' ];
 	}
 
 	protected function _register_controls() {
@@ -44,21 +44,21 @@ class Lightbox extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_toggler',
 			[
-				'label' => __( 'Toggler', 'bdthemes-element-pack' ),
+				'label' => __( 'Toggler', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'lightbox_toggler',
 			[
-				'label'       => esc_html__( 'Select Lightbox Toggler', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Select Lightbox Toggler', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'poster',
 				'label_block' => true,
 				'options'     => [
-					'poster' => esc_html__( 'Poster', 'bdthemes-element-pack' ),
-					'button' => esc_html__( 'Button', 'bdthemes-element-pack' ),
-					'icon'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+					'poster' => esc_html__( 'Poster', 'avator-widget-pack' ),
+					'button' => esc_html__( 'Button', 'avator-widget-pack' ),
+					'icon'   => esc_html__( 'Icon', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -66,7 +66,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'poster_image',
 			[
-				'label'   => __( 'Poster Image', 'bdthemes-element-pack' ),
+				'label'   => __( 'Poster Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -93,7 +93,7 @@ class Lightbox extends Widget_Base {
 		$this->add_responsive_control(
 			'poster_height',
 			[
-				'label'   => __( 'Poster Height', 'bdthemes-element-pack' ),
+				'label'   => __( 'Poster Height', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 400,
@@ -109,7 +109,7 @@ class Lightbox extends Widget_Base {
 					'lightbox_toggler' => 'poster',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-toggler-poster' => 'min-height: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-toggler-poster' => 'min-height: {{SIZE}}px;',
 				],
 			]
 		);
@@ -117,7 +117,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'button_text',
 			[
-				'label'     => __( 'Button Text', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button Text', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => 'Open Lightbox',
 				'condition' => [
@@ -130,7 +130,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'lightbox_toggler_icon',
 			[
-				'label'     => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'toggler_icon',
 				'default' => [
@@ -146,23 +146,23 @@ class Lightbox extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'bdthemes-element-pack' ),
+						'title' => __( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
@@ -177,7 +177,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'button_icon',
 			[
-				'label'     => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'condition' => [
@@ -189,12 +189,12 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => __( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => __( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'left',
 				'options' => [
-					'left'  => __( 'Before', 'bdthemes-element-pack' ),
-					'right' => __( 'After', 'bdthemes-element-pack' ),
+					'left'  => __( 'Before', 'avator-widget-pack' ),
+					'right' => __( 'After', 'avator-widget-pack' ),
 				],
 				'conditions'   => [
 					'terms' => [
@@ -215,7 +215,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label' => __( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -250,23 +250,23 @@ class Lightbox extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => __( 'Lightbox Content', 'bdthemes-element-pack' ),
+				'label' => __( 'Lightbox Content', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'lightbox_content',
 			[
-				'label'       => esc_html__( 'Select Lightbox Content', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Select Lightbox Content', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'default'     => 'image',
 				'label_block' => true,
 				'options'     => [
-					'image'      => esc_html__( 'Image', 'bdthemes-element-pack' ),
-					'video'      => esc_html__( 'Video', 'bdthemes-element-pack' ),
-					'youtube'    => esc_html__( 'Youtube', 'bdthemes-element-pack' ),
-					'vimeo'      => esc_html__( 'Vimeo', 'bdthemes-element-pack' ),
-					'google-map' => esc_html__( 'Google Map', 'bdthemes-element-pack' ),
+					'image'      => esc_html__( 'Image', 'avator-widget-pack' ),
+					'video'      => esc_html__( 'Video', 'avator-widget-pack' ),
+					'youtube'    => esc_html__( 'Youtube', 'avator-widget-pack' ),
+					'vimeo'      => esc_html__( 'Vimeo', 'avator-widget-pack' ),
+					'google-map' => esc_html__( 'Google Map', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -274,7 +274,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'content_image',
 			[
-				'label'   => __( 'Image Source', 'bdthemes-element-pack' ),
+				'label'   => __( 'Image Source', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -289,7 +289,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'content_video',
 			[
-				'label'         => __( 'Video Source', 'bdthemes-element-pack' ),
+				'label'         => __( 'Video Source', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'show_external' => false,
 				'default'       => [
@@ -307,7 +307,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'content_youtube',
 			[
-				'label'         => __( 'YouTube Source', 'bdthemes-element-pack' ),
+				'label'         => __( 'YouTube Source', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'show_external' => false,
 				'default'       => [
@@ -325,7 +325,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'content_vimeo',
 			[
-				'label'         => __( 'Vimeo Source', 'bdthemes-element-pack' ),
+				'label'         => __( 'Vimeo Source', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'show_external' => false,
 				'default'       => [
@@ -343,7 +343,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'content_google_map',
 			[
-				'label'         => __( 'Goggle Map Embed URL', 'bdthemes-element-pack' ),
+				'label'         => __( 'Goggle Map Embed URL', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'show_external' => false,
 				'default'       => [
@@ -361,7 +361,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'content_caption',
 			[
-				'label'   => __( 'Content Caption', 'bdthemes-element-pack' ),
+				'label'   => __( 'Content Caption', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'dynamic' => [ 'active' => true ],
 				'default' => 'This is a image',
@@ -373,7 +373,7 @@ class Lightbox extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label'     => esc_html__( 'Toggle Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Toggle Button', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'lightbox_toggler!' => 'poster',
@@ -386,14 +386,14 @@ class Lightbox extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'color: {{VALUE}};',
@@ -405,7 +405,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'button_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'background-color: {{VALUE}};',
@@ -416,7 +416,7 @@ class Lightbox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'button_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .elementor-button',
@@ -426,7 +426,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -438,7 +438,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'button_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
@@ -459,7 +459,7 @@ class Lightbox extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'button_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .elementor-button',
 			]
@@ -470,14 +470,14 @@ class Lightbox extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button:hover' => 'color: {{VALUE}};',
@@ -489,7 +489,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button:hover' => 'background-color: {{VALUE}};',
@@ -500,7 +500,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button:hover' => 'border-color: {{VALUE}};',
@@ -512,7 +512,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'hover_animation',
 			[
-				'label' => __( 'Hover Animation', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -526,7 +526,7 @@ class Lightbox extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_lightbox',
 			[
-				'label' => esc_html__( 'Lightbox', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Lightbox', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -534,13 +534,13 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'lightbox_animation',
 			[
-				'label'   => esc_html__( 'Lightbox Animation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Lightbox Animation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'slide',
 				'options' => [
-					'slide' => esc_html__( 'Slide', 'bdthemes-element-pack' ),
-					'fade'  => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'scale' => esc_html__( 'Scale', 'bdthemes-element-pack' ),
+					'slide' => esc_html__( 'Slide', 'avator-widget-pack' ),
+					'fade'  => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'scale' => esc_html__( 'Scale', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -550,7 +550,7 @@ class Lightbox extends Widget_Base {
 		$this->add_control(
 			'video_autoplay',
 			[
-				'label'   => esc_html__( 'Video Autoplay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Video Autoplay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -598,7 +598,7 @@ class Lightbox extends Widget_Base {
 
 			</span>
 			<?php endif; ?>
-			<span <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo wp_kses( $settings['button_text'], element_pack_allow_tags('title') ); ?></span>
+			<span <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo wp_kses( $settings['button_text'], widget_pack_allow_tags('title') ); ?></span>
 		</span>
 		<?php
 	}
@@ -636,15 +636,15 @@ class Lightbox extends Widget_Base {
 			$this->add_render_attribute( 'lightbox-content', 'data-type', 'iframe' );
 		}
 
-		//$this->add_render_attribute( 'lightbox', 'class', 'bdt-lightbox' );
-		$this->add_render_attribute( 'lightbox', 'bdt-lightbox', '' );
+		//$this->add_render_attribute( 'lightbox', 'class', 'avt-lightbox' );
+		$this->add_render_attribute( 'lightbox', 'avt-lightbox', '' );
 		
 		if ( $settings['lightbox_animation'] ) {
-			$this->add_render_attribute( 'lightbox', 'bdt-lightbox', 'animation: ' . $settings['lightbox_animation'] . ';' );
+			$this->add_render_attribute( 'lightbox', 'avt-lightbox', 'animation: ' . $settings['lightbox_animation'] . ';' );
 		}
 
 		if ( $settings['video_autoplay'] ) {
-			$this->add_render_attribute( 'lightbox', 'bdt-lightbox', 'video-autoplay: true;' );
+			$this->add_render_attribute( 'lightbox', 'avt-lightbox', 'video-autoplay: true;' );
 		}
 		
 		if ( 'poster' == $settings['lightbox_toggler'] ) {
@@ -665,13 +665,13 @@ class Lightbox extends Widget_Base {
 		$is_new    = empty( $settings['toggler_icon'] ) && Icons_Manager::is_migration_allowed();	
 
         ?>
-        <div id="bdt-lightbox-<?php echo esc_attr($id); ?>">              
+        <div id="avt-lightbox-<?php echo esc_attr($id); ?>">              
 			<div <?php echo $this->get_render_attribute_string( 'lightbox' ); ?>>			
 
 			    <a <?php echo $this->get_render_attribute_string( 'lightbox-content' ); ?>>
 
 			    	<?php if ( 'poster' == $settings['lightbox_toggler'] ) : ?>
-						<div class="bdt-toggler-poster bdt-background-cover" style="background-image: url('<?php echo esc_url($poster_url); ?>');"></div>
+						<div class="avt-toggler-poster avt-background-cover" style="background-image: url('<?php echo esc_url($poster_url); ?>');"></div>
 					<?php endif; ?>
 
 					<?php if ( 'icon' == $settings['lightbox_toggler'] ) : ?>

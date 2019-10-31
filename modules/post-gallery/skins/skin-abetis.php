@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostGallery\Skins;
+namespace WidgetPack\Modules\PostGallery\Skins;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
@@ -13,16 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Abetis extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-abetis';
+		return 'avt-abetis';
 	}
 
 	public function get_title() {
-		return __( 'Abetis', 'bdthemes-element-pack' );
+		return __( 'Abetis', 'avator-widget-pack' );
 	}
 
 	public function _register_controls_actions() {
 		parent::_register_controls_actions();
-		add_action('elementor/element/bdt-post-gallery/section_design_layout/after_section_end', [$this, 'register_abetis_overlay_animation_controls']);
+		add_action('elementor/element/avt-post-gallery/section_design_layout/after_section_end', [$this, 'register_abetis_overlay_animation_controls']);
 	}
 
 	public function register_abetis_overlay_animation_controls( Widget_Base $widget ) {
@@ -30,7 +30,7 @@ class Skin_Abetis extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_style_abetis',
 			[
-				'label' => __( 'Abetis Style', 'bdthemes-element-pack' ),
+				'label' => __( 'Abetis Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -38,10 +38,10 @@ class Skin_Abetis extends Elementor_Skin_Base {
 		$this->add_control(
 			'desc_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-gallery-skin-abetis-desc' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-gallery-skin-abetis-desc' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -49,10 +49,10 @@ class Skin_Abetis extends Elementor_Skin_Base {
 		$this->add_control(
 			'desc_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-gallery-skin-abetis-desc *' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-gallery-skin-abetis-desc *' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -60,11 +60,11 @@ class Skin_Abetis extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'desc_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-gallery-skin-abetis-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}} .avt-post-gallery-skin-abetis-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -72,26 +72,26 @@ class Skin_Abetis extends Elementor_Skin_Base {
 		$this->add_control(
 			'desc_alignment',
 			[
-				'label'       => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'       => __( 'Alignment', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options'     => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'default'   => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-gallery-skin-abetis-desc' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-post-gallery-skin-abetis-desc' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -100,9 +100,9 @@ class Skin_Abetis extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'title_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
-				'selector'  => '{{WRAPPER}} .bdt-gallery-item .bdt-gallery-item-title',
+				'selector'  => '{{WRAPPER}} .avt-gallery-item .avt-gallery-item-title',
 			]
 		);
 
@@ -116,10 +116,10 @@ class Skin_Abetis extends Elementor_Skin_Base {
 			[
 				'overlay-settings' => [
 					'class' => [
-						'bdt-position-cover',
-						'bdt-overlay',
-						'bdt-overlay-default',
-						$settings['overlay_animation'] ? 'bdt-transition-' . $settings['overlay_animation'] : ''
+						'avt-position-cover',
+						'avt-overlay',
+						'avt-overlay-default',
+						$settings['overlay_animation'] ? 'avt-transition-' . $settings['overlay_animation'] : ''
 					]
 				]
 			], '', '', true
@@ -127,8 +127,8 @@ class Skin_Abetis extends Elementor_Skin_Base {
 
 		?>
 		<div <?php echo $this->parent->get_render_attribute_string( 'overlay-settings' ); ?>>
-			<div class="bdt-post-gallery-content">
-				<div class="bdt-gallery-content-inner">
+			<div class="avt-post-gallery-content">
+				<div class="avt-gallery-content-inner">
 					<?php 
 
 					$placeholder_img_src = Utils::get_placeholder_image_src();
@@ -145,9 +145,9 @@ class Skin_Abetis extends Elementor_Skin_Base {
 						[
 							'lightbox-settings' => [
 								'class' => [
-									'bdt-gallery-item-link',
-									'bdt-gallery-lightbox-item',
-									('icon' == $settings['link_type']) ? 'bdt-link-icon' : 'bdt-link-text'
+									'avt-gallery-item-link',
+									'avt-gallery-lightbox-item',
+									('icon' == $settings['link_type']) ? 'avt-link-icon' : 'avt-link-text'
 								],
 								'data-elementor-open-lightbox' => 'no',
 								'data-caption'                 => get_the_title(),
@@ -157,27 +157,27 @@ class Skin_Abetis extends Elementor_Skin_Base {
 					);
 					
 					if ( 'none' !== $settings['show_link'])  : ?>
-						<div class="bdt-flex-inline bdt-gallery-item-link-wrapper">
+						<div class="avt-flex-inline avt-gallery-item-link-wrapper">
 							<?php if (( 'lightbox' == $settings['show_link'] ) || ( 'both' == $settings['show_link'] )) : ?>
 								<a <?php echo $this->parent->get_render_attribute_string( 'lightbox-settings' ); ?>>
 									<?php if ( 'icon' == $settings['link_type'] ) : ?>
-										<span bdt-icon="icon: image"></span>
+										<span avt-icon="icon: image"></span>
 									<?php elseif ( 'text' == $settings['link_type'] ) : ?>
-										<span><?php esc_html_e( 'ZOOM', 'bdthemes-element-pack' ); ?></span>
+										<span><?php esc_html_e( 'ZOOM', 'avator-widget-pack' ); ?></span>
 									<?php endif; ?>
 								</a>
 							<?php endif; ?>
 							
 							<?php if (( 'post' == $settings['show_link'] ) || ( 'both' == $settings['show_link'] )) : ?>
 								<?php 
-									$link_type_class =  ( 'icon' == $settings['link_type'] ) ? ' bdt-link-icon' : ' bdt-link-text';
+									$link_type_class =  ( 'icon' == $settings['link_type'] ) ? ' avt-link-icon' : ' avt-link-text';
 									$target =  ( $settings['external_link'] ) ? 'target="_blank"' : '';
 								?>
-								<a class="bdt-gallery-item-link<?php echo esc_attr($link_type_class); ?>" href="<?php echo get_permalink(); ?>" <?php echo esc_attr($target); ?>>
+								<a class="avt-gallery-item-link<?php echo esc_attr($link_type_class); ?>" href="<?php echo get_permalink(); ?>" <?php echo esc_attr($target); ?>>
 									<?php if ( 'icon' == $settings['link_type'] ) : ?>
-										<span bdt-icon="icon: more"></span>
+										<span avt-icon="icon: more"></span>
 									<?php elseif ( 'text' == $settings['link_type'] ) : ?>
-										<span><?php esc_html_e( 'VIEW', 'bdthemes-element-pack' ); ?></span>
+										<span><?php esc_html_e( 'VIEW', 'avator-widget-pack' ); ?></span>
 									<?php endif; ?>
 								</a>
 							<?php endif; ?>
@@ -191,7 +191,7 @@ class Skin_Abetis extends Elementor_Skin_Base {
 
 	public function render_desc() {
 		?>
-		<div class="bdt-post-gallery-skin-abetis-desc bdt-padding-small">
+		<div class="avt-post-gallery-skin-abetis-desc avt-padding-small">
 			<?php
 			$this->parent->render_title();
 			$this->parent->render_excerpt();
@@ -212,7 +212,7 @@ class Skin_Abetis extends Elementor_Skin_Base {
 			}
 		}
 
-		$this->parent->add_render_attribute('post-gallery-item', 'class', ['bdt-gallery-item bdt-transition-toggle'], true);
+		$this->parent->add_render_attribute('post-gallery-item', 'class', ['avt-gallery-item avt-transition-toggle'], true);
 
 		if ('yes' === $settings['show_filter_bar']) {
 			$tags_classes = array_map( function( $tag ) {
@@ -221,13 +221,13 @@ class Skin_Abetis extends Elementor_Skin_Base {
 			$this->parent->add_render_attribute('post-gallery-item', 'data-filter', implode(' ', $tags_classes), true);
 		}
 
-		$this->parent->add_render_attribute('post-gallery-item', 'class', 'bdt-width-1-'. $settings['columns_mobile']);
-		$this->parent->add_render_attribute('post-gallery-item', 'class', 'bdt-width-1-'. $settings['columns_tablet'] .'@s');
-		$this->parent->add_render_attribute('post-gallery-item', 'class', 'bdt-width-1-'. $settings['columns'] .'@m');
+		$this->parent->add_render_attribute('post-gallery-item', 'class', 'avt-width-1-'. $settings['columns_mobile']);
+		$this->parent->add_render_attribute('post-gallery-item', 'class', 'avt-width-1-'. $settings['columns_tablet'] .'@s');
+		$this->parent->add_render_attribute('post-gallery-item', 'class', 'avt-width-1-'. $settings['columns'] .'@m');
 
 		?>
 		<div <?php echo $this->parent->get_render_attribute_string( 'post-gallery-item' ); ?>>
-			<div class="bdt-post-gallery-inner">
+			<div class="avt-post-gallery-inner">
 				<?php
 				$this->parent->render_thumbnail();
 				$this->render_overlay();
@@ -261,7 +261,7 @@ class Skin_Abetis extends Elementor_Skin_Base {
 		$this->parent->render_footer();
 
 		if ($settings['show_pagination']) {
-			element_pack_post_pagination($wp_query);
+			widget_pack_post_pagination($wp_query);
 		}
 		
 		wp_reset_postdata();

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostBlockModern\Widgets;
+namespace WidgetPack\Modules\PostBlockModern\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -17,19 +17,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Post_Block_Modern extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-post-block-modern';
+		return 'avt-post-block-modern';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Post Block Modern', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Post Block Modern', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-post-block-modern';
+		return 'avt-wi-post-block-modern';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,7 +40,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_section(
 			'section_layout_post_block_modern',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -48,11 +48,11 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'source',
 			[
-				'label'   => _x( 'Source', 'Posts Query Control', 'bdthemes-element-pack' ),
+				'label'   => _x( 'Source', 'Posts Query Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''        => esc_html__( 'Show All', 'bdthemes-element-pack' ),
-					'by_name' => esc_html__( 'Manual Selection', 'bdthemes-element-pack' ),
+					''        => esc_html__( 'Show All', 'avator-widget-pack' ),
+					'by_name' => esc_html__( 'Manual Selection', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -68,7 +68,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'post_categories',
 			[
-				'label'       => esc_html__( 'Categories', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => $post_options,
 				'default'     => [],
@@ -83,7 +83,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'posts_limit',
 			[
-				'label'   => esc_html__( 'Posts Limit', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Posts Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 4,
 			]
@@ -93,7 +93,7 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'    => 'thumbnail',
-				'label'   => esc_html__( 'Image Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Image Size', 'avator-widget-pack' ),
 				'exclude' => [ 'custom' ],
 				'default' => 'large',
 			]
@@ -102,14 +102,14 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order by', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order by', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'date',
 				'options' => [
-					'date'     => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'title'    => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'category' => esc_html__( 'Category', 'bdthemes-element-pack' ),
-					'rand'     => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'date'     => esc_html__( 'Date', 'avator-widget-pack' ),
+					'title'    => esc_html__( 'Title', 'avator-widget-pack' ),
+					'category' => esc_html__( 'Category', 'avator-widget-pack' ),
+					'rand'     => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -117,12 +117,12 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => [
-					'DESC' => esc_html__( 'Descending', 'bdthemes-element-pack' ),
-					'ASC'  => esc_html__( 'Ascending', 'bdthemes-element-pack' ),
+					'DESC' => esc_html__( 'Descending', 'avator-widget-pack' ),
+					'ASC'  => esc_html__( 'Ascending', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -130,7 +130,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'title',
 			[
-				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -139,7 +139,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'show_meta',
 			[
-				'label'   => esc_html__( 'Meta Data', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Meta Data', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -148,7 +148,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'show_excerpt',
 			[
-				'label'   => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -157,7 +157,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'excerpt_length',
 			[
-				'label'     => esc_html__( 'Excerpt Length', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt Length', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 15,
 				'condition' => [
@@ -169,7 +169,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'show_read_more',
 			[
-				'label'   => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -180,7 +180,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_read_more',
 			[
-				'label'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'condition' => [
 					'show_read_more' => 'yes',
 				],
@@ -190,17 +190,17 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'read_more_text',
 			[
-				'label'       => esc_html__( 'Read More Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Read More Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Read More', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Read More', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'post_block_modern_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Icon', 'avator-widget-pack' ),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			]
@@ -209,12 +209,12 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => esc_html__( 'Icon Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left'  => esc_html__( 'Before', 'bdthemes-element-pack' ),
-					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
+					'left'  => esc_html__( 'Before', 'avator-widget-pack' ),
+					'right' => esc_html__( 'After', 'avator-widget-pack' ),
 				],
 				'condition' => [
 					'post_block_modern_icon[value]!' => '',
@@ -225,7 +225,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'   => esc_html__( 'Icon Spacing', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Spacing', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 8,
@@ -239,8 +239,8 @@ class Post_Block_Modern extends Widget_Base {
 					'post_block_modern_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -250,7 +250,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_left_part',
 			[
-				'label' => esc_html__( 'Left Part', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Left Part', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -258,7 +258,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'left_part_date_heading',
 			[
-				'label' => esc_html__( 'Date', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Date', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -266,10 +266,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'left_part_date_color',
 			[
-				'label'     => esc_html__( 'Date Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Date Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-meta span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-meta span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -278,16 +278,16 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'left_part_date_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-meta span',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-meta span',
 			]
 		);
 
 		$this->add_control(
 			'left_part_category_heading',
 			[
-				'label' => esc_html__( 'Category', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Category', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -295,10 +295,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'left_part_category_color',
 			[
-				'label'     => esc_html__( 'Category Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Category Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-meta a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-meta a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -306,10 +306,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'left_part_category_bg_color',
 			[
-				'label'     => esc_html__( 'Category Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Category Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-meta a' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-meta a' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -318,16 +318,16 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'left_part_category_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-meta a',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-meta a',
 			]
 		);
 
 		$this->add_control(
 			'left_part_title_category',
 			[
-				'label' => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -335,10 +335,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'left_part_title_color',
 			[
-				'label'     => esc_html__( 'Title Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -347,16 +347,16 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'left_part_title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-title',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-title',
 			]
 		);
 
 		$this->add_control(
 			'left_part_excerpt_category',
 			[
-				'label' => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -364,10 +364,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'left_part_excerpt_color',
 			[
-				'label'     => esc_html__( 'Excerpt Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-excerpt' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-excerpt' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -376,9 +376,9 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'left_part_excerpt_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-excerpt',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .left-part .avt-post-block-modern-excerpt',
 			]
 		);
 
@@ -387,7 +387,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_section(
 			'section_design_right_part',
 			[
-				'label' => esc_html__( 'Right Part', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Right Part', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -395,7 +395,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'right_part_date_heading',
 			[
-				'label' => esc_html__( 'Date', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Date', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -403,10 +403,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'right_part_date_color',
 			[
-				'label'     => esc_html__( 'Date Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Date Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-meta span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -415,16 +415,16 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'right_part_date_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta span',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-meta span',
 			]
 		);
 
 		$this->add_control(
 			'right_part_category_heading',
 			[
-				'label' => esc_html__( 'Category', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Category', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -432,10 +432,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'right_part_category_color',
 			[
-				'label'     => esc_html__( 'Category Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Category Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-meta a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -443,10 +443,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'right_part_category_bg_color',
 			[
-				'label'     => esc_html__( 'Category Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Category Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta a' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-meta a' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -454,11 +454,11 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'category_border_radius',
 			[
-				'label'      => esc_html__( 'Category Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Category Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-meta a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -467,16 +467,16 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'right_part_category_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta a',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-meta a',
 			]
 		);
 
 		$this->add_control(
 			'right_part_title_category',
 			[
-				'label' => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -484,10 +484,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'right_part_title_color',
 			[
-				'label'     => esc_html__( 'Title Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -496,16 +496,16 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'right_part_title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-title',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-title',
 			]
 		);
 
 		$this->add_control(
 			'right_part_excerpt_category',
 			[
-				'label' => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -513,10 +513,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'right_part_excerpt_color',
 			[
-				'label'     => esc_html__( 'Excerpt Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-excerpt' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-excerpt' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -525,9 +525,9 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'right_part_excerpt_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-excerpt',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .right-part .avt-post-block-modern-excerpt',
 			]
 		);
 
@@ -536,7 +536,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_read_more',
 			[
-				'label'     => esc_html__( 'Read More', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Read More', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_read_more' => 'yes',
@@ -549,19 +549,19 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_read_more_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'read_more_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more' => 'color: {{VALUE}} !important;',
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -569,10 +569,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'read_more_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -581,10 +581,10 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'read_more_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more',
+				'selector'    => '{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more',
 				'separator'   => 'before',
 			]
 		);
@@ -592,11 +592,11 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'read_more_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -606,18 +606,18 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_read_more_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'read_more_hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more:hover' => 'color: {{VALUE}} !important;',
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more:hover' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -625,10 +625,10 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'read_more_hover_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -636,13 +636,13 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'read_more_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -650,7 +650,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'read_more_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -663,18 +663,18 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'read_more_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more',
 			]
 		);
 
 		$this->add_control(
 			'read_more_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -684,9 +684,9 @@ class Post_Block_Modern extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'read_more_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more',
+				'selector' => '{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-read-more',
 			]
 		);
 
@@ -695,7 +695,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_additional_options',
 			[
-				'label' => esc_html__( 'Additional Options', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional Options', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -703,7 +703,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'space_between',
 			[
-				'label'      => esc_html__( 'Space Between', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Space Between', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range'      => [
@@ -714,9 +714,9 @@ class Post_Block_Modern extends Widget_Base {
 				],
 				'separator' => 'after',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-meta' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-excerpt' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-meta' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-title' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-excerpt' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -724,7 +724,7 @@ class Post_Block_Modern extends Widget_Base {
 		$this->add_control(
 			'item_spacing',
 			[
-				'label'      => esc_html__( 'Item Spacing', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Item Spacing', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range'      => [
@@ -735,7 +735,7 @@ class Post_Block_Modern extends Widget_Base {
 				],
 				'separator' => 'after',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-desc' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-post-block-modern .avt-post-block-modern-desc' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -760,7 +760,7 @@ class Post_Block_Modern extends Widget_Base {
 		add_filter( 'excerpt_length', [ $this, 'filter_excerpt_length' ], 20 );
 
 		?>
-		<div class="bdt-post-block-modern-excerpt">
+		<div class="avt-post-block-modern-excerpt">
 			<?php do_shortcode(the_excerpt()); ?>
 		</div>
 		<?php
@@ -772,7 +772,7 @@ class Post_Block_Modern extends Widget_Base {
 	public function render() {
 		$settings = $this->get_settings();
 
-		$id      = uniqid('bdtpbm_');
+		$id      = uniqid('avtpbm_');
 
 		$animation = ($settings['read_more_hover_animation']) ? ' elementor-animation-'.$settings['read_more_hover_animation'] : '';
 
@@ -800,11 +800,11 @@ class Post_Block_Modern extends Widget_Base {
 					'post-block-modern' => [
 						'id'    => esc_attr($id),
 						'class' => [
-							'bdt-post-block-modern',
-							'bdt-grid',
-							'bdt-grid-match'
+							'avt-post-block-modern',
+							'avt-grid',
+							'avt-grid-match'
 						],
-						'bdt-grid' => ''
+						'avt-grid' => ''
 					]
 				]
 			);
@@ -837,53 +837,53 @@ class Post_Block_Modern extends Widget_Base {
 
 				  	if( $count == 1) : ?>
 
-				  		<div class="bdt-width-3-5@m">
-				  			<div class="bdt-post-block-modern-item left-part bdt-position-relative" style="background-image: url(<?php echo esc_url($image_src); ?>)">
+				  		<div class="avt-width-3-5@m">
+				  			<div class="avt-post-block-modern-item left-part avt-position-relative" style="background-image: url(<?php echo esc_url($image_src); ?>)">
 						  		
-						  		<div class="bdt-post-block-modern-desc bdt-position-bottom-center bdt-position-z-index bdt-width-2-3@m ">
+						  		<div class="avt-post-block-modern-desc avt-position-bottom-center avt-position-z-index avt-width-2-3@m ">
 
 					            	<?php if ('yes' == $settings['show_meta']) : ?>
 
 										<?php $meta_list = '<span><span>'.esc_attr(get_the_date('d F Y')).'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
 
-										<div class="bdt-post-block-modern-meta bdt-subnav bdt-flex-middle bdt-flex-center"><?php echo wp_kses_post($meta_list); ?></div>
+										<div class="avt-post-block-modern-meta avt-subnav avt-flex-middle avt-flex-center"><?php echo wp_kses_post($meta_list); ?></div>
 
 									<?php endif ?>
 
 									<?php if ('yes' == $settings['title']) : ?>
-										<h4 class="bdt-post-block-modern-title"><a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-link-reset" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a></h4>
+										<h4 class="avt-post-block-modern-title"><a href="<?php echo esc_url(get_permalink()); ?>" class="avt-link-reset" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a></h4>
 									<?php endif ?>
 
 									<?php $this->render_excerpt(); ?>
 
 						  		</div>
-						  		<div class="bdt-position-cover bdt-overlay-gradient"></div>
+						  		<div class="avt-position-cover avt-overlay-gradient"></div>
 
 							</div>
 						</div>
 
-				  		<div class="bdt-width-2-5@m">
+				  		<div class="avt-width-2-5@m">
 					<?php else : ?>
-			  			<div class="bdt-post-block-modern-item right-part">
-					  		<div class="bdt-post-block-modern-desc">
+			  			<div class="avt-post-block-modern-item right-part">
+					  		<div class="avt-post-block-modern-desc">
 
 								<?php if ('yes' == $settings['show_meta']) : ?>
 									<?php $meta_list = '<span><span>'.esc_attr(get_the_date('d F Y')).'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
 									
-									<div class="bdt-post-block-modern-meta bdt-subnav"><?php echo wp_kses_post($meta_list); ?></div>
+									<div class="avt-post-block-modern-meta avt-subnav"><?php echo wp_kses_post($meta_list); ?></div>
 								<?php endif ?>
 
 								<?php if ('yes' == $settings['title']) : ?>
-									<h4 class="bdt-post-block-modern-title"><a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-link-reset" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a></h4>
+									<h4 class="avt-post-block-modern-title"><a href="<?php echo esc_url(get_permalink()); ?>" class="avt-link-reset" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a></h4>
 								<?php endif ?>
 
 								<?php $this->render_excerpt(); ?>
 
 								<?php if ('yes' == $settings['show_read_more']) : ?>
-									<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-block-modern-read-more bdt-link-reset<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['read_more_text']); ?>
+									<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-block-modern-read-more avt-link-reset<?php echo esc_attr($animation); ?>"><?php echo esc_html($settings['read_more_text']); ?>
 										
 										<?php if ($settings['post_block_modern_icon']['value']) : ?>
-											<span class="bdt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
+											<span class="avt-button-icon-align-<?php echo esc_attr($settings['icon_align']); ?>">
 
 												<?php if ( $is_new || $migrated ) :
 													Icons_Manager::render_icon( $settings['post_block_modern_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );

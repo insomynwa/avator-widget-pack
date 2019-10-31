@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\EventCalendar\Widgets;
+namespace WidgetPack\Modules\EventCalendar\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,8 +9,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Utils;
 
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
-use ElementPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -21,19 +21,19 @@ class Event_Carousel extends Widget_Base {
 	public $_query = null;
 
 	public function get_name() {
-		return 'bdt-event-carousel';
+		return 'avt-event-carousel';
 	}
 
 	public function get_title() {
-		return BDTEP . __( 'Event Carousel', 'bdthemes-element-pack' );
+		return AWP . __( 'Event Carousel', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-event-calendar';
+		return 'avt-wi-event-calendar';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -41,7 +41,7 @@ class Event_Carousel extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['bdt-event-calendar', 'element-pack-font'];
+		return ['avt-event-calendar', 'widget-pack-font'];
 	}
 
 	// public function get_script_depends() {
@@ -58,14 +58,14 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => __( 'Layout', 'bdthemes-element-pack' ),
+				'label' => __( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_responsive_control(
 			'columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Columns', 'avator-widget-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '3',
 				'tablet_default' => '2',
@@ -82,7 +82,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'item_gap',
 			[
-				'label'   => esc_html__( 'Column Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Column Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 35,
@@ -100,7 +100,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_image',
 			[
-				'label'   => __( 'Show Image', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -109,7 +109,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_title',
 			[
-				'label'   => __( 'Show Title', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Title', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -119,7 +119,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_date',
 			[
-				'label'   => __( 'Show Date', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Date', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -128,7 +128,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_excerpt',
 			[
-				'label'   => __( 'Show Excerpt', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Excerpt', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -137,7 +137,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'excerpt_length',
 			[
-				'label'     => __( 'Excerpt Length', 'bdthemes-element-pack' ),
+				'label'     => __( 'Excerpt Length', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 15,
 				'condition' => [
@@ -149,7 +149,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_meta',
 			[
-				'label'   => __( 'Show Meta', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Meta', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -158,7 +158,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_meta_cost',
 			[
-				'label'   => __( 'Show Cost', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Cost', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -167,7 +167,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_meta_website',
 			[
-				'label'   => __( 'Show Website', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Website', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -176,7 +176,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'show_meta_location',
 			[
-				'label'   => __( 'Show Location', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Location', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -187,7 +187,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_image',
 			[
-				'label' => __( 'Image', 'bdthemes-element-pack' ),
+				'label' => __( 'Image', 'avator-widget-pack' ),
 			]
 		);
 
@@ -195,7 +195,7 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'    => 'image',
-				'label'   => esc_html__( 'Image Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Image Size', 'avator-widget-pack' ),
 				'exclude' => [ 'custom' ],
 				'default' => 'medium',
 			]
@@ -204,7 +204,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'image_width',
 			[
-				'label' => __( 'Image Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Image Width', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 100,
@@ -224,7 +224,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-image' => 'width: {{SIZE}}{{UNIT}};margin-left: auto;margin-right: auto;',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image' => 'width: {{SIZE}}{{UNIT}};margin-left: auto;margin-right: auto;',
 				],
 				'condition' => [
 					'show_image' => 'yes',
@@ -238,7 +238,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => __( 'Query', 'bdthemes-element-pack' ),
+				'label' => __( 'Query', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -246,11 +246,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'source',
 			[
-				'label'   => _x( 'Source', 'Posts Query Control', 'bdthemes-element-pack' ),
+				'label'   => _x( 'Source', 'Posts Query Control', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''        => esc_html__( 'Show All', 'bdthemes-element-pack' ),
-					'by_name' => esc_html__( 'Manual Selection', 'bdthemes-element-pack' ),
+					''        => esc_html__( 'Show All', 'avator-widget-pack' ),
+					'by_name' => esc_html__( 'Manual Selection', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -259,9 +259,9 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'event_categories',
 			[
-				'label'       => esc_html__( 'Categories', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
-				'options'     => element_pack_get_category('tribe_events_cat'),
+				'options'     => widget_pack_get_category('tribe_events_cat'),
 				'default'     => [],
 				'label_block' => true,
 				'multiple'    => true,
@@ -275,14 +275,14 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'start_date',
 			[
-				'label'   => esc_html__( 'Start Date', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Start Date', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''           => esc_html__( 'Any Time', 'bdthemes-element-pack' ),
-					'now'        => esc_html__( 'Now', 'bdthemes-element-pack' ),
-					'today'      => esc_html__( 'Today', 'bdthemes-element-pack' ),
-					'last month' => esc_html__( 'Last Month', 'bdthemes-element-pack' ),
-					'custom'     => esc_html__( 'Custom', 'bdthemes-element-pack' ),
+					''           => esc_html__( 'Any Time', 'avator-widget-pack' ),
+					'now'        => esc_html__( 'Now', 'avator-widget-pack' ),
+					'today'      => esc_html__( 'Today', 'avator-widget-pack' ),
+					'last month' => esc_html__( 'Last Month', 'avator-widget-pack' ),
+					'custom'     => esc_html__( 'Custom', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -291,7 +291,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'custom_start_date',
 			[
-				'label'   => esc_html__( 'Custom Start Date', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Custom Start Date', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::DATE_TIME,
 				'condition' => [
 					'start_date' => 'custom'
@@ -302,14 +302,14 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'end_date',
 			[
-				'label'   => esc_html__( 'End Date', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'End Date', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					''           => esc_html__( 'Any Time', 'bdthemes-element-pack' ),
-					'now'        => esc_html__( 'Now', 'bdthemes-element-pack' ),
-					'today'      => esc_html__( 'Today', 'bdthemes-element-pack' ),
-					'next month' => esc_html__( 'Last Month', 'bdthemes-element-pack' ),
-					'custom'     => esc_html__( 'Custom', 'bdthemes-element-pack' ),
+					''           => esc_html__( 'Any Time', 'avator-widget-pack' ),
+					'now'        => esc_html__( 'Now', 'avator-widget-pack' ),
+					'today'      => esc_html__( 'Today', 'avator-widget-pack' ),
+					'next month' => esc_html__( 'Last Month', 'avator-widget-pack' ),
+					'custom'     => esc_html__( 'Custom', 'avator-widget-pack' ),
 				],
 				'label_block' => true,
 			]
@@ -318,7 +318,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'custom_end_date',
 			[
-				'label'   => esc_html__( 'Custom End Date', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Custom End Date', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::DATE_TIME,
 				'condition' => [
 					'end_date' => 'custom'
@@ -329,7 +329,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'limit',
 			[
-				'label'   => esc_html__( 'Limit', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 6,
 			]
@@ -338,14 +338,14 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order by', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order by', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'event_date',
 				'options' => [
-					'event_date' => esc_html__( 'Event Date', 'bdthemes-element-pack' ),
-					'title'      => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'category'   => esc_html__( 'Category', 'bdthemes-element-pack' ),
-					'rand'       => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'event_date' => esc_html__( 'Event Date', 'avator-widget-pack' ),
+					'title'      => esc_html__( 'Title', 'avator-widget-pack' ),
+					'category'   => esc_html__( 'Category', 'avator-widget-pack' ),
+					'rand'       => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -353,12 +353,12 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'DESC',
 				'options' => [
-					'DESC' => esc_html__( 'Descending', 'bdthemes-element-pack' ),
-					'ASC'  => esc_html__( 'Ascending', 'bdthemes-element-pack' ),
+					'DESC' => esc_html__( 'Descending', 'avator-widget-pack' ),
+					'ASC'  => esc_html__( 'Ascending', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -371,23 +371,23 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_navigation',
 			[
-				'label' => __( 'Navigation', 'bdthemes-element-pack' ),
+				'label' => __( 'Navigation', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'navigation',
 			[
-				'label'   => __( 'Navigation', 'bdthemes-element-pack' ),
+				'label'   => __( 'Navigation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'arrows',
 				'options' => [
-					'both'   => __( 'Arrows and Dots', 'bdthemes-element-pack' ),
-					'arrows' => __( 'Arrows', 'bdthemes-element-pack' ),
-					'dots'   => __( 'Dots', 'bdthemes-element-pack' ),
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
+					'both'   => __( 'Arrows and Dots', 'avator-widget-pack' ),
+					'arrows' => __( 'Arrows', 'avator-widget-pack' ),
+					'dots'   => __( 'Dots', 'avator-widget-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
 				],
-				'prefix_class' => 'bdt-navigation-type-',
+				'prefix_class' => 'avt-navigation-type-',
 				'render_type' => 'template',				
 			]
 		);
@@ -395,10 +395,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_position',
 			[
-				'label'     => __( 'Arrows and Dots Position', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows and Dots Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'center',
-				'options'   => element_pack_navigation_position(),
+				'options'   => widget_pack_navigation_position(),
 				'condition' => [
 					'navigation' => 'both',
 				],
@@ -408,10 +408,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_position',
 			[
-				'label'     => __( 'Arrows Position', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'center',
-				'options'   => element_pack_navigation_position(),
+				'options'   => widget_pack_navigation_position(),
 				'condition' => [
 					'navigation' => 'arrows',
 				],				
@@ -421,7 +421,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'hide_arrows',
 			[
-				'label'     => __( 'Hide Arrows on Moblile ?', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hide Arrows on Moblile ?', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -433,10 +433,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_position',
 			[
-				'label'     => __( 'Dots Position', 'bdthemes-element-pack' ),
+				'label'     => __( 'Dots Position', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'bottom-center',
-				'options'   => element_pack_pagination_position(),
+				'options'   => widget_pack_pagination_position(),
 				'condition' => [
 					'navigation' => 'dots',
 				],				
@@ -448,14 +448,14 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_carousel_settings',
 			[
-				'label' => __( 'Carousel Settings', 'bdthemes-element-pack' ),
+				'label' => __( 'Carousel Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'autoplay',
 			[
-				'label'   => __( 'Autoplay', 'bdthemes-element-pack' ),
+				'label'   => __( 'Autoplay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				
@@ -465,7 +465,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'autoplay_speed',
 			[
-				'label'     => esc_html__( 'Autoplay Speed (ms)', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Autoplay Speed (ms)', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => [
@@ -477,7 +477,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'pauseonhover',
 			[
-				'label' => esc_html__( 'Pause on Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Pause on Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -485,7 +485,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'observer',
 			[
-				'label' => esc_html__( 'Observer', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Observer', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -493,7 +493,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'loop',
 			[
-				'label'   => __( 'Loop', 'bdthemes-element-pack' ),
+				'label'   => __( 'Loop', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				
@@ -503,7 +503,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'   => __( 'Animation Speed (ms)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Animation Speed (ms)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 500,
@@ -524,7 +524,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label'     => __( 'Items', 'bdthemes-element-pack' ),
+				'label'     => __( 'Items', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -534,18 +534,18 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-item' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-item' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -554,7 +554,7 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_shadow',
-				'selector' => '{{WRAPPER}} .bdt-event-calendar .bdt-event-item',
+				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-item',
 			]
 		);
 
@@ -562,21 +562,21 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'item_border',
-				'label'       => __( 'Border', 'bdthemes-element-pack' ),
+				'label'       => __( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-event-calendar .bdt-event-item',
+				'selector'    => '{{WRAPPER}} .avt-event-calendar .avt-event-item',
 			]
 		);
 
 		$this->add_control(
 			'item_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -586,17 +586,17 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_item_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'item_hover_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-item:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-item:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -604,13 +604,13 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_hover_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-item:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-item:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -619,15 +619,15 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'item_hover_shadow',
-				'selector' => '{{WRAPPER}} .bdt-event-calendar .bdt-event-item:hover',
+				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-item:hover',
 			]
 		);
 
 		$this->add_responsive_control(
 			'item_shadow_padding',
 			[
-				'label'       => __( 'Match Padding', 'bdthemes-element-pack' ),
-				'description' => __( 'You have to add padding for matching overlaping hover shadow', 'bdthemes-element-pack' ),
+				'label'       => __( 'Match Padding', 'avator-widget-pack' ),
+				'description' => __( 'You have to add padding for matching overlaping hover shadow', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px' => [
@@ -652,11 +652,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'      => __( 'Content Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Content Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -664,10 +664,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_hover_before_style_background',
 			[
-				'label'     => __( 'Hover Style', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hover Style', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-item:before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-item:before' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -675,11 +675,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'item_hover_before_style_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-item:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-item:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -689,7 +689,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image',
 			[
-				'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Image', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_image' => [ 'yes' ],
@@ -700,11 +700,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'image_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -712,11 +712,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'image_margin',
 			[
-				'label'      => __( 'Margin', 'bdthemes-element-pack' ),
+				'label'      => __( 'Margin', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -724,11 +724,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Image Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Image Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -736,7 +736,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_opacity',
 			[
-				'label'   => __( 'Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -749,7 +749,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-image img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -757,7 +757,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'image_hover_opacity',
 			[
-				'label'   => __( 'Hover Opacity (%)', 'bdthemes-element-pack' ),
+				'label'   => __( 'Hover Opacity (%)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -770,7 +770,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-item:hover .bdt-event-image img' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-item:hover .avt-event-image img' => 'opacity: {{SIZE}};',
 				],
 			]
 		);
@@ -780,7 +780,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_title' => [ 'yes' ],
@@ -791,10 +791,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -802,10 +802,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'title_hover_color',
 			[
-				'label'     => esc_html__( 'Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-title:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-title:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -814,18 +814,18 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-event-calendar .bdt-event-title-wrap',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-title-wrap',
 			]
 		);
 
 		$this->add_control(
 			'title_separator_color',
 			[
-				'label'     => esc_html__( 'Separator Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Separator Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-intro .bdt-event-title-wrap' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-intro .avt-event-title-wrap' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -833,7 +833,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -842,7 +842,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-intro' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-intro' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -852,7 +852,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_date',
 			[
-				'label'     => esc_html__( 'Date', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Date', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_date' => [ 'yes' ],
@@ -863,10 +863,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'day_color',
 			[
-				'label'     => esc_html__( 'Day Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Day Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-date a .bdt-event-day' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-date a .avt-event-day' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -875,18 +875,18 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'day_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-event-calendar .bdt-event-date a .bdt-event-day',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-date a .avt-event-day',
 			]
 		);
 
 		$this->add_control(
 			'date_color',
 			[
-				'label'     => esc_html__( 'Month Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Month Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-date a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-date a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -895,8 +895,8 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'date_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-event-calendar .bdt-event-date',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-date',
 			]
 		);
 
@@ -906,7 +906,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_excerpt',
 			[
-				'label'     => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_excerpt' => [ 'yes' ],
@@ -917,10 +917,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'excerpt_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-excerpt' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-excerpt' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -929,8 +929,8 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'excerpt_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-event-calendar .bdt-event-excerpt',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-excerpt',
 			]
 		);
 
@@ -939,7 +939,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_meta',
 			[
-				'label'     => esc_html__( 'Meta', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Meta', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_meta' => [ 'yes' ],
@@ -950,10 +950,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'meta_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-meta .bdt-event-price a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-meta .avt-event-price a' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_meta_cost' => [ 'yes' ],
@@ -964,10 +964,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'meta_icon_color',
 			[
-				'label'     => esc_html__( 'Icon Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-meta .bdt-address-website-icon a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-meta .avt-address-website-icon a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -976,19 +976,19 @@ class Event_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'meta_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-event-calendar .bdt-event-meta a',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-meta a',
 			]
 		);
 
 		$this->add_responsive_control(
 			'meta_padding',
 			[
-				'label'      => __( 'Meta Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Meta Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-meta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -996,10 +996,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'meta_border_top_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-event-meta' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-meta' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1009,7 +1009,7 @@ class Event_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation',
 			[
-				'label'     => __( 'Navigation', 'bdthemes-element-pack' ),
+				'label'     => __( 'Navigation', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'navigation' => [ 'arrows', 'dots', 'both' ],
@@ -1020,7 +1020,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_size',
 			[
-				'label' => __( 'Arrows Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Arrows Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1029,7 +1029,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev svg, {{WRAPPER}} .bdt-event-calendar .bdt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev svg, {{WRAPPER}} .avt-event-calendar .avt-navigation-next svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -1040,10 +1040,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_background',
 			[
-				'label'     => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev, {{WRAPPER}} .bdt-event-calendar .bdt-navigation-next' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev, {{WRAPPER}} .avt-event-calendar .avt-navigation-next' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -1054,10 +1054,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_background',
 			[
-				'label'     => __( 'Hover Background Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Hover Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev:hover, {{WRAPPER}} .bdt-event-calendar .bdt-navigation-next:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev:hover, {{WRAPPER}} .avt-event-calendar .avt-navigation-next:hover' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -1068,10 +1068,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_color',
 			[
-				'label'     => __( 'Arrows Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev svg, {{WRAPPER}} .bdt-event-calendar .bdt-navigation-next svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev svg, {{WRAPPER}} .avt-event-calendar .avt-navigation-next svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -1082,10 +1082,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_hover_color',
 			[
-				'label'     => __( 'Arrows Hover Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Arrows Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev:hover svg, {{WRAPPER}} .bdt-event-calendar .bdt-navigation-next:hover svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev:hover svg, {{WRAPPER}} .avt-event-calendar .avt-navigation-next:hover svg' => 'color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -1096,7 +1096,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_space',
 			[
-				'label' => __( 'Space', 'bdthemes-element-pack' ),
+				'label' => __( 'Space', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1105,8 +1105,8 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev' => 'margin-right: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-next' => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev' => 'margin-right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-next' => 'margin-left: {{SIZE}}px;',
 				],
 				'conditions'   => [
 					'terms' => [
@@ -1127,11 +1127,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_responsive_control(
 			'arrows_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev, {{WRAPPER}} .bdt-event-calendar .bdt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev, {{WRAPPER}} .avt-event-calendar .avt-navigation-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1139,12 +1139,12 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'border_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'separator'  => 'after',
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev, {{WRAPPER}} .bdt-event-calendar .bdt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev, {{WRAPPER}} .avt-event-calendar .avt-navigation-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'arrows', 'both' ],
@@ -1155,7 +1155,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_size',
 			[
-				'label' => __( 'Dots Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Dots Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1164,7 +1164,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -1175,7 +1175,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_width',
 			[
-				'label' => __( 'Active Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Active Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1184,7 +1184,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .swiper-pagination-bullet.swiper-pagination-bullet-active' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .swiper-pagination-bullet.swiper-pagination-bullet-active' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -1195,10 +1195,10 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_color',
 			[
-				'label'     => __( 'Dots Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Dots Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-event-calendar .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -1209,11 +1209,11 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'active_dot_color',
 			[
-				'label'     => __( 'Active Dots Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Active Dots Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'after',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-event-calendar .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
 				],
 				'condition' => [
 					'navigation' => [ 'dots', 'both' ],
@@ -1224,7 +1224,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_ncx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1254,7 +1254,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_ncy_position',
 			[
-				'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 40,
@@ -1266,7 +1266,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-event-calendar .avt-arrows-container' => 'transform: translate({{arrows_ncx_position.size}}px, {{SIZE}}px);',
 				],
 				'conditions'   => [
 					'terms' => [
@@ -1287,7 +1287,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'arrows_acx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -60,
@@ -1299,8 +1299,8 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-next' => 'right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev' => 'left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-next' => 'right: {{SIZE}}px;',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1320,7 +1320,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_nnx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1350,7 +1350,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'dots_nny_position',
 			[
-				'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -1362,7 +1362,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-dots-container' => 'transform: translate({{dots_nnx_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-event-calendar .avt-dots-container' => 'transform: translate({{dots_nnx_position.size}}px, {{SIZE}}px);',
 				],
 				'conditions'   => [
 					'terms' => [
@@ -1383,7 +1383,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_ncx_position',
 			[
-				'label'   => __( 'Horizontal Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Horizontal Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 0,
@@ -1413,7 +1413,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_ncy_position',
 			[
-				'label'   => __( 'Vertical Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Vertical Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 40,
@@ -1425,7 +1425,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
+					'{{WRAPPER}} .avt-event-calendar .avt-arrows-dots-container' => 'transform: translate({{both_ncx_position.size}}px, {{SIZE}}px);',
 				],
 				'conditions'   => [
 					'terms' => [
@@ -1446,7 +1446,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_cx_position',
 			[
-				'label'   => __( 'Arrows Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Arrows Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => -60,
@@ -1458,8 +1458,8 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-prev' => 'left: {{SIZE}}px;',
-					'{{WRAPPER}} .bdt-event-calendar .bdt-navigation-next' => 'right: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-prev' => 'left: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-event-calendar .avt-navigation-next' => 'right: {{SIZE}}px;',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1479,7 +1479,7 @@ class Event_Carousel extends Widget_Base {
 		$this->add_control(
 			'both_cy_position',
 			[
-				'label'   => __( 'Dots Offset', 'bdthemes-element-pack' ),
+				'label'   => __( 'Dots Offset', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 30,
@@ -1491,7 +1491,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-event-calendar .bdt-dots-container' => 'transform: translateY({{SIZE}}px);',
+					'{{WRAPPER}} .avt-event-calendar .avt-dots-container' => 'transform: translateY({{SIZE}}px);',
 				],
 				'conditions' => [
 					'terms' => [
@@ -1575,7 +1575,7 @@ class Event_Carousel extends Widget_Base {
 
 		?>
 
-		<div class="bdt-event-image bdt-background-cover">
+		<div class="avt-event-image avt-background-cover">
 			<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
 				<img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), $settings['image_size']); ?>" alt="<?php echo get_the_title(); ?>">
 			</a>
@@ -1590,8 +1590,8 @@ class Event_Carousel extends Widget_Base {
 
 		?>
 
-		<h3 class="bdt-event-title-wrap">
-			<a href="<?php echo get_permalink() ?>" class="bdt-event-title">
+		<h3 class="avt-event-title-wrap">
+			<a href="<?php echo get_permalink() ?>" class="avt-event-title">
 				<?php the_title() ?>
 			</a>
 		</h3>
@@ -1610,9 +1610,9 @@ class Event_Carousel extends Widget_Base {
 		$event_month = tribe_get_start_date( null, false, 'M' );
 
 		?>
-		<span class="bdt-event-date">
-			<a href="#" title="<?php esc_html_e('Start Date:', 'bdthemes-element-pack'); echo esc_html($start_datetime); ?>  - <?php esc_html_e('End Date:', 'bdthemes-element-pack'); echo esc_html($end_datetime); ?>"> 
-				<span class="bdt-event-day">
+		<span class="avt-event-date">
+			<a href="#" title="<?php esc_html_e('Start Date:', 'avator-widget-pack'); echo esc_html($start_datetime); ?>  - <?php esc_html_e('End Date:', 'avator-widget-pack'); echo esc_html($end_datetime); ?>"> 
+				<span class="avt-event-day">
 					<?php echo esc_html($event_day); ?>
 				</span>
 				<span>
@@ -1629,7 +1629,7 @@ class Event_Carousel extends Widget_Base {
 		}
 
 		?>
-		<div class="bdt-event-excerpt">
+		<div class="avt-event-excerpt">
 			<?php 
 				
 				echo strip_shortcodes( wp_trim_words( $post->post_content, $this->get_settings( 'excerpt_length' ) ) );
@@ -1656,27 +1656,27 @@ class Event_Carousel extends Widget_Base {
 		?>
 
 		<?php if ( !empty($cost) or $address or !empty( $website ) ) : ?>
-		<div class="bdt-event-meta bdt-grid">
+		<div class="avt-event-meta avt-grid">
 
 			<?php if (!empty($cost)) : ?>
-			    <div class="bdt-width-auto bdt-padding-remove">
-				    <div class="bdt-event-price">
-				    	<a href="#"><?php esc_html_e('Cost:', 'bdthemes-element-pack'); ?></a>
+			    <div class="avt-width-auto avt-padding-remove">
+				    <div class="avt-event-price">
+				    	<a href="#"><?php esc_html_e('Cost:', 'avator-widget-pack'); ?></a>
 				    	<a href="#"><?php echo esc_html($cost); ?></a>
 				    </div>
 			    </div>
 			<?php endif; ?>
 
 			<?php if ( !empty($website) or $address ) : ?>
-		    <div class="bdt-width-expand bdt-text-right">
-			    <div class="bdt-address-website-icon">
+		    <div class="avt-width-expand avt-text-right">
+			    <div class="avt-address-website-icon">
 
 			    	<?php if (!empty($website)) : ?>
 		    			<a href="<?php echo esc_url($website); ?>" target="_blank" class="ep-earth" aria-hidden="true"></a>
 			    	<?php endif; ?>
 					
 					<?php if ( $address ) : ?>
-		    			<a href="#" bdt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="ep-location" aria-hidden="true"></a>
+		    			<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="ep-location" aria-hidden="true"></a>
 			    	<?php endif; ?>
 
 			    </div>
@@ -1693,7 +1693,7 @@ class Event_Carousel extends Widget_Base {
 	public function render_header() {
 		$settings = $this->get_settings();
 		
-		$id       = 'bdt-event-' . $this->get_id();
+		$id       = 'avt-event-' . $this->get_id();
 
 		$elementor_vp_lg = get_option( 'elementor_viewport_lg' );
 		$elementor_vp_md = get_option( 'elementor_viewport_md' );
@@ -1702,17 +1702,17 @@ class Event_Carousel extends Widget_Base {
 
 
 		$this->add_render_attribute( 'carousel', 'id', $id );
-		$this->add_render_attribute( 'carousel', 'class', ['bdt-event-carousel', 'bdt-event-calendar'] );
+		$this->add_render_attribute( 'carousel', 'class', ['avt-event-carousel', 'avt-event-calendar'] );
 
 		if ('arrows' == $settings['navigation']) {
-			$this->add_render_attribute( 'carousel', 'class', 'bdt-arrows-align-'. $settings['arrows_position'] );
+			$this->add_render_attribute( 'carousel', 'class', 'avt-arrows-align-'. $settings['arrows_position'] );
 			
 		}
 		if ('dots' == $settings['navigation']) {
-			$this->add_render_attribute( 'carousel', 'class', 'bdt-dots-align-'. $settings['dots_position'] );
+			$this->add_render_attribute( 'carousel', 'class', 'avt-dots-align-'. $settings['dots_position'] );
 		}
 		if ('both' == $settings['navigation']) {
-			$this->add_render_attribute( 'carousel', 'class', 'bdt-arrows-dots-align-'. $settings['both_position'] );
+			$this->add_render_attribute( 'carousel', 'class', 'avt-arrows-dots-align-'. $settings['both_position'] );
 		}
 
 		$this->add_render_attribute(
@@ -1739,8 +1739,8 @@ class Event_Carousel extends Widget_Base {
 								]
 					      	],
 			      	        "navigation" => [
-			      				"nextEl" => "#" . $id . " .bdt-navigation-next",
-			      				"prevEl" => "#" . $id . " .bdt-navigation-prev",
+			      				"nextEl" => "#" . $id . " .avt-navigation-next",
+			      				"prevEl" => "#" . $id . " .avt-navigation-prev",
 			      			],
 			      			"pagination" => [
 			      			  "el"         => "#" . $id . " .swiper-pagination",
@@ -1766,15 +1766,15 @@ class Event_Carousel extends Widget_Base {
 
 	protected function render_both_navigation() {
 		$settings    = $this->get_settings();
-		$hide_arrows = $settings['hide_arrows'] ? 'bdt-visible@m' : '';
+		$hide_arrows = $settings['hide_arrows'] ? 'avt-visible@m' : '';
 		?>
 
-		<div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['both_position']); ?>">
-			<div class="bdt-arrows-dots-container bdt-slidenav-container ">
+		<div class="avt-position-z-index avt-position-<?php echo esc_attr($settings['both_position']); ?>">
+			<div class="avt-arrows-dots-container avt-slidenav-container ">
 				
-				<div class="bdt-flex bdt-flex-middle">
+				<div class="avt-flex avt-flex-middle">
 					<div class="<?php echo esc_attr( $hide_arrows ); ?>">
-						<a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>	
+						<a href="" class="avt-navigation-prev avt-slidenav-previous avt-icon avt-slidenav" avt-icon="icon: chevron-left; ratio: 1.9"></a>	
 					</div>
 
 					<?php if ('center' !== $settings['both_position']) : ?>
@@ -1782,7 +1782,7 @@ class Event_Carousel extends Widget_Base {
 					<?php endif; ?>
 					
 					<div class="<?php echo esc_attr( $hide_arrows ); ?>">
-						<a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>	
+						<a href="" class="avt-navigation-next avt-slidenav-next avt-icon avt-slidenav" avt-icon="icon: chevron-right; ratio: 1.9"></a>	
 					</div>
 					
 				</div>
@@ -1793,13 +1793,13 @@ class Event_Carousel extends Widget_Base {
 
 	protected function render_navigation() {
 		$settings    = $this->get_settings();
-		$hide_arrows = $settings['hide_arrows'] ? ' bdt-visible@m' : '';
+		$hide_arrows = $settings['hide_arrows'] ? ' avt-visible@m' : '';
 		
 		if ( 'arrows' == $settings['navigation'] ) : ?>
-			<div class="bdt-position-z-index bdt-position-<?php echo esc_attr( $settings['arrows_position'] . $hide_arrows ); ?>">
-				<div class="bdt-arrows-container bdt-slidenav-container">
-					<a href="" class="bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav" bdt-icon="icon: chevron-left; ratio: 1.9"></a>
-					<a href="" class="bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav" bdt-icon="icon: chevron-right; ratio: 1.9"></a>
+			<div class="avt-position-z-index avt-position-<?php echo esc_attr( $settings['arrows_position'] . $hide_arrows ); ?>">
+				<div class="avt-arrows-container avt-slidenav-container">
+					<a href="" class="avt-navigation-prev avt-slidenav-previous avt-icon avt-slidenav" avt-icon="icon: chevron-left; ratio: 1.9"></a>
+					<a href="" class="avt-navigation-next avt-slidenav-next avt-icon avt-slidenav" avt-icon="icon: chevron-right; ratio: 1.9"></a>
 				</div>
 			</div>
 		<?php endif;
@@ -1810,8 +1810,8 @@ class Event_Carousel extends Widget_Base {
 		
 		if ( 'dots' == $settings['navigation'] ) : ?>
 			<?php if ( 'arrows' !== $settings['navigation'] ) : ?>
-				<div class="bdt-position-z-index bdt-position-<?php echo esc_attr($settings['dots_position']); ?>">
-					<div class="bdt-dots-container">
+				<div class="avt-position-z-index avt-position-<?php echo esc_attr($settings['dots_position']); ?>">
+					<div class="avt-dots-container">
 						<div class="swiper-pagination"></div>
 					</div>
 				</div>
@@ -1828,7 +1828,7 @@ class Event_Carousel extends Widget_Base {
 			<?php if ('both' == $settings['navigation']) : ?>
 				<?php $this->render_both_navigation(); ?>
 				<?php if ('center' === $settings['both_position']) : ?>
-					<div class="bdt-dots-container">
+					<div class="avt-dots-container">
 						<div class="swiper-pagination"></div>
 					</div>
 				<?php endif; ?>
@@ -1844,12 +1844,12 @@ class Event_Carousel extends Widget_Base {
 		$settings = $this->get_settings();		
 
 		?> 
-		<div class="bdt-event-item swiper-slide">
+		<div class="avt-event-item swiper-slide">
 			    
 			<?php $this->render_image(); ?>
 
-		    <div class="bdt-event-content">
-		        <div class="bdt-event-intro">
+		    <div class="avt-event-content">
+		        <div class="avt-event-intro">
 
 		            <?php $this->render_date(); ?>
 

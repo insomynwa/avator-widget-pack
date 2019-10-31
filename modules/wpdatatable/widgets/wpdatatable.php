@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Wpdatatable\Widgets;
+namespace WidgetPack\Modules\Wpdatatable\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,19 +11,19 @@ class wpdatatable extends Widget_Base {
 	protected $_has_template_content = false;
 
 	public function get_name() {
-		return 'bdt-wpdatatable';
+		return 'avt-wpdatatable';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'wpDataTable', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'wpDataTable', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-wpdatatable';
+		return 'avt-wi-wpdatatable';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -51,7 +51,7 @@ class wpdatatable extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
@@ -61,7 +61,7 @@ class wpdatatable extends Widget_Base {
 		$this->add_control(
 			'table_id',
 			[
-				'label'       => esc_html__( 'Select Table', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Select Table', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT,
 				'options'     => $slider_list,
 				'rendar_type' => 'template',
@@ -79,7 +79,7 @@ class wpdatatable extends Widget_Base {
 		if ($settings['table_id']) {
 			echo do_shortcode($this->wp_data_table($settings['table_id']));
 		} else {
-			echo '<div class="bdt-alert bdt-alert-warning">'.__('Please select a table from setting!', 'bdthemes-element-pack').'</div>';
+			echo '<div class="avt-alert avt-alert-warning">'.__('Please select a table from setting!', 'avator-widget-pack').'</div>';
 		}
 	}
 

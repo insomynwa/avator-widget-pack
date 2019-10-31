@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PostBlock\Skins;
+namespace WidgetPack\Modules\PostBlock\Skins;
 use Elementor\Skin_Base as Elementor_Skin_Base;
 use Elementor\Utils;
 
@@ -12,12 +12,12 @@ class Skin_Trinity extends Elementor_Skin_Base {
 	}
 
 	public function get_title() {
-		return __( 'Trinity', 'bdthemes-element-pack' );
+		return __( 'Trinity', 'avator-widget-pack' );
 	}
 
 	public function render() {
 		$settings = $this->parent->get_settings();
-		$id       = uniqid('bdtpbm_');
+		$id       = uniqid('avtpbm_');
 
 		$this->parent->query_posts($settings['posts_limit']);
 		$wp_query = $this->parent->get_query();
@@ -29,8 +29,8 @@ class Skin_Trinity extends Elementor_Skin_Base {
 					'post-block' => [
 						'id'    => esc_attr( $id ),
 						'class' => [
-							'bdt-post-block',
-							'bdt-post-block-skin-trinity',
+							'avt-post-block',
+							'avt-post-block-skin-trinity',
 						]
 					]
 				]
@@ -39,7 +39,7 @@ class Skin_Trinity extends Elementor_Skin_Base {
 			?>
 			<div <?php echo $this->parent->get_render_attribute_string( 'post-block' ); ?>>
 
-		  		<div class="bdt-post-block-items bdt-child-width-1-<?php echo esc_attr($settings['featured_item']); ?>@m bdt-grid-<?php echo esc_attr($settings['trinity_column_gap']); ?>" bdt-grid>
+		  		<div class="avt-post-block-items avt-child-width-1-<?php echo esc_attr($settings['featured_item']); ?>@m avt-grid-<?php echo esc_attr($settings['trinity_column_gap']); ?>" avt-grid>
 					<?php
 					while ( $wp_query->have_posts() ) : $wp_query->the_post();
 
@@ -53,19 +53,19 @@ class Skin_Trinity extends Elementor_Skin_Base {
 						}
 
 						?>
-			  			<div class="bdt-post-block-item featured-part">
-				  			<div class="bdt-post-block-thumbnail-wrap bdt-position-relative">
-				  				<div class="bdt-post-block-thumbnail">
+			  			<div class="avt-post-block-item featured-part">
+				  			<div class="avt-post-block-thumbnail-wrap avt-position-relative">
+				  				<div class="avt-post-block-thumbnail">
 				  					<a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr(get_the_title()); ?>">
 					  					<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
 					  				</a>
 				  				</div>
-				  				<div class="bdt-overlay-primary bdt-position-cover"></div>
-						  		<div class="bdt-post-block-desc bdt-text-center bdt-position-center bdt-position-medium bdt-position-z-index">
+				  				<div class="avt-overlay-primary avt-position-cover"></div>
+						  		<div class="avt-post-block-desc avt-text-center avt-position-center avt-position-medium avt-position-z-index">
 									<?php if ('yes' == $settings['featured_show_tag']) : ?>
-										<div class="bdt-post-block-tag-wrap">
+										<div class="avt-post-block-tag-wrap">
 					                		<?php
-											$tags_list = get_the_tag_list( '<span class="bdt-background-primary">', '</span> <span class="bdt-background-primary">', '</span>');
+											$tags_list = get_the_tag_list( '<span class="avt-background-primary">', '</span> <span class="avt-background-primary">', '</span>');
 						                		if ($tags_list) :
 						                    		echo  wp_kses_post($tags_list);
 						                		endif; ?>
@@ -73,14 +73,14 @@ class Skin_Trinity extends Elementor_Skin_Base {
 									<?php endif ?>
 
 									<?php if ('yes' == $settings['featured_show_title']) : ?>
-										<h4 class="bdt-post-block-title bdt-margin-small-top">
-											<a href="<?php echo esc_url(get_permalink()); ?>" class="bdt-post-block-link" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a>
+										<h4 class="avt-post-block-title avt-margin-small-top">
+											<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-post-block-link" title="<?php echo esc_attr(get_the_title()); ?>"><?php echo esc_html(get_the_title()) ; ?></a>
 										</h4>
 									<?php endif ?>
 
 					            	<?php if ('yes' == $settings['featured_show_category'] or 'yes' == $settings['featured_show_date']) : ?>
 
-										<div class="bdt-post-block-meta bdt-flex-center bdt-subnav bdt-flex-middle">
+										<div class="avt-post-block-meta avt-flex-center avt-subnav avt-flex-middle">
 											<?php if ('yes' == $settings['featured_show_category']) : ?>
 												<?php echo '<span>'.get_the_category_list(', ').'</span>'; ?>
 											<?php endif ?>

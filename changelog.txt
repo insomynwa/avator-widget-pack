@@ -110,7 +110,7 @@
 
 ### Updated
 
-- Element Pack settings now more readable
+- Widget Pack settings now more readable
 
 ### Fixed
 
@@ -337,7 +337,7 @@
 
 ### Removed
 
-- element pack theme define removed for some speedup issue
+- widget pack theme define removed for some speedup issue
 
 
 ## 3.0.6 [03rd March 2019]
@@ -421,7 +421,7 @@
 ### Updated 
 
 - Weather widget completely re-coded with new weather API
-- Elementor/AE Template selector changed with text input (because it's slowdown all over element pack, we will add new search based template select option in new major update)
+- Elementor/AE Template selector changed with text input (because it's slowdown all over widget pack, we will add new search based template select option in new major update)
 - UIKit updated to 3.0.3
 
 ### Fixed
@@ -475,16 +475,16 @@
 
 ### Note
 
-- If you want to upgrade version 2.x to 3.0 so you must keep a backup your website if you used modal widget because modal completely changed. If you upgrade it to version 3.0 your modal will be disappear and you should re-make it again. But if you can recover it by following this doc: https://bdthemes.com/support/knowledge/details/38/
+- If you want to upgrade version 2.x to 3.0 so you must keep a backup your website if you used modal widget because modal completely changed. If you upgrade it to version 3.0 your modal will be disappear and you should re-make it again. But if you can recover it by following this doc: https://avator.com/support/knowledge/details/38/
 
 ### Added
-- [Open Street Map](https://bdthemes.net/demo/wordpress/element-pack/element/open-street-map/) Widget added
-- [Video Gallery](https://bdthemes.net/demo/wordpress/element-pack/element/video-gallery/) widget added
-- [Help Desk](https://bdthemes.net/demo/wordpress/element-pack/element/help-desk/) widget added
-- [Charts](https://bdthemes.net/demo/wordpress/element-pack/element/charts/) widget added
-- [360 Degree Product Viewer](https://bdthemes.net/demo/wordpress/element-pack/element/360-product-viewer/) widget added
-- [WooCommerce Slider](https://bdthemes.net/demo/wordpress/element-pack/element/woocommerce-slider/) widget added
-- [Table of content](https://bdthemes.net/demo/wordpress/element-pack/table-of-content-test-post/) fully re-coded
+- [Open Street Map](https://avator.net/demo/wordpress/widget-pack/element/open-street-map/) Widget added
+- [Video Gallery](https://avator.net/demo/wordpress/widget-pack/element/video-gallery/) widget added
+- [Help Desk](https://avator.net/demo/wordpress/widget-pack/element/help-desk/) widget added
+- [Charts](https://avator.net/demo/wordpress/widget-pack/element/charts/) widget added
+- [360 Degree Product Viewer](https://avator.net/demo/wordpress/widget-pack/element/360-product-viewer/) widget added
+- [WooCommerce Slider](https://avator.net/demo/wordpress/widget-pack/element/woocommerce-slider/) widget added
+- [Table of content](https://avator.net/demo/wordpress/widget-pack/table-of-content-test-post/) fully re-coded
 - Modal widget completely re-coded and custom link option added
 - Timeline widget compeletely re-coded added new skin
 - Added some future prove stability for existing widgets [No more break like audio player, modal etc]
@@ -605,7 +605,7 @@
 - Post Grid widget reverse skin added
 - Simple Contact Form widget reCAPTCHA option added
 - Single post excerpt option added
-- Now you can select/deselect all widget in element pack settings
+- Now you can select/deselect all widget in widget pack settings
 - Slider and Post Slider widget kenburn effect added
 - News ticker widget height control and date option added
 - Lightbox widget lightbox style option added in page settings
@@ -663,7 +663,7 @@
 
 ### Fixed
 
-- Element Pack Site Minified Javascript issue fixed
+- Widget Pack Site Minified Javascript issue fixed
 - Fix height of Masonry Grid
 - Fix Sticky hiding with Offcanvas in overlay mode
 - Fix Parallax in combination with Offcanvas in overlay mode
@@ -706,25 +706,25 @@
 ### Language 
 
 - Language file updated
-- Element Pack name now intake with english name
+- Widget Pack name now intake with english name
 
 
 ## 2.6.0 [22 October 2018]
 	
 ### Added
 
-- [Protected Content](https://elementpack.pro/demo/element/protected-content/) Widget Added
-- [Advanced Icon Box](https://elementpack.pro/demo/element/advanced-icon-box/) Widget Added
-- [Iframe](https://elementpack.pro/demo/element/iframe/) Widget added
-- [Advanced Image Gallery](https://elementpack.pro/demo/element/advanced-image-gallery/) Carousel skin added
-- [Post Grid](https://elementpack.pro/demo/element/post-grid/) Widget Harold skin added
+- [Protected Content](https://widgetpack.pro/demo/element/protected-content/) Widget Added
+- [Advanced Icon Box](https://widgetpack.pro/demo/element/advanced-icon-box/) Widget Added
+- [Iframe](https://widgetpack.pro/demo/element/iframe/) Widget added
+- [Advanced Image Gallery](https://widgetpack.pro/demo/element/advanced-image-gallery/) Carousel skin added
+- [Post Grid](https://widgetpack.pro/demo/element/post-grid/) Widget Harold skin added
 - Icon nav widget icon bottom text option added
 - Panel Slider global item link option added
 - Scroll Image Widget badge option added
 - WC Product skin exclude product option added
 - Dom functions support selectors
 - Advanced Google map api key warning added
-- Pause on hover option added in carousel, [wc carousel](https://elementpack.pro/demo/element/woocommerce-products/), testimonial carousel, custom carousel, slider, twitter carousel widget
+- Pause on hover option added in carousel, [wc carousel](https://widgetpack.pro/demo/element/woocommerce-products/), testimonial carousel, custom carousel, slider, twitter carousel widget
 - Dual button separated box shadow option added
 - Image compare widget few new option added
 - User Login dropdown skin width option added
@@ -829,7 +829,7 @@
 
 ### Added
 
-- [Widget Tooltip](https://elementpack.pro/demo/element/widget-tooltip/) options added for all widget
+- [Widget Tooltip](https://widgetpack.pro/demo/element/widget-tooltip/) options added for all widget
 - Carousel skin alice added and vertical layout moved to skin vertical
 - WooCommerce product table category and tag option added
 - WooCommerce product table thumbnail lightbox option added
@@ -866,9 +866,9 @@
 
 ### Added
 
-- [Testimonial Slider](https://elementpack.pro/demo/element/testimonial-slider/) widget added Thumb skin
-- [Post Gallery](https://elementpack.pro/demo/element/post-gallery/) widget added Trosia skin
-- [Post Grid](https://elementpack.pro/demo/element/post-grid/) widget added Trosia skin
+- [Testimonial Slider](https://widgetpack.pro/demo/element/testimonial-slider/) widget added Thumb skin
+- [Post Gallery](https://widgetpack.pro/demo/element/post-gallery/) widget added Trosia skin
+- [Post Grid](https://widgetpack.pro/demo/element/post-grid/) widget added Trosia skin
 - Carousel Center slide option added
 
 ### Updated
@@ -889,8 +889,8 @@
 
 ### Added
 
-- [Image Magnify](https://elementpack.pro/demo/element/image-magnifier/) widget added
-- WooCommerce table skin added in [wc product](https://elementpack.pro/demo/element/woocommerce-products/) widget
+- [Image Magnify](https://widgetpack.pro/demo/element/image-magnifier/) widget added
+- WooCommerce table skin added in [wc product](https://widgetpack.pro/demo/element/woocommerce-products/) widget
 - Advanced Button attention animation option added
 - Call out button attention animation added
 - Scroll Button fixed position option added
@@ -935,10 +935,10 @@
 
 ### Added
 
-- [User Registration](https://elementpack.pro/demo/element/user-register/) Widget added
-- [Twitter Slider](https://elementpack.pro/demo/element/twitter-slider/) widget added
-- [WooCommerce Product Carousel](https://elementpack.pro/demo/element/woocommerce-carousel/) Widget added
-- [Simple Contact Form](https://elementpack.pro/demo/element/simple-contact-form/) Widget added
+- [User Registration](https://widgetpack.pro/demo/element/user-register/) Widget added
+- [Twitter Slider](https://widgetpack.pro/demo/element/twitter-slider/) widget added
+- [WooCommerce Product Carousel](https://widgetpack.pro/demo/element/woocommerce-carousel/) Widget added
+- [Simple Contact Form](https://widgetpack.pro/demo/element/simple-contact-form/) Widget added
 - Advanced Heading gradient and main heading style added
 - Scroll nav style option added
 - Scroll Image widget external link option added
@@ -969,7 +969,7 @@
 
 ### Added
 
-- [Testimonials grid widget added](https://elementpack.pro/demo/element/testimonial-grid/) 
+- [Testimonials grid widget added](https://widgetpack.pro/demo/element/testimonial-grid/) 
 
 ### Fixed
 
@@ -980,11 +980,11 @@
 
 ### Added
 
-- [Post Grid Tab Widget added](https://elementpack.pro/demo/element/post-grid-tab/)
-- [Dual Button widget added](https://elementpack.pro/demo/element/dual-button/)
-- [Instagram Widget added](https://elementpack.pro/demo/element/instagram/)
-- [Table of Content Widget added](https://bdthemes.net/demo/wordpress/element-pack/table-of-content-test-post/)
-- [Add to Cart Woocommerce single button widget added](https://elementpack.pro/demo/element/woocommerce-add-to-cart/) 
+- [Post Grid Tab Widget added](https://widgetpack.pro/demo/element/post-grid-tab/)
+- [Dual Button widget added](https://widgetpack.pro/demo/element/dual-button/)
+- [Instagram Widget added](https://widgetpack.pro/demo/element/instagram/)
+- [Table of Content Widget added](https://avator.net/demo/wordpress/widget-pack/table-of-content-test-post/)
+- [Add to Cart Woocommerce single button widget added](https://widgetpack.pro/demo/element/woocommerce-add-to-cart/) 
 - Elementor 2.1 compatibility added
 
 ### Updated
@@ -1008,8 +1008,8 @@
 
 ### Added
 
-- [Post list widget added](https://elementpack.pro/demo/element/post-list/)
-- [Post Grid Carmie Skin added](https://elementpack.pro/demo/element/post-grid/)
+- [Post list widget added](https://widgetpack.pro/demo/element/post-list/)
+- [Post Grid Carmie Skin added](https://widgetpack.pro/demo/element/post-grid/)
 
 ### Updated
 
@@ -1033,19 +1033,19 @@
 
 ### Added
 
-- [Easy Digital Download Download View Widget Added](https://elementpack.pro/demo/element/easy-digital-downloads/)
-- [Easy Digital Download Download History WIdget Added](https://elementpack.pro/demo/element/easy-digital-downloads-history/)
-- [Easy Digital Download Purchase History WIdget Added](https://elementpack.pro/demo/element/easy-digital-downloads-purchase-history/)
-- [Easy Digital Download Profile Widget Added](https://elementpack.pro/demo/element/easy-download-portfolio-editor/)
-- [BuddyPress Member Widget added](https://elementpack.pro/demo/element/buddypress-member/)
-- [BuddyPress Friends Widget added](https://elementpack.pro/demo/element/buddypress-friends/)
-- [BuddyPress Group Widget added](https://elementpack.pro/demo/element/buddypress-group/)
-- [Business Hour Widget added](https://elementpack.pro/demo/element/business-hours/)
-- [TablePress Widget added](https://elementpack.pro/demo/element/business-hours/)
-- [Lightbox Widget added](https://elementpack.pro/demo/element/lightbox/)
-- [Single Post Widget added](https://elementpack.pro/demo/element/single-post/)
-- [Cookie Consent Widget added](https://elementpack.pro/demo/element/cookie-consent/)
-- [Pricing Table Button integrate The Easy Digital Download](https://elementpack.pro/demo/element/pricing-table/)
+- [Easy Digital Download Download View Widget Added](https://widgetpack.pro/demo/element/easy-digital-downloads/)
+- [Easy Digital Download Download History WIdget Added](https://widgetpack.pro/demo/element/easy-digital-downloads-history/)
+- [Easy Digital Download Purchase History WIdget Added](https://widgetpack.pro/demo/element/easy-digital-downloads-purchase-history/)
+- [Easy Digital Download Profile Widget Added](https://widgetpack.pro/demo/element/easy-download-portfolio-editor/)
+- [BuddyPress Member Widget added](https://widgetpack.pro/demo/element/buddypress-member/)
+- [BuddyPress Friends Widget added](https://widgetpack.pro/demo/element/buddypress-friends/)
+- [BuddyPress Group Widget added](https://widgetpack.pro/demo/element/buddypress-group/)
+- [Business Hour Widget added](https://widgetpack.pro/demo/element/business-hours/)
+- [TablePress Widget added](https://widgetpack.pro/demo/element/business-hours/)
+- [Lightbox Widget added](https://widgetpack.pro/demo/element/lightbox/)
+- [Single Post Widget added](https://widgetpack.pro/demo/element/single-post/)
+- [Cookie Consent Widget added](https://widgetpack.pro/demo/element/cookie-consent/)
+- [Pricing Table Button integrate The Easy Digital Download](https://widgetpack.pro/demo/element/pricing-table/)
 
 ### Updated
 
@@ -1055,9 +1055,9 @@
 
 ### Added
 
-- [Twitter Carousel Widget added](https://elementpack.pro/demo/element/testimonial-carousel/)
-- [Circle Menu Widget added](https://elementpack.pro/demo/element/circle-menu/)
-- [Scroll Image Widget added](https://elementpack.pro/demo/element/scroll-image/)
+- [Twitter Carousel Widget added](https://widgetpack.pro/demo/element/testimonial-carousel/)
+- [Circle Menu Widget added](https://widgetpack.pro/demo/element/circle-menu/)
+- [Scroll Image Widget added](https://widgetpack.pro/demo/element/scroll-image/)
 
 ### Updated
 
@@ -1114,7 +1114,7 @@
 
 ### Added
 
-- [Carousel widget arrows and dots now position 7 places](https://elementpack.pro/demo/element/carousel/)
+- [Carousel widget arrows and dots now position 7 places](https://widgetpack.pro/demo/element/carousel/)
 
 ### Updated
 
@@ -1131,13 +1131,13 @@
 
 ### Added
 
-- [Audio Player Widget added](https://elementpack.pro/demo/element/audio-player/)
-- [Video Player Widget added](https://elementpack.pro/demo/element/video-player/)
-- [Weather Widget added](https://elementpack.pro/demo/element/weather/)
-- [Table Widget added](https://elementpack.pro/demo/element/table/)
-- [FAQ Widget added](https://elementpack.pro/demo/element/faq/)
-- [Pricing table 7 Layout + Partait Skin added](https://elementpack.pro/demo/element/pricing-table/)
-- [Member Widget Partait Skin Added](https://elementpack.pro/demo/element/member/)
+- [Audio Player Widget added](https://widgetpack.pro/demo/element/audio-player/)
+- [Video Player Widget added](https://widgetpack.pro/demo/element/video-player/)
+- [Weather Widget added](https://widgetpack.pro/demo/element/weather/)
+- [Table Widget added](https://widgetpack.pro/demo/element/table/)
+- [FAQ Widget added](https://widgetpack.pro/demo/element/faq/)
+- [Pricing table 7 Layout + Partait Skin added](https://widgetpack.pro/demo/element/pricing-table/)
+- [Member Widget Partait Skin Added](https://widgetpack.pro/demo/element/member/)
 - Dynamic option added which widget possible to apply (This features available who are using elementor pro version)
 - All widget now added EP badge for find out easily
 
@@ -1165,12 +1165,12 @@
 
 ### Added
 
-- [Icon Navigation Widget added](https://elementpack.pro/demo/element/icon-nav/)
-- [Gravity Form Widget Added](https://elementpack.pro/demo/element/gravity-forms/)
-- [Ninja Form Widget added](https://elementpack.pro/demo/element/ninja-forms/)
-- [Caldera Form Widget added](https://elementpack.pro/demo/element/caldera-form/)
-- [Parallax Option added in section](https://elementpack.pro/demo/element/parallax-section/)
-- [Comment Widget added](https://elementpack.pro/demo/element/comment/)
+- [Icon Navigation Widget added](https://widgetpack.pro/demo/element/icon-nav/)
+- [Gravity Form Widget Added](https://widgetpack.pro/demo/element/gravity-forms/)
+- [Ninja Form Widget added](https://widgetpack.pro/demo/element/ninja-forms/)
+- [Caldera Form Widget added](https://widgetpack.pro/demo/element/caldera-form/)
+- [Parallax Option added in section](https://widgetpack.pro/demo/element/parallax-section/)
+- [Comment Widget added](https://widgetpack.pro/demo/element/comment/)
 
 ### Updated
 
@@ -1197,11 +1197,11 @@
 
 ### Added
 
-- [Advanced Button Widget added](https://elementpack.pro/demo/element/advanced-button/)
-- [Post Grid Widget added](https://elementpack.pro/demo/element/post-grid/)
-- [Toggle Widget added](https://elementpack.pro/demo/element/toggle/)
-- [Switcher Widget added](https://elementpack.pro/demo/element/switcher/)
-- [QuForm Widget added](https://elementpack.pro/demo/element/quform/)
+- [Advanced Button Widget added](https://widgetpack.pro/demo/element/advanced-button/)
+- [Post Grid Widget added](https://widgetpack.pro/demo/element/post-grid/)
+- [Toggle Widget added](https://widgetpack.pro/demo/element/toggle/)
+- [Switcher Widget added](https://widgetpack.pro/demo/element/switcher/)
+- [QuForm Widget added](https://widgetpack.pro/demo/element/quform/)
 - Licensing system added [Please use your purchase key to get update automatically
 
 ### Updated
@@ -1235,16 +1235,16 @@
 
 ### Added
 
-- [Search Widget added](https://elementpack.pro/demo/element/search/)
-- [Device Slider Widget added](https://elementpack.pro/demo/element/device-slider/)
-- [Booked Calendar Widget added](https://elementpack.pro/demo/element/booked-calendar/)
-- [Layer Slider Widget added](https://elementpack.pro/demo/element/layer-slider/)
-- [bbPress Widget added](https://elementpack.pro/demo/element/bbpress/)
-- [Download Monitor Widget added](https://elementpack.pro/demo/element/download-monitor/)
-- [Post Slider Vast Skin added](https://elementpack.pro/demo/element/post-slider/)
-- [Custom Timeline Skin Added](https://elementpack.pro/demo/element/timeline/)
-- [Animated Heading Typed Layout added](https://elementpack.pro/demo/element/animated-heading/)
-- [Testimonials Carousel Vyxo Skin Added](https://elementpack.pro/demo/element/testimonial-carousel/)
+- [Search Widget added](https://widgetpack.pro/demo/element/search/)
+- [Device Slider Widget added](https://widgetpack.pro/demo/element/device-slider/)
+- [Booked Calendar Widget added](https://widgetpack.pro/demo/element/booked-calendar/)
+- [Layer Slider Widget added](https://widgetpack.pro/demo/element/layer-slider/)
+- [bbPress Widget added](https://widgetpack.pro/demo/element/bbpress/)
+- [Download Monitor Widget added](https://widgetpack.pro/demo/element/download-monitor/)
+- [Post Slider Vast Skin added](https://widgetpack.pro/demo/element/post-slider/)
+- [Custom Timeline Skin Added](https://widgetpack.pro/demo/element/timeline/)
+- [Animated Heading Typed Layout added](https://widgetpack.pro/demo/element/animated-heading/)
+- [Testimonials Carousel Vyxo Skin Added](https://widgetpack.pro/demo/element/testimonial-carousel/)
 
 ### Updated
 
@@ -1270,14 +1270,14 @@
 
 ### Added
 
-- [Advanced Image Gallery Widget added](https://elementpack.pro/demo/element/advanced-image-gallery/)
-- [Navbar Widget added](https://elementpack.pro/demo/element/navbar/)
-- [Accordion Widget added](https://elementpack.pro/demo/element/accordion/)
-- [Tabs Widget added](https://elementpack.pro/demo/element/tabs/)
-- [Timeline Widget added](https://elementpack.pro/demo/element/timeline/)
-- [WP Forms Widget added](https://elementpack.pro/demo/element/wp-forms/)
-- [Section Sticky Options added](https://bdthemes.net/demo/wordpress/element-pack/sticky-section/)
-- [Thumb Gallery Widget Custom Content Skin added + Content Transition option added](https://elementpack.pro/demo/element/thumb-gallery/)
+- [Advanced Image Gallery Widget added](https://widgetpack.pro/demo/element/advanced-image-gallery/)
+- [Navbar Widget added](https://widgetpack.pro/demo/element/navbar/)
+- [Accordion Widget added](https://widgetpack.pro/demo/element/accordion/)
+- [Tabs Widget added](https://widgetpack.pro/demo/element/tabs/)
+- [Timeline Widget added](https://widgetpack.pro/demo/element/timeline/)
+- [WP Forms Widget added](https://widgetpack.pro/demo/element/wp-forms/)
+- [Section Sticky Options added](https://avator.net/demo/wordpress/widget-pack/sticky-section/)
+- [Thumb Gallery Widget Custom Content Skin added + Content Transition option added](https://widgetpack.pro/demo/element/thumb-gallery/)
 
 ### Updated
 
@@ -1303,15 +1303,15 @@
 
 ### Added
 
-- [Advanced Google Map Widget added](https://elementpack.pro/demo/element/advanced-google-map/)
-- [QR Code Widget added](https://elementpack.pro/demo/element/qr-code/)
-- [Flip Box Widget added](https://elementpack.pro/demo/element/flip-box/)
-- [Post Gallery Fedara, Abetis Skin added](https://elementpack.pro/demo/element/post-gallery/)
-- [Custom Gallery Fedara, Abetis Skin added](https://elementpack.pro/demo/element/custom-gallery/)
-- [Event Calendar Post Countdown added in Countdown Widget](https://elementpack.pro/demo/element/event-calendar-countdown/)
-- [Offcanvas Button align + size option added](https://elementpack.pro/demo/element/offcanvas/)
-- [Member Widget Calm Skin added](https://elementpack.pro/demo/element/member/)
-- [Dropbar Widget align + size option added](https://elementpack.pro/demo/element/dropbar/)
+- [Advanced Google Map Widget added](https://widgetpack.pro/demo/element/advanced-google-map/)
+- [QR Code Widget added](https://widgetpack.pro/demo/element/qr-code/)
+- [Flip Box Widget added](https://widgetpack.pro/demo/element/flip-box/)
+- [Post Gallery Fedara, Abetis Skin added](https://widgetpack.pro/demo/element/post-gallery/)
+- [Custom Gallery Fedara, Abetis Skin added](https://widgetpack.pro/demo/element/custom-gallery/)
+- [Event Calendar Post Countdown added in Countdown Widget](https://widgetpack.pro/demo/element/event-calendar-countdown/)
+- [Offcanvas Button align + size option added](https://widgetpack.pro/demo/element/offcanvas/)
+- [Member Widget Calm Skin added](https://widgetpack.pro/demo/element/member/)
+- [Dropbar Widget align + size option added](https://widgetpack.pro/demo/element/dropbar/)
 - Widget ON/OFF option added in settings sage
 - 3rd Party Widget ON/OFF option added in setting page
 - Elementor Extended option ON/OFF added in setting page
@@ -1333,10 +1333,10 @@
 
 ### Added
 
-- [User Login Widget added with 3 skin [Normal + Dropdown + Modal]](https://elementpack.pro/demo/element/user-login/)
-- [Modal widget button align, size, Content overflow scroll option added and improve the edit speed.](https://elementpack.pro/demo/element/modal/)
-- [Member widget Phaedra skin added](https://elementpack.pro/demo/element/member/)
-- [Testimonial Carousel widget twyla skin added](https://elementpack.pro/demo/element/testimonial-carousel/)
+- [User Login Widget added with 3 skin [Normal + Dropdown + Modal]](https://widgetpack.pro/demo/element/user-login/)
+- [Modal widget button align, size, Content overflow scroll option added and improve the edit speed.](https://widgetpack.pro/demo/element/modal/)
+- [Member widget Phaedra skin added](https://widgetpack.pro/demo/element/member/)
+- [Testimonial Carousel widget twyla skin added](https://widgetpack.pro/demo/element/testimonial-carousel/)
 
 ### Updated
 
@@ -1354,8 +1354,8 @@
 
 ### Added
 
-- [Advanced Heading widget added](https://elementpack.pro/demo/element/advanced-heading/)
-- [News Ticker widget added](https://elementpack.pro/demo/element/news-ticker/)
+- [Advanced Heading widget added](https://widgetpack.pro/demo/element/advanced-heading/)
+- [News Ticker widget added](https://widgetpack.pro/demo/element/news-ticker/)
 - Plugin Auto Updater function added
 - Scheduled Section option added in section option
 - New Business Page added
@@ -1393,13 +1393,13 @@
 
 ### Added
 
-- [Custom Gallery widget added](https://elementpack.pro/demo/element/custom-gallery/)
-- [Dropbar widget added](https://elementpack.pro/demo/element/dropbar/)
-- [Thumb Gallery widget added](https://elementpack.pro/demo/element/thumb-gallery/)
-- [Scroll Nav widget added](https://elementpack.pro/demo/element/scrollnav/)
-- [Section Particles option added [element built-in section]](https://elementpack.pro/demo/element/section-particles/)
-- [Element Parallax for all widget [even all built-in widget]](https://elementpack.pro/demo/element/element-parallax/)
-- [Section Background Parallax [elementor built-in section]](https://elementpack.pro/demo/element/parallax-background/)
+- [Custom Gallery widget added](https://widgetpack.pro/demo/element/custom-gallery/)
+- [Dropbar widget added](https://widgetpack.pro/demo/element/dropbar/)
+- [Thumb Gallery widget added](https://widgetpack.pro/demo/element/thumb-gallery/)
+- [Scroll Nav widget added](https://widgetpack.pro/demo/element/scrollnav/)
+- [Section Particles option added [element built-in section]](https://widgetpack.pro/demo/element/section-particles/)
+- [Element Parallax for all widget [even all built-in widget]](https://widgetpack.pro/demo/element/element-parallax/)
+- [Section Background Parallax [elementor built-in section]](https://widgetpack.pro/demo/element/parallax-background/)
 
 ### Updated
 
@@ -1418,10 +1418,10 @@
 
 ### Added
 
-- [Post Gallery Widget added](https://elementpack.pro/demo/element/post-gallery/)
-- [Animated Heading Widget added](https://elementpack.pro/demo/element/animated-heading/)
-- [Post block added 2 Extra Skin](https://elementpack.pro/demo/element/post-block/)
-- [Slideshow added fullscreen option](https://elementpack.pro/demo/element/slideshow/)
+- [Post Gallery Widget added](https://widgetpack.pro/demo/element/post-gallery/)
+- [Animated Heading Widget added](https://widgetpack.pro/demo/element/animated-heading/)
+- [Post block added 2 Extra Skin](https://widgetpack.pro/demo/element/post-block/)
+- [Slideshow added fullscreen option](https://widgetpack.pro/demo/element/slideshow/)
 
 ### Updated
 
@@ -1443,9 +1443,9 @@
 
 ### Added
 
-- [Custom Carousel Widget added](https://elementpack.pro/demo/element/custom-carousel/)
-- [Post Block Widget added](https://elementpack.pro/demo/element/post-block/)
-- [Post Slider Widget added](https://elementpack.pro/demo/element/post-slider/)
+- [Custom Carousel Widget added](https://widgetpack.pro/demo/element/custom-carousel/)
+- [Post Block Widget added](https://widgetpack.pro/demo/element/post-block/)
+- [Post Slider Widget added](https://widgetpack.pro/demo/element/post-slider/)
 
 ### Updated	
 
@@ -1459,10 +1459,10 @@
 
 ### Added
 
-- [SlideShow Widget added](https://elementpack.pro/demo/element/slideshow/)
-- [Offcanvas Widget added](https://elementpack.pro/demo/element/offcanvas/)
-- [Social Share Widget added](https://elementpack.pro/demo/element/social-share/)
-- [Scroll Button Widget added](https://elementpack.pro/demo/element/scroll-button/)
+- [SlideShow Widget added](https://widgetpack.pro/demo/element/slideshow/)
+- [Offcanvas Widget added](https://widgetpack.pro/demo/element/offcanvas/)
+- [Social Share Widget added](https://widgetpack.pro/demo/element/social-share/)
+- [Scroll Button Widget added](https://widgetpack.pro/demo/element/scroll-button/)
 
 ### Updated
 
@@ -1480,10 +1480,10 @@
 
 ### Added
 
-- [CountDown Widget added](https://elementpack.pro/demo/element/countdown/)
-- [Carousel Widget added](https://elementpack.pro/demo/element/carousel/)
-- [Member Widget added](https://elementpack.pro/demo/element/member/)
-- [Marker Widget added](https://elementpack.pro/demo/element/marker/)
+- [CountDown Widget added](https://widgetpack.pro/demo/element/countdown/)
+- [Carousel Widget added](https://widgetpack.pro/demo/element/carousel/)
+- [Member Widget added](https://widgetpack.pro/demo/element/member/)
+- [Marker Widget added](https://widgetpack.pro/demo/element/marker/)
 
 ### Updated
 

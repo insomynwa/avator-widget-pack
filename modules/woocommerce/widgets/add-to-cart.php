@@ -1,9 +1,9 @@
 <?php
-namespace ElementPack\Modules\Woocommerce\Widgets;
+namespace WidgetPack\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Button;
-use ElementPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,15 +14,15 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'WC - Add To Cart', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'WC - Add To Cart', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-woocommerce';
+		return 'avt-wi-woocommerce';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,20 +40,20 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	public function get_style_depends() {
-		return [ 'element-pack-font' ];
+		return [ 'widget-pack-font' ];
 	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_product',
 			[
-				'label' => esc_html__( 'Product', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Product', 'avator-widget-pack' ),
 			]
 		);
 
 		$post_list = get_posts(['numberposts' => 50, 'post_type' => 'product',]);
 
-		$post_list_options = ['0' => esc_html__( 'Select Post', 'bdthemes-element-pack' ) ];
+		$post_list_options = ['0' => esc_html__( 'Select Post', 'avator-widget-pack' ) ];
 
 		foreach ( $post_list as $list ) :
 			$post_list_options[ $list->ID ] = $list->post_title;
@@ -62,7 +62,7 @@ class Add_To_Cart extends Widget_Button {
 		$this->add_control(
 			'product_id',
 			[
-				'label' => esc_html__( 'Product', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Product', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
 				'options'     => $post_list_options,
 				'default'     => ['0'],
@@ -72,17 +72,17 @@ class Add_To_Cart extends Widget_Button {
 		$this->add_control(
 			'show_quantity',
 			[
-				'label'     => esc_html__( 'Show Quantity', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Show Quantity', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_off' => esc_html__( 'Hide', 'bdthemes-element-pack' ),
-				'label_on'  => esc_html__( 'Show', 'bdthemes-element-pack' ),
+				'label_off' => esc_html__( 'Hide', 'avator-widget-pack' ),
+				'label_on'  => esc_html__( 'Show', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'quantity',
 			[
-				'label'     => esc_html__( 'Quantity', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Quantity', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 1,
 				'condition' => [
@@ -108,8 +108,8 @@ class Add_To_Cart extends Widget_Button {
 		$this->update_control(
 			'text',
 			[
-				'default'     => esc_html__( 'Add to Cart', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'Add to Cart', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'Add to Cart', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'Add to Cart', 'avator-widget-pack' ),
 			]
 		);
 
@@ -178,7 +178,7 @@ class Add_To_Cart extends Widget_Button {
 			);
 
 		} elseif ( current_user_can( 'manage_options' ) ) {
-			$settings['text'] = esc_html__( 'Please set a valid product', 'bdthemes-element-pack' );
+			$settings['text'] = esc_html__( 'Please set a valid product', 'avator-widget-pack' );
 			$this->set_settings( $settings );
 		}
 
@@ -187,7 +187,7 @@ class Add_To_Cart extends Widget_Button {
 
 	private function render_form_button( $product ) {
 		if ( ! $product && current_user_can( 'manage_options' ) ) {
-			echo  esc_html__( 'Please set a valid product', 'bdthemes-element-pack' );
+			echo  esc_html__( 'Please set a valid product', 'avator-widget-pack' );
 			return;
 		}
 

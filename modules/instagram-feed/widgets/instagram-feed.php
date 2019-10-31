@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\InstagramFeed\Widgets;
+namespace WidgetPack\Modules\InstagramFeed\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,19 +9,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Instagram_Feed extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-instagram-feed';
+		return 'avt-instagram-feed';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Instagram Feed', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Instagram Feed', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-instagram-feed';
+		return 'avt-wi-instagram-feed';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -32,14 +32,14 @@ class Instagram_Feed extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' )
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' )
 			]
 		);
 
 		$this->add_control(
 			'limit',
 			[
-				'label'   => esc_html__( 'Limit (Max 33)', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Limit (Max 33)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 12
 			]
@@ -48,7 +48,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'columns',
 			[
-				'label'   => esc_html__( 'Columns (Max 10)', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Columns (Max 10)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 8
 			]
@@ -57,14 +57,14 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'imageres',
 			[
-				'label'   => esc_html__( 'Image Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Image Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'full',
 				'options' => [
-					'auto'   => esc_html__( 'Auto', 'bdthemes-element-pack' ),
-					'full'   => esc_html__( 'Full', 'bdthemes-element-pack' ),
-					'medium' => esc_html__( 'Medium', 'bdthemes-element-pack' ),
-					'thumb'  => esc_html__( 'Thumb', 'bdthemes-element-pack' )
+					'auto'   => esc_html__( 'Auto', 'avator-widget-pack' ),
+					'full'   => esc_html__( 'Full', 'avator-widget-pack' ),
+					'medium' => esc_html__( 'Medium', 'avator-widget-pack' ),
+					'thumb'  => esc_html__( 'Thumb', 'avator-widget-pack' )
 				]
 			]
 		);
@@ -72,7 +72,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'showheader',
 			[
-				'label' => esc_html__( 'Show Header', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Show Header', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER
 			]
 		);
@@ -80,7 +80,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'showbutton',
 			[
-				'label' => esc_html__( 'Show Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Show Button', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER
 			]
 		);
@@ -88,10 +88,10 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'buttontext',
 			[
-				'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Button Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Load More...', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'Load More...', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Load More...', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'Load More...', 'avator-widget-pack' ),
 				'label_block' => true,
 				'condition'   => [
 					'showbutton' => 'yes'
@@ -102,7 +102,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'showfollow',
 			[
-				'label' => esc_html__( 'Show Follow', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Show Follow', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER
 			]
 		);
@@ -110,10 +110,10 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'followtext',
 			[
-				'label'       => esc_html__( 'Follow Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Follow Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Follow on Instagram', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'Follow on Instagram', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Follow on Instagram', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'Follow on Instagram', 'avator-widget-pack' ),
 				'label_block' => true,
 				'condition'   => [
 					'showfollow' => 'yes'
@@ -126,7 +126,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -134,7 +134,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'imagepadding',
 			[
-				'label'   => esc_html__( 'Image Padding', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Image Padding', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 10
@@ -151,7 +151,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'headercolor',
 			[
-				'label'     => esc_html__( 'Header Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Header Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'showheader' => 'yes'
@@ -162,7 +162,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'buttoncolor',
 			[
-				'label'     => esc_html__( 'Button Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'showbutton' => 'yes'
@@ -173,7 +173,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'buttontextcolor',
 			[
-				'label'     => esc_html__( 'Button Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Button Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'showbutton' => 'yes'
@@ -184,7 +184,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'followcolor',
 			[
-				'label'     => esc_html__( 'Follow Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Follow Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'showfollow' => 'yes'
@@ -195,7 +195,7 @@ class Instagram_Feed extends Widget_Base {
 		$this->add_control(
 			'followtextcolor',
 			[
-				'label'     => esc_html__( 'Follow Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Follow Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'showfollow' => 'yes'

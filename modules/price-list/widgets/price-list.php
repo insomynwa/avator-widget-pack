@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\PriceList\Widgets;
+namespace WidgetPack\Modules\PriceList\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -14,19 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Price_List extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-price-list';
+		return 'avt-price-list';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Price List', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Price List', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-pricing-list';
+		return 'avt-wi-pricing-list';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -37,46 +37,46 @@ class Price_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_list',
 			[
-				'label' => esc_html__( 'List', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'List', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'price_list',
 			[
-				'label'  => esc_html__( 'List Items', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'List Items', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::REPEATER,
 				'fields' => [
 					[
 						'name'    => 'price',
-						'label'   => esc_html__( 'Price', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Price', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::TEXT,
 						'dynamic' => [ 'active' => true ],
 					],
 					[
 						'name'        => 'title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'default'     => esc_html__( 'First item on the list', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Title', 'avator-widget-pack' ),
+						'default'     => esc_html__( 'First item on the list', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::TEXT,
 						'label_block' => 'true',
 						'dynamic'     => [ 'active' => true ],
 					],
 					[
 						'name'    => 'item_description',
-						'label'   => esc_html__( 'Description', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Description', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::TEXTAREA,
 						'dynamic' => [ 'active' => true ],
 					],
 					[
 						'name'    => 'image',
-						'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Image', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::MEDIA,
 						'default' => [],
 						'dynamic' => [ 'active' => true ],
 					],
 					[
 						'name'    => 'link',
-						'label'   => esc_html__( 'Link', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Link', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::URL,
 						'default' => [ 'url' => '#' ],
 						'dynamic' => [ 'active' => true ],
@@ -84,17 +84,17 @@ class Price_List extends Widget_Base {
 				],
 				'default' => [
 					[
-						'title' => esc_html__( 'First item on the list', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'First item on the list', 'avator-widget-pack' ),
 						'price' => '$20',
 						'link'  => [ 'url' => '#' ],
 					],
 					[
-						'title' => esc_html__( 'Second item on the list', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Second item on the list', 'avator-widget-pack' ),
 						'price' => '$9',
 						'link'  => [ 'url' => '#' ],
 					],
 					[
-						'title' => esc_html__( 'Third item on the list', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Third item on the list', 'avator-widget-pack' ),
 						'price' => '$32',
 						'link'  => [ 'url' => '#' ],
 					],
@@ -107,7 +107,7 @@ class Price_List extends Widget_Base {
         $this->start_controls_section(
             'section_style_item_style',
             [
-                'label'      => esc_html__( 'Item Style', 'bdthemes-element-pack' ),
+                'label'      => esc_html__( 'Item Style', 'avator-widget-pack' ),
                 'tab'        => Controls_Manager::TAB_STYLE,
                 'show_label' => false,
             ]
@@ -116,7 +116,7 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'row_gap',
             [
-                'label' => esc_html__( 'Rows Gap', 'bdthemes-element-pack' ),
+                'label' => esc_html__( 'Rows Gap', 'avator-widget-pack' ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -129,7 +129,7 @@ class Price_List extends Widget_Base {
                 ],
                 'size_units' => [ 'px', 'em' ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-price-list li:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-price-list li:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -137,13 +137,13 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'vertical_align',
             [
-                'label'       => esc_html__( 'Vertical Align', 'bdthemes-element-pack' ),
+                'label'       => esc_html__( 'Vertical Align', 'avator-widget-pack' ),
                 'type'        => Controls_Manager::SELECT,
                 'description' => 'When you will take image then you understand its function',
                 'options'     => [
-                    'middle' => esc_html__( 'Middle', 'bdthemes-element-pack' ),
-                    'top'    => esc_html__( 'Top', 'bdthemes-element-pack' ),
-                    'bottom' => esc_html__( 'Bottom', 'bdthemes-element-pack' ),
+                    'middle' => esc_html__( 'Middle', 'avator-widget-pack' ),
+                    'top'    => esc_html__( 'Top', 'avator-widget-pack' ),
+                    'bottom' => esc_html__( 'Bottom', 'avator-widget-pack' ),
                 ],
                 'default' => 'middle',
                 'separator' => 'after',
@@ -154,7 +154,7 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'heading__title',
             [
-                'label' => esc_html__( 'Title', 'bdthemes-element-pack' ),
+                'label' => esc_html__( 'Title', 'avator-widget-pack' ),
                 'type'  => Controls_Manager::HEADING,
             ]
         );
@@ -162,11 +162,11 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+                'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-price-list .bdt-price-list-price' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .bdt-price-list .bdt-price-list-title' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .avt-price-list .avt-price-list-price' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .avt-price-list .avt-price-list-title' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -175,16 +175,16 @@ class Price_List extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'heading_typography',
-                'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+                'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
                 'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-                'selector' => '{{WRAPPER}} .bdt-price-list-header',
+                'selector' => '{{WRAPPER}} .avt-price-list-header',
             ]
         );
 
         $this->add_control(
             'heading_item_description',
             [
-                'label'     => esc_html__( 'Description', 'bdthemes-element-pack' ),
+                'label'     => esc_html__( 'Description', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -193,10 +193,10 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'description_color',
             [
-                'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+                'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-price-list-description' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .avt-price-list-description' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -205,16 +205,16 @@ class Price_List extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'description_typography',
-                'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+                'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
                 'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
-                'selector' => '{{WRAPPER}} .bdt-price-list-description',
+                'selector' => '{{WRAPPER}} .avt-price-list-description',
             ]
         );
 
         $this->add_control(
             'heading_separator',
             [
-                'label'     => esc_html__( 'Separator', 'bdthemes-element-pack' ),
+                'label'     => esc_html__( 'Separator', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -223,18 +223,18 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'separator_style',
             [
-                'label'   => esc_html__( 'Style', 'bdthemes-element-pack' ),
+                'label'   => esc_html__( 'Style', 'avator-widget-pack' ),
                 'type'    => Controls_Manager::SELECT,
                 'options' => [
-                    'solid'  => esc_html__( 'Solid', 'bdthemes-element-pack' ),
-                    'dotted' => esc_html__( 'Dotted', 'bdthemes-element-pack' ),
-                    'dashed' => esc_html__( 'Dashed', 'bdthemes-element-pack' ),
-                    'double' => esc_html__( 'Double', 'bdthemes-element-pack' ),
-                    'none'   => esc_html__( 'None', 'bdthemes-element-pack' ),
+                    'solid'  => esc_html__( 'Solid', 'avator-widget-pack' ),
+                    'dotted' => esc_html__( 'Dotted', 'avator-widget-pack' ),
+                    'dashed' => esc_html__( 'Dashed', 'avator-widget-pack' ),
+                    'double' => esc_html__( 'Double', 'avator-widget-pack' ),
+                    'none'   => esc_html__( 'None', 'avator-widget-pack' ),
                 ],
                 'default'   => 'dashed',
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-price-list-separator' => 'border-bottom-style: {{VALUE}};',
+                    '{{WRAPPER}} .avt-price-list-separator' => 'border-bottom-style: {{VALUE}};',
                 ],
             ]
         );
@@ -242,7 +242,7 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'separator_weight',
             [
-                'label' => esc_html__( 'Weight', 'bdthemes-element-pack' ),
+                'label' => esc_html__( 'Weight', 'avator-widget-pack' ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -253,7 +253,7 @@ class Price_List extends Widget_Base {
                     'separator_style!' => 'none',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-price-list-separator' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-price-list-separator' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
                 ],
                 'default' => [
                     'size' => 1,
@@ -264,10 +264,10 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'separator_color',
             [
-                'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+                'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-price-list-separator' => 'border-bottom-color: {{VALUE}};',
+                    '{{WRAPPER}} .avt-price-list-separator' => 'border-bottom-color: {{VALUE}};',
                 ],
                 'condition' => [
                     'separator_style!' => 'none',
@@ -278,7 +278,7 @@ class Price_List extends Widget_Base {
         $this->add_control(
             'separator_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+                'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -289,7 +289,7 @@ class Price_List extends Widget_Base {
                     'separator_style!' => 'none',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-price-list-separator' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-price-list-separator' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -299,7 +299,7 @@ class Price_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_image_style',
 			[
-				'label'      => esc_html__( 'Image Style', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Image Style', 'avator-widget-pack' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -308,7 +308,7 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'image_size',
 			[
-				'label' => esc_html__( 'Image Size', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Image Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -316,7 +316,7 @@ class Price_List extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-list-image' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
+					'{{WRAPPER}} .avt-price-list-image' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
 				],
 			]
 		);
@@ -324,11 +324,11 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'image_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-price-list-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-list-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -336,7 +336,7 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'image_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -344,10 +344,10 @@ class Price_List extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'body.rtl {{WRAPPER}} .bdt-price-list-image'                              => 'padding-left: calc({{SIZE}}{{UNIT}}/2);',
-					'body.rtl {{WRAPPER}} .bdt-price-list-image + .bdt-price-list-text'       => 'padding-right: calc({{SIZE}}{{UNIT}}/2);',
-					'body:not(.rtl) {{WRAPPER}} .bdt-price-list-image'                        => 'padding-right: calc({{SIZE}}{{UNIT}}/2);',
-					'body:not(.rtl) {{WRAPPER}} .bdt-price-list-image + .bdt-price-list-text' => 'padding-left: calc({{SIZE}}{{UNIT}}/2);',
+					'body.rtl {{WRAPPER}} .avt-price-list-image'                              => 'padding-left: calc({{SIZE}}{{UNIT}}/2);',
+					'body.rtl {{WRAPPER}} .avt-price-list-image + .avt-price-list-text'       => 'padding-right: calc({{SIZE}}{{UNIT}}/2);',
+					'body:not(.rtl) {{WRAPPER}} .avt-price-list-image'                        => 'padding-right: calc({{SIZE}}{{UNIT}}/2);',
+					'body:not(.rtl) {{WRAPPER}} .avt-price-list-image + .avt-price-list-text' => 'padding-left: calc({{SIZE}}{{UNIT}}/2);',
 				],
 				'default' => [
 					'size' => 20,
@@ -360,7 +360,7 @@ class Price_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_price',
 			[
-				'label'      => esc_html__( 'Price', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Price', 'avator-widget-pack' ),
 				'tab'        => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -369,11 +369,11 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'price_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-list .bdt-price-list-price' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-list .avt-price-list-price' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -381,10 +381,10 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'price_hover_color',
 			[
-				'label'     => esc_html__( 'Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-list li:hover .bdt-price-list-price' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-list li:hover .avt-price-list-price' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -392,11 +392,11 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'price_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#14ABF4',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-list .bdt-price-list-price' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-price-list .avt-price-list-price' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -405,17 +405,17 @@ class Price_List extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-price-list .bdt-price-list-price',
+				'selector'    => '{{WRAPPER}} .avt-price-list .avt-price-list-price',
 			]
 		);
 
 		$this->add_control(
 			'price_border_radius',
 			[
-				'label'   => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 50,
@@ -427,7 +427,7 @@ class Price_List extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-list .bdt-price-list-price' => 'border-radius: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-price-list .avt-price-list-price' => 'border-radius: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -435,7 +435,7 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'price_width',
 			[
-				'label'   => esc_html__( 'Width', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 50,
@@ -447,7 +447,7 @@ class Price_List extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-list .bdt-price-list-price' => 'width: {{SIZE}}{{UNIT}}; text-align: center;',
+					'{{WRAPPER}} .avt-price-list .avt-price-list-price' => 'width: {{SIZE}}{{UNIT}}; text-align: center;',
 				],
 			]
 		);
@@ -455,7 +455,7 @@ class Price_List extends Widget_Base {
 		$this->add_control(
 			'price_height',
 			[
-				'label' => esc_html__( 'Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Height', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -464,7 +464,7 @@ class Price_List extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-price-list .bdt-price-list-price' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; vertical-align: middle;',
+					'{{WRAPPER}} .avt-price-list .avt-price-list-price' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; vertical-align: middle;',
 				],
 			]
 		);
@@ -473,7 +473,7 @@ class Price_List extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'price_box_shadow',
-				'selector' => '{{WRAPPER}} .bdt-price-list .bdt-price-list-price',
+				'selector' => '{{WRAPPER}} .avt-price-list .avt-price-list-price',
 			]
 		);
 
@@ -481,9 +481,9 @@ class Price_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'price_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .bdt-price-list .bdt-price-list-price',
+				'selector' => '{{WRAPPER}} .avt-price-list .avt-price-list-price',
 			]
 		);
 
@@ -502,22 +502,22 @@ class Price_List extends Widget_Base {
 		$settings      = $this->get_settings_for_display();
 		$url           = $item['link']['url'];
 		$item_id       = $item['_id'];
-		$bdt_has_image = $item['image']['url'] ? 'bdt-has-image ' : '';
+		$avt_has_image = $item['image']['url'] ? 'avt-has-image ' : '';
 
         if ( $url ) {
             $unique_link_id = 'item-link-' . $item_id;
 
-            $this->add_render_attribute( $unique_link_id, 'class', 'bdt-grid bdt-flex-'. esc_attr($settings['vertical_align']) );
-            $this->add_render_attribute( $unique_link_id, 'class', esc_attr($bdt_has_image) );
+            $this->add_render_attribute( $unique_link_id, 'class', 'avt-grid avt-flex-'. esc_attr($settings['vertical_align']) );
+            $this->add_render_attribute( $unique_link_id, 'class', esc_attr($avt_has_image) );
 
 
             $target = $item['link']['is_external'] ? '_blank' : '_self';
 
             $this->add_render_attribute( $unique_link_id, 'onclick', "window.open('" . $url . "', '$target')" );
 
-			return '<li class="bdt-price-list-item"><div ' . $this->get_render_attribute_string( $unique_link_id ) . 'bdt-grid>';
+			return '<li class="avt-price-list-item"><div ' . $this->get_render_attribute_string( $unique_link_id ) . 'avt-grid>';
 		} else {
-			return '<li class="bdt-price-list-item bdt-grid bdt-grid-small '.esc_attr($bdt_has_image).'bdt-flex-'. esc_attr($settings['vertical_align']) .'" bdt-grid>';
+			return '<li class="avt-price-list-item avt-grid avt-grid-small '.esc_attr($avt_has_image).'avt-flex-'. esc_attr($settings['vertical_align']) .'" avt-grid>';
 		}
 	}
 
@@ -533,35 +533,35 @@ class Price_List extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		?>
-		<ul class="bdt-price-list">
+		<ul class="avt-price-list">
 
 		<?php foreach ( $settings['price_list'] as $item ) :
 			echo $this->render_item_header( $item );
 
 			if ( ! empty( $item['image']['url'] ) ) : ?>
-				<div class="bdt-price-list-image bdt-width-auto">
+				<div class="avt-price-list-image avt-width-auto">
 					<?php echo $this->render_image( $item, $settings ); ?>
 				</div>
 			<?php endif; ?>
 
-			<div class="bdt-price-list-text bdt-width-expand">
+			<div class="avt-price-list-text avt-width-expand">
 				<div>
-					<div class="bdt-price-list-header bdt-grid bdt-grid-small bdt-flex-middle" bdt-grid>
-						<span class="bdt-price-list-title"><?php echo esc_html($item['title']); ?></span>
+					<div class="avt-price-list-header avt-grid avt-grid-small avt-flex-middle" avt-grid>
+						<span class="avt-price-list-title"><?php echo esc_html($item['title']); ?></span>
 
 						<?php if ( 'none' != $settings['separator_style'] ) : ?>
-							<span class="bdt-price-list-separator bdt-width-expand"></span>
+							<span class="avt-price-list-separator avt-width-expand"></span>
 						<?php endif; ?>
 
 					</div>
 
                     <?php if ( $item['item_description'] ) : ?>
-                        <p class="bdt-price-list-description"><?php echo $this->parse_text_editor($item['item_description']); ?></p>
+                        <p class="avt-price-list-description"><?php echo $this->parse_text_editor($item['item_description']); ?></p>
                     <?php endif; ?>
 				</div>
 			</div>
-			<div class="bdt-width-auto bdt-flex-inline">
-				<span class="bdt-price-list-price"><?php echo esc_html($item['price']); ?></span>
+			<div class="avt-width-auto avt-flex-inline">
+				<span class="avt-price-list-price"><?php echo esc_html($item['price']); ?></span>
 			</div>
 
 			<?php echo $this->render_item_footer( $item ); ?>
@@ -574,14 +574,14 @@ class Price_List extends Widget_Base {
 
 	protected function _content_template() {
 		?>
-		<ul class="bdt-price-list">
+		<ul class="avt-price-list">
 			<#
 				for ( var i in settings.price_list ) {
 					var item = settings.price_list[i],
-						item_open_wrap = '<li class="bdt-price-list-item bdt-grid bdt-grid-small bdt-flex-' + settings.vertical_align + '" bdt-grid>',
+						item_open_wrap = '<li class="avt-price-list-item avt-grid avt-grid-small avt-flex-' + settings.vertical_align + '" avt-grid>',
 						item_close_wrap = '</li>';
 					if ( item.link.url ) {
-						item_open_wrap = '<li class="bdt-price-list-item"><div class="bdt-grid bdt-grid-small bdt-flex-' + settings.vertical_align + '" href="' + item.link.url + '" class="bdt-price-list-item bdt-link-reset" bdt-grid>';
+						item_open_wrap = '<li class="avt-price-list-item"><div class="avt-grid avt-grid-small avt-flex-' + settings.vertical_align + '" href="' + item.link.url + '" class="avt-price-list-item avt-link-reset" avt-grid>';
 						item_close_wrap = '</div></li>';
 					} #>
 					{{{ item_open_wrap }}}
@@ -597,22 +597,22 @@ class Price_List extends Widget_Base {
 						var image_url = elementor.imagesManager.getImageUrl( image );
 
 						if (  image_url ) { #>
-							<div class="bdt-price-list-image bdt-width-auto"><img src="{{ image_url }}" alt="{{ item.title }}"></div>
+							<div class="avt-price-list-image avt-width-auto"><img src="{{ image_url }}" alt="{{ item.title }}"></div>
 						<# } #>
 
 					<# } #>
 
-					<div class="bdt-price-list-text bdt-width-expand">
+					<div class="avt-price-list-text avt-width-expand">
 						<div>
-							<div class="bdt-price-list-header bdt-grid bdt-grid-small bdt-flex-middle" bdt-grid>
-								<span class="bdt-price-list-title">{{{ item.title }}}</span>
-								<span class="bdt-price-list-separator bdt-width-expand"></span>
+							<div class="avt-price-list-header avt-grid avt-grid-small avt-flex-middle" avt-grid>
+								<span class="avt-price-list-title">{{{ item.title }}}</span>
+								<span class="avt-price-list-separator avt-width-expand"></span>
 							</div>
-							<p class="bdt-price-list-description">{{{ item.item_description }}}</p>
+							<p class="avt-price-list-description">{{{ item.item_description }}}</p>
 						</div>
 					</div>
-					<div class="bdt-width-auto bdt-flex-inline">
-						<span class="bdt-price-list-price">{{{ item.price }}}</span>
+					<div class="avt-width-auto avt-flex-inline">
+						<span class="avt-price-list-price">{{{ item.price }}}</span>
 					</div>
 					{{{ item_close_wrap }}}
 			 <# } #>

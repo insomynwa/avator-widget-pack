@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack;
+namespace WidgetPack;
 
 use Elementor\Base_Control;
 

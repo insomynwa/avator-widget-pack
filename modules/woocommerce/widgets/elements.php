@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Woocommerce\Widgets;
+namespace WidgetPack\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
@@ -7,27 +7,27 @@ use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use ElementPack\Modules\QueryControl\Module as QueryModule;
-use ElementPack\Modules\Woocommerce\Module;
+use WidgetPack\Modules\QueryControl\Module as QueryModule;
+use WidgetPack\Modules\Woocommerce\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Elements extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-wc-elements';
+		return 'avt-wc-elements';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'WC - Elements', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'WC - Elements', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-woocommerce';
+		return 'avt-wi-woocommerce';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -44,22 +44,22 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_product',
 			[
-				'label' => esc_html__( 'Element', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Element', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'element',
 			[
-				'label' => esc_html__( 'Element', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Element', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					''                           => esc_html__( 'Select', 'bdthemes-element-pack' ),
-					'woocommerce_cart'           => esc_html__( 'Cart Page', 'bdthemes-element-pack' ),
-					'product_page'               => esc_html__( 'Single Product Page', 'bdthemes-element-pack' ),
-					'woocommerce_checkout'       => esc_html__( 'Checkout Page', 'bdthemes-element-pack' ),
-					'woocommerce_order_tracking' => esc_html__( 'Order Tracking Form', 'bdthemes-element-pack' ),
-					'woocommerce_my_account'     => esc_html__( 'My Account', 'bdthemes-element-pack' ),
+					''                           => esc_html__( 'Select', 'avator-widget-pack' ),
+					'woocommerce_cart'           => esc_html__( 'Cart Page', 'avator-widget-pack' ),
+					'product_page'               => esc_html__( 'Single Product Page', 'avator-widget-pack' ),
+					'woocommerce_checkout'       => esc_html__( 'Checkout Page', 'avator-widget-pack' ),
+					'woocommerce_order_tracking' => esc_html__( 'Order Tracking Form', 'avator-widget-pack' ),
+					'woocommerce_my_account'     => esc_html__( 'My Account', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -67,7 +67,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'product_id',
 			[
-				'label'       => esc_html__( 'Enter Product ID', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Enter Product ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'condition'   => [
@@ -86,7 +86,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_checkout_style_label',
 			[
-				'label' => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Label', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_checkout' ],
@@ -97,7 +97,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce form .form-row label' => 'color: {{VALUE}};',
@@ -108,7 +108,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'required_color',
 			[
-				'label'     => esc_html__( 'Required Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Required Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce form .form-row .required' => 'color: {{VALUE}};',
@@ -120,7 +120,7 @@ class Elements extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'label_typography',
-				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce form .form-row label',
 			]
@@ -131,7 +131,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_checkout_style_input',
 			[
-				'label' => esc_html__( 'Input', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Input', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_checkout' ],
@@ -142,7 +142,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'input_placeholder_color',
 			[
-				'label'     => esc_html__( 'Placeholder Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Placeholder Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce .input-text::placeholder' => 'color: {{VALUE}};',
@@ -153,7 +153,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'input_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce .input-text' => 'color: {{VALUE}};',
@@ -166,7 +166,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'input_text_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce .input-text' => 'background-color: {{VALUE}};',
@@ -179,7 +179,7 @@ class Elements extends Widget_Base {
 		$this->add_responsive_control(
 			'textarea_height',
 			[
-				'label' => esc_html__( 'Textarea Height', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Textarea Height', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 125,
@@ -201,7 +201,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'input_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -218,7 +218,7 @@ class Elements extends Widget_Base {
 		$this->add_responsive_control(
 			'input_space',
 			[
-				'label' => esc_html__( 'Element Space', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Element Space', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 25,
@@ -238,7 +238,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'input_border_show',
 			[
-				'label' => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'label_on' => 'Hide',
@@ -251,7 +251,7 @@ class Elements extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'input_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '
@@ -267,7 +267,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'input_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -284,7 +284,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_checkout_style_order_table',
 			[
-				'label' => esc_html__( 'Order Table', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Order Table', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_checkout' ],
@@ -295,7 +295,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'order_table_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -308,7 +308,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'order_table_border_show',
 			[
-				'label' => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'label_on' => 'Hide',
@@ -321,7 +321,7 @@ class Elements extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'order_table_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .woocommerce table.shop_table.cart',
@@ -335,7 +335,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'order_table_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -353,7 +353,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_checkout_payment',
 			[
-				'label' => esc_html__( 'Payment', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Payment', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_checkout' ],
@@ -364,7 +364,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'checkout_payment_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce-checkout #payment, {{WRAPPER}} .woocommerce-checkout #payment div.payment_box' => 'color: {{VALUE}};',
@@ -375,7 +375,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'checkout_payment_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce-checkout #payment' => 'background-color: {{VALUE}};',
@@ -388,7 +388,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'checkout_payment_button_heading',
 			[
-				'label' => esc_html__( 'Button Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -399,14 +399,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_payment_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'payment_button_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -418,7 +418,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'payment_button_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce input.button' => 'background-color: {{VALUE}};',
@@ -430,7 +430,7 @@ class Elements extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'payment_button_border',
-				'label' => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .woocommerce input.button',
@@ -441,7 +441,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'payment_button_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -461,7 +461,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'payment_button_text_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -475,7 +475,7 @@ class Elements extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'payment_button_typography',
-				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce input.button',
 				'separator' => 'before',
@@ -487,14 +487,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_payment_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'payment_button_hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce input.button:hover' => 'color: {{VALUE}};',
@@ -505,7 +505,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'payment_button_background_hover_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce input.button:hover' => 'background-color: {{VALUE}};',
@@ -516,7 +516,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'payment_button_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -539,7 +539,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_tracking_style_label',
 			[
-				'label' => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Label', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_order_tracking' ],
@@ -550,7 +550,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_label_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce form .form-row label' => 'color: {{VALUE}};',
@@ -562,7 +562,7 @@ class Elements extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'tracking_label_typography',
-				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce form .form-row label',
 			]
@@ -573,7 +573,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_tracking_style_input',
 			[
-				'label' => esc_html__( 'Input', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Input', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_order_tracking' ],
@@ -584,7 +584,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_input_placeholder_color',
 			[
-				'label'     => esc_html__( 'Placeholder Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Placeholder Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce .input-text::placeholder' => 'color: {{VALUE}};',
@@ -595,7 +595,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_input_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce .input-text' => 'color: {{VALUE}};',
@@ -608,7 +608,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_input_text_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce .input-text' => 'background-color: {{VALUE}};',
@@ -621,7 +621,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_input_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -638,7 +638,7 @@ class Elements extends Widget_Base {
 		$this->add_responsive_control(
 			'tracking_input_space',
 			[
-				'label' => esc_html__( 'Element Space', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Element Space', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 25,
@@ -658,7 +658,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_input_border_show',
 			[
-				'label' => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'label_on' => 'Hide',
@@ -671,7 +671,7 @@ class Elements extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'tracking_input_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '
@@ -687,7 +687,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_input_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -704,7 +704,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_tracking',
 			[
-				'label' => esc_html__( 'Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_order_tracking' ],
@@ -715,7 +715,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_button_heading',
 			[
-				'label' => esc_html__( 'Button Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -726,14 +726,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_tracking_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'tracking_button_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -745,7 +745,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_button_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce input.button' => 'background-color: {{VALUE}};',
@@ -757,7 +757,7 @@ class Elements extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'tracking_button_border',
-				'label' => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .woocommerce input.button',
@@ -768,7 +768,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_button_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -788,7 +788,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_button_text_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -802,7 +802,7 @@ class Elements extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'tracking_button_typography',
-				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce input.button',
 				'separator' => 'before',
@@ -814,14 +814,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_tracking_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'tracking_button_hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce input.button:hover' => 'color: {{VALUE}};',
@@ -832,7 +832,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_button_background_hover_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce input.button:hover' => 'background-color: {{VALUE}};',
@@ -843,7 +843,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'tracking_button_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -868,7 +868,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_cart_style_heading',
 			[
-				'label' => esc_html__( 'Table Heading', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Table Heading', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_cart' ],
@@ -879,7 +879,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_heading_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table.shop_table.cart th' => 'color: {{VALUE}};',
@@ -890,7 +890,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_heading_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table.shop_table.cart th' => 'background-color: {{VALUE}};',
@@ -904,7 +904,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_cart_style_table',
 			[
-				'label' => esc_html__( 'Table Content', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Table Content', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_cart' ],
@@ -915,7 +915,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table.shop_table.cart td *' => 'color: {{VALUE}};',
@@ -926,7 +926,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table.shop_table.cart' => 'background-color: {{VALUE}};',
@@ -937,7 +937,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -949,7 +949,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_border_show',
 			[
-				'label' => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'label_on' => 'Hide',
@@ -964,7 +964,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_border_width',
 			[
-				'label' => esc_html__( 'Border Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Width', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'selectors' => [
@@ -980,7 +980,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table.shop_table.cart' => 'border-color: {{VALUE}};',
@@ -995,7 +995,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_table_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -1011,7 +1011,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_cart_style_input',
 			[
-				'label' => esc_html__( 'Input', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Input', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_cart' ],
@@ -1022,7 +1022,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_input_placeholder_color',
 			[
-				'label'     => esc_html__( 'Placeholder Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Placeholder Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.cart .input-text::placeholder' => 'color: {{VALUE}};',
@@ -1033,7 +1033,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_input_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.cart .input-text' => 'color: {{VALUE}};',
@@ -1044,7 +1044,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_input_text_background',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} table.cart .input-text' => 'background-color: {{VALUE}};',
@@ -1055,7 +1055,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_input_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1068,7 +1068,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_input_border_show',
 			[
-				'label' => esc_html__( 'Border Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'label_on' => 'Hide',
@@ -1081,7 +1081,7 @@ class Elements extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name'        => 'cart_input_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
 				'selector'    => '
@@ -1096,7 +1096,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_input_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -1114,7 +1114,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_cart_button',
 			[
-				'label' => esc_html__( 'Coupon/Update Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Coupon/Update Button', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_cart' ],
@@ -1125,7 +1125,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_button_heading',
 			[
-				'label' => esc_html__( 'Button Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1136,14 +1136,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_cart_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'cart_button_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1155,7 +1155,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_button_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table tr td input.button' => 'background-color: {{VALUE}};',
@@ -1167,7 +1167,7 @@ class Elements extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'cart_button_border',
-				'label' => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .woocommerce table tr td input.button',
@@ -1178,7 +1178,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_button_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -1198,7 +1198,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_button_text_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1212,7 +1212,7 @@ class Elements extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cart_button_typography',
-				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce table tr td input.button',
 				'separator' => 'before',
@@ -1224,14 +1224,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_cart_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'cart_button_hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table tr td input.button:hover' => 'color: {{VALUE}};',
@@ -1242,7 +1242,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_button_background_hover_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .woocommerce table tr td input.button:hover' => 'background-color: {{VALUE}};',
@@ -1253,7 +1253,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_button_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -1275,7 +1275,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_cart_checkout_button',
 			[
-				'label' => esc_html__( 'Checkout Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Checkout Button', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_cart' ],
@@ -1286,7 +1286,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_checkout_button_heading',
 			[
-				'label' => esc_html__( 'Button Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Button Style', 'avator-widget-pack' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1297,14 +1297,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_cart_checkout_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'cart_checkout_button_text_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -1316,7 +1316,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_checkout_button_background_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wc-proceed-to-checkout a.checkout-button' => 'background-color: {{VALUE}};',
@@ -1328,7 +1328,7 @@ class Elements extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'cart_checkout_button_border',
-				'label' => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default' => '1px',
 				'selector' => '{{WRAPPER}} .wc-proceed-to-checkout a.checkout-button',
@@ -1339,7 +1339,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_checkout_button_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -1359,7 +1359,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_checkout_button_text_padding',
 			[
-				'label' => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -1373,7 +1373,7 @@ class Elements extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cart_checkout_button_typography',
-				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .wc-proceed-to-checkout a.checkout-button',
 				'separator' => 'before',
@@ -1385,14 +1385,14 @@ class Elements extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_cart_checkout_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'cart_checkout_button_hover_color',
 			[
-				'label' => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wc-proceed-to-checkout a.checkout-button:hover' => 'color: {{VALUE}};',
@@ -1403,7 +1403,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_checkout_button_background_hover_color',
 			[
-				'label' => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .wc-proceed-to-checkout a.checkout-button:hover' => 'background-color: {{VALUE}};',
@@ -1414,7 +1414,7 @@ class Elements extends Widget_Base {
 		$this->add_control(
 			'cart_checkout_button_hover_border_color',
 			[
-				'label' => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'condition' => [
 					'border_border!' => '',
@@ -1436,7 +1436,7 @@ class Elements extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_my_account',
 			[
-				'label' => esc_html__( 'My Account Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'My Account Style', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition'   => [
 					'element' => [ 'woocommerce_my_account' ],
@@ -1475,7 +1475,7 @@ class Elements extends Widget_Base {
 				}
 
 				if ( empty( $product ) && current_user_can( 'manage_options' ) ) {
-					return esc_html__( 'Please set a valid product', 'bdthemes-element-pack' );
+					return esc_html__( 'Please set a valid product', 'avator-widget-pack' );
 				}
 
 				$this->add_render_attribute( 'shortcode', 'id', $settings['product_id'] );
@@ -1504,7 +1504,7 @@ class Elements extends Widget_Base {
 		$html = do_shortcode( $shortcode );
 
 		if ( 'woocommerce_checkout' === $this->get_settings( 'element' ) && '<div class="woocommerce"></div>' === $html ) {
-			$html = '<div class="woocommerce">' . esc_html__( 'Your cart is currently empty.', 'bdthemes-element-pack' ) . '</div>';
+			$html = '<div class="woocommerce">' . esc_html__( 'Your cart is currently empty.', 'avator-widget-pack' ) . '</div>';
 		}
 
 		echo  $html;

@@ -62,8 +62,8 @@ function timeline(collection, options) {
   // Helper function to wrap each element in a group with other HTML elements
   function wrapElements(items) {
     items.forEach((item) => {
-      itemWrap(item.querySelector('.bdt-timeline-content'), document.createElement('div'), 'bdt-timeline-content-wrapper');
-      itemWrap(item.querySelector('.bdt-timeline-content-wrapper'), document.createElement('div'), 'bdt-timeline-item-inner');
+      itemWrap(item.querySelector('.avt-timeline-content'), document.createElement('div'), 'avt-timeline-content-wrapper');
+      itemWrap(item.querySelector('.avt-timeline-content-wrapper'), document.createElement('div'), 'avt-timeline-item-inner');
     });
   }
 
@@ -111,13 +111,13 @@ function timeline(collection, options) {
 
     // Test for correct HTML structure
     try {
-      wrap = timelineEl.querySelector('.bdt-timeline-wrapper');
+      wrap = timelineEl.querySelector('.avt-timeline-wrapper');
       if (!wrap) {
-        throw new Error(`${warningLabel} .bdt-timeline-wrapper ${errorPart} ${timelineName}`);
+        throw new Error(`${warningLabel} .avt-timeline-wrapper ${errorPart} ${timelineName}`);
       } else {
-        scroller = wrap.querySelector('.bdt-timeline-items');
+        scroller = wrap.querySelector('.avt-timeline-items');
         if (!scroller) {
-          throw new Error(`${warningLabel} .bdt-timeline-items ${errorPart} .bdt-timeline-wrapper`);
+          throw new Error(`${warningLabel} .avt-timeline-items ${errorPart} .avt-timeline-wrapper`);
         } else {
           items = [].slice.call(scroller.children, 0);
         }
@@ -239,18 +239,18 @@ function timeline(collection, options) {
         if (i % 2 === 0) {
           item.style.height = `${evenIndexTallest}px`;
           if (tl.settings.horizontalStartPosition === 'bottom') {
-            item.classList.add('bdt-timeline-item--bottom');
+            item.classList.add('avt-timeline-item--bottom');
             addTransforms(item, transformString);
           } else {
-            item.classList.add('bdt-timeline-item--top');
+            item.classList.add('avt-timeline-item--top');
           }
         } else {
           item.style.height = `${oddIndexTallest}px`;
           if (tl.settings.horizontalStartPosition !== 'bottom') {
-            item.classList.add('bdt-timeline-item--bottom');
+            item.classList.add('avt-timeline-item--bottom');
             addTransforms(item, transformString);
           } else {
-            item.classList.add('bdt-timeline-item--top');
+            item.classList.add('avt-timeline-item--top');
           }
         }
       });
@@ -269,8 +269,8 @@ function timeline(collection, options) {
       const prevArrow = document.createElement('button');
       const nextArrow = document.createElement('button');
       const topPosition = tl.items[0].offsetHeight;
-      prevArrow.className = 'bdt-timeline-nav-button bdt-timeline-nav-button--prev';
-      nextArrow.className = 'bdt-timeline-nav-button bdt-timeline-nav-button--next';
+      prevArrow.className = 'avt-timeline-nav-button avt-timeline-nav-button--prev';
+      nextArrow.className = 'avt-timeline-nav-button avt-timeline-nav-button--next';
       prevArrow.textContent = 'Previous';
       nextArrow.textContent = 'Next';
       prevArrow.style.top = `${topPosition}px`;
@@ -287,13 +287,13 @@ function timeline(collection, options) {
 
   // Add the centre line to the horizontal timeline
   function addHorizontalDivider(tl) {
-    const divider = tl.timelineEl.querySelector('.bdt-timeline-divider');
+    const divider = tl.timelineEl.querySelector('.avt-timeline-divider');
     if (divider) {
       tl.timelineEl.removeChild(divider);
     }
     const topPosition = tl.items[0].offsetHeight;
     const horizontalDivider = document.createElement('span');
-    horizontalDivider.className = 'bdt-timeline-divider';
+    horizontalDivider.className = 'avt-timeline-divider';
     horizontalDivider.style.top = `${topPosition}px`;
     tl.timelineEl.appendChild(horizontalDivider);
   }
@@ -307,15 +307,15 @@ function timeline(collection, options) {
 
   // Make the horizontal timeline slide
   function slideTimeline(tl) {
-    const navArrows = tl.timelineEl.querySelectorAll('.bdt-timeline-nav-button');
-    const arrowPrev = tl.timelineEl.querySelector('.bdt-timeline-nav-button--prev');
-    const arrowNext = tl.timelineEl.querySelector('.bdt-timeline-nav-button--next');
+    const navArrows = tl.timelineEl.querySelectorAll('.avt-timeline-nav-button');
+    const arrowPrev = tl.timelineEl.querySelector('.avt-timeline-nav-button--prev');
+    const arrowNext = tl.timelineEl.querySelector('.avt-timeline-nav-button--next');
     const maxIndex = tl.items.length - tl.settings.visibleItems;
     const moveItems = parseInt(tl.settings.moveItems, 10);
     [].forEach.call(navArrows, (arrow) => {
       arrow.addEventListener('click', function(e) {
         e.preventDefault();
-        currentIndex = this.classList.contains('bdt-timeline-nav-button--next') ? (currentIndex += moveItems) : (currentIndex -= moveItems);
+        currentIndex = this.classList.contains('avt-timeline-nav-button--next') ? (currentIndex += moveItems) : (currentIndex -= moveItems);
         if (currentIndex === 0 || currentIndex < 0) {
           currentIndex = 0;
           arrowPrev.disabled = true;
@@ -336,7 +336,7 @@ function timeline(collection, options) {
   // Set up horizontal timeline
   function setUpHorinzontalTimeline(tl) {
     currentIndex = tl.settings.startIndex;
-    tl.timelineEl.classList.add('bdt-timeline--horizontal');
+    tl.timelineEl.classList.add('avt-timeline--horizontal');
     setHeightandWidths(tl);
     timelinePosition(tl);
     addNavigation(tl);
@@ -356,9 +356,9 @@ function timeline(collection, options) {
       }
       const divider = tl.settings.verticalStartPosition === 'left' ? 1 : 0;
       if (i % 2 === divider && window.innerWidth > tl.settings.forceVerticalMode) {
-        item.classList.add('bdt-timeline-item--right');
+        item.classList.add('avt-timeline-item--right');
       } else {
-        item.classList.add('bdt-timeline-item--left');
+        item.classList.add('avt-timeline-item--left');
       }
     });
     for (let i = 0; i < lastVisibleIndex; i += 1) {
@@ -376,13 +376,13 @@ function timeline(collection, options) {
 
   // Reset timelines
   function resetTimelines(tl) {
-    tl.timelineEl.classList.remove('bdt-timeline--horizontal', 'bdt-timeline--mobile');
+    tl.timelineEl.classList.remove('avt-timeline--horizontal', 'avt-timeline--mobile');
     tl.scroller.removeAttribute('style');
     tl.items.forEach((item) => {
       item.removeAttribute('style');
-      item.classList.remove('animated', 'fadeIn', 'bdt-timeline-item--left', 'bdt-timeline-item--right');
+      item.classList.remove('animated', 'fadeIn', 'avt-timeline-item--left', 'avt-timeline-item--right');
     });
-    const navArrows = tl.timelineEl.querySelectorAll('.bdt-timeline-nav-button');
+    const navArrows = tl.timelineEl.querySelectorAll('.avt-timeline-nav-button');
     [].forEach.call(navArrows, (arrow) => {
       arrow.parentNode.removeChild(arrow);
     });
@@ -392,19 +392,19 @@ function timeline(collection, options) {
   function setUpTimelines() {
     timelines.forEach((tl) => {
       tl.timelineEl.style.opacity = 0;
-      if (!tl.timelineEl.classList.contains('bdt-timeline--loaded')) {
+      if (!tl.timelineEl.classList.contains('avt-timeline--loaded')) {
         wrapElements(tl.items);
       }
       resetTimelines(tl);
       if (window.innerWidth <= tl.settings.forceVerticalMode) {
-        tl.timelineEl.classList.add('bdt-timeline--mobile');
+        tl.timelineEl.classList.add('avt-timeline--mobile');
       }
       if (tl.settings.mode === 'horizontal' && window.innerWidth > tl.settings.forceVerticalMode) {
         setUpHorinzontalTimeline(tl);
       } else {
         setUpVerticalTimeline(tl);
       }
-      tl.timelineEl.classList.add('bdt-timeline--loaded');
+      tl.timelineEl.classList.add('avt-timeline--loaded');
       setTimeout(() => {
         tl.timelineEl.style.opacity = 1;
       }, 500);

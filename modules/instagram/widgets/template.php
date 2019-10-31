@@ -9,21 +9,21 @@
 
 	?>
 
-	<div class="bdt-instagram-item-wrapper feed-type-<?php echo esc_attr( $insta_feeds[ $i ]['post_type'] ); ?>">
-		<div class="bdt-instagram-item bdt-transition-toggle bdt-position-relative bdt-scrollspy-inview bdt-animation-fade">
-			<div class="bdt-instagram-thumbnail">
-				<img src="<?php echo esc_url($insta_feeds[$i]['image']['medium']); ?>" alt="<?php esc_html_e( 'Image by:', 'bdthemes-element-pack' ); ?> <?php echo esc_html($insta_feeds[ $i ]['user']['full_name']); ?> " bdt-img>
+	<div class="avt-instagram-item-wrapper feed-type-<?php echo esc_attr( $insta_feeds[ $i ]['post_type'] ); ?>">
+		<div class="avt-instagram-item avt-transition-toggle avt-position-relative avt-scrollspy-inview avt-animation-fade">
+			<div class="avt-instagram-thumbnail">
+				<img src="<?php echo esc_url($insta_feeds[$i]['image']['medium']); ?>" alt="<?php esc_html_e( 'Image by:', 'avator-widget-pack' ); ?> <?php echo esc_html($insta_feeds[ $i ]['user']['full_name']); ?> " avt-img>
 				
 			</div>
 
 			<?php if ( $_REQUEST['show_lightbox'] or $_REQUEST['show_link'] ) : ?>
 			<a href="<?php echo $link_url; ?>" data-elementor-open-lightbox="no">
 
-				<div class='bdt-transition-fade bdt-inline-clip bdt-position-cover bdt-overlay bdt-overlay-default '>
-					<span class='bdt-position-center' bdt-overlay-icon></span>
+				<div class='avt-transition-fade avt-inline-clip avt-position-cover avt-overlay avt-overlay-default '>
+					<span class='avt-position-center' avt-overlay-icon></span>
 
 
-					<div class='bdt-instagram-like-comment bdt-flex-center bdt-child-width-auto bdt-grid'>
+					<div class='avt-instagram-like-comment avt-flex-center avt-child-width-auto avt-grid'>
 						<?php if ( $_REQUEST['show_like'] ) : ?>
 							<span><span class='ep-heart-empty'></span> <b><?php echo esc_attr( $insta_feeds[ $i ]['like'] ); ?></b></span>
 						<?php endif; ?>							

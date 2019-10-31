@@ -1,11 +1,11 @@
 <?php
-namespace ElementPack\Modules\BusinessHours;
+namespace WidgetPack\Modules\BusinessHours;
 
-use ElementPack\Base\Element_Pack_Module_Base;
+use WidgetPack\Base\Widget_Pack_Module_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Module extends Element_Pack_Module_Base {
+class Module extends Widget_Pack_Module_Base {
 
 	public function get_name() {
 		return 'business-hours';

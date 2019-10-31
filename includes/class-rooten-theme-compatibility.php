@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) or exit;
  * Rooten Theme Support setup
  * @since 3.1.0
  */
-class Element_Pack_Rooten_Theme_Compatibility {
+class Widget_Pack_Rooten_Theme_Compatibility {
 
 	/**
 	 * Instance of Rooten Theme Support Class
@@ -49,9 +49,9 @@ class Element_Pack_Rooten_Theme_Compatibility {
 
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
 
-		add_filter( 'manage_bdt-custom-template_posts_columns', array( $this, 'set_shortcode_columns' ) );
+		add_filter( 'manage_avt-custom-template_posts_columns', array( $this, 'set_shortcode_columns' ) );
 
-		add_action( 'manage_bdt-custom-template_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
+		add_action( 'manage_avt-custom-template_posts_custom_column', array( $this, 'render_shortcode_column' ), 10, 2 );
 
 		add_shortcode( 'rooten_custom_template', array( $this, 'shortcode_template' ) );
 
@@ -94,7 +94,7 @@ class Element_Pack_Rooten_Theme_Compatibility {
 			'supports'            => array( 'title', 'thumbnail', 'elementor' ),
 		);
 
-		register_post_type( 'bdt-custom-template', $args );
+		register_post_type( 'avt-custom-template', $args );
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Element_Pack_Rooten_Theme_Compatibility {
 			__( 'Rooten Custom Template', 'rooten' ),
 			__( 'Rooten Custom Template', 'rooten' ),
 			'edit_pages',
-			'edit.php?post_type=bdt-custom-template'
+			'edit.php?post_type=avt-custom-template'
 		);
 	}
 
@@ -121,7 +121,7 @@ class Element_Pack_Rooten_Theme_Compatibility {
 	    $meta_boxes[] = array(
 	    	'id'	=> 'rooten_custom_template',
 	        'title'  => 'Template Settings',
-	        'pages'   => array( 'bdt-custom-template' ),
+	        'pages'   => array( 'avt-custom-template' ),
 	        'context' => 'normal',
 	        'fields' => array(
 	            array(
@@ -172,7 +172,7 @@ class Element_Pack_Rooten_Theme_Compatibility {
 	 * @since 3.1.0
 	 */
 	public function block_template_frontend() {
-		if ( is_singular( 'bdt-custom-template' ) && ! current_user_can( 'edit_posts' ) ) {
+		if ( is_singular( 'avt-custom-template' ) && ! current_user_can( 'edit_posts' ) ) {
 			wp_redirect( site_url(), 301 );
 			die;
 		}
@@ -188,7 +188,7 @@ class Element_Pack_Rooten_Theme_Compatibility {
 
 		global $post;
 
-		if ( 'bdt-custom-template' == $post->post_type ) {
+		if ( 'avt-custom-template' == $post->post_type ) {
 			return ELEMENTOR_PATH . '/modules/page-templates/templates/canvas.php';
 		}
 
@@ -224,7 +224,7 @@ class Element_Pack_Rooten_Theme_Compatibility {
 			case 'shortcode':
 				ob_start();
 				?>
-				<span class="bdt-shortcode-col-wrap">
+				<span class="avt-shortcode-col-wrap">
 					<input type="text" onfocus="this.select();" readonly="readonly" value="[rooten_custom_template id='<?php echo esc_attr( $post_id ); ?>']" class="regular-text code">
 				</span>
 
@@ -268,4 +268,4 @@ class Element_Pack_Rooten_Theme_Compatibility {
 	}
 }
 
-Element_Pack_Rooten_Theme_Compatibility::instance();
+Widget_Pack_Rooten_Theme_Compatibility::instance();

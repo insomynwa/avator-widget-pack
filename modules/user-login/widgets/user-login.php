@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\UserLogin\Widgets;
+namespace WidgetPack\Modules\UserLogin\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -12,28 +12,28 @@ use Elementor\Scheme_Color;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Modules\UserLogin\Module;
-use ElementPack\Modules\UserLogin\Skins;
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Modules\UserLogin\Module;
+use WidgetPack\Modules\UserLogin\Skins;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class User_Login extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-user-login';
+		return 'avt-user-login';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'User Login', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'User Login', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-user-login';
+		return 'avt-wi-user-login';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -41,7 +41,7 @@ class User_Login extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'element-pack-font' ];
+		return [ 'widget-pack-font' ];
 	}
 
 	protected function _register_skins() {
@@ -57,14 +57,14 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_forms_layout',
 			[
-				'label' => esc_html__( 'Forms Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Forms Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'labels_title',
 			[
-				'label'     => esc_html__( 'Labels', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Labels', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -73,7 +73,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'show_labels',
 			[
-				'label'   => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Label', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -82,7 +82,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'fields_title',
 			[
-				'label' => esc_html__( 'Fields', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Fields', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -90,12 +90,12 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'input_size',
 			[
-				'label'   => esc_html__( 'Input Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Input Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'small'   => esc_html__( 'Small', 'bdthemes-element-pack' ),
-					'default' => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'large'   => esc_html__( 'Large', 'bdthemes-element-pack' ),
+					'small'   => esc_html__( 'Small', 'avator-widget-pack' ),
+					'default' => esc_html__( 'Default', 'avator-widget-pack' ),
+					'large'   => esc_html__( 'Large', 'avator-widget-pack' ),
 				],
 				'default' => 'default',
 			]
@@ -104,7 +104,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'button_title',
 			[
-				'label'     => esc_html__( 'Submit Button', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Submit Button', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -113,21 +113,21 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'button_text',
 			[
-				'label'   => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Log In', 'bdthemes-element-pack' ),
+				'default' => esc_html__( 'Log In', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_size',
 			[
-				'label'   => esc_html__( 'Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'small' => esc_html__( 'Small', 'bdthemes-element-pack' ),
-					''      => esc_html__( 'Default', 'bdthemes-element-pack' ),
-					'large' => esc_html__( 'Large', 'bdthemes-element-pack' ),
+					'small' => esc_html__( 'Small', 'avator-widget-pack' ),
+					''      => esc_html__( 'Default', 'avator-widget-pack' ),
+					'large' => esc_html__( 'Large', 'avator-widget-pack' ),
 				],
 				'default' => '',
 			]
@@ -136,30 +136,30 @@ class User_Login extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => esc_html__( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'start' => [
-						'title' => esc_html__( 'Left', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'end' => [
-						'title' => esc_html__( 'Right', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 					'stretch' => [
-						'title' => esc_html__( 'Justified', 'bdthemes-element-pack' ),
+						'title' => esc_html__( 'Justified', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-justify',
 					],
 				],
 				'prefix_class' => 'elementor%s-button-align-',
 				'default'      => '',
 				'condition' => [
-					'_skin!' => ['bdt-modal'],
+					'_skin!' => ['avt-modal'],
 				],
 			]
 		);
@@ -169,14 +169,14 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_forms_additional_options',
 			[
-				'label' => esc_html__( 'Additional Options', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional Options', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'redirect_after_login',
 			[
-				'label' => esc_html__( 'Redirect After Login', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Redirect After Login', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -189,7 +189,7 @@ class User_Login extends Widget_Base {
 				'show_external' => false,
 				'separator'     => false,
 				'placeholder'   => 'http://your-link.com/',
-				'description'   => esc_html__( 'Note: Because of security reasons, you can ONLY use your current domain here.', 'bdthemes-element-pack' ),
+				'description'   => esc_html__( 'Note: Because of security reasons, you can ONLY use your current domain here.', 'avator-widget-pack' ),
 				'condition'     => [
 					'redirect_after_login' => 'yes',
 				],
@@ -199,7 +199,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'show_lost_password',
 			[
-				'label'   => esc_html__( 'Lost your password?', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Lost your password?', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -209,7 +209,7 @@ class User_Login extends Widget_Base {
 			$this->add_control(
 				'show_register',
 				[
-					'label'   => esc_html__( 'Register', 'bdthemes-element-pack' ),
+					'label'   => esc_html__( 'Register', 'avator-widget-pack' ),
 					'type'    => Controls_Manager::SWITCHER,
 					'default' => 'yes',
 				]
@@ -218,7 +218,7 @@ class User_Login extends Widget_Base {
 			$this->add_control(
 				'custom_register',
 				[
-					'label'   => esc_html__( 'Custom Register URL', 'bdthemes-element-pack' ),
+					'label'   => esc_html__( 'Custom Register URL', 'avator-widget-pack' ),
 					'type'    => Controls_Manager::SWITCHER,
                     'condition'     => [
                         'show_register' => 'yes',
@@ -243,7 +243,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'show_remember_me',
 			[
-				'label'   => esc_html__( 'Remember Me', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Remember Me', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -252,7 +252,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'show_logged_in_message',
 			[
-				'label'   => esc_html__( 'Logged in Message', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Logged in Message', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -261,7 +261,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'show_custom_message',
 			[
-				'label'   => esc_html__( 'Custom Welcome Message', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Custom Welcome Message', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
                 'condition' => [
                     'show_logged_in_message'   => 'yes',
@@ -272,9 +272,9 @@ class User_Login extends Widget_Base {
         $this->add_control(
             'logged_in_custom_message',
             [
-                'label'     => esc_html__( 'Custom Message', 'bdthemes-element-pack' ),
+                'label'     => esc_html__( 'Custom Message', 'avator-widget-pack' ),
                 'type'      => Controls_Manager::TEXT,
-                'default'   => esc_html__( 'Hey,', 'bdthemes-element-pack' ),
+                'default'   => esc_html__( 'Hey,', 'avator-widget-pack' ),
                 'condition' => [
                     'show_logged_in_message'   => 'yes',
                     'show_custom_message'   => 'yes',
@@ -285,8 +285,8 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'show_avatar_in_button',
 			[
-				'label'   => esc_html__( 'Avatar in Button', 'bdthemes-element-pack' ),
-				'description'   => esc_html__( 'When user logged in this avatar shown in dropdown/modal button.', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Avatar in Button', 'avator-widget-pack' ),
+				'description'   => esc_html__( 'When user logged in this avatar shown in dropdown/modal button.', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -294,7 +294,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'custom_labels',
 			[
-				'label'     => esc_html__( 'Custom Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Custom Label', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'show_labels' => 'yes',
@@ -305,9 +305,9 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'user_label',
 				[
-				'label'     => esc_html__( 'Username Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Username Label', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Username or Email', 'bdthemes-element-pack' ),
+				'default'   => esc_html__( 'Username or Email', 'avator-widget-pack' ),
 				'condition' => [
 					'show_labels'   => 'yes',
 					'custom_labels' => 'yes',
@@ -318,9 +318,9 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'user_placeholder',
 			[
-				'label'     => esc_html__( 'Username Placeholder', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Username Placeholder', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Username or Email', 'bdthemes-element-pack' ),
+				'default'   => esc_html__( 'Username or Email', 'avator-widget-pack' ),
 				'condition' => [
 					'show_labels'   => 'yes',
 					'custom_labels' => 'yes',
@@ -331,9 +331,9 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'password_label',
 			[
-				'label'     => esc_html__( 'Password Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Password Label', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Password', 'bdthemes-element-pack' ),
+				'default'   => esc_html__( 'Password', 'avator-widget-pack' ),
 				'condition' => [
 					'show_labels'   => 'yes',
 					'custom_labels' => 'yes',
@@ -344,9 +344,9 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'password_placeholder',
 			[
-				'label'     => esc_html__( 'Password Placeholder', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Password Placeholder', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Password', 'bdthemes-element-pack' ),
+				'default'   => esc_html__( 'Password', 'avator-widget-pack' ),
 				'condition' => [
 					'show_labels'   => 'yes',
 					'custom_labels' => 'yes',
@@ -358,7 +358,7 @@ class User_Login extends Widget_Base {
 		$this->add_responsive_control(
 			'dropdown_width',
 			[
-				'label' => esc_html__( 'Dropdown Width', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Dropdown Width', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -368,10 +368,10 @@ class User_Login extends Widget_Base {
 				],
 				'separator' => 'before',
 				'condition' => [
-					'_skin' => ['bdt-dropdown'],
+					'_skin' => ['avt-dropdown'],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login-skin-dropdown .bdt-dropdown' => 'min-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-user-login-skin-dropdown .avt-dropdown' => 'min-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -379,7 +379,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_offset',
 			[
-				'label' => esc_html__( 'Dropdown Offset', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Dropdown Offset', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -389,7 +389,7 @@ class User_Login extends Widget_Base {
 				],
 				//'separator' => 'before',
 				'condition' => [
-					'_skin' => ['bdt-dropdown', 'bdt-modal'],
+					'_skin' => ['avt-dropdown', 'avt-modal'],
 				],
 			]
 		);
@@ -397,12 +397,12 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_position',
 			[
-				'label'   => esc_html__( 'Dropdown Position', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Dropdown Position', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'bottom-right',
-				'options' => element_pack_drop_position(),
+				'options' => widget_pack_drop_position(),
 				'condition' => [
-					'_skin' => ['bdt-dropdown', 'bdt-modal'],
+					'_skin' => ['avt-dropdown', 'avt-modal'],
 				],
 			]
 		);
@@ -410,15 +410,15 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_mode',
 			[
-				'label'   => esc_html__( 'Dropdown Mode', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Dropdown Mode', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'hover',
 				'options' => [
-					'hover' => esc_html__('Hover', 'bdthemes-element-pack'),
-					'click' => esc_html__('Clicked', 'bdthemes-element-pack'),
+					'hover' => esc_html__('Hover', 'avator-widget-pack'),
+					'click' => esc_html__('Clicked', 'avator-widget-pack'),
 				],
 				'condition' => [
-					'_skin' => ['bdt-dropdown', 'bdt-modal'],
+					'_skin' => ['avt-dropdown', 'avt-modal'],
 				],
 			]
 		);
@@ -429,9 +429,9 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_custom_nav',
 			[
-				'label' => esc_html__( 'Logged Dropdown Menu', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Logged Dropdown Menu', 'avator-widget-pack' ),
 				'condition' => [
-					'_skin' => ['bdt-dropdown', 'bdt-modal'],
+					'_skin' => ['avt-dropdown', 'avt-modal'],
 				],
 			]
 		);
@@ -439,48 +439,48 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'custom_navs',
 			[
-				'label'   => esc_html__( 'Dropdown Menus', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Dropdown Menus', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::REPEATER,
 				'default' => [
 					[
-						'custom_nav_title' => esc_html__( 'Billing', 'bdthemes-element-pack' ),
+						'custom_nav_title' => esc_html__( 'Billing', 'avator-widget-pack' ),
 						'custom_nav_icon'  => ['value' => 'fas fa-dollar-sign', 'library' => 'fa-solid'],
 						'custom_nav_link'  => [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						] 
 					],
 					[
-						'custom_nav_title' => esc_html__( 'Settings', 'bdthemes-element-pack' ),
+						'custom_nav_title' => esc_html__( 'Settings', 'avator-widget-pack' ),
 						'custom_nav_icon'  => ['value' => 'fas fa-cog', 'library' => 'fa-solid'],
 						'custom_nav_link'  => [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						]
 					],
 					[
-						'custom_nav_title' => esc_html__( 'Support', 'bdthemes-element-pack' ),
+						'custom_nav_title' => esc_html__( 'Support', 'avator-widget-pack' ),
 						'custom_nav_icon'  => ['value' => 'far fa-life-ring', 'library' => 'fa-regular'],
 						'custom_nav_link'  => [
-							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
+							'url' => esc_html__( '#', 'avator-widget-pack' ),
 						]
 					],
 				],
 				'fields' => [
 					[
 						'name'    => 'custom_nav_title',
-						'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Title', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::TEXT,
-						'default' => esc_html__( 'Title' , 'bdthemes-element-pack' ),
+						'default' => esc_html__( 'Title' , 'avator-widget-pack' ),
 						'dynamic'     => [ 'active' => true ],
 					],
 					[
 						'name'    => 'custom_nav_icon',
-						'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Icon', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::ICONS,
 						'fa4compatibility' => 'icon',
 					],
 					[
 						'name'        => 'custom_nav_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Link', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::URL,
 						'default'     => [ 'url' => '#' ],
 						'dynamic'     => [ 'active' => true ],
@@ -493,7 +493,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'show_edit_profile',
 			[
-				'label'   => __('Edit Profile', 'bdthemes-element-pack'),
+				'label'   => __('Edit Profile', 'avator-widget-pack'),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes'
 			]
@@ -504,7 +504,7 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => esc_html__( 'Form Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Form Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -512,7 +512,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'row_gap',
 			[
-				'label'   => esc_html__( 'Rows Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Rows Gap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => '15',
@@ -524,7 +524,7 @@ class User_Login extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'#avt-user-login{{ID}} .avt-field-group:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -532,11 +532,11 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'links_color',
 			[
-				'label'     => esc_html__( 'Links Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Links Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group > a' => 'color: {{VALUE}};',
-					'#bdt-user-login{{ID}} .bdt-user-login-password a:not(:last-child):after' => 'background-color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-field-group > a' => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-user-login-password a:not(:last-child):after' => 'background-color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type'  => Scheme_Color::get_type(),
@@ -548,10 +548,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'links_hover_color',
 			[
-				'label'     => esc_html__( 'Links Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Links Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group > a:hover' => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-field-group > a:hover' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type'  => Scheme_Color::get_type(),
@@ -563,10 +563,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'checkbox_color',
 			[
-				'label'     => esc_html__( 'Checkbox Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Checkbox Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-form-stacked .bdt-field-group .bdt-checkbox' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-form-stacked .avt-field-group .avt-checkbox' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -574,10 +574,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'checkbox_active_color',
 			[
-				'label'     => esc_html__( 'Checkbox Active Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Checkbox Active Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login .bdt-form-stacked .bdt-field-group .bdt-checkbox:checked' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login .avt-form-stacked .avt-field-group .avt-checkbox:checked' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -587,7 +587,7 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_labels',
 			[
-				'label'     => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Label', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_labels!' => '',
@@ -598,7 +598,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'label_spacing',
 			[
-				'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -607,7 +607,7 @@ class User_Login extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group > label' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'#avt-user-login{{ID}} .avt-field-group > label' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -615,10 +615,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-form-label' => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-form-label' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
 					'type'  => Scheme_Color::get_type(),
@@ -631,7 +631,7 @@ class User_Login extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'label_typography',
-				'selector' => '#bdt-user-login{{ID}} .bdt-form-label',
+				'selector' => '#avt-user-login{{ID}} .avt-form-label',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -641,7 +641,7 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_field_style',
 			[
-				'label' => esc_html__( 'Fields', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Fields', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -651,17 +651,17 @@ class User_Login extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_field_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'field_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group .bdt-input' => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-field-group .avt-input' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -669,11 +669,11 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'field_placeholder_color',
 			[
-				'label'     => esc_html__( 'Placeholder Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Placeholder Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group .bdt-input::placeholder'      => 'color: {{VALUE}};',
-					'#bdt-user-login{{ID}} .bdt-field-group .bdt-input::-moz-placeholder' => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-field-group .avt-input::placeholder'      => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-field-group .avt-input::-moz-placeholder' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -681,11 +681,11 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'field_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group .bdt-input,
-					#bdt-user-login{{ID}} .bdt-field-group .bdt-checkbox' => 'background-color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-field-group .avt-input,
+					#avt-user-login{{ID}} .avt-field-group .avt-checkbox' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -694,10 +694,10 @@ class User_Login extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'        => 'field_border',
-				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '#bdt-user-login{{ID}} .bdt-field-group .bdt-input',
+				'selector'    => '#avt-user-login{{ID}} .avt-field-group .avt-input',
 				'separator'   => 'before',
 			]
 		);
@@ -705,11 +705,11 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'field_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'#bdt-user-login{{ID}} .bdt-field-group .bdt-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'#avt-user-login{{ID}} .avt-field-group .avt-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -718,18 +718,18 @@ class User_Login extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'field_box_shadow',
-				'selector' => '#bdt-user-login{{ID}} .bdt-field-group .bdt-input',
+				'selector' => '#avt-user-login{{ID}} .avt-field-group .avt-input',
 			]
 		);
 
 		$this->add_control(
 			'field_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'#bdt-user-login{{ID}} .bdt-field-group .bdt-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; height: auto;',
+					'#avt-user-login{{ID}} .avt-field-group .avt-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; height: auto;',
 				],
 				'separator' => 'before',
 			]
@@ -739,9 +739,9 @@ class User_Login extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'field_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_4,
-				'selector'  => '#bdt-user-login{{ID}} .bdt-field-group .bdt-input',
+				'selector'  => '#avt-user-login{{ID}} .avt-field-group .avt-input',
 				'separator' => 'before',
 			]
 		);
@@ -751,20 +751,20 @@ class User_Login extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_field_hover',
 			[
-				'label' => esc_html__( 'Focus', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Focus', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'field_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'condition' => [
 					'field_border_border!' => '',
 				],
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-field-group .bdt-input:focus' => 'border-color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-field-group .avt-input:focus' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -778,7 +778,7 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_submit_button_style',
 			[
-				'label' => esc_html__( 'Submit Button', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Submit Button', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -788,17 +788,17 @@ class User_Login extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-button' => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-button' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -807,21 +807,21 @@ class User_Login extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'button_typography',
-				'selector' => '#bdt-user-login{{ID}} .bdt-button',
+				'selector' => '#avt-user-login{{ID}} .avt-button',
 			]
 		);
 
 		$this->add_control(
 			'button_background_color',
 			[
-				'label'  => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'  => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'   => Controls_Manager::COLOR,
 				'scheme' => [
 					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_4,
 				],
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-button' => 'background-color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-button' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -831,7 +831,7 @@ class User_Login extends Widget_Base {
 				'name'        => 'button_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '#bdt-user-login{{ID}} .bdt-button',
+				'selector'    => '#avt-user-login{{ID}} .avt-button',
 				'separator'   => 'before',
 			]
 		);
@@ -839,11 +839,11 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'#bdt-user-login{{ID}} .bdt-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'#avt-user-login{{ID}} .avt-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -851,11 +851,11 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'button_text_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'#bdt-user-login{{ID}} .bdt-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'#avt-user-login{{ID}} .avt-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -865,17 +865,17 @@ class User_Login extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'button_hover_color',
 			[
-				'label'     => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-button:hover' => 'color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-button:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -883,10 +883,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'button_background_hover_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-button:hover' => 'background-color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-button:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -894,10 +894,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'#bdt-user-login{{ID}} .bdt-button:hover' => 'border-color: {{VALUE}};',
+					'#avt-user-login{{ID}} .avt-button:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
 					'button_border_border!' => '',
@@ -908,7 +908,7 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -923,10 +923,10 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_dropdown_style',
 			[
-				'label' => esc_html__( 'Dropdown Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Dropdown Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'_skin' => ['bdt-dropdown', 'bdt-modal'],
+					'_skin' => ['avt-dropdown', 'avt-modal'],
 				],
 			]
 		);
@@ -934,10 +934,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_text_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login .bdt-dropdown' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login .avt-dropdown' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -945,10 +945,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login .bdt-dropdown' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login .avt-dropdown' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -958,7 +958,7 @@ class User_Login extends Widget_Base {
 				'name'        => 'dropdown_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-user-login .bdt-dropdown',
+				'selector'    => '{{WRAPPER}} .avt-user-login .avt-dropdown',
 				'separator'   => 'before',
 			]
 		);
@@ -966,11 +966,11 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-user-login .bdt-dropdown' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-user-login .avt-dropdown' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -978,12 +978,12 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_text_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-user-login .bdt-dropdown, {{WRAPPER}} .bdt-user-login .bdt-dropdown .bdt-user-card-small' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-user-login .bdt-dropdown .bdt-user-card-small' => 'margin-top: -{{TOP}}{{UNIT}}; margin-right: -{{RIGHT}}{{UNIT}}; margin-left: -{{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-user-login .avt-dropdown, {{WRAPPER}} .avt-user-login .avt-dropdown .avt-user-card-small' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-user-login .avt-dropdown .avt-user-card-small' => 'margin-top: -{{TOP}}{{UNIT}}; margin-right: -{{RIGHT}}{{UNIT}}; margin-left: -{{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -991,10 +991,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_link_color',
 			[
-				'label'     => esc_html__( 'Link Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Link Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login .bdt-dropdown a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login .avt-dropdown a' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -1003,10 +1003,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'dropdown_link_hover_color',
 			[
-				'label'     => esc_html__( 'Link Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Link Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login .bdt-dropdown a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login .avt-dropdown a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1017,10 +1017,10 @@ class User_Login extends Widget_Base {
 		$this->start_controls_section(
 			'section_logged_style',
 			[
-				'label' => esc_html__( 'Logged Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Logged Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'_skin!' => ['bdt-dropdown', 'bdt-modal'],
+					'_skin!' => ['avt-dropdown', 'avt-modal'],
 				],
 			]
 		);
@@ -1028,10 +1028,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'looged_text_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1039,10 +1039,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'looged_link_color',
 			[
-				'label'     => esc_html__( 'Link Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Link Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1050,10 +1050,10 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'looged_link_hover_color',
 			[
-				'label'     => esc_html__( 'Link Hover Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Link Hover Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-user-login a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-user-login a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1067,7 +1067,7 @@ class User_Login extends Widget_Base {
 		$id       = $this->get_id();
 
 		if ( ! empty( $settings['button_size'] ) ) {
-			$this->add_render_attribute( 'button', 'class', 'bdt-button-' . $settings['button_size'] );
+			$this->add_render_attribute( 'button', 'class', 'avt-button-' . $settings['button_size'] );
 		}
 
 		if ( $settings['button_hover_animation'] ) {
@@ -1083,36 +1083,36 @@ class User_Login extends Widget_Base {
 				],
 				'field-group' => [
 					'class' => [
-						'bdt-field-group',
-						'bdt-width-1-1',
+						'avt-field-group',
+						'avt-width-1-1',
 					],
 				],
 				'submit-group' => [
 					'class' => [
 						'elementor-field-type-submit',
-						'bdt-field-group',
-						'bdt-flex',
+						'avt-field-group',
+						'avt-flex',
 					],
 				],
 
 				'button' => [
 					'class' => [
 						'elementor-button',
-						'bdt-button',
-						'bdt-button-primary',
+						'avt-button',
+						'avt-button-primary',
 					],
 					'name' => 'wp-submit',
 				],
 				'user_label' => [
 					'for'   => 'user' . esc_attr($id),
 					'class' => [
-						'bdt-form-label',
+						'avt-form-label',
 					]
 				],
 				'password_label' => [
 					'for'   => 'password' . esc_attr($id),
 					'class' => [
-						'bdt-form-label',
+						'avt-form-label',
 					]
 				],
 				'user_input' => [
@@ -1121,8 +1121,8 @@ class User_Login extends Widget_Base {
 					'id'          => 'user' . esc_attr($id),
 					'placeholder' => $settings['user_placeholder'],
 					'class'       => [
-						'bdt-input',
-						'bdt-form-' . $settings['input_size'],
+						'avt-input',
+						'avt-form-' . $settings['input_size'],
 					],
 				],
 				'password_input' => [
@@ -1131,8 +1131,8 @@ class User_Login extends Widget_Base {
 					'id'          => 'password' . esc_attr($id),
 					'placeholder' => $settings['password_placeholder'],
 					'class'       => [
-						'bdt-input',
-						'bdt-form-' . $settings['input_size'],
+						'avt-input',
+						'avt-form-' . $settings['input_size'],
 					],
 				],
 			]
@@ -1170,11 +1170,11 @@ class User_Login extends Widget_Base {
 		$is_new    = empty( $list['icon'] ) && Icons_Manager::is_migration_allowed();
 		
 		?>
-	    <li class="bdt-user-login-custom-item">
+	    <li class="avt-user-login-custom-item">
 			<a <?php echo $this->get_render_attribute_string( 'custom-nav-item' ); ?>>
 				<?php if ($list['custom_nav_icon']['value']) : ?>
 
-					<span class="bdt-ul-custom-nav-icon">
+					<span class="avt-ul-custom-nav-icon">
 
 						<?php if ( $is_new || $migrated ) :
 						Icons_Manager::render_icon( $list['custom_nav_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );
@@ -1186,7 +1186,7 @@ class User_Login extends Widget_Base {
 
 				<?php endif; ?>
 
-				<?php echo wp_kses( $list['custom_nav_title'], element_pack_allow_tags('title') ); ?>
+				<?php echo wp_kses( $list['custom_nav_title'], widget_pack_allow_tags('title') ); ?>
 			</a>
 		</li>
 		<?php
@@ -1201,7 +1201,7 @@ class User_Login extends Widget_Base {
 		$this->add_render_attribute(
 			[
 				'dropdown-settings' => [
-					'bdt-dropdown' => [
+					'avt-dropdown' => [
 						wp_json_encode(array_filter([
 							"mode"   => $settings["dropdown_mode"],
 							"pos"    => $settings["dropdown_position"],
@@ -1212,19 +1212,19 @@ class User_Login extends Widget_Base {
 			]
 		);
 
-		$this->add_render_attribute( 'dropdown-settings', 'class', 'bdt-dropdown bdt-text-left bdt-overflow-hidden' );
+		$this->add_render_attribute( 'dropdown-settings', 'class', 'avt-dropdown avt-text-left avt-overflow-hidden' );
 
 		?>
 
 		<div <?php echo $this->get_render_attribute_string('dropdown-settings'); ?>>
-			<div class="bdt-user-card-small">
-				<div class="bdt-grid-small bdt-flex-middle" bdt-grid>
-		            <div class="bdt-width-auto">
+			<div class="avt-user-card-small">
+				<div class="avt-grid-small avt-flex-middle" avt-grid>
+		            <div class="avt-width-auto">
 		                <?php echo get_avatar( $current_user->user_email, 48 ); ?>
 		            </div>
-		            <div class="bdt-width-expand">
-		                <div class="bdt-card-title"><?php echo esc_html($current_user->display_name); ?></div>
-		                <p class="bdt-text-meta bdt-margin-remove-top">
+		            <div class="avt-width-expand">
+		                <div class="avt-card-title"><?php echo esc_html($current_user->display_name); ?></div>
+		                <p class="avt-text-meta avt-margin-remove-top">
 		                	<a href="<?php echo esc_url($current_user->user_url); ?>" target="_blank">
 		                		<?php echo esc_url($current_user->user_url); ?>
 		                	</a>
@@ -1232,9 +1232,9 @@ class User_Login extends Widget_Base {
 		            </div>
 		        </div>
 	        </div>
-		    <ul class="bdt-nav bdt-dropdown-nav">
+		    <ul class="avt-nav avt-dropdown-nav">
 		    	<?php if ( $settings['show_edit_profile'] ) : ?>
-			        <li><a href="<?php echo get_edit_user_link(); ?>"><span class="bdt-ul-custom-nav-icon"><i class="ep-edit fa-fw"></i></span> <?php esc_html_e( 'Edit Profile', 'bdthemes-element-pack' ); ?></a></li>
+			        <li><a href="<?php echo get_edit_user_link(); ?>"><span class="avt-ul-custom-nav-icon"><i class="ep-edit fa-fw"></i></span> <?php esc_html_e( 'Edit Profile', 'avator-widget-pack' ); ?></a></li>
 			    <?php endif; ?>
 		        
 		        <?php
@@ -1243,8 +1243,8 @@ class User_Login extends Widget_Base {
 		        endforeach;
 		        ?>
 
-		        <li class="bdt-nav-divider"></li>
-		        <li><a href="<?php echo wp_logout_url( $current_url ); ?>" class="bdt-ul-logout-menu"><span class="bdt-ul-custom-nav-icon"><i class="ep-lock fa-fw"></i></span> <?php esc_html_e( 'Logout', 'bdthemes-element-pack' ); ?></a></li>
+		        <li class="avt-nav-divider"></li>
+		        <li><a href="<?php echo wp_logout_url( $current_url ); ?>" class="avt-ul-logout-menu"><span class="avt-ul-custom-nav-icon"><i class="ep-lock fa-fw"></i></span> <?php esc_html_e( 'Logout', 'avator-widget-pack' ); ?></a></li>
 		    </ul>
 		</div>
 
@@ -1256,23 +1256,23 @@ class User_Login extends Widget_Base {
 		$current_url = remove_query_arg( 'fake_arg' );
 
 
-		if ( is_user_logged_in() && ! Element_Pack_Loader::elementor()->editor->is_edit_mode() ) {
+		if ( is_user_logged_in() && ! Widget_Pack_Loader::elementor()->editor->is_edit_mode() ) {
 			if ( $settings['show_logged_in_message'] ) {
 				$current_user = wp_get_current_user();
 
 				?>
-				<div class="bdt-user-login bdt-text-center">
-					<ul class="bdt-list bdt-list-divider">
-						<li class="bdt-user-avatar bdt-margin-large-bottom">
+				<div class="avt-user-login avt-text-center">
+					<ul class="avt-list avt-list-divider">
+						<li class="avt-user-avatar avt-margin-large-bottom">
 			        		<?php echo get_avatar( $current_user->user_email, 128 ); ?>
 						</li>
                         <li>
                             <?php if ( $settings['show_logged_in_message'] ) : ?>
-                                <span class="bdt-user-name">
+                                <span class="avt-user-name">
                                 <?php if ($settings['show_custom_message'] and $settings['logged_in_custom_message']) : ?>
                                     <?php echo esc_html($settings['logged_in_custom_message']); ?>
                                 <?php else : ?>
-                                    <?php esc_html_e( 'Hi', 'bdthemes-element-pack' ); ?>,
+                                    <?php esc_html_e( 'Hi', 'avator-widget-pack' ); ?>,
                                 <?php endif; ?>
                                     <a href="<?php echo get_edit_user_link(); ?>"><?php echo esc_html($current_user->display_name); ?></a>
                             </span>
@@ -1280,16 +1280,16 @@ class User_Login extends Widget_Base {
                         </li>
 
 
-						<li class="bdt-user-website">
-							<?php esc_html_e( 'Website:', 'bdthemes-element-pack' ); ?> <a href="<?php echo esc_url($current_user->user_url); ?>" target="_blank"><?php echo esc_url($current_user->user_url); ?></a>
+						<li class="avt-user-website">
+							<?php esc_html_e( 'Website:', 'avator-widget-pack' ); ?> <a href="<?php echo esc_url($current_user->user_url); ?>" target="_blank"><?php echo esc_url($current_user->user_url); ?></a>
 						</li>
 
-						<li class="bdt-user-bio">
-							<?php esc_html_e( 'Description:', 'bdthemes-element-pack' ); ?> <?php echo esc_html($current_user->user_description); ?>
+						<li class="avt-user-bio">
+							<?php esc_html_e( 'Description:', 'avator-widget-pack' ); ?> <?php echo esc_html($current_user->user_description); ?>
 						</li>
 
-						<li class="bdt-user-logged-out">
-							<a href="<?php echo wp_logout_url( $current_url ); ?>" class="bdt-button bdt-button-primary"><?php esc_html_e( 'Logout', 'bdthemes-element-pack' ); ?></a>
+						<li class="avt-user-logged-out">
+							<a href="<?php echo wp_logout_url( $current_url ); ?>" class="avt-button avt-button-primary"><?php esc_html_e( 'Logout', 'avator-widget-pack' ); ?></a>
 						</li>
 					</ul>
 
@@ -1303,7 +1303,7 @@ class User_Login extends Widget_Base {
 		$this->form_fields_render_attributes();
 
 		?>
-		<div class="bdt-user-login bdt-user-login-skin-default">
+		<div class="avt-user-login avt-user-login-skin-default">
 			<div class="elementor-form-fields-wrapper">
 				<?php $this->user_login_form(); ?>
 			</div>
@@ -1321,15 +1321,15 @@ class User_Login extends Widget_Base {
 		$id          = $this->get_id();
 
 		?>
-		<form id="bdt-user-login<?php echo esc_attr($id); ?>" class="bdt-form-stacked bdt-width-1-1" method="post" action="login">
-			<input type="hidden" name="action" value="element_pack_ajax_login">
-			<div class="bdt-user-login-status"></div>
+		<form id="avt-user-login<?php echo esc_attr($id); ?>" class="avt-form-stacked avt-width-1-1" method="post" action="login">
+			<input type="hidden" name="action" value="widget_pack_ajax_login">
+			<div class="avt-user-login-status"></div>
 			<div <?php echo $this->get_render_attribute_string( 'field-group' ); ?>>
 				<?php
 				if ( $settings['show_labels'] ) {
 					echo '<label ' . $this->get_render_attribute_string( 'user_label' ) . '>' . $settings['user_label'] . '</label>';
 				}
-				echo '<div class="bdt-form-controls">';
+				echo '<div class="avt-form-controls">';
 				echo '<input ' . $this->get_render_attribute_string( 'user_input' ) . ' required>';
 				echo '</div>';
 
@@ -1341,17 +1341,17 @@ class User_Login extends Widget_Base {
 				if ( $settings['show_labels'] ) :
 					echo '<label ' . $this->get_render_attribute_string( 'password_label' ) . '>' . $settings['password_label'] . '</label>';
 				endif;
-				echo '<div class="bdt-form-controls">';
+				echo '<div class="avt-form-controls">';
 				echo '<input ' . $this->get_render_attribute_string( 'password_input' ) . ' required>';
 				echo '</div>';
 				?>
 			</div>
 
 			<?php if ( $settings['show_remember_me'] ) : ?>
-				<div class="bdt-field-group bdt-remember-me">
-					<label for="remember-me-<?php echo esc_attr($id); ?>" class="bdt-form-label">
-						<input type="checkbox" id="remember-me-<?php echo esc_attr($id); ?>" class="bdt-checkbox" name="rememberme" value="forever"> 
-						<?php esc_html_e( 'Remember Me', 'bdthemes-element-pack' ); ?>
+				<div class="avt-field-group avt-remember-me">
+					<label for="remember-me-<?php echo esc_attr($id); ?>" class="avt-form-label">
+						<input type="checkbox" id="remember-me-<?php echo esc_attr($id); ?>" class="avt-checkbox" name="rememberme" value="forever"> 
+						<?php esc_html_e( 'Remember Me', 'avator-widget-pack' ); ?>
 					</label>
 				</div>
 			<?php endif; ?>
@@ -1359,7 +1359,7 @@ class User_Login extends Widget_Base {
 			<div <?php echo $this->get_render_attribute_string( 'submit-group' ); ?>>
 				<button type="submit" <?php echo $this->get_render_attribute_string( 'button' ); ?>>
 					<?php if ( ! empty( $settings['button_text'] ) ) : ?>
-						<span><?php echo wp_kses( $settings['button_text'], element_pack_allow_tags('title') ); ?></span>
+						<span><?php echo wp_kses( $settings['button_text'], widget_pack_allow_tags('title') ); ?></span>
 					<?php endif; ?>
 				</button>
 			</div>
@@ -1369,11 +1369,11 @@ class User_Login extends Widget_Base {
 			$show_register      = get_option( 'users_can_register' ) && $settings['show_register'];
 
 			if ( $show_lost_password || $show_register ) : ?>
-				<div class="bdt-field-group bdt-width-1-1 bdt-margin-remove-bottom bdt-user-login-password">
+				<div class="avt-field-group avt-width-1-1 avt-margin-remove-bottom avt-user-login-password">
 					   
 					<?php if ( $show_lost_password ) : ?>
-						<a class="bdt-lost-password" href="<?php echo wp_lostpassword_url( $current_url ); ?>">
-							<?php esc_html_e( 'Lost password?', 'bdthemes-element-pack' ); ?>
+						<a class="avt-lost-password" href="<?php echo wp_lostpassword_url( $current_url ); ?>">
+							<?php esc_html_e( 'Lost password?', 'avator-widget-pack' ); ?>
 						</a>
 					<?php endif; ?>
 
@@ -1385,15 +1385,15 @@ class User_Login extends Widget_Base {
                                 $register_url = wp_registration_url();
                             }
                         ?>
-						<a class="bdt-register" href="<?php echo esc_url($register_url); ?>">
-							<?php esc_html_e( 'Register', 'bdthemes-element-pack' ); ?>
+						<a class="avt-register" href="<?php echo esc_url($register_url); ?>">
+							<?php esc_html_e( 'Register', 'avator-widget-pack' ); ?>
 						</a>
 					<?php endif; ?>
 					
 				</div>
 			<?php endif; ?>
 			
-			<?php wp_nonce_field( 'ajax-login-nonce', 'bdt-user-login-sc' ); ?>
+			<?php wp_nonce_field( 'ajax-login-nonce', 'avt-user-login-sc' ); ?>
 
 		</form>
 		<?php
@@ -1414,28 +1414,28 @@ class User_Login extends Widget_Base {
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				"use strict";
-				var login_form = 'form#bdt-user-login<?php echo esc_attr($id); ?>';
+				var login_form = 'form#avt-user-login<?php echo esc_attr($id); ?>';
 			    // Perform AJAX login on form submit
 			    $(login_form).on('submit', function(e){
-			        bdtUIkit.notification({message: '<div bdt-spinner></div> ' + element_pack_ajax_login_config.loadingmessage, timeout: false});
+			        avtUIkit.notification({message: '<div avt-spinner></div> ' + widget_pack_ajax_login_config.loadingmessage, timeout: false});
 			        $.ajax({
 			            type: 'POST',
 			            dataType: 'json',
-			            url: element_pack_ajax_login_config.ajaxurl,
+			            url: widget_pack_ajax_login_config.ajaxurl,
 			            data: $(login_form).serialize(),
 			            success: function(data) {
 			                if (data.loggedin == true){
-			                	bdtUIkit.notification.closeAll();
-			                	bdtUIkit.notification({message: '<span bdt-icon=\'icon: check\'></span> ' + data.message, status: 'primary'});
+			                	avtUIkit.notification.closeAll();
+			                	avtUIkit.notification({message: '<span avt-icon=\'icon: check\'></span> ' + data.message, status: 'primary'});
 			                    document.location.href = '<?php echo esc_url( $redirect_url ); ?>';
 			                } else {
-			                	bdtUIkit.notification.closeAll();
-			                	bdtUIkit.notification({message: '<span bdt-icon=\'icon: warning\'></span> ' + data.message, status: 'warning'});
+			                	avtUIkit.notification.closeAll();
+			                	avtUIkit.notification({message: '<span avt-icon=\'icon: warning\'></span> ' + data.message, status: 'warning'});
 			                }
 			            },
 			            error: function(data) {
-			            	bdtUIkit.notification.closeAll();
-			            	bdtUIkit.notification({message: '<span bdt-icon=\'icon: warning\'></span> <?php esc_html_e('Unknown error, make sure access is correct!', 'bdthemes-element-pack') ?>', status: 'warning'});
+			            	avtUIkit.notification.closeAll();
+			            	avtUIkit.notification({message: '<span avt-icon=\'icon: warning\'></span> <?php esc_html_e('Unknown error, make sure access is correct!', 'avator-widget-pack') ?>', status: 'warning'});
 			            }
 			        });
 			        e.preventDefault();

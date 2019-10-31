@@ -1,16 +1,16 @@
 <?php
-namespace ElementPack\Modules\TestimonialCarousel\Skins;
+namespace WidgetPack\Modules\TestimonialCarousel\Skins;
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Twyla extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-twyla';
+		return 'avt-twyla';
 	}
 
 	public function get_title() {
-		return __( 'Twyla', 'bdthemes-element-pack' );
+		return __( 'Twyla', 'avator-widget-pack' );
 	}
 
 	public function render() {
@@ -22,8 +22,8 @@ class Skin_Twyla extends Elementor_Skin_Base {
 			<?php $this->parent->render_header('twyla'); ?>
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
-			  		<div class="swiper-slide bdt-testimonial-carousel-item">
-				  		<div class="bdt-testimonial-carousel-item-wrapper bdt-text-center">
+			  		<div class="swiper-slide avt-testimonial-carousel-item">
+				  		<div class="avt-testimonial-carousel-item-wrapper avt-text-center">
 					  		<div class="testimonial-item-header">
 					  			<?php $this->parent->render_image( get_the_ID() ); ?>
 				            </div>
@@ -34,7 +34,7 @@ class Skin_Twyla extends Elementor_Skin_Base {
 							$this->parent->render_address( get_the_ID() );
 
 	                        if (( $settings['show_rating'] ) && ( $settings['show_text'] )) : ?>
-		                    	<div class="bdt-testimonial-carousel-rating bdt-display-inline-block">
+		                    	<div class="avt-testimonial-carousel-rating avt-display-inline-block">
 								    <?php $this->parent->render_rating( get_the_ID() ); ?>
 				                </div>
 	                        <?php endif; ?>

@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\ProgressPie\Widgets;
+namespace WidgetPack\Modules\ProgressPie\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,19 +13,19 @@ class Progress_Pie extends Widget_Base {
 	protected $_has_template_content = true;
 
 	public function get_name() {
-		return 'bdt-progress-pie';
+		return 'avt-progress-pie';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Progress Pie', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Progress Pie', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-progress-pie';
+		return 'avt-wi-progress-pie';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,14 +40,14 @@ class Progress_Pie extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'percent',
 			[
-				'label'   => esc_html__( 'Percent', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Percent', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => 75,
 				'dynamic' => [ 'active' => true ],
@@ -57,7 +57,7 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'duration',
 			[
-				'label'   => esc_html__( 'Duration(s)', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Duration(s)', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 1,
 			]
@@ -66,7 +66,7 @@ class Progress_Pie extends Widget_Base {
 		/*$this->add_control(
 			'delay',
 			[
-				'label'   => esc_html__( 'Delay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Delay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 1,
 			]
@@ -75,7 +75,7 @@ class Progress_Pie extends Widget_Base {
 		/*$this->add_control(
 			'step',
 			[
-				'label'   => esc_html__( 'Steps', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Steps', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 1,
 			]
@@ -84,10 +84,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'title',
 			[
-				'label'       => esc_html__( 'Progress Pie Title', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Progress Pie Title', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Your title text here', 'bdthemes-element-pack' ),
-				'default'     => esc_html__( 'Progress Pie Title', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Your title text here', 'avator-widget-pack' ),
+				'default'     => esc_html__( 'Progress Pie Title', 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -96,9 +96,9 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'hide_title_divider',
 			[
-				'label'        => esc_html__( 'Hide Title Divider', 'bdthemes-element-pack' ),
+				'label'        => esc_html__( 'Hide Title Divider', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'return_value' => ' bdt-no-divider',
+				'return_value' => ' avt-no-divider',
 				'condition'    => [
 					'title!' => '',
 				]
@@ -108,9 +108,9 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'before',
 			[
-				'label'       => esc_html__( 'Before Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Before Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Your before text here', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Your before text here', 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -119,9 +119,9 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'text',
 			[
-				'label'       => esc_html__( 'Middle Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Middle Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Your middle text here', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Your middle text here', 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -130,9 +130,9 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'after',
 			[
-				'label'       => esc_html__( 'After Text', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'After Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Your after text here', 'bdthemes-element-pack' ),
+				'placeholder' => esc_html__( 'Your after text here', 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -143,7 +143,7 @@ class Progress_Pie extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_layout',
 			[
-				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Style', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -151,7 +151,7 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'progress_pie',
 			[
-				'label'     => esc_html__( 'Progress Pie', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Progress Pie', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -160,10 +160,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'progress_background',
 			[
-				'label'     => esc_html__( 'Pie Fill Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pie Fill Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie svg ellipse' => 'stroke: {{VALUE}};',
+					'{{WRAPPER}} .avt-progress-pie-wrapper .avt-progress-pie svg ellipse' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -171,10 +171,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'progress_color',
 			[
-				'label'     => esc_html__( 'Pie Bar Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Pie Bar Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie svg path' => 'stroke: {{VALUE}};',
+					'{{WRAPPER}} .avt-progress-pie-wrapper .avt-progress-pie svg path' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -182,10 +182,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'before_text_color',
 			[
-				'label'     => esc_html__( 'Before Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Before Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-progress-pie-before' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'before!' => '',
@@ -196,10 +196,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'middle_text_color',
 			[
-				'label'     => esc_html__( 'Middle Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Middle Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-progress-pie-text' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'text!' => '',
@@ -211,10 +211,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'number_color',
 			[
-				'label'     => esc_html__( 'Percentage Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Percentage Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-number' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-progress-pie-number' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'text' => '',
@@ -226,10 +226,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'after_text_color',
 			[
-				'label'     => esc_html__( 'After Text Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'After Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-progress-pie-after' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'after!' => '',
@@ -240,11 +240,11 @@ class Progress_Pie extends Widget_Base {
 		$this->add_responsive_control(
 			'progress_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-progress-pie-wrapper .avt-progress-pie' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -252,7 +252,7 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'line_width',
 			[
-				'label'   => esc_html__( 'Line Width', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Line Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 8,
 			]
@@ -262,13 +262,13 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'line_cap',
 			[
-				'label'     => esc_html__( 'Line Cap', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Line Cap', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'round',
 				'options'   => [
-					'round' => esc_html__( 'Rounded', 'bdthemes-element-pack' ),
-					'square'  => esc_html__( 'Square', 'bdthemes-element-pack' ),
-					'butt'    => esc_html__( 'Butt', 'bdthemes-element-pack' ),
+					'round' => esc_html__( 'Rounded', 'avator-widget-pack' ),
+					'square'  => esc_html__( 'Square', 'avator-widget-pack' ),
+					'butt'    => esc_html__( 'Butt', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -276,7 +276,7 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'progress_title',
 			[
-				'label'     => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Title', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -288,10 +288,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'title_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie-title' => 'background-color: {{VALUE}};  border-top: none;',
+					'{{WRAPPER}} .avt-progress-pie-wrapper .avt-progress-pie-title' => 'background-color: {{VALUE}};  border-top: none;',
 				],
 				'condition' => [
 					'title!' => '',
@@ -302,10 +302,10 @@ class Progress_Pie extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-progress-pie-wrapper .avt-progress-pie-title' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'title!' => '',
@@ -316,11 +316,11 @@ class Progress_Pie extends Widget_Base {
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-progress-pie-wrapper .avt-progress-pie-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -329,7 +329,7 @@ class Progress_Pie extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'title_typography',
-				'selector'  => '{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie-title',
+				'selector'  => '{{WRAPPER}} .avt-progress-pie-wrapper .avt-progress-pie-title',
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'title!' => '',
@@ -350,9 +350,9 @@ class Progress_Pie extends Widget_Base {
 				'pp-settings' => [
 					'id'          => esc_attr( $id ),
 					'class'       => [
-						'bdt-progress-pie',
-						'bdt-pp-lc-'.$settings['line_cap'],
-						$settings['text'] ? '' : 'bdt-pp-percent'
+						'avt-progress-pie',
+						'avt-pp-lc-'.$settings['line_cap'],
+						$settings['text'] ? '' : 'avt-pp-percent'
 					],
 					'role'          => 'progressbar',
 					'data-goal'     => intval($settings['percent']),
@@ -367,25 +367,25 @@ class Progress_Pie extends Widget_Base {
 		);
 
 		?>
-		<div id="<?php echo esc_attr($id); ?>_container" class="bdt-progress-pie-wrapper">
+		<div id="<?php echo esc_attr($id); ?>_container" class="avt-progress-pie-wrapper">
 			<div <?php echo ( $this->get_render_attribute_string( 'pp-settings' ) ); ?>>
-		    	<div class="bdt-progress-pie-label">
+		    	<div class="avt-progress-pie-label">
 			       <?php if ($settings['before'] !== '') : ?>
-					    <div class="bdt-progress-pie-before"><?php echo esc_html($settings['before']); ?></div>
+					    <div class="avt-progress-pie-before"><?php echo esc_html($settings['before']); ?></div>
 					<?php endif; ?>
 
 			       <?php if ($settings['text'] !== '') : ?>
-			       		    <div class="bdt-progress-pie-text"><?php echo esc_html($settings['text']); ?></div>
+			       		    <div class="avt-progress-pie-text"><?php echo esc_html($settings['text']); ?></div>
 	       		   <?php else : ?>
-			            <div class="bdt-progress-pie-number"></div>
+			            <div class="avt-progress-pie-number"></div>
 		        	<?php endif; ?>
 			        <?php if ($settings['after'] !== '') : ?>
-	        		    <div class="bdt-progress-pie-after"><?php echo esc_html($settings['after']); ?></div>
+	        		    <div class="avt-progress-pie-after"><?php echo esc_html($settings['after']); ?></div>
 	        		<?php endif; ?>
 			    </div>
 			</div>
 				<?php if ($settings['title'] !== '') : ?>
-				    <h4 class="bdt-progress-pie-title<?php echo esc_attr($settings['hide_title_divider']); ?>"><?php echo esc_html($settings['title']); ?></h4>
+				    <h4 class="avt-progress-pie-title<?php echo esc_attr($settings['hide_title_divider']); ?>"><?php echo esc_html($settings['title']); ?></h4>
 				<?php endif; ?>
 					
 		</div>

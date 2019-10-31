@@ -1,13 +1,13 @@
 <?php
-namespace ElementPack\Modules\NewsTicker\Widgets;
+namespace WidgetPack\Modules\NewsTicker\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Typography;
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
-use ElementPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Module;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,19 +22,19 @@ class News_Ticker extends Widget_Base {
 	private $_query = null;
 
 	public function get_name() {
-		return 'bdt-news-ticker';
+		return 'avt-news-ticker';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'News Ticker', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'News Ticker', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-news-ticker';
+		return 'avt-wi-news-ticker';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -42,7 +42,7 @@ class News_Ticker extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return ['bdt-news-ticker'];
+		return ['avt-news-ticker'];
 	}
 
 	public function get_query() {
@@ -53,14 +53,14 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_label',
 			[
-				'label'   => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Label', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes'
 			]
@@ -69,11 +69,11 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'news_label',
 			[
-				'label'       => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label'       => esc_html__( 'Label', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => esc_html__( 'LATEST NEWS', 'bdthemes-element-pack' ),
-				'placeholder' => esc_html__( 'LATEST NEWS', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'LATEST NEWS', 'avator-widget-pack' ),
+				'placeholder' => esc_html__( 'LATEST NEWS', 'avator-widget-pack' ),
 				'condition' => [
 					'show_label' => 'yes'
 				]
@@ -83,12 +83,12 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'news_content',
 			[
-				'label'   => esc_html__( 'News Content', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'News Content', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'title',
 				'options' => [
-					'title'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'excerpt' => esc_html__( 'Excerpt', 'bdthemes-element-pack' ),
+					'title'   => esc_html__( 'Title', 'avator-widget-pack' ),
+					'excerpt' => esc_html__( 'Excerpt', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -96,7 +96,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'show_date',
 			[
-				'label'     => esc_html__( 'Date', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Date', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'news_content' => 'title'
@@ -107,7 +107,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'show_time',
 			[
-				'label'     => esc_html__( 'Time', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Time', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'condition' => [
 					'news_content' => 'title'
@@ -118,7 +118,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_responsive_control(
             'news_ticker_height',
             [
-				'label'   => __( 'Height', 'bdthemes-element-pack' ),
+				'label'   => __( 'Height', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 42,
@@ -130,7 +130,7 @@ class News_Ticker extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-news-ticker' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}',
 				],
             ]
         );
@@ -140,14 +140,14 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_navigation',
 			[
-				'label' => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Navigation', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_navigation',
 			[
-				'label'   => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Navigation', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes'
 			]
@@ -156,7 +156,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'play_pause',
 			[
-				'label'   => esc_html__( 'Play/Pause Button', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Play/Pause Button', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -164,7 +164,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'navigation_size',
 			[
-				'label'   => esc_html__( 'Navigation Size', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Navigation Size', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 14,
@@ -176,7 +176,7 @@ class News_Ticker extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
 					'show_navigation' => 'yes'
@@ -189,7 +189,7 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_query',
 			[
-				'label' => esc_html__( 'Query', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Query', 'avator-widget-pack' ),
 			]
 		);
 
@@ -197,14 +197,14 @@ class News_Ticker extends Widget_Base {
 			Group_Control_Posts::get_type(),
 			[
 				'name'  => 'posts',
-				'label' => esc_html__( 'Posts', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Posts', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'advanced',
 			[
-				'label' => esc_html__( 'Advanced', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Advanced', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -212,7 +212,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'posts_limit',
 			[
-				'label'   => esc_html__( 'Posts Limit', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Posts Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 5,
 			]
@@ -221,14 +221,14 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'orderby',
 			[
-				'label'   => esc_html__( 'Order By', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order By', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'post_date',
 				'options' => [
-					'post_date'  => esc_html__( 'Date', 'bdthemes-element-pack' ),
-					'post_title' => esc_html__( 'Title', 'bdthemes-element-pack' ),
-					'menu_order' => esc_html__( 'Menu Order', 'bdthemes-element-pack' ),
-					'rand'       => esc_html__( 'Random', 'bdthemes-element-pack' ),
+					'post_date'  => esc_html__( 'Date', 'avator-widget-pack' ),
+					'post_title' => esc_html__( 'Title', 'avator-widget-pack' ),
+					'menu_order' => esc_html__( 'Menu Order', 'avator-widget-pack' ),
+					'rand'       => esc_html__( 'Random', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -236,12 +236,12 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'desc',
 				'options' => [
-					'asc'  => esc_html__( 'ASC', 'bdthemes-element-pack' ),
-					'desc' => esc_html__( 'DESC', 'bdthemes-element-pack' ),
+					'asc'  => esc_html__( 'ASC', 'avator-widget-pack' ),
+					'desc' => esc_html__( 'DESC', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -251,24 +251,24 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_animation',
 			[
-				'label' => esc_html__( 'Animation', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Animation', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'slider_animations',
 			[
-				'label'     => esc_html__( 'Animations', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Animations', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SELECT,
 				'default'   => 'fade',
 				'options'   => [
-					'scroll'  	  => esc_html__( 'Scroll', 'bdthemes-element-pack' ),
-					'slide-left'  => esc_html__( 'Slide Left', 'bdthemes-element-pack' ),
-					'slide-up'    => esc_html__( 'Slide Up', 'bdthemes-element-pack' ),
-					'slide-right' => esc_html__( 'Slide Right', 'bdthemes-element-pack' ),
-					'slide-down'  => esc_html__( 'Slide Down', 'bdthemes-element-pack' ),
-					'fade'        => esc_html__( 'Fade', 'bdthemes-element-pack' ),
-					'typography'  => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+					'scroll'  	  => esc_html__( 'Scroll', 'avator-widget-pack' ),
+					'slide-left'  => esc_html__( 'Slide Left', 'avator-widget-pack' ),
+					'slide-up'    => esc_html__( 'Slide Up', 'avator-widget-pack' ),
+					'slide-right' => esc_html__( 'Slide Right', 'avator-widget-pack' ),
+					'slide-down'  => esc_html__( 'Slide Down', 'avator-widget-pack' ),
+					'fade'        => esc_html__( 'Fade', 'avator-widget-pack' ),
+					'typography'  => esc_html__( 'Typography', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -276,7 +276,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'autoplay',
 			[
-				'label'   => esc_html__( 'Autoplay', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Autoplay', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -286,7 +286,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'autoplay_interval',
 			[
-				'label'     => esc_html__( 'Autoplay Interval', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Autoplay Interval', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => [
@@ -298,7 +298,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'pause_on_hover',
 			[
-				'label'   => esc_html__( 'Pause on Hover', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Pause on Hover', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -307,7 +307,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'speed',
 			[
-				'label'              => esc_html__( 'Animation Speed', 'bdthemes-element-pack' ),
+				'label'              => esc_html__( 'Animation Speed', 'avator-widget-pack' ),
 				'type'               => Controls_Manager::NUMBER,
 				'default'            => 500,
 			]
@@ -316,7 +316,7 @@ class News_Ticker extends Widget_Base {
         $this->add_control(
             'scroll_speed',
             [
-				'label'   => __( 'Scroll Speed', 'bdthemes-element-pack' ),
+				'label'   => __( 'Scroll Speed', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
 					'size' => 1,
@@ -338,7 +338,7 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_news_ticker',
 			[
-				'label'     => esc_html__( 'News Ticker', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'News Ticker', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -346,7 +346,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'heading_label',
 			[
-				'label'     => esc_html__( 'Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Label', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'condition' => [
 					'show_label' => 'yes'
@@ -357,11 +357,11 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'separator' => 'before',
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-label-inner' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-label-inner' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_label' => 'yes'
@@ -374,11 +374,11 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'label_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-label'       => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-label:after' => 'border-' . $border_side . '-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-label'       => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-label:after' => 'border-' . $border_side . '-color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_label' => 'yes'
@@ -390,9 +390,9 @@ class News_Ticker extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'label_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
-				'selector'  => '{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-label-inner',
+				'selector'  => '{{WRAPPER}} .avt-news-ticker .avt-news-ticker-label-inner',
 				'condition' => [
 					'show_label' => 'yes'
 				]
@@ -402,7 +402,7 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'heading_content',
 			[
-				'label' => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Content', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::HEADING,
 			]
 		);
@@ -410,12 +410,12 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'content_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-content a' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-content span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-content a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-content span' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -423,11 +423,11 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'content_background',
 			[
-				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker'     => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-content:before, {{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-content:after'     => 'box-shadow: 0 0 12px 12px {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker'     => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-content:before, {{WRAPPER}} .avt-news-ticker .avt-news-ticker-content:after'     => 'box-shadow: 0 0 12px 12px {{VALUE}};',
 				],
 			]
 		);
@@ -436,8 +436,8 @@ class News_Ticker extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'content_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'selector' => '{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-content',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-news-ticker .avt-news-ticker-content',
 			]
 		);
 
@@ -446,7 +446,7 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_navigation',
 			[
-				'label'     => esc_html__( 'Navigation', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Navigation', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_navigation' => 'yes'
@@ -457,10 +457,10 @@ class News_Ticker extends Widget_Base {
 		$this->add_control(
 			'navigation_background',
 			[
-				'label'     => esc_html__( 'Navigation Background', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Navigation Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -470,17 +470,17 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_arrow_normal',
 			[
-				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'navigation_color',
 			[
-				'label'     => esc_html__( 'Navigation Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Navigation Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation button span svg' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation button span svg' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -489,10 +489,10 @@ class News_Ticker extends Widget_Base {
 		// 	Group_Control_Border::get_type(),
 		// 	[
 		// 		'name'        => 'arrow_border',
-		// 		'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+		// 		'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 		// 		'placeholder' => '1px',
 		// 		'default'     => '1px',
-		// 		'selector'    => '{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation button',
+		// 		'selector'    => '{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation button',
 		// 		'separator'   => 'before',
 		// 	]
 		// );
@@ -500,11 +500,11 @@ class News_Ticker extends Widget_Base {
 		// $this->add_control(
 		// 	'arrow_border_radius',
 		// 	[
-		// 		'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+		// 		'label'      => esc_html__( 'Border Radius', 'avator-widget-pack' ),
 		// 		'type'       => Controls_Manager::DIMENSIONS,
 		// 		'size_units' => [ 'px', '%' ],
 		// 		'selectors'  => [
-		// 			'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		// 			'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 		// 		],
 		// 	]
 		// );
@@ -512,11 +512,11 @@ class News_Ticker extends Widget_Base {
 		// $this->add_control(
 		// 	'arrow_padding',
 		// 	[
-		// 		'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+		// 		'label'      => esc_html__( 'Padding', 'avator-widget-pack' ),
 		// 		'type'       => Controls_Manager::DIMENSIONS,
 		// 		'size_units' => [ 'px', 'em', '%' ],
 		// 		'selectors'  => [
-		// 			'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		// 			'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 		// 		],
 		// 	]
 		// );
@@ -526,17 +526,17 @@ class News_Ticker extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_arrow_hover',
 			[
-				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation button:hover span svg' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation button:hover span svg' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -544,13 +544,13 @@ class News_Ticker extends Widget_Base {
 		// $this->add_control(
 		// 	'arrow_hover_border_color',
 		// 	[
-		// 		'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+		// 		'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 		// 		'type'      => Controls_Manager::COLOR,
 		// 		'condition' => [
 		// 			'arrow_border_border!' => '',
 		// 		],
 		// 		'selectors' => [
-		// 			'{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-navigation a:hover' => 'border-color: {{VALUE}};',
+		// 			'{{WRAPPER}} .avt-news-ticker .avt-news-ticker-navigation a:hover' => 'border-color: {{VALUE}};',
 		// 		],
 		// 	]
 		// );
@@ -595,7 +595,7 @@ class News_Ticker extends Widget_Base {
 	}
 
 	protected function render_title() {
-		$classes = ['bdt-news-ticker-content-title'];
+		$classes = ['avt-news-ticker-content-title'];
 		?>
 
 		<a href="<?php echo esc_url(get_permalink()); ?>">
@@ -624,7 +624,7 @@ class News_Ticker extends Widget_Base {
 			[
 				'slider-settings' => [
 					'class' => [
-						'bdt-news-ticker',
+						'avt-news-ticker',
 					],
 					'data-settings' => [
 						wp_json_encode(array_filter([
@@ -643,13 +643,13 @@ class News_Ticker extends Widget_Base {
 		?>
 		<div id="newsTicker1" <?php echo $this->get_render_attribute_string( 'slider-settings' ); ?>>
 			<?php if ( 'yes' == $settings['show_label'] ) : ?>
-		    	<div class="bdt-news-ticker-label">
-					<div class="bdt-news-ticker-label-inner">
-						<?php echo wp_kses( $settings['news_label'], element_pack_allow_tags('title') ); ?>
+		    	<div class="avt-news-ticker-label">
+					<div class="avt-news-ticker-label-inner">
+						<?php echo wp_kses( $settings['news_label'], widget_pack_allow_tags('title') ); ?>
 	    			</div>
 	    		</div>
 		    <?php endif; ?>
-		    <div class="bdt-news-ticker-content">
+		    <div class="avt-news-ticker-content">
 		        <ul>
 		<?php
 	}
@@ -665,10 +665,10 @@ class News_Ticker extends Widget_Base {
 		
 		?>
 
-		<span class="bdt-news-ticker-date bdt-margin-small-right" title="<?php esc_html_e( 'Published on:', 'bdthemes-element-pack' ); ?> <?php echo get_the_date(); ?>">
-			<span class="bdt-news-ticker-date-month"><?php echo esc_attr( $news_month ); ?></span>
-			<span class="bdt-news-ticker-date-sep">/</span>
-			<span class="bdt-news-ticker-date-day"><?php echo esc_attr( $news_day ); ?></span>
+		<span class="avt-news-ticker-date avt-margin-small-right" title="<?php esc_html_e( 'Published on:', 'avator-widget-pack' ); ?> <?php echo get_the_date(); ?>">
+			<span class="avt-news-ticker-date-month"><?php echo esc_attr( $news_month ); ?></span>
+			<span class="avt-news-ticker-date-sep">/</span>
+			<span class="avt-news-ticker-date-day"><?php echo esc_attr( $news_day ); ?></span>
 			<span>:</span>
 		</span>
 
@@ -686,8 +686,8 @@ class News_Ticker extends Widget_Base {
 		
 		?>
 
-		<span class="bdt-news-ticker-time bdt-margin-small-right" title="<?php esc_html_e( 'Published on:', 'bdthemes-element-pack' ); ?> <?php echo get_the_date(); ?> <?php echo get_the_time(); ?>">
-			<span class="bdt-text-uppercase"><?php echo esc_attr( $news_hour ); ?></span>
+		<span class="avt-news-ticker-time avt-margin-small-right" title="<?php esc_html_e( 'Published on:', 'avator-widget-pack' ); ?> <?php echo get_the_date(); ?> <?php echo get_the_time(); ?>">
+			<span class="avt-text-uppercase"><?php echo esc_attr( $news_hour ); ?></span>
 			<span>:</span>
 		</span>
 
@@ -701,10 +701,10 @@ class News_Ticker extends Widget_Base {
 		        </ul>
 		    </div>
 		    <?php if ( $settings['show_navigation'] ) : ?>
-		    <div class="bdt-news-ticker-controls bdt-news-ticker-navigation">
+		    <div class="avt-news-ticker-controls avt-news-ticker-navigation">
 
-		        <button class="bdt-visible@m">
-		        	<span class="bdt-news-ticker-arrow bdt-news-ticker-prev bdt-icon">
+		        <button class="avt-visible@m">
+		        	<span class="avt-news-ticker-arrow avt-news-ticker-prev avt-icon">
 		        		<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-left">
 		        			<polyline fill="none" stroke="#000" stroke-width="1.03" points="13 16 7 10 13 4"></polyline>
 		        		</svg>
@@ -712,9 +712,9 @@ class News_Ticker extends Widget_Base {
 		        </button>
 
 		        <?php if ($settings['play_pause']) : ?>
-		        <button class="bdt-visible@m">
-		        	<span class="bdt-news-ticker-action bdt-icon">
-		        		<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="play" class="bdt-news-ticker-play-pause">
+		        <button class="avt-visible@m">
+		        	<span class="avt-news-ticker-action avt-icon">
+		        		<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="play" class="avt-news-ticker-play-pause">
 		        			<polygon fill="none" stroke="#000" points="4.9,3 16.1,10 4.9,17 "></polygon>
 
 		        			<rect x="6" y="2" width="1" height="16"/>
@@ -725,7 +725,7 @@ class News_Ticker extends Widget_Base {
 		    	<?php endif ?>
 		        
 		        <button>
-		        	<span class="bdt-news-ticker-arrow bdt-news-ticker-next bdt-icon">
+		        	<span class="avt-news-ticker-arrow avt-news-ticker-next avt-icon">
 		        		<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="chevron-right">
 		        			<polyline fill="none" stroke="#000" stroke-width="1.03" points="7 4 13 10 7 16"></polyline>
 		        		</svg>
@@ -742,7 +742,7 @@ class News_Ticker extends Widget_Base {
 
 	protected function render_loop_item($settings) {
 		?>
-		<li class="bdt-news-ticker-item">
+		<li class="avt-news-ticker-item">
 			
 
 				<?php if( 'title' == $settings['news_content'] ) : ?>

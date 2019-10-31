@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\RevolutionSlider\Widgets;
+namespace WidgetPack\Modules\RevolutionSlider\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,19 +9,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Revolution_Slider extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-revolution-slider';
+		return 'avt-revolution-slider';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Revolution Slider', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Revolution Slider', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-revolution-slider';
+		return 'avt-wi-revolution-slider';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -32,17 +32,17 @@ class Revolution_Slider extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'slider_name',
 			[
-				'label'   => esc_html__( 'Select Slider', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Select Slider', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '0',
-				'options' => element_pack_rev_slider_options(),
+				'options' => widget_pack_rev_slider_options(),
 			]
 		);
 
@@ -65,7 +65,7 @@ class Revolution_Slider extends Widget_Base {
 
 			return implode("", $shortcode);
 		} else {
-			return element_pack_alert( esc_html('Slider not found! Please select correct slider from option.', 'bdthemes-element-pack') );
+			return widget_pack_alert( esc_html('Slider not found! Please select correct slider from option.', 'avator-widget-pack') );
 		}
 	}
 

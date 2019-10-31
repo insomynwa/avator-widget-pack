@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\CryptoCurrency\Widgets;
+namespace WidgetPack\Modules\CryptoCurrency\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -18,19 +18,19 @@ class CryptoCurrencyTable extends Widget_Base {
 	protected $_has_template_content = false;
 
 	public function get_name() {
-		return 'bdt-crypto-currency-table';
+		return 'avt-crypto-currency-table';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Crypto Currency Table', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Crypto Currency Table', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-cryptocurrency-table';
+		return 'avt-wi-cryptocurrency-table';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -38,24 +38,24 @@ class CryptoCurrencyTable extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['bdt-crypto-currency'];
+		return ['avt-crypto-currency'];
 	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_cryptocurrency',
 			[
-				'label' => esc_html__( 'Crypto Currency', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Crypto Currency', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'crypto_currency',
 			[
-				'label'       => __( 'Crypto Currency', 'bdthemes-element-pack' ),
-				'description'       => __( 'If you want to show any selected crypto currency in your table so type those currency name here. For example: bitcoin,ethereum,litecoin', 'bdthemes-element-pack' ),
+				'label'       => __( 'Crypto Currency', 'avator-widget-pack' ),
+				'description'       => __( 'If you want to show any selected crypto currency in your table so type those currency name here. For example: bitcoin,ethereum,litecoin', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => __( 'bitcoin,ethereum' , 'bdthemes-element-pack' ),
+				'placeholder' => __( 'bitcoin,ethereum' , 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -64,10 +64,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'currency',
 			[
-				'label'       => __( 'Currency', 'bdthemes-element-pack' ),
+				'label'       => __( 'Currency', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'usd' , 'bdthemes-element-pack' ),
-				'placeholder' => __( 'usd' , 'bdthemes-element-pack' ),
+				'default'     => __( 'usd' , 'avator-widget-pack' ),
+				'placeholder' => __( 'usd' , 'avator-widget-pack' ),
 				'label_block' => true,
 				'dynamic'     => [ 'active' => true ],
 			]
@@ -76,16 +76,16 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'order',
 			[
-				'label'   => esc_html__( 'Order', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Order', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'market_cap_desc',
 				'options' => [
-					'market_cap_desc' => esc_html__( 'Market Capital Descending', 'bdthemes-element-pack' ),
-					'market_cap_asc'  => esc_html__( 'Market Capital Ascending', 'bdthemes-element-pack' ),
-					'gecko_desc'      => esc_html__( 'Gecko Descending', 'bdthemes-element-pack' ),
-					'gecko_asc'       => esc_html__( 'Gecko Ascending', 'bdthemes-element-pack' ),
-					'volume_desc'     => esc_html__( 'Volume Descending', 'bdthemes-element-pack' ),
-					'volume_asc'      => esc_html__( 'Volume Ascending', 'bdthemes-element-pack' ),
+					'market_cap_desc' => esc_html__( 'Market Capital Descending', 'avator-widget-pack' ),
+					'market_cap_asc'  => esc_html__( 'Market Capital Ascending', 'avator-widget-pack' ),
+					'gecko_desc'      => esc_html__( 'Gecko Descending', 'avator-widget-pack' ),
+					'gecko_asc'       => esc_html__( 'Gecko Ascending', 'avator-widget-pack' ),
+					'volume_desc'     => esc_html__( 'Volume Descending', 'avator-widget-pack' ),
+					'volume_asc'      => esc_html__( 'Volume Ascending', 'avator-widget-pack' ),
 				],
 			]
 		);
@@ -93,7 +93,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_responsive_control(
 			'limit',
 			[
-				'label' => __( 'Limit', 'bdthemes-element-pack' ),
+				'label' => __( 'Limit', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -110,7 +110,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_stripe',
 			[
-				'label'   => __( 'Row Stripe', 'bdthemes-element-pack' ),
+				'label'   => __( 'Row Stripe', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -119,7 +119,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_row_hover',
 			[
-				'label' => __( 'Row Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Row Hover', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -128,13 +128,13 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'table_responsive_control',
 			[
-				'label'   => __( 'Responsive', 'bdthemes-element-pack' ),
+				'label'   => __( 'Responsive', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'table_responsive_2',
 				'options' => [
-					'table_responsive_no'     => esc_html__('No Responsive', 'bdthemes-element-pack'),
-					'table_responsive_1' 	  => esc_html__('Responsive 1', 'bdthemes-element-pack'),
-					'table_responsive_2' 	  => esc_html__('Responsive 2', 'bdthemes-element-pack'),
+					'table_responsive_no'     => esc_html__('No Responsive', 'avator-widget-pack'),
+					'table_responsive_1' 	  => esc_html__('Responsive 1', 'avator-widget-pack'),
+					'table_responsive_2' 	  => esc_html__('Responsive 2', 'avator-widget-pack'),
 				],
 				'separator' => 'before',
 			]
@@ -147,14 +147,14 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_section(
 			'section_additional_option',
 			[
-				'label' => __( 'Additional Option', 'bdthemes-element-pack' ),
+				'label' => __( 'Additional Option', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'show_currency_image',
 			[
-				'label'   => __( 'Show Currency Image', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Currency Image', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -163,7 +163,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_name',
 			[
-				'label'   => __( 'Show Currency Name', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Currency Name', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -172,7 +172,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_short_name',
 			[
-				'label'   => __( 'Show Currency Short Name', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Currency Short Name', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -181,7 +181,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_marketing_rank',
 			[
-				'label'   => __( 'Show Marketing Rank', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Marketing Rank', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -190,7 +190,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_current_price',
 			[
-				'label'   => __( 'Show Current Price', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Current Price', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -199,7 +199,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_change_price',
 			[
-				'label'   => __( 'Show Change Price', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Change Price', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -208,7 +208,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_total_supply',
 			[
-				'label'   => __( 'Show Total Supply', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Total Supply', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -217,7 +217,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_market_cap',
 			[
-				'label'   => __( 'Show Market Cap', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Market Cap', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -226,7 +226,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_total_volume',
 			[
-				'label'   => __( 'Show Total Volume', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Total Volume', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -235,7 +235,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'show_currency_circulating_supply',
 			[
-				'label'   => __( 'Show Circulating Supply', 'bdthemes-element-pack' ),
+				'label'   => __( 'Show Circulating Supply', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -246,7 +246,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_section(
 			'section_cryptocurrency_table_header_style',
 			[
-				'label' => __( 'Table Header', 'bdthemes-element-pack' ),
+				'label' => __( 'Table Header', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -256,18 +256,18 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_cryptocurrency_table_header_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 		'cryptocurrency_header_color',
 			[
-				'label' => __( 'Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr.bdt-cryptocurrency-title th' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr.avt-cryptocurrency-title th' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -275,10 +275,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'cryptocurrency_header_background_color',
 			[
-				'label' => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr.bdt-cryptocurrency-title' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr.avt-cryptocurrency-title' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -289,18 +289,18 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_cryptocurrency_header_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 		'cryptocurrency_header_hover_color',
 			[
-				'label' => __( 'Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr.bdt-cryptocurrency-title:hover th' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr.avt-cryptocurrency-title:hover th' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -308,10 +308,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'cryptocurrency_header_background_hover_color',
 			[
-				'label' => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Background Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr.bdt-cryptocurrency-title:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr.avt-cryptocurrency-title:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -325,18 +325,18 @@ class CryptoCurrencyTable extends Widget_Base {
 		Group_Control_Typography::get_type(),
 			[
 				'name' => 'header_typography',
-				'selector' => '{{WRAPPER}} .bdt-crypto-currency-table table tr.bdt-cryptocurrency-title th',
+				'selector' => '{{WRAPPER}} .avt-crypto-currency-table table tr.avt-cryptocurrency-title th',
 			]
 		);
 
 		$this->add_responsive_control(
 			'header_padding',
 			[
-				'label' => __( 'Padding', 'bdthemes-element-pack' ),
+				'label' => __( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr.bdt-cryptocurrency-title th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr.avt-cryptocurrency-title th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -349,7 +349,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_body',
 			[
-				'label' => __( 'Table Body', 'bdthemes-element-pack' ),
+				'label' => __( 'Table Body', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -357,18 +357,18 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'cell_border_style',
 			[
-				'label'   => __( 'Border Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Style', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'none'   => __( 'None', 'bdthemes-element-pack' ),
-					'solid'  => __( 'Solid', 'bdthemes-element-pack' ),
-					'double' => __( 'Double', 'bdthemes-element-pack' ),
-					'dotted' => __( 'Dotted', 'bdthemes-element-pack' ),
-					'dashed' => __( 'Dashed', 'bdthemes-element-pack' ),
-					'groove' => __( 'Groove', 'bdthemes-element-pack' ),
+					'none'   => __( 'None', 'avator-widget-pack' ),
+					'solid'  => __( 'Solid', 'avator-widget-pack' ),
+					'double' => __( 'Double', 'avator-widget-pack' ),
+					'dotted' => __( 'Dotted', 'avator-widget-pack' ),
+					'dashed' => __( 'Dashed', 'avator-widget-pack' ),
+					'groove' => __( 'Groove', 'avator-widget-pack' ),
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table tbody tr td' => 'border-style: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table tbody tr td' => 'border-style: {{VALUE}};',
 				],
 			]
 		);
@@ -376,7 +376,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'cell_border_width',
 			[
-				'label'   => __( 'Border Width', 'bdthemes-element-pack' ),
+				'label'   => __( 'Border Width', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -386,7 +386,7 @@ class CryptoCurrencyTable extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table tbody tr td' => 'border-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-crypto-currency-table tbody tr td' => 'border-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -394,7 +394,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_responsive_control(
 			'cell_padding',
 			[
-				'label'      => __( 'Cell Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Cell Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default'    => [
@@ -405,7 +405,7 @@ class CryptoCurrencyTable extends Widget_Base {
 					'unit'   => 'em'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table tbody tr td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-crypto-currency-table tbody tr td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'after',
 			]
@@ -416,17 +416,17 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'normal_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table tbody tr' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table tbody tr' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -434,10 +434,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'normal_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table tbody tr' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table tbody tr' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -445,10 +445,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'normal_border_color',
 			[
-				'label'     => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table tbody tr td' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table tbody tr td' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -458,7 +458,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 				'condition' => [
 					'show_row_hover' => 'yes',
 				],
@@ -468,10 +468,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'row_hover_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table .bdt-table.bdt-table-hover tbody tr:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table .avt-table.avt-table-hover tbody tr:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -479,10 +479,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'row_hover_text_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table .bdt-table.bdt-table-hover tbody tr:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table .avt-table.avt-table-hover tbody tr:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -492,7 +492,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_stripe',
 			[
-				'label'     => __( 'Stripe', 'bdthemes-element-pack' ),
+				'label'     => __( 'Stripe', 'avator-widget-pack' ),
 				'condition' => [
 					'show_stripe' => 'yes',
 				],
@@ -502,10 +502,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'stripe_background',
 			[
-				'label'     => __( 'Background', 'bdthemes-element-pack' ),
+				'label'     => __( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table .bdt-table-striped tbody tr:nth-of-type(odd)' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table .avt-table-striped tbody tr:nth-of-type(odd)' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -513,10 +513,10 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 			'stripe_color',
 			[
-				'label'     => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table .bdt-table-striped tbody tr:nth-of-type(odd)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table .avt-table-striped tbody tr:nth-of-type(odd)' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -531,7 +531,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_section(
 			'section_cryptocurrency_image_style',
 			[
-				'label' => __( 'Currency Image', 'bdthemes-element-pack' ),
+				'label' => __( 'Currency Image', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
                     'show_currency_image' => 'yes',
@@ -542,7 +542,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_responsive_control(
 			'logo_image_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Width', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'default' => [
 					'unit' => 'px',
@@ -561,7 +561,7 @@ class CryptoCurrencyTable extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr td img' => 'width: {{SIZE}}{{UNIT}};margin-left: auto;margin-right: auto;',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr td img' => 'width: {{SIZE}}{{UNIT}};margin-left: auto;margin-right: auto;',
 				],
 			]
 		);
@@ -571,7 +571,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_section(
 			'section_cryptocurrency_name_style',
 			[
-				'label' => __( 'Currency Name', 'bdthemes-element-pack' ),
+				'label' => __( 'Currency Name', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_currency_name' => 'yes',
@@ -582,11 +582,11 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 		'cryptocurrency_name_color',
 			[
-				'label' => __( 'Name Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Name Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr td .bdt-cryptocurrency-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr td .avt-cryptocurrency-name' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -595,18 +595,18 @@ class CryptoCurrencyTable extends Widget_Base {
 		Group_Control_Typography::get_type(),
 			[
 				'name' => 'name_typography',
-				'selector' => '{{WRAPPER}} .bdt-crypto-currency-table table tr td .bdt-cryptocurrency-name',
+				'selector' => '{{WRAPPER}} .avt-crypto-currency-table table tr td .avt-cryptocurrency-name',
 			]
 		);
 
 		$this->add_control(
 		'cryptocurrency_short_name_color',
 			[
-				'label' => __( 'Short Name Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Short Name Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr td .bdt-currency-short-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr td .avt-currency-short-name' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -615,14 +615,14 @@ class CryptoCurrencyTable extends Widget_Base {
 		Group_Control_Typography::get_type(),
 			[
 				'name' => 'short_name_typography',
-				'selector' => '{{WRAPPER}} .bdt-crypto-currency-table table tr td .bdt-currency-short-name',
+				'selector' => '{{WRAPPER}} .avt-crypto-currency-table table tr td .avt-currency-short-name',
 			]
 		);
 
 		$this->add_responsive_control(
             'cryptocurrency_name_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+                'label' => esc_html__( 'Spacing', 'avator-widget-pack' ),
                 'type'  => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -631,7 +631,7 @@ class CryptoCurrencyTable extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-crypto-currency-table table tr td .bdt-cryptocurrency-fullname' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .avt-crypto-currency-table table tr td .avt-cryptocurrency-fullname' => 'margin-left: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -641,7 +641,7 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->start_controls_section(
 			'section_cryptocurrency_text_style',
 			[
-				'label' => __( 'Currency Text', 'bdthemes-element-pack' ),
+				'label' => __( 'Currency Text', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -649,11 +649,11 @@ class CryptoCurrencyTable extends Widget_Base {
 		$this->add_control(
 		'cryptocurrency_text_color',
 			[
-				'label' => __( 'Text Color', 'bdthemes-element-pack' ),
+				'label' => __( 'Text Color', 'avator-widget-pack' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr td' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr td' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -662,18 +662,18 @@ class CryptoCurrencyTable extends Widget_Base {
 		Group_Control_Typography::get_type(),
 			[
 				'name' => 'text_typography',
-				'selector' => '{{WRAPPER}} .bdt-crypto-currency-table table tr td',
+				'selector' => '{{WRAPPER}} .avt-crypto-currency-table table tr td',
 			]
 		);
 
 		$this->add_responsive_control(
 			'text_padding',
 			[
-				'label' => __( 'Padding', 'bdthemes-element-pack' ),
+				'label' => __( 'Padding', 'avator-widget-pack' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-crypto-currency-table table tr td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-crypto-currency-table table tr td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
@@ -716,11 +716,11 @@ class CryptoCurrencyTable extends Widget_Base {
 		$body = wp_remote_retrieve_body($request);
 		$coins = json_decode($body,true);
 		
-		// $saved_coins = get_transient( 'element-pack-ccc' );
+		// $saved_coins = get_transient( 'widget-pack-ccc' );
 
 		// if (false == $saved_coins) {
-		// 	set_transient( 'element-pack-ccc', $coins, 5 * MINUTE_IN_SECONDS );
-		// 	$coins = get_transient( 'element-pack-ccc' );
+		// 	set_transient( 'widget-pack-ccc', $coins, 5 * MINUTE_IN_SECONDS );
+		// 	$coins = get_transient( 'widget-pack-ccc' );
 		// }
 
 		return $coins;
@@ -731,73 +731,73 @@ class CryptoCurrencyTable extends Widget_Base {
 		$settings = $this->get_settings();
 		$id       = $this->get_id();
 		$coins    = $this->render_coin_api();
-		$currency = element_pack_currency_symbol($settings['currency']);
+		$currency = widget_pack_currency_symbol($settings['currency']);
 
 
 
 		if ('table_responsive_no' == $settings['table_responsive_control']) {
-			$this->add_render_attribute('crypto-table', 'class', ['bdt-table']);
+			$this->add_render_attribute('crypto-table', 'class', ['avt-table']);
 		}
 
 		if ('table_responsive_1' == $settings['table_responsive_control']) {
-			$this->add_render_attribute('crypto-table', 'class', ['bdt-table', 'bdt-table-responsive']);
+			$this->add_render_attribute('crypto-table', 'class', ['avt-table', 'avt-table-responsive']);
 		}
 		
 		if ('table_responsive_2' == $settings['table_responsive_control']) {
-			$this->add_render_attribute('crypto-table', 'class', ['bdt-table', 'bdt-table-responsive-2']);
+			$this->add_render_attribute('crypto-table', 'class', ['avt-table', 'avt-table-responsive-2']);
 		}
 
 
 
 
 		if ($settings['show_row_hover']) {
-			$this->add_render_attribute('crypto-table', 'class', 'bdt-table-hover');
+			$this->add_render_attribute('crypto-table', 'class', 'avt-table-hover');
 		}
 
 		if ($settings['show_stripe']) {
-			$this->add_render_attribute('crypto-table', 'class', 'bdt-table-striped');
+			$this->add_render_attribute('crypto-table', 'class', 'avt-table-striped');
 		} else {
-			$this->add_render_attribute('crypto-table', 'class', 'bdt-table-divider');
+			$this->add_render_attribute('crypto-table', 'class', 'avt-table-divider');
 		}
 	   	
 
 		?>
 
-		<div class="bdt-crypto-currency-table">
+		<div class="avt-crypto-currency-table">
 
 			<table <?php echo $this->get_render_attribute_string( 'crypto-table' ); ?>>
 				
 				<thead>
-					<tr class="bdt-cryptocurrency-title">
+					<tr class="avt-cryptocurrency-title">
 
 						<?php if ($settings['show_currency_marketing_rank']) : ?>
-						<th><?php esc_html_e('#', 'bdthemes-element-pack'); ?></th>
+						<th><?php esc_html_e('#', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
-						<th><?php esc_html_e('Currency', 'bdthemes-element-pack'); ?></th>
+						<th><?php esc_html_e('Currency', 'avator-widget-pack'); ?></th>
 
 						<?php if ($settings['show_currency_current_price']) : ?>
-						<th><?php echo esc_html( $currency ); ?> <?php esc_html_e('Price', 'bdthemes-element-pack'); ?></th>
+						<th><?php echo esc_html( $currency ); ?> <?php esc_html_e('Price', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_change_price']) : ?>
-						<th><?php esc_html_e('24h % Change', 'bdthemes-element-pack'); ?></th>
+						<th><?php esc_html_e('24h % Change', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_total_supply']) : ?>
-						<th><?php esc_html_e('Supply', 'bdthemes-element-pack'); ?></th>
+						<th><?php esc_html_e('Supply', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_market_cap']) : ?>
-						<th><?php esc_html_e('Market cap.', 'bdthemes-element-pack'); ?></th>
+						<th><?php esc_html_e('Market cap.', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_total_volume']) : ?>
-						<th><?php esc_html_e('24h Volume', 'bdthemes-element-pack'); ?></th>
+						<th><?php esc_html_e('24h Volume', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_circulating_supply']) : ?>
-						<th><?php esc_html_e('Circulating Supply', 'bdthemes-element-pack'); ?></th>
+						<th><?php esc_html_e('Circulating Supply', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 					</tr>
@@ -808,29 +808,29 @@ class CryptoCurrencyTable extends Widget_Base {
 				<tbody>
 					
 					<?php foreach($coins as $coin) : ?>
-						<tr class="bdt-cryptocurrency-list">
+						<tr class="avt-cryptocurrency-list">
 
 							<?php if ($settings['show_currency_marketing_rank']) : ?>
-							<td class="bdt-table-shrink" title="<?php esc_html_e( 'Marketplace Rank', 'bdthemes-element-pack' ); ?>"><?php echo esc_html($coin['market_cap_rank']); ?></td>
+							<td class="avt-table-shrink" title="<?php esc_html_e( 'Marketplace Rank', 'avator-widget-pack' ); ?>"><?php echo esc_html($coin['market_cap_rank']); ?></td>
 							<?php endif; ?>
 
 							<td>
 								
 								<?php if ($settings['show_currency_image']) : ?>
-								<span class="bdt-crypto-currency-image">
+								<span class="avt-crypto-currency-image">
 									<img src="<?php echo esc_attr($coin['image']); ?>"/>
 								</span>
 								<?php endif; ?>
-								<span class="bdt-cryptocurrency-fullname">
-									<span class="bdt-display-block">
+								<span class="avt-cryptocurrency-fullname">
+									<span class="avt-display-block">
 										<?php if ($settings['show_currency_name']) : ?>
-										<span class="bdt-cryptocurrency-name"><?php echo esc_html( $coin['name'] ); ?>
+										<span class="avt-cryptocurrency-name"><?php echo esc_html( $coin['name'] ); ?>
 										</span>
 										<?php endif; ?>
 									</span>
-									<span class="bdt-display-block bdt-currency-short-name">
+									<span class="avt-display-block avt-currency-short-name">
 										<?php if ($settings['show_currency_short_name']) : ?>
-										<span class="bdt-text-uppercase"><?php echo esc_attr( $coin['symbol'] ); ?>
+										<span class="avt-text-uppercase"><?php echo esc_attr( $coin['symbol'] ); ?>
 										</span>
 										<?php endif; ?>
 									</span>
@@ -838,7 +838,7 @@ class CryptoCurrencyTable extends Widget_Base {
 							</td>
 							
 							<?php if ($settings['show_currency_current_price']) : ?>
-							<td><?php echo esc_html( $currency ); ?> <?php echo element_pack_money_format($coin['current_price']); ?></td>
+							<td><?php echo esc_html( $currency ); ?> <?php echo widget_pack_money_format($coin['current_price']); ?></td>
 							<?php endif; ?>
 
 							<?php if ($settings['show_currency_change_price']) : ?>

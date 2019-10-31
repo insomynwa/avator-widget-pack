@@ -1,18 +1,18 @@
 <?php
-namespace ElementPack\Modules\QueryControl;
+namespace WidgetPack\Modules\QueryControl;
 
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Widget_Base;
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
-use ElementPack\Base\Element_Pack_Module_Base;
-use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
-use ElementPack\Modules\QueryControl\Controls\Query;
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Base\Widget_Pack_Module_Base;
+use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
+use WidgetPack\Modules\QueryControl\Controls\Query;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Module extends Element_Pack_Module_Base {
+class Module extends Widget_Pack_Module_Base {
 
 	const QUERY_CONTROL_ID = 'query';
 
@@ -78,7 +78,7 @@ class Module extends Element_Pack_Module_Base {
 				}
 				break;
 			default:
-				$results = apply_filters( 'element_pack/query_control/get_value_titles/' . $request['filter_type'], [], $request );
+				$results = apply_filters( 'widget_pack/query_control/get_value_titles/' . $request['filter_type'], [], $request );
 		}
 
 		return $results;
@@ -174,7 +174,7 @@ class Module extends Element_Pack_Module_Base {
 				}
 				break;
 			default:
-				$results = apply_filters( 'element_pack/query_control/get_autocomplete/' . $data['filter_type'], [], $data );
+				$results = apply_filters( 'widget_pack/query_control/get_autocomplete/' . $data['filter_type'], [], $data );
 		} // End switch().
 
 		return [
@@ -183,7 +183,7 @@ class Module extends Element_Pack_Module_Base {
 	}
 
 	public function register_controls() {
-		$controls_manager = Element_Pack_Loader::elementor()->controls_manager;
+		$controls_manager = Widget_Pack_Loader::elementor()->controls_manager;
 
 		$controls_manager->add_group_control( Group_Control_Posts::get_type(), new Group_Control_Posts() );
 

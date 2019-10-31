@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Iframe\Widgets;
+namespace WidgetPack\Modules\Iframe\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,19 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Iframe extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-iframe';
+		return 'avt-iframe';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Iframe', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Iframe', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-iframe';
+		return 'avt-wi-iframe';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -40,19 +40,19 @@ class Iframe extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_layout',
 			[
-				'label' => esc_html__( 'Layout', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Layout', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'source',
 			[
-				'label'         => esc_html__( 'Content Source', 'bdthemes-element-pack' ),
+				'label'         => esc_html__( 'Content Source', 'avator-widget-pack' ),
 				'type'          => Controls_Manager::URL,
 				'dynamic'       => [ 'active' => true ],
 				'default'       => [ 'url' => 'https://example.com' ],
-				'placeholder'   => esc_html__( 'https://example.com', 'bdthemes-element-pack' ),
-				'description'   => esc_html__( 'You can put here any website url, youtube, vimeo, document or image embed url', 'bdthemes-element-pack' ),
+				'placeholder'   => esc_html__( 'https://example.com', 'avator-widget-pack' ),
+				'description'   => esc_html__( 'You can put here any website url, youtube, vimeo, document or image embed url', 'avator-widget-pack' ),
 				'label_block'   => true,
 				'show_external' => false,
 			]
@@ -61,7 +61,7 @@ class Iframe extends Widget_Base {
 		$this->add_responsive_control(
 			'height',
 			[
-				'label'     => esc_html__( 'Iframe Height', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Iframe Height', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'separator' => 'before',
 				'range'     => [
@@ -84,7 +84,7 @@ class Iframe extends Widget_Base {
 					'size' => 640,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-iframe iframe' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-iframe iframe' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition'   => [
 					'auto_height!' => 'yes',
@@ -95,8 +95,8 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'auto_height',
 			[
-				'label'   => esc_html__( 'Auto Height', 'bdthemes-element-pack' ),
-				'description'   => esc_html__( 'Auto height only works when cross origin properly set', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Auto Height', 'avator-widget-pack' ),
+				'description'   => esc_html__( 'Auto height only works when cross origin properly set', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);
@@ -106,14 +106,14 @@ class Iframe extends Widget_Base {
 		$this->start_controls_section(
 			'section_iframe_settings',
 			[
-				'label' => esc_html__( 'Lazyload Settings', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Lazyload Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'lazyload',
 			[
-				'label'   => esc_html__( 'Lazyload', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Lazyload', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes'
 			]
@@ -122,8 +122,8 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'throttle',
 			[
-				'label'       => esc_html__('Throttle', 'bdthemes-element-pack'),
-				'description' => esc_html__('millisecond interval at which to process events', 'bdthemes-element-pack'),
+				'label'       => esc_html__('Throttle', 'avator-widget-pack'),
+				'description' => esc_html__('millisecond interval at which to process events', 'avator-widget-pack'),
 				'type'        => Controls_Manager::NUMBER,
 				'default'     => 300,
 				'condition'   => [
@@ -135,8 +135,8 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'threshold',
 			[
-				'label'       => esc_html__('Threshold', 'bdthemes-element-pack'),
-				'description' => esc_html__('scroll distance from element before its loaded', 'bdthemes-element-pack'),
+				'label'       => esc_html__('Threshold', 'avator-widget-pack'),
+				'description' => esc_html__('scroll distance from element before its loaded', 'avator-widget-pack'),
 				'type'        => Controls_Manager::NUMBER,
 				'separator'   => 'before',
 				'default'     => 100,
@@ -149,8 +149,8 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'live',
 			[
-				'label'       => esc_html__( 'Live', 'bdthemes-element-pack' ),
-				'description' => esc_html__('auto bind lazy loading to ajax loaded elements', 'bdthemes-element-pack'),
+				'label'       => esc_html__( 'Live', 'avator-widget-pack' ),
+				'description' => esc_html__('auto bind lazy loading to ajax loaded elements', 'avator-widget-pack'),
 				'type'        => Controls_Manager::SWITCHER,
 				'separator'   => 'before',
 				'default'     => 'yes',
@@ -165,15 +165,15 @@ class Iframe extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional',
 			[
-				'label' => esc_html__( 'Additional Settings', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Additional Settings', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'allowfullscreen',
 			[
-				'label'       => esc_html__( 'Allow Fullscreen', 'bdthemes-element-pack' ),
-				'description' => esc_html__('Maybe you need this when you use youtube or video embed link.', 'bdthemes-element-pack'),
+				'label'       => esc_html__( 'Allow Fullscreen', 'avator-widget-pack' ),
+				'description' => esc_html__('Maybe you need this when you use youtube or video embed link.', 'avator-widget-pack'),
 				'type'        => Controls_Manager::SWITCHER,
 				'default'     => 'yes'
 			]
@@ -182,8 +182,8 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'scrolling',
 			[
-				'label'       => esc_html__( 'Show Scroll Bar', 'bdthemes-element-pack' ),
-				'description' => esc_html__('Specifies whether or not to display scrollbars', 'bdthemes-element-pack'),
+				'label'       => esc_html__( 'Show Scroll Bar', 'avator-widget-pack' ),
+				'description' => esc_html__('Specifies whether or not to display scrollbars', 'avator-widget-pack'),
 				'type'        => Controls_Manager::SWITCHER,
 				'default'     => 'yes',
 				'separator' => 'before',
@@ -193,8 +193,8 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'sandbox',
 			[
-				'label'       => esc_html__( 'Sandbox', 'bdthemes-element-pack' ),
-				'description' => esc_html__('Enables an extra set of restrictions for the content', 'bdthemes-element-pack'),
+				'label'       => esc_html__( 'Sandbox', 'avator-widget-pack' ),
+				'description' => esc_html__('Enables an extra set of restrictions for the content', 'avator-widget-pack'),
 				'type'        => Controls_Manager::SWITCHER,
 				'separator'   => 'before',
 			]
@@ -203,18 +203,18 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'sandbox_allowed_attributes',
 			[
-				'label'       => esc_html__('Sandbox Allowed Attributes', 'bdthemes-element-pack'),
+				'label'       => esc_html__('Sandbox Allowed Attributes', 'avator-widget-pack'),
 				'type'        => Controls_Manager::SELECT2,
 				'label_block' => true,
 				'multiple' => true,
 				'options'     => [
-					'allow-forms'            => esc_html__('Forms', 'bdthemes-element-pack'),
-					'allow-pointer-lock'     => esc_html__('Pointer Lock', 'bdthemes-element-pack'),
-					'allow-orientation-lock' => esc_html__('Orientation Lock', 'bdthemes-element-pack'),
-					'allow-popups'           => esc_html__('Popups', 'bdthemes-element-pack'),
-					'allow-same-origin'      => esc_html__('Same Origin', 'bdthemes-element-pack'),
-					'allow-scripts'          => esc_html__('Scripts', 'bdthemes-element-pack'),
-					'allow-top-navigation'   => esc_html__('Top Navigation', 'bdthemes-element-pack')
+					'allow-forms'            => esc_html__('Forms', 'avator-widget-pack'),
+					'allow-pointer-lock'     => esc_html__('Pointer Lock', 'avator-widget-pack'),
+					'allow-orientation-lock' => esc_html__('Orientation Lock', 'avator-widget-pack'),
+					'allow-popups'           => esc_html__('Popups', 'avator-widget-pack'),
+					'allow-same-origin'      => esc_html__('Same Origin', 'avator-widget-pack'),
+					'allow-scripts'          => esc_html__('Scripts', 'avator-widget-pack'),
+					'allow-top-navigation'   => esc_html__('Top Navigation', 'avator-widget-pack')
 				],
 				'condition' => [
 					'sandbox' => 'yes'
@@ -225,13 +225,13 @@ class Iframe extends Widget_Base {
 		$this->add_control(
 			'custom_attributes',
 			[
-				'label' => __( 'Custom Attributes', 'bdthemes-element-pack' ),
+				'label' => __( 'Custom Attributes', 'avator-widget-pack' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => __( 'key|value', 'bdthemes-element-pack' ),
-				'description' => sprintf( __( 'Set custom attributes for the iframe tag. Each attribute in a separate line. Separate attribute key from the value using %s character.', 'bdthemes-element-pack' ), '<code>|</code>' ),
+				'placeholder' => __( 'key|value', 'avator-widget-pack' ),
+				'description' => sprintf( __( 'Set custom attributes for the iframe tag. Each attribute in a separate line. Separate attribute key from the value using %s character.', 'avator-widget-pack' ), '<code>|</code>' ),
 				'classes' => 'elementor-control-direction-ltr',
 			]
 		);
@@ -244,9 +244,9 @@ class Iframe extends Widget_Base {
 	public function render() {
 		$settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'iframe-container', 'class', 'bdt-iframe' );
+		$this->add_render_attribute( 'iframe-container', 'class', 'avt-iframe' );
 		if ('yes' == $settings['lazyload']) {
-			$this->add_render_attribute( 'iframe', 'class', 'bdt-lazyload' );
+			$this->add_render_attribute( 'iframe', 'class', 'avt-lazyload' );
 			$this->add_render_attribute( 'iframe', 'data-throttle', esc_attr($settings['throttle']) );
 			$this->add_render_attribute( 'iframe', 'data-threshold', esc_attr($settings['threshold']) );
 			$this->add_render_attribute( 'iframe', 'data-live', $settings['live'] ? 'true' : 'false' );

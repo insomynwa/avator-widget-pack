@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\CustomGallery\Skins;
+namespace WidgetPack\Modules\CustomGallery\Skins;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Skin_Fedara extends Elementor_Skin_Base {
 	public function get_id() {
-		return 'bdt-fedara';
+		return 'avt-fedara';
 	}
 
 	public function get_title() {
-		return __( 'Fedara', 'bdthemes-element-pack' );
+		return __( 'Fedara', 'avator-widget-pack' );
 	}
 
 	public function _register_controls_actions() {
 		parent::_register_controls_actions();
 
-		add_action( 'elementor/element/bdt-custom-gallery/section_design_layout/after_section_end', [ $this, 'register_fedara_overlay_animation_controls'   ] );
+		add_action( 'elementor/element/avt-custom-gallery/section_design_layout/after_section_end', [ $this, 'register_fedara_overlay_animation_controls'   ] );
 	}
 
 	public function register_fedara_overlay_animation_controls( Widget_Base $widget ) {
@@ -29,7 +29,7 @@ class Skin_Fedara extends Elementor_Skin_Base {
 		$this->start_controls_section(
 			'section_style_fedara',
 			[
-				'label' => __( 'Fedara Style', 'bdthemes-element-pack' ),
+				'label' => __( 'Fedara Style', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -37,10 +37,10 @@ class Skin_Fedara extends Elementor_Skin_Base {
 		$this->add_control(
 			'desc_background_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-custom-gallery-skin-fedara-desc' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-custom-gallery-skin-fedara-desc' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -48,10 +48,10 @@ class Skin_Fedara extends Elementor_Skin_Base {
 		$this->add_control(
 			'desc_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-custom-gallery-skin-fedara-desc *' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-custom-gallery-skin-fedara-desc *' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -59,11 +59,11 @@ class Skin_Fedara extends Elementor_Skin_Base {
 		$this->add_responsive_control(
 			'desc_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-custom-gallery-skin-fedara-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}} .avt-custom-gallery-skin-fedara-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -71,27 +71,27 @@ class Skin_Fedara extends Elementor_Skin_Base {
 		$this->add_control(
 			'desc_alignment',
 			[
-				'label'       => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'       => __( 'Alignment', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'default' => 'center',
-				'prefix_class' => 'bdt-custom-gallery-skin-fedara-style-',
+				'prefix_class' => 'avt-custom-gallery-skin-fedara-style-',
 				'selectors' => [
-					'{{WRAPPER}} .bdt-custom-gallery-skin-fedara-desc' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-custom-gallery-skin-fedara-desc' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -110,10 +110,10 @@ class Skin_Fedara extends Elementor_Skin_Base {
 			[
 				'overlay-settings' => [
 					'class' => [
-						'bdt-overlay',
-						'bdt-overlay-default',
-						'bdt-position-cover',
-						$settings['overlay_animation'] ? 'bdt-transition-' . $settings['overlay_animation'] : ''
+						'avt-overlay',
+						'avt-overlay-default',
+						'avt-position-cover',
+						$settings['overlay_animation'] ? 'avt-transition-' . $settings['overlay_animation'] : ''
 					],
 				],
 			], '', '', true
@@ -121,8 +121,8 @@ class Skin_Fedara extends Elementor_Skin_Base {
 
 		?>
 		<div <?php echo $this->parent->get_render_attribute_string( 'overlay-settings' ); ?>>
-			<div class="bdt-custom-gallery-content">
-				<div class="bdt-custom-gallery-content-inner">
+			<div class="avt-custom-gallery-content">
+				<div class="avt-custom-gallery-content-inner">
 				
 					
 					<?php if ( 'yes' == $settings['show_lightbox'] )  : 
@@ -130,17 +130,17 @@ class Skin_Fedara extends Elementor_Skin_Base {
 						//$this->parent->rendar_link( $content, $element_key );
 
 						$image_url = wp_get_attachment_image_src( $content['gallery_image']['id'], 'full');
-						$this->parent->add_render_attribute($element_key, 'class', ['bdt-gallery-item-link', 'bdt-gallery-lightbox-item'], true );						
+						$this->parent->add_render_attribute($element_key, 'class', ['avt-gallery-item-link', 'avt-gallery-lightbox-item'], true );						
 
 						$icon = $settings['icon'] ? : 'plus';
 
 						?>
-						<div class="bdt-flex-inline bdt-gallery-item-link-wrapper">
+						<div class="avt-flex-inline avt-gallery-item-link-wrapper">
 							<a <?php echo $this->parent->get_render_attribute_string( $element_key ); ?>>
 								<?php if ( 'icon' == $settings['link_type'] ) : ?>
-									<span bdt-icon="icon: <?php echo esc_attr($icon); ?>; ratio: 1.6"></span>
+									<span avt-icon="icon: <?php echo esc_attr($icon); ?>; ratio: 1.6"></span>
 								<?php elseif ( 'text' == $settings['link_type'] ) : ?>
-									<span class="bdt-text"><?php esc_html_e( 'ZOOM', 'bdthemes-element-pack' ); ?></span>
+									<span class="avt-text"><?php esc_html_e( 'ZOOM', 'avator-widget-pack' ); ?></span>
 								<?php endif;?>
 							</a>
 						</div>
@@ -158,7 +158,7 @@ class Skin_Fedara extends Elementor_Skin_Base {
 
 		$tag = $this->parent->get_settings( 'title_tag' );
 		?>
-		<<?php echo esc_html($tag) ?> class="bdt-gallery-item-title">
+		<<?php echo esc_html($tag) ?> class="avt-gallery-item-title">
 			<?php echo esc_html($title['image_title']); ?>
 		</<?php echo esc_html($tag) ?>>
 		<?php
@@ -170,7 +170,7 @@ class Skin_Fedara extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="bdt-gallery-item-text"><?php echo esc_html($text['image_text']); ?></div>
+		<div class="avt-gallery-item-text"><?php echo esc_html($text['image_text']); ?></div>
 		<?php
 	}
 
@@ -183,7 +183,7 @@ class Skin_Fedara extends Elementor_Skin_Base {
         }
 
 		?>
-		<div class="bdt-custom-gallery-skin-fedara-desc bdt-padding-small">
+		<div class="avt-custom-gallery-skin-fedara-desc avt-padding-small">
 			
 			<?php
 			$this->render_title($content); 
@@ -197,14 +197,14 @@ class Skin_Fedara extends Elementor_Skin_Base {
 	public function render() {
 		$settings = $this->parent->get_settings();
 
-		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'bdt-gallery-item');
-		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'bdt-width-1-'. $settings['columns_mobile']);
-		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'bdt-width-1-'. $settings['columns_tablet'] .'@s');
-		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'bdt-width-1-'. $settings['columns'] .'@m');
+		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'avt-gallery-item');
+		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'avt-width-1-'. $settings['columns_mobile']);
+		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'avt-width-1-'. $settings['columns_tablet'] .'@s');
+		$this->parent->add_render_attribute('custom-gallery-item', 'class', 'avt-width-1-'. $settings['columns'] .'@m');
 
 		$this->parent->render_header('fedara');
 		
-		$this->parent->add_render_attribute('custom-gallery-item-inner', 'class', 'bdt-custom-gallery-item-inner');
+		$this->parent->add_render_attribute('custom-gallery-item-inner', 'class', 'avt-custom-gallery-item-inner');
 		
 		if ('yes' === $settings['tilt_show']) {
 			$this->parent->add_render_attribute('custom-gallery-item-inner', 'data-tilt', '');
@@ -227,7 +227,7 @@ class Skin_Fedara extends Elementor_Skin_Base {
 						<a <?php echo $this->parent->get_render_attribute_string( 'gallery-item-' . $index ); ?>>
 					<?php endif; ?>
 
-					<div class="bdt-custom-gallery-inner bdt-transition-toggle bdt-position-relative">
+					<div class="avt-custom-gallery-inner avt-transition-toggle avt-position-relative">
 						<?php 
 						$this->parent->render_thumbnail($item, 'gallery-item-' . $index);
 						$this->render_overlay($item, 'gallery-item-' . $index);

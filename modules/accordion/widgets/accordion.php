@@ -1,5 +1,5 @@
 <?php
-namespace ElementPack\Modules\Accordion\Widgets;
+namespace WidgetPack\Modules\Accordion\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -11,26 +11,26 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Icons_Manager;
 use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Widget_Pack_Loader;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Accordion extends Widget_Base {
 
 	public function get_name() {
-		return 'bdt-accordion';
+		return 'avt-accordion';
 	}
 
 	public function get_title() {
-		return BDTEP . esc_html__( 'Accordion', 'bdthemes-element-pack' );
+		return AWP . esc_html__( 'Accordion', 'avator-widget-pack' );
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-accordion';
+		return 'avt-wi-accordion';
 	}
 
 	public function get_categories() {
-		return [ 'element-pack' ];
+		return [ 'widget-pack' ];
 	}
 
 	public function get_keywords() {
@@ -41,73 +41,73 @@ class Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_title',
 			[
-				'label' => __( 'Accordion', 'bdthemes-element-pack' ),
+				'label' => __( 'Accordion', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'tabs',
 			[
-				'label'   => __( 'Accordion Items', 'bdthemes-element-pack' ),
+				'label'   => __( 'Accordion Items', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::REPEATER,
 				'default' => [
 					[
-						'tab_title'   => __( 'Accordion #1', 'bdthemes-element-pack' ),
-						'tab_content' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'bdthemes-element-pack' ),
+						'tab_title'   => __( 'Accordion #1', 'avator-widget-pack' ),
+						'tab_content' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'avator-widget-pack' ),
 					],
 					[
-						'tab_title'   => __( 'Accordion #2', 'bdthemes-element-pack' ),
-						'tab_content' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'bdthemes-element-pack' ),
+						'tab_title'   => __( 'Accordion #2', 'avator-widget-pack' ),
+						'tab_content' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'avator-widget-pack' ),
 					],
 					[
-						'tab_title'   => __( 'Accordion #3', 'bdthemes-element-pack' ),
-						'tab_content' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'bdthemes-element-pack' ),
+						'tab_title'   => __( 'Accordion #3', 'avator-widget-pack' ),
+						'tab_content' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'avator-widget-pack' ),
 					],
 				],
 				'fields' => [
 					[
 						'name'        => 'tab_title',
-						'label'       => __( 'Title & Content', 'bdthemes-element-pack' ),
+						'label'       => __( 'Title & Content', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::TEXT,
 						'dynamic'     => [ 'active' => true ],
-						'default'     => __( 'Accordion Title' , 'bdthemes-element-pack' ),
+						'default'     => __( 'Accordion Title' , 'avator-widget-pack' ),
 						'label_block' => true,
 					],
 					[
 						'name'    => 'source',
-						'label'   => esc_html__( 'Select Source', 'bdthemes-element-pack' ),
+						'label'   => esc_html__( 'Select Source', 'avator-widget-pack' ),
 						'type'    => Controls_Manager::SELECT,
 						'default' => 'custom',
 						'options' => [
-							'custom'    => esc_html__( 'Custom', 'bdthemes-element-pack' ),
-							"elementor" => esc_html__( 'Elementor Template', 'bdthemes-element-pack' ),
-							'anywhere'  => esc_html__( 'AE Template', 'bdthemes-element-pack' ),
+							'custom'    => esc_html__( 'Custom', 'avator-widget-pack' ),
+							"elementor" => esc_html__( 'Elementor Template', 'avator-widget-pack' ),
+							'anywhere'  => esc_html__( 'AE Template', 'avator-widget-pack' ),
 						],
 					],
 					[
 						'name'       => 'tab_content',
-						'label'      => __( 'Content', 'bdthemes-element-pack' ),
+						'label'      => __( 'Content', 'avator-widget-pack' ),
 						'type'       => Controls_Manager::WYSIWYG,
 						'dynamic'    => [ 'active' => true ],
-						'default'    => __( 'Accordion Content', 'bdthemes-element-pack' ),
+						'default'    => __( 'Accordion Content', 'avator-widget-pack' ),
 						'show_label' => false,
 						'condition'  => ['source' => 'custom'],
 					],
 					[
 						'name'        => 'template_id',
-						'label'       => __( 'Select Template', 'bdthemes-element-pack' ),
+						'label'       => __( 'Select Template', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::SELECT,
 						'default'     => '0',
-						'options'     => element_pack_et_options(),
+						'options'     => widget_pack_et_options(),
 						'label_block' => 'true',
 						'condition'   => ['source' => "elementor"],
 					],
 					[
 						'name'        => 'anywhere_id',
-						'label'       => esc_html__( 'Select Template', 'bdthemes-element-pack' ),
+						'label'       => esc_html__( 'Select Template', 'avator-widget-pack' ),
 						'type'        => Controls_Manager::SELECT,
 						'default'     => '0',
-						'options'     => element_pack_ae_options(),
+						'options'     => widget_pack_ae_options(),
 						'label_block' => 'true',
 						'condition'   => ['source' => 'anywhere'],
 					],
@@ -119,7 +119,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label'   => __( 'View', 'bdthemes-element-pack' ),
+				'label'   => __( 'View', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::HIDDEN,
 				'default' => 'traditional',
 			]
@@ -128,9 +128,9 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label'   => __( 'Title HTML Tag', 'bdthemes-element-pack' ),
+				'label'   => __( 'Title HTML Tag', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => element_pack_title_tags(),
+				'options' => widget_pack_title_tags(),
 				'default' => 'div',
 			]
 		);
@@ -138,7 +138,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'accordion_icon',
 			[
-				'label'       => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'       => __( 'Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -151,7 +151,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'accordion_active_icon',
 			[
-				'label'       => __( 'Active Icon', 'bdthemes-element-pack' ),
+				'label'       => __( 'Active Icon', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon_active',
 				'default' => [
@@ -169,14 +169,14 @@ class Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_additional',
 			[
-				'label' => __( 'Additional', 'bdthemes-element-pack' ),
+				'label' => __( 'Additional', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'collapsible',
 			[
-				'label'   => __( 'Collapsible All Item', 'bdthemes-element-pack' ),
+				'label'   => __( 'Collapsible All Item', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -185,7 +185,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'multiple',
 			[
-				'label' => __( 'Multiple Open', 'bdthemes-element-pack' ),
+				'label' => __( 'Multiple Open', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
@@ -193,7 +193,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'active_item',
 			[
-				'label' => __( 'Active Item No', 'bdthemes-element-pack' ),
+				'label' => __( 'Active Item No', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::NUMBER,
 				'min'   => 1,
 				'max'   => 20,
@@ -205,7 +205,7 @@ class Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_item',
 			[
-				'label' => __( 'Item', 'bdthemes-element-pack' ),
+				'label' => __( 'Item', 'avator-widget-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -213,25 +213,25 @@ class Accordion extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left'    => [
-						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'title' => __( 'Left', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'title' => __( 'Center', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'title' => __( 'Right', 'avator-widget-pack' ),
 						'icon'  => 'fas fa-align-right',
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title'   => 'text-align: {{VALUE}};',
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title'   => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -239,7 +239,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'item_spacing',
 			[
-				'label' => __( 'Item Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Item Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -251,7 +251,7 @@ class Accordion extends Widget_Base {
 					'size' => 2,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item + .bdt-accordion-item' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item + .avt-accordion-item' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -261,7 +261,7 @@ class Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_title',
 			[
-				'label' => __( 'Title', 'bdthemes-element-pack' ),
+				'label' => __( 'Title', 'avator-widget-pack' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -271,7 +271,7 @@ class Accordion extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_title_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
@@ -280,7 +280,7 @@ class Accordion extends Widget_Base {
 			[
 				'name'      => 'title_background',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .bdt-accordion .bdt-accordion-title',
+				'selector'  => '{{WRAPPER}} .avt-accordion .avt-accordion-title',
 				'separator' => 'after',
 			]
 		);
@@ -288,10 +288,10 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -301,18 +301,18 @@ class Accordion extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'title_shadow',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-item .bdt-accordion-title',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-item .avt-accordion-title',
 			]
 		);
 
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -323,18 +323,18 @@ class Accordion extends Widget_Base {
 				'name'        => 'title_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-accordion .bdt-accordion-item .bdt-accordion-title',
+				'selector'    => '{{WRAPPER}} .avt-accordion .avt-accordion-item .avt-accordion-title',
 			]
 		);
 
 		$this->add_control(
 			'title_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item .bdt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item .avt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -343,7 +343,7 @@ class Accordion extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-title',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-title',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
@@ -353,7 +353,7 @@ class Accordion extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_title_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
@@ -362,7 +362,7 @@ class Accordion extends Widget_Base {
 			[
 				'name'      => 'hover_title_background',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .bdt-accordion .bdt-accordion-item:hover .bdt-accordion-title',
+				'selector'  => '{{WRAPPER}} .avt-accordion .avt-accordion-item:hover .avt-accordion-title',
 				'separator' => 'after',
 			]
 		);
@@ -370,10 +370,10 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'hover_title_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item:hover .bdt-accordion-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item:hover .avt-accordion-title' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -384,7 +384,7 @@ class Accordion extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_title_active',
 			[
-				'label' => __( 'Active', 'bdthemes-element-pack' ),
+				'label' => __( 'Active', 'avator-widget-pack' ),
 			]
 		);
 
@@ -393,7 +393,7 @@ class Accordion extends Widget_Base {
 			[
 				'name'      => 'active_title_background',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .bdt-accordion .bdt-accordion-item.bdt-open .bdt-accordion-title',
+				'selector'  => '{{WRAPPER}} .avt-accordion .avt-accordion-item.avt-open .avt-accordion-title',
 				'separator' => 'after',
 			]
 		);
@@ -401,10 +401,10 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'active_title_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item.bdt-open .bdt-accordion-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item.avt-open .avt-accordion-title' => 'color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -414,7 +414,7 @@ class Accordion extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'active_title_shadow',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-item.bdt-open .bdt-accordion-title',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-item.avt-open .avt-accordion-title',
 			]
 		);
 
@@ -424,18 +424,18 @@ class Accordion extends Widget_Base {
 				'name'        => 'active_title_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .bdt-accordion .bdt-accordion-item.bdt-open .bdt-accordion-title',
+				'selector'    => '{{WRAPPER}} .avt-accordion .avt-accordion-item.avt-open .avt-accordion-title',
 			]
 		);
 
 		$this->add_control(
 			'active_title_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item.bdt-open .bdt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item.avt-open .avt-accordion-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -449,7 +449,7 @@ class Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_icon',
 			[
-				'label'     => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'accordion_icon[value]!' => '',
@@ -462,22 +462,22 @@ class Accordion extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_icon_normal',
 			[
-				'label' => __( 'Normal', 'bdthemes-element-pack' ),
+				'label' => __( 'Normal', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_align',
 			[
-				'label'   => __( 'Alignment', 'bdthemes-element-pack' ),
+				'label'   => __( 'Alignment', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Start', 'bdthemes-element-pack' ),
+						'title' => __( 'Start', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'right' => [
-						'title' => __( 'End', 'bdthemes-element-pack' ),
+						'title' => __( 'End', 'avator-widget-pack' ),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -490,11 +490,11 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title .bdt-accordion-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title .bdt-accordion-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title .avt-accordion-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title .avt-accordion-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -502,7 +502,7 @@ class Accordion extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_space',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -511,8 +511,8 @@ class Accordion extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-icon.bdt-flex-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-icon.bdt-flex-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-icon.avt-flex-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-icon.avt-flex-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -522,18 +522,18 @@ class Accordion extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_icon_hover',
 			[
-				'label' => __( 'Hover', 'bdthemes-element-pack' ),
+				'label' => __( 'Hover', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_hover_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item:hover .bdt-accordion-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item:hover .bdt-accordion-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item:hover .avt-accordion-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item:hover .avt-accordion-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -543,18 +543,18 @@ class Accordion extends Widget_Base {
 		$this->start_controls_tab(
 			'tab_icon_active',
 			[
-				'label' => __( 'Active', 'bdthemes-element-pack' ),
+				'label' => __( 'Active', 'avator-widget-pack' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_active_color',
 			[
-				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item.bdt-open .bdt-accordion-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-item.bdt-open .bdt-accordion-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item.avt-open .avt-accordion-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-item.avt-open .avt-accordion-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -564,7 +564,7 @@ class Accordion extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => __( 'Icon Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Icon Size', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -573,7 +573,7 @@ class Accordion extends Widget_Base {
 					],
 				],				
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-title .bdt-accordion-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-title .avt-accordion-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -585,7 +585,7 @@ class Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'section_toggle_style_content',
 			[
-				'label'     => __( 'Content', 'bdthemes-element-pack' ),
+				'label'     => __( 'Content', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -595,7 +595,7 @@ class Accordion extends Widget_Base {
 			[
 				'name'      => 'content_background_color',
 				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .bdt-accordion .bdt-accordion-content',
+				'selector'  => '{{WRAPPER}} .avt-accordion .avt-accordion-content',
 				'separator' => 'after',
 			]
 		);
@@ -603,10 +603,10 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'content_color',
 			[
-				'label'     => __( 'Color', 'bdthemes-element-pack' ),
+				'label'     => __( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'color: {{VALUE}};',
 				'separator' => 'before',
 				],
 			]
@@ -615,11 +615,11 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'content_radius',
 			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'label'      => __( 'Border Radius', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
 				],
 			]
 		);
@@ -627,11 +627,11 @@ class Accordion extends Widget_Base {
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -639,7 +639,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'content_spacing',
 			[
-				'label' => __( 'Spacing', 'bdthemes-element-pack' ),
+				'label' => __( 'Spacing', 'avator-widget-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -648,7 +648,7 @@ class Accordion extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-accordion .bdt-accordion-content' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-accordion .avt-accordion-content' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -657,7 +657,7 @@ class Accordion extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'content_typography',
-				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-content',
+				'selector' => '{{WRAPPER}} .avt-accordion .avt-accordion-content',
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -667,15 +667,15 @@ class Accordion extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$id       = 'bdt-accordion-' . $this->get_id();
+		$id       = 'avt-accordion-' . $this->get_id();
 
 
 		$this->add_render_attribute(
 			[
 				'accordion' => [
 					'id'            => $id,
-					'class'         => 'bdt-accordion',
-					'bdt-accordion' => [
+					'class'         => 'avt-accordion',
+					'avt-accordion' => [
 						wp_json_encode(array_filter([
 							"collapsible" => $settings["collapsible"] ? true : false,
 							"multiple"    => $settings["multiple"] ? true : false,
@@ -695,53 +695,53 @@ class Accordion extends Widget_Base {
 		$active_is_new    = empty( $settings['icon_active'] ) && Icons_Manager::is_migration_allowed();
 		
 		?>
-		<div class="bdt-accordion-container">
+		<div class="avt-accordion-container">
 			<div <?php echo $this->get_render_attribute_string( 'accordion' ); ?>>
 				<?php foreach ( $settings['tabs'] as $index => $item ) :
 					$acc_count = $index + 1;
 
-					$acc_id   = ($item['tab_title']) ? element_pack_string_id($item['tab_title']) : $id . $acc_count;
-					$acc_id   = 'bdt-accordion-'. $acc_id;
+					$acc_id   = ($item['tab_title']) ? widget_pack_string_id($item['tab_title']) : $id . $acc_count;
+					$acc_id   = 'avt-accordion-'. $acc_id;
 
 					$tab_title_setting_key = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
 
 					$tab_content_setting_key = $this->get_repeater_setting_key( 'tab_content', 'tabs', $index );
 
 					$this->add_render_attribute( $tab_title_setting_key, [
-						'class' => [ 'bdt-accordion-title bdt-flex bdt-flex-middle' ],
+						'class' => [ 'avt-accordion-title avt-flex avt-flex-middle' ],
 					]);
 
-					$this->add_render_attribute( $tab_title_setting_key, 'class', ( 'right' == $settings['icon_align'] ) ? 'bdt-flex-between' : '' );
+					$this->add_render_attribute( $tab_title_setting_key, 'class', ( 'right' == $settings['icon_align'] ) ? 'avt-flex-between' : '' );
 
 
 					$this->add_render_attribute( $tab_content_setting_key, [
-						'class' => [ 'bdt-accordion-content' ],
+						'class' => [ 'avt-accordion-content' ],
 					]);
 
 					$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
 					?>
-					<div class="bdt-accordion-item<?php echo ($acc_count === $settings['active_item']) ? ' bdt-open' : ''; ?>">
+					<div class="avt-accordion-item<?php echo ($acc_count === $settings['active_item']) ? ' avt-open' : ''; ?>">
 						<<?php echo esc_attr($settings['title_html_tag']) ; ?> <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?> href="#" id="<?php echo esc_attr($acc_id); ?>" data-accordion-index="<?php echo esc_attr($index); ?>">
 
 							<?php if ( $settings['accordion_icon']['value'] ) : ?>
-							<span class="bdt-accordion-icon bdt-flex-align-<?php echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
+							<span class="avt-accordion-icon avt-flex-align-<?php echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
 
 								<?php if ( $is_new || $migrated ) : ?>
-									<span class="bdt-accordion-icon-closed">
+									<span class="avt-accordion-icon-closed">
 										
 									<?php Icons_Manager::render_icon( $settings['accordion_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] ); ?>
 									</span>
 								<?php else : ?>
-									<i class="bdt-accordion-icon-closed <?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
+									<i class="avt-accordion-icon-closed <?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
 								<?php endif; ?>
 
 								<?php if ( $active_is_new || $active_migrated ) : ?>
-									<span class="bdt-accordion-icon-opened">
+									<span class="avt-accordion-icon-opened">
 										
 									<?php Icons_Manager::render_icon( $settings['accordion_active_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] ); ?>
 									</span>
 								<?php else : ?>
-									<i class="bdt-accordion-icon-opened <?php echo esc_attr( $settings['icon_active'] ); ?>" aria-hidden="true"></i>
+									<i class="avt-accordion-icon-opened <?php echo esc_attr( $settings['icon_active'] ); ?>" aria-hidden="true"></i>
 								<?php endif; ?>
 
 							</span>
@@ -754,11 +754,11 @@ class Accordion extends Widget_Base {
 				            	if ( 'custom' == $item['source'] and !empty( $item['tab_content'] ) ) {
 				            		echo $this->parse_text_editor( $item['tab_content'] );
 				            	} elseif ("elementor" == $item['source'] and !empty( $item['template_id'] )) {
-				            		echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $item['template_id'] );
-				            		echo element_pack_template_edit_link( $item['template_id'] );
+				            		echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $item['template_id'] );
+				            		echo widget_pack_template_edit_link( $item['template_id'] );
 				            	} elseif ('anywhere' == $item['source'] and !empty( $item['anywhere_id'] )) {
-				            		echo Element_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $item['anywhere_id'] );
-				            		echo element_pack_template_edit_link( $item['anywhere_id'] );
+				            		echo Widget_Pack_Loader::elementor()->frontend->get_builder_content_for_display( $item['anywhere_id'] );
+				            		echo widget_pack_template_edit_link( $item['anywhere_id'] );
 				            	}
 				            ?>
 						</div>

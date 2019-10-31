@@ -1,5 +1,5 @@
 <?php
-use ElementPack\Element_Pack_Loader;
+use WidgetPack\Widget_Pack_Loader;
 
 /**
  * You can easily add white label branding for for extended license or multi site license. 
@@ -7,10 +7,10 @@ use ElementPack\Element_Pack_Loader;
  * @return White Label
  */
 
-if ( !defined('BDTEP') ) { define( 'BDTEP', '' ); } //Add prefix for all widgets <span class="bdt-widget-badge"></span>
-if ( !defined('BDTEP_CP') ) { define( 'BDTEP_CP', '<span class="bdt-widget-badge"></span>' ); } // if you have any custom style
-if ( !defined('BDTEP_SLUG') ) { define( 'BDTEP_SLUG', 'element-pack' ); } // set your own alias 
-if ( !defined('BDTEP_TITLE') ) { define( 'BDTEP_TITLE', 'Element Pack' ); } // Set your own name for plugin
+if ( !defined('AWP') ) { define( 'AWP', '' ); } //Add prefix for all widgets <span class="avt-widget-badge"></span>
+if ( !defined('AWP_CP') ) { define( 'AWP_CP', '<span class="avt-widget-badge"></span>' ); } // if you have any custom style
+if ( !defined('AWP_SLUG') ) { define( 'AWP_SLUG', 'widget-pack' ); } // set your own alias 
+if ( !defined('AWP_TITLE') ) { define( 'AWP_TITLE', 'Widget Pack' ); } // Set your own name for plugin
 
 
 /**
@@ -20,11 +20,11 @@ if ( !defined('BDTEP_TITLE') ) { define( 'BDTEP_TITLE', 'Element Pack' ); } // S
  * @param  boolean $close   [description]
  * @return helper           [description]
  */
-function element_pack_alert($message, $type = 'warning', $close = true) {
+function widget_pack_alert($message, $type = 'warning', $close = true) {
     ?>
-    <div class="bdt-alert-<?php echo $type; ?>" bdt-alert>
+    <div class="avt-alert-<?php echo $type; ?>" avt-alert>
         <?php if($close) : ?>
-            <a class="bdt-alert-close" bdt-close></a>
+            <a class="avt-alert-close" avt-close></a>
         <?php endif; ?>
         <?php echo wp_kses_post( $message ); ?>
     </div>
@@ -37,7 +37,7 @@ function element_pack_alert($message, $type = 'warning', $close = true) {
  * @return proper string
  */
 
-function element_pack_get_post_types($args = []){
+function widget_pack_get_post_types($args = []){
 
     $post_type_args = [
         'show_in_nav_menus' => true,
@@ -49,7 +49,7 @@ function element_pack_get_post_types($args = []){
 
     $_post_types = get_post_types( $post_type_args , 'objects' );
 
-    $post_types  = ['0' => esc_html__( 'Select Type', 'bdthemes-element-pack' ) ];
+    $post_types  = ['0' => esc_html__( 'Select Type', 'avator-widget-pack' ) ];
 
     foreach ( $_post_types as $post_type => $object ) {
         $post_types[ $post_type ] = $object->label;
@@ -62,10 +62,10 @@ function element_pack_get_post_types($args = []){
  * Add REST API support to an already registered post type.
  */
 
-// function bdt_custom_post_type_rest_support() {
+// function avt_custom_post_type_rest_support() {
 //     global $wp_post_types;
 
-//     $post_types = element_pack_get_post_types();
+//     $post_types = widget_pack_get_post_types();
 //     foreach( $post_types as $post_type ) {
 //         $post_type_name = $post_type;
 //         if( isset( $wp_post_types[ $post_type_name ] ) ) {
@@ -77,10 +77,10 @@ function element_pack_get_post_types($args = []){
 
 // }
 
-// add_action( 'init', 'bdt_custom_post_type_rest_support', 25 );
+// add_action( 'init', 'avt_custom_post_type_rest_support', 25 );
 
 
-function element_pack_allow_tags( $tag = null ) {
+function widget_pack_allow_tags( $tag = null ) {
     $tag_allowed = wp_kses_allowed_html('post');
 
     $tag_allowed['input'] = [
@@ -152,7 +152,7 @@ function element_pack_allow_tags( $tag = null ) {
 /**
  * post pagination
  */
-function element_pack_post_pagination($wp_query) {
+function widget_pack_post_pagination($wp_query) {
 
     /** Stop execution if there's only 1 page */
     if( $wp_query->max_num_pages <= 1 ) {
@@ -177,11 +177,11 @@ function element_pack_post_pagination($wp_query) {
         $links[] = $paged + 1;
     }
 
-    echo '<ul class="bdt-pagination bdt-flex-center">' . "\n";
+    echo '<ul class="avt-pagination avt-flex-center">' . "\n";
 
     /** Previous Post Link */
     if ( get_previous_posts_link() )
-        printf( '<li>%s</li>' . "\n", get_previous_posts_link('<span bdt-pagination-previous></span>') );
+        printf( '<li>%s</li>' . "\n", get_previous_posts_link('<span avt-pagination-previous></span>') );
 
     /** Link to first page, plus ellipses if necessary */
     if ( ! in_array( 1, $links ) ) {
@@ -190,45 +190,45 @@ function element_pack_post_pagination($wp_query) {
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
 
         if ( ! in_array( 2, $links ) )
-            echo '<li class="bdt-pagination-dot-dot"><span>...</span></li>';
+            echo '<li class="avt-pagination-dot-dot"><span>...</span></li>';
     }
 
     /** Link to current page, plus 2 pages in either direction if necessary */
     sort( $links );
     foreach ( (array) $links as $link ) {
-        $class = $paged == $link ? ' class="bdt-active"' : '';
+        $class = $paged == $link ? ' class="avt-active"' : '';
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
     }
 
     /** Link to last page, plus ellipses if necessary */
     if ( ! in_array( $max, $links ) ) {
         if ( ! in_array( $max - 1, $links ) )
-            echo '<li class="bdt-pagination-dot-dot"><span>...</span></li>' . "\n";
+            echo '<li class="avt-pagination-dot-dot"><span>...</span></li>' . "\n";
 
-        $class = $paged == $max ? ' class="bdt-active"' : '';
+        $class = $paged == $max ? ' class="avt-active"' : '';
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
     }
 
     /** Next Post Link */
     if ( get_next_posts_link() )
-        printf( '<li>%s</li>' . "\n", get_next_posts_link('<span bdt-pagination-next></span>') );
+        printf( '<li>%s</li>' . "\n", get_next_posts_link('<span avt-pagination-next></span>') );
 
     echo '</ul>' . "\n";
 }
 
-function element_pack_template_edit_link( $template_id ) {
-    if ( Element_Pack_Loader::elementor()->editor->is_edit_mode() ) {
+function widget_pack_template_edit_link( $template_id ) {
+    if ( Widget_Pack_Loader::elementor()->editor->is_edit_mode() ) {
         
         $final_url = add_query_arg( [ 'elementor' => '' ], get_permalink( $template_id ) );
 
-        $output = sprintf( '<a class="bdt-elementor-template-edit-link" href="%s" title="%s" target="_blank"><i class="eicon-edit"></i></a>', esc_url( $final_url ), esc_html__( 'Edit Template', 'bdthemes-element-pack' ) );
+        $output = sprintf( '<a class="avt-elementor-template-edit-link" href="%s" title="%s" target="_blank"><i class="eicon-edit"></i></a>', esc_url( $final_url ), esc_html__( 'Edit Template', 'avator-widget-pack' ) );
 
         return $output;
     }
 }
 
 
-function element_pack_iso_time($time) {
+function widget_pack_iso_time($time) {
     $current_offset = (float) get_option( 'gmt_offset' );
     $timezone_string = get_option( 'timezone_string' );
 
@@ -252,12 +252,12 @@ function element_pack_iso_time($time) {
 
 
 
-function element_pack_get_menu() {
+function widget_pack_get_menu() {
     $data = get_transient( 'ep_get_menu' );
 
     if ( false === $data ) {
         $menus = wp_get_nav_menus();
-        $items = ['0' => esc_html__( 'Select Menu', 'bdthemes-element-pack' ) ];
+        $items = ['0' => esc_html__( 'Select Menu', 'avator-widget-pack' ) ];
         foreach ( $menus as $menu ) {
             $items[ $menu->slug ] = $menu->name;
         }
@@ -275,7 +275,7 @@ function element_pack_get_menu() {
  * @param string $default default text if it's not found
  * @return mixed
  */
-function element_pack_option( $option, $section, $default = '' ) {
+function widget_pack_option( $option, $section, $default = '' ) {
 
     $options = get_option( $section );
 
@@ -287,7 +287,7 @@ function element_pack_option( $option, $section, $default = '' ) {
 }
 
 // Anywhere Template
-function element_pack_ae_options() {
+function widget_pack_ae_options() {
     
     $data = get_transient( 'ep_anywhere_template' );
 
@@ -300,13 +300,13 @@ function element_pack_ae_options() {
                 'post_type'      => 'ae_global_templates',
             ));
 
-            $anywhere_options = ['0' => esc_html__( 'Select Template', 'bdthemes-element-pack' ) ];
+            $anywhere_options = ['0' => esc_html__( 'Select Template', 'avator-widget-pack' ) ];
 
             foreach ($anywhere as $key => $value) {
                 $anywhere_options[$value] = get_the_title($value);
             }        
         } else {
-            $anywhere_options = ['0' => esc_html__( 'AE Plugin Not Installed', 'bdthemes-element-pack' ) ];
+            $anywhere_options = ['0' => esc_html__( 'AE Plugin Not Installed', 'avator-widget-pack' ) ];
         }
 
         set_transient( 'ep_anywhere_template', $anywhere_options, 120 );
@@ -318,19 +318,19 @@ function element_pack_ae_options() {
 }
 
 // Elementor Saved Template 
-function element_pack_et_options() {
+function widget_pack_et_options() {
     
     $data = get_transient( 'ep_elementor_template' );
 
     if ( false === $data ) {
 
-        $templates = Element_Pack_Loader::elementor()->templates_manager->get_source( 'local' )->get_items();
+        $templates = Widget_Pack_Loader::elementor()->templates_manager->get_source( 'local' )->get_items();
         $types     = [];
 
         if ( empty( $templates ) ) {
-            $template_options = [ '0' => __( 'You Haven’t Saved Templates Yet.', 'bdthemes-element-pack' ) ];
+            $template_options = [ '0' => __( 'You Haven’t Saved Templates Yet.', 'avator-widget-pack' ) ];
         } else {
-            $template_options = [ '0' => __( 'Select Template', 'bdthemes-element-pack' ) ];
+            $template_options = [ '0' => __( 'Select Template', 'avator-widget-pack' ) ];
             
             foreach ( $templates as $template ) {
                 $template_options[ $template['template_id'] ] = $template['title'] . ' (' . $template['type'] . ')';
@@ -348,7 +348,7 @@ function element_pack_et_options() {
 }
 
 // Sidebar Widgets
-function element_pack_sidebar_options() {
+function widget_pack_sidebar_options() {
 
     $data = get_transient( 'ep_sidebar_options' );
 
@@ -358,9 +358,9 @@ function element_pack_sidebar_options() {
         $sidebar_options = [];
 
         if ( ! $wp_registered_sidebars ) {
-            $sidebar_options['0'] = esc_html__( 'No sidebars were found', 'bdthemes-element-pack' );
+            $sidebar_options['0'] = esc_html__( 'No sidebars were found', 'avator-widget-pack' );
         } else {
-            $sidebar_options['0'] = esc_html__( 'Select Sidebar', 'bdthemes-element-pack' );
+            $sidebar_options['0'] = esc_html__( 'Select Sidebar', 'avator-widget-pack' );
 
             foreach ( $wp_registered_sidebars as $sidebar_id => $sidebar ) {
                 $sidebar_options[ $sidebar_id ] = $sidebar['name'];
@@ -375,7 +375,7 @@ function element_pack_sidebar_options() {
     return $data;
 }
 
-function element_pack_get_category($terms, $cached = true) {
+function widget_pack_get_category($terms, $cached = true) {
 
     $data = get_transient( 'ep_get_category_' . $terms );
 
@@ -403,7 +403,7 @@ function element_pack_get_category($terms, $cached = true) {
  * @param  array all ajax posted array there
  * @return array return all setting as array
  */
-function element_pack_ajax_settings($settings) {
+function widget_pack_ajax_settings($settings) {
 
     $required_settings = [
         'show_date'      => true,
@@ -430,177 +430,177 @@ function element_pack_ajax_settings($settings) {
 /**
  * @return array list of all transition names
  */
-function element_pack_transition_options() {
+function widget_pack_transition_options() {
 
 
     $transition_options = [
-        ''                    => esc_html__('None', 'bdthemes-element-pack'),
-        'fade'                => esc_html__('Fade', 'bdthemes-element-pack'),
-        'scale-up'            => esc_html__('Scale Up', 'bdthemes-element-pack'),
-        'scale-down'          => esc_html__('Scale Down', 'bdthemes-element-pack'),
-        'slide-top'           => esc_html__('Slide Top', 'bdthemes-element-pack'),
-        'slide-bottom'        => esc_html__('Slide Bottom', 'bdthemes-element-pack'),
-        'slide-left'          => esc_html__('Slide Left', 'bdthemes-element-pack'),
-        'slide-right'         => esc_html__('Slide Right', 'bdthemes-element-pack'),
-        'slide-top-small'     => esc_html__('Slide Top Small', 'bdthemes-element-pack'),
-        'slide-bottom-small'  => esc_html__('Slide Bottom Small', 'bdthemes-element-pack'),
-        'slide-left-small'    => esc_html__('Slide Left Small', 'bdthemes-element-pack'),
-        'slide-right-small'   => esc_html__('Slide Right Small', 'bdthemes-element-pack'),
-        'slide-top-medium'    => esc_html__('Slide Top Medium', 'bdthemes-element-pack'),
-        'slide-bottom-medium' => esc_html__('Slide Bottom Medium', 'bdthemes-element-pack'),
-        'slide-left-medium'   => esc_html__('Slide Left Medium', 'bdthemes-element-pack'),
-        'slide-right-medium'  => esc_html__('Slide Right Medium', 'bdthemes-element-pack'),
+        ''                    => esc_html__('None', 'avator-widget-pack'),
+        'fade'                => esc_html__('Fade', 'avator-widget-pack'),
+        'scale-up'            => esc_html__('Scale Up', 'avator-widget-pack'),
+        'scale-down'          => esc_html__('Scale Down', 'avator-widget-pack'),
+        'slide-top'           => esc_html__('Slide Top', 'avator-widget-pack'),
+        'slide-bottom'        => esc_html__('Slide Bottom', 'avator-widget-pack'),
+        'slide-left'          => esc_html__('Slide Left', 'avator-widget-pack'),
+        'slide-right'         => esc_html__('Slide Right', 'avator-widget-pack'),
+        'slide-top-small'     => esc_html__('Slide Top Small', 'avator-widget-pack'),
+        'slide-bottom-small'  => esc_html__('Slide Bottom Small', 'avator-widget-pack'),
+        'slide-left-small'    => esc_html__('Slide Left Small', 'avator-widget-pack'),
+        'slide-right-small'   => esc_html__('Slide Right Small', 'avator-widget-pack'),
+        'slide-top-medium'    => esc_html__('Slide Top Medium', 'avator-widget-pack'),
+        'slide-bottom-medium' => esc_html__('Slide Bottom Medium', 'avator-widget-pack'),
+        'slide-left-medium'   => esc_html__('Slide Left Medium', 'avator-widget-pack'),
+        'slide-right-medium'  => esc_html__('Slide Right Medium', 'avator-widget-pack'),
     ];
 
     return $transition_options;
 }
 
-// BDT Blend Type
-function element_pack_blend_options() {
+// AVT Blend Type
+function widget_pack_blend_options() {
     $blend_options = [
-        'multiply'    => esc_html__( 'Multiply', 'bdthemes-element-pack' ),
-        'screen'      => esc_html__( 'Screen', 'bdthemes-element-pack' ),
-        'overlay'     => esc_html__( 'Overlay', 'bdthemes-element-pack' ),
-        'darken'      => esc_html__( 'Darken', 'bdthemes-element-pack' ),
-        'lighten'     => esc_html__( 'Lighten', 'bdthemes-element-pack' ),
-        'color-dodge' => esc_html__( 'Color-Dodge', 'bdthemes-element-pack' ),
-        'color-burn'  => esc_html__( 'Color-Burn', 'bdthemes-element-pack' ),
-        'hard-light'  => esc_html__( 'Hard-Light', 'bdthemes-element-pack' ),
-        'soft-light'  => esc_html__( 'Soft-Light', 'bdthemes-element-pack' ),
-        'difference'  => esc_html__( 'Difference', 'bdthemes-element-pack' ),
-        'exclusion'   => esc_html__( 'Exclusion', 'bdthemes-element-pack' ),
-        'hue'         => esc_html__( 'Hue', 'bdthemes-element-pack' ),
-        'saturation'  => esc_html__( 'Saturation', 'bdthemes-element-pack' ),
-        'color'       => esc_html__( 'Color', 'bdthemes-element-pack' ),
-        'luminosity'  => esc_html__( 'Luminosity', 'bdthemes-element-pack' ),
+        'multiply'    => esc_html__( 'Multiply', 'avator-widget-pack' ),
+        'screen'      => esc_html__( 'Screen', 'avator-widget-pack' ),
+        'overlay'     => esc_html__( 'Overlay', 'avator-widget-pack' ),
+        'darken'      => esc_html__( 'Darken', 'avator-widget-pack' ),
+        'lighten'     => esc_html__( 'Lighten', 'avator-widget-pack' ),
+        'color-dodge' => esc_html__( 'Color-Dodge', 'avator-widget-pack' ),
+        'color-burn'  => esc_html__( 'Color-Burn', 'avator-widget-pack' ),
+        'hard-light'  => esc_html__( 'Hard-Light', 'avator-widget-pack' ),
+        'soft-light'  => esc_html__( 'Soft-Light', 'avator-widget-pack' ),
+        'difference'  => esc_html__( 'Difference', 'avator-widget-pack' ),
+        'exclusion'   => esc_html__( 'Exclusion', 'avator-widget-pack' ),
+        'hue'         => esc_html__( 'Hue', 'avator-widget-pack' ),
+        'saturation'  => esc_html__( 'Saturation', 'avator-widget-pack' ),
+        'color'       => esc_html__( 'Color', 'avator-widget-pack' ),
+        'luminosity'  => esc_html__( 'Luminosity', 'avator-widget-pack' ),
     ];
 
     return $blend_options;
 }
 
-// BDT Position
-function element_pack_position() {
+// AVT Position
+function widget_pack_position() {
     $position_options = [
-        ''              => esc_html__('Default', 'bdthemes-element-pack'),
-        'top-left'      => esc_html__('Top Left', 'bdthemes-element-pack') ,
-        'top-center'    => esc_html__('Top Center', 'bdthemes-element-pack') ,
-        'top-right'     => esc_html__('Top Right', 'bdthemes-element-pack') ,
-        'center'        => esc_html__('Center', 'bdthemes-element-pack') ,
-        'center-left'   => esc_html__('Center Left', 'bdthemes-element-pack') ,
-        'center-right'  => esc_html__('Center Right', 'bdthemes-element-pack') ,
-        'bottom-left'   => esc_html__('Bottom Left', 'bdthemes-element-pack') ,
-        'bottom-center' => esc_html__('Bottom Center', 'bdthemes-element-pack') ,
-        'bottom-right'  => esc_html__('Bottom Right', 'bdthemes-element-pack') ,
+        ''              => esc_html__('Default', 'avator-widget-pack'),
+        'top-left'      => esc_html__('Top Left', 'avator-widget-pack') ,
+        'top-center'    => esc_html__('Top Center', 'avator-widget-pack') ,
+        'top-right'     => esc_html__('Top Right', 'avator-widget-pack') ,
+        'center'        => esc_html__('Center', 'avator-widget-pack') ,
+        'center-left'   => esc_html__('Center Left', 'avator-widget-pack') ,
+        'center-right'  => esc_html__('Center Right', 'avator-widget-pack') ,
+        'bottom-left'   => esc_html__('Bottom Left', 'avator-widget-pack') ,
+        'bottom-center' => esc_html__('Bottom Center', 'avator-widget-pack') ,
+        'bottom-right'  => esc_html__('Bottom Right', 'avator-widget-pack') ,
     ];
 
     return $position_options;
 }
 
-// BDT Thumbnavs Position
-function element_pack_thumbnavs_position() {
+// AVT Thumbnavs Position
+function widget_pack_thumbnavs_position() {
     $position_options = [
-        'top-left'      => esc_html__('Top Left', 'bdthemes-element-pack') ,
-        'top-center'    => esc_html__('Top Center', 'bdthemes-element-pack') ,
-        'top-right'     => esc_html__('Top Right', 'bdthemes-element-pack') ,
-        'center-left'   => esc_html__('Center Left', 'bdthemes-element-pack') ,
-        'center-right'  => esc_html__('Center Right', 'bdthemes-element-pack') ,
-        'bottom-left'   => esc_html__('Bottom Left', 'bdthemes-element-pack') ,
-        'bottom-center' => esc_html__('Bottom Center', 'bdthemes-element-pack') ,
-        'bottom-right'  => esc_html__('Bottom Right', 'bdthemes-element-pack') ,
+        'top-left'      => esc_html__('Top Left', 'avator-widget-pack') ,
+        'top-center'    => esc_html__('Top Center', 'avator-widget-pack') ,
+        'top-right'     => esc_html__('Top Right', 'avator-widget-pack') ,
+        'center-left'   => esc_html__('Center Left', 'avator-widget-pack') ,
+        'center-right'  => esc_html__('Center Right', 'avator-widget-pack') ,
+        'bottom-left'   => esc_html__('Bottom Left', 'avator-widget-pack') ,
+        'bottom-center' => esc_html__('Bottom Center', 'avator-widget-pack') ,
+        'bottom-right'  => esc_html__('Bottom Right', 'avator-widget-pack') ,
     ];
 
     return $position_options;
 }
 
-function element_pack_navigation_position() {
+function widget_pack_navigation_position() {
     $position_options = [
-        'top-left'      => esc_html__('Top Left', 'bdthemes-element-pack') ,
-        'top-center'    => esc_html__('Top Center', 'bdthemes-element-pack') ,
-        'top-right'     => esc_html__('Top Right', 'bdthemes-element-pack') ,
-        'center'        => esc_html__('Center', 'bdthemes-element-pack') ,
-        'bottom-left'   => esc_html__('Bottom Left', 'bdthemes-element-pack') ,
-        'bottom-center' => esc_html__('Bottom Center', 'bdthemes-element-pack') ,
-        'bottom-right'  => esc_html__('Bottom Right', 'bdthemes-element-pack') ,
+        'top-left'      => esc_html__('Top Left', 'avator-widget-pack') ,
+        'top-center'    => esc_html__('Top Center', 'avator-widget-pack') ,
+        'top-right'     => esc_html__('Top Right', 'avator-widget-pack') ,
+        'center'        => esc_html__('Center', 'avator-widget-pack') ,
+        'bottom-left'   => esc_html__('Bottom Left', 'avator-widget-pack') ,
+        'bottom-center' => esc_html__('Bottom Center', 'avator-widget-pack') ,
+        'bottom-right'  => esc_html__('Bottom Right', 'avator-widget-pack') ,
     ];
 
     return $position_options;
 }
 
 
-function element_pack_pagination_position() {
+function widget_pack_pagination_position() {
     $position_options = [
-        'top-left'      => esc_html__('Top Left', 'bdthemes-element-pack') ,
-        'top-center'    => esc_html__('Top Center', 'bdthemes-element-pack') ,
-        'top-right'     => esc_html__('Top Right', 'bdthemes-element-pack') ,
-        'bottom-left'   => esc_html__('Bottom Left', 'bdthemes-element-pack') ,
-        'bottom-center' => esc_html__('Bottom Center', 'bdthemes-element-pack') ,
-        'bottom-right'  => esc_html__('Bottom Right', 'bdthemes-element-pack') ,
+        'top-left'      => esc_html__('Top Left', 'avator-widget-pack') ,
+        'top-center'    => esc_html__('Top Center', 'avator-widget-pack') ,
+        'top-right'     => esc_html__('Top Right', 'avator-widget-pack') ,
+        'bottom-left'   => esc_html__('Bottom Left', 'avator-widget-pack') ,
+        'bottom-center' => esc_html__('Bottom Center', 'avator-widget-pack') ,
+        'bottom-right'  => esc_html__('Bottom Right', 'avator-widget-pack') ,
     ];
 
     return $position_options;
 }
 
-// BDT Drop Position
-function element_pack_drop_position() {
+// AVT Drop Position
+function widget_pack_drop_position() {
     $drop_position_options = [
-        'bottom-left'    => esc_html__('Bottom Left', 'bdthemes-element-pack'),
-        'bottom-center'  => esc_html__('Bottom Center', 'bdthemes-element-pack'),
-        'bottom-right'   => esc_html__('Bottom Right', 'bdthemes-element-pack'),
-        'bottom-justify' => esc_html__('Bottom Justify', 'bdthemes-element-pack'),
-        'top-left'       => esc_html__('Top Left', 'bdthemes-element-pack'),
-        'top-center'     => esc_html__('Top Center', 'bdthemes-element-pack'),
-        'top-right'      => esc_html__('Top Right', 'bdthemes-element-pack'),
-        'top-justify'    => esc_html__('Top Justify', 'bdthemes-element-pack'),
-        'left-top'       => esc_html__('Left Top', 'bdthemes-element-pack'),
-        'left-center'    => esc_html__('Left Center', 'bdthemes-element-pack'),
-        'left-bottom'    => esc_html__('Left Bottom', 'bdthemes-element-pack'),
-        'right-top'      => esc_html__('Right Top', 'bdthemes-element-pack'),
-        'right-center'   => esc_html__('Right Center', 'bdthemes-element-pack'),
-        'right-bottom'   => esc_html__('Right Bottom', 'bdthemes-element-pack'),
+        'bottom-left'    => esc_html__('Bottom Left', 'avator-widget-pack'),
+        'bottom-center'  => esc_html__('Bottom Center', 'avator-widget-pack'),
+        'bottom-right'   => esc_html__('Bottom Right', 'avator-widget-pack'),
+        'bottom-justify' => esc_html__('Bottom Justify', 'avator-widget-pack'),
+        'top-left'       => esc_html__('Top Left', 'avator-widget-pack'),
+        'top-center'     => esc_html__('Top Center', 'avator-widget-pack'),
+        'top-right'      => esc_html__('Top Right', 'avator-widget-pack'),
+        'top-justify'    => esc_html__('Top Justify', 'avator-widget-pack'),
+        'left-top'       => esc_html__('Left Top', 'avator-widget-pack'),
+        'left-center'    => esc_html__('Left Center', 'avator-widget-pack'),
+        'left-bottom'    => esc_html__('Left Bottom', 'avator-widget-pack'),
+        'right-top'      => esc_html__('Right Top', 'avator-widget-pack'),
+        'right-center'   => esc_html__('Right Center', 'avator-widget-pack'),
+        'right-bottom'   => esc_html__('Right Bottom', 'avator-widget-pack'),
     ];
 
     return $drop_position_options;
 }
 
 // Button Size
-function element_pack_button_sizes() {
+function widget_pack_button_sizes() {
     $button_sizes = [
-        'xs' => esc_html__( 'Extra Small', 'bdthemes-element-pack' ),
-        'sm' => esc_html__( 'Small', 'bdthemes-element-pack' ),
-        'md' => esc_html__( 'Medium', 'bdthemes-element-pack' ),
-        'lg' => esc_html__( 'Large', 'bdthemes-element-pack' ),
-        'xl' => esc_html__( 'Extra Large', 'bdthemes-element-pack' ),
+        'xs' => esc_html__( 'Extra Small', 'avator-widget-pack' ),
+        'sm' => esc_html__( 'Small', 'avator-widget-pack' ),
+        'md' => esc_html__( 'Medium', 'avator-widget-pack' ),
+        'lg' => esc_html__( 'Large', 'avator-widget-pack' ),
+        'xl' => esc_html__( 'Extra Large', 'avator-widget-pack' ),
     ];
 
     return $button_sizes;
 }
 
 // Button Size
-function element_pack_heading_size() {
+function widget_pack_heading_size() {
     $heading_sizes = [
-        'h1' => esc_html__( 'H1', 'bdthemes-element-pack' ),
-        'h2' => esc_html__( 'H2', 'bdthemes-element-pack' ),
-        'h3' => esc_html__( 'H3', 'bdthemes-element-pack' ),
-        'h4' => esc_html__( 'H4', 'bdthemes-element-pack' ),
-        'h5' => esc_html__( 'H5', 'bdthemes-element-pack' ),
-        'h6' => esc_html__( 'H6', 'bdthemes-element-pack' ),
+        'h1' => esc_html__( 'H1', 'avator-widget-pack' ),
+        'h2' => esc_html__( 'H2', 'avator-widget-pack' ),
+        'h3' => esc_html__( 'H3', 'avator-widget-pack' ),
+        'h4' => esc_html__( 'H4', 'avator-widget-pack' ),
+        'h5' => esc_html__( 'H5', 'avator-widget-pack' ),
+        'h6' => esc_html__( 'H6', 'avator-widget-pack' ),
     ];
 
     return $heading_sizes;
 }
 
 // Title Tags
-function element_pack_title_tags() {
+function widget_pack_title_tags() {
     $title_tags = [
-        'h1'   => esc_html__( 'H1', 'bdthemes-element-pack' ),
-        'h2'   => esc_html__( 'H2', 'bdthemes-element-pack' ),
-        'h3'   => esc_html__( 'H3', 'bdthemes-element-pack' ),
-        'h4'   => esc_html__( 'H4', 'bdthemes-element-pack' ),
-        'h5'   => esc_html__( 'H5', 'bdthemes-element-pack' ),
-        'h6'   => esc_html__( 'H6', 'bdthemes-element-pack' ),
-        'div'  => esc_html__( 'div', 'bdthemes-element-pack' ),
-        'span' => esc_html__( 'span', 'bdthemes-element-pack' ),
-        'p'    => esc_html__( 'p', 'bdthemes-element-pack' ),
+        'h1'   => esc_html__( 'H1', 'avator-widget-pack' ),
+        'h2'   => esc_html__( 'H2', 'avator-widget-pack' ),
+        'h3'   => esc_html__( 'H3', 'avator-widget-pack' ),
+        'h4'   => esc_html__( 'H4', 'avator-widget-pack' ),
+        'h5'   => esc_html__( 'H5', 'avator-widget-pack' ),
+        'h6'   => esc_html__( 'H6', 'avator-widget-pack' ),
+        'div'  => esc_html__( 'div', 'avator-widget-pack' ),
+        'span' => esc_html__( 'span', 'avator-widget-pack' ),
+        'p'    => esc_html__( 'p', 'avator-widget-pack' ),
     ];
 
     return $title_tags;
@@ -610,9 +610,9 @@ function element_pack_title_tags() {
  * @param  svg file
  * @return svg content
  */
-function element_pack_svg_icon($icon) {
+function widget_pack_svg_icon($icon) {
 
-    $icon_path = BDTEP_ASSETS_PATH . "images/svg/{$icon}.svg";
+    $icon_path = AWP_ASSETS_PATH . "images/svg/{$icon}.svg";
 
     if ( !file_exists( $icon_path ) ) { return false; }
 
@@ -629,199 +629,199 @@ function element_pack_svg_icon($icon) {
  * weather code to icon and description output
  * more info: http://www.apixu.com/doc/Apixu_weather_conditions.json
  */
-function element_pack_weather_code( $code = null, $condition = null ) {
+function widget_pack_weather_code( $code = null, $condition = null ) {
 
-    $codes = apply_filters( 'element-pack/weather/codes', [
+    $codes = apply_filters( 'widget-pack/weather/codes', [
         "1000" => [
-            "desc" => esc_html_x("Sunny", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Sunny", "Weather String", "avator-widget-pack" ),
             "icon" => "113"
         ],
         "1003" => [
-            "desc" => esc_html_x("Partly cloudy", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Partly cloudy", "Weather String", "avator-widget-pack" ),
             "icon" => "116"
         ],
         "1006" => [
-            "desc" => esc_html_x("Cloudy", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Cloudy", "Weather String", "avator-widget-pack" ),
             "icon" => "119"
         ],
         "1009" => [
-            "desc" => esc_html_x("Overcast", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Overcast", "Weather String", "avator-widget-pack" ),
             "icon" => "122"
         ],
         "1030" => [
-            "desc" => esc_html_x("Mist", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Mist", "Weather String", "avator-widget-pack" ),
             "icon" => "143"
         ],
         "1063" => [
-            "desc" => esc_html_x("Patchy rain possible", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy rain possible", "Weather String", "avator-widget-pack" ),
             "icon" => "176"
         ],
         "1066" => [
-            "desc" => esc_html_x("Patchy snow possible", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy snow possible", "Weather String", "avator-widget-pack" ),
             "icon" => "179"
         ],
         "1069" => [
-            "desc" => esc_html_x("Patchy sleet possible", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy sleet possible", "Weather String", "avator-widget-pack" ),
             "icon" => "182"
         ],
         "1072" => [
-            "desc" => esc_html_x("Patchy freezing drizzle possible", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy freezing drizzle possible", "Weather String", "avator-widget-pack" ),
             "icon" => "185"
         ],
         "1087" => [
-            "desc" => esc_html_x("Thundery outbreaks possible", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Thundery outbreaks possible", "Weather String", "avator-widget-pack" ),
             "icon" => "200"
         ],
         "1114" => [
-            "desc" => esc_html_x("Blowing snow", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Blowing snow", "Weather String", "avator-widget-pack" ),
             "icon" => "227"
         ],
         "1117" => [
-            "desc" => esc_html_x("Blizzard", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Blizzard", "Weather String", "avator-widget-pack" ),
             "icon" => "230"
         ],
         "1135" => [
-            "desc" => esc_html_x("Fog", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Fog", "Weather String", "avator-widget-pack" ),
             "icon" => "248"
         ],
         "1147" => [
-            "desc" => esc_html_x("Freezing fog", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Freezing fog", "Weather String", "avator-widget-pack" ),
             "icon" => "260"
         ],
         "1150" => [
-            "desc" => esc_html_x("Patchy light drizzle", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy light drizzle", "Weather String", "avator-widget-pack" ),
             "icon" => "263"
         ],
         "1153" => [
-            "desc" => esc_html_x("Light drizzle", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light drizzle", "Weather String", "avator-widget-pack" ),
             "icon" => "266"
         ],
         "1168" => [
-            "desc" => esc_html_x("Freezing drizzle", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Freezing drizzle", "Weather String", "avator-widget-pack" ),
             "icon" => "281"
         ],
         "1171" => [
-            "desc" => esc_html_x("Heavy freezing drizzle", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Heavy freezing drizzle", "Weather String", "avator-widget-pack" ),
             "icon" => "284"
         ],
         "1180" => [
-            "desc" => esc_html_x("Patchy light rain", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy light rain", "Weather String", "avator-widget-pack" ),
             "icon" => "293"
         ],
         "1183" => [
-            "desc" => esc_html_x("Light rain", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light rain", "Weather String", "avator-widget-pack" ),
             "icon" => "296"
         ],
         "1186" => [
-            "desc" => esc_html_x("Moderate rain at times", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate rain at times", "Weather String", "avator-widget-pack" ),
             "icon" => "299"
         ],
         "1189" => [
-            "desc" => esc_html_x("Moderate rain", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate rain", "Weather String", "avator-widget-pack" ),
             "icon" => "302"
         ],
         "1192" => [
-            "desc" => esc_html_x("Heavy rain at times", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Heavy rain at times", "Weather String", "avator-widget-pack" ),
             "icon" => "305"
         ],
         "1195" => [
-            "desc" => esc_html_x("Heavy rain", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Heavy rain", "Weather String", "avator-widget-pack" ),
             "icon" => "308"
         ],
         "1198" => [
-            "desc" => esc_html_x("Light freezing rain", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light freezing rain", "Weather String", "avator-widget-pack" ),
             "icon" => "311"
         ],
         "1201" => [
-            "desc" => esc_html_x("Moderate or heavy freezing rain", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy freezing rain", "Weather String", "avator-widget-pack" ),
             "icon" => "314"
         ],
         "1204" => [
-            "desc" => esc_html_x("Light sleet", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light sleet", "Weather String", "avator-widget-pack" ),
             "icon" => "317"
         ],
         "1207" => [
-            "desc" => esc_html_x("Moderate or heavy sleet", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy sleet", "Weather String", "avator-widget-pack" ),
             "icon" => "320"
         ],
         "1210" => [
-            "desc" => esc_html_x("Patchy light snow", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy light snow", "Weather String", "avator-widget-pack" ),
             "icon" => "323"
         ],
         "1213" => [
-            "desc" => esc_html_x("Light snow", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light snow", "Weather String", "avator-widget-pack" ),
             "icon" => "326"
         ],
         "1216" => [
-            "desc" => esc_html_x("Patchy moderate snow", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy moderate snow", "Weather String", "avator-widget-pack" ),
             "icon" => "329"
         ],
         "1219" => [
-            "desc" => esc_html_x("Moderate snow", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate snow", "Weather String", "avator-widget-pack" ),
             "icon" => "332"
         ],
         "1222" => [
-            "desc" => esc_html_x("Patchy heavy snow", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy heavy snow", "Weather String", "avator-widget-pack" ),
             "icon" => "335"
         ],
         "1225" => [
-            "desc" => esc_html_x("Heavy snow", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Heavy snow", "Weather String", "avator-widget-pack" ),
             "icon" => "338"
         ],
         "1237" => [
-            "desc" => esc_html_x("Ice pellets", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Ice pellets", "Weather String", "avator-widget-pack" ),
             "icon" => "350"
         ],
         "1240" => [
-            "desc" => esc_html_x("Light rain shower", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light rain shower", "Weather String", "avator-widget-pack" ),
             "icon" => "353"
         ],
         "1243" => [
-            "desc" => esc_html_x("Moderate or heavy rain shower", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy rain shower", "Weather String", "avator-widget-pack" ),
             "icon" => "356"
         ],
         "1246" => [
-            "desc" => esc_html_x("Torrential rain shower", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Torrential rain shower", "Weather String", "avator-widget-pack" ),
             "icon" => "359"
         ],
         "1249" => [
-            "desc" => esc_html_x("Light sleet showers", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light sleet showers", "Weather String", "avator-widget-pack" ),
             "icon" => "362"
         ],
         "1252" => [
-            "desc" => esc_html_x("Moderate or heavy sleet showers", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy sleet showers", "Weather String", "avator-widget-pack" ),
             "icon" => "365"
         ],
         "1255" => [
-            "desc" => esc_html_x("Light snow showers", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light snow showers", "Weather String", "avator-widget-pack" ),
             "icon" => "368"
         ],
         "1258" => [
-            "desc" => esc_html_x("Moderate or heavy snow showers", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy snow showers", "Weather String", "avator-widget-pack" ),
             "icon" => "371"
         ],
         "1261" => [
-            "desc" => esc_html_x("Light showers of ice pellets", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Light showers of ice pellets", "Weather String", "avator-widget-pack" ),
             "icon" => "374"
         ],
         "1264" => [
-            "desc" => esc_html_x("Moderate or heavy showers of ice pellets", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy showers of ice pellets", "Weather String", "avator-widget-pack" ),
             "icon" => "377"
         ],
         "1273" => [
-            "desc" => esc_html_x("Patchy light rain with thunder", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy light rain with thunder", "Weather String", "avator-widget-pack" ),
             "icon" => "386"
         ],
         "1276" => [
-            "desc" => esc_html_x("Moderate or heavy rain with thunder", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy rain with thunder", "Weather String", "avator-widget-pack" ),
             "icon" => "389"
         ],
         "1279" => [
-            "desc" => esc_html_x("Patchy light snow with thunder", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Patchy light snow with thunder", "Weather String", "avator-widget-pack" ),
             "icon" => "392"
         ],
         "1282" => [
-            "desc" => esc_html_x("Moderate or heavy snow with thunder", "Weather String", "bdthemes-element-pack" ),
+            "desc" => esc_html_x("Moderate or heavy snow with thunder", "Weather String", "avator-widget-pack" ),
             "icon" => "395"
         ]
     ]);
@@ -843,33 +843,33 @@ function element_pack_weather_code( $code = null, $condition = null ) {
     return $codes[ $code_key ];
 }
 
-function element_pack_wind_code( $degree ) {
+function widget_pack_wind_code( $degree ) {
     
     $direction = '';
 
     if ( ( $degree >= 0 && $degree <= 33.75 ) or ( $degree > 348.75 && $degree <= 360 ) ) {
-        $direction = esc_html_x( 'north', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'north', 'Weather String', 'avator-widget-pack' );
     } else if ( $degree > 33.75 && $degree <= 78.75 ) {
-        $direction = esc_html_x( 'north-east', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'north-east', 'Weather String', 'avator-widget-pack' );
     } else if ( $degree > 78.75 && $degree <= 123.75 ) {
-        $direction = esc_html_x( 'east', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'east', 'Weather String', 'avator-widget-pack' );
     } else if ( $degree > 123.75 && $degree <= 168.75 ) {
-        $direction = esc_html_x( 'south-east', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'south-east', 'Weather String', 'avator-widget-pack' );
     } else if ( $degree > 168.75 && $degree <= 213.75 ) {
-        $direction = esc_html_x( 'south', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'south', 'Weather String', 'avator-widget-pack' );
     } else if ( $degree > 213.75 && $degree <= 258.75 ) {
-        $direction = esc_html_x( 'south-west', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'south-west', 'Weather String', 'avator-widget-pack' );
     } else if ( $degree > 258.75 && $degree <= 303.75 ) {
-        $direction = esc_html_x( 'west', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'west', 'Weather String', 'avator-widget-pack' );
     } else if ( $degree > 303.75 && $degree <= 348.75 ) {
-        $direction = esc_html_x( 'north-west', 'Weather String', 'bdthemes-element-pack' );
+        $direction = esc_html_x( 'north-west', 'Weather String', 'avator-widget-pack' );
     }
 
     return $direction;
 }
 
 
-function element_pack_parse_csv($file) {
+function widget_pack_parse_csv($file) {
     
     if (!isset($file)) { return; }
 
@@ -947,7 +947,7 @@ function element_pack_parse_csv($file) {
  * @param  [type] $string any title or string
  * @return [type]         [description]
  */
-function element_pack_string_id($string) {
+function widget_pack_string_id($string) {
     //Lower case everything
     $string = strtolower($string);
     //Make alphanumeric (removes all other characters)
@@ -960,9 +960,9 @@ function element_pack_string_id($string) {
     return $string;
 }
 
-function element_pack_instagram_feed( $item_count = 100 ) {
+function widget_pack_instagram_feed( $item_count = 100 ) {
 
-    $options        = get_option( 'element_pack_api_settings' );
+    $options        = get_option( 'widget_pack_api_settings' );
     $access_token   = (!empty($options['instagram_access_token'])) ? $options['instagram_access_token'] : '';
 
     if ($access_token) {
@@ -1034,28 +1034,28 @@ function element_pack_instagram_feed( $item_count = 100 ) {
  * Ninja form array creator for get all form as 
  * @return array [description]
  */
-function element_pack_ninja_forms_options() {
+function widget_pack_ninja_forms_options() {
 
     if ( class_exists( 'Ninja_Forms' ) ) {
         $ninja_forms  = Ninja_Forms()->form()->get_forms();
         if ( ! empty( $ninja_forms ) && ! is_wp_error( $ninja_forms ) ) {
-            $form_options = ['0' => esc_html__( 'Select Form', 'bdthemes-element-pack' )];
+            $form_options = ['0' => esc_html__( 'Select Form', 'avator-widget-pack' )];
             foreach ( $ninja_forms as $form ) {   
                 $form_options[ $form->get_id() ] = $form->get_setting( 'title' );
             }
         }
     } else {
-        $form_options = ['0' => esc_html__( 'Form Not Found!', 'bdthemes-element-pack' ) ];
+        $form_options = ['0' => esc_html__( 'Form Not Found!', 'avator-widget-pack' ) ];
     }
 
     return $form_options;
 }
 
-function element_pack_caldera_forms_options() {
+function widget_pack_caldera_forms_options() {
 
     if ( class_exists( 'Caldera_Forms' ) ) {
         $caldera_forms = Caldera_Forms_Forms::get_forms( true, true );
-        $form_options  = ['0' => esc_html__( 'Select Form', 'bdthemes-element-pack' )];
+        $form_options  = ['0' => esc_html__( 'Select Form', 'avator-widget-pack' )];
         $form          = [];
         if ( ! empty( $caldera_forms ) && ! is_wp_error( $caldera_forms ) ) {
             foreach ( $caldera_forms as $form ) {
@@ -1065,58 +1065,58 @@ function element_pack_caldera_forms_options() {
             }
         }
     } else {
-        $form_options = ['0' => esc_html__( 'Form Not Found!', 'bdthemes-element-pack' ) ];
+        $form_options = ['0' => esc_html__( 'Form Not Found!', 'avator-widget-pack' ) ];
     }
        
     return $form_options;
 }
 
-function element_pack_quform_options() {
+function widget_pack_quform_options() {
     
     $data = get_transient( 'ep_quform_form_options' );
 
     if ( class_exists( 'Quform' ) ) {
         $quform       = Quform::getService('repository');
         $quform       = $quform->formsToSelectArray();
-        $form_options = ['0' => esc_html__( 'Select Form', 'bdthemes-element-pack' )];
+        $form_options = ['0' => esc_html__( 'Select Form', 'avator-widget-pack' )];
         if ( ! empty( $quform ) && ! is_wp_error( $quform ) ) {
             foreach ( $quform as $id => $name ) {
                 $form_options[esc_attr( $id )] = esc_html( $name );
             }
         }
     } else {
-        $form_options = ['0' => esc_html__( 'Form Not Found!', 'bdthemes-element-pack' ) ];
+        $form_options = ['0' => esc_html__( 'Form Not Found!', 'avator-widget-pack' ) ];
     }
 
     return $form_options;
 }
 
 
-function element_pack_gravity_forms_options() {
+function widget_pack_gravity_forms_options() {
 
 
     if ( class_exists( 'GFCommon' ) ) {
         $contact_forms = RGFormsModel::get_forms( null, 'title' );
-        $form_options = ['0' => esc_html__( 'Select Form', 'bdthemes-element-pack' )];
+        $form_options = ['0' => esc_html__( 'Select Form', 'avator-widget-pack' )];
         if ( ! empty( $contact_forms ) && ! is_wp_error( $contact_forms ) ) {
             foreach ( $contact_forms as $form ) {   
                 $form_options[ $form->id ] = $form->title;
             }
         }
     } else {
-        $form_options = ['0' => esc_html__( 'Form Not Found!', 'bdthemes-element-pack' ) ];
+        $form_options = ['0' => esc_html__( 'Form Not Found!', 'avator-widget-pack' ) ];
     }
 
     return $form_options;
 }
 
 
-function element_pack_rev_slider_options() {
+function widget_pack_rev_slider_options() {
 
     if( class_exists( 'RevSlider' ) ){
         $slider             = new RevSlider();
         $revolution_sliders = $slider->getArrSliders();
-        $slider_options     = ['0' => esc_html__( 'Select Slider', 'bdthemes-element-pack' ) ];
+        $slider_options     = ['0' => esc_html__( 'Select Slider', 'avator-widget-pack' ) ];
         if ( ! empty( $revolution_sliders ) && ! is_wp_error( $revolution_sliders ) ) {
             foreach ( $revolution_sliders as $revolution_slider ) {
                $alias = $revolution_slider->getAlias();
@@ -1125,13 +1125,13 @@ function element_pack_rev_slider_options() {
             }
         }
     } else {
-        $slider_options = ['0' => esc_html__( 'No Slider Found!', 'bdthemes-element-pack' ) ];
+        $slider_options = ['0' => esc_html__( 'No Slider Found!', 'avator-widget-pack' ) ];
     }
 
     return $slider_options;
 }
 
-function element_pack_currency_symbol( $currency = '' ) {
+function widget_pack_currency_symbol( $currency = '' ) {
     switch ( strtoupper( $currency ) ) {
         case 'AED' :
             $currency_symbol = 'د.إ';
@@ -1147,7 +1147,7 @@ function element_pack_currency_symbol( $currency = '' ) {
         case 'USD' :
             $currency_symbol = '&#36;';
             break;
-        case 'BDT':
+        case 'AVT':
             $currency_symbol = '&#2547;&nbsp;';
             break;
         case 'BGN' :
@@ -1295,10 +1295,10 @@ function element_pack_currency_symbol( $currency = '' ) {
             break;
     }
 
-    return apply_filters( 'element_pack_currency_symbol', $currency_symbol, $currency );
+    return apply_filters( 'widget_pack_currency_symbol', $currency_symbol, $currency );
 }
 
-function element_pack_money_format($value) {
+function widget_pack_money_format($value) {
     
     if ( function_exists( 'money_format' ) ) {
         $value = money_format( '%i', $value );
@@ -1313,8 +1313,8 @@ function element_pack_money_format($value) {
 /**
  * helper functions class for helping some common usage things
  */
-if (!class_exists('element_pack_helper')) {
-    class element_pack_helper {
+if (!class_exists('widget_pack_helper')) {
+    class widget_pack_helper {
 
         static $selfClosing = ['input'];
 
