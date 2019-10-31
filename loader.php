@@ -182,13 +182,13 @@ class Widget_Pack_Loader {
 		wp_register_script( 'circle-menu', AWP_URL . 'assets/vendor/js/jQuery.circleMenu' . $suffix . '.js', ['jquery'], '0.1.1', true );
 		wp_register_script( 'cookieconsent', AWP_URL . 'assets/vendor/js/cookieconsent' . $suffix . '.js', ['jquery'], '3.1.0', true );
 		wp_register_script( 'gridtab', AWP_URL . 'assets/vendor/js/gridtab' . $suffix . '.js', ['jquery'], '2.1.1', true );
-		
+
 		if (!empty($settings['google_map_key'])) {
 			wp_register_script( 'gmap-api', '//maps.googleapis.com/maps/api/js?key='.$settings['google_map_key'], ['jquery'], null, true );
 		} else {
 			wp_register_script( 'gmap-api', '//maps.google.com/maps/api/js?sensor=true', ['jquery'], null, true );
 		}
-		
+
 		wp_register_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', ['jquery'], null, true );
 
 		wp_register_script( 'chart', AWP_URL . 'assets/vendor/js/chart' . $suffix . '.js', ['jquery'], '2.7.3', true );
@@ -215,9 +215,11 @@ class Widget_Pack_Loader {
 
 		//widgets js
 		wp_register_script( 'avt-audio-player', AWP_URL . 'assets/js/widgets/avt-audio-player' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-		wp_register_script( 'avt-search', AWP_URL . 'assets/js/widgets/avt-search' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
+		// wp_register_script( 'avt-search', AWP_URL . 'assets/js/widgets/avt-search' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
+		wp_register_script( 'avt-search', AWP_URL . 'assets/js/widgets/avt-search.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
 		wp_register_script( 'avt-switcher', AWP_URL . 'assets/js/widgets/avt-switcher' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-		wp_register_script( 'avt-scroll-button', AWP_URL . 'assets/js/widgets/avt-scroll-button' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
+		// wp_register_script( 'avt-scroll-button', AWP_URL . 'assets/js/widgets/avt-scroll-button' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
+		wp_register_script( 'avt-scroll-button', AWP_URL . 'assets/js/widgets/avt-scroll-button.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
 
 		//wp_register_script( 'crypto-currency-price-marquee', 'https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js', [], '', true ); // TODO
 
