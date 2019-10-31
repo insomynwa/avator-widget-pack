@@ -27,7 +27,7 @@ class Admin {
 			}
 
 		} else {
-			add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2 );
+			// add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2 );
 		}
 	}
 

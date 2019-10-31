@@ -48,12 +48,12 @@ class Widget_Pack_Base {
                 }else{
                     add_filter('pre_set_site_transient_update_plugins', [$this, "PluginUpdate"]);
                     add_filter('plugins_api', [$this, 'checkUpdateInfo'], 10, 3);
-                    add_filter( 'plugin_row_meta', function($links, $plugin_file ){
+                    /* add_filter( 'plugin_row_meta', function($links, $plugin_file ){
                         if ( $plugin_file == plugin_basename( $this->pluginFile ) ) {
                             $links[] = " <a class='edit coption' href='" . esc_url( admin_url( 'admin-post.php' ) . '?action=widget_pack_options_fupc' ) . "'>Update Check</a>";
                         }
                         return $links;
-                    }, 10, 2 );
+                    }, 10, 2 ); */
                     add_action( "in_plugin_update_message-".plugin_basename( $this->pluginFile ), [$this,'updateMessageCB'], 20, 2 );
                 }
 
