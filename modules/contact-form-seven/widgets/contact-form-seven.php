@@ -23,7 +23,7 @@ class Contact_Form_Seven extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-contact-form-7';
+		return 'avt-wi-contact-form-seven';
 	}
 
 	public function get_categories() {
@@ -32,6 +32,10 @@ class Contact_Form_Seven extends Widget_Base {
 
 	public function get_keywords() {
 		return [ 'contact', 'form', 'email' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/oWepfrLrAN4';
 	}
 
 	protected function _register_controls() {

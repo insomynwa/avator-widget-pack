@@ -36,6 +36,14 @@ class Post_Block_Modern extends Widget_Base {
 		return [ 'post', 'block', 'modern', 'blog', 'recent', 'news' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-post-block-modern' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/bFEyizMaPmw';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_layout_post_block_modern',

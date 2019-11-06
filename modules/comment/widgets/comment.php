@@ -30,6 +30,14 @@ class Comment extends Widget_Base {
 		return [ 'comment', 'remark', 'note' ];
 	}
 
+	public function get_script_depends() {
+		return [ 'wipa-comment' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/csvMTyUx7Hs';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

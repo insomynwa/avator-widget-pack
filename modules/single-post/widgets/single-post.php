@@ -33,6 +33,14 @@ class Single_Post extends Widget_Base {
 		return [ 'single', 'post', 'recent', 'news', 'blog' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-single-post' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/32g-F4_Avp4';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

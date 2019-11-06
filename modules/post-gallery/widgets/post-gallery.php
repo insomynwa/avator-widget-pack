@@ -40,8 +40,16 @@ class Post_Gallery extends Widget_Base {
 		return [ 'post', 'gallery', 'blog', 'recent', 'news' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-post-gallery' ];
+	}
+
 	public function get_script_depends() {
 		return [ 'imagesloaded', 'tilt', 'avt-uikit-icons' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/iScykjTKlNA';
 	}
 
 	public function _register_skins() {
@@ -883,7 +891,7 @@ class Post_Gallery extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters-wrapper' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -894,7 +902,7 @@ class Post_Gallery extends Widget_Base {
 				'name'     => 'typography_filter',
 				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li',
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li',
 			]
 		);
 
@@ -904,7 +912,7 @@ class Post_Gallery extends Widget_Base {
 				'label'     => esc_html__( 'Bottom Space', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -933,7 +941,7 @@ class Post_Gallery extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -944,7 +952,7 @@ class Post_Gallery extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -956,7 +964,7 @@ class Post_Gallery extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -967,7 +975,7 @@ class Post_Gallery extends Widget_Base {
 				'name'        => 'desktop_filter_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .avt-wp-grid-filters li'
+				'selector'    => '{{WRAPPER}} .avt-wipa-grid-filters li'
 			]
 		);
 
@@ -978,7 +986,7 @@ class Post_Gallery extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -987,7 +995,7 @@ class Post_Gallery extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_filter_shadow',
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li'
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li'
 			]
 		);
 
@@ -997,8 +1005,8 @@ class Post_Gallery extends Widget_Base {
 				'label'     => esc_html__( 'Space Between', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
-					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wipa-grid-filters > li.avt-wipa-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wipa-grid-filters > li.avt-wipa-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
 				],
 			]
 		);
@@ -1018,7 +1026,7 @@ class Post_Gallery extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1029,7 +1037,7 @@ class Post_Gallery extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1040,7 +1048,7 @@ class Post_Gallery extends Widget_Base {
 				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -1052,7 +1060,7 @@ class Post_Gallery extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -1061,7 +1069,7 @@ class Post_Gallery extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_active_filter_shadow',
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li.avt-active'
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li.avt-active'
 			]
 		);
 
@@ -1519,7 +1527,7 @@ class Post_Gallery extends Widget_Base {
 		usort( $terms, function( $a, $b ) { return strcmp( $a->name, $b->name ); } );
 
 		?>
-		<div class="avt-wp-grid-filters-wrapper">
+		<div class="avt-wipa-grid-filters-wrapper">
 
 			<button class="avt-button avt-button-default avt-hidden@m" type="button"><?php esc_html_e( 'Filter', 'avator-widget-pack' ); ?></button>
 
@@ -1537,13 +1545,13 @@ class Post_Gallery extends Widget_Base {
 			    </ul>
 			</div>
 
-			<ul id="avt-wp-grid-filters<?php echo $this->get_id(); ?>" class="avt-wp-grid-filters avt-visible@m" avt-margin>
-				<li class="avt-wp-grid-filter avt-active" avt-filter-control>
+			<ul id="avt-wipa-grid-filters<?php echo $this->get_id(); ?>" class="avt-wipa-grid-filters avt-visible@m" avt-margin>
+				<li class="avt-wipa-grid-filter avt-active" avt-filter-control>
 					<?php esc_html_e( 'All', 'avator-widget-pack' ); ?>
 				</li>
 
 				<?php foreach ( $terms as $term ) { ?>
-					<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='<?php echo esc_attr($term->slug); ?>']">
+					<li class="avt-wipa-grid-filter" avt-filter-control="[data-filter*='<?php echo esc_attr($term->slug); ?>']">
 						<?php echo esc_html($term->name); ?>
 					</li>
 				<?php } ?>
@@ -1711,7 +1719,7 @@ class Post_Gallery extends Widget_Base {
 
 		$this->add_render_attribute('post-gallery', 'id', esc_attr($id) );
 
-		$this->add_render_attribute('post-gallery', 'class', ['avt-post-gallery', 'avt-wp-grid-filter-container', 'avt-post-gallery-skin-' . $skin]);
+		$this->add_render_attribute('post-gallery', 'class', ['avt-post-gallery', 'avt-wipa-grid-filter-container', 'avt-post-gallery-skin-' . $skin]);
 
 		$this->add_render_attribute('post-gallery', 'avt-grid', '');
 		$this->add_render_attribute('post-gallery', 'class', ['avt-grid', 'avt-grid-medium']);

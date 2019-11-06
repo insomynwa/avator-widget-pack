@@ -35,8 +35,16 @@ class Search extends Widget_Base {
 		return [ 'search', 'find' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-search' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'avt-search' ];
+		return [ 'wipa-search' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/H3F1LHc97Gk';
 	}
 
 	protected function _register_controls() {

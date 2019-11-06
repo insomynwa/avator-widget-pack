@@ -45,11 +45,15 @@ class Advanced_Image_Gallery extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'wipa-advanced-image-gallery', 'widget-pack-font' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'imagesloaded', 'tilt', 'avt-justified-gallery' ];
+		return [ 'imagesloaded', 'tilt', 'wipa-justified-gallery' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/se7BovYbDok';
 	}
 
 	public function _register_skins() {
@@ -1752,7 +1756,7 @@ class Advanced_Image_Gallery extends Widget_Base {
 						<div class="avt-flex-inline avt-gallery-item-link-wrapper">
 							<a <?php echo $this->get_render_attribute_string( 'overlay-lightbox-attr' ); ?>>
 								<?php if ( 'icon' == $settings['link_type'] ) : ?>
-									<span class="ep-plus"></span>
+									<span class="wipa-plus"></span>
 								<?php elseif ( 'text' == $settings['link_type'] ) : ?>
 									<span class="avt-text"><?php echo esc_html_x( 'ZOOM', 'Advanced Image Gallery String', 'avator-widget-pack' ); ?></span>
 								<?php endif;?>

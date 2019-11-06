@@ -32,6 +32,10 @@ class Document_Viewer extends Widget_Base {
 		return [ 'document', 'viewer', 'record', 'file' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/8Ar9NQe93vg';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

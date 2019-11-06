@@ -27,7 +27,7 @@ class Contact_Form extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-simple-contact-form';
+		return 'avt-wi-contact-form';
 	}
 
 	public function get_categories() {
@@ -38,15 +38,26 @@ class Contact_Form extends Widget_Base {
 		return [ 'simple', 'contact', 'form', 'email' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-contact-form' ];
+	}
+
 	public function get_script_depends() {
 
 		if (! Widget_Pack_Loader::elementor()->editor->is_edit_mode() ) {
 			$ep_api_settings = get_option( 'widget_pack_api_settings' );
 			if ( !empty($ep_api_settings['recaptcha_site_key']) and !empty($ep_api_settings['recaptcha_secret_key']) ) {
-				return ['recaptcha'];
+				return ['recaptcha', 'wipa-contact-form'];
+			} else {
+				return ['wipa-contact-form'];
 			}
 		}
+		
 		return [];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/faIeyW7LOJ8';
 	}
 
 	protected function _register_controls() {

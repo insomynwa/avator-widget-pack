@@ -40,6 +40,14 @@ class Post_Card extends Widget_Base {
 		return [ 'post', 'card', 'blog', 'recent', 'news' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-post-card' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/VKtQCjnEJvE';
+	}
+
 	public function on_import( $element ) {
 		if ( ! get_post_type_object( $element['settings']['posts_post_type'] ) ) {
 			$element['settings']['posts_post_type'] = 'post';
@@ -97,9 +105,18 @@ class Post_Card extends Widget_Base {
 		);
 
 		$this->add_control(
-			'meta',
+			'meta_date',
 			[
-				'label'   => esc_html__( 'Meta Data', 'avator-widget-pack' ),
+				'label'   => esc_html__( 'Date', 'avator-widget-pack' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'meta_category',
+			[
+				'label'   => esc_html__( 'Category', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -142,7 +159,32 @@ class Post_Card extends Widget_Base {
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
-		);		
+		);
+		
+		$this->add_control(
+			'contant_alignment',
+			[
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-right',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .avt-post-card .avt-post-card-desc' => 'text-align: {{VALUE}}',
+				],
+			]
+		);
 		
 		$this->end_controls_section();
 
@@ -410,9 +452,19 @@ class Post_Card extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Meta', 'avator-widget-pack' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'meta' => 'yes',
-				],
+				'conditions' => [
+					'relation' => 'or',
+					'terms'    => [
+						[
+							'name'     => 'meta_date',
+							'value'    => 'yes'
+						],
+						[
+							'name'     => 'meta_category',
+							'value'    => 'yes'
+						],
+					]
+				]
 			]
 		);
 
@@ -438,6 +490,31 @@ class Post_Card extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'meta_alignment',
+			[
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
+					'flex-start' => [
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-center',
+					],
+					'flex-end' => [
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-right',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .avt-post-card .avt-post-card-meta' => 'justify-content: {{VALUE}}',
+				],
+			]
+		);
+		
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -747,11 +824,17 @@ class Post_Card extends Widget_Base {
 							<h4 class="avt-post-card-title"><a href="<?php echo esc_url(get_permalink()); ?>" title="<?php esc_attr(get_the_title()) ; ?>"><?php echo esc_html(get_the_title()) ; ?></a></h4>
 						<?php endif ?>
 
-						<?php if ('yes' == $settings['meta']) :
-							$meta_list = '<span>'.get_the_date().'</span><span>'.get_the_category_list(', ').'</span>'; ?>
-							
-							<div class="avt-post-card-meta avt-subnav avt-flex-middle"><?php echo wp_kses_post($meta_list); ?></div>
+						<div class="avt-post-card-meta avt-subnav avt-flex-middle">
+						<?php if ('yes' == $settings['meta_date']) :
+							$meta_list = '<span>'.get_the_date().'</span>'; ?>
+							<?php echo wp_kses_post($meta_list); ?>
 						<?php endif ?>
+						
+						<?php if ('yes' == $settings['meta_category']) :
+							$meta_list = '<span>'.get_the_category_list(', ').'</span>'; ?>
+							<?php echo wp_kses_post($meta_list); ?>
+						<?php endif ?>
+						</div>
 
 						<?php $this->render_excerpt(); ?>
 

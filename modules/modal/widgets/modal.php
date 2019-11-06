@@ -35,6 +35,14 @@ class Modal extends Widget_Base {
 		return [ 'modal', 'lightbox', 'popup' ];
 	}
 
+	public function get_script_depends() {
+		return [ 'wipa-modal' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/4qRa-eYDGZU';
+	}
+
 	protected function _register_controls() {
 
 

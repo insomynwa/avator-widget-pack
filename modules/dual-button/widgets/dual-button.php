@@ -38,7 +38,11 @@ class DualButton extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'avt-advanced-button' ];
+		return [ 'wipa-advanced-button', 'wipa-dual-button' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/7hWWqHEr6s8';
 	}
 
 	protected function _register_controls() {

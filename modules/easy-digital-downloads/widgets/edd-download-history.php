@@ -30,6 +30,10 @@ class EDD_Download_History extends Widget_Base {
 		return [ 'easy', 'digital', 'history', 'software', 'eshop', 'estore' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/taM7whXxmNY';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_table',

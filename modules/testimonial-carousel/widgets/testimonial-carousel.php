@@ -35,11 +35,15 @@ class Testimonial_Carousel extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-testimonial-carousel' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'avt-uikit-icons' ];
+		return [ 'avt-uikit-icons', 'wipa-testimonial-carousel' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/VbojVJzayvE';
 	}
 
 	protected function _register_skins() {
@@ -485,7 +489,7 @@ class Testimonial_Carousel extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-shadow-mode-',
+				'prefix_class' => 'avt-wipa-shadow-mode-',
 			]
 		);
 
@@ -1360,11 +1364,11 @@ class Testimonial_Carousel extends Widget_Base {
 
 		?>
 		<ul class="avt-rating avt-rating-<?php echo get_post_meta( $post_id, 'avator_tm_rating', true ); ?> avt-grid avt-grid-collapse" avt-grid>
-			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-			<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+			<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
 		</ul>
 		<?php
 	}

@@ -33,7 +33,11 @@ class Gravity_Forms extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'avt-gravity-form' ];
+		return [ 'wipa-gravity-form' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/452ZExESiBI';
 	}
 
 	protected function _register_controls() {

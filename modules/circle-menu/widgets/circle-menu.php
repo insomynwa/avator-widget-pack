@@ -33,8 +33,16 @@ class Circle_Menu extends Widget_Base {
 		return [ 'circle', 'menu', 'rounded' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-circle-menu' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'circle-menu', 'avt-uikit-icons' ];
+		return [ 'circle-menu', 'avt-uikit-icons', 'wipa-circle-menu' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/rfW22T-U7Ag';
 	}
 
 	protected function _register_controls() {

@@ -37,7 +37,11 @@ class Image_Compare extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'eventmove', 'twentytwenty' ];
+		return [ 'eventmove', 'twentytwenty', 'wipa-image-compare' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/-Kwjlg0Fwk0';
 	}
 
 	protected function _register_controls() {

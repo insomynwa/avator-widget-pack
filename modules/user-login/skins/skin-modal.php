@@ -524,7 +524,7 @@ class Skin_Modal extends Elementor_Skin_Base {
 			<?php else : ?>
 				<?php $this->parent->add_render_attribute('button-icon', 'class', [ 'avt-hidden@l' ]); ?>
 				<span <?php echo $this->parent->get_render_attribute_string('button-icon'); ?>>
-					<i class="ep-lock" aria-hidden="true"></i>
+					<i class="wipa-lock" aria-hidden="true"></i>
 				</span>
 
 			<?php endif; ?>

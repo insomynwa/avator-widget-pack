@@ -34,11 +34,15 @@ class Table_Of_Content extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-table-of-content' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'jquery-ui-widget', 'table-of-content' ];
+		return [ 'jquery-ui-widget', 'table-of-content', 'wipa-table-of-content' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/DbPrqUD8cOY';
 	}
 
 	protected function _register_controls() {

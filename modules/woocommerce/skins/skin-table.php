@@ -52,7 +52,7 @@ class Skin_Table extends Elementor_Skin_Base {
 
 		if($wp_query->have_posts()) {
 
-			$this->parent->add_render_attribute('wc-product-table', 'class', ['avt-table-middle', 'avt-wc-product']);
+			$this->parent->add_render_attribute('wc-product-table', 'class', ['avt-table-middle', 'avt-wc-product' ]);
 
 			$this->parent->add_render_attribute('wc-product-table', 'id', esc_attr( $id ));
 
@@ -86,23 +86,23 @@ class Skin_Table extends Elementor_Skin_Base {
 
 
 						<?php if ( $settings['show_categories'] ) : ?>
-							<th class="avt-wp-align avt-categories"><?php esc_html_e('Categories', 'avator-widget-pack'); ?></th>
+							<th class="avt-wipa-align avt-categories"><?php esc_html_e('Categories', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ( $settings['show_tags'] ) : ?>
-							<th class="avt-wp-align avt-tags"><?php esc_html_e('Tags', 'avator-widget-pack'); ?></th>
+							<th class="avt-wipa-align avt-tags"><?php esc_html_e('Tags', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ( $settings['show_rating'] ) : ?>
-							<th class="avt-wp-align avt-rating"><?php esc_html_e('Rating', 'avator-widget-pack'); ?></th>
+							<th class="avt-wipa-align avt-rating"><?php esc_html_e('Rating', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 						
 						<?php if ( $settings['show_price'] ) : ?>
-							<th class="avt-wp-align avt-price"><?php esc_html_e('Price', 'avator-widget-pack'); ?></th>
+							<th class="avt-wipa-align avt-price"><?php esc_html_e('Price', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ( $settings['show_cart'] ) : ?>
-							<th class="avt-wp-align avt-cart"><?php esc_html_e('Cart', 'avator-widget-pack'); ?></th>
+							<th class="avt-wipa-align avt-cart"><?php esc_html_e('Cart', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 					</tr>
@@ -139,7 +139,7 @@ class Skin_Table extends Elementor_Skin_Base {
 					    <?php endif; ?>
 
 						<?php if ( $settings['show_categories']) : ?>
-							<td class="avt-wp-align avt-categories">
+							<td class="avt-wipa-align avt-categories">
 								<span class="avt-wc-product-categories">
 									<?php echo wc_get_product_category_list( get_the_ID(), ', ', '<span>', '</span>' ); ?>
 								</span>
@@ -148,7 +148,7 @@ class Skin_Table extends Elementor_Skin_Base {
 
 
 						<?php if ( $settings['show_tags']) : ?>
-							<td class="avt-wp-align">
+							<td class="avt-wipa-align">
 								<span class="avt-wc-product-tags avt-tags">
 									<?php echo wc_get_product_tag_list( get_the_ID(), ', ', '<span>', '</span>' ); ?>
 								</span>
@@ -157,7 +157,7 @@ class Skin_Table extends Elementor_Skin_Base {
 
 
 						 <?php if ($settings['show_rating']) : ?>
-							<td class="avt-wp-align avt-rating">
+							<td class="avt-wipa-align avt-rating">
 								<div class="avt-wc-rating">
 						   			<?php woocommerce_template_loop_rating(); ?>
 								</div>
@@ -166,7 +166,7 @@ class Skin_Table extends Elementor_Skin_Base {
 						
 
 						<?php if ( $settings['show_price']) : ?>
-							<td class="avt-wp-align avt-price">
+							<td class="avt-wipa-align avt-price">
 								<span class="avt-wc-product-price">
 									<?php woocommerce_template_single_price(); ?>
 								</span>
@@ -175,7 +175,7 @@ class Skin_Table extends Elementor_Skin_Base {
 
 
 						 <?php if ($settings['show_cart']) : ?>
-							<td class="avt-wp-align avt-cart">
+							<td class="avt-wipa-align avt-cart">
 								<div class="avt-wc-add-to-cart">
 									<?php woocommerce_template_loop_add_to_cart();?>
 								</div>
@@ -210,16 +210,13 @@ class Skin_Table extends Elementor_Skin_Base {
 		?>
 		<div <?php echo $this->parent->get_render_attribute_string( 'product_image_wrapper' ); ?>>
 			<a <?php echo $this->parent->get_render_attribute_string( 'product_image' ); ?>>
-				<img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), 'thumbnail'); ?>">
+				<img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), 'thumbnail'); ?>" alt="<?php echo get_the_title(); ?>">
 			</a>
 		</div>
 		<?php
 	}
 
 	public function render() {
-		$settings = $this->parent->get_settings();
-		$id = 'avt-wc-products-skin-table-' . $this->parent->get_id();
-
 		$this->render_header();
 		$this->render_loop_item();
 		$this->parent->render_footer();

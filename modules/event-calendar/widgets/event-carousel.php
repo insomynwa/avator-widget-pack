@@ -9,8 +9,7 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Utils;
 
-use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
-use WidgetPack\Modules\QueryControl\Module;
+use WidgetPack\Modules\EventCalendar\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -41,12 +40,20 @@ class Event_Carousel extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['avt-event-calendar', 'widget-pack-font'];
+		return ['wipa-event-calendar', 'widget-pack-font'];
 	}
 
-	// public function get_script_depends() {
-	// 	return [ 'imagesloaded' ];
-	// }
+	public function get_script_depends() {
+		return [ 'wipa-event-calendar' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/_ZPPBmKmGGg';
+	}
+
+	public function _register_skins() {
+		$this->add_skin( new Skins\Skin_Fable( $this ) );
+	}
 
 	public function get_query() {
 		return $this->_query;
@@ -182,6 +189,18 @@ class Event_Carousel extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'show_meta_more_btn',
+			[
+				'label'   => __( 'Show More Button', 'avator-widget-pack' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'condition' => [
+					'_skin!' => '',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -225,6 +244,29 @@ class Event_Carousel extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-image' => 'width: {{SIZE}}{{UNIT}};margin-left: auto;margin-right: auto;',
+				],
+				'condition' => [
+					'show_image' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_ratio',
+			[
+				'label'   => __( 'Image Ratio', 'avator-widget-pack' ),
+				'type'    => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min'  => 0.1,
+						'max'  => 2,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image'       => 'padding-bottom: calc( {{SIZE}} * 100% ); top: 0; left: 0; right: 0; bottom: 0;',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image:after' => 'content: "{{SIZE}}"; position: absolute; color: transparent;',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-image img'   => 'height: 100%; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: {{SIZE}};',
 				],
 				'condition' => [
 					'show_image' => 'yes',
@@ -658,6 +700,9 @@ class Event_Carousel extends Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
+				'condition' => [
+					'_skin!' => [ 'fable' ],
+				],
 			]
 		);
 
@@ -668,6 +713,9 @@ class Event_Carousel extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-item:before' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'_skin!' => [ 'fable' ],
 				],
 			]
 		);
@@ -680,6 +728,9 @@ class Event_Carousel extends Widget_Base {
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-item:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'_skin!' => [ 'fable' ],
 				],
 			]
 		);
@@ -827,6 +878,9 @@ class Event_Carousel extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-intro .avt-event-title-wrap' => 'border-color: {{VALUE}};',
 				],
+				'condition' => [
+					'_skin!' => 'fable',
+				],
 			]
 		);
 
@@ -842,7 +896,7 @@ class Event_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .avt-event-calendar .avt-event-intro' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-intro, {{WRAPPER}} .avt-event-carousel-skin-fable .avt-event-title-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -888,6 +942,9 @@ class Event_Carousel extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-date a' => 'color: {{VALUE}};',
 				],
+				'condition' => [
+					'_skin!' => [ 'fable' ],
+				],
 			]
 		);
 
@@ -897,6 +954,9 @@ class Event_Carousel extends Widget_Base {
 				'name'     => 'date_typography',
 				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-date',
+				'condition' => [
+					'_skin!' => [ 'fable' ],
+				],
 			]
 		);
 
@@ -967,7 +1027,24 @@ class Event_Carousel extends Widget_Base {
 				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-event-calendar .avt-event-meta .avt-address-website-icon a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-event-calendar .avt-event-meta .avt-address-website-icon a, {{WRAPPER}} .avt-event-carousel-skin-fable .avt-event-meta .avt-more-icon a' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'show_meta_more_btn' => [ 'yes' ],
+				],
+			]
+		);
+
+		$this->add_control(
+			'meta_icon_border_color',
+			[
+				'label'     => esc_html__( 'Icon Border Color', 'avator-widget-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .avt-event-carousel-skin-fable .avt-event-meta .avt-more-icon a' => 'border-color: {{VALUE}};',
+				],
+				'condition' => [
+					'_skin!' => [ '' ],
 				],
 			]
 		);
@@ -1000,6 +1077,73 @@ class Event_Carousel extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-meta' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_address_website',
+			[
+				'label'     => esc_html__( 'Address', 'avator-widget-pack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'_skin!' => [ '' ],
+				],
+			]
+		);
+
+		$this->add_control(
+			'address_website_icon_color',
+			[
+				'label'     => esc_html__( 'Icon Color', 'avator-widget-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .avt-event-carousel-skin-fable .avt-address-website-icon a' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'address_website_icon_background_color',
+			[
+				'label'     => esc_html__( 'Background Color', 'avator-widget-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .avt-event-carousel-skin-fable .avt-address-website-icon a' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'address_website_icon_border_color',
+			[
+				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .avt-event-carousel-skin-fable .avt-address-website-icon a' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'address_website_typography',
+				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector' => '{{WRAPPER}} .avt-event-carousel-skin-fable .avt-address-website-icon a',
+			]
+		);
+
+		$this->add_responsive_control(
+			'address_website_padding',
+			[
+				'label'      => __( 'Padding', 'avator-widget-pack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors'  => [
+					'{{WRAPPER}} .avt-event-carousel-skin-fable .avt-address-website-icon a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -1672,11 +1816,11 @@ class Event_Carousel extends Widget_Base {
 			    <div class="avt-address-website-icon">
 
 			    	<?php if (!empty($website)) : ?>
-		    			<a href="<?php echo esc_url($website); ?>" target="_blank" class="ep-earth" aria-hidden="true"></a>
+		    			<a href="<?php echo esc_url($website); ?>" target="_blank" class="wipa-earth" aria-hidden="true"></a>
 			    	<?php endif; ?>
 					
 					<?php if ( $address ) : ?>
-		    			<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="ep-location" aria-hidden="true"></a>
+		    			<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="wipa-location" aria-hidden="true"></a>
 			    	<?php endif; ?>
 
 			    </div>
@@ -1699,7 +1843,6 @@ class Event_Carousel extends Widget_Base {
 		$elementor_vp_md = get_option( 'elementor_viewport_md' );
 		$viewport_lg     = ! empty($elementor_vp_lg) ? $elementor_vp_lg - 1 : 1023;
 		$viewport_md     = ! empty($elementor_vp_md) ? $elementor_vp_md - 1 : 767;
-
 
 		$this->add_render_attribute( 'carousel', 'id', $id );
 		$this->add_render_attribute( 'carousel', 'class', ['avt-event-carousel', 'avt-event-calendar'] );
@@ -1764,7 +1907,7 @@ class Event_Carousel extends Widget_Base {
 		<?php
 	}
 
-	protected function render_both_navigation() {
+	public function render_both_navigation() {
 		$settings    = $this->get_settings();
 		$hide_arrows = $settings['hide_arrows'] ? 'avt-visible@m' : '';
 		?>
@@ -1791,7 +1934,7 @@ class Event_Carousel extends Widget_Base {
 		<?php
 	}
 
-	protected function render_navigation() {
+	public function render_navigation() {
 		$settings    = $this->get_settings();
 		$hide_arrows = $settings['hide_arrows'] ? ' avt-visible@m' : '';
 		
@@ -1805,8 +1948,8 @@ class Event_Carousel extends Widget_Base {
 		<?php endif;
 	}
 
-	protected function render_pagination() {
-		$settings = $this->get_settings();
+	public function render_pagination() {
+		$settings = $this->get_settings_for_display();
 		
 		if ( 'dots' == $settings['navigation'] ) : ?>
 			<?php if ( 'arrows' !== $settings['navigation'] ) : ?>
@@ -1841,7 +1984,7 @@ class Event_Carousel extends Widget_Base {
 	}
 
 	public function render_loop_item( $post ) {
-		$settings = $this->get_settings();		
+		$settings = $this->get_settings_for_display();		
 
 		?> 
 		<div class="avt-event-item swiper-slide">

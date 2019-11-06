@@ -34,6 +34,10 @@ class Caldera_Forms extends Widget_Base {
 		return [ 'caldera', 'form', 'contact', 'email' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/2EiVSLows20';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

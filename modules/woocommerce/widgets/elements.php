@@ -34,11 +34,19 @@ class Elements extends Widget_Base {
 		return [ 'cart', 'woocommerce', 'single', 'product', 'checkout', 'order', 'tracking', 'form', 'account' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-woocommerce' ];
+	}
+
 	public function on_export( $element ) {
 		unset( $element['settings']['product_id'] );
 
 		return $element;
 	}
+
+	// public function get_custom_help_url() {
+	// 	return 'https://youtu.be/SJuArqtnC1U';
+	// }
 
 	protected function _register_controls() {
 		$this->start_controls_section(

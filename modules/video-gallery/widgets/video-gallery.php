@@ -39,11 +39,15 @@ class Video_Gallery extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'avt-video-gallery' ];
+		return [ 'wipa-video-gallery' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'rvslider' ];
+		return [ 'rvslider', 'wipa-video-gallery' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/wbkou6p7l3s';
 	}
 
 	public function _register_controls() {
@@ -349,6 +353,17 @@ class Video_Gallery extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'video_title_background_color',
+			[
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .rvs-item-text h2' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
@@ -387,6 +402,17 @@ class Video_Gallery extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .avt-vg-video-desc' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'video_desc_background_color',
+			[
+				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .avt-vg-video-desc' => 'background-color: {{VALUE}}',
 				],
 			]
 		);

@@ -2,7 +2,6 @@
 namespace WidgetPack\Modules\CustomGallery\Skins;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Utils;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -169,7 +168,7 @@ class Skin_Abetis extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="avt-gallery-item-text"><?php echo esc_html($text['image_text']); ?></div>
+		<div class="avt-gallery-item-text"><?php echo wp_kses_post($text['image_text']); ?></div>
 		<?php
 	}
 

@@ -19,7 +19,7 @@ class Qrcode extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-qr-code';
+		return 'avt-wi-qrcode';
 	}
 
 	public function get_categories() {
@@ -30,8 +30,16 @@ class Qrcode extends Widget_Base {
 		return [ 'qr', 'code' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-qrcode' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'qrcode' ];
+		return [ 'qrcode', 'wipa-qrcode' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/3ofLAjpnmO8';
 	}
 
 	protected function _register_controls() {
@@ -82,8 +90,8 @@ class Qrcode extends Widget_Base {
 				'label'       => esc_html__( 'Text', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'placeholder' => 'AVTHEMES',
-				'default'     => 'AVTHEMES',
+				'placeholder' => 'AVATOR',
+				'default'     => 'AVATOR',
 				'condition'   => [
 					'label_type' => 'text',
 				],

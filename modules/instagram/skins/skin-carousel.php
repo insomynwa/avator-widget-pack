@@ -77,7 +77,7 @@ class Skin_Carousel extends Skin_Base {
 
 			<?php if ( $settings['show_follow_me'] ) : 
 
-				$insta_user = get_transient( 'ep_instagram_user' );
+				$insta_user = get_transient( 'wipa_instagram_user' );
 				$username = isset($insta_user) ? $insta_user['username'] : '';
 
 			?>

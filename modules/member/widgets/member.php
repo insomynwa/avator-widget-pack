@@ -37,6 +37,14 @@ class Member extends Widget_Base {
 		return [ 'member', 'team', 'experts' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-member' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/m8_KOHzssPA';
+	}
+
 	protected function _register_skins() {
 		$this->add_skin( new Skins\Skin_Phaedra( $this ) );
 		$this->add_skin( new Skins\Skin_Calm( $this ) );
@@ -812,9 +820,9 @@ class Member extends Widget_Base {
 			<div class="avt-member-icons">
 				<?php 
 				foreach ( $settings['social_link_list'] as $link ) :
-					$tooltip = ( 'yes' == $settings['social_icon_tooltip'] ) ? ' title="'.esc_attr( $link['social_link_title'] ).'" avt-tooltip' : ''; ?>
+					$tooltip = ( 'yes' == $settings['social_icon_tooltip'] ) ? ' title="' . $link['social_link_title'] . '" avt-tooltip' : ''; ?>
 					
-					<a href="<?php echo esc_url( $link['social_link'] ); ?>" class="avt-member-icon elementor-repeater-item-<?php echo esc_attr($link['_id']); ?>" target="_blank"<?php echo esc_html($tooltip); ?>>
+					<a href="<?php echo esc_url( $link['social_link'] ); ?>" class="avt-member-icon elementor-repeater-item-<?php echo esc_attr($link['_id']); ?>" target="_blank"<?php echo wp_kses_post($tooltip); ?>>
 
 						<?php if ( $is_new || $migrated ) :
 							Icons_Manager::render_icon( $link['social_share_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );

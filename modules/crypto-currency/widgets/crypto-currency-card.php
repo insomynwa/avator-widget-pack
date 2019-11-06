@@ -3,13 +3,8 @@ namespace WidgetPack\Modules\CryptoCurrency\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Scheme_Typography;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -26,7 +21,7 @@ class CryptoCurrencyCard extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-cryptocurrency-card';
+		return 'avt-wi-crypto-currency-card';
 	}
 
 	public function get_categories() {
@@ -37,12 +32,12 @@ class CryptoCurrencyCard extends Widget_Base {
 		return [ 'cryptocurrency', 'crypto', 'currency', 'table' ];
 	}
 
-	public function get_script_depends() {
-		return [ 'crypto-currency-card' ];
+	public function get_style_depends() {
+		return ['wipa-crypto-currency'];
 	}
 
-	public function get_style_depends() {
-		return ['avt-crypto-currency'];
+	public function get_custom_help_url() {
+		return 'https://youtu.be/TnSjwUKrw00';
 	}
 
 	protected function _register_controls() {

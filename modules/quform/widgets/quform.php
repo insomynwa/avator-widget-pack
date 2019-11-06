@@ -34,6 +34,10 @@ class QuForm extends Widget_Base {
 		return [ 'quform', 'ajax', 'contact' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/LM0JtQ58UJM';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

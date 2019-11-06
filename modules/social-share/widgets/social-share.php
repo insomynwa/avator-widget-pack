@@ -14,8 +14,8 @@ class Social_Share extends Widget_Base {
 	protected $_has_template_content = false;
 
 	private static $medias_class = [
-		'email'      => 'ep-envelope',
-		'vkontakte'  => 'ep-vk',
+		'email'      => 'wipa-envelope',
+		'vkontakte'  => 'wipa-vk',
 	];
 
 	private static function get_social_media_class( $media_name ) {
@@ -23,7 +23,7 @@ class Social_Share extends Widget_Base {
 			return self::$medias_class[ $media_name ];
 		}
 
-		return 'ep-' . $media_name;
+		return 'wipa-' . $media_name;
 	}
 
 
@@ -48,11 +48,15 @@ class Social_Share extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font', 'avt-social-share' ];
+		return [ 'widget-pack-font', 'wipa-social-share' ];
 	}
 	
 	public function get_script_depends() {
 		return [ 'goodshare' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/3OPYfeVfcb8';
 	}
 
 	protected function _register_controls() {
@@ -194,7 +198,7 @@ class Social_Share extends Widget_Base {
 					'5' => '5',
 					'6' => '6',
 				],
-				'prefix_class' => 'avt-wp-grid%s-',
+				'prefix_class' => 'avt-wipa-grid%s-',
 			]
 		);
 
@@ -276,7 +280,7 @@ class Social_Share extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .avt-ss-btn' => 'margin-right: calc({{SIZE}}{{UNIT}} / 2); margin-left: calc({{SIZE}}{{UNIT}} / 2);',
-					'{{WRAPPER}} .avt-wp-grid'             => 'margin-right: calc(-{{SIZE}}{{UNIT}} / 2); margin-left: calc(-{{SIZE}}{{UNIT}} / 2);',
+					'{{WRAPPER}} .avt-wipa-grid'             => 'margin-right: calc(-{{SIZE}}{{UNIT}} / 2); margin-left: calc(-{{SIZE}}{{UNIT}} / 2);',
 				],
 			]
 		);
@@ -577,7 +581,7 @@ class Social_Share extends Widget_Base {
 
 		$show_text = 'text' === $settings['view'] ||  $settings['show_label'];
 		?>
-		<div class="avt-social-share avt-wp-grid">
+		<div class="avt-social-share avt-wipa-grid">
 			<?php
 			foreach ( $settings['share_buttons'] as $button ) {
 				$social_name = $button['button'];
@@ -600,7 +604,7 @@ class Social_Share extends Widget_Base {
 				);
 
 				?>
-				<div class="avt-social-share-item avt-wp-grid-item">
+				<div class="avt-social-share-item avt-wipa-grid-item">
 					<div <?php echo $this->get_render_attribute_string( 'social-attrs' ); ?>>
 						<?php if ( 'icon' === $settings['view'] || 'icon-text' === $settings['view'] ) : ?>
 							<span class="avt-ss-icon">

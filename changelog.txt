@@ -1,3 +1,70 @@
+## 4.0.1 [3rd November 2019]
+
+### Fixed
+
+- Details text escape issue fixed for Custom Gallery widget
+- Category style fixed for Portfolio Gallery widget
+- Style issue fixed for Add to Cart WooCommerce widget
+
+
+## 4.0.0 [2nd November 2019]
+
+### Added
+
+- Template Library added ( 10+ Ready pages + 10+ ready blocks added in library for test, 800+ are coming soon on next update)
+- Portfolio Gallery widget added
+- Profile Card widget added
+- Mini Cart WooCommerce widget added
+- Event calendar skin added
+- Parallax effects now completely rebuild and added lot's of awesome effects
+- Safari, chrome, firefox, edge, mobile frame added for device slider and scroll image widget
+
+### Updated
+
+- Completely redesigned the dashboard with more user friendly look and feel
+- All widgets script + css fully optimized and now load when that widget enable and have in that page.
+- Content alignment option added
+- Image ratio + read more button added for event carousel skin
+- typography option added for mailchimp widget
+- Alignment option added for post card widget
+- Shadow height option back again in toggle widget
+- WooCommerce Product widget redesigned for better look and user experience
+- masonry option added for wc product widget
+- Button alignment option added in carousel widget
+- UiKit framework updated to latest version
+- Video Gallery title background option added
+
+### Fixed
+
+- Device slider autoplay issue fixed for youtube video
+- Advanced icon box separator issue fixed
+- Image issue fixed for Carousel skin alice
+- Description html issue fixed for custom gallery widget
+- subtitle color issue fixed for tabs widget
+- API issue fixed for Weather widget + changed the API from apixu to weatherstack
+
+### Removed
+
+- Forecast and details weather option removed from weather widget due to API provider limitation. We will add more provider soon.
+
+### Note
+
+- Parallax widgets completely re-coded so old parallax maybe not work properly and you need to set your control value again for better performance. We are sorry for this issue but i hope you will enjoy more smooth experience now and many options gives you more control about parallax for any elementor widget.
+
+
+## 3.2.9 [27th September 2019]
+
+### Fixed
+
+- Category selection not working issue fixed in WC Product widget
+- Pagination issue fixed for WC Product widget
+- Member widget tooltip issue fixed
+
+### Updated
+
+- Height control % changed to vh method for better usability in Panel Slider widget
+ 
+
 ## 3.2.8 [25th September 2019]
 
 ### Added

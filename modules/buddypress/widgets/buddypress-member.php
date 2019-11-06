@@ -31,6 +31,10 @@ class Buddypress_Member extends Widget_Base {
 		return [ 'buddypress', 'user', 'member', 'activity', 'streams', 'profiles' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/t6t0M5kGEig';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

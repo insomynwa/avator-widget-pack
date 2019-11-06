@@ -37,8 +37,16 @@ class Scroll_Image extends Widget_Base {
 		return [ 'scroll', 'image', 'link', 'view', 'lightbox' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-scroll-image' ];
+	}
+
  	public function get_script_depends() {
 		return [ 'avt-uikit-icons' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/UpmtN1GsJkQ';
 	}
 
 	protected function _register_controls() {
@@ -88,6 +96,12 @@ class Scroll_Image extends Widget_Base {
 				'default' => 'desktop',
 				'options' => [
 					'desktop'    => esc_html__('Desktop', 'avator-widget-pack') ,
+					'safari'    => esc_html__('Safari', 'avator-widget-pack') ,
+					'chrome'     => esc_html__('Chrome', 'avator-widget-pack') ,
+					'chrome-dark'     => esc_html__('Chrome Dark', 'avator-widget-pack') ,
+					'firefox'     => esc_html__('Firefox', 'avator-widget-pack') ,
+					'edge'     	=> esc_html__('Edge', 'avator-widget-pack') ,
+					'edge-dark'     	=> esc_html__('Edge Dark', 'avator-widget-pack') ,
 					'macbookpro' => esc_html__('Macbook Pro', 'avator-widget-pack') ,
 					'macbookair' => esc_html__('Macbook Air', 'avator-widget-pack') ,
 					'tablet'     => esc_html__('Tablet', 'avator-widget-pack') ,
@@ -828,6 +842,24 @@ class Scroll_Image extends Widget_Base {
 		if ('desktop' === $frame) {
 			$max_width  = '1280';
 			$max_height = '720';
+		} elseif ('safari' === $frame) {
+			$max_width  = '1280';
+			$max_height = '720';
+		} elseif ('chrome' === $frame) {
+			$max_width  = '1280';
+			$max_height = '720';
+		} elseif ('chrome-dark' === $frame) {
+			$max_width  = '1280';
+			$max_height = '720';
+		} elseif ('firefox' === $frame) {
+			$max_width  = '1280';
+			$max_height = '720';
+		} elseif ('edge' === $frame) {
+			$max_width  = '1280';
+			$max_height = '720';
+		} elseif ('edge-dark' === $frame) {
+			$max_width  = '1280';
+			$max_height = '720';
 		} elseif ('macbookpro' === $frame) {
 			$max_width  = '1280';
 			$max_height = '815';
@@ -969,6 +1001,24 @@ class Scroll_Image extends Widget_Base {
 			if ('desktop' === frame) {
 				max_width  = '1280';
 				max_height = '720';
+			} else if ('safari' === frame) {
+				max_width  = '1280';
+				max_height = '815';
+			} else if ('chrome' === frame) {
+				$max_width  = '1280';
+				$max_height = '720';
+			} else if ('chrome-dark' === frame) {
+				$max_width  = '1280';
+				$max_height = '720';
+			} else if ('firefox' === frame) {
+				$max_width  = '1280';
+				$max_height = '720';
+			} else if ('edge' === frame) {
+				$max_width  = '1280';
+				$max_height = '720';
+			} else if ('edge-dark' === frame) {
+				$max_width  = '1280';
+				$max_height = '720';
 			} else if ('macbookpro' === frame) {
 				max_width  = '1280';
 				max_height = '815';

@@ -37,6 +37,14 @@ class Flip_Box extends Widget_Base {
 		return [ 'flip', 'box', '3d' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-flip-box' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/FLmKzk9KbQg';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

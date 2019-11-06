@@ -23,7 +23,7 @@ class Scrollnav extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-scroll-navigation';
+		return 'avt-wi-scrollnav';
 	}
 
 	public function get_categories() {
@@ -34,8 +34,16 @@ class Scrollnav extends Widget_Base {
 		return [ 'scrollnav', 'menu' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-scroll-nav' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'popper', 'tippyjs' ];
+		return [ 'popper', 'tippyjs', 'wipa-scrollnav' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/X2B23zD7gRg';
 	}
 
 	protected function _register_controls() {

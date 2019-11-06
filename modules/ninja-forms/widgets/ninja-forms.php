@@ -32,6 +32,10 @@ class Ninja_Forms extends Widget_Base {
 		return [ 'ninja', 'form', 'contact', 'custom', 'builder' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/rMKAUIy1fKc';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

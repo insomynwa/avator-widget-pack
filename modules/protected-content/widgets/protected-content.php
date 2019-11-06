@@ -34,6 +34,10 @@ class Protected_Content extends Widget_Base {
 		return [ 'protected', 'content', 'safe' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/jcLWace-JpE';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'protection_type_section',

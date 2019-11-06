@@ -38,8 +38,12 @@ class Products_Tab extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'datatables' ];
+		return [ 'wipa-woocommerce', 'datatables' ];
 	}
+
+	// public function get_custom_help_url() {
+	// 	return 'https://youtu.be/3VkvEpVaNAM';
+	// }
 
 	protected function _register_controls() {
 

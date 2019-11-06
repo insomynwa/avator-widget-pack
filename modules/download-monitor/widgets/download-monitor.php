@@ -10,7 +10,6 @@ use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 
 use Elementor\Icons_Manager;
-use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -36,6 +35,14 @@ class DownloadMonitor extends Widget_Base {
 
 	public function get_categories() {
 		return [ 'widget-pack' ];
+	}
+
+	public function get_style_depends() {
+		return [ 'wipa-download-monitor' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/7LaBSh3_G5A';
 	}
 
 	protected function download_file_list() {

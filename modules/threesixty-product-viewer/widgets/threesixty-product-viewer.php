@@ -23,7 +23,7 @@ class Threesixty_Product_Viewer extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-360-product-viewer';
+		return 'avt-wi-threesixty-product-viewer';
 	}
 
 	public function get_categories() {
@@ -34,8 +34,16 @@ class Threesixty_Product_Viewer extends Widget_Base {
 		return [ 'three', 'sixty', 'degree', 'product', 'viewer', 'news' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-threesixty-product-viewer' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'spritespin', 'avt-uikit-icons' ];
+		return [ 'spritespin', 'avt-uikit-icons', 'wipa-threesixty-product-viewer' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/60Q4sK-FzLI';
 	}
 
 	protected function _register_controls() {

@@ -37,7 +37,11 @@ class Navbar extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-navbar' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/ZXdDAi9tCxE';
 	}
 
 	protected function _register_controls() {
@@ -874,7 +878,7 @@ class Navbar extends Widget_Base {
 			'menu'           => $nav_menu,
 			'echo'           => true,
 			'depth'          => 0,
-			'walker'        => new ep_menu_walker
+			'walker'        => new wipa_menu_walker
 		);
 
 		$this->add_render_attribute(

@@ -24,7 +24,7 @@ class Helpdesk extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-help-desk';
+		return 'avt-wi-helpdesk';
 	}
 
 	public function get_categories() {
@@ -36,11 +36,15 @@ class Helpdesk extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-helpdesk' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'popper', 'tippyjs' ];
+		return [ 'popper', 'tippyjs', 'wipa-helpdesk' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/bO__skhy4yk';
 	}
 
 	protected function _register_controls() {
@@ -1174,7 +1178,7 @@ class Helpdesk extends Widget_Base {
 
 		
 		<a <?php echo $this->get_render_attribute_string( 'messenger' ); ?>>
-			<i class="ep-messenger" aria-hidden="true"></i>
+			<i class="wipa-messenger" aria-hidden="true"></i>
 		</a>
 
 		<?php
@@ -1223,7 +1227,7 @@ class Helpdesk extends Widget_Base {
 
 		
 		<a <?php echo $this->get_render_attribute_string( 'skype' ); ?>>
-			<i class="ep-skype" aria-hidden="true"></i>
+			<i class="wipa-skype" aria-hidden="true"></i>
 		</a>		
 
 		<?php
@@ -1272,7 +1276,7 @@ class Helpdesk extends Widget_Base {
 
 		
 		<a <?php echo $this->get_render_attribute_string( 'viber' ); ?>>
-			<i class="ep-viber" aria-hidden="true"></i>
+			<i class="wipa-viber" aria-hidden="true"></i>
 		</a>		
 
 		<?php
@@ -1320,7 +1324,7 @@ class Helpdesk extends Widget_Base {
 
 		
 		<a <?php echo $this->get_render_attribute_string( 'whatsapp' ); ?>>
-			<i class="ep-whatsapp" aria-hidden="true"></i>
+			<i class="wipa-whatsapp" aria-hidden="true"></i>
 		</a>
 		
 
@@ -1370,7 +1374,7 @@ class Helpdesk extends Widget_Base {
 
 		
 		<a <?php echo $this->get_render_attribute_string( 'telegram' ); ?>>
-			<i class="ep-telegram" aria-hidden="true"></i>
+			<i class="wipa-telegram" aria-hidden="true"></i>
 		</a>
 		
 
@@ -1494,7 +1498,7 @@ class Helpdesk extends Widget_Base {
 
 		
 		<a <?php echo $this->get_render_attribute_string( 'mailto' ); ?>>
-			<i class="ep-envelope" aria-hidden="true"></i>
+			<i class="wipa-envelope" aria-hidden="true"></i>
 		</a>
 		
 

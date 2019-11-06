@@ -40,11 +40,15 @@ class Post_Grid_Tab extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['avt-post-grid-tab', 'widget-pack-font'];
+		return ['wipa-post-grid-tab', 'widget-pack-font'];
 	}
 
 	public function get_script_depends() {
-		return [ 'avt-uikit-icons', 'gridtab', 'recliner' ];
+		return [ 'avt-uikit-icons', 'gridtab', 'recliner', 'wipa-post-grid-tab' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/kFEL4AGnIv4';
 	}
 
 	public function on_import( $element ) {
@@ -1351,7 +1355,7 @@ class Post_Grid_Tab extends Widget_Base {
 		}
 		
 		echo 
-			'<span><i class="ep-bubble avt-display-inline-block" aria-hidden="true"></i> '.get_comments_number().'</span>';
+			'<span><i class="wipa-bubble avt-display-inline-block" aria-hidden="true"></i> '.get_comments_number().'</span>';
 	}
 
 	public function render_category() {

@@ -30,12 +30,16 @@ class Table extends Widget_Base {
 		return [ 'table', 'row', 'column' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'datatables', 'wipa-table' ];
+	}
+	
 	public function get_script_depends() {
-		return [ 'datatables' ];
+		return [ 'datatables', 'wipa-table' ];
 	}
 
-	public function get_style_depends() {
-		return [ 'datatables' ];
+	public function get_custom_help_url() {
+		return 'https://youtu.be/dviKkEPsg04';
 	}
 
 	protected function _register_controls() {

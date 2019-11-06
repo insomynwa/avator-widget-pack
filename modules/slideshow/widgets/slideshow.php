@@ -38,6 +38,10 @@ class Slideshow extends Widget_Base {
 		return [ 'slider', 'slideshow', 'hero' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-slideshow' ];
+	}
+
 	public function get_script_depends() {
 		return [ 'imagesloaded', 'avt-uikit-icons' ];
 	}
@@ -57,6 +61,10 @@ class Slideshow extends Widget_Base {
 
 	public function get_query() {
 		return $this->_query;
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/BrrKmDfJ5ZI';
 	}
 
 	protected function _register_controls() {
@@ -2459,8 +2467,8 @@ class Slideshow extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -2471,7 +2479,7 @@ class Slideshow extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2480,7 +2488,7 @@ class Slideshow extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'scroll_to_top_shadow',
-				'selector' => '{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a',
+				'selector' => '{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a',
 			]
 		);
 
@@ -2491,7 +2499,7 @@ class Slideshow extends Widget_Base {
 				'label'       => esc_html__( 'Border', 'avator-widget-pack' ),
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a',
+				'selector'    => '{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a',
 				'separator'   => 'before',
 			]
 		);
@@ -2503,7 +2511,7 @@ class Slideshow extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2515,7 +2523,7 @@ class Slideshow extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2532,7 +2540,7 @@ class Slideshow extends Widget_Base {
 					],
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a' => 'font-size: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a' => 'font-size: {{SIZE}}px;',
 				],
 			]
 		);
@@ -2550,7 +2558,7 @@ class Slideshow extends Widget_Base {
 					],
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section' => 'margin-bottom: {{SIZE}}px;',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section' => 'margin-bottom: {{SIZE}}px;',
 				],
 			]
 		);
@@ -2570,8 +2578,8 @@ class Slideshow extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a:hover svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -2582,7 +2590,7 @@ class Slideshow extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2596,7 +2604,7 @@ class Slideshow extends Widget_Base {
 					'scroll_to_top_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .avt-slideshow .avt-wp-scroll-to-section a:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-slideshow .avt-wipa-scroll-to-section a:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2655,9 +2663,9 @@ class Slideshow extends Widget_Base {
 			<div class="avt-position-relative avt-visible-toggle">
 
 				<?php if ($settings['scroll_to_section'] && $settings['section_id']): ?>
-					<div class="avt-wp-scroll-to-section avt-position-bottom-center">
+					<div class="avt-wipa-scroll-to-section avt-position-bottom-center">
 						<a href="<?php echo esc_url($settings['section_id']); ?>" avt-scroll>
-							<span class="avt-wp-scroll-to-section-icon">
+							<span class="avt-wipa-scroll-to-section-icon">
 
 								<?php if ( $is_new || $migrated ) :
 									Icons_Manager::render_icon( $settings['slideshow_scroll_to_section_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-fw' ] );

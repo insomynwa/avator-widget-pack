@@ -30,6 +30,10 @@ class wpdatatable extends Widget_Base {
 		return [ 'wp', 'data', 'table' ];
 	}
 
+	// public function get_custom_help_url() {
+	// 	return 'https://youtu.be/p_FRLsEVNjQ';
+	// }
+
 	protected function get_table_list() {
         if(shortcode_exists("wpdatatable")){
             global $wpdb;

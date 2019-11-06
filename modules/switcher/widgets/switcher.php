@@ -36,8 +36,16 @@ class Switcher extends Widget_Base {
 		return [ 'switcher', 'tab', 'toggle' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-switcher' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'avt-switcher' ];
+		return [ 'wipa-switcher' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/BIEFRxDF1UE';
 	}
 
 	protected function _register_controls() {
@@ -125,7 +133,7 @@ class Switcher extends Widget_Base {
 				'label'       => __( 'Section ID', 'avator-widget-pack' ),
 				'description' => __( 'Paste your section ID here. Don\'t need to add # before ID', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::TEXT,
-				'placeholder' => '.section-a',
+				'placeholder' => 'section-a',
 				'dynamic'     => [ 'active' => true ],
 				'condition'  => ['source_a' => 'custom_section'],
 			]
@@ -940,15 +948,15 @@ class Switcher extends Widget_Base {
 
 
 		if ( ( 'custom_section' == $settings['source_a'] and !empty( $settings['switch_a_custom_section_id'] ) ) or ( 'custom_section' == $settings['source_b'] and !empty( $settings['switch_b_custom_section_id'] ) ) ) {
-		
+
 			$this->add_render_attribute(
 				[
 					'switcher-settings' => [
 						'data-settings' => [
-							wp_json_encode(array_filter([
+							wp_json_encode([
 								'switch-a-content' => $tab_a_custom_section,
 								'switch-b-content' => $tab_b_custom_section,
-							]))
+							])
 						],
 					]
 				]

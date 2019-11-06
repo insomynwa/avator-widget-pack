@@ -41,6 +41,10 @@ class Thumb_Gallery extends Widget_Base {
 		return [ 'thumb', 'gallery', 'image', 'photo' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-thumb-gallery' ];
+	}
+
 	public function get_script_depends() {
 		return [ 'imagesloaded', 'avt-uikit-icons' ];
 	}
@@ -60,6 +64,10 @@ class Thumb_Gallery extends Widget_Base {
 
 	public function get_query() {
 		return $this->_query;
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/NJ5ZR-9ODus';
 	}
 
 	public function _register_skins() {

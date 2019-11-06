@@ -44,6 +44,10 @@ class Post_Slider extends Widget_Base {
 		return [ 'post', 'slider', 'blog', 'recent', 'news' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-post-slider' ];
+	}
+
 	public function get_script_depends() {
 		return [ 'imagesloaded' ];
 	}
@@ -68,6 +72,10 @@ class Post_Slider extends Widget_Base {
 	public function _register_skins() {
 		$this->add_skin( new Skins\Skin_Vast( $this ) );
 		$this->add_skin( new Skins\Skin_Hazel( $this ) );
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/oPYzWVLPF7A';
 	}
 
 	public function _register_controls() {

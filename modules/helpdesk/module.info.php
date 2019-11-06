@@ -5,4 +5,6 @@ return [
 	'title'              => esc_html__( 'Help Desk', 'avator-widget-pack' ),
 	'required'           => true,
 	'default_activation' => true,
+	'has_style'			 => true,
+	'has_script'		 => true,
 ];

@@ -45,6 +45,10 @@ class CryptoCurrencyPriceMarquee extends Widget_Base {
 		return ['avt-crypto-currency'];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/TnSjwUKrw00';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_cryptocurrency',

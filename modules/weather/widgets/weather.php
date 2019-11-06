@@ -17,7 +17,7 @@ class Weather extends Widget_Base {
 
 	public $weather_data = [];
 
-	public $weather_api_url = 'https://api.apixu.com/v1/forecast.json';
+	public $weather_api_current_url = 'http://api.weatherstack.com/current';
 
 	public function get_name() {
 		return 'avt-weather';
@@ -40,7 +40,11 @@ class Weather extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['weather'];
+		return ['wipa-weather'];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/Vjyl4AAAufg';
 	}
 
 	protected function _register_controls() {
@@ -61,8 +65,8 @@ class Weather extends Widget_Base {
 					'simple'   => esc_html__( 'Simple', 'avator-widget-pack' ),
 					'today'    => esc_html__( 'Today', 'avator-widget-pack' ),
 					'tiny'     => esc_html__( 'Tiny', 'avator-widget-pack' ),
-					'forecast' => esc_html__( 'Forecast', 'avator-widget-pack' ),
-					'full'     => esc_html__( 'Full', 'avator-widget-pack' ),
+					//'forecast' => esc_html__( 'Forecast', 'avator-widget-pack' ),
+					//'full'     => esc_html__( 'Full', 'avator-widget-pack' ),
 				],
 				'prefix_class' => 'avt-weather-layout-',
 				'render_type' => 'template',
@@ -454,6 +458,7 @@ class Weather extends Widget_Base {
 
 	protected function render() {
 		$settings           = $this->get_settings_for_display();
+
 		$this->weather_data = $this->weather_data();		
 
 		$this->add_render_attribute( 'weather', 'class', 'avt-weather' );
@@ -470,9 +475,9 @@ class Weather extends Widget_Base {
 					<?php $this->render_weather_tiny(); ?>
 				<?php endif; ?>
 				
-				<?php if ( 'full' == $settings['view'] or 'forecast' == $settings['view'] ) : ?>
-					<?php $this->render_weather_forecast(); ?>
-				<?php endif; ?>
+				<?php //if ( 'full' == $settings['view'] or 'forecast' == $settings['view'] ) : ?>
+					<?php //$this->render_weather_forecast(); ?>
+				<?php //endif; ?>
 
 			</div>
 		</div>
@@ -491,7 +496,7 @@ class Weather extends Widget_Base {
 
 		<div class="avt-weather-today">
 			<?php if ( 'yes' == $settings['show_city'] or 'yes' == $settings['show_country'] or 'yes' == $settings['show_temperature'] or 'yes' == $settings['show_today_name'] ) : ?>
-			<div class="avt-grid avt-grid-collapse">
+			<div class="avt-grid avt-grid-collapse avt-flex avt-flex-middle">
 				
 				<div class="avt-width-3-5">
 						
@@ -507,12 +512,12 @@ class Weather extends Widget_Base {
 				</div>
 				
 				<?php if ( 'yes' == $settings['show_weather_icon'] ) : ?>
-				<div class="avt-width-2-5 avt-flex avt-flex-middle avt-text-center">
+				<div class="avt-width-2-5 avt-text-center">
 					<div class="avt-width-1-1">
-						<div class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+						<div class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'] ); ?></div>
 						
 						<?php if ( 'yes' == $settings['show_weather_condition_name'] ) : ?>
-							<div class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+							<div class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'] ); ?></div>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -521,9 +526,9 @@ class Weather extends Widget_Base {
 			</div>
 			<?php else : ?>
 				<div class="avt-text-center">
-					<div class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+					<div class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'] ); ?></div>
 					<?php if ( 'yes' == $settings['show_weather_condition_name'] ) : ?>
-						<div class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></div>
+						<div class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'] ); ?></div>
 					<?php endif; ?>
 					
 				</div>
@@ -533,34 +538,18 @@ class Weather extends Widget_Base {
 		<?php if ( 'yes' === $settings['weather_details'] ) : ?>
 			<div class="avt-weather-details avt-grid avt-grid-collapse">
 				<div class="avt-width-1-3">
-					<div class="avt-weather-today-sunrise">
-						<span class="avtw-sunrise"></span>
-						<?php echo esc_html($data['today']['sunrise']); ?>
-					</div>
-					<div class="avt-weather-today-sunset">
-						<span class="avtw-sunset"></span>
-						<?php echo esc_html($data['today']['sunset']); ?>
-					</div>
-				</div>
-				<div class="avt-width-1-3">
-					<div class="avt-weather-today-min-temp">
-						<span class="avtw-min-tempareture"></span>
-						<?php printf( '%1$s %2$s', esc_html__( 'Min:', 'avator-widget-pack' ), $this->weather_temperature( $data['today']['temp_min'] ) ); ?>
-					</div>
-					<div class="avt-weather-today-max-temp">
-						<span class="avtw-max-tempareture"></span>
-						<?php printf( '%1$s %2$s', esc_html__( 'Max:', 'avator-widget-pack' ), $this->weather_temperature( $data['today']['temp_max'] ) ); ?>
-					</div>
-				</div>
-				<div class="avt-width-1-3">
 					<div class="avt-weather-today-humidity">
 						<span class="avtw-humidity"></span>
 						<?php echo esc_html($data['today']['humidity']); ?>
 					</div>
+				</div>
+				<div class="avt-width-1-3">
 					<div class="avt-weather-today-pressure">
 						<span class="avtw-pressure"></span>
 						<?php echo $this->get_weather_pressure( $data['today']['pressure'] ); ?>
 					</div>
+				</div>
+				<div class="avt-width-1-3">
 					<div class="avt-weather-today-wind">
 						<span class="avtw-<?php echo widget_pack_wind_code( $data['today']['wind_deg'] ); ?>"></span>
 						<?php echo esc_html($speed) .' '. esc_html($speed_unit); ?>
@@ -584,10 +573,10 @@ class Weather extends Widget_Base {
 		<?php endif; ?>
 
 		<?php if ( 'yes' == $settings['show_weather_icon'] ) : ?>
-			<span class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'], $data['today']['is_day'] ); ?></span>
+			<span class="avt-weather-today-icon"><?php echo $this->weather_icon( $data['today']['code'] ); ?></span>
 		<?php endif; ?>
 		<?php if ( 'yes' == $settings['show_weather_desc'] ) : ?>
-			<span class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'], $data['today']['is_day'] ); ?></span>
+			<span class="avt-weather-today-desc"><?php echo $this->weather_desc( $data['today']['code'] ); ?></span>
 		<?php endif; ?>
 
 		<?php
@@ -672,11 +661,12 @@ class Weather extends Widget_Base {
 	public function weather_data() {
 
 		$ep_api_settings = get_option( 'widget_pack_api_settings' );
-		$api_key = !empty($ep_api_settings['apixu_api_key']) ? $ep_api_settings['apixu_api_key'] : '';
+		$api_key = !empty($ep_api_settings['weatherstack_api_key']) ? $ep_api_settings['weatherstack_api_key'] : '';
+
 
 		// return error message when api key not found
 		if ( ! $api_key ) {
-			
+
 			$message = esc_html__( 'Ops! I think you forget to set API key in Widget Pack API settings.', 'avator-widget-pack' );
 
 			$this->weather_error_notice($message);
@@ -701,14 +691,16 @@ class Weather extends Widget_Base {
 			$api_key  = esc_attr( $api_key );
 
 			$request_args = array(
-				'key'  => urlencode( $api_key ),
-				'q'    => urlencode( $location ),
-				'days' => 6,
+				'access_key'    => $api_key,
+				'query'         => urlencode( $location ),
+				'forecast_days' => 6,
+				'hourly'        => 1,
+				'units'         => ''
 			);
 
 			$request_url = add_query_arg(
 				$request_args,
-				$this->weather_api_url
+				$this->weather_api_current_url
 			);
 
 			$weather = $this->weather_remote_request( $request_url );
@@ -736,6 +728,9 @@ class Weather extends Widget_Base {
 			}
 
 			set_transient( $transient_key, $data, apply_filters( 'widget-pack/weather/cached-time', HOUR_IN_SECONDS ) );
+
+			return $data;
+
 		}
 
 		return $data;
@@ -766,59 +761,53 @@ class Weather extends Widget_Base {
 
 	public function transient_weather( $weather = [] ) {
 
-		$weather = $weather;
-
 		$data = array(
 			'location' => array(
 				'city'    => $weather['location']['name'],
 				'country' => $weather['location']['country'],
 			),
 			'today' => array(
-				'code'   => $weather['current']['condition']['code'],
-				'is_day' => $weather['current']['is_day'],
-				'temp' => array(
-					'c' => round( $weather['current']['temp_c'] ),
-					'f' => round( $weather['current']['temp_f'] ),
-				),
-				'temp_min' => array(
-					'c' => round( $weather['forecast']['forecastday'][0]['day']['mintemp_c'] ),
-					'f' => round( $weather['forecast']['forecastday'][0]['day']['mintemp_f'] ),
-				),
-				'temp_max' => array(
-					'c' => round( $weather['forecast']['forecastday'][0]['day']['maxtemp_c'] ),
-					'f' => round( $weather['forecast']['forecastday'][0]['day']['maxtemp_f'] ),
-				),
+				'code'   => $weather['current']['weather_code'],
+				//'is_day' => $weather['current']['is_day'],
+
+				'temp' => $weather['current']['temperature'],
+				// 'temp_min' => array(
+				// 	'c' => round( $weather['forecast']['forecastday'][0]['day']['mintemp_c'] ),
+				// 	'f' => round( $weather['forecast']['forecastday'][0]['day']['mintemp_f'] ),
+				// ),
+				// 'temp_max' => array(
+				// 	'c' => round( $weather['forecast']['forecastday'][0]['day']['maxtemp_c'] ),
+				// 	'f' => round( $weather['forecast']['forecastday'][0]['day']['maxtemp_f'] ),
+				// ),
 				'wind_speed' => array(
-					'mph' => $weather['current']['wind_mph'],
-					'kph' => $weather['current']['wind_kph'],
+					'mph' => $weather['current']['wind_speed'],
+					'kph' => $weather['current']['wind_speed'],
 				),
 				'wind_deg' => $weather['current']['wind_degree'],
+				'wind_dir' => $weather['current']['wind_dir'],
+
 				'humidity' => $weather['current']['humidity'] . '%',
-				'pressure' => array(
-					'mb' => $weather['current']['pressure_mb'],
-					'in' => $weather['current']['pressure_in'],
-				),
-				'sunrise'  => $weather['forecast']['forecastday'][0]['astro']['sunrise'],
-				'sunset'   => $weather['forecast']['forecastday'][0]['astro']['sunset'],
+				'pressure' => $weather['current']['pressure'],
+
 				'week_day' => date_i18n( 'l' ),
 			),
 			'forecast' => [],
 		);
 
-		for ( $i = 1; $i <= 5; $i ++ ) {
-			$data['forecast'][] = array(
-				'code'     => $weather['forecast']['forecastday'][ $i ]['day']['condition']['code'],
-				'week_day' => $this->readable_week( 'Y-m-d', $weather['forecast']['forecastday'][ $i ]['date'] ),
-				'temp_min' => array(
-					'c' => round( $weather['forecast']['forecastday'][ $i ]['day']['mintemp_c'] ),
-					'f' => round( $weather['forecast']['forecastday'][ $i ]['day']['mintemp_f'] ),
-				),
-				'temp_max' => array(
-					'c' => round( $weather['forecast']['forecastday'][ $i ]['day']['maxtemp_c'] ),
-					'f' => round( $weather['forecast']['forecastday'][ $i ]['day']['maxtemp_f'] ),
-				),
-			);
-		}
+//		for ( $i = 1; $i <= 5; $i ++ ) {
+//			$data['forecast'][] = array(
+//				'code'     => $weather['forecast']['forecastday'][ $i ]['day']['condition']['code'],
+//				'week_day' => $this->readable_week( 'Y-m-d', $weather['forecast']['forecastday'][ $i ]['date'] ),
+//				'temp_min' => array(
+//					'c' => round( $weather['forecast']['forecastday'][ $i ]['day']['mintemp_c'] ),
+//					'f' => round( $weather['forecast']['forecastday'][ $i ]['day']['mintemp_f'] ),
+//				),
+//				'temp_max' => array(
+//					'c' => round( $weather['forecast']['forecastday'][ $i ]['day']['maxtemp_c'] ),
+//					'f' => round( $weather['forecast']['forecastday'][ $i ]['day']['maxtemp_f'] ),
+//				),
+//			);
+//		}
 
 		return $data;
 	}
@@ -831,7 +820,7 @@ class Weather extends Widget_Base {
 	public function weather_desc( $code, $is_day = true ) {
 		$desc = widget_pack_weather_code( $code, 'desc', $is_day );
 
-		if ( empty( $desc ) ) { return ''; }
+		if ( empty( $desc ) ) { return []; }
 
 		return $desc;
 	}

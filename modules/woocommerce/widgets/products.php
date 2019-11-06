@@ -36,11 +36,15 @@ class Products extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'datatables' ];
+		return [ 'datatables', 'wipa-woocommerce' ];
 	}
 
 	public function get_style_depends() {
-		return [ 'datatables' ];
+		return [ 'wipa-woocommerce', 'datatables', 'widget-pack-font' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/3VkvEpVaNAM';
 	}
 
 	public function _register_skins() {
@@ -240,10 +244,15 @@ class Products extends Widget_Base {
 		);
 
 		$this->add_control(
-			'show_pagination',
+			'masonry',
 			[
-				'label' => esc_html__( 'Pagination', 'avator-widget-pack' ),
-				'type'  => Controls_Manager::SWITCHER,
+				'label'       => esc_html__( 'Masonry', 'avator-widget-pack' ),
+				'description' => esc_html__( 'Masonry will not work if you not set filter.', 'avator-widget-pack' ),
+				'type'        => Controls_Manager::SWITCHER,
+				'condition'   => [
+					'columns!' => '1',
+					'_skin'		=> '',
+				],
 			]
 		);
 
@@ -281,20 +290,12 @@ class Products extends Widget_Base {
 			]
 		);
 
-
-		$product_categories = get_terms( 'product_cat' );
-
-		$options = [];
-		foreach ( $product_categories as $category ) {
-			$options[ $category->slug ] = $category->name;
-		}
-
 		$this->add_control(
 			'product_categories',
 			[
 				'label'       => esc_html__( 'Categories', 'avator-widget-pack' ),
 				'type'        => Controls_Manager::SELECT2,
-				'options'     => $options,
+				'options'     => widget_pack_get_category( 'product_cat' ),
 				'default'     => [],
 				'label_block' => true,
 				'multiple'    => true,
@@ -321,6 +322,14 @@ class Products extends Widget_Base {
 				'label'   => esc_html__( 'Product Limit', 'avator-widget-pack' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 8,
+			]
+		);
+
+		$this->add_control(
+			'show_pagination',
+			[
+				'label' => esc_html__( 'Pagination', 'avator-widget-pack' ),
+				'type'  => Controls_Manager::SWITCHER,
 			]
 		);
 
@@ -690,9 +699,24 @@ class Products extends Widget_Base {
 			[
 				'name'        => 'item_border',
 				'label'       => esc_html__( 'Border Color', 'avator-widget-pack' ),
-				'placeholder' => '1px',
-				'default'     => '1px',
 				'selector'    => '{{WRAPPER}} .avt-wc-products .avt-wc-product .avt-wc-product-inner',
+				'fields_options' => [
+					'border' => [
+						'default' => 'solid',
+					],
+					'width' => [
+						'default' => [
+							'top' => '1',
+							'right' => '1',
+							'bottom' => '1',
+							'left' => '1',
+							'isLinked' => false,
+						],
+					],
+					'color' => [
+						'default' => '#eee',
+					],
+				],
 				'separator'   => 'before',
 			]
 		);
@@ -851,6 +875,9 @@ class Products extends Widget_Base {
 					'{{WRAPPER}} .avt-wc-products table th'                  => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .avt-wc-products table.dataTable.no-footer' => 'border-color: {{VALUE}};',
 				],
+				'condition' => [
+					'cell_border' => 'yes',
+				],
 			]
 		);
 
@@ -862,6 +889,9 @@ class Products extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .avt-wc-products table.dataTable.stripe tbody tr.odd' => 'background-color: {{VALUE}};',
 				],
+				'condition' => [
+					'stripe' => 'yes',
+				],
 			]
 		);
 
@@ -872,6 +902,9 @@ class Products extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .avt-wc-products table.dataTable.stripe tbody tr.even' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'stripe' => 'yes',
 				],
 			]
 		);
@@ -939,6 +972,9 @@ class Products extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .avt-wc-products table.dataTable.stripe tbody tr:hover' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'stripe' => 'yes',
 				],
 			]
 		);
@@ -1304,7 +1340,7 @@ class Products extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .avt-wc-products .avt-wc-product-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .avt-wc-products .avt-wc-product-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1479,7 +1515,7 @@ class Products extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wc-products .avt-wc-product-price del' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wc-products .avt-wc-product .avt-wc-product-price .amount' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1521,7 +1557,7 @@ class Products extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wc-products .avt-wc-product-price, {{WRAPPER}} .avt-wc-products .avt-wc-product-price ins' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wc-products .avt-wc-product-price, {{WRAPPER}} .avt-wc-products .avt-wc-product .avt-wc-product-price ins .amount' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2068,7 +2104,7 @@ class Products extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters-wrapper' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -2079,7 +2115,7 @@ class Products extends Widget_Base {
 				'name'     => 'typography_filter',
 				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li',
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li',
 			]
 		);
 
@@ -2089,7 +2125,7 @@ class Products extends Widget_Base {
 				'label'     => esc_html__( 'Bottom Space', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -2118,7 +2154,7 @@ class Products extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -2129,7 +2165,7 @@ class Products extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -2141,7 +2177,7 @@ class Products extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -2152,7 +2188,7 @@ class Products extends Widget_Base {
 				'name'        => 'desktop_filter_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .avt-wp-grid-filters li'
+				'selector'    => '{{WRAPPER}} .avt-wipa-grid-filters li'
 			]
 		);
 
@@ -2163,7 +2199,7 @@ class Products extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -2172,7 +2208,7 @@ class Products extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_filter_shadow',
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li'
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li'
 			]
 		);
 
@@ -2182,8 +2218,8 @@ class Products extends Widget_Base {
 				'label'     => esc_html__( 'Space Between', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
-					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wipa-grid-filters > li.avt-wipa-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wipa-grid-filters > li.avt-wipa-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
 				],
 			]
 		);
@@ -2203,7 +2239,7 @@ class Products extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2214,7 +2250,7 @@ class Products extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -2225,7 +2261,7 @@ class Products extends Widget_Base {
 				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -2237,7 +2273,7 @@ class Products extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -2246,7 +2282,7 @@ class Products extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_active_filter_shadow',
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li.avt-active'
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li.avt-active'
 			]
 		);
 
@@ -2340,10 +2376,16 @@ class Products extends Widget_Base {
 	public function render_image() {
 		$settings = $this->get_settings();
 		?>
-		<div class="avt-wc-product-image avt-background-cover">
+		<div class="avt-wc-product-image avt-position-relative avt-background-cover">
 			<a href="<?php the_permalink(); ?>">
 				<img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), $settings['image_size']); ?>">
 			</a>
+
+        	<?php if ('yes' == $settings['show_cart']) : ?>
+            	<div class="avt-wc-add-to-cart">
+					<?php woocommerce_template_loop_add_to_cart();?>
+				</div>
+			<?php endif; ?>
 		</div>
 		<?php
 	}
@@ -2386,7 +2428,6 @@ class Products extends Widget_Base {
 			'post_status'         => 'publish',
 			'posts_per_page'      => $settings['posts_per_page'],
 			'ignore_sticky_posts' => 1,
-			'no_found_rows'       => true,
 			'meta_query'          => [],
 			'tax_query'           => [ 'relation' => 'AND' ],
 			'paged'               => $paged,
@@ -2398,42 +2439,42 @@ class Products extends Widget_Base {
 
 		
 		if ( 'by_name' === $settings['source'] and !empty($settings['product_categories']) ) {			  
-			$args['tax_query'][] = array(
+			$query_args['tax_query'][] = [
 				'taxonomy'           => 'product_cat',
 				'field'              => 'slug',
 				'terms'              => $settings['product_categories'],
 				'post__not_in'       => $exclude_products,
-			);
+			];
 		}
 
 		if ( 'yes' == $settings['hide_free'] ) {
-			$query_args['meta_query'][] = array(
+			$query_args['meta_query'][] = [
 				'key'     => '_price',
 				'value'   => 0,
 				'compare' => '>',
 				'type'    => 'DECIMAL',
-			);
+			];
 		}
 
 		if ( 'yes' == $settings['hide_out_stock'] ) {
-			$query_args['tax_query'][] = array(
-				array(
+			$query_args['tax_query'][] = [
+				[
 					'taxonomy' => 'product_visibility',
 					'field'    => 'term_taxonomy_id',
 					'terms'    => $product_visibility_term_ids['outofstock'],
 					'operator' => 'NOT IN',
-				),
-			); // WPCS: slow query ok.
+				],
+			]; // WPCS: slow query ok.
 		}
 
 
 		switch ( $settings['show_product_type'] ) {
 			case 'featured':
-				$query_args['tax_query'][] = array(
+				$query_args['tax_query'][] = [
 					'taxonomy' => 'product_visibility',
 					'field'    => 'term_taxonomy_id',
 					'terms'    => $product_visibility_term_ids['featured'],
-				);
+				];
 				break;
 			case 'onsale':
 				$product_ids_on_sale    = wc_get_product_ids_on_sale();
@@ -2489,17 +2530,17 @@ class Products extends Widget_Base {
 		
 		?>
 
-		<div class="avt-wp-grid-filters-wrapper">
+		<div class="avt-wipa-grid-filters-wrapper">
 			
 			<button class="avt-button avt-button-default avt-hidden@m" type="button"><?php esc_html_e( 'Filter', 'avator-widget-pack' ); ?></button>
 			<div avt-dropdown="mode: click;" class="avt-dropdown avt-margin-remove-top avt-margin-remove-bottom">
 			    <ul class="avt-nav avt-dropdown-nav">
 
-					<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All Products', 'avator-widget-pack' ); ?></li>
+					<li class="avt-wipa-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All Products', 'avator-widget-pack' ); ?></li>
 					
 					<?php foreach($product_categories as $product_category => $value) : ?>
 						<?php $filter_name = get_term_by('slug', $value, 'product_cat'); ?>
-						<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
+						<li class="avt-wipa-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 							<?php echo esc_html($filter_name->name); ?>
 						</li>				
 					<?php endforeach; ?>
@@ -2508,12 +2549,12 @@ class Products extends Widget_Base {
 			</div>
 
 
-			<ul class="avt-wp-grid-filters avt-visible@m" avt-margin>
-				<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All Products', 'avator-widget-pack' ); ?></li>
+			<ul class="avt-wipa-grid-filters avt-visible@m" avt-margin>
+				<li class="avt-wipa-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All Products', 'avator-widget-pack' ); ?></li>
 		
 				<?php foreach($product_categories as $product_category => $value) : ?>
 					<?php $filter_name = get_term_by('slug', $value, 'product_cat'); ?>
-					<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
+					<li class="avt-wipa-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 						<?php echo esc_html($filter_name->name); ?>
 					</li>				
 				<?php endforeach; ?>
@@ -2531,6 +2572,10 @@ class Products extends Widget_Base {
 		if($wp_query->have_posts()) {
 
 			$this->add_render_attribute('wc-products-wrapper', 'avt-grid', '');
+
+			if ( $settings['masonry'] ) {
+				$this->add_render_attribute('wc-products-wrapper', 'avt-grid', 'masonry: true');
+			}
 
 			$this->add_render_attribute(
 				[
@@ -2554,7 +2599,7 @@ class Products extends Widget_Base {
 
 			$this->add_render_attribute( 'wc-product', 'class', 'avt-wc-product' );
 
-			while ( $wp_query->have_posts() ) : $wp_query->the_post(); global $product; ?>
+			while ( $wp_query->have_posts() ) : $wp_query->the_post(); global $post, $product; ?>
 				
 				<?php if( $settings['show_filter_bar'] ) {
 			 		$terms = get_the_terms( get_the_ID(), 'product_cat' );
@@ -2569,7 +2614,8 @@ class Products extends Widget_Base {
 		  			<div class="avt-wc-product-inner">
 		  				<?php if ( $settings['show_badge'] and $product->is_on_sale() ) : ?>
 				  			<div class="avt-badge avt-position-top-left avt-position-small">
-					  			<?php woocommerce_show_product_loop_sale_flash(); ?>
+					  			<?php //woocommerce_show_product_loop_sale_flash(); ?>
+					  			<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="avt-onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
 				  			</div>
 			  			<?php endif; ?>
 
@@ -2598,12 +2644,6 @@ class Products extends Widget_Base {
 			                	<?php endif; ?>
 		                	<?php endif; ?>
 						</div>
-
-	                	<?php if ('yes' == $settings['show_cart']) : ?>
-		                	<div class="avt-wc-add-to-cart">
-								<?php woocommerce_template_loop_add_to_cart();?>
-							</div>
-						<?php endif; ?>
 
 					</div>
 				</div>

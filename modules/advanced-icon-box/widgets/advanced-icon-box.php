@@ -38,6 +38,14 @@ class Advanced_Icon_Box extends Widget_Base {
 		return [ 'advanced', 'icon', 'features' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-advanced-icon-box' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/IU4s5Cc6CUA';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_icon_box',
@@ -2095,7 +2103,7 @@ class Advanced_Icon_Box extends Widget_Base {
 		}
 
 		if ($settings['readmore_attention']) {
-			$this->add_render_attribute( 'readmore', 'class', 'avt-wp-attention-button' );
+			$this->add_render_attribute( 'readmore', 'class', 'avt-wipa-attention-button' );
 		}		
 
 		if ( $settings['readmore_hover_animation'] ) {
@@ -2191,7 +2199,7 @@ class Advanced_Icon_Box extends Widget_Base {
 
 								$svg_image = ob_get_clean();
 
-								echo wp_kses_post( $svg_image );
+								echo wp_kses( $svg_image, widget_pack_allow_tags('svg') );
 							}						
 						?>
 					</div>
@@ -2299,7 +2307,7 @@ class Advanced_Icon_Box extends Widget_Base {
 
 				<#
 				var animation = (settings.readmore_hover_animation) ? ' elementor-animation-' + settings.readmore_hover_animation : '';
-				var attention = (settings.attention_button) ? ' avt-wp-attention-button' : '';
+				var attention = (settings.attention_button) ? ' avt-wipa-attention-button' : '';
 				var onclick = view.addRenderAttribute( 'button', 'onclick', settings.onclick_event );
 
 

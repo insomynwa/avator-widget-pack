@@ -22,7 +22,7 @@ class Skin_Harold extends Elementor_Skin_Base {
 		}
 		
 		echo 
-			'<span class="avt-post-grid-comments"><i class="ep-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
+			'<span class="avt-post-grid-comments"><i class="wipa-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
 	}
 
 	public function render_category() {

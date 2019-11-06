@@ -1,20 +1,16 @@
 <?php
 namespace WidgetPack\Modules\DeviceSlider\Widgets;
 
+use widget_pack_helper;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Utils;
-
-use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Device_Slider extends Widget_Base {
-	private $_query = null;
 
 
 	public function get_name() {
@@ -37,8 +33,16 @@ class Device_Slider extends Widget_Base {
 		return [ 'device', 'slider', 'desktop', 'laptop', 'mobile' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-device-slider' ];
+	}
+
 	public function get_script_depends() {
 		return [ 'imagesloaded' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/GACXtqun5Og';
 	}
 
 	protected function _register_controls() {
@@ -62,10 +66,17 @@ class Device_Slider extends Widget_Base {
 				'default' => 'desktop',
 				'options' => [
 					'desktop'    => esc_html__('Desktop', 'avator-widget-pack') ,
+					'safari'     => esc_html__('Safari', 'avator-widget-pack') ,
+					'chrome'     => esc_html__('Chrome', 'avator-widget-pack') ,
+					'chrome-dark'     => esc_html__('Chrome Dark', 'avator-widget-pack') ,
+					'firefox'     => esc_html__('Firefox', 'avator-widget-pack') ,
+					'edge'     	=> esc_html__('Edge', 'avator-widget-pack') ,
+					'edge-dark'     	=> esc_html__('Edge Dark', 'avator-widget-pack') ,
 					'macbookpro' => esc_html__('Macbook Pro', 'avator-widget-pack') ,
 					'macbookair' => esc_html__('Macbook Air', 'avator-widget-pack') ,
 					'tablet'     => esc_html__('Tablet', 'avator-widget-pack') ,
-					'mobile'     => esc_html__('Mobile', 'avator-widget-pack') ,
+					'mobile'     	=> esc_html__('Mobile', 'avator-widget-pack') ,
+					'mobile-dark'     	=> esc_html__('Mobile Dark', 'avator-widget-pack') ,
 					'galaxy'     => esc_html__('Galaxy S9', 'avator-widget-pack') ,
 					'iphonex'    => esc_html__('IPhone X', 'avator-widget-pack') ,
 				],
@@ -631,12 +642,23 @@ class Device_Slider extends Widget_Base {
 	
 	protected function render_header() {
 		$settings        = $this->get_settings_for_display();
-		$slides_settings = [];
 		$device_type     = $settings['device_type'];
 		$ratio           = '1280:720';
 		
 		if ('desktop' === $device_type) {
 			$ratio = '1280:720';
+		} elseif ('safari' === $device_type) {
+			$ratio = '1400:727';
+		} elseif ('chrome' === $device_type) {
+			$ratio = '1400:788';
+		} elseif ('chrome-dark' === $device_type) {
+			$ratio = '1400:788';
+		} elseif ('firefox' === $device_type) {
+			$ratio = '1280:651';
+		} elseif ('edge' === $device_type) {
+			$ratio = '1280:651';
+		} elseif ('edge-dark' === $device_type) {
+			$ratio = '1280:651';
 		} elseif ('macbookpro' === $device_type) {
 			$ratio = '1280:815';
 		} elseif ('macbookair' === $device_type) {
@@ -647,6 +669,10 @@ class Device_Slider extends Widget_Base {
 			$ratio = '634:1280';
 		} elseif ('iphonex' === $device_type) {
 			$ratio = '600:1280';
+		} elseif ('mobile' === $device_type) {
+			$ratio = '600:1152';
+		} elseif ('mobile-dark' === $device_type) {
+			$ratio = '600:1152';
 		}
 
 
@@ -662,7 +688,7 @@ class Device_Slider extends Widget_Base {
 		?>
 		<div class="avt-device-slider-container">
 			<div class="avt-device-slider avt-device-slider-<?php echo esc_attr($device_type); ?>">
-				<div <?php echo \widget_pack_helper::attrs($slider_settings); ?>>
+				<div <?php echo widget_pack_helper::attrs($slider_settings); ?>>
 					<div class="avt-position-relative avt-visible-toggle">
 						<ul class="avt-slideshow-items">
 		<?php
@@ -710,7 +736,7 @@ class Device_Slider extends Widget_Base {
 		$image_src = wp_get_attachment_image_src( $image['image']['id'], 'full' );
 
 		if ($image_src) :
-			echo '<img src="'.esc_url($image_src[0]).'" alt="<?php echo esc_html($alt); ?>" avt-cover>';
+			echo '<img src="'.esc_url($image_src[0]).'" alt=" ' . esc_html($alt) . '" avt-cover>';
 		endif;
 
 	}
@@ -719,7 +745,7 @@ class Device_Slider extends Widget_Base {
 		$video_src = $link['video_link'];
 
 		?>
-		<video autoplay loop muted playslinline avt-cover>
+		<video autoplay loop muted playsinline avt-cover>
 			<source src="<?php echo  $video_src; ?>" type="video/mp4">
 		</video>
 		<?php
@@ -728,10 +754,10 @@ class Device_Slider extends Widget_Base {
 	protected function rendar_item_youtube($link) {
 
 		$id = (preg_match( '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $link['youtube_link'], $match ) ) ? $match[1] : false;
-		 $url = '//www.youtube.com/embed/' . $id . '?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent&amp;playsinline=1&playlist=' . $id;
+		 $url = '//www.youtube.com/embed/' . $id . '?autoplay=1&mute=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;modestbranding=1&amp;wmode=transparent&amp;playsinline=1&playlist=' . $id;
 
 		?>
-		<iframe src="<?php echo  esc_url( $url); ?>" frameborder="0" allowfullscreen avt-cover></iframe>
+		<iframe src="<?php echo  esc_url( $url); ?>" allowfullscreen avt-cover></iframe>
 		<?php
 	}
 

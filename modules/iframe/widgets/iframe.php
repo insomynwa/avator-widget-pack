@@ -33,7 +33,11 @@ class Iframe extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'recliner' ];
+		return [ 'recliner', 'wipa-iframe' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/3ABRMLE_6-I';
 	}
 
 	protected function _register_controls() {
@@ -96,7 +100,7 @@ class Iframe extends Widget_Base {
 			'auto_height',
 			[
 				'label'   => esc_html__( 'Auto Height', 'avator-widget-pack' ),
-				'description'   => esc_html__( 'Auto height only works when cross origin properly set', 'avator-widget-pack' ),
+				'description'   => esc_html__( 'Auto height only works when cross domain or allow origin all in header.'  , 'avator-widget-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
 			]
 		);

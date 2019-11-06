@@ -43,25 +43,33 @@ class Skin_Alice extends Elementor_Skin_Base {
 
 	public function render_image($image_id, $size) {
 
-		$image_src = wp_get_attachment_image_src( $image_id, $size );
+		$settings = $this->parent->get_settings();
 
-		$placeholder_image_src = Utils::get_placeholder_image_src();
+		if ( 'yes' == $settings['thumbnail_show'] ) :
+			
+			$settings['thumbnail_size'] = [
+				'id' => get_post_thumbnail_id(),
+			];
 
-		$image_src = wp_get_attachment_image_src( $image_id, $size );
+			$thumbnail_html        = Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail_size' );
+			$placeholder_image_src = Utils::get_placeholder_image_src();
 
-		if ( ! $image_src ) {
-			$image_src = $placeholder_image_src;
-		} else {
-			$image_src = $image_src[0];
-		}
+			if ( ! $thumbnail_html ) {
+				$thumbnail_html = '<img src="' . esc_url( $placeholder_image_src ) . '" alt="' . get_the_title() . '" class="avt-transition-scale-up avt-transition-opaque">';
+			}
 
-		?>
-		<div class="avt-carousel-thumbnail avt-overflow-hidden">
-			<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-background-cover" title="<?php echo get_the_title(); ?>">
-				<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo get_the_title(); ?>" class="avt-transition-scale-up avt-transition-opaque">
-			</a>
-		</div>
-		<?php
+			?>
+			<div class="avt-carousel-thumbnail avt-overflow-hidden">
+				<a href="<?php echo esc_url(get_permalink()); ?>" class="avt-background-cover" title="<?php echo get_the_title(); ?>">
+					<?php echo wp_kses_post($thumbnail_html); ?>
+				</a>
+			</div>
+			
+		<?php else : ?>
+			<div class="avt-carousel-background"></div>
+		
+		<?php endif;
+
 	}
 
 	public function render_loop_header() {

@@ -39,6 +39,10 @@ class Lightbox extends Widget_Base {
 		return [ 'imagesloaded', 'avt-uikit-icons' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/8PdL6ZcDy28';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

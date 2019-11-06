@@ -32,6 +32,10 @@ class Bbpress extends Widget_Base {
 		return [ 'bbpress', 'forum', 'community', 'discussion', 'support' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/7vkAHZ778c4';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_bbpress_content',

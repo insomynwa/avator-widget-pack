@@ -34,6 +34,14 @@ class Business_Hours extends Widget_Base {
 		return [ 'business', 'hours', 'time', 'duty', 'schedule' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-business-hours' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/1QfZ-os75rQ';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_business_days_layout',

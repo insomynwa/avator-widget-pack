@@ -35,6 +35,10 @@ class Easy_Digital_Downloads extends Widget_Base {
 		return [ 'easy', 'digital', 'downloads', 'software', 'eshop', 'estore' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/dXfcvTQQV8Q';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

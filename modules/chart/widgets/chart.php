@@ -35,7 +35,11 @@ class Chart extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'chart' ];
+		return [ 'chart', 'wipa-chart' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/-1WVTzTyti0';
 	}
 
 	protected function _register_controls() {

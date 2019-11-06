@@ -41,8 +41,16 @@ class News_Ticker extends Widget_Base {
 		return [ 'news', 'ticker', 'report', 'message', 'information', 'blog' ];
 	}
 
+	public function get_style_depends() {
+		return ['wipa-news-ticker'];
+	}
+
 	public function get_script_depends() {
-		return ['avt-news-ticker'];
+		return ['wipa-news-ticker'];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/FmpFhNTR7uY';
 	}
 
 	public function get_query() {

@@ -40,8 +40,16 @@ class Panel_Slider extends Widget_Base {
 		return [ 'panel', 'slider' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-panel-slider' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'imagesloaded', 'avt-uikit-icons' ];
+		return [ 'imagesloaded', 'avt-uikit-icons', 'wipa-panel-slider' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/_piVTeJd0g4';
 	}
 
 	protected function _register_skins() {
@@ -113,12 +121,17 @@ class Panel_Slider extends Widget_Base {
 			[
 				'label'      => esc_html__('Slider Height', 'avator-widget-pack'),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%' ],
+				'size_units' => ['px', 'vh' ],
 				'range'      => [
 					'px' => [
 						'min'  => 100,
 						'step' => 20,
 						'max'  => 1600
+					],
+					'vh' => [
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 100
 					]
 				],
 				'default' => [
@@ -537,7 +550,7 @@ class Panel_Slider extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-shadow-mode-',
+				'prefix_class' => 'avt-wipa-shadow-mode-',
 			]
 		);
 

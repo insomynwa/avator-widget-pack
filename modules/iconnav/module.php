@@ -21,7 +21,7 @@ class Module extends Widget_Pack_Module_Base {
 	}
 }
 
-class ep_offcanvas_walker extends \Walker_Nav_Menu {
+class wipa_offcanvas_walker extends \Walker_Nav_Menu {
     var $has_child = false;
     public function start_lvl(&$output, $depth = 0, $args = array()) {      
         $output .= '<ul class="avt-nav-sub">';

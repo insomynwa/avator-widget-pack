@@ -42,8 +42,12 @@ class Carousel extends Widget_Base {
 		return [ 'carousel', 'navigation' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-carousel' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'imagesloaded', 'avt-uikit-icons' ];
+		return [ 'imagesloaded', 'avt-uikit-icons', 'wipa-carousel' ];
 	}
 
 	public function on_import( $element ) {
@@ -66,6 +70,10 @@ class Carousel extends Widget_Base {
 	public function _register_skins() {
 		$this->add_skin( new Skins\Skin_Vertical( $this ) );
 		$this->add_skin( new Skins\Skin_Alice( $this ) );
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/jLB_DbSmUa8';
 	}
 
 	protected function _register_controls() {
@@ -185,6 +193,34 @@ class Carousel extends Widget_Base {
 				'condition' => [
 					'thumbnail_show' => 'yes',
 					'_skin'          => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'alice_background_height',
+			[
+				'label' => __( 'Height(px)', 'avator-widget-pack' ),
+				'type' => Controls_Manager::SLIDER,
+				'tablet_default' => [
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+				],
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 100,
+						'max' => 350,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .avt-carousel .avt-carousel-item .avt-carousel-background' => 'height: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'thumbnail_show' => '',
+					'_skin'          => 'avt-alice',
 				],
 			]
 		);
@@ -730,7 +766,7 @@ class Carousel extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-shadow-mode-',
+				'prefix_class' => 'avt-wipa-shadow-mode-',
 			]
 		);
 
@@ -754,8 +790,26 @@ class Carousel extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Overlay Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
+				'default'	=> '#000;',
 				'selectors' => [
 					'{{WRAPPER}} .avt-carousel .avt-custom-overlay' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'thumbnail_show' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'skin_item_color',
+			[
+				'label'     => esc_html__( 'Item Color', 'avator-widget-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .avt-carousel .avt-carousel-item .avt-carousel-background' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'thumbnail_show' => '',
 				],
 			]
 		);
@@ -842,7 +896,7 @@ class Carousel extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-shadow-mode-',
+				'prefix_class' => 'avt-wipa-shadow-mode-',
 			]
 		);
 
@@ -926,6 +980,32 @@ class Carousel extends Widget_Base {
 		);
 
 		$this->end_controls_tab();
+
+		$this->add_control(
+			'content_alignment',
+			[
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-right',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .avt-carousel .avt-carousel-item .avt-carousel-desc' => 'text-align: {{VALUE}}',
+				],
+				'separator'   => 'before',
+			]
+		);
 
 		$this->end_controls_tabs();
 
@@ -1340,6 +1420,31 @@ class Carousel extends Widget_Base {
 				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .avt-carousel .avt-carousel-meta span',
+			]
+		);
+
+		$this->add_control(
+			'meta_alignment',
+			[
+				'label'   => esc_html__( 'Alignment', 'avator-widget-pack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'options' => [
+					'flex-start' => [
+						'title' => esc_html__( 'Left', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-center',
+					],
+					'flex-end' => [
+						'title' => esc_html__( 'Right', 'avator-widget-pack' ),
+						'icon'  => 'fas fa-align-right',
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .avt-carousel .avt-carousel-meta' => 'justify-content: {{VALUE}}',
+				],
 			]
 		);
 

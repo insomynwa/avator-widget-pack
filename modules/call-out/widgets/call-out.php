@@ -35,6 +35,14 @@ class Call_Out extends Widget_Base {
 		return [ 'callout', 'action' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-call-out' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/1tNppRHvSvQ';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',
@@ -587,10 +595,10 @@ class Call_Out extends Widget_Base {
 		$external  = ($settings['link']['is_external']) ? "_blank" : "_self";
 		$link_url  = empty( $settings['link']['url'] ) ? '#' : $settings['link']['url'];
 		$animation = ($settings['button_hover_animation']) ? ' elementor-animation-'.$settings['button_hover_animation'] : '';
-		$attention = ($settings['attention_button']) ? ' avt-wp-attention-button' : '';
+		$attention = ($settings['attention_button']) ? ' avt-wipa-attention-button' : '';
 
 		if ($settings['attention_button']) {
-			$this->add_render_attribute( 'avt_callout', 'class', 'avt-wp-attention-button' );
+			$this->add_render_attribute( 'avt_callout', 'class', 'avt-wipa-attention-button' );
 		}
 
 		$this->add_render_attribute( 'callout', 'class', ['avt-callout', 'avt-callout-button-align-' . esc_attr($settings['button_align'])] );
@@ -654,7 +662,7 @@ class Call_Out extends Widget_Base {
 
 		<#
 			var animation  = ( settings.button_hover_animation ) ? ' elementor-animation-' + settings.button_hover_animation : '';
-			var attention  = ( settings.attention_button ) ? ' avt-wp-attention-button' : '';
+			var attention  = ( settings.attention_button ) ? ' avt-wipa-attention-button' : '';
 			var grid_class = ( 'center' !== settings.button_align ) ? ' avt-grid avt-grid-large avt-flex-middle' : '';
 
 			if (settings.icon_align == 'left' || settings.icon_align == 'right') {

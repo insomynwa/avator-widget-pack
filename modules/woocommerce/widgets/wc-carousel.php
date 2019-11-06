@@ -36,12 +36,20 @@ class WC_Carousel extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'avt-uikit-icons' ];
+		return [ 'avt-uikit-icons', 'wipa-woocommerce' ];
 	}
 
-	public function _register_skins() {
-		$this->add_skin( new Skins\Skin_Hidie( $this ) );
+	public function get_style_depends() {
+		return [ 'wipa-woocommerce', 'datatables' ];
 	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/5lxli5E9pc4';
+	}
+
+	// public function _register_skins() {
+	// 	$this->add_skin( new Skins\Skin_Hidie( $this ) );
+	// }
 
 	public function _register_controls() {
 
@@ -817,7 +825,7 @@ class WC_Carousel extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wc-carousel .avt-products-skin-price, {{WRAPPER}} .avt-wc-carousel .avt-products-skin-price ins' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wc-carousel .avt-products-skin-price, {{WRAPPER}} .avt-wc-carousel .avt-products-skin-price ins .amount' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -984,28 +992,28 @@ class WC_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'overlay_animation',
-			[
-				'label'     => esc_html__( 'Overlay Animation', 'avator-widget-pack' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'fade',
-				'options'   => widget_pack_transition_options(),
-				'separator' => 'before',
-			]
-		);
+		// $this->add_control(
+		// 	'overlay_animation',
+		// 	[
+		// 		'label'     => esc_html__( 'Overlay Animation', 'avator-widget-pack' ),
+		// 		'type'      => Controls_Manager::SELECT,
+		// 		'default'   => 'fade',
+		// 		'options'   => widget_pack_transition_options(),
+		// 		'separator' => 'before',
+		// 	]
+		// );
 
-		$this->add_control(
-			'overlay_background',
-			[
-				'label'  => esc_html__( 'Overlay Color', 'avator-widget-pack' ),
-				'type'   => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .avt-wc-carousel .avt-overlay-default' => 'background: {{VALUE}};',
-				],
-				'separator' => 'after',
-			]
-		);
+		// $this->add_control(
+		// 	'overlay_background',
+		// 	[
+		// 		'label'  => esc_html__( 'Overlay Color', 'avator-widget-pack' ),
+		// 		'type'   => Controls_Manager::COLOR,
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .avt-wc-carousel .avt-overlay-default' => 'background: {{VALUE}};',
+		// 		],
+		// 		'separator' => 'after',
+		// 	]
+		// );
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -1701,6 +1709,12 @@ class WC_Carousel extends Widget_Base {
 			<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
 				<img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), $settings['image_size']); ?>" alt="<?php echo get_the_title(); ?>">
 			</a>
+
+			<?php if ($settings['show_cart']) : ?>
+				<div class="avt-wc-add-to-cart">
+					<?php woocommerce_template_loop_add_to_cart();?>
+				</div>
+			<?php endif; ?>
 		</div>
 		<?php
 	}
@@ -1899,12 +1913,13 @@ class WC_Carousel extends Widget_Base {
 
 			$this->add_render_attribute('wc-carousel-item', 'class', ['avt-wc-carousel-item', 'swiper-slide', 'avt-transition-toggle']);
 
-			while ( $wp_query->have_posts() ) : $wp_query->the_post(); global $product; ?>
+			while ( $wp_query->have_posts() ) : $wp_query->the_post(); global $post, $product; ?>
 		  		<div <?php echo $this->get_render_attribute_string( 'wc-carousel-item' ); ?>>
 		  			<div class="avt-wc-carousel-item-inner">
 		  				<?php if ( $settings['show_badge'] and $product->is_on_sale() ) : ?>
 				  			<div class="avt-badge avt-position-top-left avt-position-small">
-					  			<?php woocommerce_show_product_loop_sale_flash(); ?>
+								  <?php //woocommerce_show_product_loop_sale_flash(); ?>
+								  <?php echo apply_filters( 'woocommerce_sale_flash', '<span class="avt-onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
 				  			</div>
 			  			<?php endif; ?>
 
@@ -1932,14 +1947,6 @@ class WC_Carousel extends Widget_Base {
 			           			</div>
 		                	<?php endif; ?>
 						</div>
-
-	                	<?php if ($settings['show_cart']) : ?>
-		                	<div class="avt-position-cover avt-overlay-default avt-transition-<?php echo esc_attr($settings['overlay_animation']); ?>">
-			                	<div class="avt-wc-add-to-cart avt-position-center">
-									<?php woocommerce_template_loop_add_to_cart();?>
-								</div>
-							</div>
-						<?php endif; ?>
 
 						</div>
 					</div>

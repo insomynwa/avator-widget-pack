@@ -40,8 +40,16 @@ class Marker extends Widget_Base {
 		return 'avt-wi-marker';
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-marker' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'popper', 'tippyjs' ];
+		return [ 'popper', 'tippyjs', 'wipa-marker' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/aH4QiD6v-lk';
 	}
 
 	protected function _register_controls() {

@@ -37,8 +37,12 @@ class Twitter_Slider extends Widget_Base {
 		return [ 'twitter', 'slider' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-twitter-slider' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'avt-uikit-icons' ];
+		return [ 'avt-uikit-icons', 'wipa-twitter-slider' ];
 	}
 
 	public function on_import( $element ) {
@@ -56,6 +60,10 @@ class Twitter_Slider extends Widget_Base {
 
 	public function get_query() {
 		return $this->_query;
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/Bd3I7ipqMms';
 	}
 
 	protected function _register_controls() {

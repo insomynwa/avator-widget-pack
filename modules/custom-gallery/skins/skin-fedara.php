@@ -170,7 +170,7 @@ class Skin_Fedara extends Elementor_Skin_Base {
 		}
 
 		?>
-		<div class="avt-gallery-item-text"><?php echo esc_html($text['image_text']); ?></div>
+		<div class="avt-gallery-item-text"><?php echo wp_kses_post($text['image_text']); ?></div>
 		<?php
 	}
 

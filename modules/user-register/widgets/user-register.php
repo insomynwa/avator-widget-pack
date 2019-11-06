@@ -38,8 +38,16 @@ class User_Register extends Widget_Base {
 		return [ 'user', 'register', 'form' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-user-register' ];
+	}
+
 	public function get_script_depends() {
 		return [ 'avt-uikit-icons' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/hTjZ1meIXSY';
 	}
 
 	protected function _register_skins() {

@@ -32,11 +32,15 @@ class Testimonial_Grid extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-testimonial-grid' ];
 	}
 
 	public function get_script_depends() {
 		return [ 'imagesloaded', 'tilt' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/pYMTXyDn8g4';
 	}
 
 	public function _register_controls() {
@@ -704,7 +708,7 @@ class Testimonial_Grid extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'text-align: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters-wrapper' => 'text-align: {{VALUE}}',
 				],
 			]
 		);
@@ -715,7 +719,7 @@ class Testimonial_Grid extends Widget_Base {
 				'name'     => 'typography_filter',
 				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li',
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li',
 			]
 		);
 
@@ -725,7 +729,7 @@ class Testimonial_Grid extends Widget_Base {
 				'label'     => esc_html__( 'Bottom Space', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -754,7 +758,7 @@ class Testimonial_Grid extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -765,7 +769,7 @@ class Testimonial_Grid extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -777,7 +781,7 @@ class Testimonial_Grid extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -788,7 +792,7 @@ class Testimonial_Grid extends Widget_Base {
 				'name'        => 'desktop_filter_border',
 				'placeholder' => '1px',
 				'default'     => '1px',
-				'selector'    => '{{WRAPPER}} .avt-wp-grid-filters li'
+				'selector'    => '{{WRAPPER}} .avt-wipa-grid-filters li'
 			]
 		);
 
@@ -799,7 +803,7 @@ class Testimonial_Grid extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wipa-grid-filters li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -808,7 +812,7 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_filter_shadow',
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li'
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li'
 			]
 		);
 
@@ -818,8 +822,8 @@ class Testimonial_Grid extends Widget_Base {
 				'label'     => esc_html__( 'Space Between', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
-					'{{WRAPPER}} .avt-wp-grid-filters > li.avt-wp-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wipa-grid-filters > li.avt-wipa-grid-filter:not(:last-child)'  => 'margin-right: calc({{SIZE}}{{UNIT}}/2)',
+					'{{WRAPPER}} .avt-wipa-grid-filters > li.avt-wipa-grid-filter:not(:first-child)' => 'margin-left: calc({{SIZE}}{{UNIT}}/2)',
 				],
 			]
 		);
@@ -839,7 +843,7 @@ class Testimonial_Grid extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'separator' => 'before',
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'color: {{VALUE}}; border-bottom-color: {{VALUE}};',
 				],
 			]
 		);
@@ -850,7 +854,7 @@ class Testimonial_Grid extends Widget_Base {
 				'label'     => esc_html__( 'Background', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -861,7 +865,7 @@ class Testimonial_Grid extends Widget_Base {
 				'label'     => esc_html__( 'Border Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'border-color: {{VALUE}}',
 				],
 			]
 		);
@@ -873,7 +877,7 @@ class Testimonial_Grid extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
-					'{{WRAPPER}} .avt-wp-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
+					'{{WRAPPER}} .avt-wipa-grid-filters li.avt-active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;'
 				]
 			]
 		);
@@ -882,7 +886,7 @@ class Testimonial_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'desktop_active_filter_shadow',
-				'selector' => '{{WRAPPER}} .avt-wp-grid-filters li.avt-active'
+				'selector' => '{{WRAPPER}} .avt-wipa-grid-filters li.avt-active'
 			]
 		);
 
@@ -1054,11 +1058,11 @@ class Testimonial_Grid extends Widget_Base {
 		?>
 		<div class="avt-testimonial-grid-rating">
 			<ul class="avt-rating avt-rating-<?php echo get_post_meta( $post_id, 'avator_tm_rating', true ); ?> avt-grid avt-grid-collapse" avt-grid>
-				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
-				<li class="avt-rating-item"><i class="ep-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
+				<li class="avt-rating-item"><i class="wipa-star-full" aria-hidden="true"></i></li>
 			</ul>
 		</div>
 		<?php
@@ -1088,17 +1092,17 @@ class Testimonial_Grid extends Widget_Base {
 		
 		?>
 
-		<div class="avt-wp-grid-filters-wrapper">
+		<div class="avt-wipa-grid-filters-wrapper">
 			
 			<button class="avt-button avt-button-default avt-hidden@m" type="button"><?php esc_html_e( 'Filter', 'avator-widget-pack' ); ?></button>
 			<div avt-dropdown="mode: click;" class="avt-dropdown avt-margin-remove-top avt-margin-remove-bottom">
 			    <ul class="avt-nav avt-dropdown-nav">
 
-					<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
+					<li class="avt-wipa-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
 					
 					<?php foreach($testi_categories as $testi_category => $value) : ?>
 						<?php $filter_name = get_term_by('slug', $value, 'testimonial_categories'); ?>
-						<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
+						<li class="avt-wipa-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 							<?php echo esc_html($filter_name->name); ?>
 						</li>				
 					<?php endforeach; ?>
@@ -1107,12 +1111,12 @@ class Testimonial_Grid extends Widget_Base {
 			</div>
 
 
-			<ul class="avt-wp-grid-filters avt-visible@m" avt-margin>
-				<li class="avt-wp-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
+			<ul class="avt-wipa-grid-filters avt-visible@m" avt-margin>
+				<li class="avt-wipa-grid-filter avt-active" avt-filter-control><?php esc_html_e( 'All', 'avator-widget-pack' ); ?></li>
 		
 				<?php foreach($testi_categories as $product_category => $value) : ?>
 					<?php $filter_name = get_term_by('slug', $value, 'testimonial_categories'); ?>
-					<li class="avt-wp-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
+					<li class="avt-wipa-grid-filter" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 						<?php echo esc_html($filter_name->name); ?>
 					</li>				
 				<?php endforeach; ?>
@@ -1124,7 +1128,7 @@ class Testimonial_Grid extends Widget_Base {
 	public function render_header() {
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute('testimonial-grid-wrapper', 'class', ['avt-testimonial-grid-layout-'.$settings['layout'], 'avt-testimonial-grid', 'avt-wp-grid-filter-container']);
+		$this->add_render_attribute('testimonial-grid-wrapper', 'class', ['avt-testimonial-grid-layout-'.$settings['layout'], 'avt-testimonial-grid', 'avt-wipa-grid-filter-container']);
 
 		$this->add_render_attribute('testimonial-grid', 'avt-grid', '');
 		$this->add_render_attribute('testimonial-grid', 'class', 'avt-grid');

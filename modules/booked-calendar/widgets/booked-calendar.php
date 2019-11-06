@@ -35,6 +35,14 @@ class BookedCalendar extends Widget_Base {
 		return [ 'booked', 'calendar', 'appointment', 'schedule' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-booked-calendar' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/bodvi_5NkDU';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

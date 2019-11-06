@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Skin_Annal extends Elementor_Skin_Base {
 
 	public function get_id() {
-		return 'avt-event-grid-skin-annal';
+		return 'annal';
 	}
 
 	public function get_title() {
@@ -112,7 +112,7 @@ class Skin_Annal extends Elementor_Skin_Base {
 			<?php if (!empty($more_icon)) : ?>
 		    <div class="avt-width-expand avt-text-right">
 				<div class="avt-more-icon">
-					<a href="#" avt-tooltip="<?php echo esc_html( 'Find out more', 'avator-widget-pack' ); ?>" class="ep-arrow-right-4" aria-hidden="true"></a>
+					<a href="#" avt-tooltip="<?php echo esc_html( 'Find out more', 'avator-widget-pack' ); ?>" class="wipa-arrow-right-4" aria-hidden="true"></a>
 				</div>
 			</div>
 			<?php endif; ?>
@@ -135,11 +135,11 @@ class Skin_Annal extends Elementor_Skin_Base {
 			<div class="avt-address-website-icon">
 				
 				<?php if (!empty($website)) : ?>
-					<a href="<?php echo esc_url($website); ?>" target="_blank" class="ep-earth" aria-hidden="true"></a>
+					<a href="<?php echo esc_url($website); ?>" target="_blank" class="wipa-earth" aria-hidden="true"></a>
 				<?php endif; ?>
 
 				<?php if ( $address ) : ?>
-					<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="ep-location" aria-hidden="true"></a>
+					<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="wipa-location" aria-hidden="true"></a>
 				<?php endif; ?>
 
 			</div>

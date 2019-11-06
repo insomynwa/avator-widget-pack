@@ -37,8 +37,12 @@ class Twitter_Carousel extends Widget_Base {
 		return [ 'twitter', 'carousel' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-twitter-carousel' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'avt-uikit-icons' ];
+		return [ 'avt-uikit-icons', 'wipa-twitter-carousel' ];
 	}
 
 	public function on_import( $element ) {
@@ -56,6 +60,10 @@ class Twitter_Carousel extends Widget_Base {
 
 	public function get_query() {
 		return $this->_query;
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/IrQVteaaAow';
 	}
 
 	protected function _register_controls() {
@@ -467,7 +475,7 @@ class Twitter_Carousel extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-shadow-mode-',
+				'prefix_class' => 'avt-wipa-shadow-mode-',
 			]
 		);
 

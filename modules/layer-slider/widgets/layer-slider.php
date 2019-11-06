@@ -28,6 +28,10 @@ class Layer_Slider extends Widget_Base {
 		return [ 'layer', 'slider', 'animation', 'effects', 'parallax', 'popup', 'showcase', 'slideshow' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/I2xpXLyCkkE';
+	}
+
 	protected function layer_slider_list() {
         if(shortcode_exists("layerslider")){
 			$output  = '';

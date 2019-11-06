@@ -40,8 +40,16 @@ class Custom_Carousel extends Widget_Base {
 		return [ 'custom', 'carousel', 'navigatin' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-custom-carousel' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'avt-uikit-icons' ];
+		return [ 'avt-uikit-icons', 'wipa-custom-carousel' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/RV0AHN6O0Fo';
 	}
 
 	public function _register_skins() {
@@ -756,7 +764,7 @@ class Custom_Carousel extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-shadow-mode-',
+				'prefix_class' => 'avt-wipa-shadow-mode-',
 			]
 		);
 

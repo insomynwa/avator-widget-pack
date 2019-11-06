@@ -39,8 +39,16 @@ class Scroll_Button extends Widget_Base {
 		return [ 'scroll', 'button', 'link' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-scroll-button' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'avt-scroll-button' ];
+		return [ 'wipa-scroll-button' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/y8LJCO3tQqk';
 	}
 
 	protected function _register_controls() {

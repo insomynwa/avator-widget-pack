@@ -25,10 +25,10 @@
 
 					<div class='avt-instagram-like-comment avt-flex-center avt-child-width-auto avt-grid'>
 						<?php if ( $_REQUEST['show_like'] ) : ?>
-							<span><span class='ep-heart-empty'></span> <b><?php echo esc_attr( $insta_feeds[ $i ]['like'] ); ?></b></span>
+							<span><span class='wipa-heart-empty'></span> <b><?php echo esc_attr( $insta_feeds[ $i ]['like'] ); ?></b></span>
 						<?php endif; ?>							
 						<?php if ( $_REQUEST['show_comment'] ) : ?>
-							<span><span class='ep-bubble'></span> <b><?php echo esc_attr( $insta_feeds[ $i ]['comment']['count'] ); ?></b></span>
+							<span><span class='wipa-bubble'></span> <b><?php echo esc_attr( $insta_feeds[ $i ]['comment']['count'] ); ?></b></span>
 						<?php endif; ?>							
 					</div>
 

@@ -16,7 +16,7 @@ class Widget_Pack_License_Page {
     public $notice_type = 'info';
     private $hasLicense=false;
 
-    /* public function register_page() {
+    public function register_page() {
         $menu_text = __( 'Widget Pack License', 'avator-widget-pack' );
 
         add_submenu_page(
@@ -27,14 +27,14 @@ class Widget_Pack_License_Page {
             self::PAGE_ID,
             [ $this, 'display_page' ]
         );
-    } */
+    }
 
     public static function get_url() {
         return admin_url( 'admin.php?page=' . self::PAGE_ID );
     }
 
 
-    /* public function display_page() {
+    public function display_page() {
 
         $license_key   = self::get_license_key();
         $license_email = self::get_license_email();
@@ -121,17 +121,17 @@ class Widget_Pack_License_Page {
                         
                         <input type="hidden" name="action" value="widget_pack_activate_license"/>
                         
-                        <div class="avt-wp-license-field">
+                        <div class="avt-wipa-license-field">
                             <label for="widget_pack_license_email">License Email</label>
                             <input type="text" class="regular-text code" name="widget_pack_license_email" size="50" placeholder="example@email.com" value="<?php echo esc_attr($license_email); ?>" required="required">
                         </div>
 
-                        <div class="avt-wp-license-field">
+                        <div class="avt-wipa-license-field">
                             <label for="widget_pack_license_key">License code</label>
                             <input type="text" class="regular-text code" name="widget_pack_license_key" size="50" placeholder="xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx" required="required">
                         </div>
                         
-                        <div class="avt-wp-license-active-btn">
+                        <div class="avt-wipa-license-active-btn">
                             <?php wp_nonce_field( 'widget-pack-license' ); ?>
                             <?php submit_button('Activate'); ?>
                         </div>
@@ -143,7 +143,7 @@ class Widget_Pack_License_Page {
         </div>
         
         <?php
-    } */
+    }
 
     private static function get_hidden_license_key() {
         $input_string = self::get_license_key();
@@ -237,7 +237,7 @@ class Widget_Pack_License_Page {
     }
 
     public function __construct() {
-        // add_action( 'admin_menu', [ $this, 'register_page' ], 800 );
+        add_action( 'admin_menu', [ $this, 'register_page' ], 800 );
 
         $license_key   = self::get_license_key();
         $license_email = self::get_license_email();
@@ -252,8 +252,8 @@ class Widget_Pack_License_Page {
             $this->hasLicense=true;
         } else {
 	       add_action( 'admin_notices', [$this, 'admin_notice'] );
-        }
-    	add_action( 'admin_post_widget_pack_activate_license', [ $this, 'action_activate_license' ] );
+        }        
+    	add_action( 'admin_post_widget_pack_activate_license', [ $this, 'action_activate_license' ] );        
     }
 }
 

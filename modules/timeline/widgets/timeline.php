@@ -10,7 +10,6 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
-use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
 use WidgetPack\Modules\Timeline\Skins;
 
@@ -37,8 +36,16 @@ class Timeline extends Widget_Base {
 		return [ 'timeline', 'history', 'statistics' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-timeline', 'widget-pack-font' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'timeline' ];
+		return [ 'timeline', 'wipa-timeline' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/lp4Zqn6niXU';
 	}
 
 	public function _register_skins() {

@@ -36,7 +36,11 @@ class Mailchimp extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'avt-uikit-icons' ];
+		return [ 'avt-uikit-icons', 'wipa-mailchimp' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/AVqliwiyMLg';
 	}
 
 	protected function _register_controls() {
@@ -457,6 +461,15 @@ class Mailchimp extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .avt-newsletter-wrapper input[type *="email"]' => 'background-color: {{VALUE}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'placeholder_typography',
+				'label'     => esc_html__( 'Typography', 'avator-widget-pack' ),
+				'selector'  => '{{WRAPPER}} .avt-newsletter-wrapper input[type*="email"]',
 			]
 		);
 
@@ -914,7 +927,7 @@ class Mailchimp extends Widget_Base {
 		$this->add_render_attribute( 'content-wrapper', 'class', 'avt-newsletter-btn-content-wrapper' );
 
 		if ( 'left' == $settings['icon_align'] or 'right' == $settings['icon_align'] ) {
-			$this->add_render_attribute( 'content-wrapper', 'class', 'avt-flex avt-flex-middle' );
+			$this->add_render_attribute( 'content-wrapper', 'class', 'avt-flex avt-flex-middle avt-flex-center' );
 		}
 
 		$this->add_render_attribute( 'content-wrapper', 'class', ( 'top' == $settings['icon_align'] ) ? 'avt-flex avt-flex-column avt-flex-center' : '' );

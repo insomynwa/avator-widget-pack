@@ -36,8 +36,16 @@ class Custom_Gallery extends Widget_Base {
 		return [ 'custom', 'gallery', 'photo', 'image' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-a-custom-gallery' ];
+	}
+
 	public function get_script_depends() {
 		return [ 'imagesloaded', 'avt-uikit-icons', 'tilt' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/2fAF8Rt7FbQ';
 	}
 
 	public function _register_skins() {
@@ -894,7 +902,7 @@ class Custom_Gallery extends Widget_Base {
 		$this->end_controls_section();
 	}
 	
-	public function render_thumbnail( $item, $element_key) {
+	public function render_thumbnail( $item ) {
         $settings = $this->get_settings();
         $thumb_url = Group_Control_Image_Size::get_attachment_image_src( $item['gallery_image']['id'], 'thumbnail_size', $settings);
 
@@ -919,9 +927,9 @@ class Custom_Gallery extends Widget_Base {
 
 		$tag = $this->get_settings( 'title_tag' );
 		?>
-		<<?php echo esc_html($tag) ?> class="avt-gallery-item-title avt-transition-slide-top-small">
-			<?php echo esc_html($title['image_title']); ?>
-		</<?php echo esc_html($tag) ?>>
+		<<?php echo esc_html($tag); ?> class="avt-gallery-item-title avt-transition-slide-top-small">
+			<?php echo wp_kses( $title['image_title'], widget_pack_allow_tags('text') ); ?>
+		</<?php echo esc_html($tag); ?>>
 		<?php
 	}
 	
@@ -931,7 +939,7 @@ class Custom_Gallery extends Widget_Base {
 		}
 
 		?>
-		<div class="avt-gallery-item-text avt-transition-slide-bottom-small"><?php echo esc_html($text['image_text']); ?></div>
+		<div class="avt-gallery-item-text avt-transition-slide-bottom-small"><?php echo wp_kses_post( $text['image_text'] ); ?></div>
 		<?php
 	}
 
@@ -979,9 +987,6 @@ class Custom_Gallery extends Widget_Base {
 		if ($settings['overlay_animation']) {
 			$this->add_render_attribute( 'overlay-settings', 'class', 'avt-transition-' . $settings['overlay_animation'] );
 		}
-
-        $image_url = wp_get_attachment_image_src( $content['gallery_image']['id'], 'full');
-
 
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'overlay-settings' ); ?>>
@@ -1053,7 +1058,6 @@ class Custom_Gallery extends Widget_Base {
 	}
 
 	public function render_footer() {
-		$settings = $this->get_settings();
 
 		?>
 		</div>
@@ -1095,7 +1099,7 @@ class Custom_Gallery extends Widget_Base {
 					<?php endif; ?>
 
 					<?php 
-						$this->render_thumbnail( $item, 'gallery-item-' . $index );
+						$this->render_thumbnail( $item );
 						$this->render_overlay( $item, 'overlay-item-' . $index );
 					?>
 					
@@ -1106,6 +1110,7 @@ class Custom_Gallery extends Widget_Base {
 			</div>
 
 		<?php endforeach; ?>
-		<?php $this->render_footer( $item);
+
+		<?php $this->render_footer();
 	}		
 }

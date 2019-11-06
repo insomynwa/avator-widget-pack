@@ -37,6 +37,18 @@ class Accordion extends Widget_Base {
 		return [ 'accordion', 'tabs', 'toggle' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-accordion' ];
+	}
+
+	public function get_script_depends() {
+		return [ 'wipa-accordion' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/DP3XNV1FEk0';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_title',

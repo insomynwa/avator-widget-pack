@@ -21,7 +21,7 @@ class Advanced_Gmap extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-advanced-google-map';
+		return 'avt-wi-advanced-gmap';
 	}
 
 	public function get_categories() {
@@ -32,8 +32,16 @@ class Advanced_Gmap extends Widget_Base {
 		return [ 'advanced', 'gmap', 'location' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-advanced-gmap' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'gmap-api','gmap' ];
+		return [ 'gmap-api', 'gmap', 'wipa-advanced-gmap' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/_BFYCXaO4lU';
 	}
 
 	protected function _register_controls() {

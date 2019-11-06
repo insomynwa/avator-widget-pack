@@ -40,7 +40,11 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-woocommerce', 'datatables' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/471vvaA9WQY';
 	}
 
 	protected function _register_controls() {
@@ -116,16 +120,16 @@ class Add_To_Cart extends Widget_Button {
 		$this->update_control(
 			'icon',
 			[
-				'default' => 'ep-cart',
+				'default' => 'wipa-cart',
 			]
 		);
 
-		$this->update_control(
-			'background_color',
-			[
-				'default' => '#61ce70',
-			]
-		);
+		// $this->update_control(
+		// 	'background_color',
+		// 	[
+		// 		'default' => '#61ce70',
+		// 	]
+		// );
 	}
 
 	protected function render() {
@@ -206,7 +210,7 @@ class Add_To_Cart extends Widget_Button {
 		woocommerce_template_single_add_to_cart();
 		$form = ob_get_clean();
 		$form = str_replace( 'single_add_to_cart_button', 'single_add_to_cart_button elementor-button', $form );
-		echo esc_attr($form);
+		echo $form;
 
 		remove_filter( 'woocommerce_product_single_add_to_cart_text', $text_callback );
 		remove_filter( 'woocommerce_get_stock_html', '__return_empty_string' );

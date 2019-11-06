@@ -28,6 +28,10 @@ class Instagram_Feed extends Widget_Base {
 		return [ 'instagram', 'feed', 'gallery', 'photos', 'images' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/Wf7naA7EL7s';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

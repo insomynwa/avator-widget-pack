@@ -36,6 +36,14 @@ class Trailer_Box extends Widget_Base {
 		return [ 'trailer', 'box' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-trailer-box' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/3AR5RlBAAYg';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

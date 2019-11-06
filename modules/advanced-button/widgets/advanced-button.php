@@ -9,7 +9,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Icons_Manager;
-use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -37,7 +36,11 @@ class AdvancedButton extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'avt-advanced-button' ];
+		return [ 'wipa-advanced-button' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/Lq_st2IWZiE';
 	}
 
 	protected function _register_controls() {
@@ -663,7 +666,15 @@ class AdvancedButton extends Widget_Base {
 					</div>
 				</div>
 			<?php endif; ?>
-			<div <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo esc_html($settings['text']); ?></div>
+			<div <?php echo $this->get_render_attribute_string( 'text' ); ?>>
+
+                <span class="avdbtn-text"><?php echo esc_html($settings['text']); ?></span>
+
+				<?php if ('g' == $settings['button_effect'] ) : ?>
+                    <span class="avdbtn-alt-text"><?php echo esc_html($settings['text']); ?></span>
+				<?php endif; ?>
+            </div>
+
 		</div>
 		<?php
 	}
@@ -695,7 +706,7 @@ class AdvancedButton extends Widget_Base {
 		}
 
 		if ($settings['attention_button']) {
-			$this->add_render_attribute( 'advanced_button', 'class', 'avt-wp-attention-button' );
+			$this->add_render_attribute( 'advanced_button', 'class', 'avt-wipa-attention-button' );
 		}
 
 		$this->add_render_attribute( 'advanced_button', 'class', 'avt-advanced-button' );		
@@ -728,7 +739,7 @@ class AdvancedButton extends Widget_Base {
 		view.addRenderAttribute( 'button', 'onclick', settings.onclick_event );
 
 		var animation = (settings.hover_animation) ? ' elementor-animation-' + settings.hover_animation : '';
-		var attention = (settings.attention_button) ? ' avt-wp-attention-button' : '';
+		var attention = (settings.attention_button) ? ' avt-wipa-attention-button' : '';
 
 		view.addRenderAttribute( 'content-wrapper', 'class', 'avt-advanced-button-content-wrapper' );
 

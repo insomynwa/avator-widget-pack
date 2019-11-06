@@ -34,6 +34,10 @@ class EDD_Profile_Editor extends Widget_Base {
 		return [ 'easy', 'digital', 'downloads', 'software', 'eshop', 'estore', 'profile', 'editor' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/z6MSJtvbxPQ';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

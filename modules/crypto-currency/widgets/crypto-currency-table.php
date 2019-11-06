@@ -3,13 +3,7 @@ namespace WidgetPack\Modules\CryptoCurrency\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Scheme_Typography;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Utils;
-use Elementor\Group_Control_Image_Size;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -26,7 +20,7 @@ class CryptoCurrencyTable extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-cryptocurrency-table';
+		return 'avt-wi-crypto-currency-table';
 	}
 
 	public function get_categories() {
@@ -38,7 +32,11 @@ class CryptoCurrencyTable extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['avt-crypto-currency'];
+		return ['wipa-crypto-currency'];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/F13YPkFkLso';
 	}
 
 	protected function _register_controls() {
@@ -716,12 +714,12 @@ class CryptoCurrencyTable extends Widget_Base {
 		$body = wp_remote_retrieve_body($request);
 		$coins = json_decode($body,true);
 		
-		// $saved_coins = get_transient( 'widget-pack-ccc' );
+		$saved_coins = get_transient( 'widget-pack-ccc' );
 
-		// if (false == $saved_coins) {
-		// 	set_transient( 'widget-pack-ccc', $coins, 5 * MINUTE_IN_SECONDS );
-		// 	$coins = get_transient( 'widget-pack-ccc' );
-		// }
+		if (false == $saved_coins) {
+			set_transient( 'widget-pack-ccc', $coins, 5 * MINUTE_IN_SECONDS );
+			$coins = get_transient( 'widget-pack-ccc' );
+		}
 
 		return $coins;
 
@@ -785,7 +783,7 @@ class CryptoCurrencyTable extends Widget_Base {
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_total_supply']) : ?>
-						<th><?php esc_html_e('Supply', 'avator-widget-pack'); ?></th>
+						<th title="Total Market Supply"><?php esc_html_e('T. Supply', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_market_cap']) : ?>
@@ -797,7 +795,7 @@ class CryptoCurrencyTable extends Widget_Base {
 						<?php endif; ?>
 
 						<?php if ($settings['show_currency_circulating_supply']) : ?>
-						<th><?php esc_html_e('Circulating Supply', 'avator-widget-pack'); ?></th>
+						<th title="Circulating Supply"><?php esc_html_e('C. Supply', 'avator-widget-pack'); ?></th>
 						<?php endif; ?>
 
 					</tr>
@@ -846,19 +844,19 @@ class CryptoCurrencyTable extends Widget_Base {
 							<?php endif; ?>
 
 							<?php if ($settings['show_currency_total_supply']) : ?>
-							<td><?php echo esc_html($coin['total_supply']); ?></td>
+							<td title="<?php echo esc_html($coin['total_supply']); ?>" avt-tooltip="pos: top-left;"><?php echo widget_pack_currency_format($coin['total_supply']); ?></td>
 							<?php endif; ?>
 
 							<?php if ($settings['show_currency_market_cap']) : ?>
-							<td><?php echo esc_html($coin['market_cap']); ?></td>
+							<td title="<?php echo esc_html($coin['market_cap']); ?>" avt-tooltip="pos: top-left;"><?php echo widget_pack_currency_format($coin['market_cap']); ?></td>
 							<?php endif; ?>
 
 							<?php if ($settings['show_currency_total_volume']) : ?>
-							<td><?php echo esc_html($coin['total_volume']); ?></td>
+							<td title="<?php echo esc_html($coin['total_volume']); ?>" avt-tooltip="pos: top-left;"><?php echo widget_pack_currency_format($coin['total_volume']); ?></td>
 							<?php endif; ?>
 
 							<?php if ($settings['show_currency_circulating_supply']) : ?>
-							<td><?php echo esc_html($coin['circulating_supply']); ?></td>
+							<td title="<?php echo esc_html($coin['circulating_supply']); ?>" avt-tooltip="pos: top-left;"><?php echo widget_pack_currency_format($coin['circulating_supply']); ?></td>
 							<?php endif; ?>
 
 						</tr>

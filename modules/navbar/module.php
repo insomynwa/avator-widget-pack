@@ -22,7 +22,7 @@ class Module extends Widget_Pack_Module_Base {
 }
 
 
-class ep_menu_walker extends \Walker_Nav_Menu {
+class wipa_menu_walker extends \Walker_Nav_Menu {
     var $has_child = false;
     public function start_lvl(&$output, $depth = 0, $args = array()) {      
         $output .= '<div class="avt-navbar-dropdown"><ul class="avt-nav avt-navbar-dropdown-nav">';

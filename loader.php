@@ -1,8 +1,9 @@
 <?php
 namespace WidgetPack;
 
-use Elementor\Utils;
+use Elementor\Plugin;
 use WidgetPack\Includes\Widget_Pack_WPML;
+use WidgetPack\Includes\Widget_Pack_Template_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -79,7 +80,7 @@ class Widget_Pack_Loader {
 	 */
 
 	public static function elementor() {
-		return \Elementor\Plugin::$instance;
+		return Plugin::$instance;
 	}
 
 	/**
@@ -89,7 +90,6 @@ class Widget_Pack_Loader {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
 		}
-
 		return self::$_instance;
 	}
 
@@ -103,7 +103,7 @@ class Widget_Pack_Loader {
 
 		require AWP_INC_PATH . 'modules-manager.php';
 		require AWP_INC_PATH . 'class-elements-wpml-compatibility.php';
-		require AWP_INC_PATH . 'license-page.php';
+		require AWP_INC_PATH . 'class-template-manager.php';
 
 		// Rooten theme header footer compatibility 
 		if ('Rooten' === $this->get_theme()->name or 'Rooten' === $this->get_theme()->parent_theme) {
@@ -171,57 +171,46 @@ class Widget_Pack_Loader {
 		$suffix   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$settings = get_option( 'widget_pack_api_settings' );
 
-		wp_register_script( 'avt-uikit-icons', AWP_URL . 'assets/js/avt-uikit-icons' . $suffix . '.js', ['jquery', 'avt-uikit'], '3.0.3', true );
-		wp_register_script( 'goodshare', AWP_URL . 'assets/vendor/js/goodshare' . $suffix . '.js', ['jquery'], '4.1.2', true );
-		wp_register_script( 'twentytwenty', AWP_URL . 'assets/vendor/js/jquery.twentytwenty' . $suffix . '.js', ['jquery'], '0.1.0', true );
-		wp_register_script( 'eventmove', AWP_URL . 'assets/vendor/js/jquery.event.move' . $suffix . '.js', ['jquery'], '2.0.0', true );
-		wp_register_script( 'aspieprogress', AWP_URL . 'assets/vendor/js/jquery-asPieProgress' . $suffix . '.js', ['jquery'], '0.4.7', true );
-		wp_register_script( 'morphext', AWP_URL . 'assets/vendor/js/morphext' . $suffix . '.js', ['jquery'], '2.4.7', true );
-		wp_register_script( 'qrcode', AWP_URL . 'assets/vendor/js/jquery-qrcode' . $suffix . '.js', ['jquery'], '0.14.0', true );
-		wp_register_script( 'jplayer', AWP_URL . 'assets/vendor/js/jquery.jplayer' . $suffix . '.js', ['jquery'], '2.9.2', true );
-		wp_register_script( 'circle-menu', AWP_URL . 'assets/vendor/js/jQuery.circleMenu' . $suffix . '.js', ['jquery'], '0.1.1', true );
-		wp_register_script( 'cookieconsent', AWP_URL . 'assets/vendor/js/cookieconsent' . $suffix . '.js', ['jquery'], '3.1.0', true );
-		wp_register_script( 'gridtab', AWP_URL . 'assets/vendor/js/gridtab' . $suffix . '.js', ['jquery'], '2.1.1', true );
-
+		wp_register_script( 'avt-uikit-icons', AWP_ASSETS_URL . 'js/avt-uikit-icons' . $suffix . '.js', ['jquery', 'avt-uikit'], '3.0.3', true );
+		wp_register_script( 'goodshare', AWP_ASSETS_URL . 'vendor/js/goodshare' . $suffix . '.js', ['jquery'], '4.1.2', true );
+		wp_register_script( 'twentytwenty', AWP_ASSETS_URL . 'vendor/js/jquery.twentytwenty' . $suffix . '.js', ['jquery'], '0.1.0', true );
+		wp_register_script( 'eventmove', AWP_ASSETS_URL . 'vendor/js/jquery.event.move' . $suffix . '.js', ['jquery'], '2.0.0', true );
+		wp_register_script( 'aspieprogress', AWP_ASSETS_URL . 'vendor/js/jquery-asPieProgress' . $suffix . '.js', ['jquery'], '0.4.7', true );
+		wp_register_script( 'morphext', AWP_ASSETS_URL . 'vendor/js/morphext' . $suffix . '.js', ['jquery'], '2.4.7', true );
+		wp_register_script( 'qrcode', AWP_ASSETS_URL . 'vendor/js/jquery-qrcode' . $suffix . '.js', ['jquery'], '0.14.0', true );
+		wp_register_script( 'jplayer', AWP_ASSETS_URL . 'vendor/js/jquery.jplayer' . $suffix . '.js', ['jquery'], '2.9.2', true );
+		wp_register_script( 'circle-menu', AWP_ASSETS_URL . 'vendor/js/jQuery.circleMenu' . $suffix . '.js', ['jquery'], '0.1.1', true );
+		wp_register_script( 'cookieconsent', AWP_ASSETS_URL . 'vendor/js/cookieconsent' . $suffix . '.js', ['jquery'], '3.1.0', true );
+		wp_register_script( 'gridtab', AWP_ASSETS_URL . 'vendor/js/gridtab' . $suffix . '.js', ['jquery'], '2.1.1', true );
+		
 		if (!empty($settings['google_map_key'])) {
 			wp_register_script( 'gmap-api', '//maps.googleapis.com/maps/api/js?key='.$settings['google_map_key'], ['jquery'], null, true );
 		} else {
 			wp_register_script( 'gmap-api', '//maps.google.com/maps/api/js?sensor=true', ['jquery'], null, true );
 		}
-
+		
 		wp_register_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', ['jquery'], null, true );
 
-		wp_register_script( 'chart', AWP_URL . 'assets/vendor/js/chart' . $suffix . '.js', ['jquery'], '2.7.3', true );
-		wp_register_script( 'gmap', AWP_URL . 'assets/vendor/js/gmap' . $suffix . '.js', ['jquery', 'gmap-api'], null, true );
-		wp_register_script( 'leaflet', AWP_URL . 'assets/vendor/js/leaflet' . $suffix . '.js', ['jquery'], '', true );
-		wp_register_script( 'parallax', AWP_URL . 'assets/vendor/js/parallax' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'table-of-content', AWP_URL . 'assets/vendor/js/table-of-content' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'instagram-feed', AWP_URL . 'assets/vendor/js/jquery.instagramFeed' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'imagezoom', AWP_URL . 'assets/vendor/js/jquery.imagezoom' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'datatables', AWP_URL . 'assets/vendor/js/datatables' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'typed', AWP_URL . 'assets/vendor/js/typed' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'timeline', AWP_URL . 'assets/vendor/js/timeline' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'popper', AWP_URL . 'assets/vendor/js/popper' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'tippyjs', AWP_URL . 'assets/vendor/js/tippy.all' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'tilt', AWP_URL . 'assets/vendor/js/tilt.jquery' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'rvslider', AWP_URL . 'assets/vendor/js/rvslider' . $suffix . '.js', ['jquery'], null, true );
-		wp_register_script( 'spritespin', AWP_URL . 'assets/vendor/js/spritespin' . $suffix . '.js', ['jquery'], '4.0.5', true );
+		wp_register_script( 'chart', AWP_ASSETS_URL . 'vendor/js/chart' . $suffix . '.js', ['jquery'], '2.7.3', true );
+		wp_register_script( 'gmap', AWP_ASSETS_URL . 'vendor/js/gmap' . $suffix . '.js', ['jquery', 'gmap-api'], null, true );
+		wp_register_script( 'leaflet', AWP_ASSETS_URL . 'vendor/js/leaflet' . $suffix . '.js', ['jquery'], '', true );
+		wp_register_script( 'parallax', AWP_ASSETS_URL . 'vendor/js/parallax' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'table-of-content', AWP_ASSETS_URL . 'vendor/js/table-of-content' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'instagram-feed', AWP_ASSETS_URL . 'vendor/js/jquery.instagramFeed' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'imagezoom', AWP_ASSETS_URL . 'vendor/js/jquery.imagezoom' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'datatables', AWP_ASSETS_URL . 'vendor/js/datatables' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'typed', AWP_ASSETS_URL . 'vendor/js/typed' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'timeline', AWP_ASSETS_URL . 'vendor/js/timeline' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'popper', AWP_ASSETS_URL . 'vendor/js/popper' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'tippyjs', AWP_ASSETS_URL . 'vendor/js/tippy.all' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'tilt', AWP_ASSETS_URL . 'vendor/js/tilt.jquery' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'rvslider', AWP_ASSETS_URL . 'vendor/js/rvslider' . $suffix . '.js', ['jquery'], null, true );
+		wp_register_script( 'spritespin', AWP_ASSETS_URL . 'vendor/js/spritespin' . $suffix . '.js', ['jquery'], '4.0.5', true );
 
-		wp_register_script( 'particles', AWP_URL . 'assets/vendor/js/particles' . $suffix . '.js', ['jquery'], '2.0.0', true );
-		wp_register_script( 'recliner', AWP_URL . 'assets/vendor/js/recliner' . $suffix . '.js', ['jquery'], '0.2.2', true );
-		wp_register_script( 'avt-news-ticker', AWP_URL . 'assets/vendor/js/jquery.newsTicker' . $suffix . '.js', ['jquery'], '1.0.0', true );
-		wp_register_script( 'avt-justified-gallery', AWP_URL . 'assets/vendor/js/jquery.justifiedGallery' . $suffix . '.js', ['jquery'], '1.0.0', true );
+		wp_register_script( 'particles', AWP_ASSETS_URL . 'vendor/js/particles' . $suffix . '.js', ['jquery'], '2.0.0', true );
+		wp_register_script( 'recliner', AWP_ASSETS_URL . 'vendor/js/recliner' . $suffix . '.js', ['jquery'], '0.2.2', true );
+		wp_register_script( 'wipa-justified-gallery', AWP_ASSETS_URL . 'vendor/js/jquery.justifiedGallery' . $suffix . '.js', ['jquery'], '1.0.0', true );
 
-
-		//widgets js
-		wp_register_script( 'avt-audio-player', AWP_URL . 'assets/js/widgets/avt-audio-player' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-		// wp_register_script( 'avt-search', AWP_URL . 'assets/js/widgets/avt-search' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-		wp_register_script( 'avt-search', AWP_URL . 'assets/js/widgets/avt-search.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-		wp_register_script( 'avt-switcher', AWP_URL . 'assets/js/widgets/avt-switcher' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-		// wp_register_script( 'avt-scroll-button', AWP_URL . 'assets/js/widgets/avt-scroll-button' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-		wp_register_script( 'avt-scroll-button', AWP_URL . 'assets/js/widgets/avt-scroll-button.js', ['jquery', 'elementor-frontend'], AWP_VER, true );
-
-		//wp_register_script( 'crypto-currency-price-marquee', 'https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js', [], '', true ); // TODO
 
 		if (!empty($settings['disqus_user_name'])) {
 			wp_register_script( 'disqus', '//'.$settings['disqus_user_name'].'.disqus.com/count.js', ['jquery'], null, true );
@@ -231,23 +220,13 @@ class Widget_Pack_Loader {
 	public function register_site_styles() {
 		$direction_suffix = is_rtl() ? '.rtl' : '';
 
-		wp_register_style( 'avt-video-gallery', AWP_URL . 'assets/css/video-gallery' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'avt-social-share', AWP_URL . 'assets/css/social-share' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'twentytwenty', AWP_URL . 'assets/css/twentytwenty.css', [], AWP_VER );
-		wp_register_style( 'avt-advanced-button', AWP_URL . 'assets/css/advanced-button' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'avt-audio-player', AWP_URL . 'assets/css/audio-player' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'avt-video-player', AWP_URL . 'assets/css/video-player' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'weather', AWP_URL . 'assets/css/weather' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'cookieconsent', AWP_URL . 'assets/css/cookieconsent' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'avt-post-grid-tab', AWP_URL . 'assets/css/post-grid-tab' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'imagezoom', AWP_URL . 'assets/css/imagezoom' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'datatables', AWP_URL . 'assets/css/datatables' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'avt-gravity-form', AWP_URL . 'assets/css/gravity-form' . $direction_suffix . '.css', [], AWP_VER );
-		
-		wp_register_style( 'avt-event-calendar', AWP_URL . 'assets/css/event-calendar' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'avt-crypto-currency', AWP_URL . 'assets/css/crypto-currency' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'avt-google-review', AWP_URL . 'assets/css/google-review' . $direction_suffix . '.css', [], AWP_VER );
-		wp_register_style( 'widget-pack-font', AWP_URL . 'assets/css/widget-pack-font' . $direction_suffix . '.css', [], AWP_VER );
+        // third party widget css
+        wp_register_style( 'twentytwenty', AWP_ASSETS_URL . 'css/twentytwenty.css', [], AWP_VER );
+        wp_register_style( 'datatables', AWP_ASSETS_URL . 'css/datatables' . $direction_suffix . '.css', [], AWP_VER );
+        wp_register_style( 'imagezoom', AWP_ASSETS_URL . 'css/imagezoom' . $direction_suffix . '.css', [], AWP_VER );
+        wp_register_style( 'cookie-consent', AWP_ASSETS_URL . 'css/cookie-consent' . $direction_suffix . '.css', [], AWP_VER );
+
+        wp_register_style( 'widget-pack-font', AWP_ASSETS_URL . 'css/widget-pack-font' . $direction_suffix . '.css', [], AWP_VER );
 
 	}
 
@@ -259,7 +238,8 @@ class Widget_Pack_Loader {
 
 		$direction_suffix = is_rtl() ? '.rtl' : '';
 
-		wp_enqueue_style( 'widget-pack-site', AWP_URL . 'assets/css/widget-pack-site' . $direction_suffix . '.css', [], AWP_VER );		
+		wp_enqueue_style( 'avt-uikit', AWP_ASSETS_URL . 'css/avt-uikit' . $direction_suffix . '.css', [], '3.2' );
+		wp_enqueue_style( 'widget-pack-site', AWP_ASSETS_URL . 'css/widget-pack-site' . $direction_suffix . '.css', [], AWP_VER );		
 	}
 
 
@@ -271,8 +251,8 @@ class Widget_Pack_Loader {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'avt-uikit', AWP_URL . 'assets/js/avt-uikit' . $suffix . '.js', ['jquery'], AWP_VER );
-		wp_enqueue_script( 'widget-pack-site', AWP_URL . 'assets/js/widget-pack-site' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER );
+		wp_enqueue_script( 'avt-uikit', AWP_ASSETS_URL . 'js/avt-uikit' . $suffix . '.js', ['jquery'], AWP_VER );
+		wp_enqueue_script( 'widget-pack-site', AWP_ASSETS_URL . 'js/widget-pack-site' . $suffix . '.js', ['jquery', 'elementor-frontend'], AWP_VER );
 
 		$script_config = [ 
 			'ajaxurl'       => admin_url( 'admin-ajax.php' ),
@@ -318,7 +298,7 @@ class Widget_Pack_Loader {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'widget-pack', AWP_URL . 'assets/js/widget-pack-editor' . $suffix . '.js', ['backbone-marionette', 'elementor-common-modules', 'elementor-editor-modules',], AWP_VER, true );
+		wp_enqueue_script( 'widget-pack', AWP_ASSETS_URL . 'js/widget-pack-editor' . $suffix . '.js', ['backbone-marionette', 'elementor-common-modules', 'elementor-editor-modules',], AWP_VER, true );
 
 		// $locale_settings = [
 		// 	'i18n' => [],
@@ -340,7 +320,7 @@ class Widget_Pack_Loader {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'widget-pack-admin', AWP_URL . 'assets/js/widget-pack-admin' . $suffix . '.js', ['jquery'], AWP_VER, true );
+		wp_enqueue_script( 'widget-pack-admin', AWP_ASSETS_URL . 'js/widget-pack-admin' . $suffix . '.js', ['jquery'], AWP_VER, true );
 	}
 
 	/**
@@ -350,14 +330,15 @@ class Widget_Pack_Loader {
 	public function enqueue_preview_styles() {
 		$direction_suffix = is_rtl() ? '.rtl' : '';
 
-		wp_enqueue_style('widget-pack-preview', AWP_URL . 'assets/css/widget-pack-preview' . $direction_suffix . '.css', '', AWP_VER );
+		wp_enqueue_style('widget-pack-preview', AWP_ASSETS_URL . 'css/widget-pack-preview' . $direction_suffix . '.css', '', AWP_VER );
 	}
 
 
 	public function enqueue_editor_styles() {
 		$direction_suffix = is_rtl() ? '.rtl' : '';
 
-		wp_enqueue_style('widget-pack-editor', AWP_URL . 'assets/css/widget-pack-editor' . $direction_suffix . '.css', '', AWP_VER );
+		wp_register_style('widget-pack-editor', AWP_ASSETS_URL . 'css/widget-pack-editor' . $direction_suffix . '.css', '', AWP_VER );
+		wp_enqueue_style('widget-pack-editor');
 	}
 
 
@@ -381,13 +362,6 @@ class Widget_Pack_Loader {
 			return '';
 		}
 
-		if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
-
-			// Load elementor styles.
-			$css_file = new \Elementor\Post_CSS_File( $id );
-			$css_file->enqueue();
-		}
-
 		return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
 
 	}
@@ -400,6 +374,7 @@ class Widget_Pack_Loader {
 	public function widget_pack_ajax_login_init() {
 	    // Enable the user with no privileges to run widget_pack_ajax_login() in AJAX
 	    add_action( 'wp_ajax_nopriv_widget_pack_ajax_login', [ $this, "widget_pack_ajax_login"] );
+
 	}
 
 	/**
@@ -472,16 +447,23 @@ class Widget_Pack_Loader {
 	public function widget_pack_init() {
 		$this->_modules_manager = new Manager();
 
-		$elementor = \Elementor\Plugin::$instance;
+		$elementor = Plugin::$instance;
 
 		// Add element category in panel
-		$elementor->elements_manager->add_category( AWP_SLUG, [ 'title' => AWP_TITLE, 'icon'  => 'font' ], 1 );
+		$elementor->elements_manager->add_category( AWP_SLUG, [ 'title' => AWP_TITLE, 'icon'  => 'font' ] );
 		
 		do_action( 'avator_widget_pack/init' );
 	}
 
+	public function widget_pack_template_library() {
+
+		return Widget_Pack_Template_Manager::get_instance();
+
+	}
+
 	private function setup_hooks() {
 		add_action( 'elementor/init', [ $this, 'widget_pack_init' ] );
+		
 		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
 
 		add_action( 'elementor/frontend/before_register_styles', [ $this, 'register_site_styles' ] );
@@ -498,9 +480,10 @@ class Widget_Pack_Loader {
 		// TODO AJAX SEARCH
 		add_action('wp_ajax_widget_pack_search', [ $this, 'widget_pack_ajax_search' ] );
 		add_action('wp_ajax_nopriv_widget_pack_search', [ $this, 'widget_pack_ajax_search' ] );
-		
-		add_shortcode( 'rooten_custom_template', array( $this, 'shortcode_template' ) );
-		
+
+		add_shortcode( 'rooten_custom_template', [ $this, 'shortcode_template' ] );
+
+
 		// When user not login add this action
 		if (!is_user_logged_in()) {
 			add_action('elementor/init', [ $this, 'widget_pack_ajax_login_init'] );
@@ -515,10 +498,14 @@ class Widget_Pack_Loader {
 		spl_autoload_register( [ $this, 'autoload' ] );
 		// Include some backend files
 		$this->_includes();
+
 		// Finally hooked up all things here
 		$this->setup_hooks();
 
 		$this->wpml_compatiblity()->init();
+
+		$this->widget_pack_template_library()->init();
+
 	}
 }
 

@@ -4,7 +4,7 @@ use WidgetPack\Widget_Pack_Loader;
 /**
  * You can easily add white label branding for for extended license or multi site license. 
  * Don't try for regular license otherwise your license will be invalid.
- * @return White Label
+ * return white label
  */
 
 if ( !defined('AWP') ) { define( 'AWP', '' ); } //Add prefix for all widgets <span class="avt-widget-badge"></span>
@@ -134,6 +134,55 @@ function widget_pack_allow_tags( $tag = null ) {
         ],
     ];
 
+    $tag_allowed['svg'] = [
+        'svg'      => [
+            'version'  => [],
+            'xmlns' => [],
+            'viewbox' => [],
+            'xml:space' => [],
+            'xmlns:xlink' => [],
+            'x' => [],
+            'y' => [],
+            'style' => [],
+        ],
+        'g'     => [],
+        'path'     => [
+            'class' => [],
+            'd' => [],
+        ],
+        'ellipse' => [
+	        'class' => [],
+	        'cx' => [],
+            'cy' => [],
+            'rx' => [],
+            'ry' => [],
+        ],
+        'circle' => [
+	        'class' => [],
+	        'cx' => [],
+            'cy' => [],
+            'r'  => [],
+        ],
+        'rect' => [
+	        'x' => [],
+            'y' => [],
+            'transform' => [],
+            'height' => [],
+            'width' => [],
+            'class' => [],
+        ],
+        'line' => [
+            'class' => [],
+            'x1' => [],
+            'x2' => [],
+            'y1' => [],
+            'y2' => [],
+        ],
+        'style' => [],
+
+
+    ];
+
     if( $tag == null ){
         return $tag_allowed;
     } elseif( is_array($tag) ){
@@ -250,22 +299,52 @@ function widget_pack_iso_time($time) {
     return $final_time;
 }
 
+function widget_pack_currency_format( $currency, $precision = 1 ) {
+
+    if ( $currency > 0 ) {
+        if ($currency < 900 ) {
+            // 0 - 900
+            $currency_format = number_format($currency, $precision);
+            $suffix = '';
+        } else if ($currency < 900000) {
+            // 0.9k-850k
+            $currency_format = number_format($currency / 1000, $precision);
+            $suffix = 'K';
+        } else if ($currency < 900000000) {
+            // 0.9m-850m
+            $currency_format = number_format($currency / 1000000, $precision);
+            $suffix = 'M';
+        } else if ($currency < 900000000000) {
+            // 0.9b-850b
+            $currency_format = number_format($currency / 1000000000, $precision);
+            $suffix = 'B';
+        } else {
+            // 0.9t+
+            $currency_format = number_format($currency / 1000000000000, $precision);
+            $suffix = 'T';
+        }
+      // Remove unecessary zeroes after decimal. "1.0" -> "1"; "1.00" -> "1"
+      // Intentionally does not affect partials, eg "1.50" -> "1.50"
+        if ( $precision > 0 ) {
+            $dotzero = '.' . str_repeat( '0', $precision );
+            $currency_format = str_replace( $dotzero, '', $currency_format );
+        }
+        return $currency_format . $suffix;
+    }
+
+    return;
+}
 
 
 function widget_pack_get_menu() {
-    $data = get_transient( 'ep_get_menu' );
 
-    if ( false === $data ) {
-        $menus = wp_get_nav_menus();
-        $items = ['0' => esc_html__( 'Select Menu', 'avator-widget-pack' ) ];
-        foreach ( $menus as $menu ) {
-            $items[ $menu->slug ] = $menu->name;
-        }
-
-        set_transient( 'ep_get_menu', $items, 300 );
+    $menus = wp_get_nav_menus();
+    $items = ['0' => esc_html__( 'Select Menu', 'avator-widget-pack' ) ];
+    foreach ( $menus as $menu ) {
+        $items[ $menu->slug ] = $menu->name;
     }
 
-    return $data;
+    return $items;
 }
 
 /**
@@ -289,7 +368,7 @@ function widget_pack_option( $option, $section, $default = '' ) {
 // Anywhere Template
 function widget_pack_ae_options() {
     
-    $data = get_transient( 'ep_anywhere_template' );
+    $data = get_transient( 'wipa_anywhere_template' );
 
     if ( false === $data ) {
 
@@ -309,9 +388,9 @@ function widget_pack_ae_options() {
             $anywhere_options = ['0' => esc_html__( 'AE Plugin Not Installed', 'avator-widget-pack' ) ];
         }
 
-        set_transient( 'ep_anywhere_template', $anywhere_options, 120 );
+        set_transient( 'wipa_anywhere_template', $anywhere_options, 120 );
 
-        return get_transient( 'ep_anywhere_template' );
+        return get_transient( 'wipa_anywhere_template' );
     }
 
     return $data;
@@ -320,7 +399,7 @@ function widget_pack_ae_options() {
 // Elementor Saved Template 
 function widget_pack_et_options() {
     
-    $data = get_transient( 'ep_elementor_template' );
+    $data = get_transient( 'wipa_elementor_template' );
 
     if ( false === $data ) {
 
@@ -338,9 +417,9 @@ function widget_pack_et_options() {
             }
         }
 
-        set_transient( 'ep_elementor_template', $template_options, 120 );
+        set_transient( 'wipa_elementor_template', $template_options, 120 );
 
-        return get_transient( 'ep_elementor_template' );
+        return get_transient( 'wipa_elementor_template' );
 
     }
 
@@ -350,7 +429,7 @@ function widget_pack_et_options() {
 // Sidebar Widgets
 function widget_pack_sidebar_options() {
 
-    $data = get_transient( 'ep_sidebar_options' );
+    $data = get_transient( 'wipa_sidebar_options' );
 
     if ( false === $data ) {
         
@@ -367,9 +446,9 @@ function widget_pack_sidebar_options() {
             }
         }
 
-        set_transient( 'ep_sidebar_options', $sidebar_options, DAY_IN_SECONDS );
+        set_transient( 'wipa_sidebar_options', $sidebar_options, DAY_IN_SECONDS );
 
-        return get_transient( 'ep_sidebar_options' );
+        return get_transient( 'wipa_sidebar_options' );
     }
 
     return $data;
@@ -377,7 +456,7 @@ function widget_pack_sidebar_options() {
 
 function widget_pack_get_category($terms, $cached = true) {
 
-    $data = get_transient( 'ep_get_category_' . $terms );
+    $data = get_transient( 'wipa_get_category_' . $terms );
 
     if ( false === $data ) {
         $post_categories = get_terms( $terms );
@@ -388,8 +467,8 @@ function widget_pack_get_category($terms, $cached = true) {
         }
 
         if ( true == $cached ) {
-            set_transient( 'ep_get_category_' . $terms, $post_options, MINUTE_IN_SECONDS );
-            $data = get_transient( 'ep_get_category_' . $terms );
+            set_transient( 'wipa_get_category_' . $terms, $post_options, MINUTE_IN_SECONDS );
+            $data = get_transient( 'wipa_get_category_' . $terms );
         } else {
             $data = $post_options;
         }
@@ -632,198 +711,198 @@ function widget_pack_svg_icon($icon) {
 function widget_pack_weather_code( $code = null, $condition = null ) {
 
     $codes = apply_filters( 'widget-pack/weather/codes', [
-        "1000" => [
-            "desc" => esc_html_x("Sunny", "Weather String", "avator-widget-pack" ),
-            "icon" => "113"
-        ],
-        "1003" => [
-            "desc" => esc_html_x("Partly cloudy", "Weather String", "avator-widget-pack" ),
-            "icon" => "116"
-        ],
-        "1006" => [
-            "desc" => esc_html_x("Cloudy", "Weather String", "avator-widget-pack" ),
-            "icon" => "119"
-        ],
-        "1009" => [
-            "desc" => esc_html_x("Overcast", "Weather String", "avator-widget-pack" ),
-            "icon" => "122"
-        ],
-        "1030" => [
-            "desc" => esc_html_x("Mist", "Weather String", "avator-widget-pack" ),
-            "icon" => "143"
-        ],
-        "1063" => [
-            "desc" => esc_html_x("Patchy rain possible", "Weather String", "avator-widget-pack" ),
-            "icon" => "176"
-        ],
-        "1066" => [
-            "desc" => esc_html_x("Patchy snow possible", "Weather String", "avator-widget-pack" ),
-            "icon" => "179"
-        ],
-        "1069" => [
-            "desc" => esc_html_x("Patchy sleet possible", "Weather String", "avator-widget-pack" ),
-            "icon" => "182"
-        ],
-        "1072" => [
-            "desc" => esc_html_x("Patchy freezing drizzle possible", "Weather String", "avator-widget-pack" ),
-            "icon" => "185"
-        ],
-        "1087" => [
-            "desc" => esc_html_x("Thundery outbreaks possible", "Weather String", "avator-widget-pack" ),
-            "icon" => "200"
-        ],
-        "1114" => [
-            "desc" => esc_html_x("Blowing snow", "Weather String", "avator-widget-pack" ),
-            "icon" => "227"
-        ],
-        "1117" => [
-            "desc" => esc_html_x("Blizzard", "Weather String", "avator-widget-pack" ),
-            "icon" => "230"
-        ],
-        "1135" => [
-            "desc" => esc_html_x("Fog", "Weather String", "avator-widget-pack" ),
-            "icon" => "248"
-        ],
-        "1147" => [
-            "desc" => esc_html_x("Freezing fog", "Weather String", "avator-widget-pack" ),
-            "icon" => "260"
-        ],
-        "1150" => [
-            "desc" => esc_html_x("Patchy light drizzle", "Weather String", "avator-widget-pack" ),
-            "icon" => "263"
-        ],
-        "1153" => [
-            "desc" => esc_html_x("Light drizzle", "Weather String", "avator-widget-pack" ),
-            "icon" => "266"
-        ],
-        "1168" => [
-            "desc" => esc_html_x("Freezing drizzle", "Weather String", "avator-widget-pack" ),
-            "icon" => "281"
-        ],
-        "1171" => [
-            "desc" => esc_html_x("Heavy freezing drizzle", "Weather String", "avator-widget-pack" ),
-            "icon" => "284"
-        ],
-        "1180" => [
-            "desc" => esc_html_x("Patchy light rain", "Weather String", "avator-widget-pack" ),
-            "icon" => "293"
-        ],
-        "1183" => [
-            "desc" => esc_html_x("Light rain", "Weather String", "avator-widget-pack" ),
-            "icon" => "296"
-        ],
-        "1186" => [
-            "desc" => esc_html_x("Moderate rain at times", "Weather String", "avator-widget-pack" ),
-            "icon" => "299"
-        ],
-        "1189" => [
-            "desc" => esc_html_x("Moderate rain", "Weather String", "avator-widget-pack" ),
-            "icon" => "302"
-        ],
-        "1192" => [
-            "desc" => esc_html_x("Heavy rain at times", "Weather String", "avator-widget-pack" ),
-            "icon" => "305"
-        ],
-        "1195" => [
-            "desc" => esc_html_x("Heavy rain", "Weather String", "avator-widget-pack" ),
-            "icon" => "308"
-        ],
-        "1198" => [
-            "desc" => esc_html_x("Light freezing rain", "Weather String", "avator-widget-pack" ),
-            "icon" => "311"
-        ],
-        "1201" => [
-            "desc" => esc_html_x("Moderate or heavy freezing rain", "Weather String", "avator-widget-pack" ),
-            "icon" => "314"
-        ],
-        "1204" => [
-            "desc" => esc_html_x("Light sleet", "Weather String", "avator-widget-pack" ),
-            "icon" => "317"
-        ],
-        "1207" => [
-            "desc" => esc_html_x("Moderate or heavy sleet", "Weather String", "avator-widget-pack" ),
-            "icon" => "320"
-        ],
-        "1210" => [
-            "desc" => esc_html_x("Patchy light snow", "Weather String", "avator-widget-pack" ),
-            "icon" => "323"
-        ],
-        "1213" => [
-            "desc" => esc_html_x("Light snow", "Weather String", "avator-widget-pack" ),
-            "icon" => "326"
-        ],
-        "1216" => [
-            "desc" => esc_html_x("Patchy moderate snow", "Weather String", "avator-widget-pack" ),
-            "icon" => "329"
-        ],
-        "1219" => [
-            "desc" => esc_html_x("Moderate snow", "Weather String", "avator-widget-pack" ),
-            "icon" => "332"
-        ],
-        "1222" => [
-            "desc" => esc_html_x("Patchy heavy snow", "Weather String", "avator-widget-pack" ),
-            "icon" => "335"
-        ],
-        "1225" => [
-            "desc" => esc_html_x("Heavy snow", "Weather String", "avator-widget-pack" ),
-            "icon" => "338"
-        ],
-        "1237" => [
-            "desc" => esc_html_x("Ice pellets", "Weather String", "avator-widget-pack" ),
-            "icon" => "350"
-        ],
-        "1240" => [
-            "desc" => esc_html_x("Light rain shower", "Weather String", "avator-widget-pack" ),
-            "icon" => "353"
-        ],
-        "1243" => [
-            "desc" => esc_html_x("Moderate or heavy rain shower", "Weather String", "avator-widget-pack" ),
-            "icon" => "356"
-        ],
-        "1246" => [
-            "desc" => esc_html_x("Torrential rain shower", "Weather String", "avator-widget-pack" ),
-            "icon" => "359"
-        ],
-        "1249" => [
-            "desc" => esc_html_x("Light sleet showers", "Weather String", "avator-widget-pack" ),
-            "icon" => "362"
-        ],
-        "1252" => [
-            "desc" => esc_html_x("Moderate or heavy sleet showers", "Weather String", "avator-widget-pack" ),
-            "icon" => "365"
-        ],
-        "1255" => [
-            "desc" => esc_html_x("Light snow showers", "Weather String", "avator-widget-pack" ),
-            "icon" => "368"
-        ],
-        "1258" => [
-            "desc" => esc_html_x("Moderate or heavy snow showers", "Weather String", "avator-widget-pack" ),
-            "icon" => "371"
-        ],
-        "1261" => [
-            "desc" => esc_html_x("Light showers of ice pellets", "Weather String", "avator-widget-pack" ),
-            "icon" => "374"
-        ],
-        "1264" => [
-            "desc" => esc_html_x("Moderate or heavy showers of ice pellets", "Weather String", "avator-widget-pack" ),
-            "icon" => "377"
-        ],
-        "1273" => [
-            "desc" => esc_html_x("Patchy light rain with thunder", "Weather String", "avator-widget-pack" ),
-            "icon" => "386"
-        ],
-        "1276" => [
-            "desc" => esc_html_x("Moderate or heavy rain with thunder", "Weather String", "avator-widget-pack" ),
-            "icon" => "389"
-        ],
-        "1279" => [
-            "desc" => esc_html_x("Patchy light snow with thunder", "Weather String", "avator-widget-pack" ),
-            "icon" => "392"
-        ],
-        "1282" => [
-            "desc" => esc_html_x("Moderate or heavy snow with thunder", "Weather String", "avator-widget-pack" ),
-            "icon" => "395"
-        ]
+	    "113" => [
+		    "desc" => esc_html_x("Clear/Sunny", "Weather String", "avator-widget-pack" ),
+		    "icon" => "113"
+	    ],
+	    "116" => [
+		    "desc" => esc_html_x("Partly cloudy", "Weather String", "avator-widget-pack" ),
+		    "icon" => "116"
+	    ],
+	    "119" => [
+		    "desc" => esc_html_x("Cloudy", "Weather String", "avator-widget-pack" ),
+		    "icon" => "119"
+	    ],
+	    "122" => [
+		    "desc" => esc_html_x("Overcast", "Weather String", "avator-widget-pack" ),
+		    "icon" => "122"
+	    ],
+	    "143" => [
+		    "desc" => esc_html_x("Mist", "Weather String", "avator-widget-pack" ),
+		    "icon" => "143"
+	    ],
+	    "176" => [
+		    "desc" => esc_html_x("Patchy rain nearby", "Weather String", "avator-widget-pack" ),
+		    "icon" => "176"
+	    ],
+	    "179" => [
+		    "desc" => esc_html_x("Patchy snow nearby", "Weather String", "avator-widget-pack" ),
+		    "icon" => "179"
+	    ],
+	    "182" => [
+		    "desc" => esc_html_x("Patchy sleet nearby", "Weather String", "avator-widget-pack" ),
+		    "icon" => "182"
+	    ],
+	    "185" => [
+		    "desc" => esc_html_x("Patchy freezing drizzle nearby", "Weather String", "avator-widget-pack" ),
+		    "icon" => "185"
+	    ],
+	    "200" => [
+		    "desc" => esc_html_x("Thundery outbreaks nearby", "Weather String", "avator-widget-pack" ),
+		    "icon" => "200"
+	    ],
+	    "227" => [
+		    "desc" => esc_html_x("Blowing snow", "Weather String", "avator-widget-pack" ),
+		    "icon" => "227"
+	    ],
+	    "230" => [
+		    "desc" => esc_html_x("Blizzard", "Weather String", "avator-widget-pack" ),
+		    "icon" => "230"
+	    ],
+	    "248" => [
+		    "desc" => esc_html_x("Fog", "Weather String", "avator-widget-pack" ),
+		    "icon" => "248"
+	    ],
+	    "260" => [
+		    "desc" => esc_html_x("Freezing fog", "Weather String", "avator-widget-pack" ),
+		    "icon" => "260"
+	    ],
+	    "263" => [
+		    "desc" => esc_html_x("Patchy light drizzle", "Weather String", "avator-widget-pack" ),
+		    "icon" => "263"
+	    ],
+	    "266" => [
+		    "desc" => esc_html_x("Light drizzle", "Weather String", "avator-widget-pack" ),
+		    "icon" => "266"
+	    ],
+	    "281" => [
+		    "desc" => esc_html_x("Freezing drizzle", "Weather String", "avator-widget-pack" ),
+		    "icon" => "281"
+	    ],
+	    "284" => [
+		    "desc" => esc_html_x("Heavy freezing drizzle", "Weather String", "avator-widget-pack" ),
+		    "icon" => "284"
+	    ],
+	    "293" => [
+		    "desc" => esc_html_x("Patchy light rain", "Weather String", "avator-widget-pack" ),
+		    "icon" => "293"
+	    ],
+	    "296" => [
+		    "desc" => esc_html_x("Light rain", "Weather String", "avator-widget-pack" ),
+		    "icon" => "296"
+	    ],
+	    "299" => [
+		    "desc" => esc_html_x("Moderate rain at times", "Weather String", "avator-widget-pack" ),
+		    "icon" => "299"
+	    ],
+	    "302" => [
+		    "desc" => esc_html_x("Moderate rain", "Weather String", "avator-widget-pack" ),
+		    "icon" => "302"
+	    ],
+	    "305" => [
+		    "desc" => esc_html_x("Heavy rain at times", "Weather String", "avator-widget-pack" ),
+		    "icon" => "305"
+	    ],
+	    "308" => [
+		    "desc" => esc_html_x("Heavy rain", "Weather String", "avator-widget-pack" ),
+		    "icon" => "308"
+	    ],
+	    "311" => [
+		    "desc" => esc_html_x("Light freezing rain", "Weather String", "avator-widget-pack" ),
+		    "icon" => "311"
+	    ],
+	    "314" => [
+		    "desc" => esc_html_x("Moderate or heavy freezing rain", "Weather String", "avator-widget-pack" ),
+		    "icon" => "314"
+	    ],
+	    "317" => [
+		    "desc" => esc_html_x("Light sleet", "Weather String", "avator-widget-pack" ),
+		    "icon" => "317"
+	    ],
+	    "320" => [
+		    "desc" => esc_html_x("Moderate or heavy sleet", "Weather String", "avator-widget-pack" ),
+		    "icon" => "320"
+	    ],
+	    "323" => [
+		    "desc" => esc_html_x("Patchy light snow", "Weather String", "avator-widget-pack" ),
+		    "icon" => "323"
+	    ],
+	    "326" => [
+		    "desc" => esc_html_x("Light snow", "Weather String", "avator-widget-pack" ),
+		    "icon" => "326"
+	    ],
+	    "329" => [
+		    "desc" => esc_html_x("Patchy moderate snow", "Weather String", "avator-widget-pack" ),
+		    "icon" => "329"
+	    ],
+	    "332" => [
+		    "desc" => esc_html_x("Moderate snow", "Weather String", "avator-widget-pack" ),
+		    "icon" => "332"
+	    ],
+	    "335" => [
+		    "desc" => esc_html_x("Patchy heavy snow", "Weather String", "avator-widget-pack" ),
+		    "icon" => "335"
+	    ],
+	    "338" => [
+		    "desc" => esc_html_x("Heavy snow", "Weather String", "avator-widget-pack" ),
+		    "icon" => "338"
+	    ],
+	    "350" => [
+		    "desc" => esc_html_x("Ice pellets", "Weather String", "avator-widget-pack" ),
+		    "icon" => "350"
+	    ],
+	    "353" => [
+		    "desc" => esc_html_x("Light rain shower", "Weather String", "avator-widget-pack" ),
+		    "icon" => "353"
+	    ],
+	    "356" => [
+		    "desc" => esc_html_x("Moderate or heavy rain shower", "Weather String", "avator-widget-pack" ),
+		    "icon" => "356"
+	    ],
+	    "359" => [
+		    "desc" => esc_html_x("Torrential rain shower", "Weather String", "avator-widget-pack" ),
+		    "icon" => "359"
+	    ],
+	    "362" => [
+		    "desc" => esc_html_x("Light sleet showers", "Weather String", "avator-widget-pack" ),
+		    "icon" => "362"
+	    ],
+	    "365" => [
+		    "desc" => esc_html_x("Moderate or heavy sleet showers", "Weather String", "avator-widget-pack" ),
+		    "icon" => "365"
+	    ],
+	    "368" => [
+		    "desc" => esc_html_x("Light snow showers", "Weather String", "avator-widget-pack" ),
+		    "icon" => "368"
+	    ],
+	    "371" => [
+		    "desc" => esc_html_x("Moderate or heavy snow showers", "Weather String", "avator-widget-pack" ),
+		    "icon" => "371"
+	    ],
+	    "374" => [
+		    "desc" => esc_html_x("Light showers of ice pellets", "Weather String", "avator-widget-pack" ),
+		    "icon" => "374"
+	    ],
+	    "377" => [
+		    "desc" => esc_html_x("Moderate or heavy showers of ice pellets", "Weather String", "avator-widget-pack" ),
+		    "icon" => "377"
+	    ],
+	    "386" => [
+		    "desc" => esc_html_x("Patchy light rain with thunder", "Weather String", "avator-widget-pack" ),
+		    "icon" => "386"
+	    ],
+	    "389" => [
+		    "desc" => esc_html_x("Moderate or heavy rain with thunder", "Weather String", "avator-widget-pack" ),
+		    "icon" => "389"
+	    ],
+	    "392" => [
+		    "desc" => esc_html_x("Patchy light snow with thunder", "Weather String", "avator-widget-pack" ),
+		    "icon" => "392"
+	    ],
+	    "395" => [
+		    "desc" => esc_html_x("Moderate or heavy snow with thunder", "Weather String", "avator-widget-pack" ),
+		    "icon" => "395"
+	    ]
     ]);
 
     if ( ! $code ) {
@@ -967,7 +1046,7 @@ function widget_pack_instagram_feed( $item_count = 100 ) {
 
     if ($access_token) {
 
-        $data = get_transient( 'ep_instagram_feed_data' );
+        $data = get_transient( 'wipa_instagram_feed_data' );
 
         if ( false === $data ) {
 
@@ -1017,16 +1096,51 @@ function widget_pack_instagram_feed( $item_count = 100 ) {
 
                     //return $feeds_images_array;
 
-                    set_transient( 'ep_instagram_feed_data', $feeds_images_array, HOUR_IN_SECONDS * 12 );
-                    set_transient( 'ep_instagram_user', $instagram_user, HOUR_IN_SECONDS * 12 );
+                    set_transient( 'wipa_instagram_feed_data', $feeds_images_array, HOUR_IN_SECONDS * 12 );
+                    set_transient( 'wipa_instagram_user', $instagram_user, HOUR_IN_SECONDS * 12 );
 
-                    return get_transient( 'ep_instagram_feed_data' );
+                    return get_transient( 'wipa_instagram_feed_data' );
                 }
             }
         }
 
         return $data;
     }
+}
+
+
+function widget_pack_instagram_card() {
+
+	$options        = get_option( 'widget_pack_api_settings' );
+	$access_token   = (!empty($options['instagram_access_token'])) ? $options['instagram_access_token'] : '';
+
+	if ($access_token) {
+
+		$data = get_transient( 'wipa_instagram_card_data' );
+
+		if ( false === $data ) {
+
+			$url = 'https://api.instagram.com/v1/users/self/?access_token=' . $access_token;
+
+			$feeds_json = wp_remote_fopen( $url );
+
+			$output  = json_decode( $feeds_json, true );
+
+			if ( 200 == $output['meta']['code'] ) {
+
+				if ( ! empty( $output['data'] ) ) {
+
+					return $output['data'];
+
+					set_transient( 'wipa_instagram_card_data', $output['data'], HOUR_IN_SECONDS * 12 );
+
+					return get_transient( 'wipa_instagram_card_data' );
+				}
+			}
+		}
+
+		return $data;
+	}
 }
 
 
@@ -1073,7 +1187,7 @@ function widget_pack_caldera_forms_options() {
 
 function widget_pack_quform_options() {
     
-    $data = get_transient( 'ep_quform_form_options' );
+    $data = get_transient( 'wipa_quform_form_options' );
 
     if ( class_exists( 'Quform' ) ) {
         $quform       = Quform::getService('repository');
@@ -1131,6 +1245,10 @@ function widget_pack_rev_slider_options() {
     return $slider_options;
 }
 
+function widget_pack_dashboard_link( $suffix = '#welcome' ) {
+    return add_query_arg( [ 'page' => 'widget_pack_options' . $suffix ], admin_url( 'admin.php' ) );
+}
+
 function widget_pack_currency_symbol( $currency = '' ) {
     switch ( strtoupper( $currency ) ) {
         case 'AED' :
@@ -1147,7 +1265,7 @@ function widget_pack_currency_symbol( $currency = '' ) {
         case 'USD' :
             $currency_symbol = '&#36;';
             break;
-        case 'AVT':
+        case 'BDT':
             $currency_symbol = '&#2547;&nbsp;';
             break;
         case 'BGN' :
@@ -1308,6 +1426,8 @@ function widget_pack_money_format($value) {
 
     return $value;
 }
+
+
 
 
 /**

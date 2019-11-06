@@ -34,6 +34,10 @@ class Wp_Forms extends Widget_Base {
 		return [ 'wp', 'form' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/p_FRLsEVNjQ';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

@@ -35,8 +35,16 @@ class Open_Street_Map extends Widget_Base {
 		return [ 'open', 'street', 'map', 'location' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-open-street-map' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'leaflet' ];
+		return [ 'leaflet', 'wipa-open-street-map' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/DCQ5g7yleyk';
 	}
 
 	protected function _register_controls() {

@@ -41,6 +41,14 @@ class Post_Block extends Widget_Base {
 		return [ 'post', 'block', 'blog', 'recent', 'news' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-post-block' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/_KPAns0zjAo';
+	}
+
 	protected function _register_skins() {
 		$this->add_skin( new Skins\Skin_Genesis( $this ) );
 		$this->add_skin( new Skins\Skin_Trinity( $this ) );

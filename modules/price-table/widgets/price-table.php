@@ -28,7 +28,7 @@ class Price_Table extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-pricing-table';
+		return 'avt-wi-price-table';
 	}
 
 	public function get_categories() {
@@ -39,8 +39,16 @@ class Price_Table extends Widget_Base {
 		return [ 'price', 'table', 'rate', 'cost', 'value' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-price-table' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'popper', 'tippyjs' ];
+		return [ 'popper', 'tippyjs', 'wipa-price-table' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/OWGRjG1mxOM';
 	}
 
 	protected function _register_skins() {
@@ -191,7 +199,7 @@ class Price_Table extends Widget_Base {
 					'indian_rupee' => '&#8377; '. _x( 'Rupee (Indian)', 'Currency Symbol', 'avator-widget-pack' ),
 					'shekel'       => '&#8362; '. _x( 'Shekel', 'Currency Symbol', 'avator-widget-pack' ),
 					'yen'          => '&#165; ' . _x( 'Yen/Yuan', 'Currency Symbol', 'avator-widget-pack' ),
-					'avt'          => '&#2547; '. _x( 'Taka', 'Currency Symbol', 'avator-widget-pack' ),
+					'bdt'          => '&#2547; '. _x( 'Taka', 'Currency Symbol', 'avator-widget-pack' ),
 					'won'          => '&#8361; '. _x( 'Won', 'Currency Symbol', 'avator-widget-pack' ),
 					'custom'       => __( 'Custom', 'avator-widget-pack' ),
 				],

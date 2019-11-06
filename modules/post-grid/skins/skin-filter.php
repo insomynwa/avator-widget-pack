@@ -22,7 +22,7 @@ class Skin_Filter extends Elementor_Skin_Base {
 		}
 		
 		echo 
-			'<span class="avt-post-grid-comments"><i class="ep-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
+			'<span class="avt-post-grid-comments"><i class="wipa-bubble" aria-hidden="true"></i> '.get_comments_number().'</span>';
 	}
 
 	public function render_category() {
@@ -89,13 +89,13 @@ class Skin_Filter extends Elementor_Skin_Base {
 		$post_categories = array_unique($post_categories);
 
         ?>
-		<div class="avt-wp-grid-filters-wrapper">
+		<div class="avt-wipa-grid-filters-wrapper">
 
-			<ul class="avt-wp-grid-filters">
+			<ul class="avt-wipa-grid-filters">
 		
 				<?php foreach($post_categories as $post_category => $value) : ?>
 					<?php $filter_name = get_term_by('slug', $value, 'category'); ?>
-					<li class="avt-wp-grid-filter avt-active" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
+					<li class="avt-wipa-grid-filter avt-active" avt-filter-control="[data-filter*='avtf-<?php echo esc_attr(trim($value)); ?>']">
 						<?php echo esc_html($filter_name->name); ?>
 					</li>				
 				<?php endforeach; ?>

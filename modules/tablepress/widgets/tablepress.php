@@ -31,6 +31,10 @@ class Tablepress extends Widget_Base {
 		return [ 'tablepress' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/TGnc0ap-cWs';
+	}
+
 	protected function tablepress_table_list() {
 		$table_ids          = \TablePress::$model_table->load_all( false );
 		$table_options['0'] = esc_html__( 'Select Table', 'avator-widget-pack' );

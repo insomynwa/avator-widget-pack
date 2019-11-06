@@ -35,7 +35,15 @@ class Instagram extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-instagram' ];
+	}
+
+	public function get_script_depends() {
+		return [ 'wipa-instagram' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/K6CSO2rxVnA';
 	}
 
 	public function _register_skins() {
@@ -459,7 +467,7 @@ class Instagram extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Shadow Mode', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-shadow-mode-',
+				'prefix_class' => 'avt-wipa-shadow-mode-',
 				'condition' => [
 					'_skin' => 'avt-instagram-carousel',
 				],

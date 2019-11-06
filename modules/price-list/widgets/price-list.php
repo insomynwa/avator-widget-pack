@@ -22,7 +22,7 @@ class Price_List extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-pricing-list';
+		return 'avt-wi-price-list';
 	}
 
 	public function get_categories() {
@@ -31,6 +31,14 @@ class Price_List extends Widget_Base {
 
 	public function get_keywords() {
 		return [ 'price', 'lsit', 'rate', 'cost', 'value' ];
+	}
+
+	public function get_style_depends() {
+		return [ 'wipa-price-list' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/QsXkIYwfXt4';
 	}
 
 	protected function _register_controls() {

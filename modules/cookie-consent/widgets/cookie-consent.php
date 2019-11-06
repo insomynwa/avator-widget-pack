@@ -32,11 +32,15 @@ class Cookie_Consent extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'cookieconsent' ];
+		return [ 'wipa-cookie-consent' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'cookieconsent' ];
+		return [ 'cookieconsent', 'wipa-cookie-consent' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/BR4t5ngDzqM';
 	}
 
 	protected function _register_controls() {

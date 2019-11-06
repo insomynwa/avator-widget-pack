@@ -28,6 +28,10 @@ class Revolution_Slider extends Widget_Base {
 		return [ 'revolution', 'slider', 'magenta', 'responsive', 'slideshow' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/S3bs8FfTBsI';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_layout',

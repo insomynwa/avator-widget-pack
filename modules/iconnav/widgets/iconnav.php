@@ -23,7 +23,7 @@ class Iconnav extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'avt-wi-icon-nav';
+		return 'avt-wi-iconnav';
 	}
 
 	public function get_categories() {
@@ -35,11 +35,15 @@ class Iconnav extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-iconnav' ];
 	}
 
 	public function get_script_depends() {
-		return [ 'popper', 'tippyjs' ];
+		return [ 'popper', 'tippyjs', 'wipa-iconnav' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/Q4YY8pf--ig';
 	}
 
 	protected function _register_controls() {
@@ -1048,7 +1052,7 @@ class Iconnav extends Widget_Base {
 						<li>
 							<a class="avt-icon-nav-icon-wrapper" href="#" avt-toggle="target: #avt-offcanvas<?php echo esc_attr($id); ?>">
 								<span class="avt-icon-nav-icon">
-									<i class="ep-menu"></i>
+									<i class="wipa-menu"></i>
 								</span>
 							</a>
 						</li>
@@ -1116,7 +1120,7 @@ class Iconnav extends Widget_Base {
 	    	'menu'           => $nav_menu,
 	    	'echo'           => true,
 	    	'depth'          => $settings['navbar_level'],
-	    	'walker'         => new ep_offcanvas_walker
+	    	'walker'         => new wipa_offcanvas_walker
 	    );
 
 		?>		
@@ -1168,7 +1172,7 @@ class Iconnav extends Widget_Base {
 						<li>
 							<a class="avt-icon-nav-icon-wrapper" href="#" avt-toggle="target: #avt-offcanvas<?php echo esc_attr($id); ?>">
 								<span class="avt-icon-nav-icon">
-									<i class="ep-menu"></i>
+									<i class="wipa-menu"></i>
 								</span>
 							</a>
 						</li>

@@ -8,17 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Widget_Pack_Base {
-    public $key                      = "SUvVv38UjeXLENL9";
-    private $product_id              = "1";
-    private $product_base            = "widget_pack_options";
-    private $server_host             = "https://licenses.avator.co/wp-json/api/";
-    private $hasCheckUpdate          = true;
+    public $key = "SUvVv38UjeXLENL9";
+    private $product_id = "1";
+    private $product_base = "widget_pack_options";
+    private $server_host = "https://licenses.avator.co/wp-json/api/";
+    private $hasCheckUpdate=true;
     private $pluginFile;
-    private static $selfobj          = null;
-    private $version                 = "";
-    private $isTheme                 = false;
-    private $emailAddress            = "";
-    private static $_onDeleteLicense = [];
+    private static $selfobj=null;
+    private $version="";
+    private $isTheme=false;
+    private $emailAddress = "";
+    private static $_onDeleteLicense=[];
     function __construct($plugin_base_file='')
     {
         $this->pluginFile=$plugin_base_file;
@@ -48,12 +48,12 @@ class Widget_Pack_Base {
                 }else{
                     add_filter('pre_set_site_transient_update_plugins', [$this, "PluginUpdate"]);
                     add_filter('plugins_api', [$this, 'checkUpdateInfo'], 10, 3);
-                    /* add_filter( 'plugin_row_meta', function($links, $plugin_file ){
+                    add_filter( 'plugin_row_meta', function($links, $plugin_file ){
                         if ( $plugin_file == plugin_basename( $this->pluginFile ) ) {
-                            $links[] = " <a class='edit coption' href='" . esc_url( admin_url( 'admin-post.php' ) . '?action=widget_pack_options_fupc' ) . "'>Update Check</a>";
+                            // $links[] = " <a class='edit coption' href='" . esc_url( admin_url( 'admin-post.php' ) . '?action=widget_pack_options_fupc' ) . "'>Update Check</a>";
                         }
                         return $links;
-                    }, 10, 2 ); */
+                    }, 10, 2 );
                     add_action( "in_plugin_update_message-".plugin_basename( $this->pluginFile ), [$this,'updateMessageCB'], 20, 2 );
                 }
 
@@ -75,9 +75,9 @@ class Widget_Pack_Base {
         }
     }
     function handleServerRequest(){
-        $type = isset($_GET['type'])?strtolower($_GET['type']):"";
+        $type=isset($_GET['type'])?strtolower($_GET['type']):"";
         switch ($type){
-            case "rl":
+            case "rl": //remove license
                 $this->cleanUpdateInfo();
                 $this->removeOldWPResponse();
                 $obj=new \stdClass();
@@ -85,20 +85,19 @@ class Widget_Pack_Base {
                 $obj->status=true;
                 echo $this->encryptObj($obj);
                 return;
-            case "dl":
+            case "dl": //delete plugins
                 $obj          = new \stdClass();
                 $obj->product = $this->product_id;
                 $obj->status  = false;
                 $this->removeOldWPResponse();
                 require_once( ABSPATH . 'wp-admin/includes/file.php' );
-                
-                if($this->isTheme) {
+                if($this->isTheme){
                     $res=delete_theme($this->pluginFile);
                     if(!is_wp_error($res)){
                         $obj->status  = true;
                     }
                     echo $this->encryptObj( $obj);
-                } else {
+                }else {
                     $res=delete_plugins([plugin_basename($this->pluginFile)]);
                     if(!is_wp_error($res)){
                         $obj->status  = true;
@@ -199,6 +198,9 @@ class Widget_Pack_Base {
         return $transient;
     }
     final function checkUpdateInfo($false, $action, $arg) {
+        if ( empty($arg->slug)){
+            return $false;
+        }
         if($this->isTheme){
             if ( !empty($arg->slug) && $arg->slug === $this->product_base){
                 $response =$this->__plugin_updateInfo();
@@ -320,6 +322,7 @@ class Widget_Pack_Base {
         $response         = new \stdClass();
         $response->status = false;
         $response->msg    = "Empty Response";
+        $response->is_request_error = false;
         $finalData        = json_encode( $data );
         if ( ! empty( $this->key ) ) {
             $finalData = $this->encrypt( $finalData );
@@ -329,7 +332,7 @@ class Widget_Pack_Base {
             $serverResponse = wp_remote_post($url, array(
                     'method' => 'POST',
                     'sslverify' => false,
-                    'timeout' => 45,
+                    'timeout' => 120,
                     'redirection' => 5,
                     'httpversion' => '1.0',
                     'blocking' => true,
@@ -344,6 +347,7 @@ class Widget_Pack_Base {
                 $response->msg    = $serverResponse->get_error_message();;
                 $response->status = false;
                 $response->data = NULL;
+                $response->is_request_error = true;
                 return $response;
             } else {
                  if(!empty($serverResponse['body']) && $serverResponse['body']!="GET404"){
@@ -356,6 +360,7 @@ class Widget_Pack_Base {
             $response->msg    = "Curl extension is missing";
             $response->status = false;
             $response->data = NULL;
+            $response->is_request_error = true;
             return $response;
         }
         //curl when fall back
@@ -366,7 +371,7 @@ class Widget_Pack_Base {
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_ENCODING       => "",
             CURLOPT_MAXREDIRS      => 10,
-            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_TIMEOUT        => 120,
             CURLOPT_CUSTOMREQUEST  => "POST",
             CURLOPT_POSTFIELDS     => $finalData,
             CURLOPT_HTTPHEADER     => array(
@@ -384,6 +389,7 @@ class Widget_Pack_Base {
         $response->msg    = "unknown response";
         $response->status = false;
         $response->data = NULL;
+        $response->is_request_error = true;
         return $response;
     }
 
@@ -403,7 +409,7 @@ class Widget_Pack_Base {
         return hash( 'crc32b', $this->getDomain() . $this->pluginFile . $this->product_id . $this->product_base . $this->key . "LIC" );
     }
 
-    function SaveWPResponse( $response ) {
+    private function SaveWPResponse( $response ) {
         $key  = $this->getKeyName();
         $data = $this->encrypt( serialize( $response ), $this->getDomain() );
         update_option( $key, $data ) OR add_option( $key, $data );
@@ -492,46 +498,73 @@ class Widget_Pack_Base {
                 return true;
             }
         }
+
         $param    = $this->getParam( $purchase_key, $this->version );
         $response = $this->_request( 'product/active/'.$this->product_id, $param, $error );
-        if(empty($response->code)) {
-            if ( ! empty( $response->status ) ) {
-                if ( ! empty( $response->data ) ) {
-                    $serialObj   = $this->decrypt( $response->data, $param->domain );
+        if(empty($response->is_request_error)) {
+            if ( empty( $response->code ) ) {
+                if ( ! empty( $response->status ) ) {
+                    if ( ! empty( $response->data ) ) {
+                        $serialObj = $this->decrypt( $response->data, $param->domain );
 
-                    $licenseObj = unserialize( $serialObj );
-                    if ( $licenseObj->is_valid ) {
-                       $this->cleanUpdateInfo();
-                        $responseObj = new \stdClass();
-                        $responseObj->is_valid = $licenseObj->is_valid;
-                        if($licenseObj->request_duration>0) {
-                            $responseObj->next_request = strtotime("+ {$licenseObj->request_duration} hour");
-                        }else{
-                            $responseObj->next_request=time();
+                        $licenseObj = unserialize( $serialObj );
+                        if ( $licenseObj->is_valid ) {
+                            $responseObj           = new \stdClass();
+                            $responseObj->is_valid = $licenseObj->is_valid;
+                            if ( $licenseObj->request_duration > 0 ) {
+                                $responseObj->next_request = strtotime( "+ {$licenseObj->request_duration} hour" );
+                            } else {
+                                $responseObj->next_request = time();
+                            }
+                            $responseObj->expire_date   = $licenseObj->expire_date;
+                            $responseObj->support_end   = $licenseObj->support_end;
+                            $responseObj->license_title = $licenseObj->license_title;
+                            $responseObj->license_key   = $purchase_key;
+                            $responseObj->msg           = $response->msg;
+                            $this->SaveWPResponse( $responseObj );
+                            unset( $responseObj->next_request );
+
+                            return true;
+                        } else {
+                            if ( $this->__checkoldtied( $oldRespons, $responseObj, $response ) ) {
+                                return true;
+                            } else {
+                                $this->removeOldWPResponse();
+                                $error = ! empty( $response->msg ) ? $response->msg : "";
+                            }
                         }
-                        $responseObj->expire_date = $licenseObj->expire_date;
-                        $responseObj->support_end = $licenseObj->support_end;
-                        $responseObj->license_title = $licenseObj->license_title;
-                        $responseObj->license_key = $purchase_key;
-                        $responseObj->msg = $response->msg;
-                        $this->SaveWPResponse($responseObj);
-                        unset($responseObj->next_request);
-                        return true;
-                    }else {
-                        $this->removeOldWPResponse();
-                        $error = !empty($response->msg)?$response->msg:"";
+                    } else {
+                        $error = "Invalid data";
                     }
-                } else {
-                    $error = "Invalid data";
-                }
 
+                } else {
+                    $error = $response->msg;
+                }
             } else {
-                $error = $response->msg;
+                $error = $response->message;
             }
         }else{
-            $error=$response->message;
+            if ( $this->__checkoldtied( $oldRespons, $responseObj, $response ) ) {
+                return true;
+            } else {
+                $this->removeOldWPResponse();
+                $error = ! empty( $response->msg ) ? $response->msg : "";
+            }
         }
-
+        return $this->__checkoldtied($oldRespons,$responseObj);
+    }
+    private function __checkoldtied(&$oldRespons,&$responseObj){
+        if(!empty($oldRespons) && (empty($oldRespons->tried) || $oldRespons->tried<=2)){
+            $oldRespons->next_request = strtotime("+ 1 hour");
+            $oldRespons->tried=empty($oldRespons->tried)?1:($oldRespons->tried+1);
+            $responseObj = clone $oldRespons;
+            unset( $responseObj->next_request );
+            if(isset($responseObj->tried)) {
+                unset( $responseObj->tried );
+            }
+            $this->SaveWPResponse($oldRespons);
+            return true;
+        }
         return false;
     }
 

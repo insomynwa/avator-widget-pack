@@ -37,6 +37,14 @@ class Countdown extends Widget_Base {
 		return [ 'countdown', 'timer', 'schedule' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-countdown' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/HtsshsQxqEA';
+	}
+
 	protected function _register_skins() {
 		$this->add_skin( new Skins\Skin_Event_Countdown( $this ) );
 	}

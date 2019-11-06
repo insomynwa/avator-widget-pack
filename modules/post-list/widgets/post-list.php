@@ -35,6 +35,14 @@ class Post_List extends Widget_Base {
 		return [ 'post', 'list', 'blog', 'recent', 'news' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-post-list' ];
+	}
+
+	// public function get_custom_help_url() {
+	// 	return 'https://youtu.be/kFEL4AGnIv4';
+	// }
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

@@ -32,8 +32,16 @@ class Progress_Pie extends Widget_Base {
 		return [ 'progress', 'pie', 'circle' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-progress-pie' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'aspieprogress' ];
+		return [ 'aspieprogress', 'wipa-progress-pie' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/c5ap86jbCeg';
 	}
 
 	protected function _register_controls() {

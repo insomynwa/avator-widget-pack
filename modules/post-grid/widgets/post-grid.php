@@ -43,7 +43,11 @@ class Post_Grid extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-post-grid' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/z3gWwPIsCkg';
 	}
 
 	public function _register_skins() {
@@ -1657,7 +1661,7 @@ class Post_Grid extends Widget_Base {
 		}
 		
 		echo 
-			'<div class="avt-post-grid-comments avt-position-medium avt-position-bottom-right"><span><i class="ep-bubble" aria-hidden="true"></i> '.get_comments_number().'</span></div>';
+			'<div class="avt-post-grid-comments avt-position-medium avt-position-bottom-right"><span><i class="wipa-bubble" aria-hidden="true"></i> '.get_comments_number().'</span></div>';
 	}
 
 	public function render_category() {

@@ -5,4 +5,6 @@ return [
 	'title'              => esc_html__( '360 Product Viewer', 'avator-widget-pack' ),
 	'required'           => true,
 	'default_activation' => true,
+	'has_style'			 => true,
+	'has_script'		 => true,
 ];

@@ -37,7 +37,11 @@ class Image_Magnifier extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'imagezoom', 'imagesloaded', 'avt-uikit-icons', ];
+		return [ 'imagezoom', 'imagesloaded', 'avt-uikit-icons', 'wipa-image-magnifier' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/GSy3pLihNPY';
 	}
 
 	// public function _register_skins() {

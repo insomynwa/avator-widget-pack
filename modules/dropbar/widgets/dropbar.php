@@ -37,6 +37,10 @@ class Dropbar extends Widget_Base {
 		return [ 'dropbar', 'popup', 'dropdown' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/cXMq8nOCdqk';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

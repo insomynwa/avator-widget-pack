@@ -34,6 +34,14 @@ class AdvancedHeading extends Widget_Base {
 		return [ 'advanced', 'heading', 'title' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-advanced-heading' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/E1jYInKYTR0';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_content_heading',
@@ -685,7 +693,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label'        => __( 'Advanced Style', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-main-color-',
+				'prefix_class' => 'avt-wipa-main-color-',
 				'render_type'  => 'template',
 			]
 		);
@@ -829,7 +837,7 @@ class AdvancedHeading extends Widget_Base {
 			[
 				'label'        => __( 'Advanced Style', 'avator-widget-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'prefix_class' => 'avt-wp-advanced-color-',
+				'prefix_class' => 'avt-wipa-advanced-color-',
 				'render_type'  => 'template',
 			]
 		);

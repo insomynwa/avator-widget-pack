@@ -34,6 +34,14 @@ class Categories extends Widget_Base {
 		return [ 'category', 'woocommerce' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-woocommerce' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/SJuArqtnC1U';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_woocommerce_layout',

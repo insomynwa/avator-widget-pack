@@ -1,11 +1,7 @@
 <?php
 namespace WidgetPack\Modules\Woocommerce\Skins;
 
-use Elementor\Controls_Manager;
 use Elementor\Skin_Base;
-use Elementor\Widget_Base;
-use WidgetPack\Modules\Woocommerce\Module;
-use WidgetPack\Modules\Woocommerce\Widgets\Products;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -51,12 +47,6 @@ class Skin_Hidie extends Skin_Base {
 					  			<?php endif; ?>
 
 				               <?php $this->parent->render_image(); ?>
-
-				               <?php if ('yes' == $settings['show_cart']) : ?>
-				                	<div class="avt-products-skin-add-to-cart">
-										<?php woocommerce_template_loop_add_to_cart();?>
-									</div>
-								<?php endif; ?>
 								
 								<!-- <?php //if ('yes' == $settings['show_add_to_link']) : ?>
 								<div class="avt-products-skin-add-to-links">

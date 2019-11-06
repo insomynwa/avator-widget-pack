@@ -36,11 +36,15 @@ class Testimonial_Slider extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-testimonial-slider' ];
 	}
 
 	public function get_script_depends() {
 		return [ 'avt-uikit-icons' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/pI-DLKNlTGg';
 	}
 
 	public function _register_skins() {
@@ -1560,11 +1564,11 @@ class Testimonial_Slider extends Widget_Base {
                 
                 <?php if ($settings['rating']) : ?>
                     <ul <?php echo $this->get_render_attribute_string( $element_key ); ?>>
-						<li class="avt-rating-item"><span><i class="ep-star-full" aria-hidden="true"></i></span></li>
-						<li class="avt-rating-item"><span><i class="ep-star-full" aria-hidden="true"></i></span></li>
-						<li class="avt-rating-item"><span><i class="ep-star-full" aria-hidden="true"></i></span></li>
-						<li class="avt-rating-item"><span><i class="ep-star-full" aria-hidden="true"></i></span></li>
-						<li class="avt-rating-item"><span><i class="ep-star-full" aria-hidden="true"></i></span></li>
+						<li class="avt-rating-item"><span><i class="wipa-star-full" aria-hidden="true"></i></span></li>
+						<li class="avt-rating-item"><span><i class="wipa-star-full" aria-hidden="true"></i></span></li>
+						<li class="avt-rating-item"><span><i class="wipa-star-full" aria-hidden="true"></i></span></li>
+						<li class="avt-rating-item"><span><i class="wipa-star-full" aria-hidden="true"></i></span></li>
+						<li class="avt-rating-item"><span><i class="wipa-star-full" aria-hidden="true"></i></span></li>
 	                </ul>
                 <?php endif ?>
 

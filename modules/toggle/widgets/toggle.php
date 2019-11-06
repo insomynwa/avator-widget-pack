@@ -35,6 +35,14 @@ class Toggle extends Widget_Base {
 		return [ 'toggle', 'accordion', 'tab' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-toggle' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/7_jk_NvbKls';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_title',
@@ -159,23 +167,6 @@ class Toggle extends Widget_Base {
 		);
 
 		$this->add_control(
-			'shadow_height',
-			[
-				'label' => esc_html__( 'Shadow Height', 'avator-widget-pack' ),
-				'type'  => Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 250,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .avt-toggle-container .avt-accordion .avt-accordion-item .avt-accordion-title:before' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
 			'toggle_icon_normal',
 			[
 				'label'       => esc_html__( 'Normal Icon', 'avator-widget-pack' ),
@@ -286,6 +277,23 @@ class Toggle extends Widget_Base {
 					'{{WRAPPER}} .avt-toggle-container .avt-accordion .avt-accordion-item .avt-accordion-title:before' => 'background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, {{VALUE}} 100%);',
 				],
 				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'shadow_height',
+			[
+				'label' => esc_html__( 'Shadow Height', 'avator-widget-pack' ),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 250,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .avt-toggle-container .avt-accordion .avt-accordion-item .avt-accordion-title:before' => 'height: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 

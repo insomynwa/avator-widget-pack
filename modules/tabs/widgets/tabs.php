@@ -40,6 +40,18 @@ class Tabs extends Widget_Base {
 		return false;
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-tabs' ];
+	}
+
+	public function get_script_depends() {
+		return [ 'wipa-tabs' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/1BmS_8VpBF4';
+	}
+
 	protected function _register_controls() {
 		$this->start_controls_section(
 			'section_title',
@@ -649,17 +661,8 @@ class Tabs extends Widget_Base {
 				'label'     => __( 'Text Color', 'avator-widget-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .avt-tab .avt-tabs-item .avt-active .avt-tab-sub-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .avt-tab .avt-tabs-item.avt-active .avt-tab-sub-title' => 'color: {{VALUE}};',
 				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'active_sub_title_typography',
-				'selector' => '{{WRAPPER}} .avt-tab .avt-tabs-item .avt-active .avt-tab-sub-title',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 

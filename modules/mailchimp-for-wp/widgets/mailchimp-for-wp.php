@@ -32,6 +32,10 @@ class Mailchimp_For_WP extends Widget_Base {
 		return [ 'mailchimp', 'email', 'marketing', 'newsletter', 'mc4wp' ];
 	}
 
+	public function get_custom_help_url() {
+		return 'https://youtu.be/hClaXvxvkXM';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(

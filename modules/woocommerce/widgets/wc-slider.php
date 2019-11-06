@@ -44,6 +44,14 @@ class WC_Slider extends Widget_Base {
 		return [ 'imagesloaded', 'avt-uikit-icons' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-woocommerce' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/ic8p-3jO35U';
+	}
+
 	// public function _register_skins() {
 	// 	$this->add_skin( new Skins\Skin_Slade( $this ) );
 	// }

@@ -41,7 +41,11 @@ class User_Login extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'widget-pack-font' ];
+		return [ 'widget-pack-font', 'wipa-user-login' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/JLdKfv_-R6c';
 	}
 
 	protected function _register_skins() {
@@ -1234,7 +1238,7 @@ class User_Login extends Widget_Base {
 	        </div>
 		    <ul class="avt-nav avt-dropdown-nav">
 		    	<?php if ( $settings['show_edit_profile'] ) : ?>
-			        <li><a href="<?php echo get_edit_user_link(); ?>"><span class="avt-ul-custom-nav-icon"><i class="ep-edit fa-fw"></i></span> <?php esc_html_e( 'Edit Profile', 'avator-widget-pack' ); ?></a></li>
+			        <li><a href="<?php echo get_edit_user_link(); ?>"><span class="avt-ul-custom-nav-icon"><i class="wipa-edit fa-fw"></i></span> <?php esc_html_e( 'Edit Profile', 'avator-widget-pack' ); ?></a></li>
 			    <?php endif; ?>
 		        
 		        <?php
@@ -1244,7 +1248,7 @@ class User_Login extends Widget_Base {
 		        ?>
 
 		        <li class="avt-nav-divider"></li>
-		        <li><a href="<?php echo wp_logout_url( $current_url ); ?>" class="avt-ul-logout-menu"><span class="avt-ul-custom-nav-icon"><i class="ep-lock fa-fw"></i></span> <?php esc_html_e( 'Logout', 'avator-widget-pack' ); ?></a></li>
+		        <li><a href="<?php echo wp_logout_url( $current_url ); ?>" class="avt-ul-logout-menu"><span class="avt-ul-custom-nav-icon"><i class="wipa-lock fa-fw"></i></span> <?php esc_html_e( 'Logout', 'avator-widget-pack' ); ?></a></li>
 		    </ul>
 		</div>
 

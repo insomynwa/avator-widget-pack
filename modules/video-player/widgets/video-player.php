@@ -36,10 +36,14 @@ class Video_Player extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return [ 'avt-video-player' ];
+		return [ 'wipa-video-player' ];
 	}
 	public function get_script_depends() {
 		return [ 'jplayer' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/ksy2uZ5Hg3M';
 	}
 
 	protected function _register_controls() {

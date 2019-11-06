@@ -10,7 +10,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Utils;
 
 use WidgetPack\Modules\QueryControl\Controls\Group_Control_Posts;
-use WidgetPack\Modules\QueryControl\Module;
 
 use WidgetPack\Modules\EventCalendar\Skins;
 
@@ -43,11 +42,15 @@ class Event_Grid extends Widget_Base {
 	}
 
 	public function get_style_depends() {
-		return ['avt-event-calendar', 'widget-pack-font'];
+		return ['wipa-event-calendar', 'widget-pack-font'];
 	}
 
 	public function _register_skins() {
 		$this->add_skin( new Skins\Skin_Annal( $this ) );
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/QeqrcDx1Vus';
 	}
 
 	// public function get_script_depends() {
@@ -530,7 +533,7 @@ class Event_Grid extends Widget_Base {
 					'{{WRAPPER}} .avt-event-calendar .avt-event-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 				'condition' => [
-					'_skin!' => [ 'avt-event-grid-skin-annal' ],
+					'_skin!' => [ 'annal' ],
 				],
 			]
 		);
@@ -544,7 +547,7 @@ class Event_Grid extends Widget_Base {
 					'{{WRAPPER}} .avt-event-calendar .avt-event-item-inner:before' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
-					'_skin!' => [ 'avt-event-grid-skin-annal' ],
+					'_skin!' => [ 'annal' ],
 				],
 			]
 		);
@@ -559,7 +562,7 @@ class Event_Grid extends Widget_Base {
 					'{{WRAPPER}} .avt-event-calendar .avt-event-item-inner:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
-					'_skin!' => [ 'avt-event-grid-skin-annal' ],
+					'_skin!' => [ 'annal' ],
 				],
 			]
 		);
@@ -707,6 +710,9 @@ class Event_Grid extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .avt-event-calendar .avt-event-intro .avt-event-title-wrap' => 'border-color: {{VALUE}};',
 				],
+				'condition' => [
+					'_skin!' => 'annal',
+				],
 			]
 		);
 
@@ -769,7 +775,7 @@ class Event_Grid extends Widget_Base {
 					'{{WRAPPER}} .avt-event-calendar .avt-event-date a' => 'color: {{VALUE}};',
 				],
 				'condition' => [
-					'_skin!' => [ 'avt-event-grid-skin-annal' ],
+					'_skin!' => [ 'annal' ],
 				],
 			]
 		);
@@ -781,7 +787,7 @@ class Event_Grid extends Widget_Base {
 				'label'    => esc_html__( 'Typography', 'avator-widget-pack' ),
 				'selector' => '{{WRAPPER}} .avt-event-calendar .avt-event-date',
 				'condition' => [
-					'_skin!' => [ 'avt-event-grid-skin-annal' ],
+					'_skin!' => [ 'annal' ],
 				],
 			]
 		);
@@ -1138,11 +1144,11 @@ class Event_Grid extends Widget_Base {
 			    <div class="avt-address-website-icon">
 
 			    	<?php if (!empty($website)) : ?>
-		    			<a href="<?php echo esc_url($website); ?>" target="_blank" class="ep-earth" aria-hidden="true"></a>
+		    			<a href="<?php echo esc_url($website); ?>" target="_blank" class="wipa-earth" aria-hidden="true"></a>
 			    	<?php endif; ?>
 					
 					<?php if ( $address ) : ?>
-		    			<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="ep-location" aria-hidden="true"></a>
+		    			<a href="#" avt-tooltip="<?php echo esc_html( tribe_get_full_address() ); ?>" class="wipa-location" aria-hidden="true"></a>
 			    	<?php endif; ?>
 
 			    </div>

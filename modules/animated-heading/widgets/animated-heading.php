@@ -33,8 +33,16 @@ class AnimatedHeading extends Widget_Base {
 		return [ 'animated', 'heading', 'headline', 'vivid' ];
 	}
 
+	public function get_style_depends() {
+		return [ 'wipa-animated-heading' ];
+	}
+
 	public function get_script_depends() {
-		return [ 'morphext', 'typed' ];
+		return [ 'morphext', 'typed', 'wipa-animated-heading' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/xypAmQodUYA';
 	}
 
 	protected function _register_controls() {
